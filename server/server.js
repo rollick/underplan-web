@@ -1,4 +1,4 @@
-// All Tomorrow's Parties -- server
+// Underplan -- server
 
 Meteor.publish("directory", function () {
   return Meteor.users.find({}, {fields: {emails: 1, profile: 1}});
@@ -7,4 +7,9 @@ Meteor.publish("directory", function () {
 Meteor.publish("parties", function () {
   return Parties.find(
     {$or: [{"public": true}, {invited: this.userId}, {owner: this.userId}]});
+});
+
+Meteor.publish("activities", function () {
+  return Activities.find(
+    {$or: [{"public": true}, {owner: this.userId}]});
 });

@@ -1,18 +1,153 @@
-// All Tomorrow's Parties -- client
+// Underplan -- client
 
 Meteor.subscribe("directory");
 Meteor.subscribe("parties");
+Meteor.subscribe("activities");
 
 // If no party selected, select one.
 Meteor.startup(function () {
   Meteor.autorun(function () {
-    if (! Session.get("selected")) {
-      var party = Parties.findOne();
-      if (party)
-        Session.set("selected", party._id);
+    Session.set("showActivityMap", true);
+    Session.set("showStoryEditor", false);
+
+    if (! Session.get("selectedActivity")) {  
+      var activity = Activities.findOne();
+      if (activity)
+        Session.set("selectedActivity", activity._id);
     }
   });
 });
+
+///////////////////////////////////////////////////////////////////////////////
+// Activity actions
+
+Template.activityActions.events({
+  'click .new-story': function () {
+    showStoryEditor();
+    return false;
+  }
+});
+
+///////////////////////////////////////////////////////////////////////////////
+// Activity editor
+
+Template.page.showStoryEditor = function () {
+  return Session.get("showStoryEditor");
+};
+
+Template.storyEditor.events({
+  'click .cancel': function () {
+    Session.set("showActivityMap", !Session.get("showActivityMap"));
+    Session.set("showStoryEditor", !Session.get("showStoryEditor"));
+    return false;
+  },
+  'click .save': function (event, template) {
+    var title = template.find(".title").value;
+    var text = template.find(".text").value;
+    // var public = ! template.find(".private").checked;
+    // var coords = Session.get("createCoords");
+
+    if (title.length && text.length) {
+      Meteor.call('createActivity', {
+        title: title,
+        text: text,
+        // public: public
+      }, function (error, party) {
+        if (! error) {
+          Session.set("selectedActivity", activity._id);
+        }
+      });
+      hideActivityEditor();
+    } else {
+      Session.set("createError",
+                  "It needs a title and a description, or why bother?");
+    }
+  },
+});
+
+Template.storyEditor.error = function () {
+  return Session.get("createError");
+};
+
+var hideActivityEditor = function() {
+  Session.set("showActivityMap", true);
+  Session.set("showStoryEditor", false);
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Activity map
+
+Template.page.showActivityMap = function () {
+  return Session.get("showActivityMap");
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Activity actions
+
+var showStoryEditor = function () {
+  Session.set("showStoryEditor", true);
+  Session.set("showActivity", false);
+  Session.set("showActivityMap", false);
+  Session.set("createError", null);
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Activity feed sidebar
+
+Template.activityFeed.events({
+  'click .feed li': function (event, template) {
+    showActivity(this._id);
+    return false;
+  },
+})
+
+Template.activityFeed.recentActivities = function () {
+  return Activities.find({}, {limit: 15, sort: {created: -1}});
+};
+
+Template.activityFeed.typeIs = function (what) {
+  return activityType(this) === what;
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Activity view
+
+Template.currentActivity.activity = function () {
+  return Activities.findOne(Session.get("selectedActivity"));
+};
+
+Template.currentActivity.anyActivities = function () {
+  return Activities.find().count() > 0;
+};
+
+Template.currentActivity.creatorName = function () {
+  var owner = Meteor.users.findOne(this.owner);
+  if (owner._id === Meteor.userId())
+    return "me";
+  return displayName(owner);
+};
+
+Template.currentActivity.canRemove = function () {
+  return this.owner === Meteor.userId();
+};
+
+Template.page.showActivity = function () {
+  return Session.get("showActivity");
+};
+
+var showActivity = function (id) {
+  Session.set("selectedActivity", id)
+  Session.set("showActivity", true);
+  Session.set("showActivityMap", false);
+  Session.set("showStoryEditor", false);
+
+  return false
+};
+
+
+
+
+
 
 ///////////////////////////////////////////////////////////////////////////////
 // Party details sidebar
