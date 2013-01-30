@@ -1,0 +1,41 @@
+<template name="groupActions">
+  {{#if currentUser}}
+    <li class="has-dropdown">
+      <a href="#">Get started</a>
+      <ul class="dropdown">
+        <li class="new-group"><a href="#">Create a group</a></li>
+      </ul>
+    </li>
+  {{/if}}
+</template>
+
+<template name="mainHome">
+  <div class="groups">
+    <h4>Underplan Groups</h4>
+    {{#if groups}}
+      <ul class="vcard">
+      {{#each groups}}
+        {{#with this}}
+          <li>
+            <i class="foundicon-flag"> {{name}}</i>
+          </li>
+        {{/with}}
+      {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+</template>
+
+<template name="groupEditor">
+  <h2>{{#if group}}Edit{{else}}New{{/if}} Group</h2>
+  {{#if error}}
+    <div class="alert-box alert">{{error}}</div>
+  {{/if}}
+  <div class="form">
+      <label>Name</label>
+      <input type="text" class="name">
+      <hr >
+      <a href="#" class="small button secondary cancel">Cancel</a>
+      <a href="#" class="small button success save">Add group</a>
+  </div>
+</template>

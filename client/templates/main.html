@@ -1,0 +1,98 @@
+<head>
+  <title>Underplan</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="stylesheet" href="/stylesheets/foundation.min.css">
+  <link rel="stylesheet" href="/stylesheets/general_foundicons.css">
+
+  <script src="/javascripts/jquery.foundation.navigation.js"></script>
+  <script src="/javascripts/jquery.foundation.forms.js"></script>
+  <script src="/javascripts/jquery.foundation.topbar.js"></script>
+  <script src="/javascripts/jquery.foundation.alerts.js"></script>
+  <script src="/javascripts/jquery.foundation.buttons.js"></script>
+</head>
+
+<body>
+  {{> page}}
+</body>
+
+<template name="page">
+  {{#if showCreateDialog}}
+    {{> createDialog}}
+  {{/if}}
+
+  {{#if showInviteDialog}}
+    {{> inviteDialog}}
+  {{/if}}
+
+  <div class="fixed">
+    <nav class="top-bar">
+      <ul>
+        <!-- Title Area -->
+        {{#if group}}
+          <li class="name">
+            <a href="#" class="main-home"><i class="foundicon-left-arrow" style="font-size: 1.2em;"></i></a>
+          </li>
+        {{/if}}
+        <li class="name">
+          <h1>
+            <a href="#" class="home">
+              {{#if group}}
+                {{group.name}}
+              {{else}}
+                Underplan
+              {{/if}}
+            </a>
+          </h1>
+          <span><a href="#" class="toggle-nav"></a></span>
+        </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
+      </ul>
+
+      <section>
+        <!-- Right Nav Section -->
+        <ul class="right">
+          {{#if group}}
+            {{> activityActions}}
+          {{else}}
+            {{> groupActions}}
+          {{/if}}
+          <li class="divider"></li>
+          <li>
+            {{loginButtons align="right"}}
+          </li>        
+        </ul>
+      </section>
+    </nav>
+  </div>
+  <div class="row main-content">
+    {{#if group}}
+      <div class="twelve columns">
+        {{#if showStoryEditor}}
+          {{> storyEditor}}
+        {{/if}}
+
+        {{#if showActivity}}
+          {{> currentActivity}}
+        {{/if}}
+
+        {{#if activityMapVisible}}
+          {{> activityFeed}}
+        {{/if}}
+      </div>
+    {{else}}
+      <div class="twelve columns">
+        {{#if showGroupEditor}}
+          {{> groupEditor}}
+        {{/if}}
+
+        {{#if showGroupList}}
+          {{> mainHome}}
+        {{/if}}
+      </div>
+    {{/if}}
+  </div>
+  <div class="row">
+    <div class="footer twelve columns text-center"></div>
+  </div>
+</template>

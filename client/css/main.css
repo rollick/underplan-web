@@ -1,0 +1,81 @@
+body {
+    margin: 0px;
+    padding: 0px;
+    background-image: url("/images/dot-pattern.jpg");
+}
+
+.header {
+    padding: 20px 0;
+}
+
+.main-content {
+	margin-top: 45px;
+    max-width: 940px; 
+    background: #fff; 
+    background: rgba(255,255,255,0.8); 
+    padding: 0 30px !important; 
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
+    padding-bottom: 30px !important;
+}
+
+.accounts-dialog {
+    width: 320px;
+    margin: 0px;
+}
+
+#login-buttons a, .accounts-dialog a {
+    text-decoration: none;
+}
+
+.actions {
+	float: right;
+    display: block;
+    margin-top: 35px;
+}
+
+.details {
+    margin-top: -18px;
+}
+
+.footer {
+    height: 32px;
+}
+
+.feed li,
+.groups li {
+    cursor: pointer;
+}
+
+.feed li:hover,
+.groups li:hover {
+    color: green;
+}
+
+.activity .edit {
+    
+}
+
+.activity .edit:hover {
+    color: green;
+    cursor: pointer;
+}
+
+.top-bar {
+    /*margin-bottom: 0px;*/
+    border-bottom: green solid 4px;
+    /*min-height: 50px;*/
+    opacity: 0.9;
+}
+
+.top-bar li.name a:not(.button) {
+    padding: 0 8px;
+}
+
+/*.top-bar ul > li a:not(.button) {
+    height: 44px;
+    line-height: 44px;
+}*/
+
+#login-buttons {
+	/*display: block;*/
+}

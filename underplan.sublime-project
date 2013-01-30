@@ -2,7 +2,8 @@
 	"folders":
 	[
 		{
-			"path": "/Users/mgallop/Dev/underplan/"
+			"path": "/Users/mgallop/Dev/underplan/",
+      "folder_exclude_patterns": ["local"]
 		}
 	]
 }

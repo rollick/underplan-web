@@ -1,0 +1,122 @@
+<template name="activityActions">
+  {{#if currentUser}}
+    <li class="has-dropdown">
+      <a href="#">What's next?</a>
+      <ul class="dropdown">
+        <li class="new-story"><a href="#">Tell a story</a></li>
+        <li class="new-quickie"><a href="#">Quick update</a></li>
+        <li class="new-photo"><a href="#">Add a photo</a></li>
+      </ul>
+    </li>
+  {{/if}}
+</template>
+
+<template name="activityFeed">
+  <div class="feed ">
+    <h4>Recent activities</h4>
+    {{#if recentActivities}}
+      <ul class="vcard">
+      {{#each recentActivities}}
+        {{#with this}}
+          <li>
+            {{#if typeIs "story"}}
+              <i class="foundicon-page"> {{title}}</i>
+            {{/if}}
+          </li>
+        {{/with}}
+      {{/each}}
+      </ul>
+    {{/if}}
+  </div>
+</template>
+
+<template name="currentActivity">
+  <div class="activity">
+    {{#if activity}}
+      {{#with activity}}
+        <div class="row">
+          <div class="ten columns"><h2>{{title}}</h2></div>
+          <div class="two columns">
+            <div class="actions">
+              {{#if canEdit}}<i class="foundicon-edit edit">edit</i>{{/if}}
+            </div>
+          </div>
+        </div>
+        <p class="text">
+          {{#markdown}}{{text}}{{/markdown}}
+        </p>
+        <p class="text"><strong>Posted by {{creatorName}} </strong></p>
+      {{/with}}
+    {{else}}
+      <h1 class="muted pagination-centered">
+        {{#if anyActivities}}
+          Click an activity to select it
+        {{else}}
+          Sign in and double click the map to post an activity
+        {{/if}}
+      </h1>
+    {{/if}}
+  </div>
+</template>
+
+<template name="activityMap">
+  <div class="map">
+    {{#constant}}
+      <svg width="500" height="500">
+        <circle class="callout" cx=-100 cy=-100></circle>
+        <g class="circles"></g>
+        <g class="labels"></g>
+      </svg>
+    {{/constant}}
+    <div>
+      <small class="attribution muted">&copy;
+        <a href="http://www.openstreetmap.org/?lat=37.78212&lon=-122.40146&zoom=15&layers=M"
+           target="_blank">OpenStreetMap</a> contributors</small>
+    </div>
+  </div>
+</template>
+
+<template name="storyEditor">
+  <h2>{{#if activity}}Edit{{else}}New{{/if}} Story</h2>
+  {{#if error}}
+    <div class="alert-box alert">{{error}}</div>
+  {{/if}}
+  <div class="form custom">
+    {{#if activity}}
+      {{#with activity}}
+        <input type="hidden" class="id" value="{{_id}}">
+        <label>Title</label>
+        <input type="text" class="title" value="{{title}}">
+        <label>Story</label>
+        <textarea type="text" class="text" rows="20">{{text}}</textarea>
+        <label>Location</label>
+        <input type="text" class="location" value="{{location}}">
+        <label>Link Slug</label>
+        <input type="text" class="slug" value="{{slug}}">
+        <label class="checkbox">
+          <input type="checkbox" class="published" {{#if published}}checked{{/if}}>
+          Published
+        </label>
+        <hr >
+        <a href="#" class="small button secondary back">Cancel</a>
+        <a href="#" class="small button success update">Save story</a>
+      {{/with}}
+    {{else}}
+      <label>Title</label>
+      <input type="text" class="title">
+      <label>Story</label>
+      <textarea type="text" class="text" rows="20"></textarea>
+      <label>Location</label>
+      <input type="text" class="location">
+      <label>Link Slug</label>
+      <input type="text" class="slug">
+      <label class="checkbox">
+        <input type="checkbox" class="published">
+        Published
+      </label>
+      <hr >
+      <a href="#" class="small button secondary cancel">Cancel</a>
+      <a href="#" class="small button success save">Add story</a>
+    {{/if}}
+  </div>
+</template>
