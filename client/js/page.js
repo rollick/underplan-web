@@ -2,11 +2,17 @@
 // Page
 
 Template.page.group = function () {
-  if (Session.get("group")) {
-    return Session.get("group");
+  var group = getCurrentGroup();
+  if (group) {
+    return group;
   } else if (Session.get("groupSlug")) {
-    Session.set("group", Groups.findOne({slug: Session.get("groupSlug")}));
-    return Session.get("group");
+    group = Groups.findOne({slug: Session.get("groupSlug")});
+    if (!group) { // group hasn't loaded!
+      return null;
+    } else {
+      Session.set("groupId", group._id);
+      return Session.get("groupId");      
+    }
   } else {
     return null;
   }
@@ -17,8 +23,8 @@ Template.page.showGroup = function () {
 };
 
 Template.page.groupName = function () {
-  if (Session.get("group")) {
-    return Session.get("group").name;
+  if (Session.get("groupId")) {
+    return getCurrentGroup().name;
   } else {
     return null
   }
@@ -26,7 +32,7 @@ Template.page.groupName = function () {
 
 Template.page.events({
   'click .home': function () {
-    Router.setGroup(Session.get("group"));
+    Router.setGroup(getCurrentGroup());
     return false;
   },
   'click .main-home': function () {

@@ -55,7 +55,7 @@ body {
     
 }
 
-.activity .edit:hover {
+.actions i:hover {
     color: green;
     cursor: pointer;
 }

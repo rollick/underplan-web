@@ -3,6 +3,8 @@ var AppRouter = Backbone.Router.extend({
     "":                               "main",
     "new":                            "newGroup",
     ":groupSlug":                     "group",
+    ":groupSlug/new":                 "newActivity",
+    ":groupSlug/membership":          "groupMembership",
     ":groupSlug/:activitySlug":       "activity",
     ":groupSlug/:activitySlug/edit":  "editActivity"
   },
@@ -23,11 +25,21 @@ var AppRouter = Backbone.Router.extend({
     showGroupEditor();
   },
 
-  activity: function(groupId, activitySlug) {
+  groupMembership: function(groupSlug) {
+    Session.set("groupSlug", groupSlug);
+    showInviteList();
+  },
+
+  newActivity: function(groupSlug) {
+    Session.set("groupSlug", groupSlug);
+    showStoryEditor();
+  },
+
+  activity: function(groupSlug, activitySlug) {
     showActivity(activitySlug);
   },
 
-  editActivity: function(groupId, activitySlug) {
+  editActivity: function(groupSlug, activitySlug) {
     editActivity(activitySlug);
   },
 
@@ -35,12 +47,16 @@ var AppRouter = Backbone.Router.extend({
     this.navigate("", true);
   },
 
+  setGroupMembership: function(group) {
+    this.navigate(group.slug + "/membership", true);
+  },
+
   setNewGroup: function () {
     this.navigate("new", true)
   },
 
   setGroup: function(group) {
-    if (typeof group === "undefined") {
+    if (!group || typeof group === "undefined") {
       this.navigate("", true);
     } else {
       this.navigate(group.slug, true);
@@ -57,7 +73,11 @@ var AppRouter = Backbone.Router.extend({
     // TODO:  should just pass activity here and then use it's slug and the
     //        associated groups slug to generate url
     this.navigate(group.slug + "/" + activity.slug, true);
-  }
+  },
+
+  setNewActivity: function (group) {
+    this.navigate(group.slug + "/new", true)
+  },
 
 });
 

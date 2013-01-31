@@ -9,6 +9,17 @@
   {{/if}}
 </template>
 
+<template name="groupAdminActions">
+  {{#if isGroupAdmin}}
+    <li class="has-dropdown">
+      <a href="#">Admin</a>
+      <ul class="dropdown">
+        <li class="membership"><a href="#">Membership</a></li>
+      </ul>
+    </li>
+  {{/if}}
+</template>
+
 <template name="mainHome">
   <div class="groups">
     <h4>Underplan Groups</h4>
@@ -37,5 +48,20 @@
       <hr >
       <a href="#" class="small button secondary cancel">Cancel</a>
       <a href="#" class="small button success save">Add group</a>
+  </div>
+</template>
+
+<template name="groupInviteList">
+  <h2>Invite people</h2>
+
+  <div class="form">
+    {{#each uninvited}}
+      <div class="invite-row">
+        <a href="#" class="btn invite">Invite</a>
+        {{displayName}}
+      </div>
+    {{else}}
+      Everyone on the site has already been invited.
+    {{/each}}
   </div>
 </template>

@@ -3,7 +3,8 @@
 
 Template.activityActions.events({
   'click .new-story': function () {
-    showStoryEditor();
+
+    Router.setNewActivity(getCurrentGroup());
     return false;
   }
 });
@@ -17,12 +18,11 @@ Template.page.showStoryEditor = function () {
 
 Template.storyEditor.events({
   'click .cancel': function () {
-    Session.set("showActivityMap", true);
-    Session.set("showStoryEditor", false);
+    Router.setGroup(Session.get("group"));
     return false;
   },
   'click .back': function (event, template) {
-    showActivity(this._id);
+    Router.setActivity(getCurrentGroup(), this);
     return false;
   },
   'click .save': function (event, template) {
@@ -31,10 +31,9 @@ Template.storyEditor.events({
     if (values.title.length && values.text.length) {
       Meteor.call('createActivity', values, function (error, activity) {
         if (! error) {
-          Session.set("selectedActivity", activity);
+          Router.setActivity(getCurrentGroup(), activity);
         }
       });
-      hideActivityEditor();
     } else {
       Session.set("createError",
                   "It needs a title and a story, or why bother?");
@@ -46,7 +45,7 @@ Template.storyEditor.events({
 
     if (values.title.length && values.text.length) {
       Activities.update({_id: activityId}, {$set: values});
-      hideActivityEditor();
+      Router.setActivity(getCurrentGroup(), Activities.findOne(activityId));
     } else {
       Session.set("createError",
                   "It needs a title and a story, or why bother?");
@@ -86,9 +85,7 @@ Template.page.activityMapVisible = function () {
 };
 
 var showActivityMap = function () {
-  Session.set("showActivityMap", true);
-  Session.set("showStoryEditor", false);
-  Session.set("showActivity", false);
+  showTemplate("activityMap");
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -96,10 +93,8 @@ var showActivityMap = function () {
 
 var showStoryEditor = function (activitySlug) {
   Session.set("selectedActivity", activityBySlug(activitySlug));
-  Session.set("showActivity", false);
-  Session.set("showActivityMap", false);
+  showTemplate("storyEditor");
   Session.set("createError", null);
-  Session.set("showStoryEditor", true);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -107,8 +102,7 @@ var showStoryEditor = function (activitySlug) {
 
 Template.activityFeed.events({
   'click .feed li': function (event, template) {
-    Router.setActivity(Session.get("group"), this);
-    // showActivity(this._id);
+    Router.setActivity(getCurrentGroup(), this);
     return false;
   },
 });
@@ -153,7 +147,7 @@ Template.currentActivity.canEdit = function () {
 
 Template.currentActivity.events({
   'click .edit': function () {
-    Router.setEditActivity(Session.get("group"), this);
+    Router.setEditActivity(getCurrentGroup(), this);
     return false;
   }
 });
@@ -164,13 +158,28 @@ var editActivity = function (slug) {
 
 var showActivity = function (activitySlug) {
   Session.set("selectedActivity", activityBySlug(activitySlug));
-  Session.set("showActivityMap", false);
-  Session.set("showStoryEditor", false);
-  Session.set("showActivity", true);
+  showTemplate("currentActivity");
 
   return false
 };
 
 var activityBySlug = function (activitySlug) {
   return Activities.findOne({slug: activitySlug});
-}
+};
+
+var showTemplate = function (templateName) {
+  var conditions = {
+    groupInviteList: "showInviteList", 
+    currentActivity: "showActivity", 
+    storyEditor: "showStoryEditor", 
+    activityMap: "showActivityMap"
+  };
+
+  _.each(_.keys(conditions), function(key) {
+    if(key === templateName) {
+      Session.set(conditions[key], true);
+    } else {
+      Session.set(conditions[key], false);
+    }
+  });
+};

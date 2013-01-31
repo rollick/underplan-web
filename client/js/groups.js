@@ -37,7 +37,7 @@ Template.groupEditor.events({
     if (name.length) {
       Meteor.call('createGroup', {name: name}, function (error, group) {
         if (! error) {
-          Session.set("group", group);
+          Session.set("groupId", group._id);
         }
       });
       hideGroupEditor();
@@ -53,7 +53,7 @@ Template.groupEditor.events({
 });
 
 var showGroupList = function () {
-  Session.set("group", null);
+  Session.set("groupId", null);
   Session.set("showGroupEditor", false);
   Session.set("showGroupList", true);
 };
@@ -66,4 +66,47 @@ var showGroupEditor = function () {
 var hideGroupEditor = function() {
   Session.set("showGroupEditor", false);
   Session.set("showGroupList", true);
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Group Admin Menu
+
+Template.groupAdminActions.events({
+  'click .membership': function (event, template) {
+    Router.setGroupMembership(getCurrentGroup());
+  }
+});
+
+Template.groupAdminActions.isGroupAdmin = function () {
+  var group = getCurrentGroup();
+  return !!group && group.owner === Meteor.userId();
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Invite List
+
+var showInviteList = function () {
+  showTemplate("groupInviteList");
+};
+
+Template.page.showInviteList = function () {
+  return Session.get("showInviteList");
+};
+
+Template.groupInviteList.events({
+  'click .invite': function (event, template) {
+    Meteor.call('invite', Session.get("groupId"), this._id);
+  }
+});
+
+Template.groupInviteList.uninvited = function () {
+  var group = Groups.findOne(Session.get("groupId"));
+  if (! group)
+    return []; // group hasn't loaded yet
+  return Meteor.users.find({$nor: [{_id: {$in: group.invited}},
+                                   {_id: group.owner}]});
+};
+
+Template.groupInviteList.displayName = function () {
+  return displayName(this);
 };

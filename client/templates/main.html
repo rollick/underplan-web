@@ -53,6 +53,7 @@
         <!-- Right Nav Section -->
         <ul class="right">
           {{#if group}}
+            {{> groupAdminActions}}
             {{> activityActions}}
           {{else}}
             {{> groupActions}}
@@ -68,6 +69,9 @@
   <div class="row main-content">
     {{#if group}}
       <div class="twelve columns">
+        {{#if showInviteList}}
+          {{> groupInviteList}}
+        {{/if}}
         {{#if showStoryEditor}}
           {{> storyEditor}}
         {{/if}}

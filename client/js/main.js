@@ -42,6 +42,7 @@
 Meteor.subscribe("activities");
 Meteor.subscribe("comments");
 Meteor.subscribe("groups");
+Meteor.subscribe("directory");
 
 Meteor.startup(function () {
   Backbone.history.start({ pushState: true });
@@ -57,3 +58,11 @@ Meteor.startup(function () {
     // }
   });
 });
+
+var getCurrentGroup = function () {
+  if (Session.get("groupId")) {
+    return Groups.findOne(Session.get("groupId"));
+  } else {
+    return null;
+  }
+}
