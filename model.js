@@ -17,7 +17,6 @@ Groups.allow({
   },
   update: function (userId, groups, fields, modifier) {
     return _.all(groups, function (group) {
-      debugger
       if (userId !== group.owner)
         return false; // not the owner
 
@@ -66,12 +65,10 @@ Meteor.methods({
 
   invite: function (groupId, userId) {
     var group = Groups.findOne(groupId);
-    debugger
     if (! group || group.owner !== this.userId)
       throw new Meteor.Error(404, "No such group");
 
     if (userId !== group.owner && ! _.contains(group.invited, userId)) {
-      debugger
       Groups.update(groupId, { $addToSet: { invited: userId } });
 
       var from = contactEmail(Meteor.users.findOne(this.userId));
