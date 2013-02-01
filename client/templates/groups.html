@@ -52,16 +52,30 @@
 </template>
 
 <template name="groupInviteList">
-  <h2>Invite people</h2>
-
-  <div class="form">
-    {{#each uninvited}}
-      <div class="invite-row">
-        <a href="#" class="btn invite">Invite</a>
-        {{displayName}}
-      </div>
-    {{else}}
-      Everyone on the site has already been invited.
-    {{/each}}
+  <div class="row">
+    <div class="six columns">
+      <h2>Invite people</h2>
+        <ul class="disc">
+        {{#each uninvited}}
+          <li>
+            <a href="#" class="btn invite">Invite</a>
+            {{displayName}}
+          </li>
+        {{else}}
+          <p>Everyone on the site has already been invited.</p>
+        {{/each}}
+        </ul>
+    </div>
+    <div class="six columns">
+      <h2>Invited Users</h2>
+      <ul class="disc">
+        {{#each invited}}
+          <li>{{displayName}}</li>
+        {{else}}
+          <p>No invites yet!</p>
+        {{/each}}
+      </ul>
+    </div>
   </div>
+
 </template>

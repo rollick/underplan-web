@@ -9,6 +9,10 @@ Template.activityActions.events({
   }
 });
 
+Template.activityActions.userBelongsToGroup = function () {
+  return currentUserBelongsToCurrentGroup();
+};
+
 ///////////////////////////////////////////////////////////////////////////////
 // Activity editor
 
@@ -28,10 +32,10 @@ Template.storyEditor.events({
   'click .save': function (event, template) {
     var values = getStoryValues(template);
 
-    if (values.title.length && values.text.length) {
-      Meteor.call('createActivity', values, function (error, activity) {
+    if (values.groupId && values.title.length && values.text.length) {
+      Meteor.call('createActivity', values, function (error, activityId) {
         if (! error) {
-          Router.setActivity(getCurrentGroup(), activity);
+          Router.setActivity(getCurrentGroup(), Activities.findOne(activityId));
         }
       });
     } else {
@@ -55,11 +59,12 @@ Template.storyEditor.events({
 
 var getStoryValues = function(template) {
   values = {};
-  values.title =       template.find(".title").value;
-  values.text =        template.find(".text").value;
-  values.location =    template.find(".location").value;
-  values.published =   template.find(".published").checked;
-  values.slug =        template.find(".slug").value;
+  values.title =        template.find(".title").value;
+  values.text =         template.find(".text").value;
+  values.location =     template.find(".location").value;
+  values.published =    template.find(".published").checked;
+  values.slug =         template.find(".slug").value;
+  values.groupId =      getCurrentGroupId();
 
   return values;
 }
@@ -107,8 +112,12 @@ Template.activityFeed.events({
   },
 });
 
+Template.activityFeed.anyActivities = function () {
+  return Activities.find({group: getCurrentGroupId()}).count() > 0;
+};
+
 Template.activityFeed.recentActivities = function () {
-  return Activities.find({}, {limit: 15, sort: {created: -1}});
+  return Activities.find({group: getCurrentGroupId()}, {limit: 15, sort: {created: -1}});
 };
 
 Template.activityFeed.typeIs = function (what) {

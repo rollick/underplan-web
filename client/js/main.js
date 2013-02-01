@@ -65,4 +65,22 @@ var getCurrentGroup = function () {
   } else {
     return null;
   }
-}
+};
+
+var getCurrentGroupId = function () {
+  group = getCurrentGroup();
+  return !!group ? group._id : null;
+};
+
+var userBelongsToCurrentGroup = function (userId) {
+  group = getCurrentGroup();
+  if (!group) {
+    return false;
+  } else {
+   return userBelongsToGroup(userId, group._id);
+  }
+};
+
+var currentUserBelongsToCurrentGroup = function () {
+  return userBelongsToCurrentGroup(Meteor.userId());
+};

@@ -1,5 +1,5 @@
 <template name="activityActions">
-  {{#if currentUser}}
+  {{#if userBelongsToGroup}}
     <li class="has-dropdown">
       <a href="#">What's next?</a>
       <ul class="dropdown">
@@ -14,7 +14,7 @@
 <template name="activityFeed">
   <div class="feed ">
     <h4>Recent activities</h4>
-    {{#if recentActivities}}
+    {{#if anyActivities}}
       <ul class="vcard">
       {{#each recentActivities}}
         {{#with this}}
@@ -26,6 +26,8 @@
         {{/with}}
       {{/each}}
       </ul>
+    {{else}}
+      <p>No activities yet :-(</p>
     {{/if}}
   </div>
 </template>

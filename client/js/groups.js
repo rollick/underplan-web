@@ -99,6 +99,10 @@ Template.groupInviteList.events({
   }
 });
 
+Template.groupInviteList.invited = function () {
+  return Meteor.users.find({$and: [{_id: {$in: getCurrentGroup().invited}}]});
+};
+
 Template.groupInviteList.uninvited = function () {
   var group = Groups.findOne(Session.get("groupId"));
   if (! group)

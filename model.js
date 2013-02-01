@@ -179,6 +179,13 @@ Meteor.methods({
     if (! this.userId)
       throw new Meteor.Error(403, "You must be logged in");
 
+    if (! options.groupId)
+      throw new Meteor.Error(403, "Activity must below to a group");
+    
+    var group =  Groups.findOne(options.groupId);
+    if (! userBelongsToGroup(this.userId, group._id))
+      throw new Meteor.Error(403, "You must be a member of " + group.name);
+
     if ( typeof options.created === "undefined" )
       options.created = new Date()
 
@@ -187,6 +194,7 @@ Meteor.methods({
 
     return Activities.insert({
       owner:      this.userId,
+      group:      options.groupId,
       lat:        options.lat,
       lng:        options.lng,
       title:      options.title,
