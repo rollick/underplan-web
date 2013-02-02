@@ -9,7 +9,6 @@ body {
 }
 
 .main-content {
-	margin-top: 45px;
     max-width: 940px; 
     background: #fff; 
     background: rgba(255,255,255,0.8); 
@@ -28,9 +27,9 @@ body {
 }
 
 .actions {
-	float: right;
+	/*float: right;*/
     display: block;
-    margin-top: 35px;
+    /*margin-top: 35px;*/
 }
 
 .details {
