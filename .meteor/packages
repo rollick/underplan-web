@@ -8,7 +8,7 @@ accounts-ui-unstyled
 accounts-password
 d3
 email
-accounts-facebook
+#accounts-facebook
 accounts-twitter
 accounts-google
 showdown

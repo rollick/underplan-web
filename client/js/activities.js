@@ -28,7 +28,7 @@ Template.storyEditor.events({
   'keyup .location': function (event, template) {
     var location = template.find(".location").value;
     
-    if ($.fn.google) {
+    if (typeof google == "object" && typeof google.maps == "object") {
       var geocoder = new google.maps.Geocoder();
 
       geocoder.geocode( { 'address': location }, function(results, status) {
@@ -36,12 +36,16 @@ Template.storyEditor.events({
           lat = results[0].geometry.location.Ya;
           lng = results[0].geometry.location.Za
 
-          template.find(".lat").value = lat;
-          template.find(".lng").value = lng;
-          template.find(".location-coords").innerHTML = lat + "," + lng;
+          template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + results[0].formatted_address + ")";
         } else {
-          alert('Geocode was not successful for the following reason: ' + status);
+          lat = null;
+          lng = null;
+
+          template.find(".location-coords").innerHTML = "No geo match";
         }
+
+        template.find(".lat").value = lat;
+        template.find(".lng").value = lng;
       });
     } else {
       template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation not available");
