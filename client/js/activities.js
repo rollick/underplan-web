@@ -78,7 +78,6 @@ Template.storyEditor.events({
     var values = getStoryValues(template);
 
     if (values.title.length && values.text.length) {
-      debugger
       Activities.update({_id: activityId}, {$set: values});
       Router.setActivity(getCurrentGroup(), Activities.findOne(activityId));
     } else {

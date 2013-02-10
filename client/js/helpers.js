@@ -9,7 +9,6 @@ Handlebars.registerHelper('date', function(date) {
 Handlebars.registerHelper('userName', function(userId) {
   if(userId) {
     user = Meteor.users.findOne(userId);
-    debugger;
     if(user)
       return Handlebars._escape(user.profile.name);
   }
