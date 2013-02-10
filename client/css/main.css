@@ -81,6 +81,18 @@ body {
     padding: 0 8px;
 }
 
+.top-bar .login {
+    background-color: rgb(34, 34, 34);
+    padding: 0px;
+}
+
+.login,
+.login:hover,
+#login-dropdown-list:hover {
+    background-color: rgb(34, 34, 34);
+    border: red;
+}
+
 /*.top-bar ul > li a:not(.button) {
     height: 44px;
     line-height: 44px;
@@ -88,6 +100,94 @@ body {
 
 #login-buttons {
 	/*display: block;*/
+}
+
+.accounts-dialog {
+    padding-left: 16px;
+    padding-bottom: 16px;
+    background-color: black;
+}
+
+.login-button {
+    height: 20px;
+    font-size: 0.9em;
+    color: white;
+}
+
+.login-button:hover {
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    height: 30px;
+}
+
+.accounts-dialog .hline {
+    display: none;
+}
+
+.accounts-dialog .or {
+    color: white;
+    font-size: 1.1em;
+    padding: 8px 0;
+    text-transform: uppercase;
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 0px;
+    height: 30px;
+}
+
+.login-close-text {
+    float: right;
+    cursor: pointer;
+}
+
+.login-link-text:hover {
+    display: block;
+    text-decoration: underline;
+}
+
+.login-close-text.text {
+    content: "x";
+}
+
+.login-form label {
+    color: white;
+    height: 32px;
+    text-decoration: none;
+}
+
+.login-form input {
+    margin-bottom: 4px;
+}
+
+.login-button-form-submit {
+    text-decoration: none;
+    font-size: 1.5em;
+    height: 30px;
+}
+
+#login-dropdown-list {
+    background-color: rgb(34, 34, 34);
+}
+
+.additional-link-container {
+    padding-left: 0px;
+    height: 30px;
+    padding-top: 0px;
+    margin-top: 10px;
+}
+
+.additional-link {
+    padding-left: 0px !important;
+    line-height: 30px !important;
+}
+
+.additional-link:hover {
+    text-decoration: underline;
+    cursor: pointer;
 }
 
 #log-dropdown-list {
