@@ -157,6 +157,14 @@ Template.currentActivity.activity = function () {
   return Activities.findOne(getCurrentActivityId());
 };
 
+Template.currentActivity.anyComments = function () {
+  return Comments.find({activityId: getCurrentActivityId()}).count() > 0;
+};
+
+Template.currentActivity.comments = function () {
+  return Comments.find({activityId: getCurrentActivityId()}, {sort: {created: -1}});
+};
+
 Template.currentActivity.anyActivities = function () {
   return Activities.find().count() > 0;
 };
@@ -213,3 +221,28 @@ var showTemplate = function (templateName) {
     }
   });
 };
+
+///////////////////////////////////////////////////////////////////////////////
+// Activity comment
+
+Template.activityComment.activity = function () {
+  return Activities.findOne(getCurrentActivityId());
+};
+
+Template.activityComment.events({
+  'click .save': function (event, template) {
+    var comment = template.find(".comment").value;
+    var activityId = template.find(".activity-id").value;
+
+    if (comment && activityId && Meteor.userId()) {
+      Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
+        if (! error) {
+          $('#commentModal').trigger('reveal:close');
+        }
+      });
+    } else {
+      Session.set("createError",
+                  "It needs a comment, or why bother?");
+    }
+  },
+})

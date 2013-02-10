@@ -34,10 +34,16 @@
 
 <template name="activityComment">
   <div id="commentModal" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden; display: none;">
+  {{#if activity}}
     <h3>Comment</h3>
+    <input type="hidden" class="activity-id" value="{{activity._id}}">
     <textarea type="text" class="comment" rows="8"></textarea>
     <a href="#" class="small button success save">Save comment</a>
     <a class="close-reveal-modal">×</a>
+  {{else}}
+    <p>Huh?! No Activity selected!</p>
+    <a class="close-reveal-modal">×</a>
+  {{/if}}
   </div> 
 </template>
 
@@ -60,17 +66,17 @@
         </div>
       {{/with}}
     </div>
+    <hr>
     <div class="comments">
-      {{#if comments}}
+      {{#if anyComments}}
         {{#each comments}}
-          <h1 class="muted pagination-centered">
-            {{#if anyActivities}}
-              Click an activity to select it
-            {{else}}
-              Sign in and double click the map to post an activity
-            {{/if}}
-          </h1>
+          <blockquote>
+            <p>{{this.comment}}
+            <cite>{{userName this.owner}} - {{date created}}</cite></p>
+          </blockquote>
         {{/each}}
+      {{else}}
+      <p>No Comments</p>
       {{/if}}
     </div>
   {{else}}

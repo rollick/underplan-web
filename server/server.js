@@ -11,6 +11,10 @@ Meteor.publish("activities", function () {
     {$or: [{"published": true}, {owner: this.userId}]});
 });
 
-Meteor.publish("groups", function () {
+Meteor.publish("allGroups", function () {
   return Groups.find();
+});
+
+Meteor.publish("allComments", function () {
+  return Comments.find();
 });

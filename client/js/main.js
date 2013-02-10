@@ -1,7 +1,7 @@
 // Underplan -- client
 Meteor.subscribe("activities");
-Meteor.subscribe("comments");
-Meteor.subscribe("groups");
+Meteor.subscribe("allComments");
+Meteor.subscribe("allGroups");
 Meteor.subscribe("directory");
 
 Meteor.startup(function () {
