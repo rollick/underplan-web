@@ -4,6 +4,7 @@
 
   <link rel="stylesheet" href="/stylesheets/foundation.min.css">
   <link rel="stylesheet" href="/stylesheets/general_foundicons.css">
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </head>
 
 <body>
@@ -11,6 +12,10 @@
 </body>
 
 <template name="page">
+  {{#if showActivity}}
+    {{> activityComment}}
+  {{/if}}
+
   {{#if showCreateDialog}}
     {{> createDialog}}
   {{/if}}
@@ -54,7 +59,7 @@
           {{/if}}
           <li class="divider"></li>
           <li>
-            {{loginButtons align="right"}}
+            {{newLoginButtons}}
           </li>        
         </ul>
       </section>
@@ -66,6 +71,7 @@
         {{#if showInviteList}}
           {{> groupInviteList}}
         {{/if}}
+
         {{#if showStoryEditor}}
           {{> storyEditor}}
         {{/if}}
@@ -95,5 +101,5 @@
   </div>
 
   <!-- Scripts -->
-  {{loadFoundation}}
+  {{loadScripts}}
 </template>

@@ -143,11 +143,11 @@ Activities.allow({
     return false; // no cowboy inserts -- use createActivity method
   },
   update: function (userId, activities, fields, modifier) {
+      debugger
     return _.all(activities, function (activity) {
       if (userId !== activity.owner)
         return false; // not the owner
-
-      var allowed = ["slug", "published", "location", "title", "text", "lat", "lng", "url", "urlType", "created"];
+      var allowed = ["groupId", "slug", "published", "location", "title", "text", "lat", "lng", "url", "urlType", "created"];
       if (_.difference(fields, allowed).length)
         return false; // tried to write to forbidden field
 

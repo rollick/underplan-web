@@ -19,6 +19,20 @@ Meteor.startup(function () {
   });
 });
 
+var getCurrentActivityId = function () {
+  if (Session.get("activitySlug")) {
+    activity = Activities.findOne({slug: Session.get("activitySlug")});
+    if (!activity) { // activity hasn't loaded!
+      return null;
+    } else {
+      Session.set("activityId", activity._id);
+      return Session.get("activityId");      
+    }
+  } else {
+    return null;
+  }
+};
+
 var getCurrentGroup = function () {
   if (Session.get("groupId")) {
     return Groups.findOne(Session.get("groupId"));

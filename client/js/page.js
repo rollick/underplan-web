@@ -41,8 +41,9 @@ Template.page.events({
   }
 });
 
-Template.page.loadFoundation = function () {
+Template.page.loadScripts = function () {
   Meteor.defer(function () {
+    // Foundation
     $.fn.foundationAlerts           ? $(document).foundationAlerts() : null;
     $.fn.foundationButtons          ? $(document).foundationButtons() : null;
     $.fn.foundationAccordion        ? $(document).foundationAccordion() : null;

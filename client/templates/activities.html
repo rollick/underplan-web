@@ -32,24 +32,49 @@
   </div>
 </template>
 
+<template name="activityComment">
+  <div id="commentModal" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden; display: none;">
+    <h3>Comment</h3>
+    <textarea type="text" class="comment" rows="8"></textarea>
+    <a href="#" class="small button success save">Save comment</a>
+    <a class="close-reveal-modal">×</a>
+  </div> 
+</template>
+
 <template name="currentActivity">
-  <div class="activity">
-    {{#if activity}}
+  {{#if activity}}
+    <div class="activity">
       {{#with activity}}
         <div class="row">
           <div class="ten columns"><h2>{{title}}</h2></div>
-          <div class="two columns">
-            <div class="actions">
-              {{#if canEdit}}<i class="foundicon-edit edit">edit</i>{{/if}}
-            </div>
+        </div>
+        <div class="row">
+          <div class="twelve columns">
+            <p class="text">
+              {{#markdown}}{{text}}{{/markdown}}
+            </p>
+            <p class="text"><strong>Posted by {{creatorName}} </strong></p>
+            {{#if canEdit}}<a href="#" class="small secondary button edit">Edit</a>{{/if}}
+            <a href="#" data-reveal-id="commentModal" class="small secondary button">Comment</a>
           </div>
         </div>
-        <p class="text">
-          {{#markdown}}{{text}}{{/markdown}}
-        </p>
-        <p class="text"><strong>Posted by {{creatorName}} </strong></p>
       {{/with}}
-    {{else}}
+    </div>
+    <div class="comments">
+      {{#if comments}}
+        {{#each comments}}
+          <h1 class="muted pagination-centered">
+            {{#if anyActivities}}
+              Click an activity to select it
+            {{else}}
+              Sign in and double click the map to post an activity
+            {{/if}}
+          </h1>
+        {{/each}}
+      {{/if}}
+    </div>
+  {{else}}
+    <div class="activity">
       <h1 class="muted pagination-centered">
         {{#if anyActivities}}
           Click an activity to select it
@@ -57,8 +82,8 @@
           Sign in and double click the map to post an activity
         {{/if}}
       </h1>
-    {{/if}}
-  </div>
+    </div>
+  {{/if}}
 </template>
 
 <template name="activityMap">
@@ -92,7 +117,9 @@
         <label>Story</label>
         <textarea type="text" class="text" rows="20">{{text}}</textarea>
         <label>Location</label>
-        <input type="text" class="location" value="{{location}}">
+        <input type="text" class="location" value="{{location}}"><div class="location-coords input-subtext"></div>
+        <input type="hidden" class="lat" value="{{lat}}">
+        <input type="hidden" class="lng" value="{{lng}}">
         <label>Link Slug</label>
         <input type="text" class="slug" value="{{slug}}">
         <label class="checkbox">
@@ -109,7 +136,9 @@
       <label>Story</label>
       <textarea type="text" class="text" rows="20"></textarea>
       <label>Location</label>
-      <input type="text" class="location">
+      <input type="text" class="location"><div class="location-coords input-subtext"></div>
+      <input type="hidden" class="lat" value="{{lat}}">
+      <input type="hidden" class="lng" value="{{lng}}">
       <label>Link Slug</label>
       <input type="text" class="slug">
       <label class="checkbox">

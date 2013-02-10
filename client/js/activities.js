@@ -20,8 +20,34 @@ Template.page.showStoryEditor = function () {
   return Session.get("showStoryEditor");
 };
 
+Template.storyEditor.activity = function () {
+  return Activities.findOne(getCurrentActivityId());
+};
+
 Template.storyEditor.events({
-  'click .cancel': function () {
+  'keyup .location': function (event, template) {
+    var location = template.find(".location").value;
+    
+    if ($.fn.google) {
+      var geocoder = new google.maps.Geocoder();
+
+      geocoder.geocode( { 'address': location }, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          lat = results[0].geometry.location.Ya;
+          lng = results[0].geometry.location.Za
+
+          template.find(".lat").value = lat;
+          template.find(".lng").value = lng;
+          template.find(".location-coords").innerHTML = lat + "," + lng;
+        } else {
+          alert('Geocode was not successful for the following reason: ' + status);
+        }
+      });
+    } else {
+      template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation not available");
+    }
+  },
+  'click .cancel': function (event, template) {
     Router.setGroup(Session.get("group"));
     return false;
   },
@@ -48,6 +74,7 @@ Template.storyEditor.events({
     var values = getStoryValues(template);
 
     if (values.title.length && values.text.length) {
+      debugger
       Activities.update({_id: activityId}, {$set: values});
       Router.setActivity(getCurrentGroup(), Activities.findOne(activityId));
     } else {
@@ -68,10 +95,6 @@ var getStoryValues = function(template) {
 
   return values;
 }
-
-Template.storyEditor.activity = function () {
-  return Session.get("selectedActivity");
-};
 
 Template.storyEditor.error = function () {
   return Session.get("createError");
@@ -96,8 +119,7 @@ var showActivityMap = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Activity actions
 
-var showStoryEditor = function (activitySlug) {
-  Session.set("selectedActivity", activityBySlug(activitySlug));
+var showStoryEditor = function () {
   showTemplate("storyEditor");
   Session.set("createError", null);
 };
@@ -132,7 +154,7 @@ Template.page.showActivity = function () {
 };
 
 Template.currentActivity.activity = function () {
-  return Session.get("selectedActivity");
+  return Activities.findOne(getCurrentActivityId());
 };
 
 Template.currentActivity.anyActivities = function () {
@@ -161,12 +183,11 @@ Template.currentActivity.events({
   }
 });
 
-var editActivity = function (slug) {
-  showStoryEditor(slug);
+var editActivity = function () {
+  showStoryEditor();
 }
 
-var showActivity = function (activitySlug) {
-  Session.set("selectedActivity", activityBySlug(activitySlug));
+var showActivity = function () {
   showTemplate("currentActivity");
 
   return false
