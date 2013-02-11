@@ -24,9 +24,9 @@ Template.page.showGroup = function () {
 
 Template.page.groupName = function () {
   if (Session.get("groupId")) {
-    return getCurrentGroup().name;
-  } else {
-    return null
+    group = getCurrentGroup();
+    if (group)
+      return group.name;
   }
 };
 

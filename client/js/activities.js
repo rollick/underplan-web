@@ -240,7 +240,9 @@ Template.activityComment.events({
     if (comment && activityId && Meteor.userId()) {
       Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
         if (! error) {
-          $('#commentModal').trigger('reveal:close');
+          template.find(".comment").value = "";
+          // debugger;
+          $(template.find(".reveal-modal")).trigger('reveal:close');
         }
       });
     } else {

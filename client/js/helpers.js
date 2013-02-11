@@ -9,7 +9,7 @@ Handlebars.registerHelper('date', function(date) {
 Handlebars.registerHelper('userName', function(userId) {
   if(userId) {
     user = Meteor.users.findOne(userId);
-    if(user)
+    if(user && user.profile)
       return Handlebars._escape(user.profile.name);
   }
   return 'Anonymous Coward';
