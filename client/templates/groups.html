@@ -21,22 +21,37 @@
 </template>
 
 <template name="mainHome">
-  <div class="groups">
-    <h4>Underplan Groups</h4>
-    {{#if groups}}
-      <ul class="vcard">
-      {{#each groups}}
-        {{#with this}}
-          <li>
-            <i class="foundicon-flag"> {{name}}</i>
-          </li>
-        {{/with}}
-      {{/each}}
-      </ul>
-    {{else}}
-      <p>Loading groups...</p>
-    {{/if}}
-  </div>
+  <header id="homepage">
+    <div class="groups">
+      <div class="row">
+        <div class="twelve columns">
+          <h4>Everything is a work in progress</h4>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <a href="#" class="large round success button new-group">Create your Group</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          <div class="or">Or, explore:</div>
+
+          <div class="groups panel radius">
+            {{#if groups}}
+              {{#each groups}}
+                {{#with this}}
+                  <a href="" class="foundicon-flag"> {{name}}</a>
+                {{/with}}
+              {{/each}}
+            {{else}}
+              <p>Loading groups...</p>
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
 </template>
 
 <template name="groupEditor">

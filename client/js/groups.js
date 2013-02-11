@@ -17,7 +17,14 @@ Template.groupActions.events({
 });
 
 Template.mainHome.events({
-  'click .groups li': function (event, template) {
+  'click .new-group': function () {
+    Router.setNewGroup();
+    return false;
+  }
+});
+
+Template.mainHome.events({
+  'click .groups a': function (event, template) {
     Router.setGroup(this);
     return false;
   },

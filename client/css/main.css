@@ -8,6 +8,16 @@ body {
     padding: 20px 0;
 }
 
+#homepage .columns {
+    text-align: center;
+}
+
+#homepage .or {
+    padding: 20px 0px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
 .main-content {
     max-width: 940px; 
     background: #fff; 
@@ -16,6 +26,26 @@ body {
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
     padding-bottom: 30px !important;
     padding-top: 20px !important;
+}
+
+.dashboard {
+    background: url("/images/sun3.jpg") 0 0 no-repeat;
+}
+
+.dashboard h4 {
+    margin-bottom: 40px;
+}
+
+.dashboard h4,
+.dashboard .or {
+    color: white;
+}
+
+.dashboard .groups {
+}
+
+.main-home {
+    padding-right: 0px !important;
 }
 
 .activity cite:before { 
@@ -105,6 +135,12 @@ body {
 .top-bar .login {
     background-color: rgb(34, 34, 34);
     padding: 0px;
+    height: 40px;
+}
+
+#login-email,
+#login-password {
+    width: 285px;
 }
 
 .login,

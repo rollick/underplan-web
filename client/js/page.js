@@ -8,14 +8,19 @@ Template.page.group = function () {
   } else if (Session.get("groupSlug")) {
     group = Groups.findOne({slug: Session.get("groupSlug")});
     if (!group) { // group hasn't loaded!
-      return null;
+      return false;
     } else {
       Session.set("groupId", group._id);
       return Session.get("groupId");      
     }
   } else {
-    return null;
+    return false;
   }
+};
+
+Template.page.noGroup = function () {
+  var group = getCurrentGroup();
+  return group ? false : true;
 };
 
 Template.page.showGroup = function () {
