@@ -18,6 +18,10 @@ body {
     padding-top: 20px !important;
 }
 
+.activity cite:before { 
+    content: "\2014 \0020"; 
+}
+
 .input-subtext {
     margin-top: -10px;
     font-style: italic;
@@ -63,6 +67,23 @@ body {
 
 .activity .edit {
     
+}
+
+.header {
+    padding-bottom: 0px;
+}
+
+.header .actions {
+    padding-top: 16px;
+    float: right;
+}
+
+.sub-header .actions {
+    padding-top: 8px;
+}
+
+.actions a {
+    float: right;
 }
 
 .actions i:hover {

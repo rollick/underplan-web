@@ -51,33 +51,50 @@
   {{#if activity}}
     <div class="activity">
       {{#with activity}}
-        <div class="row">
-          <div class="ten columns"><h2>{{title}}</h2></div>
+        <div class="row header">
+          <div class="ten columns">
+            <h2>{{title}}</h2>
+          </div>
+          <div class="actions two columns">
+            {{#if canEdit}}
+              <a href="#" class="small button edit">Edit</a>
+            {{/if}}
+          </div>
         </div>
         <div class="row">
           <div class="twelve columns">
             <p class="text">
               {{#markdown}}{{text}}{{/markdown}}
             </p>
-            <p class="text"><strong>Posted by {{creatorName}} </strong></p>
-            {{#if canEdit}}<a href="#" class="small secondary button edit">Edit</a>{{/if}}
-            <a href="#" data-reveal-id="commentModal" class="small secondary button">Comment</a>
+            <cite>Posted by {{creatorName}}</cite>
           </div>
         </div>
       {{/with}}
     </div>
     <hr>
     <div class="comments">
-      {{#if anyComments}}
-        {{#each comments}}
-          <blockquote>
-            <p>{{this.comment}}
-            <cite>{{userName this.owner}} - {{date created}}</cite></p>
-          </blockquote>
-        {{/each}}
-      {{else}}
-      <p>No Comments</p>
-      {{/if}}
+      <div class="row sub-header">
+        <div class="ten columns">
+          <h3>Comments<h3>
+        </div>
+        <div class="actions two columns">
+          <a href="#" data-reveal-id="commentModal" class="small button">Add Comment</a>
+        </div>
+      </div>
+      <div class="row">
+        <div class="twelve columns">
+          {{#if anyComments}}
+            {{#each comments}}
+              <blockquote>
+                <p>{{this.comment}}
+                <cite>{{userName this.owner}} - {{date created}}</cite></p>
+              </blockquote>
+            {{/each}}
+          {{else}}
+          <p>No Comments</p>
+          {{/if}}
+        </div>
+      </div>
     </div>
   {{else}}
     <div class="activity">
