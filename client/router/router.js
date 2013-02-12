@@ -31,12 +31,13 @@ var AppRouter = Backbone.Router.extend({
   },
 
   newActivity: function(groupSlug) {
-    Session.set("activitySlug", null);
     Session.set("groupSlug", groupSlug);
+    Session.set("activitySlug", null);
     showStoryEditor();
   },
 
   activity: function(groupSlug, activitySlug) {
+    Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", activitySlug);
     showActivity();
   },

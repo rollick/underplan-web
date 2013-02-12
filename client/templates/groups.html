@@ -1,19 +1,9 @@
-<template name="groupActions">
-  {{#if currentUser}}
-    <li class="has-dropdown">
-      <a href="#">Get started</a>
-      <ul class="dropdown">
-        <li class="new-group"><a href="#">Create a group</a></li>
-      </ul>
-    </li>
-  {{/if}}
-</template>
-
 <template name="groupAdminActions">
   {{#if isGroupAdmin}}
     <li class="has-dropdown">
       <a href="#">Admin</a>
       <ul class="dropdown">
+        <li class="group-settings"><a href="#">Group Settings</a></li>
         <li class="membership"><a href="#">Membership</a></li>
       </ul>
     </li>
@@ -25,7 +15,10 @@
     <div class="groups">
       <div class="row">
         <div class="twelve columns">
-          <h4>Everything is a work in progress</h4>
+          <blockquote>
+            <p>Everybody has a plan until they get punched in the face.
+            <cite>Mike Tyson</cite></p>
+          </blockquote>
         </div>
       </div>
       <div class="row">
@@ -36,17 +29,23 @@
       <div class="row">
         <div class="twelve columns">
           <div class="or">Or, explore:</div>
-
-          <div class="groups panel radius">
-            {{#if groups}}
-              {{#each groups}}
-                {{#with this}}
-                  <a href="" class="foundicon-flag"> {{name}}</a>
-                {{/with}}
-              {{/each}}
-            {{else}}
-              <p>Loading groups...</p>
-            {{/if}}
+        </div>
+        {{#if groups}}
+          {{#each groups}}
+            <div class="four columns">
+              {{#with this}}
+                <div class="panel radius">
+                  <a href="#" class="foundicon-flag"> {{name}}</a>
+                  <p>started {{date created}}</p>
+                  {{#if description}}<p>{{description}}</p>{{/if}}
+                </div>
+              {{/with}}
+            </div>
+            {{/each}}
+          {{else}}
+          <div class="three columns">
+            <p>Loading groups...</p>
+          {{/if}}
           </div>
         </div>
       </div>
@@ -55,16 +54,45 @@
 </template>
 
 <template name="groupEditor">
-  <h2>{{#if group}}Edit{{else}}New{{/if}} Group</h2>
-  {{#if error}}
-    <div class="alert-box alert">{{error}}</div>
-  {{/if}}
-  <div class="form">
-      <label>Name</label>
-      <input type="text" class="name">
-      <hr >
-      <a href="#" class="small button secondary cancel">Cancel</a>
-      <a href="#" class="small button success save">Add group</a>
+  <div id="groupModal" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden; display: none;">
+    <form>
+      <h3>{{#if group}}Edit{{else}}New{{/if}} Group</h3>
+      {{#if error}}
+        <div class="alert-box alert">{{error}}</div>
+      {{/if}}
+      {{#if group}}
+        {{#with group}}
+          <input type="hidden" class="id" value="{{_id}}">
+          <label>Name</label>
+          <input type="text" class="name" value="{{name}}">
+          <label>Description</label>
+          <textarea type="text" class="description" rows="2">{{description}}</textarea>
+          <fieldset>
+            <legend>Picasa Photo Settings</legend>
+            <label>Username</label>
+            <input type="text" class="picasa-username" value="{{picasaUsername}}">
+            <label>Album Name (optional)</label>
+            <input type="text" class="picasa-album" value="{{picasaAlbum}}">
+          </fieldset>
+          <a href="#" class="small button success update">Update Group</a>
+          <a class="close-reveal-modal">×</a>
+        {{/with}}
+      {{else}}
+        <label>Name</label>
+        <input type="text" class="name">
+        <label>Description</label>
+        <textarea type="text" class="description" rows="2"></textarea>
+        <fieldset>
+          <legend>Picasa Photo Settings</legend>
+          <label>Username</label>
+          <input type="text" class="picasa-username" placeholder="e.g. 106541547848938827222">
+          <label>Album Name (optional)</label>
+          <input type="text" class="picasa-album" placeholder="e.g. SouthEastAsia2013">
+        </fieldset>
+        <a href="#" class="small button success save">Add Group</a>
+        <a class="close-reveal-modal">×</a>
+      {{/if}}
+    </form>
   </div>
 </template>
 

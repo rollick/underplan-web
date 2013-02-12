@@ -128,7 +128,7 @@ var showStoryEditor = function () {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-// Activity feed sidebar
+// Activity feed 
 
 Template.activityFeed.events({
   'click .feed li': function (event, template) {
@@ -136,6 +136,26 @@ Template.activityFeed.events({
     return false;
   },
 });
+
+Template.activityFeed.rendered = function() {
+  var group = getCurrentGroup();
+
+  if(group && group.picasaUsername.length) {
+    var settings = {
+      username: group.picasaUsername,
+      maxResults: 25,
+      showSlideshowLink: false,
+      showAlbumDescription: false
+    };
+
+    if(group.picasaAlbum.length) {
+      settings.mode = 'album';
+      settings.album = group.picasaAlbum;
+    }
+
+    $(".recent-photos").pwi(settings);
+  }
+};
 
 Template.activityFeed.anyActivities = function () {
   return Activities.find({group: getCurrentGroupId()}).count() > 0;

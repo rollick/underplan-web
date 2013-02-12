@@ -20,7 +20,7 @@ Groups.allow({
       if (userId !== group.owner)
         return false; // not the owner
 
-      var allowed = ["name"];
+      var allowed = ["name", "description", "picasaUsername", "picasaAlbum"];
       if (_.difference(fields, allowed).length)
         return false; // tried to write to forbidden field
 
@@ -44,6 +44,8 @@ Meteor.methods({
     options = options || {};
     if (typeof options.name === "string" && options.name.length > 100)
       throw new Meteor.Error(413, "Name too long");
+    if (typeof options.description === "string" && options.description.length > 100)
+      throw new Meteor.Error(413, "Description too long");
     if (! this.userId)
       throw new Meteor.Error(403, "You must be logged in");
 
@@ -54,12 +56,15 @@ Meteor.methods({
       options.slug = createLinkSlug(options.name);
 
     return Groups.insert({
-      owner:      this.userId,
-      name:       options.name,
-      created:    options.created,
-      slug:       options.slug,
-      invited:    [],
-      rsvps:      []
+      owner:            this.userId,
+      name:             options.name,
+      description:      options.description,
+      picasaUsername:   options.picasaUsername,
+      picasaAlbum:      options.picasaAlbum,
+      created:          options.created,
+      slug:             options.slug,
+      invited:          [],
+      rsvps:            []
     });
   },
 
@@ -143,7 +148,6 @@ Activities.allow({
     return false; // no cowboy inserts -- use createActivity method
   },
   update: function (userId, activities, fields, modifier) {
-      debugger
     return _.all(activities, function (activity) {
       if (userId !== activity.owner)
         return false; // not the owner

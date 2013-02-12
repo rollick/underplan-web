@@ -4,6 +4,7 @@
 
   <link rel="stylesheet" href="/stylesheets/foundation.min.css">
   <link rel="stylesheet" href="/stylesheets/general_foundicons.css">
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </head>
 
@@ -12,10 +13,6 @@
 </body>
 
 <template name="page">
-  {{#if showActivity}}
-    {{> activityComment}}
-  {{/if}}
-
   {{#if showCreateDialog}}
     {{> createDialog}}
   {{/if}}
@@ -54,8 +51,6 @@
           {{#if group}}
             {{> groupAdminActions}}
             {{> activityActions}}
-          {{else}}
-            {{> groupActions}}
           {{/if}}
           <li class="divider"></li>
           <li class="login">
@@ -86,10 +81,6 @@
       </div>
     {{else}}
       <div class="twelve columns">
-        {{#if showGroupEditor}}
-          {{> groupEditor}}
-        {{/if}}
-
         {{#if showGroupList}}
           {{> mainHome}}
         {{/if}}
@@ -99,6 +90,12 @@
   <div class="row">
     <div class="footer twelve columns text-center"></div>
   </div>
+  <!-- Modal boxes -->
+  {{> groupEditor}}
+  
+  {{#if showActivity}}
+    {{> activityComment}}
+  {{/if}}
 
   <!-- Scripts -->
   {{loadScripts}}

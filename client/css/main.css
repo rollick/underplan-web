@@ -2,6 +2,11 @@ body {
     margin: 0px;
     padding: 0px;
     background-image: url("/images/4.jpg");
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
 }
 
 .header {
@@ -28,12 +33,42 @@ body {
     padding-top: 20px !important;
 }
 
+.dashboard .groups .panel {
+    border: 1px solid rgb(51, 50, 50);
+    background-color: rgba(48, 48, 48, 0.53) !important;
+}
+
+.dashboard .groups .panel a {
+    font-size: 1.1em;
+}
+
+.dashboard .groups .panel p {
+    font-size: 0.9em;
+    color: white;
+}
+
 .dashboard {
     background: url("/images/sun3.jpg") 0 0 no-repeat;
+    background-color: black;
 }
 
 .dashboard h4 {
     margin-bottom: 40px;
+}
+
+.dashboard blockquote {
+    border-left: none;
+    margin-bottom: 45px;
+}
+
+.dashboard blockquote p {
+    font-size: 1.5em;
+    color: white;
+}
+
+.dashboard blockquote cite {
+    font-size: 0.8em;
+    color: rgb(187, 187, 187);
 }
 
 .dashboard h4,

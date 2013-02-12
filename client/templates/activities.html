@@ -12,22 +12,29 @@
 </template>
 
 <template name="activityFeed">
-  <div class="feed ">
-    <h4>Recent activities</h4>
-    {{#if anyActivities}}
-      <ul class="vcard">
-      {{#each recentActivities}}
-        {{#with this}}
-          <li>
-            {{#if typeIs "story"}}
-              <i class="foundicon-page"> {{title}}</i>
-            {{/if}}
-          </li>
-        {{/with}}
-      {{/each}}
-      </ul>
-    {{else}}
-      <p>No activities yet :-(</p>
+  <div class="row">
+    <div class="four columns feed">
+      <h4>Recent activities</h4>
+      {{#if anyActivities}}
+        <ul class="vcard">
+        {{#each recentActivities}}
+          {{#with this}}
+            <li>
+              {{#if typeIs "story"}}
+                <i class="foundicon-page"> {{title}}</i>
+              {{/if}}
+            </li>
+          {{/with}}
+        {{/each}}
+        </ul>
+      {{else}}
+        <p>No activities yet :-(</p>
+      {{/if}}
+    </div>
+    {{#if group.picasaUsername}}
+      <div class="eight columns">
+        <div class="recent-photos"></div>
+      </div>
     {{/if}}
   </div>
 </template>
@@ -48,6 +55,9 @@
 </template>
 
 <template name="currentActivity">
+    <div id="container1">
+
+  </div>
   {{#if activity}}
     <div class="activity">
       {{#with activity}}

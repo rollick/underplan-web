@@ -9,16 +9,9 @@ Template.page.showGroupEditor = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Groups Home
 
-Template.groupActions.events({
-  'click .new-group': function () {
-    Router.setNewGroup();
-    return false;
-  }
-});
-
 Template.mainHome.events({
-  'click .new-group': function () {
-    Router.setNewGroup();
+  'click .new-group': function (event, template) {
+    $("#groupModal").reveal();
     return false;
   }
 });
@@ -39,10 +32,10 @@ Template.mainHome.groups = function () {
 
 Template.groupEditor.events({
   'click .save': function (event, template) {
-    var name = template.find(".name").value;
+    var values = getGroupValues(template);
 
-    if (name.length) {
-      Meteor.call('createGroup', {name: name}, function (error, group) {
+    if (values.name.length && values.description.length) {
+      Meteor.call('createGroup', values, function (error, group) {
         if (! error) {
           Session.set("groupId", group._id);
         }
@@ -50,7 +43,19 @@ Template.groupEditor.events({
       hideGroupEditor();
     } else {
       Session.set("createError",
-                  "It needs a name, or why bother?");
+                  "It needs a name and description, or why bother?");
+    }
+  },
+  'click .update': function (event, template) {
+    var groupId = template.find(".id").value;
+    var values = getGroupValues(template);
+
+    if (values.name.length && values.description.length) {
+      Groups.update({_id: groupId}, {$set: values});
+      hideGroupEditor();
+    } else {
+      Session.set("createError",
+                  "It needs a title and a story, or why bother?");
     }
   },
   'click .cancel': function () {
@@ -59,6 +64,24 @@ Template.groupEditor.events({
   }
 });
 
+Template.groupEditor.error = function () {
+  return Session.get("createError");
+};
+
+Template.groupEditor.group = function () {
+  return getCurrentGroup();
+};
+
+var getGroupValues = function(template) {
+  values = {};
+  values.name =             template.find(".name").value;
+  values.description =      template.find(".description").value;
+  values.picasaUsername =   template.find(".picasa-username").value;
+  values.picasaAlbum =      template.find(".picasa-album").value;
+
+  return values;
+}
+
 var showGroupList = function () {
   Session.set("groupId", null);
   Session.set("showGroupEditor", false);
@@ -66,8 +89,12 @@ var showGroupList = function () {
 };
 
 var showGroupEditor = function () {
-  Session.set("showGroupList", false);
-  Session.set("showGroupEditor", true);
+  Session.set("createError", null);
+  $("#groupModal").reveal();
+};
+
+var hideGroupEditor = function () {
+  $("#groupModal").trigger("reveal:close");
 };
 
 var hideGroupEditor = function() {
@@ -81,6 +108,12 @@ var hideGroupEditor = function() {
 Template.groupAdminActions.events({
   'click .membership': function (event, template) {
     Router.setGroupMembership(getCurrentGroup());
+    return false;
+  },
+
+  'click .group-settings': function (event, template) {
+    showGroupEditor();
+    return false;
   }
 });
 
