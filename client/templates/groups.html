@@ -1,12 +1,7 @@
 <template name="groupAdminActions">
   {{#if isGroupAdmin}}
-    <li class="has-dropdown">
-      <a href="#">Admin</a>
-      <ul class="dropdown">
-        <li class="group-settings"><a href="#">Group Settings</a></li>
-        <li class="membership"><a href="#">Membership</a></li>
-      </ul>
-    </li>
+    <li class="group-settings"><a href="#">Group Settings</a></li>
+    <li class="membership"><a href="#">Membership</a></li>
   {{/if}}
 </template>
 
@@ -54,12 +49,11 @@
 </template>
 
 <template name="groupEditor">
-  <div id="groupModal" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden; display: none;">
-    <form>
-      <h3>{{#if group}}Edit{{else}}New{{/if}} Group</h3>
-      {{#if error}}
-        <div class="alert-box alert">{{error}}</div>
-      {{/if}}
+  <h2>{{#if group}}Edit{{else}}New{{/if}} Group</h2>
+  {{#if error}}
+    <div class="alert-box alert">{{error}}</div>
+  {{/if}}
+  <div class="form custom">
       {{#if group}}
         {{#with group}}
           <input type="hidden" class="id" value="{{_id}}">
@@ -75,7 +69,6 @@
             <input type="text" class="picasa-album" value="{{picasaAlbum}}">
           </fieldset>
           <a href="#" class="small button success update">Update Group</a>
-          <a class="close-reveal-modal">×</a>
         {{/with}}
       {{else}}
         <label>Name</label>
@@ -90,9 +83,7 @@
           <input type="text" class="picasa-album" placeholder="e.g. SouthEastAsia2013">
         </fieldset>
         <a href="#" class="small button success save">Add Group</a>
-        <a class="close-reveal-modal">×</a>
       {{/if}}
-    </form>
   </div>
 </template>
 

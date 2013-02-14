@@ -19,6 +19,25 @@ Meteor.startup(function () {
   });
 });
 
+var showTemplate = function (templateName) {
+  var conditions = {
+    groupInviteList: "showInviteList", 
+    currentActivity: "showActivity", 
+    storyEditor: "showStoryEditor", 
+    groupEditor: "showGroupEditor",
+    activityMap: "showActivityMap",
+    mainHome: "showGroupList"
+  };
+
+  _.each(_.keys(conditions), function(key) {
+    if(key === templateName) {
+      Session.set(conditions[key], true);
+    } else {
+      Session.set(conditions[key], false);
+    }
+  });
+};
+
 var getCurrentActivityId = function () {
   if (Session.get("activitySlug")) {
     activity = Activities.findOne({slug: Session.get("activitySlug")});

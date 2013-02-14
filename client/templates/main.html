@@ -21,50 +21,45 @@
     {{> inviteDialog}}
   {{/if}}
 
-  <div class="fixed">
-    <nav class="top-bar">
-      <ul>
-        <!-- Title Area -->
+  <div class="row">
+    <div class="four columns">
+      <ul class="nav-bar left">
         {{#if group}}
-          <li class="name">
-            <a href="#" class="main-home"><i class="foundicon-left-arrow" style="font-size: 1.2em;"></i></a>
-          </li>
+          <li><a href="#" class="main-home">U</a></li>
         {{/if}}
-        <li class="name">
-          <h1>
-            <a href="#" class="home">
-              {{#if group}}
-                {{group.name}}
-              {{else}}
-                Underplan
-              {{/if}}
-            </a>
-          </h1>
-          <span><a href="#" class="toggle-nav"></a></span>
+        <li>
+          <a href="#" class="home">
+            {{#if group}}
+              {{group.name}}
+            {{else}}
+              <span style="text-decoration: underline; font-weight: bold;">U</span>nderplan
+            {{/if}}
+          </a>
         </li>
-        <li class="toggle-topbar"><a href="#"></a></li>
       </ul>
-
-      <section>
-        <!-- Right Nav Section -->
-        <ul class="right">
-          {{#if group}}
-            {{> groupAdminActions}}
-            {{> activityActions}}
-          {{/if}}
-          <li class="divider"></li>
-          <li class="login">
-            {{newLoginButtons}}
-          </li>        
-        </ul>
-      </section>
-    </nav>
+    </div>
+    <div class="eight columns">
+      <ul class="nav-bar right">
+        {{#if group}}
+          {{> groupAdminActions}}
+          {{> activityActions}}
+        {{/if}}
+        <li class="login">
+          {{newLoginButtons}}
+        </li>
+      </ul>
+    </div>
   </div>
-  <div class="row main-content {{#if noGroup}}dashboard{{/if}}">
+
+  <div class="row main-content" role="content">
     {{#if group}}
-      <div class="twelve columns">
+      <div class="twelve columns normal">
         {{#if showInviteList}}
           {{> groupInviteList}}
+        {{/if}}
+
+        {{#if showGroupEditor}}
+          {{> groupEditor}}
         {{/if}}
 
         {{#if showStoryEditor}}
@@ -80,7 +75,11 @@
         {{/if}}
       </div>
     {{else}}
-      <div class="twelve columns">
+      <div class="twelve columns {{#if showGroupEditor}}normal{{else}}dashboard{{/if}}">
+        {{#if showGroupEditor}}
+          {{> groupEditor}}
+        {{/if}}
+
         {{#if showGroupList}}
           {{> mainHome}}
         {{/if}}
@@ -91,8 +90,6 @@
     <div class="footer twelve columns text-center"></div>
   </div>
   <!-- Modal boxes -->
-  {{> groupEditor}}
-  
   {{#if showActivity}}
     {{> activityComment}}
   {{/if}}

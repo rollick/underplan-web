@@ -11,7 +11,7 @@ Template.page.showGroupEditor = function () {
 
 Template.mainHome.events({
   'click .new-group': function (event, template) {
-    $("#groupModal").reveal();
+    Router.setNewGroup();
     return false;
   }
 });
@@ -52,7 +52,7 @@ Template.groupEditor.events({
 
     if (values.name.length && values.description.length) {
       Groups.update({_id: groupId}, {$set: values});
-      hideGroupEditor();
+      Router.setGroup(Groups.findOne(groupId));
     } else {
       Session.set("createError",
                   "It needs a title and a story, or why bother?");
@@ -90,7 +90,9 @@ var showGroupList = function () {
 
 var showGroupEditor = function () {
   Session.set("createError", null);
-  $("#groupModal").reveal();
+  debugger;
+  showTemplate("groupEditor");
+  // $("#groupModal").reveal();
 };
 
 var hideGroupEditor = function () {
@@ -112,7 +114,7 @@ Template.groupAdminActions.events({
   },
 
   'click .group-settings': function (event, template) {
-    showGroupEditor();
+    Router.setGroupEditor(getCurrentGroup());
     return false;
   }
 });

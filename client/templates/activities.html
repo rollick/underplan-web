@@ -1,20 +1,13 @@
 <template name="activityActions">
   {{#if userBelongsToGroup}}
-    <li class="has-dropdown">
-      <a href="#">What's next?</a>
-      <ul class="dropdown">
-        <li class="new-story"><a href="#">Tell a story</a></li>
-        <li class="new-quickie"><a href="#">Quick update</a></li>
-        <li class="new-photo"><a href="#">Add a photo</a></li>
-      </ul>
-    </li>
+    <li class="new-story"><a href="#">Tell a story</a></li>
   {{/if}}
 </template>
 
 <template name="activityFeed">
   <div class="row">
     <div class="four columns feed">
-      <h4>Recent activities</h4>
+      <h4>Recent Activities</h4>
       {{#if anyActivities}}
         <ul class="vcard">
         {{#each recentActivities}}
@@ -33,7 +26,8 @@
     </div>
     {{#if group.picasaUsername}}
       <div class="eight columns">
-        <div class="recent-photos"></div>
+        <h4>Recent Photos</h4>
+        <div class="recent-photos">Loading photos...</div>
       </div>
     {{/if}}
   </div>

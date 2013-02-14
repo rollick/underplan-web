@@ -23,14 +23,26 @@ h1, h2, h3, h4 {
     font-weight: bold;
 }
 
+a.main-home {
+    font-weight: bold;
+    text-decoration: underline !important;
+}
+
 .main-content {
     max-width: 940px; 
+}
+
+.normal {
+    padding-bottom: 15px;
     background: #fff; 
     background: rgba(255,255,255,0.8); 
-    padding: 0 30px !important; 
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
-    padding-bottom: 30px !important;
-    padding-top: 20px !important;
+}
+
+.dashboard {
+    margin: 15px;
+    background: url("/images/sun3.jpg") 0 0 no-repeat;
+    background-color: black;
 }
 
 .dashboard .groups .panel {
@@ -45,11 +57,6 @@ h1, h2, h3, h4 {
 .dashboard .groups .panel p {
     font-size: 0.9em;
     color: white;
-}
-
-.dashboard {
-    background: url("/images/sun3.jpg") 0 0 no-repeat;
-    background-color: black;
 }
 
 .dashboard h4 {
@@ -79,10 +86,6 @@ h1, h2, h3, h4 {
 .dashboard .groups {
 }
 
-.main-home {
-    padding-right: 0px !important;
-}
-
 .activity cite:before { 
     content: "\2014 \0020"; 
 }
@@ -100,6 +103,11 @@ h1, h2, h3, h4 {
 .accounts-dialog {
     width: 320px;
     margin: 0px;
+}
+
+.nav-bar li.login {
+    z-index: 1;
+    padding: 0 24px;
 }
 
 #login-buttons a, .accounts-dialog a {
@@ -154,23 +162,6 @@ h1, h2, h3, h4 {
 .actions i:hover {
     color: green;
     cursor: pointer;
-}
-
-.top-bar {
-    /*margin-bottom: 0px;*/
-    border-bottom: green solid 4px;
-    /*min-height: 50px;*/
-    opacity: 0.9;
-}
-
-.top-bar li.permanent a:not(.button) {
-    padding: 0 8px;
-}
-
-.top-bar .login {
-    background-color: rgb(34, 34, 34);
-    padding: 0px;
-    height: 40px;
 }
 
 #login-email,

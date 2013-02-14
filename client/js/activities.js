@@ -139,21 +139,28 @@ Template.activityFeed.events({
 
 Template.activityFeed.rendered = function() {
   var group = getCurrentGroup();
+  var max = 10;
 
   if(group && group.picasaUsername.length) {
-    var settings = {
-      username: group.picasaUsername,
-      maxResults: 25,
-      showSlideshowLink: false,
-      showAlbumDescription: false
-    };
+    $.picasa.images(group.picasaUsername, group.picasaAlbum, function(images) {
+      var picasaAlbum = "<ul class=\"block-grid three-up\" data-clearing>";
 
-    if(group.picasaAlbum.length) {
-      settings.mode = 'album';
-      settings.album = group.picasaAlbum;
-    }
+      var index = 0;
+      $.each(images, function(i, element) {
+        if(index > max)
+          return false;
 
-    $(".recent-photos").pwi(settings);
+        picasaAlbum += " <li>";
+        picasaAlbum += "   <a href=\"" + element.url + "\"><img src=\"" + element.thumbs[1].url + "\"></a>";
+        picasaAlbum += " </li>";
+
+        index += 1;
+      });
+      picasaAlbum += "</ul>";
+      
+      $(".recent-photos").replaceWith(picasaAlbum)
+      $(".recent-photos").foundationClearing();
+    });
   }
 };
 
@@ -226,23 +233,6 @@ var showActivity = function () {
 
 var activityBySlug = function (activitySlug) {
   return Activities.findOne({slug: activitySlug});
-};
-
-var showTemplate = function (templateName) {
-  var conditions = {
-    groupInviteList: "showInviteList", 
-    currentActivity: "showActivity", 
-    storyEditor: "showStoryEditor", 
-    activityMap: "showActivityMap"
-  };
-
-  _.each(_.keys(conditions), function(key) {
-    if(key === templateName) {
-      Session.set(conditions[key], true);
-    } else {
-      Session.set(conditions[key], false);
-    }
-  });
 };
 
 ///////////////////////////////////////////////////////////////////////////////

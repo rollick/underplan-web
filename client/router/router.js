@@ -3,6 +3,7 @@ var AppRouter = Backbone.Router.extend({
     "":                               "main",
     "new":                            "newGroup",
     ":groupSlug":                     "group",
+    ":groupSlug/settings":            "groupSettings",
     ":groupSlug/new":                 "newActivity",
     ":groupSlug/membership":          "groupMembership",
     ":groupSlug/:activitySlug":       "activity",
@@ -15,10 +16,13 @@ var AppRouter = Backbone.Router.extend({
   },
 
   group: function(groupSlug) {
-    // TODO:  for now there is only one group. Later 
-    //        this is where we set the group for the session
     Session.set("groupSlug", groupSlug);
     showActivityMap();
+  },
+
+  groupSettings: function(groupSlug) {
+    Session.set("groupSlug", groupSlug);
+    showGroupEditor();
   },
 
   newGroup: function() {
@@ -48,6 +52,10 @@ var AppRouter = Backbone.Router.extend({
 
   setGroupList: function() {
     this.navigate("", true);
+  },
+
+  setGroupEditor: function (group) {
+    this.navigate(group.slug + "/settings", true);
   },
 
   setGroupMembership: function(group) {
