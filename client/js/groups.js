@@ -90,7 +90,6 @@ var showGroupList = function () {
 
 var showGroupEditor = function () {
   Session.set("createError", null);
-  debugger;
   showTemplate("groupEditor");
   // $("#groupModal").reveal();
 };

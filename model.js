@@ -151,7 +151,7 @@ Activities.allow({
     return _.all(activities, function (activity) {
       if (userId !== activity.owner)
         return false; // not the owner
-      var allowed = ["groupId", "slug", "published", "location", "title", "text", "lat", "lng", "url", "urlType", "created"];
+      var allowed = ["picasaTags", "groupId", "slug", "published", "location", "title", "text", "lat", "lng", "url", "urlType", "created"];
       if (_.difference(fields, allowed).length)
         return false; // tried to write to forbidden field
 
@@ -202,6 +202,7 @@ Meteor.methods({
       text:       options.text,
       url:        options.url,
       urlType:    options.urlType,
+      picasaTags: options.picasaTags,
       tags:       [],
       created:    options.created,
       location:   options.location,

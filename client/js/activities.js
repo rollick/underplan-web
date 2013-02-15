@@ -94,6 +94,7 @@ var getStoryValues = function(template) {
   values.location =     template.find(".location").value;
   values.published =    template.find(".published").checked;
   values.slug =         template.find(".slug").value;
+  values.picasaTags =   template.find(".picasa-tags").value;
   values.groupId =      getCurrentGroupId();
 
   return values;
@@ -139,26 +140,26 @@ Template.activityFeed.events({
 
 Template.activityFeed.rendered = function() {
   var group = getCurrentGroup();
-  var max = 10;
+  var max = 30;
 
   if(group && group.picasaUsername.length) {
-    $.picasa.images(group.picasaUsername, group.picasaAlbum, function(images) {
-      var picasaAlbum = "<ul class=\"block-grid three-up\" data-clearing>";
+    $.picasa.images(group.picasaUsername, group.picasaAlbum, null, function(images) {
+      var picasaAlbum = "<ul class=\"block-grid six-up\" data-clearing>";
 
       var index = 0;
       $.each(images, function(i, element) {
-        if(index > max)
+        if(index >= max)
           return false;
 
         picasaAlbum += " <li>";
-        picasaAlbum += "   <a href=\"" + element.url + "\"><img src=\"" + element.thumbs[1].url + "\"></a>";
+        picasaAlbum += "   <a href=\"" + element.url + "\"><img src=\"" + element.thumbs[0].url + "\"></a>";
         picasaAlbum += " </li>";
 
         index += 1;
       });
       picasaAlbum += "</ul>";
       
-      $(".recent-photos").replaceWith(picasaAlbum)
+      $(".recent-photos").html(picasaAlbum)
       $(".recent-photos").foundationClearing();
     });
   }
@@ -195,6 +196,10 @@ Template.currentActivity.comments = function () {
   return Comments.find({activityId: getCurrentActivityId()}, {sort: {created: -1}});
 };
 
+Template.currentActivity.hasPhotos = function () {
+  return currentActivityHasPhotos();
+};
+
 Template.currentActivity.anyActivities = function () {
   return Activities.find().count() > 0;
 };
@@ -212,6 +217,34 @@ Template.currentActivity.canRemove = function () {
 
 Template.currentActivity.canEdit = function () {
   return this.owner === Meteor.userId();
+};
+
+Template.currentActivity.rendered = function() {
+  var group = getCurrentGroup();
+  var activity = getCurrentActivity();
+  var max = 10;
+
+  if(group && group.picasaUsername.length && currentActivityHasPhotos()) {
+    $.picasa.images(group.picasaUsername, group.picasaAlbum, activity.picasaTags, function(images) {
+      var picasaAlbum = "<ul class=\"block-grid eight-up\" data-clearing>";
+
+      var index = 0;
+      $.each(images, function(i, element) {
+        if(index > max)
+          return false;
+
+        picasaAlbum += " <li>";
+        picasaAlbum += "   <a href=\"" + element.url + "\"><img src=\"" + element.thumbs[0].url + "\"></a>";
+        picasaAlbum += " </li>";
+
+        index += 1;
+      });
+      picasaAlbum += "</ul>";
+      
+      $(".activity-photos").html(picasaAlbum)
+      $(".activity-photos").foundationClearing();
+    });
+  }
 };
 
 Template.currentActivity.events({

@@ -49,9 +49,6 @@
 </template>
 
 <template name="currentActivity">
-    <div id="container1">
-
-  </div>
   {{#if activity}}
     <div class="activity">
       {{#with activity}}
@@ -73,6 +70,13 @@
             <cite>Posted by {{creatorName}}</cite>
           </div>
         </div>
+        {{#if hasPhotos}}
+          <div class="row">
+            <div class="twelve columns">
+              <div class="activity-photos"></div>
+            </div>
+          </div>
+        {{/if}}
       {{/with}}
     </div>
     <hr>
@@ -149,6 +153,8 @@
         <input type="hidden" class="lng" value="{{lng}}">
         <label>Link Slug</label>
         <input type="text" class="slug" value="{{slug}}">
+        <label>Picasa Tag</label>
+        <input type="text" class="picasa-tags" value="{{picasaTags}}">
         <label class="checkbox">
           <input type="checkbox" class="published" {{#if published}}checked{{/if}}>
           Published
@@ -168,6 +174,8 @@
       <input type="hidden" class="lng" value="{{lng}}">
       <label>Link Slug</label>
       <input type="text" class="slug">
+      <label>Picasa Tag</label>
+      <input type="text" class="picasa-tags" value="{{picasaTags}}">
       <label class="checkbox">
         <input type="checkbox" class="published">
         Published

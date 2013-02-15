@@ -38,19 +38,39 @@ var showTemplate = function (templateName) {
   });
 };
 
-var getCurrentActivityId = function () {
+var getCurrentActivity = function () {
   if (Session.get("activitySlug")) {
     activity = Activities.findOne({slug: Session.get("activitySlug")});
     if (!activity) { // activity hasn't loaded!
       return null;
     } else {
-      Session.set("activityId", activity._id);
-      return Session.get("activityId");      
+      return activity;      
     }
   } else {
     return null;
   }
 };
+
+var getCurrentActivityId = function () {
+  activity = getCurrentActivity();
+
+  if (!activity) { // activity hasn't loaded!
+    return null;
+  } else {
+    Session.set("activityId", activity._id);
+    return Session.get("activityId");      
+  }
+};
+
+var currentActivityHasPhotos = function () {
+  activity = getCurrentActivity();
+
+  if(activity) {
+    return !!activity.picasaTags && activity.picasaTags.length
+  } else {
+    return false;
+  }
+}
 
 var getCurrentGroup = function () {
   if (Session.get("groupId")) {

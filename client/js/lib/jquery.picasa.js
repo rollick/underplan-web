@@ -22,22 +22,27 @@
       });
     },
     
-    images: function(user, album, callback) {
-      var url = "http://picasaweb.google.com/data/feed/base/user/:user_id/albumid/:album_id?alt=json&kind=photo&hl=en_US&fields=entry(title,gphoto:numphotos,media:group(media:content,media:thumbnail))&callback=?";
+    images: function(user, album, tags, callback) {
+      var url = "http://picasaweb.google.com/data/feed/base/user/:user_id/album/:album_id?alt=json&fields=entry(title,gphoto:numphotos,media:group(media:content,media:thumbnail))&kind=photo&imgmax=912&thumbsize=85c&callback=?";
       url = url.replace(/:user_id/, user).replace(/:album_id/, album);
+      if(typeof tags == "string" && tags.length)
+        url = url + "&tag=" + tags;
+
       var image = null;
       var images = [];
       $.getJSON(url, function(data) {
-        $.each(data.feed.entry, function(i, element) {
-          image = element["media$group"]["media$content"][0];
-          image.title = element.title["$t"];
-          image.thumbs = [];
-          $.each(element["media$group"]["media$thumbnail"], function(j, j_element) {
-            image.thumbs.push(j_element);
+        if(data.feed.entry) {
+          $.each(data.feed.entry, function(i, element) {
+            image = element["media$group"]["media$content"][0];
+            image.title = element.title["$t"];
+            image.thumbs = [];
+            $.each(element["media$group"]["media$thumbnail"], function(j, j_element) {
+              image.thumbs.push(j_element);
+            });
+            images.push(image);
           });
-          images.push(image);
-        });
-        callback(images);
+          callback(images);
+        }
       });
     }
   };

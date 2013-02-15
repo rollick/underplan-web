@@ -32,6 +32,33 @@ a.main-home {
     max-width: 940px; 
 }
 
+.top {
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
+    border-bottom: solid 4px green;
+    background-color: white;
+    padding: 0;
+    background-color: #4d4d4d;
+}
+
+.top .columns {
+    padding: 0px;
+    height: 40px;
+}
+
+.nav-bar {
+    margin: 0 0 4px 0;
+}
+
+.nav-bar li {
+    border-top: none;
+    border-bottom: none;
+}
+
+.nav-bar li.login {
+    z-index: 1;
+    padding: 0 22px;
+}
+
 .normal {
     padding-bottom: 15px;
     background: #fff; 
@@ -41,8 +68,14 @@ a.main-home {
 
 .dashboard {
     margin: 15px;
+    margin-top: 0;
     background: url("/images/sun3.jpg") 0 0 no-repeat;
     background-color: black;
+}
+
+.dashboard, .normal {
+    margin-left: 0px;
+    margin-right: 0px;
 }
 
 .dashboard .groups .panel {
@@ -105,11 +138,6 @@ a.main-home {
     margin: 0px;
 }
 
-.nav-bar li.login {
-    z-index: 1;
-    padding: 0 24px;
-}
-
 #login-buttons a, .accounts-dialog a {
     text-decoration: none;
 }
@@ -164,6 +192,10 @@ a.main-home {
     cursor: pointer;
 }
 
+a.login-link-text {
+    color: #e6e6e6;
+}
+
 #login-email,
 #login-password {
     width: 285px;
@@ -172,8 +204,7 @@ a.main-home {
 .login,
 .login:hover,
 #login-dropdown-list:hover {
-    background-color: rgb(34, 34, 34);
-    border: red;
+    background-color: inherit;
 }
 
 /*.top-bar ul > li a:not(.button) {
