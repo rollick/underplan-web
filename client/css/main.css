@@ -23,16 +23,21 @@ h1, h2, h3, h4 {
     font-weight: bold;
 }
 
+.branding {
+    /*font-family: 'Tinos', serif;*/
+    font-size: 1.4em !important;
+}
+
 a.main-home {
-    font-weight: bold;
-    text-decoration: underline !important;
+    /*margin-top: 1px;*/
+    /*text-decoration: underline !important;*/
 }
 
 .main-content {
     max-width: 940px; 
 }
 
-.top {
+.top-menu {
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
     border-bottom: solid 4px green;
     background-color: white;
@@ -40,13 +45,13 @@ a.main-home {
     background-color: #4d4d4d;
 }
 
-.top .columns {
+.top-menu .columns {
     padding: 0px;
-    height: 40px;
-}
+/*    height: 40px;
+*/}
 
 .nav-bar {
-    margin: 0 0 4px 0;
+    margin: 0;
 }
 
 .nav-bar li {
@@ -123,6 +128,10 @@ a.main-home {
     content: "\2014 \0020"; 
 }
 
+.activity-map {
+    float: right;
+}
+
 .input-subtext {
     margin-top: -10px;
     font-style: italic;
@@ -192,8 +201,11 @@ a.main-home {
     cursor: pointer;
 }
 
-a.login-link-text {
+.login-link-text {
     color: #e6e6e6;
+    white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
 #login-email,

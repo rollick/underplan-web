@@ -38,8 +38,8 @@ Template.storyEditor.events({
 
           template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + results[0].formatted_address + ")";
         } else {
-          lat = null;
-          lng = null;
+          lat = "";
+          lng = "";
 
           template.find(".location-coords").innerHTML = "No geo match";
         }
@@ -48,6 +48,9 @@ Template.storyEditor.events({
         template.find(".lng").value = lng;
       });
     } else {
+      template.find(".lat").value = "";
+      template.find(".lng").value = "";
+
       template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation not available");
     }
   },
@@ -72,6 +75,7 @@ Template.storyEditor.events({
       Session.set("createError",
                   "It needs a title and a story, or why bother?");
     }
+    return false;
   },
   'click .update': function (event, template) {
     var activityId = template.find(".id").value;
@@ -89,6 +93,17 @@ Template.storyEditor.events({
 
 var getStoryValues = function(template) {
   values = {};
+
+  var lat = template.find(".lat").value;
+  var lng = template.find(".lng").value;
+
+  if(lat != "" && lng != "") {
+    values.lat = lat;
+    values.lng = lng;
+  } else {
+    values.lat = values.lng = null;
+  }
+
   values.title =        template.find(".title").value;
   values.text =         template.find(".text").value;
   values.location =     template.find(".location").value;
@@ -144,7 +159,7 @@ Template.activityFeed.rendered = function() {
 
   if(group && group.picasaUsername.length) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, null, function(images) {
-      var picasaAlbum = "<ul class=\"block-grid six-up\" data-clearing>";
+      var picasaAlbum = "<ul class=\"block-grid five-up\" data-clearing>";
 
       var index = 0;
       $.each(images, function(i, element) {
@@ -200,6 +215,10 @@ Template.currentActivity.hasPhotos = function () {
   return currentActivityHasPhotos();
 };
 
+Template.currentActivity.hasMap = function () {
+  return currentActivityHasMap();
+};
+
 Template.currentActivity.anyActivities = function () {
   return Activities.find().count() > 0;
 };
@@ -222,6 +241,34 @@ Template.currentActivity.canEdit = function () {
 Template.currentActivity.rendered = function() {
   var group = getCurrentGroup();
   var activity = getCurrentActivity();
+
+  ///////////////////////
+  // Google Map
+  if(currentActivityHasMap) {
+    var dimensions = "600x240";
+    var zoom = "12";
+    
+    // FIXME: The code here shouldn't ned to know about DOM elements.
+    if($(".activity-map.hide-for-small:visible").length)
+      dimensions = "300x240";
+
+    imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:blue|label::location|:lat,:lng&sensor=false";
+    imageUrl = imageUrl.replace(/:dimensions/, dimensions).
+              replace(/:lat/g, activity.lat).
+              replace(/:lng/g, activity.lng).
+              replace(/:zoom/, zoom).
+              replace(/:location/, activity.location);
+
+    mapUrl = "http://maps.google.com/maps?t=h&q=loc::lat,:lng&z=:zoom";
+    mapUrl = mapUrl.replace(/:zoom/, dimensions).
+              replace(/:lat/g, activity.lat).
+              replace(/:lng/g, activity.lng);
+
+    $(".activity-map").html('<a href="' + mapUrl + '" class="th"><img src="' + imageUrl + '"></a>');
+  }
+
+  ///////////////////////
+  // Picasa Image (WIP)
   var max = 10;
 
   if(group && group.picasaUsername.length && currentActivityHasPhotos()) {

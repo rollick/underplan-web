@@ -6,8 +6,8 @@
 
 <template name="activityFeed">
   <div class="row">
-    <div class="four columns feed">
-      <h4>Recent Activities</h4>
+    <div class="three columns feed">
+      <h4>Activities</h4>
       {{#if anyActivities}}
         <ul class="vcard">
         {{#each recentActivities}}
@@ -25,8 +25,8 @@
       {{/if}}
     </div>
     {{#if group.picasaUsername}}
-      <div class="eight columns">
-        <h4>Recent Photos</h4>
+      <div class="nine columns">
+        <h4>Photos</h4>
         <div class="recent-photos">Loading photos...</div>
       </div>
     {{/if}}
@@ -50,58 +50,62 @@
 
 <template name="currentActivity">
   {{#if activity}}
-    <div class="activity">
-      {{#with activity}}
-        <div class="row header">
-          <div class="ten columns">
-            <h2>{{title}}</h2>
-          </div>
-          <div class="actions two columns">
-            {{#if canEdit}}
-              <a href="#" class="small button edit">Edit</a>
-            {{/if}}
-          </div>
-        </div>
-        <div class="row">
-          <div class="twelve columns">
-            <p class="text">
-              {{#markdown}}{{text}}{{/markdown}}
-            </p>
-            <cite>Posted by {{creatorName}}</cite>
-          </div>
-        </div>
-        {{#if hasPhotos}}
-          <div class="row">
-            <div class="twelve columns">
-              <div class="activity-photos"></div>
-            </div>
-          </div>
-        {{/if}}
-      {{/with}}
-    </div>
-    <hr>
-    <div class="comments">
-      <div class="row sub-header">
+    {{#with activity}}
+      <div class="row header">
         <div class="ten columns">
-          <h3>Comments<h3>
+          <h2>{{title}}</h2>
         </div>
         <div class="actions two columns">
-          <a href="#" data-reveal-id="commentModal" class="small button">Add Comment</a>
+          {{#if canEdit}}
+            <a href="#" class="small button edit">Edit</a>
+          {{/if}}
         </div>
       </div>
       <div class="row">
-        <div class="twelve columns">
-          {{#if anyComments}}
-            {{#each comments}}
-              <blockquote>
-                <p>{{this.comment}}
-                <cite>{{userName this.owner}} - {{date created}}</cite></p>
-              </blockquote>
-            {{/each}}
-          {{else}}
-          <p>No Comments</p>
-          {{/if}}
+        {{#if hasMap}}
+        <div class="twelve columns show-for-small">
+          <div class="activity-map" style="padding: 5px;"></div>
         </div>
+        {{/if}}
+        <div class="twelve columns">
+          {{#if hasMap}}
+          <div class="activity-map hide-for-small"></div>
+          {{/if}}
+          <div class="text">
+            {{#markdown}}{{text}}{{/markdown}}
+          </div>
+          <cite>Posted by {{creatorName}}</cite>
+        </div>
+      </div>
+      {{#if hasPhotos}}
+        <div class="row">
+          <div class="twelve columns">
+            <div class="activity-photos"></div>
+          </div>
+        </div>
+      {{/if}}
+    {{/with}}
+    <hr>
+    <div class="row sub-header">
+      <div class="ten columns">
+        <h3>Comments<h3>
+      </div>
+      <div class="actions two columns">
+        <a href="#" data-reveal-id="commentModal" class="small button">Add Comment</a>
+      </div>
+    </div>
+    <div class="row">
+      <div class="twelve columns">
+        {{#if anyComments}}
+          {{#each comments}}
+            <blockquote>
+              <p>{{this.comment}}
+              <cite>{{userName this.owner}} - {{date created}}</cite></p>
+            </blockquote>
+          {{/each}}
+        {{else}}
+        <p>No Comments</p>
+        {{/if}}
       </div>
     </div>
   {{else}}

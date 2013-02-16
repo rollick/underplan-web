@@ -5,6 +5,8 @@
   <link rel="stylesheet" href="/stylesheets/foundation.min.css">
   <link rel="stylesheet" href="/stylesheets/general_foundicons.css">
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+  <link href='http://fonts.googleapis.com/css?family=Tinos:400,700' rel='stylesheet' type='text/css'>
+
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </head>
 
@@ -21,18 +23,18 @@
     {{> inviteDialog}}
   {{/if}}
 
-  <div class="top row">
-    <div class="three columns">
+  <div class="top-menu row">
+    <div class="four columns">
       <ul class="nav-bar left">
         {{#if group}}
-          <li><a href="#" class="main-home">U</a></li>
+          <li><a href="#" class="main-home branding">U</a></li>
         {{/if}}
         <li>
           <a href="#" class="home">
             {{#if group}}
               {{group.name}}
             {{else}}
-              <span style="text-decoration: underline; font-weight: bold;">U</span>nderplan
+              <span class="branding">Underplan</span>
             {{/if}}
           </a>
         </li>
@@ -45,7 +47,7 @@
           {{> activityActions}}
         {{/if}}
         <li class="login">
-          {{newLoginButtons}}
+          {{loginButtons}}
         </li>
       </ul>
     </div>

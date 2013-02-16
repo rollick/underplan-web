@@ -70,7 +70,17 @@ var currentActivityHasPhotos = function () {
   } else {
     return false;
   }
-}
+};
+
+var currentActivityHasMap = function () {
+  activity = getCurrentActivity();
+
+  if(activity) {
+    return activity.lat && activity.lng
+  } else {
+    return false;
+  }
+};
 
 var getCurrentGroup = function () {
   if (Session.get("groupId")) {
