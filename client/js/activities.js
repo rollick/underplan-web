@@ -24,6 +24,10 @@ Template.storyEditor.activity = function () {
   return Activities.findOne(getCurrentActivityId());
 };
 
+Template.storyEditor.rendered = function() {
+  $('.created').glDatePicker();
+};
+
 Template.storyEditor.events({
   'keyup .location': function (event, template) {
     var location = template.find(".location").value;
@@ -94,6 +98,7 @@ Template.storyEditor.events({
 var getStoryValues = function(template) {
   values = {};
 
+  // Latitude and Longitude
   var lat = template.find(".lat").value;
   var lng = template.find(".lng").value;
 
@@ -102,6 +107,14 @@ var getStoryValues = function(template) {
     values.lng = lng;
   } else {
     values.lat = values.lng = null;
+  }
+
+  // Created (Publish) Date
+  var createdStr = template.find(".created").value;
+  if(createdStr != "") {
+    created = new Date(createdStr);
+    if(created.toLocaleString() != "Invalid Date")
+      values.created = created;
   }
 
   values.title =        template.find(".title").value;
@@ -157,7 +170,7 @@ Template.activityFeed.rendered = function() {
   var group = getCurrentGroup();
   var max = 30;
 
-  if(group && group.picasaUsername.length) {
+  if(group && group.picasaUsername.length && group.picasaAlbum.length) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, null, function(images) {
       var picasaAlbum = "<ul class=\"block-grid five-up\" data-clearing>";
 
@@ -246,10 +259,10 @@ Template.currentActivity.rendered = function() {
   // Google Map
   if(currentActivityHasMap) {
     var dimensions = "600x240";
-    var zoom = "12";
+    var zoom = activity.mapZoom;
     
     // FIXME: The code here shouldn't ned to know about DOM elements.
-    if($(".activity-map.hide-for-small:visible").length)
+    if(parseInt($("body").css("width").match(/\d+/g)) > 767)
       dimensions = "300x240";
 
     imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:blue|label::location|:lat,:lng&sensor=false";
@@ -264,7 +277,7 @@ Template.currentActivity.rendered = function() {
               replace(/:lat/g, activity.lat).
               replace(/:lng/g, activity.lng);
 
-    $(".activity-map").html('<a href="' + mapUrl + '" class="th"><img src="' + imageUrl + '"></a>');
+    $(".activity-map").html('<a target="_blank" href="' + mapUrl + '" class="th"><img src="' + imageUrl + '"></a>');
   }
 
   ///////////////////////

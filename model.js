@@ -151,7 +151,7 @@ Activities.allow({
     return _.all(activities, function (activity) {
       if (userId !== activity.owner)
         return false; // not the owner
-      var allowed = ["picasaTags", "groupId", "slug", "published", "location", "title", "text", "lat", "lng", "url", "urlType", "created"];
+      var allowed = ["mapZoom", "picasaTags", "groupId", "slug", "published", "location", "title", "text", "lat", "lng", "url", "urlType", "created"];
       if (_.difference(fields, allowed).length)
         return false; // tried to write to forbidden field
 
@@ -188,7 +188,10 @@ Meteor.methods({
       throw new Meteor.Error(403, "You must be a member of " + group.name);
 
     if ( typeof options.created === "undefined" )
-      options.created = new Date()
+      options.created = new Date();
+
+    if ( typeof options.mapZoom === "undefined" )
+      options.mapZoom = 12;
 
     if ( typeof options.slug === "undefined" || options.slug == "" )
       options.slug = createLinkSlug(options.title);
@@ -205,6 +208,7 @@ Meteor.methods({
       picasaTags: options.picasaTags,
       tags:       [],
       created:    options.created,
+      mapZoom:    options.mapZoom,
       location:   options.location,
       slug:       options.slug,
       published:  !! options.published

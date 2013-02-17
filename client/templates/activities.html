@@ -74,7 +74,7 @@
           <div class="text">
             {{#markdown}}{{text}}{{/markdown}}
           </div>
-          <cite>Posted by {{creatorName}}</cite>
+          <cite>Posted {{date created}} by {{creatorName}}</cite>
         </div>
       </div>
       {{#if hasPhotos}}
@@ -91,7 +91,9 @@
         <h3>Comments<h3>
       </div>
       <div class="actions two columns">
-        <a href="#" data-reveal-id="commentModal" class="small button">Add Comment</a>
+        {{#if currentUser}}
+          <a href="#" data-reveal-id="commentModal" class="small button">Add Comment</a>
+        {{/if}}
       </div>
     </div>
     <div class="row">
@@ -159,6 +161,8 @@
         <input type="text" class="slug" value="{{slug}}">
         <label>Picasa Tag</label>
         <input type="text" class="picasa-tags" value="{{picasaTags}}">
+        <label>Published Date</label>
+        <input type="text" class="created" value="{{simpleDate created}}" readonly>
         <label class="checkbox">
           <input type="checkbox" class="published" {{#if published}}checked{{/if}}>
           Published
@@ -180,6 +184,8 @@
       <input type="text" class="slug">
       <label>Picasa Tag</label>
       <input type="text" class="picasa-tags" value="{{picasaTags}}">
+      <label>Published Date</label>
+      <input type="text" class="created" value="{{simpleDate created}}" readonly>
       <label class="checkbox">
         <input type="checkbox" class="published">
         Published
