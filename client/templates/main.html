@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="/stylesheets/foundation.min.css">
   <link rel="stylesheet" href="/stylesheets/general_foundicons.css">
   <!-- <link href='http://fonts.googleapis.com/css?family=Tinos:400,700' rel='stylesheet' type='text/css'> -->
+  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </head>
 
 <body>
@@ -21,35 +22,45 @@
     {{> inviteDialog}}
   {{/if}}
 
-  <div class="top-menu row">
-    <div class="four columns">
-      <ul class="nav-bar left">
-        {{#if group}}
-          <li><a href="#" class="main-home branding">U</a></li>
-        {{/if}}
-        <li>
-          <a href="#" class="home">
-            {{#if group}}
-              {{group.name}}
-            {{else}}
-              <span class="branding">Underplan</span>
-            {{/if}}
+<div class="row">
+  <div class="twelve columns no-side-padding">
+    <nav class="top-bar">
+      <ul>
+        <!-- Title Area -->
+        <li class="name">
+          <a href="#" class="main-home branding">
+            {{#if group}}U{{else}}Underplan{{/if}}
           </a>
         </li>
+        <li class="toggle-topbar"><a href="#"></a></li>
       </ul>
-    </div>
-    <div class="eight columns">
-      <ul class="nav-bar right">
+      
+      <section>
+        <!-- Left Nav Section -->
         {{#if group}}
-          {{> groupAdminActions}}
-          {{> activityActions}}
+          <ul class="left">
+            <li class="divider"></li> 
+            <li class="name">
+              <a href="#" class="home">
+                {{group.name}}
+              </a>
+            </li>
+          </ul>
         {{/if}}
-        <li class="login">
-          {{loginButtons}}
-        </li>
-      </ul>
-    </div>
+
+        <!-- Right Nav Section -->
+        <ul class="right">
+          <li class="divider show-for-medium-and-up"></li>
+          {{#if group}}
+            {{> groupAdminActions}}
+            {{> activityActions}}
+          {{/if}}
+          {{> loginButtons}}
+        </ul>
+      </section>
+    </nav>
   </div>
+</div>
 
   <div class="row main-content" role="content">
     {{#if group}}
@@ -112,6 +123,5 @@
   {{/if}}
 
   <!-- Scripts -->
-  <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
   {{loadScripts}}
 </template>

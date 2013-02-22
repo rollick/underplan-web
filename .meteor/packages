@@ -4,12 +4,11 @@
 # but you can also edit it by hand.
 
 preserve-inputs
-accounts-ui-unstyled
 accounts-password
-d3
-email
 #accounts-facebook
 accounts-twitter
 accounts-google
+d3
+email
 showdown
 backbone

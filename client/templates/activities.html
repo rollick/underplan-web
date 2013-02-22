@@ -74,7 +74,7 @@
           <div class="text">
             {{#markdown}}{{text}}{{/markdown}}
           </div>
-          <cite>Posted {{date created}} by {{creatorName}}</cite>
+          <cite><span>Posted</span> {{date created}} by {{creatorName}}</cite>
         </div>
       </div>
       {{#if hasPhotos}}
@@ -157,6 +157,8 @@
         <input type="text" class="location" value="{{location}}"><div class="location-coords input-subtext"></div>
         <input type="hidden" class="lat" value="{{lat}}">
         <input type="hidden" class="lng" value="{{lng}}">
+        <label>Map Zoom</label>
+        <input type="text" class="map-zoom" value="{{mapZoom}}">        
         <label>Link Slug</label>
         <input type="text" class="slug" value="{{slug}}">
         <label>Picasa Tag</label>
@@ -180,6 +182,8 @@
       <input type="text" class="location"><div class="location-coords input-subtext"></div>
       <input type="hidden" class="lat" value="{{lat}}">
       <input type="hidden" class="lng" value="{{lng}}">
+      <label>Map Zoom</label>
+      <input type="text" class="map-zoom" value="{{defaultMapZoom}}">
       <label>Link Slug</label>
       <input type="text" class="slug">
       <label>Picasa Tag</label>

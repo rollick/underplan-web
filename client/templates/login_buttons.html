@@ -1,0 +1,26 @@
+<template name="loginButtons">
+  {{#if currentUser}}
+    {{> loggedin}}
+  {{else}}
+    {{> loggedout}}
+  {{/if}}
+</template>
+
+<template name="loggedin">
+  <li class="has-dropdown">
+    {{#if loggingIn}}
+      <a>Logging in...</a>
+    {{else}}
+      <a href="#">{{currentUser.profile.name}}</a>
+      <ul class="dropdown">
+        <li><a href="#">Account Settings</a></li>
+        <li><a href="#" id="logout">Logout</a></li>
+      </ul>
+    {{/if}}
+  </li>
+
+</template>
+
+<template name="loggedout">
+  <li><a id="login">Log in with Github</a></li>
+</template>

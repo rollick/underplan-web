@@ -28,6 +28,10 @@ Template.storyEditor.rendered = function() {
   $('.created').glDatePicker();
 };
 
+Template.storyEditor.defaultMapZoom = function () {
+  return defaultMapZoom();
+};
+
 Template.storyEditor.events({
   'keyup .location': function (event, template) {
     var location = template.find(".location").value;
@@ -37,8 +41,8 @@ Template.storyEditor.events({
 
       geocoder.geocode( { 'address': location }, function(results, status) {
         if (status == google.maps.GeocoderStatus.OK) {
-          lat = results[0].geometry.location.Ya;
-          lng = results[0].geometry.location.Za
+          lat = results[0].geometry.location.Ya || results[0].geometry.location.hb;
+          lng = results[0].geometry.location.Za || results[0].geometry.location.ib;
 
           template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + results[0].formatted_address + ")";
         } else {
@@ -123,6 +127,7 @@ var getStoryValues = function(template) {
   values.published =    template.find(".published").checked;
   values.slug =         template.find(".slug").value;
   values.picasaTags =   template.find(".picasa-tags").value;
+  values.mapZoom =      template.find(".map-zoom").value;
   values.groupId =      getCurrentGroupId();
 
   return values;
@@ -168,11 +173,11 @@ Template.activityFeed.events({
 
 Template.activityFeed.rendered = function() {
   var group = getCurrentGroup();
-  var max = 30;
+  var max = 28;
 
   if(group && group.picasaUsername.length && group.picasaAlbum.length) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, null, function(images) {
-      var picasaAlbum = "<ul class=\"block-grid five-up\" data-clearing>";
+      var picasaAlbum = "<ul class=\"block-grid four-up\" data-clearing>";
 
       var index = 0;
       $.each(images, function(i, element) {
@@ -259,7 +264,7 @@ Template.currentActivity.rendered = function() {
   // Google Map
   if(currentActivityHasMap) {
     var dimensions = "600x240";
-    var zoom = activity.mapZoom;
+    var zoom = activity.mapZoom || defaultMapZoom();
     
     // FIXME: The code here shouldn't ned to know about DOM elements.
     if(parseInt($("body").css("width").match(/\d+/g)) > 767)
@@ -273,7 +278,7 @@ Template.currentActivity.rendered = function() {
               replace(/:location/, activity.location);
 
     mapUrl = "http://maps.google.com/maps?t=h&q=loc::lat,:lng&z=:zoom";
-    mapUrl = mapUrl.replace(/:zoom/, dimensions).
+    mapUrl = mapUrl.replace(/:zoom/, zoom).
               replace(/:lat/g, activity.lat).
               replace(/:lng/g, activity.lng);
 
@@ -326,6 +331,10 @@ var showActivity = function () {
 
 var activityBySlug = function (activitySlug) {
   return Activities.findOne({slug: activitySlug});
+};
+
+var defaultMapZoom = function () {
+  return 12;
 };
 
 ///////////////////////////////////////////////////////////////////////////////
