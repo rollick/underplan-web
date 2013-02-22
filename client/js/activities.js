@@ -350,16 +350,18 @@ Template.activityComment.events({
     var activityId = template.find(".activity-id").value;
 
     if (comment && activityId && Meteor.userId()) {
+      $(template.find(".reveal-modal")).trigger('reveal:close');
+      
       Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
         if (! error) {
           template.find(".comment").value = "";
-          // debugger;
-          $(template.find(".reveal-modal")).trigger('reveal:close');
         }
       });
     } else {
       Session.set("createError",
                   "It needs a comment, or why bother?");
     }
+
+    return false;
   },
 })
