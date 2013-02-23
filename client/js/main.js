@@ -26,9 +26,10 @@ var showTemplate = function (templateName) {
     storyEditor: "showStoryEditor", 
     groupEditor: "showGroupEditor",
     activityMap: "showActivityMap",
-    mainHome: "showGroupList"
+    mainHome: "showGroupList",
+    userSettings: "showUserSettings"
   };
-
+  
   _.each(_.keys(conditions), function(key) {
     if(key === templateName) {
       Session.set(conditions[key], true);
@@ -95,6 +96,11 @@ var getCurrentGroupId = function () {
   return !!group ? group._id : null;
 };
 
+var resetGroup = function () {
+  Session.set("groupId", null);
+  Session.set("groupSlug", null);
+};
+
 var userBelongsToCurrentGroup = function (userId) {
   group = getCurrentGroup();
   if (!group) {
@@ -106,4 +112,13 @@ var userBelongsToCurrentGroup = function (userId) {
 
 var currentUserBelongsToCurrentGroup = function () {
   return userBelongsToCurrentGroup(Meteor.userId());
+};
+
+var defaultBack = function () {
+  var group = getCurrentGroup();
+  if(group) {
+    Router.setGroup(group);
+  } else {
+    Router.setHome();
+  }
 };

@@ -1,6 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Page
 
+Template.page.appVersion = function () {
+  return "v0.9";
+};
+
 Template.page.group = function () {
   var group = getCurrentGroup();
   if (group) {
@@ -41,7 +45,7 @@ Template.page.events({
     return false;
   },
   'click .main-home': function () {
-    Router.setGroupList();
+    Router.setHome();
     return false;
   }
 });

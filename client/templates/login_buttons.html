@@ -7,13 +7,13 @@
 </template>
 
 <template name="loggedin">
-  <li class="has-dropdown">
+  <li class="{{#unless loggingIn}}has-dropdown{{/unless}}">
     {{#if loggingIn}}
       <a>Logging in...</a>
     {{else}}
       <a href="#">{{currentUser.profile.name}}</a>
       <ul class="dropdown">
-        <li><a href="#">Account Settings</a></li>
+        <li><a href="#" id="user-settings">Settings</a></li>
         <li><a href="#" id="logout">Logout</a></li>
       </ul>
     {{/if}}
@@ -22,5 +22,30 @@
 </template>
 
 <template name="loggedout">
-  <li><a id="login">Log in with Github</a></li>
+  <li class="has-dropdown">
+    <a>Log in with...</a>
+    <ul class="dropdown login-services">
+      {{#if hasTwitter}}
+        <li>
+          <a href="#" class="login twitter">
+            <i class="foundicon-twitter"><p>Twitter</p></i>
+          </a>
+        </li>
+      {{/if}}
+      {{#if hasGoogle}}
+        <li>
+          <a href="#" class="login google">
+            <i class="foundicon-google-plus"><p>Google</p></i>
+          </a>
+        </li>
+      {{/if}}
+      {{#if hasGitHub}}
+        <li>
+          <a href="#" class="login github">
+            <i class="foundicon-github"><p>Github</p></i>
+          </a>
+        </li>
+      {{/if}}
+    </ul>
+  </li>
 </template>

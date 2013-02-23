@@ -81,7 +81,7 @@ Template.storyEditor.events({
       });
     } else {
       Session.set("createError",
-                  "It needs a title and a story, or why bother?");
+                  "It needs a title and a story");
     }
     return false;
   },
@@ -94,7 +94,7 @@ Template.storyEditor.events({
       Router.setActivity(getCurrentGroup(), Activities.findOne(activityId));
     } else {
       Session.set("createError",
-                  "It needs a title and a story, or why bother?");
+                  "It needs a title and a story");
     }
   },
 });
@@ -145,20 +145,8 @@ var hideActivityEditor = function() {
 ///////////////////////////////////////////////////////////////////////////////
 // Activity map
 
-Template.page.activityMapVisible = function () {
+Template.page.showActivityMap = function () {
   return Session.get("showActivityMap");
-};
-
-var showActivityMap = function () {
-  showTemplate("activityMap");
-};
-
-///////////////////////////////////////////////////////////////////////////////
-// Activity actions
-
-var showStoryEditor = function () {
-  showTemplate("storyEditor");
-  Session.set("createError", null);
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -319,16 +307,6 @@ Template.currentActivity.events({
   }
 });
 
-var editActivity = function () {
-  showStoryEditor();
-}
-
-var showActivity = function () {
-  showTemplate("currentActivity");
-
-  return false
-};
-
 var activityBySlug = function (activitySlug) {
   return Activities.findOne({slug: activitySlug});
 };
@@ -359,7 +337,7 @@ Template.activityComment.events({
       });
     } else {
       Session.set("createError",
-                  "It needs a comment, or why bother?");
+                  "It needs a comment");
     }
 
     return false;

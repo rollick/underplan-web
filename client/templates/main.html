@@ -3,8 +3,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
-  <link rel="stylesheet" href="/stylesheets/foundation.min.css">
-  <link rel="stylesheet" href="/stylesheets/general_foundicons.css">
+  <!-- <link rel="stylesheet" href="/stylesheets/foundation.min.css"> -->
+  <!-- <link rel="stylesheet" href="/stylesheets/general_foundicons.css"> -->
   <!-- <link href='http://fonts.googleapis.com/css?family=Tinos:400,700' rel='stylesheet' type='text/css'> -->
   <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
 </head>
@@ -29,7 +29,7 @@
         <!-- Title Area -->
         <li class="name">
           <a href="#" class="main-home branding">
-            {{#if group}}U{{else}}Underplan{{/if}}
+            {{#if group}}U{{else}}Underplan <span>{{appVersion}}</span>{{/if}}
           </a>
         </li>
         <li class="toggle-topbar"><a href="#"></a></li>
@@ -63,39 +63,39 @@
 </div>
 
   <div class="row main-content" role="content">
-    {{#if group}}
-      <div class="twelve columns normal">
-        {{#if showInviteList}}
-          {{> groupInviteList}}
-        {{/if}}
+    <div class="twelve columns {{#if showGroupList}}dashboard{{else}}normal{{/if}}">
+      {{#if showInviteList}}
+        {{> groupInviteList}}
+      {{/if}}
 
-        {{#if showGroupEditor}}
-          {{> groupEditor}}
-        {{/if}}
+      {{#if showGroupEditor}}
+        {{> groupEditor}}
+      {{/if}}
 
-        {{#if showStoryEditor}}
-          {{> storyEditor}}
-        {{/if}}
+      {{#if showStoryEditor}}
+        {{> storyEditor}}
+      {{/if}}
 
-        {{#if showActivity}}
-          {{> currentActivity}}
-        {{/if}}
+      {{#if showActivity}}
+        {{> currentActivity}}
+      {{/if}}
 
-        {{#if activityMapVisible}}
-          {{> activityFeed}}
-        {{/if}}
-      </div>
-    {{else}}
-      <div class="twelve columns {{#if showGroupEditor}}normal{{else}}dashboard{{/if}}">
-        {{#if showGroupEditor}}
-          {{> groupEditor}}
-        {{/if}}
+      {{#if showActivityMap}}
+        {{> activityFeed}}
+      {{/if}}
 
-        {{#if showGroupList}}
-          {{> mainHome}}
-        {{/if}}
-      </div>
-    {{/if}}
+      {{#if showUserSettings}}
+        {{> userSettings}}
+      {{/if}}
+
+      {{#if showGroupSettings}}
+        {{> activityFeed}}
+      {{/if}}
+
+      {{#if showGroupList}}
+        {{> mainHome}}
+      {{/if}}
+    </div>
   </div>
 
 <!--   <footer class="row">

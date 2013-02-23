@@ -6,6 +6,7 @@
 preserve-inputs
 accounts-password
 #accounts-facebook
+accounts-github
 accounts-twitter
 accounts-google
 d3

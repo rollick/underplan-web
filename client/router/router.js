@@ -2,55 +2,66 @@ var AppRouter = Backbone.Router.extend({
   routes: {
     "":                               "main",
     "new":                            "newGroup",
+    "user/settings":                  "userSettings",
     ":groupSlug":                     "group",
     ":groupSlug/settings":            "groupSettings",
     ":groupSlug/new":                 "newActivity",
     ":groupSlug/membership":          "groupMembership",
     ":groupSlug/:activitySlug":       "activity",
-    ":groupSlug/:activitySlug/edit":  "editActivity"
+    ":groupSlug/:activitySlug/edit":  "editActivity",
   },
 
   main: function() {
-    Session.set("groupSlug", null);
-    showGroupList();
+    resetGroup();
+    showTemplate("mainHome");
   },
 
   group: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
-    showActivityMap();
+    showTemplate("activityMap");
   },
 
   groupSettings: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
-    showGroupEditor();
+    Session.set("createError", null);
+    showTemplate("groupEditor");
   },
 
   newGroup: function() {
-    showGroupEditor();
+    Session.set("createError", null);
+    showTemplate("groupEditor");
+  },
+
+  userSettings: function() {
+    showTemplate("userSettings");
   },
 
   groupMembership: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
-    showInviteList();
+    showTemplate("groupInviteList");
   },
 
   newActivity: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", null);
-    showStoryEditor();
+    Session.set("createError", null);
+    showTemplate("storyEditor");
   },
 
   activity: function(groupSlug, activitySlug) {
     Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", activitySlug);
-    showActivity();
+    showTemplate("currentActivity");
   },
 
   editActivity: function(groupSlug, activitySlug) {
-    editActivity();
+    Session.set("groupSlug", groupSlug);
+    Session.set("activitySlug", activitySlug);
+    Session.set("createError", null);
+    showTemplate("storyEditor");
   },
 
-  setGroupList: function() {
+  setHome: function() {
     this.navigate("", true);
   },
 
@@ -63,7 +74,11 @@ var AppRouter = Backbone.Router.extend({
   },
 
   setNewGroup: function () {
-    this.navigate("new", true)
+    this.navigate("new", true);
+  },
+
+  setUserSettings: function () {
+    this.navigate("user/settings", true);
   },
 
   setGroup: function(group) {

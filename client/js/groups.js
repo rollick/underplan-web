@@ -43,7 +43,7 @@ Template.groupEditor.events({
       hideGroupEditor();
     } else {
       Session.set("createError",
-                  "It needs a name and description, or why bother?");
+                  "It needs a name and description");
     }
   },
   'click .update': function (event, template) {
@@ -55,11 +55,11 @@ Template.groupEditor.events({
       Router.setGroup(Groups.findOne(groupId));
     } else {
       Session.set("createError",
-                  "It needs a title and a story, or why bother?");
+                  "It needs a title and a story");
     }
   },
   'click .cancel': function () {
-    Router.setGroupList();
+    Router.setHome();
     return false;
   }
 });
@@ -81,18 +81,6 @@ var getGroupValues = function(template) {
 
   return values;
 }
-
-var showGroupList = function () {
-  Session.set("groupId", null);
-  Session.set("showGroupEditor", false);
-  Session.set("showGroupList", true);
-};
-
-var showGroupEditor = function () {
-  Session.set("createError", null);
-  showTemplate("groupEditor");
-  // $("#groupModal").reveal();
-};
 
 var hideGroupEditor = function () {
   $("#groupModal").trigger("reveal:close");
@@ -125,10 +113,6 @@ Template.groupAdminActions.isGroupAdmin = function () {
 
 ///////////////////////////////////////////////////////////////////////////////
 // Invite List
-
-var showInviteList = function () {
-  showTemplate("groupInviteList");
-};
 
 Template.page.showInviteList = function () {
   return Session.get("showInviteList");

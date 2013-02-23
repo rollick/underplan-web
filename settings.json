@@ -1,0 +1,16 @@
+{
+  "authentication": {
+    "github": {
+      "clientId": <Your Github ClientID>,
+      "secret": <Your Github Secret>
+    },
+    "twitter": {
+      "clientId": <Your Twitter ClientID>,
+      "secret": <Your Twitter Secret>   
+    },
+    "google": {
+      "clientId": <Your Google ClientID>,
+      "secret": <Your Google Secret>
+    }
+  }
+}

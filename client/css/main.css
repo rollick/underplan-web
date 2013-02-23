@@ -45,9 +45,9 @@ h1, h2, h3, h4 {
     font-weight: normal !important;
 }
 
-a.main-home {
-    /*margin-top: 1px;*/
-    /*text-decoration: underline !important;*/
+a.main-home span {
+    font-size: 0.5em;
+    opacity: 0.3;
 }
 
 .main-content {
@@ -73,6 +73,23 @@ a.main-home {
     background: #fff; 
     background: rgba(255,255,255,0.8); 
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.login-services p {
+    display: inline;
+    position: relative;
+    top: -4px;
+    margin-left: 8px;
+}
+
+.login-services i {
+    -webkit-transition: color .5s;
+    -moz-transition: color .5s;
+    -o-transition: color .5s;
+    transition: color .5s;
+    font-size: 18px;
+    overflow: hidden;
+    line-height: 1.5;
 }
 
 .dashboard {
