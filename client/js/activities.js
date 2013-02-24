@@ -161,11 +161,11 @@ Template.activityFeed.events({
 
 Template.activityFeed.rendered = function() {
   var group = getCurrentGroup();
-  var max = 28;
-
+  var max = 16;
+  
   if(group && group.picasaUsername.length && group.picasaAlbum.length) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, null, function(images) {
-      var picasaAlbum = "<ul class=\"block-grid four-up\" data-clearing>";
+      var picasaAlbum = "<ul class=\"block-grid eight-up\" data-clearing>";
 
       var index = 0;
       $.each(images, function(i, element) {
@@ -184,6 +184,9 @@ Template.activityFeed.rendered = function() {
       $(".recent-photos").foundationClearing();
     });
   }
+
+  var imageUrl = recentActivitiesMap();
+  $(".activities-map").html("<img src='" + imageUrl + "' />");
 };
 
 Template.activityFeed.anyActivities = function () {
@@ -197,6 +200,30 @@ Template.activityFeed.recentActivities = function () {
 Template.activityFeed.typeIs = function (what) {
   return activityType(this) === what;
 };
+
+var recentActivitiesMap = function() {
+  var dimensions = "635x240";
+  var recentActivities = Activities.find({group: getCurrentGroupId()}, {limit: 15, sort: {created: -1}});
+
+  // FIXME: The code here shouldn't ned to know about DOM elements.
+  // if(parseInt($("body").css("width").match(/\d+/g)) > 767)
+  //   dimensions = "300x240";
+
+  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&sensor=false&size=:dimensions&maptype=hybrid";
+  imageUrl = imageUrl.replace(/:dimensions/, dimensions).
+                      replace(/:random/, Math.round((new Date()).getTime() / 1000));
+
+  recentActivities.forEach(function (activity) {
+    if(activity.lat && activity.lng) {
+      imageUrl += "&visible=:lat,:lng&markers=color:green|label::label|:lat,:lng";
+      imageUrl = imageUrl.replace(/:lng/g, activity.lng).
+                          replace(/:lat/g, activity.lat).
+                          replace(/:label/, activity.location);
+    }
+  });
+
+  return imageUrl;
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Activity view
@@ -258,7 +285,7 @@ Template.currentActivity.rendered = function() {
     if(parseInt($("body").css("width").match(/\d+/g)) > 767)
       dimensions = "300x240";
 
-    imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:blue|label::location|:lat,:lng&sensor=false";
+    imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:green|label::location|:lat,:lng&sensor=false";
     imageUrl = imageUrl.replace(/:dimensions/, dimensions).
               replace(/:lat/g, activity.lat).
               replace(/:lng/g, activity.lng).

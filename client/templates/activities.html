@@ -9,7 +9,7 @@
     <div class="three columns feed">
       <h4>Activities</h4>
       {{#if anyActivities}}
-        <ul class="vcard">
+        <ul class="no-bullet">
         {{#each recentActivities}}
           {{#with this}}
             <li>
@@ -24,13 +24,18 @@
         <p>No activities yet :-(</p>
       {{/if}}
     </div>
-    {{#if group.picasaUsername}}
-      <div class="nine columns">
+    <div class="nine columns">
+      <div class="panel activities-map"></div>
+    </div>
+  </div>
+  {{#if group.picasaUsername}}
+    <div class="row">
+      <div class="twelve columns">
         <h4>Photos</h4>
         <div class="recent-photos">Loading photos...</div>
       </div>
-    {{/if}}
-  </div>
+    </div>
+  {{/if}}
 </template>
 
 <template name="activityComment">
