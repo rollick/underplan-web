@@ -44,20 +44,16 @@
       
       <section>
         <!-- Left Nav Section -->
-        <ul class="left">
-          <li class="divider"></li> 
-          <li>
-            {{#if group}}
+        {{#if group}}
+          <ul class="left">
+            <li class="divider"></li> 
+            <li>
               <a href="#" class="main-home">
                 Underplan <span>{{appVersion}}</span>
               </a>
-            {{else}}
-              <a href="#" class="home">
-                {{group.name}}
-              </a>
-            {{/if}}
-          </li>
-        </ul>
+            </li>
+          </ul>
+        {{/if}}
 
         <!-- Right Nav Section -->
         <ul class="right">
