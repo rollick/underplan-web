@@ -75,7 +75,9 @@ Template.storyEditor.events({
 
     if (values.groupId && values.title.length && values.text.length) {
       Meteor.call('createActivity', values, function (error, activityId) {
-        if (! error) {
+        if (error) {
+          Session.set("createError", error);
+        } else {
           Router.setActivity(getCurrentGroup(), Activities.findOne(activityId));
         }
       });
@@ -90,8 +92,13 @@ Template.storyEditor.events({
     var values = getStoryValues(template);
 
     if (values.title.length && values.text.length) {
-      Activities.update({_id: activityId}, {$set: values});
-      Router.setActivity(getCurrentGroup(), Activities.findOne(activityId));
+      Activities.update({_id: activityId}, {$set: values}, true, function (error) {
+        if (error) {
+          Session.set("createError", error);
+        } else {
+          Router.setActivity(getCurrentGroup(), Activities.findOne(activityId));
+        }
+      });
     } else {
       Session.set("createError",
                   "It needs a title and a story");
@@ -173,7 +180,7 @@ Template.activityFeed.rendered = function() {
           return false;
 
         picasaAlbum += " <li>";
-        picasaAlbum += "   <a href=\"" + element.url + "\"><img src=\"" + element.thumbs[0].url + "\"></a>";
+        picasaAlbum += "   <a href=\"" + element.url + "\"><img class=\"bordered\" src=\"" + element.thumbs[0].url + "\"></a>";
         picasaAlbum += " </li>";
 
         index += 1;
@@ -186,7 +193,7 @@ Template.activityFeed.rendered = function() {
   }
 
   var imageUrl = recentActivitiesMap();
-  $(".activities-map").html("<img src='" + imageUrl + "' />");
+  $(".activities-map").html("<img class=\"bordered\" src='" + imageUrl + "' />");
 };
 
 Template.activityFeed.anyActivities = function () {
@@ -202,14 +209,14 @@ Template.activityFeed.typeIs = function (what) {
 };
 
 var recentActivitiesMap = function() {
-  var dimensions = "635x240";
+  var dimensions = "640x240";
   var recentActivities = Activities.find({group: getCurrentGroupId()}, {limit: 15, sort: {created: -1}});
 
   // FIXME: The code here shouldn't ned to know about DOM elements.
   // if(parseInt($("body").css("width").match(/\d+/g)) > 767)
   //   dimensions = "300x240";
 
-  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&sensor=false&size=:dimensions&maptype=hybrid";
+  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&sensor=false&size=:dimensions&maptype=roadmap";
   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
                       replace(/:random/, Math.round((new Date()).getTime() / 1000));
 
@@ -353,12 +360,14 @@ Template.activityComment.events({
   'click .save': function (event, template) {
     var comment = template.find(".comment").value;
     var activityId = template.find(".activity-id").value;
-
-    if (comment && activityId && Meteor.userId()) {
-      $(template.find(".reveal-modal")).trigger('reveal:close');
+    
+    if (activityId && Meteor.userId()) {
       
       Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
-        if (! error) {
+        if (error) {
+          Session.set("createError", error);
+        } else {
+          $(template.find(".reveal-modal")).trigger('reveal:close');
           template.find(".comment").value = "";
         }
       });

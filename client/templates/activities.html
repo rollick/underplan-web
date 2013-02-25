@@ -9,12 +9,12 @@
     <div class="three columns feed">
       <h4>Activities</h4>
       {{#if anyActivities}}
-        <ul class="no-bullet">
+        <ul class="circle">
         {{#each recentActivities}}
           {{#with this}}
             <li>
               {{#if typeIs "story"}}
-                <i class="foundicon-page"> {{title}}</i>
+                {{title}}
               {{/if}}
             </li>
           {{/with}}
@@ -25,7 +25,7 @@
       {{/if}}
     </div>
     <div class="nine columns">
-      <div class="panel activities-map"></div>
+      <div class="activities-map"></div>
     </div>
   </div>
   {{#if group.picasaUsername}}
@@ -40,6 +40,9 @@
 
 <template name="activityComment">
   <div id="commentModal" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden; display: none;">
+  {{#if error}}
+    <div class="alert-box alert">{{error}}</div>
+  {{/if}}
   {{#if activity}}
     <h3>Comment</h3>
     <input type="hidden" class="activity-id" value="{{activity._id}}">

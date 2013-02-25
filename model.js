@@ -175,7 +175,7 @@ Meteor.methods({
     options = options || {};
     if (typeof options.title === "string" && options.title.length > 100)
       throw new Meteor.Error(413, "Title too long");
-    if (typeof options.text === "string" && options.text.length > 1000)
+    if (typeof options.text === "string" && options.text.length > 10000)
       throw new Meteor.Error(413, "Text too long");
     if (! this.userId)
       throw new Meteor.Error(403, "You must be logged in");

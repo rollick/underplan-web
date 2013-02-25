@@ -7,8 +7,12 @@ Meteor.publish("directory", function () {
 Meteor.publish("activities", function () {
   // TODO:  need to also publish activities if the activity is unpublished
   //        but is linked to a group to which the current user belongs.
+  groups = Groups.find({invited: this.userId}, {fields: {_id: 1}}).map(function(group) {
+    return group._id;
+  });
+
   return Activities.find(
-    {$or: [{"published": true}, {owner: this.userId}]});
+    {$or: [{"published": true}, {"owner": this.userId}, {"group": {$in: groups}}]});
 });
 
 Meteor.publish("allGroups", function () {
