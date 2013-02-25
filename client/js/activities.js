@@ -172,14 +172,14 @@ Template.activityFeed.rendered = function() {
   
   if(group && group.picasaUsername.length && group.picasaAlbum.length) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, null, function(images) {
-      var picasaAlbum = "<ul class=\"block-grid eight-up\" data-clearing>";
+      var picasaAlbum = "<ul class=\"block-grid mobile-four-up\" data-clearing>";
 
       var index = 0;
       $.each(images, function(i, element) {
         if(index >= max)
           return false;
 
-        picasaAlbum += " <li>";
+        picasaAlbum += " <li style=\"padding: 4px;\">";
         picasaAlbum += "   <a href=\"" + element.url + "\"><img class=\"bordered\" src=\"" + element.thumbs[0].url + "\"></a>";
         picasaAlbum += " </li>";
 

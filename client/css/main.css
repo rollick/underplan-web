@@ -149,38 +149,6 @@ a.main-home span {
     content: "\2014 \0020"; 
 }
 
-img.bordered {
-    padding: 3px;
-    border: 1px solid rgb(240, 238, 238);
-}
-
-img.bordered { 
-    display: block; 
-    /*border: solid 4px white; */
-    -webkit-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2); 
-    -moz-box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2); 
-    box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.2); 
-    -webkit-border-radius: 3px; 
-    -moz-border-radius: 3px; 
-    -ms-border-radius: 3px; 
-    -o-border-radius: 3px; 
-    border-radius: 3px; 
-    -webkit-transition-property: box-shadow; 
-    -moz-transition-property: box-shadow; 
-    -o-transition-property: box-shadow; 
-    transition-property: box-shadow; 
-    -webkit-transition-duration: 300ms; 
-    -moz-transition-duration: 300ms; 
-    -o-transition-duration: 300ms; 
-    transition-duration: 300ms; 
-}
-img.bordered:hover, img.bordered:focus { 
-    -webkit-box-shadow: 0 0 6px 1px rgba(43, 166, 203, 0.5); 
-    -moz-box-shadow: 0 0 6px 1px rgba(43, 166, 203, 0.5); 
-    box-shadow: 0 0 6px 1px rgba(43, 166, 203, 0.5); 
-}
-
-
 .activities-map {
     text-align: right;
 }
@@ -191,6 +159,8 @@ img.bordered:hover, img.bordered:focus {
 
 .activity-map {
     float: right;
+    min-width: 120px;
+    min-height: 120px;
 }
 
 .input-subtext {

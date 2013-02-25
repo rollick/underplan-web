@@ -25,36 +25,46 @@
 
 <div class="row">
   <div class="twelve columns no-side-padding">
-    <nav class="top-bar">
+    <nav class="top-bar ">
       <ul>
         <!-- Title Area -->
         <li class="name">
-          <a href="#" class="main-home branding">
-            {{#if group}}U{{else}}Underplan <span>{{appVersion}}</span>{{/if}}
-          </a>
+          {{#if group}}
+            <a href="#" class="home branding">
+              {{group.name}}
+            </a>
+          {{else}}
+            <a href="#" class="main-home branding">
+              Underplan <span>{{appVersion}}</span>
+            </a>
+          {{/if}}
         </li>
         <li class="toggle-topbar"><a href="#"></a></li>
       </ul>
       
       <section>
         <!-- Left Nav Section -->
-        {{#if group}}
-          <ul class="left">
-            <li class="divider"></li> 
-            <li class="name">
+        <ul class="left">
+          <li class="divider"></li> 
+          <li>
+            {{#if group}}
+              <a href="#" class="main-home">
+                Underplan <span>{{appVersion}}</span>
+              </a>
+            {{else}}
               <a href="#" class="home">
                 {{group.name}}
               </a>
-            </li>
-          </ul>
-        {{/if}}
+            {{/if}}
+          </li>
+        </ul>
 
         <!-- Right Nav Section -->
         <ul class="right">
           <li class="divider show-for-medium-and-up"></li>
           {{#if group}}
-            {{> groupAdminActions}}
             {{> activityActions}}
+            {{> groupAdminActions}}
           {{/if}}
           {{> loginButtons}}
         </ul>

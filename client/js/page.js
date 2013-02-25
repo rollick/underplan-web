@@ -2,7 +2,7 @@
 // Page
 
 Template.page.appVersion = function () {
-  return "v0.9";
+  return "v0.9.1";
 };
 
 Template.page.group = function () {
