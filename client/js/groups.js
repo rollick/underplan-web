@@ -37,10 +37,10 @@ Template.groupEditor.events({
     if (values.name.length && values.description.length) {
       Meteor.call('createGroup', values, function (error, group) {
         if (! error) {
-          Session.set("groupId", group._id);
+          Session.set("groupId", group);
+          Router.setGroup(getCurrentGroup());
         }
       });
-      hideGroupEditor();
     } else {
       Session.set("createError",
                   "It needs a name and description");
@@ -58,8 +58,12 @@ Template.groupEditor.events({
                   "It needs a title and a story");
     }
   },
-  'click .cancel': function () {
+  'click .cancel-new': function () {
     Router.setHome();
+    return false;
+  },
+  'click .cancel-edit': function () {
+    Router.setGroup(this);
     return false;
   }
 });
@@ -121,6 +125,10 @@ Template.page.showInviteList = function () {
 Template.groupInviteList.events({
   'click .invite': function (event, template) {
     Meteor.call('invite', Session.get("groupId"), this._id);
+  },
+  'click .cancel': function () {
+    Router.setGroup(getCurrentGroup());
+    return false;
   }
 });
 

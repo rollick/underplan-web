@@ -73,7 +73,9 @@
           <label>Album Name (optional)</label>
           <input type="text" class="picasa-album" value="{{picasaAlbum}}">
         </fieldset>
-        <a href="#" class="small button success update">Update Group</a>
+        <hr />
+        <a href="#" class="small button secondary cancel-edit">Cancel</a>
+        <a href="#" class="small button success update">Update group</a>
       {{/with}}
     {{else}}
       <label>Name</label>
@@ -87,7 +89,9 @@
         <label>Album Name (optional)</label>
         <input type="text" class="picasa-album" placeholder="e.g. SouthEastAsia2013">
       </fieldset>
-      <a href="#" class="small button success save">Add Group</a>
+      <hr />
+      <a href="#" class="small button secondary cancel-new">Cancel</a>
+      <a href="#" class="small button success save">Add group</a>
     {{/if}}
   </div>
 </template>
@@ -118,5 +122,6 @@
       </ul>
     </div>
   </div>
-
+  <hr />
+  <a href="#" class="small button secondary cancel">Cancel</a>
 </template>

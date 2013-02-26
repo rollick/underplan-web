@@ -63,7 +63,7 @@ Template.storyEditor.events({
     }
   },
   'click .cancel': function (event, template) {
-    Router.setGroup(Session.get("group"));
+    Router.setGroup(getCurrentGroup());
     return false;
   },
   'click .back': function (event, template) {
