@@ -4,7 +4,7 @@ var setupAdmins = function () {
   Meteor.users.find({}).forEach( function (user) {
     if(!user.services)
       return;
-    debugger
+    
     var isAdmin = false;
     if((user.services.twitter && _.contains(settings.admins, user.services.twitter.email)) ||
        (user.services.github && _.contains(settings.admins, user.services.github.email)) ||
