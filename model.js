@@ -20,6 +20,9 @@ Groups.allow({
       if (userId !== group.owner)
         return false; // not the owner
 
+      if (isAdmin(userId))
+        return false; // not an admin
+
       var allowed = ["name", "description", "picasaUsername", "picasaAlbum"];
       if (_.difference(fields, allowed).length)
         return false; // tried to write to forbidden field
@@ -50,7 +53,7 @@ Meteor.methods({
       throw new Meteor.Error(403, "You must be logged in");
 
     if ( typeof options.created === "undefined" )
-      options.created = new Date()
+      options.created = new Date();
 
     if ( typeof options.slug === "undefined" || options.slug == "" )
       options.slug = createLinkSlug(options.name);
@@ -64,7 +67,8 @@ Meteor.methods({
       created:          options.created,
       slug:             options.slug,
       invited:          [],
-      rsvps:            []
+      rsvps:            [],
+      approved:         false // unapproved by default. Admins can approve
     });
   },
 
@@ -151,6 +155,7 @@ Activities.allow({
     return _.all(activities, function (activity) {
       if (userId !== activity.owner)
         return false; // not the owner
+
       var allowed = ["mapZoom", "picasaTags", "groupId", "slug", "published", "location", "title", "text", "lat", "lng", "url", "urlType", "created"];
       if (_.difference(fields, allowed).length)
         return false; // tried to write to forbidden field
@@ -281,6 +286,26 @@ Meteor.methods({
 
 ///////////////////////////////////////////////////////////////////////////////
 // Users
+
+Meteor.methods({
+  isAdmin: function () {
+    if(!this.userId)
+      return false;
+
+    var settings = Meteor.settings;
+    var user = Meteor.users.findOne(this.userId);
+    if(!settings || !user)
+      return false;
+    
+    if((user.services.twitter && _.contains(settings.admins, user.services.twitter.email)) ||
+       (user.services.github && _.contains(settings.admins, user.services.github.email)) ||
+       (user.services.google && _.contains(settings.admins, user.services.google.email))) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+})
 
 var displayName = function (user) {
   if (user.profile && user.profile.name)

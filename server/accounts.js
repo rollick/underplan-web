@@ -1,3 +1,21 @@
+var setupAdmins = function () {
+  var settings = Meteor.settings;
+
+  Meteor.users.find({}).forEach( function (user) {
+    if(!user.services)
+      return;
+    debugger
+    var isAdmin = false;
+    if((user.services.twitter && _.contains(settings.admins, user.services.twitter.email)) ||
+       (user.services.github && _.contains(settings.admins, user.services.github.email)) ||
+       (user.services.google && _.contains(settings.admins, user.services.google.email))) {
+      isAdmin = true;
+      console.log("Adding admin: " + user._id);
+    }
+    Meteor.users.update({_id: user._id}, {admin: isAdmin});
+  });
+};
+
 var setupLoginServices = function () {
   var settings = Meteor.settings;
   var auth = settings.authentication;
@@ -104,6 +122,7 @@ var createUserHook = function () {
 };
 
 Meteor.startup(function() {
+  setupAdmins();
   setupLoginServices();
   // createUserHook();
 });

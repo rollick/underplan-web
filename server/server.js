@@ -1,7 +1,8 @@
 // Underplan -- server
 
 Meteor.publish("directory", function () {
-  return Meteor.users.find({}, {fields: {emails: 1, profile: 1}});
+  return Meteor.users.find({});
+  //return Meteor.users.find({}, {fields: {"emails": 1, "profile": 1, "admin": 1}});
 });
 
 Meteor.publish("activities", function () {
@@ -16,7 +17,23 @@ Meteor.publish("activities", function () {
 });
 
 Meteor.publish("allGroups", function () {
-  return Groups.find();
+  var conditions;
+  var settings = Meteor.settings;
+  var user = Meteor.users.findOne(this.userId);
+
+  // console.log(settings);
+  if(!!settings && user) {
+    // console.log(user.services);
+    if((user.services.twitter && _.contains(settings.admins, user.services.twitter.email)) ||
+       (user.services.github && _.contains(settings.admins, user.services.github.email)) ||
+       (user.services.google && _.contains(settings.admins, user.services.google.email))) {
+      conditions = {};
+    } else {
+      conditions = {$or: [{"approved": {$exists: false}, "approved": true}]};
+    }
+  }
+
+  return Groups.find(conditions);
 });
 
 Meteor.publish("allComments", function () {
