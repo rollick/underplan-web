@@ -12,6 +12,9 @@
 
 <template name="mainHome">
   <header id="homepage">
+    {{#if message}}
+      <div class="alert-box secondary">{{message}}<a href="#" class="close">x</a></div>
+    {{/if}}
     <div class="groups">
       <div class="row">
         <div class="twelve columns">

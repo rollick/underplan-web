@@ -1,3 +1,18 @@
+<template name="loginForm">
+  <h2>Login</h2>
+  {{#if error}}
+    <div class="alert-box alert">{{error}}</div>
+  {{/if}}
+  <div class="form custom">
+    <label>Username</label>
+    <input type="text" class="username">
+    <label>Password</label>
+    <input type="password" class="password">
+    <hr />
+    <a href="#" class="small button success login">Login</a>
+  </div>
+</template>
+
 <template name="loginButtons">
   {{#if currentUser}}
     {{> loggedin}}
@@ -25,6 +40,11 @@
   <li class="has-dropdown">
     <a>Log in with...</a>
     <ul class="dropdown login-services">
+      <li>
+        <a href="#" class="login-form">
+          <i class="icon-underplan-logo"><p>Underplan...</p></i>
+        </a>
+      </li>
       {{#if hasTwitter}}
         <li>
           <a href="#" class="login twitter">

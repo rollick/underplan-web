@@ -1,0 +1,48 @@
+.activity cite:before { 
+    content: "\2014 \0020"; 
+}
+
+.activities-map {
+    text-align: right;
+}
+
+.activities-map img {
+    margin-top: 20px;
+}
+
+.activity-map {
+    float: right;
+    min-width: 120px;
+    min-height: 120px;
+}
+
+.feed li,
+.groups li {
+    cursor: pointer;
+}
+
+.feed li:hover,
+.groups li:hover {
+    color: green;
+}
+
+.feed li p {
+    display: inline;
+    position: relative;
+    top: -4px;
+    margin-left: 8px;
+}
+
+.feed li i {
+    -webkit-transition: color .5s;
+    -moz-transition: color .5s;
+    -o-transition: color .5s;
+    transition: color .5s;
+    font-size: 18px;
+    overflow: hidden;
+    line-height: 1.5;
+}
+
+.activity .edit {
+    
+}

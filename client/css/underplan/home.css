@@ -1,0 +1,62 @@
+#homepage .columns {
+    text-align: center;
+}
+
+#homepage .or {
+    padding: 20px 0px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.dashboard {
+    margin: 15px;
+    margin-top: 0;
+    background: url("/images/sun3.jpg") 0 0 no-repeat;
+    background-color: black;
+}
+
+.dashboard, .normal {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+.dashboard .groups .panel {
+    border: 1px solid rgb(51, 50, 50);
+    background-color: rgba(48, 48, 48, 0.53) !important;
+}
+
+.dashboard .groups .panel a {
+    font-size: 1.1em;
+}
+
+.dashboard .groups .panel p {
+    font-size: 0.9em;
+    color: white;
+}
+
+.dashboard h4 {
+    margin-bottom: 40px;
+}
+
+.dashboard blockquote {
+    border-left: none;
+    margin-bottom: 45px;
+}
+
+.dashboard blockquote p {
+    font-size: 1.5em;
+    color: white;
+}
+
+.dashboard blockquote cite {
+    font-size: 0.8em;
+    color: rgb(187, 187, 187);
+}
+
+.dashboard h4,
+.dashboard .or {
+    color: white;
+}
+
+.dashboard .groups {
+}

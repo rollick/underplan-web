@@ -27,7 +27,8 @@ var showTemplate = function (templateName) {
     groupEditor: "showGroupEditor",
     activityMap: "showActivityMap",
     mainHome: "showGroupList",
-    userSettings: "showUserSettings"
+    userSettings: "showUserSettings",
+    loginForm: "showLoginForm"
   };
   
   _.each(_.keys(conditions), function(key) {

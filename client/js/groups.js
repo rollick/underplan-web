@@ -11,7 +11,13 @@ Template.page.showGroupEditor = function () {
 
 Template.mainHome.events({
   'click .new-group': function (event, template) {
-    Router.setNewGroup();
+    if(Meteor.userId()) {
+      Router.setNewGroup();
+    } else {
+      Session.set("message",
+                  "You must be logged in to create a group");
+      Router.setHome();
+    }
     return false;
   }
 });
@@ -21,10 +27,18 @@ Template.mainHome.events({
     Router.setGroup(this);
     return false;
   },
+  'click .alert-box a.close': function (event, template) {
+    Session.set("message", null);
+    return true;
+  }
 });
 
 Template.mainHome.groups = function () {
   return Groups.find({}, {sort: {created: -1}});
+};
+
+Template.mainHome.message = function () {
+  return Session.get("message");
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -35,10 +49,18 @@ Template.groupEditor.events({
     var values = getGroupValues(template);
 
     if (values.name.length && values.description.length) {
-      Meteor.call('createGroup', values, function (error, group) {
+      Meteor.call('createGroup', values, function (error, groupId) {
         if (! error) {
-          Session.set("groupId", group);
-          Router.setGroup(getCurrentGroup());
+          Session.set("groupId", groupId);
+          var group = getCurrentGroup();
+
+          if(group && group.approved) {
+            Router.setGroup(getCurrentGroup());
+          } else {
+            Session.set("message",
+                  "Your group is awaiting approval");
+            Router.setHome();
+          }
         }
       });
     } else {

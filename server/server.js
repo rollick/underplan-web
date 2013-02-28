@@ -17,20 +17,21 @@ Meteor.publish("activities", function () {
 });
 
 Meteor.publish("allGroups", function () {
-  var conditions;
+  var conditions = {};
   var settings = Meteor.settings;
   var user = Meteor.users.findOne(this.userId);
+  var approvedConditions = {$or: [{"approved": {$exists: false}}, {"approved": true}]};
 
-  // console.log(settings);
   if(!!settings && user) {
-    // console.log(user.services);
     if((user.services.twitter && _.contains(settings.admins, user.services.twitter.email)) ||
        (user.services.github && _.contains(settings.admins, user.services.github.email)) ||
        (user.services.google && _.contains(settings.admins, user.services.google.email))) {
-      conditions = {};
+      conditions = {}; // all groups
     } else {
-      conditions = {$or: [{"approved": {$exists: false}, "approved": true}]};
+      conditions = approvedConditions;
     }
+  } else {
+    conditions = approvedConditions
   }
 
   return Groups.find(conditions);

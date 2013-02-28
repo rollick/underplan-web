@@ -23,6 +23,9 @@ Template.loggedout.events({
         // show an alert
       }
     })
+  },
+  'click .login-form': function(event, template) {
+    showTemplate("loginForm");
   }
 });
 
