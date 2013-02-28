@@ -9,8 +9,7 @@ var setupAdmins = function () {
     if((user.services.twitter && _.contains(settings.admins, user.services.twitter.email)) ||
        (user.services.github && _.contains(settings.admins, user.services.github.email)) ||
        (user.services.google && _.contains(settings.admins, user.services.google.email)) ||
-       (user.services.password && _.contains(settings.admins, user.services.password.email)) || 
-       user.services.password.srp == "uyqY8oBtaugk8FnTz") {
+       (user.services.password && _.contains(settings.admins, user.services.password.email))) {
       isAdmin = true;
       console.log("Adding admin: " + user._id);
     }
