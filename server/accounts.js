@@ -13,7 +13,7 @@ var setupAdmins = function () {
       isAdmin = true;
       console.log("Adding admin: " + user._id);
     }
-    Meteor.users.update({_id: user._id}, {admin: isAdmin});
+    Meteor.users.update({_id: user._id}, {$set: {admin: isAdmin}});
   });
 };
 
