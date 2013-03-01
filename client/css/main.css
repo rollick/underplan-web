@@ -19,6 +19,11 @@ h1, h2, h3, h4 {
     padding-right: 0px;
 }
 
+.bordered {
+    border: 1px solid rgb(231, 228, 228);
+    padding: 2px;
+}
+
 .branding {
     /*font-family: 'Tinos', serif;*/
     font-size: 1.4em !important;
