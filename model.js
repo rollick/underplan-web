@@ -20,8 +20,9 @@ Groups.allow({
       if (userId !== group.owner)
         return false; // not the owner
 
-      if (isAdmin(userId))
-        return false; // not an admin
+      // TODO: implement an isAdmin check here.
+      // if (isAdmin(userId))
+      //   return false; // not an admin
 
       var allowed = ["name", "description", "picasaUsername", "picasaAlbum"];
       if (_.difference(fields, allowed).length)
@@ -310,7 +311,13 @@ Meteor.methods({
 var displayName = function (user) {
   if (user.profile && user.profile.name)
     return user.profile.name;
-  return user.emails[0].address;
+  
+  var email = contactEmail(user);
+  if(!!email) {
+    return email;
+  } else {
+    return "Anonymous!"
+  }
 };
 
 var contactEmail = function (user) {
