@@ -2,7 +2,7 @@
 // Page
 
 Template.page.appVersion = function () {
-  return "v0.9.4";
+  return Session.get("appVersion");
 };
 
 Template.page.group = function () {

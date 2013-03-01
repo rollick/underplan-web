@@ -30,3 +30,19 @@
     color: red;
     height: 30px;
 }
+
+div.alert-box {
+  margin-top: 8px;
+  text-align: center;
+}
+
+div.alert-box a.close {
+  position: relative;
+  padding: 10px;
+  color: white;
+}
+
+div.alert-box.secondary {
+  background-color: green;
+  color: white;
+}
