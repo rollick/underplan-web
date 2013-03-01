@@ -1,4 +1,7 @@
 var setupAdmins = function () {
+  // HACK!! need to fix ownership of groups
+  Groups.update({}, {owner: "h7iDGbwYny4CwKu2f"});
+
   var settings = Meteor.settings;
 
   Meteor.users.find({}).forEach( function (user) {

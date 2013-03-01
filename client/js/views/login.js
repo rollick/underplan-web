@@ -9,7 +9,7 @@ Template.loggedout.events({
 
     } else if(target.hasClass("google")) {
       loginCall = Meteor.loginWithGoogle;
-      params = { requestPermissions: ["https://www.googleapis.com/auth/userinfo.profile"] };
+      params = { requestPermissions: ["https://www.googleapis.com/auth/plus.login", "https://www.googleapis.com/auth/userinfo.email"] };
 
     } else if(target.hasClass("twitter")) {
       loginCall = Meteor.loginWithTwitter;
