@@ -5,18 +5,18 @@ Template.loggedout.events({
 
     if(target.hasClass("github")) {
       loginCall = Meteor.loginWithGithub;
-      // params = ["user", "public_repo"];
+      params = { requestPermissions: ["user", "public_repo"] };
 
     } else if(target.hasClass("google")) {
       loginCall = Meteor.loginWithGoogle;
-      // params = ["https://www.googleapis.com/auth/userinfo.profile"];
+      params = { requestPermissions: ["https://www.googleapis.com/auth/userinfo.profile"] };
 
     } else if(target.hasClass("twitter")) {
       loginCall = Meteor.loginWithTwitter;
-      // params = [];
+      params = {};
     }
 
-    loginCall(function(err){
+    loginCall(params, function(err){
       if (err) {
         // handle error
       } else {
