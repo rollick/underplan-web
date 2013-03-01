@@ -296,7 +296,7 @@ Meteor.methods({
     var user = Meteor.users.findOne(this.userId);
     if(!settings || !user)
       return false;
-    
+
     if((user.services.twitter && _.contains(settings.admins, user.services.twitter.email)) ||
        (user.services.github && _.contains(settings.admins, user.services.github.email)) ||
        (user.services.google && _.contains(settings.admins, user.services.google.email))) {
@@ -318,5 +318,11 @@ var contactEmail = function (user) {
     return user.emails[0].address;
   if (user.services && user.services.facebook && user.services.facebook.email)
     return user.services.facebook.email;
+  if (user.services && user.services.github && user.services.github.email)
+    return user.services.github.email;
+  if (user.services && user.services.google && user.services.google.email)
+    return user.services.google.email;
+  if (user.services && user.services.twitter && user.services.twitter.email)
+    return user.services.twitter.email;
   return null;
 };
