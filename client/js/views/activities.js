@@ -24,10 +24,6 @@ Template.storyEditor.activity = function () {
   return Activities.findOne(getCurrentActivityId());
 };
 
-Template.storyEditor.rendered = function() {
-  $('.created').glDatePicker();
-};
-
 Template.storyEditor.defaultMapZoom = function () {
   return defaultMapZoom();
 };
