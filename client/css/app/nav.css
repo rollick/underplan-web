@@ -3,6 +3,7 @@
     position: relative;
     top: -4px;
     margin-left: 8px;
+    font-size: 0.7em;
 }
 
 .login-services i {
@@ -13,4 +14,5 @@
     font-size: 18px;
     overflow: hidden;
     line-height: 1.5;
+    font-style: normal;
 }

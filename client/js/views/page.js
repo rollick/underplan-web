@@ -52,20 +52,21 @@ Template.page.events({
 
 Template.page.loadScripts = function () {
   Meteor.defer(function () {
+    $(document).foundation();
     // Foundation
-    $.fn.foundationAlerts           ? $(document).foundationAlerts() : null;
-    $.fn.foundationButtons          ? $(document).foundationButtons() : null;
-    $.fn.foundationAccordion        ? $(document).foundationAccordion() : null;
-    $.fn.foundationNavigation       ? $(document).foundationNavigation() : null;
-    $.fn.foundationTopBar           ? $(document).foundationTopBar() : null;
-    $.fn.foundationCustomForms      ? $(document).foundationCustomForms() : null;
-    $.fn.foundationMediaQueryViewer ? $(document).foundationMediaQueryViewer() : null;
-    $.fn.foundationTabs             ? $(document).foundationTabs({callback : $.foundation.customForms.appendCustomMarkup}) : null;
-    $.fn.foundationTooltips         ? $(document).foundationTooltips() : null;
-    $.fn.foundationMagellan         ? $(document).foundationMagellan() : null;
-    $.fn.foundationClearing         ? $(document).foundationClearing() : null;
+    // $.fn.foundationAlerts           ? $(document).foundationAlerts() : null;
+    // $.fn.foundationButtons          ? $(document).foundationButtons() : null;
+    // $.fn.foundationAccordion        ? $(document).foundationAccordion() : null;
+    // $.fn.foundationNavigation       ? $(document).foundationNavigation() : null;
+    // $.fn.foundationTopBar           ? $(document).foundationTopBar() : null;
+    // $.fn.foundationCustomForms      ? $(document).foundationCustomForms() : null;
+    // $.fn.foundationMediaQueryViewer ? $(document).foundationMediaQueryViewer() : null;
+    // $.fn.foundationTabs             ? $(document).foundationTabs({callback : $.foundation.customForms.appendCustomMarkup}) : null;
+    // $.fn.foundationTooltips         ? $(document).foundationTooltips() : null;
+    // $.fn.foundationMagellan         ? $(document).foundationMagellan() : null;
+    // $.fn.foundationClearing         ? $(document).foundationClearing() : null;
 
-    $.fn.placeholder                ? $('input, textarea').placeholder() : null;
+    // $.fn.placeholder                ? $('input, textarea').placeholder() : null;
   });
   // return nothing
 };

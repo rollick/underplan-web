@@ -8,29 +8,29 @@
   {{/if}}
 
 <div class="row">
-  <div class="twelve columns no-side-padding">
+  <div class="small-12 large-12 columns no-side-padding">
     <nav class="top-bar ">
-      <ul>
+      <ul class="title-area">
         <!-- Title Area -->
         <li class="name">
           {{#if group}}
             <a href="#" class="home branding">
-              {{group.name}}
+              <h1>{{group.name}}</h1>
             </a>
           {{else}}
             <a href="#" class="main-home branding">
-              Underplan <span>{{appVersion}}</span>
+              <h1>Underplan <span>{{appVersion}}</span></h1>
             </a>
           {{/if}}
         </li>
-        <li class="toggle-topbar"><a href="#"></a></li>
+        <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
       </ul>
       
-      <section>
+      <section class="top-bar-section">
         <!-- Left Nav Section -->
         {{#if group}}
           <ul class="left">
-            <li class="divider"></li> 
+            <li class="divider hide-for-small"></li> 
             <li>
               <a href="#" class="main-home">
                 Underplan <span>{{appVersion}}</span>
@@ -54,7 +54,7 @@
 </div>
 
   <div class="row main-content" role="content">
-    <div class="twelve columns {{#if showGroupList}}dashboard{{else}}normal{{/if}}">
+    <div class="small-12 large-12 columns {{#if showGroupList}}dashboard{{else}}normal{{/if}}">
       {{#if showInviteList}}
         {{> groupInviteList}}
       {{/if}}

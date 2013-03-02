@@ -6,7 +6,7 @@
 
 <template name="activityFeed">
   <div class="row">
-    <div class="three columns feed">
+    <div class="small-3 large-3 columns columns feed">
       <h4>Activities</h4>
       {{#if anyActivities}}
         <ul class="circle">
@@ -24,13 +24,13 @@
         <p>No activities yet :-(</p>
       {{/if}}
     </div>
-    <div class="nine columns">
+    <div class="small-9 large-9 columns">
       <div class="activities-map"></div>
     </div>
   </div>
   {{#if group.picasaUsername}}
     <div class="row">
-      <div class="twelve columns">
+      <div class="small-12 large-12 columns">
         <h4>Photos</h4>
         <div class="recent-photos">Loading photos...</div>
       </div>
@@ -60,10 +60,10 @@
   {{#if activity}}
     {{#with activity}}
       <div class="row header">
-        <div class="ten columns">
+        <div class="small-10 large-10 columns">
           <h2>{{title}}</h2>
         </div>
-        <div class="actions two columns">
+        <div class="actions small-2 large-2 columns">
           {{#if canEdit}}
             <a href="#" class="small button edit">Edit</a>
           {{/if}}
@@ -71,11 +71,11 @@
       </div>
       <div class="row">
         {{#if hasMap}}
-        <div class="twelve columns show-for-small">
+        <div class="small-12 large-12 columns show-for-small">
           <div class="activity-map" style="padding: 5px;"></div>
         </div>
         {{/if}}
-        <div class="twelve columns">
+        <div class="small-12 large-12 columns">
           {{#if hasMap}}
           <div class="activity-map hide-for-small"></div>
           {{/if}}
@@ -87,7 +87,7 @@
       </div>
       {{#if hasPhotos}}
         <div class="row">
-          <div class="twelve columns">
+          <div class="small-12 large-12 columns">
             <div class="activity-photos"></div>
           </div>
         </div>
@@ -95,17 +95,17 @@
     {{/with}}
     <hr>
     <div class="row sub-header">
-      <div class="ten columns">
+      <div class="small-10 large-10 columns">
         <h3>Comments<h3>
       </div>
-      <div class="actions two columns">
+      <div class="actions small-2 large-2 columns">
         {{#if currentUser}}
           <a href="#" data-reveal-id="commentModal" class="small button">Add Comment</a>
         {{/if}}
       </div>
     </div>
     <div class="row">
-      <div class="twelve columns">
+      <div class="small-12 large-12 columns">
         {{#if anyComments}}
           {{#each comments}}
             <blockquote>
@@ -120,7 +120,7 @@
     </div>
   {{else}}
     <div class="row">
-      <div class="twelve columns">
+      <div class="small-12 large-12 columns">
         <div class="alert">What just happened!? Let's go <a href="/">home</a>.</div>
       </div>
     </div>
@@ -149,7 +149,7 @@
   {{#if error}}
     <div class="alert-box alert">{{error}}</div>
   {{/if}}
-  <div class="form custom">
+  <form class="custom">
     {{#if activity}}
       {{#with activity}}
         <input type="hidden" class="id" value="{{_id}}">
@@ -167,12 +167,15 @@
         <input type="text" class="slug" value="{{slug}}">
         <label>Picasa Tag</label>
         <input type="text" class="picasa-tags" value="{{picasaTags}}">
+        <div class="switch">
+          <input id="unpublished" name="publish-switch" class="unpublished" type="radio" {{#if published}} {{else}}checked{{/if}}>
+          <label for="unpublished" onclick="">Unpublished</label>
+          <input id="published" name="publish-switch" class="published" type="radio" {{#if published}}checked{{else}} {{/if}}>
+          <label for="published" onclick="">Published</label>
+          <span></span>
+        </div>
         <label>Published Date</label>
-        <input type="text" class="created" value="{{simpleDate created}}" readonly>
-        <label class="checkbox">
-          <input type="checkbox" class="published" {{#if published}}checked{{/if}}>
-          Published
-        </label>
+        {{datePicker created}}
         <hr >
         <a href="#" class="small button secondary back">Cancel</a>
         <a href="#" class="small button success update">Save story</a>
@@ -192,15 +195,18 @@
       <input type="text" class="slug">
       <label>Picasa Tag</label>
       <input type="text" class="picasa-tags" value="{{picasaTags}}">
+      <div class="switch">
+        <input id="unpublished" name="publish-switch" type="radio" checked>
+        <label for="unpublished" onclick="">Unpublished</label>
+        <input id="published" name="publish-switch" class="published" type="radio">
+        <label for="published" onclick="">Published</label>
+        <span></span>
+      </div>
       <label>Published Date</label>
-      <input type="text" class="created" value="{{simpleDate created}}" readonly>
-      <label class="checkbox">
-        <input type="checkbox" class="published">
-        Published
-      </label>
+      {{datePicker}}
       <hr >
       <a href="#" class="small button secondary cancel">Cancel</a>
       <a href="#" class="small button success save">Add story</a>
     {{/if}}
-  </div>
+  </form>
 </template>

@@ -119,14 +119,24 @@ var getStoryValues = function(template) {
   } else {
     values.lat = values.lng = null;
   }
+  debugger
 
   // Created (Publish) Date
-  var createdStr = template.find(".created").value;
-  if(createdStr != "") {
-    created = new Date(createdStr);
-    if(created.toLocaleString() != "Invalid Date")
-      values.created = created;
-  }
+  var day = template.find(".day-picker .current").text;
+  var month = template.find(".month-picker .current").text;
+  var year = template.find(".year-picker .current").text;
+  var created = new Date(day + " " + month + " " + year);
+
+  debugger
+  if(created.toLocaleString() != "Invalid Date")
+    values.created = created; 
+     
+  // var createdStr = template.find(".created").value;
+  // if(createdStr != "") {
+  //   created = new Date(createdStr);
+  //   if(created.toLocaleString() != "Invalid Date")
+  //     values.created = created;
+  // }
 
   values.title =        template.find(".title").value;
   values.text =         template.find(".text").value;
@@ -172,7 +182,7 @@ Template.activityFeed.rendered = function() {
   
   if(group && group.picasaUsername.length && group.picasaAlbum.length) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, null, function(images) {
-      var picasaAlbum = "<ul class=\"block-grid mobile-four-up\" data-clearing>";
+      var picasaAlbum = "<ul class=\"small-block-grid-4 large-block-grid-8\">";
 
       var index = 0;
       $.each(images, function(i, element) {

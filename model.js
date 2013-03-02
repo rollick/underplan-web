@@ -69,7 +69,7 @@ Meteor.methods({
       slug:             options.slug,
       invited:          [],
       rsvps:            [],
-      approved:         false // unapproved by default. Admins can approve
+      approved:         true // unapproved by default. Admins can approve
     });
   },
 

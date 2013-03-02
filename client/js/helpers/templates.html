@@ -1,0 +1,73 @@
+<template name="datePicker">
+  <div class="row">
+    <div class="large-2 columns">
+      <div class="row collapse day-picker">
+        <div class="large-6 small-3 columns">
+          <span class="prefix">Day</span>
+        </div>
+        <div class="large-6 small-9 columns">
+          <select style="display: none;">
+            {{#each days}}
+              <option>{{this}}</option>
+            {{/each}}
+          </select>
+          <div class="custom dropdown">
+            <a href="#" class="current">{{selectedDay}}</a>
+            <a href="#" class="selector"></a>
+            <ul>
+              {{#each days}}
+                <liclass="{{#ifCond selectedDay this}}selected{{/ifCond}}">{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="large-6 columns">
+      <div class="row collapse month-picker">
+        <div class="large-3 small-3 columns">
+          <span class="prefix">Month</span>
+        </div>
+        <div class="large-9 small-9 columns">
+          <select style="display: none;">
+            {{#each months}}
+              <option>{{this}}</option>
+            {{/each}}
+          </select>
+          <div class="custom dropdown">
+            <a href="#" class="current">{{selectedMonth}}</a>
+            <a href="#" class="selector"></a>
+            <ul>
+              {{#each months}}
+                <li class="{{#ifCond selectedMonth this}}selected{{/ifCond}}">{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="large-4 columns">
+      <div class="row collapse year-picker">
+        <div class="large-3 small-3 columns">
+          <span class="prefix">Year</span>
+        </div>
+        <div class="large-9 small-9 columns">
+          <select style="display: none;">
+            {{#each years}}
+              <option>{{this}}</option>
+            {{/each}}
+          </select>
+          <div class="custom dropdown">
+            <a href="#" class="current">{{selectedYear}}</a>
+            <a href="#" class="selector"></a>
+            <ul>
+              {{#each years}}
+                <liclass="{{#ifCond selectedYear this}}selected{{/ifCond}}">{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
