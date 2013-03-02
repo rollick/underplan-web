@@ -18,3 +18,19 @@ div.alert-box.secondary {
   background-color: green;
   color: white;
 }
+
+.custom.checkbox {
+  border-color: black !important;
+}
+
+.custom.checkbox.checked::before {
+  color: rgb(0, 0, 0) !important;
+  font-weight: bold !important;
+  padding-left: 1px;
+  padding-top: 1px
+}
+
+form fieldset legend {
+  margin-bottom: 10px;
+  font-weight: normal;
+}

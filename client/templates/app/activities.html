@@ -156,9 +156,10 @@
         <label>Title</label>
         <input type="text" class="title" value="{{title}}">
         <label>Story</label>
-        <textarea type="text" class="text" rows="20">{{text}}</textarea>
+        <textarea class="text" rows="20" style="height: 240px;">{{text}}</textarea><br />
         <label>Location</label>
-        <input type="text" class="location" value="{{location}}"><div class="location-coords input-subtext"></div>
+        <input type="text" class="location" value="{{location}}">
+        <div class="location-coords input-subtext"></div>
         <input type="hidden" class="lat" value="{{lat}}">
         <input type="hidden" class="lng" value="{{lng}}">
         <label>Map Zoom</label>
@@ -167,13 +168,10 @@
         <input type="text" class="slug" value="{{slug}}">
         <label>Picasa Tag</label>
         <input type="text" class="picasa-tags" value="{{picasaTags}}">
-        <div class="switch">
-          <input id="unpublished" name="publish-switch" class="unpublished" type="radio" {{#if published}} {{else}}checked{{/if}}>
-          <label for="unpublished" onclick="">Unpublished</label>
-          <input id="published" name="publish-switch" class="published" type="radio" {{#if published}}checked{{else}} {{/if}}>
-          <label for="published" onclick="">Published</label>
-          <span></span>
-        </div>
+        <label for="published">
+          <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
+          <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published
+        </label><br />
         <label>Published Date</label>
         {{datePicker created}}
         <hr >
@@ -184,7 +182,7 @@
       <label>Title</label>
       <input type="text" class="title">
       <label>Story</label>
-      <textarea type="text" class="text" rows="20"></textarea>
+      <textarea class="text" rows="20" style="height: 240px;"></textarea><br />
       <label>Location</label>
       <input type="text" class="location"><div class="location-coords input-subtext"></div>
       <input type="hidden" class="lat" value="{{lat}}">
@@ -195,13 +193,10 @@
       <input type="text" class="slug">
       <label>Picasa Tag</label>
       <input type="text" class="picasa-tags" value="{{picasaTags}}">
-      <div class="switch">
-        <input id="unpublished" name="publish-switch" type="radio" checked>
-        <label for="unpublished" onclick="">Unpublished</label>
-        <input id="published" name="publish-switch" class="published" type="radio">
-        <label for="published" onclick="">Published</label>
-        <span></span>
-      </div>
+      <label for="published">
+        <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
+        <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published
+      </label>
       <label>Published Date</label>
       {{datePicker}}
       <hr >

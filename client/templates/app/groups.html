@@ -61,14 +61,14 @@
   {{#if error}}
     <div class="alert-box alert">{{error}}</div>
   {{/if}}
-  <div class="form custom">
+  <form>
     {{#if group}}
       {{#with group}}
         <input type="hidden" class="id" value="{{_id}}">
         <label>Name</label>
         <input type="text" class="name" value="{{name}}">
         <label>Description</label>
-        <textarea type="text" class="description" rows="2">{{description}}</textarea>
+        <textarea type="text" class="description" rows="2">{{description}}</textarea><br />
         <fieldset>
           <legend>Picasa Photo Settings</legend>
           <label>Username</label>
@@ -84,7 +84,7 @@
       <label>Name</label>
       <input type="text" class="name">
       <label>Description</label>
-      <textarea type="text" class="description" rows="2"></textarea>
+      <textarea type="text" class="description" rows="2"></textarea><br />
       <fieldset>
         <legend>Picasa Photo Settings</legend>
         <label>Username</label>
@@ -96,7 +96,7 @@
       <a href="#" class="small button secondary cancel-new">Cancel</a>
       <a href="#" class="small button success save">Add group</a>
     {{/if}}
-  </div>
+  </form>
 </template>
 
 <template name="groupInviteList">
