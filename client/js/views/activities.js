@@ -194,7 +194,8 @@ Template.activityFeed.rendered = function() {
       picasaAlbum += "</ul>";
       
       $(".recent-photos").html(picasaAlbum)
-      $(".recent-photos").foundationClearing();
+      // FIXME: implement new clearing code
+      //$(".recent-photos").foundationClearing();
     });
   }
 
@@ -335,7 +336,8 @@ Template.currentActivity.rendered = function() {
       picasaAlbum += "</ul>";
       
       $(".activity-photos").html(picasaAlbum)
-      $(".activity-photos").foundationClearing();
+      // FIXME: implement new clearing code
+      // $(".activity-photos").foundationClearing();
     });
   }
 };
