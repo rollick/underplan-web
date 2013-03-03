@@ -5,15 +5,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-h1, h2, h3, h4 {
-    font-weight: normal;
-}
-
-/*.top-bar ul > li a:not(.button) {
-    height: 44px;
-    line-height: 44px;
-}*/
-
 .no-side-padding {
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -24,17 +15,6 @@ h1, h2, h3, h4 {
     padding: 2px;
 }
 
-.branding {
-    /*font-family: 'Tinos', serif;*/
-    font-size: 1.4em !important;
-    font-weight: normal !important;
-}
-
-a.main-home span {
-    font-size: 0.5em;
-    opacity: 0.3;
-    line-height: 40px;
-}
 
 .normal {
     padding-bottom: 15px;
@@ -53,41 +33,11 @@ a.main-home span {
     min-height: 1px;
 }
 
-#login-buttons a, .accounts-dialog a {
-    text-decoration: none;
-}
-
 .actions {
     display: block;
     line-height: 32px;
     padding-top: 18px;
 }
-
-.details {
-    margin-top: -18px;
-}
-
-.footer {
-    height: 32px;
-}
-
-.small {
-    font-size: 0.5em;
-}
-
-.header {
-    padding-bottom: 0px;
-}
-
-.header .actions {
-    padding-top: 16px;
-    float: right;
-}
-
-.sub-header .actions {
-    padding-top: 8px;
-}
-
 .actions a {
     float: right;
 }
