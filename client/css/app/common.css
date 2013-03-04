@@ -1,0 +1,46 @@
+.text-length {
+  text-align: center;
+  padding: 0;
+}
+
+.columns.action a {
+  font-size: 0.9em;
+  height: 34px;
+  line-height: 33px;
+  padding: 0;
+  color: black;
+}
+
+.columns.action a.disabled {
+  color: rgba(0,0,0,0.3);
+}
+
+.columns.action a span {
+  position: absolute;
+  right: 0;
+  display: block;
+  width: 14px;
+  height: 0;
+  margin-right: 10px;
+  -webkit-box-shadow: 0 12px 0 1px black, 0 17px 0 1px black, 0 22px 0 1px black;
+  box-shadow: 0 12px 0 1px black, 0 17px 0 1px black, 0 22px 0 1px black;
+}
+
+.columns.action a.disabled span {
+  -webkit-box-shadow: 0 12px 0 1px rgba(0,0,0,0.3), 0 17px 0 1px rgba(0,0,0,0.3), 0 22px 0 1px rgba(0,0,0,0.3);
+  box-shadow: 0 12px 0 1px rgba(0,0,0,0.3), 0 17px 0 1px rgba(0,0,0,0.3), 0 22px 0 1px rgba(0,0,0,0.3);
+}
+
+@media only screen and (min-width: 48em) {
+  .columns.action {
+    padding-top: 5px;
+  }
+}
+
+.columns.new-short {
+  text-indent: -38px;
+}
+
+.columns.new-comment a {
+  text-indent: -105px;
+}
