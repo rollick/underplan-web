@@ -202,7 +202,7 @@ Template.activityFeed.userBelongsToGroup = function () {
 };
 
 Template.activityFeed.anyActivities = function () {
-  return Activities.find({type: "story", group: getCurrentGroupId()}).count() > 0;
+  return Activities.find({group: getCurrentGroupId()}).count() > 0;
 };
 
 Template.activityFeed.recentActivities = function () {
