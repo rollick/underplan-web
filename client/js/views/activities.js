@@ -374,8 +374,8 @@ Template.activityComment.activity = function () {
 
 Template.activityComment.events({
   'click .save': function (event, template) {
-    var comment = template.find(".comment").value;
-    var activityId = template.find(".activity-id").value;
+    var comment = template.find("form .comment").value;
+    var activityId = template.find("form .activity-id").value;
     
     if (activityId && Meteor.userId()) {
       
