@@ -15,7 +15,7 @@
           <h4>Activities</h4>
         </div>
         {{#if userBelongsToGroup}}
-          <div class="new-short small-8 large-8 columns">
+          <div class="action new-short small-8 large-8 columns">
             <a href="#"><span>New</span></a>
           </div>
         {{/if}}
@@ -51,7 +51,7 @@
         </div>
       </div>
     </div>
-    <div class="show-for-medium-up large-8 columns">
+    <div class="small-12 large-8 columns">
       <div class="row">
         <div class="small-12 large-12 columns">
           <div class="activities-map"></div>
@@ -69,21 +69,23 @@
 </template>
 
 <template name="activityComment">
-  <div id="commentModal" class="reveal-modal" style="top: 100px; opacity: 1; visibility: hidden; display: none;">
-  {{#if error}}
-    <div class="alert-box alert">{{error}}</div>
-  {{/if}}
-  {{#if activity}}
-    <h3>Comment</h3>
-    <input type="hidden" class="activity-id" value="{{activity._id}}">
-    <textarea type="text" class="comment" rows="8"></textarea>
-    <a href="#" class="small button success save">Save comment</a>
-    <a class="close-reveal-modal">×</a>
-  {{else}}
-    <p>Huh?! No Activity selected!</p>
-    <a class="close-reveal-modal">×</a>
-  {{/if}}
-  </div> 
+  <div class="comment row" style="display: none;">
+    <div class="small-12 large-12 columns">
+      {{#if error}}
+        <div class="alert-box alert">{{error}}</div>
+      {{/if}}
+      {{#if activity}}
+        <form class="custom">
+          <input type="hidden" class="activity-id" value="{{activity._id}}">
+          <textarea type="text" class="comment" rows="8"></textarea><br />
+          <a href="#" class="small button success save">Save comment</a>
+        </form>
+      {{else}}
+        <p>Huh?! No Activity selected!</p>
+      {{/if}}
+    </div>
+    <hr />
+  </div>
 </template>
 
 <template name="currentActivity">
@@ -125,15 +127,16 @@
     {{/with}}
     <hr>
     <div class="row sub-header">
-      <div class="small-10 large-10 columns">
-        <h3>Comments<h3>
+      <div class="small-4 large-4 columns">
+        <h4>Comments</h4>
       </div>
-      <div class="actions small-2 large-2 columns">
-        {{#if currentUser}}
-          <a href="#" data-reveal-id="commentModal" class="small button">Add Comment</a>
-        {{/if}}
-      </div>
+      {{#if currentUser}}
+        <div class="action new-comment small-8 large-8 columns">
+          <a href="#"><span>New Comment</span></a>
+        </div>
+      {{/if}}
     </div>
+    {{> activityComment}}
     <div class="row">
       <div class="small-12 large-12 columns">
         {{#if anyComments}}

@@ -161,8 +161,9 @@ Template.activityFeed.events({
     return false;
   },
   'click .new-short a': function (event, template) {
-    $(template.find("a")).toggleClass("disabled");
+    $(event.target).closest("a").toggleClass("disabled");
     $(".short.row").toggle();
+    return false;
   }
 });
 
@@ -347,6 +348,11 @@ Template.currentActivity.rendered = function() {
 Template.currentActivity.events({
   'click .edit': function () {
     Router.setEditActivity(getCurrentGroup(), this);
+    return false;
+  },
+  'click .new-comment a': function (event, template) {
+    $(event.target).closest("a").toggleClass("disabled");
+    $(".comment.row").toggle();
     return false;
   }
 });
