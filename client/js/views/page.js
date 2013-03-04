@@ -39,6 +39,13 @@ Template.page.groupName = function () {
   }
 };
 
+Template.page.rendered = function () {
+  // Init plugins
+  $(document).foundation("topbar", function (response) {
+    console.log(response.errors);
+  });
+};
+
 Template.page.events({
   'click .home': function () {
     Router.setGroup(getCurrentGroup());
@@ -52,7 +59,7 @@ Template.page.events({
 
 Template.page.loadScripts = function () {
   Meteor.defer(function () {
-    $(document).foundation();
+    // $(document).foundation();
   });
   // return nothing
 };

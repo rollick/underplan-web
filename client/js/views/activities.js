@@ -172,7 +172,7 @@ Template.activityFeed.rendered = function() {
   
   if(group && group.picasaUsername.length && group.picasaAlbum.length) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, null, function(images) {
-      var picasaAlbum = "<ul class=\"small-block-grid-4 large-block-grid-8\">";
+      var picasaAlbum = "<ul class=\"clearing-thumbs small-block-grid-4 large-block-grid-8\" data-clearing>";
 
       var index = 0;
       $.each(images, function(i, element) {
@@ -189,7 +189,7 @@ Template.activityFeed.rendered = function() {
       
       $(".recent-photos").html(picasaAlbum)
       // FIXME: implement new clearing code
-      //$(".recent-photos").foundationClearing();
+      $(".recent-photos").foundation("clearing");
     });
   }
 
