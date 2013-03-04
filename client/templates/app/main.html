@@ -9,14 +9,16 @@
 
 <div class="row">
   <div class="small-12 large-12 columns no-side-padding">
-    <nav class="top-bar ">
+    <nav class="top-bar">
       <ul class="title-area">
         <!-- Title Area -->
         <li class="name">
           {{#if group}}
+          <h1>
             <a href="#" class="home branding">
-              <h1>{{group.name}}</h1>
+              {{group.name}}
             </a>
+          </h1>
           {{else}}
             <a href="#" class="main-home branding">
               <h1>Underplan <span>{{appVersion}}</span></h1>

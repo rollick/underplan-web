@@ -5,7 +5,7 @@ Meteor.subscribe("allGroups");
 Meteor.subscribe("directory");
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.11");
+  Session.set("appVersion", "v0.9.12");
 
   Backbone.history.start({ pushState: true });
 
@@ -40,6 +40,16 @@ var showTemplate = function (templateName) {
       Session.set(conditions[key], false);
     }
   });
+};
+
+var appSettings = function () {
+  return { 
+    mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"
+  }
+}
+
+var shortMaxLength = function () {
+  return 250;
 };
 
 var getCurrentActivity = function () {
@@ -123,5 +133,31 @@ var defaultBack = function () {
     Router.setGroup(group);
   } else {
     Router.setHome();
+  }
+};
+
+var geoLocation = function(location, callback) {
+  if (typeof google == "object" && typeof google.maps == "object") {
+    var lat,
+        lng,
+        geocoder = new google.maps.Geocoder();
+
+    geocoder.geocode( { 'address': location }, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        lat = results[0].geometry.location.Ya || results[0].geometry.location.hb;
+        lng = results[0].geometry.location.Za || results[0].geometry.location.ib;
+
+        result = {lat: lat, lng: lng, address: results[0].formatted_address};
+        if(typeof callback == "function") {
+          callback(result);
+        } else {
+          return result;
+        }
+      } else {
+        return false;
+      }
+    });
+  } else {
+    return false;
   }
 };

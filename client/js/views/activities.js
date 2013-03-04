@@ -32,31 +32,23 @@ Template.storyEditor.events({
   'keyup .location': function (event, template) {
     var location = template.find(".location").value;
     
-    if (typeof google == "object" && typeof google.maps == "object") {
-      var geocoder = new google.maps.Geocoder();
-
-      geocoder.geocode( { 'address': location }, function(results, status) {
-        if (status == google.maps.GeocoderStatus.OK) {
-          lat = results[0].geometry.location.Ya || results[0].geometry.location.hb;
-          lng = results[0].geometry.location.Za || results[0].geometry.location.ib;
-
-          template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + results[0].formatted_address + ")";
-        } else {
-          lat = "";
-          lng = "";
-
-          template.find(".location-coords").innerHTML = "No geo match";
-        }
+    coords = geoLocation(location, function(geo) {
+      if(typeof geo === "object") {
+        var lat = geo.lat,
+            lng = geo.lng,
+            address = geo.address;
 
         template.find(".lat").value = lat;
         template.find(".lng").value = lng;
-      });
-    } else {
-      template.find(".lat").value = "";
-      template.find(".lng").value = "";
 
-      template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation not available");
-    }
+        template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + address + ")";
+      } else {
+        template.find(".lat").value = "";
+        template.find(".lng").value = "";
+
+        template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
+      }
+    });
   },
   'click .cancel': function (event, template) {
     Router.setGroup(getCurrentGroup());
@@ -115,7 +107,6 @@ var getStoryValues = function(template) {
   } else {
     values.lat = values.lng = null;
   }
-  debugger
 
   // Created (Publish) Date
   var day = template.find(".day-picker .current").text;
@@ -123,7 +114,6 @@ var getStoryValues = function(template) {
   var year = template.find(".year-picker .current").text;
   var created = new Date(day + " " + month + " " + year);
 
-  debugger
   if(created.toLocaleString() != "Invalid Date")
     values.created = created; 
      
@@ -166,10 +156,14 @@ Template.page.showActivityMap = function () {
 // Activity feed 
 
 Template.activityFeed.events({
-  'click .feed li': function (event, template) {
+  'click .story a': function (event, template) {
     Router.setActivity(getCurrentGroup(), this);
     return false;
   },
+  'click .new-short a': function (event, template) {
+    $(template.find("a")).toggleClass("disabled");
+    $(".short.row").toggle();
+  }
 });
 
 Template.activityFeed.rendered = function() {
@@ -203,8 +197,12 @@ Template.activityFeed.rendered = function() {
   $(".activities-map").html("<img class=\"bordered\" src='" + imageUrl + "' />");
 };
 
+Template.activityFeed.userBelongsToGroup = function () {
+  return currentUserBelongsToCurrentGroup();
+};
+
 Template.activityFeed.anyActivities = function () {
-  return Activities.find({group: getCurrentGroupId()}).count() > 0;
+  return Activities.find({type: "story", group: getCurrentGroupId()}).count() > 0;
 };
 
 Template.activityFeed.recentActivities = function () {
@@ -212,20 +210,22 @@ Template.activityFeed.recentActivities = function () {
 };
 
 Template.activityFeed.typeIs = function (what) {
-  return activityType(this) === what;
+  return this.type === what;
 };
 
 var recentActivitiesMap = function() {
   var dimensions = "640x240";
   var recentActivities = Activities.find({group: getCurrentGroupId()}, {limit: 15, sort: {created: -1}});
+  var apiKey = appSettings().mapsApiKey;
 
-  // FIXME: The code here shouldn't ned to know about DOM elements.
-  // if(parseInt($("body").css("width").match(/\d+/g)) > 767)
-  //   dimensions = "300x240";
+  // FIXME: The code here shouldn't need to know about DOM elements.
+  if(parseInt($("body").css("width").match(/\d+/g)) > 767)
+    dimensions = "640x400";
 
-  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&sensor=false&size=:dimensions&maptype=roadmap";
+  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&key=:apiKey&sensor=false&size=:dimensions&maptype=roadmap";
   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
-                      replace(/:random/, Math.round((new Date()).getTime() / 1000));
+                      replace(/:random/, Math.round((new Date()).getTime() / 1000)).
+                      replace(/:apiKey/, apiKey);
 
   recentActivities.forEach(function (activity) {
     if(activity.lat && activity.lng) {
@@ -291,20 +291,22 @@ Template.currentActivity.rendered = function() {
 
   ///////////////////////
   // Google Map
-  if(currentActivityHasMap) {
+  if(activity && currentActivityHasMap) {
     var dimensions = "600x240";
     var zoom = activity.mapZoom || defaultMapZoom();
+    var apiKey = appSettings().mapsApiKey;
     
     // FIXME: The code here shouldn't ned to know about DOM elements.
     if(parseInt($("body").css("width").match(/\d+/g)) > 767)
       dimensions = "300x240";
 
-    imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:green|label::location|:lat,:lng&sensor=false";
+    imageUrl = "http://maps.googleapis.com/maps/api/staticmap?key=:apiKey&center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:green|label::location|:lat,:lng&sensor=false";
     imageUrl = imageUrl.replace(/:dimensions/, dimensions).
               replace(/:lat/g, activity.lat).
               replace(/:lng/g, activity.lng).
               replace(/:zoom/, zoom).
-              replace(/:location/, activity.location);
+              replace(/:location/, activity.location).
+              replace(/:apiKey/, apiKey);
 
     mapUrl = "http://maps.google.com/maps?t=h&q=loc::lat,:lng&z=:zoom";
     mapUrl = mapUrl.replace(/:zoom/, zoom).
