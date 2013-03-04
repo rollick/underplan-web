@@ -154,7 +154,7 @@ var geoLocation = function(location, callback) {
           return result;
         }
       } else {
-        return false;
+        callback(false);
       }
     });
   } else {
