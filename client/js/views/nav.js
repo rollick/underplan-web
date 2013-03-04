@@ -5,6 +5,10 @@ Template.mainNav.rendered = function () {
   });
 };
 
+Template.mainNav.appVersion = function () {
+  return Session.get("appVersion");
+};
+
 Template.mainNav.group = function () {
   var group = getCurrentGroup();
   if (group) {

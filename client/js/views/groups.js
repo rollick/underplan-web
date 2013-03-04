@@ -25,7 +25,6 @@ Template.mainHome.events({
 Template.mainHome.events({
   'click .groups a': function (event, template) {
     Router.setGroup(this);
-    return false;
   },
   'click .alert-box a.close': function (event, template) {
     Session.set("message", null);

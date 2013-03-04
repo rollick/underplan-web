@@ -22,6 +22,25 @@
 </template>
 
 <template name="loggedin">
+  {{#if loggingIn}}
+
+  {{else}}
+    <li class="divider"></li>
+    <li><a href="#" id="user-settings">Settings</a></li>
+    <li><a href="#" id="logout">Logout</a></li>
+  {{/if}}
+</template>
+
+<template name="loggedout">
+  <li class="login-services">
+    <a href="#" class="login google">
+      <i class="foundicon-social-google-plus"><p>Google</p></i>
+    </a>
+  </li>
+</template>
+
+
+<template name="loggedinOld">
   <li class="{{#unless loggingIn}}has-dropdown{{/unless}}">
     {{#if loggingIn}}
       <a>Logging in...</a>
@@ -35,15 +54,10 @@
   </li>
 </template>
 
-<template name="loggedout">
+<template name="loggedoutOld">
   <li class="has-dropdown">
     <a>Log in with...</a>
     <ul class="dropdown login-services">
-<!--       <li>
-        <a href="#" class="login-form">
-          <i class="icon-underplan-logo"><p>Underplan...</p></i>
-        </a>
-      </li> -->
       {{#if hasTwitter}}
         <li>
           <a href="#" class="login twitter">
