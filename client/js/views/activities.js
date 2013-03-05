@@ -16,10 +16,6 @@ Template.activityActions.userBelongsToGroup = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Activity editor
 
-Template.page.showStoryEditor = function () {
-  return Session.get("showStoryEditor");
-};
-
 Template.storyEditor.activity = function () {
   return Activities.findOne(getCurrentActivityId());
 };
@@ -147,13 +143,6 @@ var hideActivityEditor = function() {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-// Activity map
-
-Template.page.showActivityMap = function () {
-  return Session.get("showActivityMap");
-};
-
-///////////////////////////////////////////////////////////////////////////////
 // Activity feed 
 
 Template.activityFeed.events({
@@ -245,10 +234,6 @@ var recentActivitiesMap = function() {
 
 ///////////////////////////////////////////////////////////////////////////////
 // Activity view
-
-Template.page.showActivity = function () {
-  return Session.get("showActivity");
-};
 
 Template.currentActivity.activity = function () {
   return Activities.findOne(getCurrentActivityId());

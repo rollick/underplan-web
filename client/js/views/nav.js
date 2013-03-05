@@ -34,5 +34,9 @@ Template.mainNav.events({
   'click .main-home': function () {
     Router.setHome();
     return false;
+  },
+  'click .main-settings': function(event, template) {
+    Router.setMainSettings();
+    return false;
   }
 });

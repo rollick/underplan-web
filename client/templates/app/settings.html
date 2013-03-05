@@ -1,0 +1,42 @@
+<template name="userSettings">
+  {{#if error}}
+    <div class="alert-box alert">{{error}}</div>
+  {{/if}}
+  <form class="custom">
+    {{#with user}}
+      <label>Nickname</label>
+      <input type="text" class="name" value="{{profile.name}}">
+      <hr />
+      <a href="#" class="small secondary button cancel">Cancel</a>
+      <a href="#" class="small button success save">Save</a>
+    {{/with}}
+  </form>
+</template>
+
+<template name="mainSettings">
+  <h2>Settings</h2>
+  {{#if isGroupAdmin}}
+    <div class="section-container" data-section data-options="deep_linking: true">
+      <section class="section active">
+        <p class="title"><a href="#user">User</a></p>
+        <div class="content" data-slug="user">
+          {{> userSettings}}
+        </div>
+      </section>
+      <section class="section">
+        <p class="title"><a href="#group">Group</a></p>
+        <div class="content" data-slug="group">
+          {{> groupEditor}}
+        </div>
+      </section>
+      <section class="section">
+        <p class="title"><a href="#membership">Membership</a></p>
+        <div class="content" data-slug="membership">
+          {{> groupInviteList}}
+        </div>
+      </section>
+    </div>
+  {{else}}
+    {{> userSettings}}
+  {{/if}}
+</template>

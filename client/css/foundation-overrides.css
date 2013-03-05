@@ -41,6 +41,10 @@ form fieldset legend {
   font-weight: normal;
 }
 
+.section-container .section.active {
+  padding-top: 0px !important;
+}
+
 ul.dropdown h5 a {
   color: white;
 }

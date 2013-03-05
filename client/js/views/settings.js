@@ -1,6 +1,19 @@
-Template.page.showUserSettings = function () {
-  return Session.get("showUserSettings");
+///////////////////////////////////////////////////////////////////////////////
+// Main Settings
+
+Template.mainSettings.isGroupAdmin = function () {
+  var group = getCurrentGroup();
+  return !!group && group.owner === Meteor.userId();
 };
+
+Template.mainSettings.rendered = function () {
+  var section = this.find(".section-container");
+  if(!!section)
+    $(section).foundation("section");
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// User Settings
 
 Template.userSettings.events({
   'click .save': function (event, template) {

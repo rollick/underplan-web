@@ -26,17 +26,26 @@
 
   {{else}}
     <li class="hide-for-small divider"></li>
-    <li><a href="#" id="user-settings">{{currentUser.profile.name}}</a></li>
+    <li class="main-settings"><a href="#">Settings</a></li>
     <li><a href="#" id="logout">Logout</a></li>
   {{/if}}
 </template>
 
 <template name="loggedout">
-  <li class="login-services">
-    <a href="#" class="login google">
-      <i class="foundicon-social-google-plus"><p>Google</p></i>
-    </a>
-  </li>
+  {{#if hasTwitter}}
+    <li class="login-services">
+      <a href="#" class="login twitter">
+        <i class="foundicon-social-twitter"><p>Twitter</p></i>
+      </a>
+    </li>
+  {{/if}}
+  {{#if hasGoogle}}
+    <li class="login-services">
+      <a href="#" class="login google">
+        <i class="foundicon-social-google-plus"><p>Google</p></i>
+      </a>
+    </li>
+  {{/if}}
 </template>
 
 

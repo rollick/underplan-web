@@ -4,29 +4,11 @@ Meteor.subscribe("allComments");
 Meteor.subscribe("allGroups");
 Meteor.subscribe("directory");
 
-Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.18");
+///////////////////////////////////////////////////////////////////////////////
+// Templates
 
-  Backbone.history.start({ pushState: true });
-
-  Meteor.autorun(function () {
-    // if (! Session.get("groupName")) {  
-    //   Session.set("groupName", "A Trip");
-    // }
-    // if (! Session.get("selectedActivity")) {  
-    //   var activity = Activities.findOne();
-    //   if (activity)
-    //     Session.set("selectedActivity", activity._id);
-    // }
-  });
-
-  $(document).ready(function () {
-    $(document).foundation();
-  });
-});
-
-var showTemplate = function (templateName) {
-  var conditions = {
+var appTemplates = function () {
+  return {
     groupInviteList: "showInviteList", 
     currentActivity: "showActivity", 
     storyEditor: "showStoryEditor", 
@@ -34,8 +16,13 @@ var showTemplate = function (templateName) {
     activityMap: "showActivityMap",
     mainHome: "showGroupList",
     userSettings: "showUserSettings",
-    loginForm: "showLoginForm"
+    loginForm: "showLoginForm",
+    mainSettings: "showMainSettings"
   };
+}
+
+var showTemplate = function (templateName) {
+  var conditions = appTemplates();
   
   _.each(_.keys(conditions), function(key) {
     if(key === templateName) {
@@ -45,6 +32,52 @@ var showTemplate = function (templateName) {
     }
   });
 };
+
+// var initTemplateChecks = function() {
+//   var conditions = appTemplates();
+
+//   _.each(_.keys(conditions), function(key) {
+//     var value = conditions[key];
+//     Template.page[value] = function () {
+//       return Session.get(value);
+//     };
+//   });
+// };
+
+Template.page.showGroupList = function () {
+  return Session.get("showGroupList");
+};
+
+Template.page.showGroupEditor = function () {
+  return Session.get("showGroupEditor");
+};
+
+Template.page.showActivityMap = function () {
+  return Session.get("showActivityMap");
+};
+
+Template.page.showStoryEditor = function () {
+  return Session.get("showStoryEditor");
+};
+
+Template.page.showActivity = function () {
+  return Session.get("showActivity");
+};
+
+Template.page.showGroupList = function () {
+  return Session.get("showGroupList");
+};
+
+Template.page.showUserSettings = function () {
+  return Session.get("showUserSettings");
+};
+
+Template.page.showMainSettings = function () {
+  return Session.get("showMainSettings");
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Common Functions
 
 var appSettings = function () {
   return { 
@@ -166,3 +199,25 @@ var geoLocation = function(location, callback) {
     return false;
   }
 };
+
+Meteor.startup(function () {
+  Session.set("appVersion", "v0.9.18");
+
+  Backbone.history.start({ pushState: true });
+  // initTemplateChecks();
+
+  Meteor.autorun(function () {
+    // if (! Session.get("groupName")) {  
+    //   Session.set("groupName", "A Trip");
+    // }
+    // if (! Session.get("selectedActivity")) {  
+    //   var activity = Activities.findOne();
+    //   if (activity)
+    //     Session.set("selectedActivity", activity._id);
+    // }
+  });
+
+  $(document).ready(function () {
+    $(document).foundation();
+  });
+});

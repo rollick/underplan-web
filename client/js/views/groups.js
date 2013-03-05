@@ -1,11 +1,3 @@
-Template.page.showGroupList = function () {
-  return Session.get("showGroupList");
-};
-
-Template.page.showGroupEditor = function () {
-  return Session.get("showGroupEditor");
-};
-
 ///////////////////////////////////////////////////////////////////////////////
 // Groups Home
 
@@ -142,9 +134,9 @@ Template.groupAdminActions.isGroupAdmin = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Invite List
 
-Template.page.showInviteList = function () {
-  return Session.get("showInviteList");
-};
+// Template.page.showInviteList = function () {
+//   return Session.get("showInviteList");
+// };
 
 Template.groupInviteList.events({
   'click .invite': function (event, template) {
