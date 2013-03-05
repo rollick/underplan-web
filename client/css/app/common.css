@@ -9,6 +9,10 @@
   opacity: 0.6;
 }
 
+.columns.action {
+  margin-top: -3px !important;
+}
+
 .columns.action a {
   font-size: 0.95em;
   height: 34px;
@@ -51,7 +55,8 @@
   }
   
   .columns.action {
-    padding-top: 5px;
+    margin-top: 5px !important;
+    /*padding-top: 5px;*/
   }
 
   .columns.new-short {
