@@ -19,6 +19,10 @@ Meteor.startup(function () {
     //     Session.set("selectedActivity", activity._id);
     // }
   });
+
+  $(document).ready(function () {
+    $(document).foundation();
+  });
 });
 
 var showTemplate = function (templateName) {

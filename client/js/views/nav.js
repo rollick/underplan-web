@@ -1,9 +1,9 @@
-Template.mainNav.rendered = function () {
-  // Init plugins
-  $(document).foundation("topbar", function (response) {
-    console.log(response.errors);
-  });
-};
+// Template.mainNav.rendered = function () {
+//   // Init plugins
+//   $(document).foundation("topbar", function (response) {
+//     console.log(response.errors);
+//   });
+// };
 
 Template.mainNav.appVersion = function () {
   return Session.get("appVersion");
