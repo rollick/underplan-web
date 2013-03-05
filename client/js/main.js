@@ -5,7 +5,7 @@ Meteor.subscribe("allGroups");
 Meteor.subscribe("directory");
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.15");
+  Session.set("appVersion", "v0.9.16");
 
   Backbone.history.start({ pushState: true });
 
