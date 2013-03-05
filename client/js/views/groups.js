@@ -25,6 +25,7 @@ Template.mainHome.events({
 Template.mainHome.events({
   'click .groups a': function (event, template) {
     Router.setGroup(this);
+    return false
   },
   'click .alert-box a.close': function (event, template) {
     Session.set("message", null);
@@ -66,6 +67,7 @@ Template.groupEditor.events({
       Session.set("createError",
                   "It needs a name and description");
     }
+    return false;
   },
   'click .update': function (event, template) {
     var groupId = template.find(".id").value;
@@ -78,6 +80,7 @@ Template.groupEditor.events({
       Session.set("createError",
                   "It needs a title and a story");
     }
+    return false;
   },
   'click .cancel-new': function () {
     Router.setHome();
@@ -146,6 +149,7 @@ Template.page.showInviteList = function () {
 Template.groupInviteList.events({
   'click .invite': function (event, template) {
     Meteor.call('invite', Session.get("groupId"), this._id);
+    return false;
   },
   'click .cancel': function () {
     Router.setGroup(getCurrentGroup());

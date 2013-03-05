@@ -91,6 +91,7 @@ Template.storyEditor.events({
       Session.set("createError",
                   "It needs a title and a story");
     }
+    return false;
   },
 });
 
