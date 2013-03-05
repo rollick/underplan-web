@@ -223,10 +223,12 @@ var recentActivitiesMap = function() {
   if(parseInt($("body").css("width").match(/\d+/g)) > 767)
     dimensions = "640x400";
 
-  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&key=:apiKey&sensor=false&size=:dimensions&maptype=roadmap";
+  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&sensor=false&size=:dimensions&maptype=roadmap";
   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
-                      replace(/:random/, Math.round((new Date()).getTime() / 1000)).
-                      replace(/:apiKey/, apiKey);
+                      replace(/:random/, Math.round((new Date()).getTime() / 1000));
+
+  if(apiKey != "")
+    imageUrl = imageUrl + "&key=" + apiKey;
 
   recentActivities.forEach(function (activity) {
     if(activity.lat && activity.lng) {
@@ -301,13 +303,15 @@ Template.currentActivity.rendered = function() {
     if(parseInt($("body").css("width").match(/\d+/g)) > 767)
       dimensions = "300x240";
 
-    imageUrl = "http://maps.googleapis.com/maps/api/staticmap?key=:apiKey&center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:green|label::location|:lat,:lng&sensor=false";
+    imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:green|label::location|:lat,:lng&sensor=false";
     imageUrl = imageUrl.replace(/:dimensions/, dimensions).
               replace(/:lat/g, activity.lat).
               replace(/:lng/g, activity.lng).
               replace(/:zoom/, zoom).
-              replace(/:location/, activity.location).
-              replace(/:apiKey/, apiKey);
+              replace(/:location/, activity.location);
+
+    if(apiKey != "")
+      imageUrl = imageUrl + "&key=" + apiKey;
 
     mapUrl = "http://maps.google.com/maps?t=h&q=loc::lat,:lng&z=:zoom";
     mapUrl = mapUrl.replace(/:zoom/, zoom).

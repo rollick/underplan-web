@@ -48,7 +48,8 @@ var showTemplate = function (templateName) {
 
 var appSettings = function () {
   return { 
-    mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"
+    // mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"
+    mapsApiKey: ""
   }
 }
 
