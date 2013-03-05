@@ -29,7 +29,7 @@ var AppRouter = Backbone.Router.extend({
   groupSettings: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
     Session.set("createError", null);
-    showTemplate("groupEditor");
+    showTemplate("mainSettings");
   },
 
   newGroup: function() {
@@ -70,8 +70,12 @@ var AppRouter = Backbone.Router.extend({
     this.navigate("", true);
   },
 
-  setMainSettings: function() {
-    this.navigate("settings", true);
+  setMainSettings: function(group) {
+    if(!group || typeof group == "undefined") {
+      this.navigate("settings", true);
+    } else {
+      this.navigate(group.slug + "/settings", true);
+    }
   },
 
   setGroupEditor: function (group) {

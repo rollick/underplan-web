@@ -36,7 +36,7 @@ Template.mainNav.events({
     return false;
   },
   'click .main-settings': function(event, template) {
-    Router.setMainSettings();
+    Router.setMainSettings(getCurrentGroup());
     return false;
   }
 });
