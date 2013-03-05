@@ -52,3 +52,24 @@ ul.dropdown h5 a {
 .carousel {
   margin: 0 6px;
 }
+
+.section-container .section .title,
+.section-container section .title {
+  background-color: rgba(17, 17, 17, 0.6);
+}
+
+.section-container .section .title a,
+.section-container section .title a {
+  color: white;
+  padding: 5px;
+}
+
+.section-container .section.active .title,
+.section-container section.active .title {
+  background-color: #111;
+}
+
+.section-container .section:not(.active) .title:hover,
+.section-container section:not(.active) .title:hover {
+  background-color: rgba(17, 17, 17, 0.4);
+}
