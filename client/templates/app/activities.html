@@ -35,12 +35,12 @@
                 {{#if typeIs "story"}}
                   <blockquote class="story">
                     Story: <a href="#">{{title}}</a>
-                    <cite><span>Posted</span> {{date created}} by {{creatorName}}</cite>
+                    <cite>{{date created}} by {{ownerName}}</cite>
                   </blockquote>
                 {{else}}
                   <blockquote>
                     {{text}}
-                    <cite><span>Posted</span> {{date created}} by {{creatorName}}</cite>
+                    <cite>{{date created}} by {{ownerName}}</cite>
                   </blockquote>
                 {{/if}}
               {{/with}}
@@ -52,7 +52,7 @@
       </div>
     </div>
     <div class="small-12 large-7 columns">
-      <div class="row">
+      <div class="row hide-for-medium-down">
         <div class="small-12 large-12 columns">
           <div class="activities-map"></div>
         </div>

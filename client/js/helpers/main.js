@@ -1,8 +1,25 @@
-Handlebars.registerHelper('ifCond', function(v1, v2) {
-  if(v1 == v2) {
-    return true;
+Handlebars.registerHelper('ownerName', function() {
+  if(typeof this == "undefined")
+    return "N/A";
+
+  var owner = Meteor.users.findOne(this.owner);
+  if (!!owner) {
+    if(owner._id === Meteor.userId()) {
+      return "me";
+    } else {
+      return displayName(owner);
+    }
+  } else {
+    return "N/A";
   }
-  return false;
+});
+
+// Compare the passed value to the current context
+Handlebars.registerHelper('ifCond', function(value) {
+  if(value == this) {
+    return "selected";
+  }
+  return "";
 });
 
 Handlebars.registerHelper('date', function(date) {

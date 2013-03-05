@@ -16,7 +16,7 @@
             <a href="#" class="selector"></a>
             <ul>
               {{#each days}}
-                <li class="{{#ifCond selectedDay this}}selected{{/ifCond}}">{{this}}</li>
+                <li class="{{#ifCond selectedDay}}selected{{/ifCond}}">{{this}}</li>
               {{/each}}
             </ul>
           </div>
@@ -39,7 +39,7 @@
             <a href="#" class="selector"></a>
             <ul>
               {{#each months}}
-                <li class="{{#ifCond selectedMonth this}}selected{{/ifCond}}">{{this}}</li>
+                <li class="{{#ifCond selectedMonth}}selected{{/ifCond}}">{{this}}</li>
               {{/each}}
             </ul>
           </div>
@@ -62,7 +62,7 @@
             <a href="#" class="selector"></a>
             <ul>
               {{#each years}}
-                <li class="{{#ifCond selectedYear this}}selected{{/ifCond}}">{{this}}</li>
+                <li class="{{#ifCond selectedYear}}selected{{/ifCond}}">{{this}}</li>
               {{/each}}
             </ul>
           </div>
