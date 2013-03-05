@@ -53,9 +53,52 @@ ul.dropdown h5 a {
   margin: 0 6px;
 }
 
+.section-container {
+  border: none;
+}
+
+.section-container .section .content,
+.section-container section .content {
+  padding: 15px 2px;
+}
+
 .section-container .section .title,
 .section-container section .title {
   background-color: rgba(17, 17, 17, 0.6);
+  padding-left: 17px;
+}
+
+.section-container .section .title:before,
+.section-container section .title:before {
+  color: white;
+  display: block;
+  width: 0;
+  height: 0;
+  position: absolute;
+  top: 5px;
+  left: 7px;
+  font-size: 0.7em;
+  content: "\025B6";
+}
+
+.section-container .section.active .title:before,
+.section-container section.active .title:before {
+  content: "\025BC";
+  left: 5px;
+}
+
+@media only screen and (min-width: 48em) {
+  .section-container .section .title,
+  .section-container section .title {
+    padding-left: 20px;
+  }
+
+  .section-container .section .title:before,
+  .section-container section .title:before,
+  .section-container .section.active .title:before,
+  .section-container section.active .title:before {
+    top: 8px;
+  }
 }
 
 .section-container .section .title a,
@@ -72,4 +115,8 @@ ul.dropdown h5 a {
 .section-container .section:not(.active) .title:hover,
 .section-container section:not(.active) .title:hover {
   background-color: rgba(17, 17, 17, 0.4);
+}
+
+.section-container .section a.button {
+  padding-bottom: 8px;
 }
