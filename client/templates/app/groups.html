@@ -97,8 +97,8 @@
 
 <template name="groupInviteList">
   <div class="row">
-    <div class="small-2 large-4 columns">
-      <h2>Invite people</h2>
+    <div class="small-12 large-4 columns">
+      <h3>Uninvited</h3>
         <ul class="disc">
         {{#each uninvited}}
           <li>
@@ -110,8 +110,8 @@
         {{/each}}
         </ul>
     </div>
-    <div class="small-6 large-6 columns">
-      <h2>Invited Users</h2>
+    <div class="small-12 large-6 columns">
+      <h3>Invited</h3>
       <ul class="disc">
         {{#each invited}}
           <li>{{displayName}}</li>
