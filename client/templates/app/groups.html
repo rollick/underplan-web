@@ -1,12 +1,8 @@
 <template name="groupAdminActions">
   {{#if isGroupAdmin}}
-   <li class="has-dropdown">
-      <a href="#">Group</a>
-      <ul class="dropdown">
-        <li class="group-settings"><a href="#">Settings</a></li>
-        <li class="membership"><a href="#">Membership</a></li>
-      </ul>
-    </li>
+    <li class="divider"></li> 
+    <li class="group-settings"><a href="#">Group Settings</a></li>
+    <li class="membership"><a href="#">Membership</a></li>
   {{/if}}
 </template>
 
