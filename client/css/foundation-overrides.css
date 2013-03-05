@@ -44,3 +44,7 @@ form fieldset legend {
 ul.dropdown h5 a {
   color: white;
 }
+
+.carousel {
+  margin: 0 6px;
+}
