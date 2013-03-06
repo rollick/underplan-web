@@ -57,7 +57,7 @@
   {{#if error}}
     <div class="alert-box alert">{{error}}</div>
   {{/if}}
-  <form>
+  <form class="group-form">
     {{#if group}}
       {{#with group}}
         <input type="hidden" class="id" value="{{_id}}">
@@ -120,7 +120,7 @@
         {{/each}}
       </ul>
     </div>
-  </div>
+  </div><br />
   <hr />
   <a href="#" class="small button secondary cancel">Cancel</a>
 </template>

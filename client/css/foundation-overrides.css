@@ -54,29 +54,48 @@ ul.dropdown h5 a {
 }
 
 .section-container {
-  border: none;
+  border: none !important;
+}
+
+.section-container .section,
+.section-container section {
+  border-top: none;
+  /*border-bottom: 3px solid green;*/
 }
 
 .section-container .section .content,
 .section-container section .content {
-  padding: 15px 5px;
+  padding: 5px;
+  margin: 0;
+}
+
+.section-container .section .content:last-of-type,
+.section-container section .content:last-of-type {
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
 }
 
 .section-container .section .title,
 .section-container section .title {
-  background-color: white;
+  background-color: #111;
   padding-left: 17px;
+}
+
+.section-container .section .title a,
+.section-container section .title a {
+  color: white;
+  padding: 5px;
 }
 
 .section-container .section .title:before,
 .section-container section .title:before {
-  color: black;
+  color: white;
   display: block;
   width: 0;
   height: 0;
   position: absolute;
-  top: 5px;
-  left: 2px;
+  top: 7px;
+  left: 8px;
   font-size: 0.7em;
   content: "\025B6";
 }
@@ -84,40 +103,43 @@ ul.dropdown h5 a {
 .section-container .section.active .title:before,
 .section-container section.active .title:before {
   content: "\025BC";
-  color: black;
-  background-color: white;
-  left: 0;
+  left: 7px;
 }
 
+/* For larger displays */
 @media only screen and (min-width: 48em) {
   .section-container .section .title,
   .section-container section .title {
-    padding-left: 15px;
-    border: none !important;
+    padding-left: 20px;
   }
 
   .section-container .section .title:before,
   .section-container section .title:before,
   .section-container .section.active .title:before,
   .section-container section.active .title:before {
-    top: 8px;
+    top: 7px;
+  }
+
+  .section-container .section .content,
+  .section-container section .content {
+    padding: 10px 10px 0 10px;
+    margin: 0 10px;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+  }
+
+  .section-container .section .content:last-of-type,
+  .section-container section .content:last-of-type {
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
   }
 }
 
-.section-container .section .title a,
-.section-container section .title a {
-  color: black;
-  padding: 5px;
-}
-
 .section-container .section.active .title,
-.section-container section.active .title {
-  background-color: white;
-}
-
+.section-container section.active .title,
 .section-container .section:not(.active) .title:hover,
 .section-container section:not(.active) .title:hover {
-  background-color: white;
+  background-color: #111;
 }
 
 .section-container .section a.button {
