@@ -1,5 +1,6 @@
 .activity cite:before { 
-    content: "\2014 \0020"; 
+    content: "\2014 \0020";
+    color: gray; 
 }
 
 .activities-map {
@@ -45,4 +46,8 @@
 
 .activity .edit {
     
+}
+
+.comment-form .comment {
+    height: 100px;
 }

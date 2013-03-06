@@ -342,7 +342,7 @@ Template.currentActivity.events({
   },
   'click .new-comment a': function (event, template) {
     $(event.target).closest("a").toggleClass("disabled");
-    $(".comment.row").toggle();
+    $(".comment-form.row").toggle();
     return false;
   }
 });
@@ -373,7 +373,6 @@ Template.activityComment.events({
         if (error) {
           Session.set("createError", error);
         } else {
-          $(template.find(".reveal-modal")).trigger('reveal:close');
           template.find(".comment").value = "";
         }
       });

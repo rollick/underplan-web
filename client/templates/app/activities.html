@@ -16,7 +16,7 @@
         </div>
         {{#if userBelongsToGroup}}
           <div class="action new-short small-8 large-8 columns">
-            <a href="#"><span>New</span></a>
+            <a href="#"><span>New Post</span></a>
           </div>
         {{/if}}
       </div>
@@ -69,7 +69,7 @@
 </template>
 
 <template name="activityComment">
-  <div class="comment row" style="display: none;">
+  <div class="comment-form row" style="display: none;">
     <div class="small-12 large-12 columns">
       {{#if error}}
         <div class="alert-box alert">{{error}}</div>
@@ -107,14 +107,14 @@
           <div class="activity-map" style="padding: 5px;"></div>
         </div>
         {{/if}}
-        <div class="small-12 large-12 columns">
+        <div class="activity small-12 large-12 columns">
           {{#if hasMap}}
           <div class="activity-map hide-for-small"></div>
           {{/if}}
           <div class="text">
             {{#markdown}}{{text}}{{/markdown}}
           </div>
-          <cite><span>Posted</span> {{date created}} by {{creatorName}}</cite>
+          <cite>{{creatorName}} - {{date created}}</cite>
         </div>
       </div>
       {{#if hasPhotos}}
