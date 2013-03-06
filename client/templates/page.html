@@ -9,12 +9,14 @@
 
   <div class="row">
     <div class="small-12 large-12 columns no-side-padding">
-      {{> mainNav}}
+      <div class="fixed">
+        {{> mainNav}}
+      </div>
     </div>
   </div>
 
-  <div class="row main-content" role="content">
-    <div class="small-12 large-12 columns {{#if showGroupList}}dashboard{{else}}normal{{/if}}">
+  <div class="row main-content {{#if showGroupList}}dashboard{{else}}normal{{/if}}" role="content">
+    <div class="small-12 large-12 columns">
       {{#if showInviteList}}
         {{> groupInviteList}}
       {{/if}}
@@ -54,27 +56,22 @@
       {{#if showLoginForm}}
         {{> loginForm}}
       {{/if}}
+      <div class="push"></div>
     </div>
   </div>
 
-<!--   <footer class="row">
-    <div class="twelve columns">
-      <hr>
-      <div class="row">
-        <div class="six columns">
-          <p>© Copyright no one at all. Go to town.</p>
-        </div>
-        <div class="six columns">
-          <ul class="inline-list right">
-            <li><a href="#">Link 1</a></li>
-            <li><a href="#">Link 2</a></li>
-            <li><a href="#">Link 3</a></li>
-            <li><a href="#">Link 4</a></li>
-          </ul>
+  <footer class="hide-for-small {{#if showGroupList}}dashboard{{/if}}">
+    <div class="row">
+      <div class="large-12 columns">
+        <div class="row">
+          <div class="large-12 columns">
+            <p>© Copyright no one at all. Go to town.</p>
+          </div>
         </div>
       </div>
     </div>
-  </footer> -->
+  </footer>
+
 
   <!-- Scripts -->
   {{loadScripts}}

@@ -1,7 +1,14 @@
+* {
+    margin: 0;
+}
+
+html, body {
+    height: 100%;
+}
+
 body {
-    margin: 0px;
-    padding: 0px;
     background-image: url("/images/4.jpg");
+    /*background-color: green;*/
     font-family: 'Open Sans', sans-serif;
 }
 
@@ -9,13 +16,50 @@ h1, h2, h3, h4, h5 {
     font-weight: normal;
 }
 
-.no-side-padding {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+h2 {
+    margin-bottom: 0.2em;
+}
+
+.row.main-content.dashboard {
+    background: url("/images/sun3.jpg") 0 0 no-repeat;
+    background-color: black;
 }
 
 .row.main-content {
+    padding-bottom: 0px;
     border-top: 3px solid green;
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    margin: 0 auto -80px; /* the bottom margin is the negative value of the footer's height */
+}
+
+footer, .push {
+    height: 80px; /* .push must be the same height as .footer */
+    margin: 0px;
+    padding: 0px;
+}
+
+footer.dashboard {
+    font-color: white;
+}
+
+footer.dashboard .row:first-of-type {
+    border-top: 2px solid #2b2b2b;
+}
+
+footer p,
+footer a {
+    margin-top: 10px;
+}
+
+footer.dashboard p {
+    color: #fff;
+}
+
+.no-side-padding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
 }
 
 .bordered {
@@ -37,7 +81,7 @@ a.main-home {
 .normal {
     padding-bottom: 15px;
     background: #fff; 
-    background: rgba(255,255,255,0.8); 
+    background: rgba(255, 255, 255, 1); 
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
 }
 

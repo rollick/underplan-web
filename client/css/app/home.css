@@ -11,8 +11,6 @@
 .dashboard {
     margin: 15px;
     margin-top: 0;
-    background: url("/images/sun3.jpg") 0 0 no-repeat;
-    background-color: black;
 }
 
 .dashboard, .normal {

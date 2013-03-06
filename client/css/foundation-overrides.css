@@ -1,3 +1,7 @@
+.top-bar {
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
+}
+
 .top-bar .name h1 a {
   font-weight: normal;
   padding: 0 5px;
@@ -60,6 +64,7 @@ ul.dropdown h5 a {
 .section-container .section,
 .section-container section {
   border-top: none;
+  margin-bottom: 10px;
   /*border-bottom: 3px solid green;*/
 }
 
