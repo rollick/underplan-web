@@ -182,8 +182,8 @@ var geoLocation = function(location, callback) {
 
     geocoder.geocode( { 'address': location }, function(results, status) {
       if (status == google.maps.GeocoderStatus.OK) {
-        lat = results[0].geometry.location.Ya || results[0].geometry.location.hb;
-        lng = results[0].geometry.location.Za || results[0].geometry.location.ib;
+        lat = results[0].geometry.location.lat || results[0].geometry.location.Ya || results[0].geometry.location.hb;
+        lng = results[0].geometry.location.lng || results[0].geometry.location.Za || results[0].geometry.location.ib;
 
         result = {lat: lat, lng: lng, address: results[0].formatted_address};
         if(typeof callback == "function") {
