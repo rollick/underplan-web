@@ -201,7 +201,7 @@ var geoLocation = function(location, callback) {
 };
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.24");
+  Session.set("appVersion", "v0.9.25");
 
   Backbone.history.start({ pushState: true });
   // initTemplateChecks();
