@@ -78,19 +78,19 @@ ul.dropdown h5 a {
 
 .section-container .section .title,
 .section-container section .title {
-  background-color: #111;
+  background-color: rgba(17, 17, 17, 0.05);
   padding-left: 17px;
 }
 
 .section-container .section .title a,
 .section-container section .title a {
-  color: white;
+  color: #2ba6cb;
   padding: 5px;
 }
 
 .section-container .section .title:before,
 .section-container section .title:before {
-  color: white;
+  color: #2ba6cb;
   display: block;
   width: 0;
   height: 0;
@@ -140,7 +140,7 @@ ul.dropdown h5 a {
 .section-container section.active .title,
 .section-container .section:not(.active) .title:hover,
 .section-container section:not(.active) .title:hover {
-  background-color: #111;
+  background-color: rgba(17, 17, 17, 0.1);
 }
 
 .section-container .section a.button {
