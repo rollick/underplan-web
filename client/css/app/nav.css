@@ -6,11 +6,13 @@
 }
 
 .logo a {
-    font-size: 2.4em;
+    font-size: 2.2em;
     color: white !important;
     font-weight: bold;
     padding: 3px 9px;
     display: block;
+    font-family: 'Roboto';
+    padding: 4px 11px;
 }
 
 .top-bar {
