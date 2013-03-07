@@ -54,4 +54,8 @@ Template.loggedin.events({
   'click #user-settings': function(event, template) {
     Router.setUserSettings();
   }
-}); 
+});
+
+Template.loggedin.isSettingsRoute = function () {
+  return !!Backbone.history.fragment.match(/settings/);
+};

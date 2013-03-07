@@ -4,6 +4,11 @@
   font-size: 1.3em;
 }
 
+.top-bar-section ul li > a,
+.top-bar .toggle-topbar.menu-icon a span {
+  font-weight: normal !important;
+}
+
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
@@ -23,6 +28,10 @@ div.alert-box a.close {
 div.alert-box.secondary {
   background-color: green;
   color: white;
+}
+
+.button {
+  font-weight: normal;
 }
 
 .custom.checkbox {
@@ -60,7 +69,7 @@ ul.dropdown h5 a {
 .section-container .section,
 .section-container section {
   border-top: none;
-  margin-bottom: 10px;
+  /*margin-bottom: 10px;*/
   /*border-bottom: 3px solid green;*/
 }
 
@@ -72,7 +81,7 @@ ul.dropdown h5 a {
 
 .section-container .section .content:last-of-type,
 .section-container section .content:last-of-type {
-  border-bottom: 1px solid #ccc;
+  /*border-bottom: 1px solid #ccc;*/
   padding-bottom: 10px;
 }
 
@@ -123,15 +132,15 @@ ul.dropdown h5 a {
 
   .section-container .section .content,
   .section-container section .content {
-    padding: 10px 10px 0 10px;
+    padding: 10px 5px 0 5px;
     margin: 0 10px;
-    border-left: 1px solid #ccc;
+/*    border-left: 1px solid #ccc;
     border-right: 1px solid #ccc;
-  }
+*/  }
 
   .section-container .section .content:last-of-type,
   .section-container section .content:last-of-type {
-    border-bottom: 1px solid #ccc;
+    /*border-bottom: 1px solid #ccc;*/
     padding-bottom: 10px;
   }
 }

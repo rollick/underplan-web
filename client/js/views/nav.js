@@ -36,3 +36,22 @@ Template.mainNav.events({
     return false;
   }
 });
+
+///////////////////////////////////////////////////////////////////////////////
+// Activity actions
+
+Template.activityActions.events({
+  'click .new-story': function () {
+
+    Router.setNewActivity(getCurrentGroup());
+    return false;
+  }
+});
+
+Template.activityActions.isNewRoute = function () {
+  return !!Backbone.history.fragment.match(/\/new/);
+};
+
+Template.activityActions.userBelongsToGroup = function () {
+  return currentUserBelongsToCurrentGroup();
+};

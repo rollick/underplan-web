@@ -26,7 +26,7 @@
 
   {{else}}
     <li class="hide-for-small divider"></li>
-    <li class="main-settings"><a href="#">Settings</a></li>
+    <li class="main-settings {{#if isSettingsRoute}}active{{/if}}"><a href="#">Settings</a></li>
     <li><a href="#" id="logout">Logout</a></li>
   {{/if}}
 </template>

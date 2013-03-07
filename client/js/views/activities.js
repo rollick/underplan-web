@@ -1,19 +1,4 @@
 ///////////////////////////////////////////////////////////////////////////////
-// Activity actions
-
-Template.activityActions.events({
-  'click .new-story': function () {
-
-    Router.setNewActivity(getCurrentGroup());
-    return false;
-  }
-});
-
-Template.activityActions.userBelongsToGroup = function () {
-  return currentUserBelongsToCurrentGroup();
-};
-
-///////////////////////////////////////////////////////////////////////////////
 // Activity editor
 
 Template.storyEditor.activity = function () {
