@@ -18,11 +18,11 @@
   height: 34px;
   line-height: 33px;
   padding: 0;
-  color: black;
+  color: #2ba6cb;
 }
 
 .columns.action a.disabled {
-  color: rgba(0,0,0,0.3);
+  color: rgba(43, 166, 203, 0.3);
 }
 
 .columns.action a span {
@@ -32,13 +32,13 @@
   width: 14px;
   height: 0;
   margin-right: 15px;
-  -webkit-box-shadow: 0 12px 0 1px black, 0 17px 0 1px black, 0 22px 0 1px black;
-  box-shadow: 0 12px 0 1px black, 0 17px 0 1px black, 0 22px 0 1px black;
+  -webkit-box-shadow: 0 12px 0 1px #2ba6cb, 0 17px 0 1px #2ba6cb, 0 22px 0 1px #2ba6cb;
+  box-shadow: 0 12px 0 1px #2ba6cb, 0 17px 0 1px #2ba6cb, 0 22px 0 1px #2ba6cb;
 }
 
 .columns.action a.disabled span {
-  -webkit-box-shadow: 0 12px 0 1px rgba(0,0,0,0.3), 0 17px 0 1px rgba(0,0,0,0.3), 0 22px 0 1px rgba(0,0,0,0.3);
-  box-shadow: 0 12px 0 1px rgba(0,0,0,0.3), 0 17px 0 1px rgba(0,0,0,0.3), 0 22px 0 1px rgba(0,0,0,0.3);
+  -webkit-box-shadow: 0 12px 0 1px rgba(43, 166, 203, 0.3), 0 17px 0 1px rgba(43, 166, 203, 0.3), 0 22px 0 1px rgba(43, 166, 203, 0.3);
+  box-shadow: 0 12px 0 1px rgba(43, 166, 203, 0.3), 0 17px 0 1px rgba(43, 166, 203, 0.3), 0 22px 0 1px rgba(43, 166, 203, 0.3);
 }
 
 .columns.new-short {
