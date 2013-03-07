@@ -26,8 +26,8 @@ h2 {
 }
 
 .row.main-content {
+    border-bottom: 3px solid green;
     padding-bottom: 0px;
-    border-top: 3px solid green;
     min-height: 100%;
     height: auto !important;
     height: 100%;
@@ -65,17 +65,6 @@ footer.dashboard p {
 .bordered {
     border: 1px solid rgb(231, 228, 228);
     padding: 2px;
-}
-
-a.main-home span {
-    font-size: 0.5em;
-    opacity: 0.3;
-    line-height: 40px;
-}
-
-a.main-home {
-    padding-top: 0px !important;
-    padding-bottom: 0px !important;
 }
 
 .normal {
