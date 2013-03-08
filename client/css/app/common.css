@@ -18,11 +18,11 @@
   height: 34px;
   line-height: 33px;
   padding: 0;
-  color: #2ba6cb;
+  color: #008000;
 }
 
 .action a.disabled {
-  color: rgba(43, 166, 203, 0.3);
+  opacity: 0.3;
 }
 
 .action a span {
