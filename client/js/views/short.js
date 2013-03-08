@@ -11,21 +11,18 @@ Template.short.events({
     if(short.hasClass("faded"))
       return false;
 
-    var link =      target.closest("a"),
-        form =      short.find(".comment-form"),
+    var form =      short.find(".comment-form"),
         siblings =  $(template.find("blockquote")).closest(".short").siblings(),
         comments =  $(template.find(".commentList"));
 
     if(form.is(":visible")) {
       siblings.removeClass("faded");
       comments.hide();
-      link.removeClass("disabled");
       form.hide();
     } else {
       short.removeClass("faded");
       siblings.addClass("faded");//.find(".commentList, .comment-form").hide();
       comments.show();
-      link.addClass("disabled");
       form.show();
     }
 
@@ -33,6 +30,7 @@ Template.short.events({
   },
   'click a.short-comments': function (event, template) {
     $(template.find("blockquote")).closest(".short").siblings().toggleClass("faded");
+    $(template.find(".short-comments")).toggleClass("open");
     $(template.find(".commentList")).toggle();
 
     return false;
