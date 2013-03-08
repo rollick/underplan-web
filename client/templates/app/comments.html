@@ -1,0 +1,39 @@
+<template name="commentForm">
+  <div class="comment-form row" style="display: none;">
+    <div class="small-12 large-12 columns">
+      {{#if error}}
+        <div class="alert-box alert">{{error}}</div>
+      {{/if}}
+      {{#if _id}}
+        <form class="custom">
+          <input type="hidden" class="activity-id" value="{{_id}}">
+          <textarea type="text" class="comment" rows="8"></textarea>
+          <a href="#" class="small button success save disabled">Save comment</a>
+        </form>
+      {{else}}
+        <p>Huh?! No Activity selected!</p>
+      {{/if}}
+    </div>
+  </div>
+</template>
+
+<template name="comment">
+  <blockquote>
+    <p>{{comment}}
+    <cite>{{userName owner}} - {{date created}}</cite></p>
+  </blockquote>
+</template>
+
+<template name="commentList">
+  <div class="row">
+    <div class="small-12 large-12 columns">
+      {{#if anyComments}}
+        {{#each comments}}
+          {{> comment this}}
+        {{/each}}
+      {{else}}
+        <p>No Comments</p>
+      {{/if}}
+    </div>
+  </div>
+</template>

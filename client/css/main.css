@@ -20,6 +20,10 @@ h2 {
     margin-bottom: 0.2em;
 }
 
+.faded {
+    opacity: 0.2;
+}
+
 .row.main-content.dashboard {
     background: url("/images/sun3.jpg") 0 0 no-repeat;
     background-color: black;

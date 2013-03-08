@@ -16,12 +16,12 @@
         </div>
         {{#if userBelongsToGroup}}
           <div class="action new-short small-8 large-8 columns">
-            <a href="#"><span>New Post</span></a>
+            <a href="#"><span>Post</span></a>
           </div>
         {{/if}}
       </div>
       {{#if userBelongsToGroup}}
-        <div class="short row" style="display: none;">
+        <div class="short-form row" style="display: none;">
           <div class="small-12 large-12 columns">
             {{> shortForm}}
           </div>
@@ -31,19 +31,21 @@
         <div class="small-12 large-12 columns">
           {{#if anyActivities}}
             {{#each recentActivities}}
-              {{#with this}}
-                {{#if typeIs "story"}}
-                  <blockquote class="story">
-                    Story: <a href="#">{{title}}</a>
-                    <cite>{{date created}} by {{ownerName}}</cite>
-                  </blockquote>
-                {{else}}
-                  <blockquote>
-                    {{text}}
-                    <cite>{{date created}} by {{ownerName}}</cite>
-                  </blockquote>
-                {{/if}}
-              {{/with}}
+                {{#with this}}
+                  {{#if typeIs "story"}}
+                    <div class="story">
+                      <blockquote>
+                        Story: <a href="#">{{title}}</a>
+                        <cite>{{date created}} by {{ownerName}}</cite>
+                      </blockquote>
+                    </div>
+                  {{else}}
+                    <div class="short">
+                      {{> short}}
+                    </div>
+                  {{/if}}
+                {{/with}}
+              </div>
             {{/each}}
           {{else}}
             <p>No activities yet :-(</p>
@@ -65,26 +67,6 @@
         </div>
       {{/if}}
     </div>
-  </div>
-</template>
-
-<template name="activityComment">
-  <div class="comment-form row" style="display: none;">
-    <div class="small-12 large-12 columns">
-      {{#if error}}
-        <div class="alert-box alert">{{error}}</div>
-      {{/if}}
-      {{#if activity}}
-        <form class="custom">
-          <input type="hidden" class="activity-id" value="{{activity._id}}">
-          <textarea type="text" class="comment" rows="8"></textarea><br />
-          <a href="#" class="small button success save">Save comment</a>
-        </form>
-      {{else}}
-        <p>Huh?! No Activity selected!</p>
-      {{/if}}
-    </div>
-    <hr />
   </div>
 </template>
 
@@ -132,25 +114,12 @@
       </div>
       {{#if currentUser}}
         <div class="action new-comment small-8 large-8 columns">
-          <a href="#"><span>New Comment</span></a>
+          <a href="#"><span>Comment</span></a>
         </div>
       {{/if}}
     </div>
-    {{> activityComment}}
-    <div class="row">
-      <div class="small-12 large-12 columns">
-        {{#if anyComments}}
-          {{#each comments}}
-            <blockquote>
-              <p>{{this.comment}}
-              <cite>{{userName this.owner}} - {{date created}}</cite></p>
-            </blockquote>
-          {{/each}}
-        {{else}}
-        <p>No Comments</p>
-        {{/if}}
-      </div>
-    </div>
+    {{> commentForm activity}}
+    {{> commentList activity}}
   {{else}}
     <div class="row">
       <div class="small-12 large-12 columns">

@@ -136,7 +136,7 @@ Template.activityFeed.events({
   },
   'click .new-short a': function (event, template) {
     $(event.target).closest("a").toggleClass("disabled");
-    $(".short.row").toggle();
+    $(".short-form.row").toggle();
     return false;
   }
 });
@@ -221,14 +221,6 @@ var recentActivitiesMap = function() {
 
 Template.currentActivity.activity = function () {
   return Activities.findOne(getCurrentActivityId());
-};
-
-Template.currentActivity.anyComments = function () {
-  return Comments.find({activityId: getCurrentActivityId()}).count() > 0;
-};
-
-Template.currentActivity.comments = function () {
-  return Comments.find({activityId: getCurrentActivityId()}, {sort: {created: -1}});
 };
 
 Template.currentActivity.hasPhotos = function () {
@@ -325,6 +317,8 @@ Template.currentActivity.events({
     return false;
   },
   'click .new-comment a': function (event, template) {
+    Session.set("createError", null);
+    
     $(event.target).closest("a").toggleClass("disabled");
     $(".comment-form.row").toggle();
     return false;
@@ -338,33 +332,3 @@ var activityBySlug = function (activitySlug) {
 var defaultMapZoom = function () {
   return 12;
 };
-
-///////////////////////////////////////////////////////////////////////////////
-// Activity comment
-
-Template.activityComment.activity = function () {
-  return Activities.findOne(getCurrentActivityId());
-};
-
-Template.activityComment.events({
-  'click .save': function (event, template) {
-    var comment = template.find("form .comment").value;
-    var activityId = template.find("form .activity-id").value;
-    
-    if (activityId && Meteor.userId()) {
-      
-      Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
-        if (error) {
-          Session.set("createError", error);
-        } else {
-          template.find(".comment").value = "";
-        }
-      });
-    } else {
-      Session.set("createError",
-                  "It needs a comment");
-    }
-
-    return false;
-  },
-})

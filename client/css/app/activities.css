@@ -3,6 +3,49 @@
     color: gray; 
 }
 
+.short blockquote {
+    border-left: none;
+}
+
+.short {
+    border-left: 1px solid #dddddd;
+    margin-bottom: 10px;
+}
+
+.short .action.new-comment {
+    height: 30px;
+    margin-top: -3px !important;
+}
+
+.short .action.new-comment a {
+    text-indent: -93px;
+}
+
+@media only screen and (min-width: 48em) {
+  .short .action.new-comment a {
+    text-indent: -85px;
+  }
+}
+
+.short .row .columns {
+    padding-left: 32px;
+    line-height: 33px;
+}
+
+.short blockquote {
+    margin-bottom: 0px;
+}
+
+.short a.short-comments {
+    font-size: 1em;
+}
+
+@media only screen and (min-width: 48em) {
+  .short a.short-comments {
+    font-size: 0.9em;
+  }
+}
+
 .activities-map {
     text-align: right;
 }
@@ -49,5 +92,5 @@
 }
 
 .comment-form .comment {
-    height: 100px;
+    /*height: 100px;*/
 }

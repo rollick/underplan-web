@@ -1,3 +1,26 @@
+<template name="short">
+  {{#with activity}}
+    <blockquote>
+      {{text}}
+      <cite>{{date created}} by {{ownerName}}</cite>
+    </blockquote>
+    <div class="row">
+      <div class="small-6 large-6 columns">
+        {{commentsLink}}
+      </div>
+      <div class="small-5 large-5 columns">
+        <div class="action new-comment">
+          <a href="#"><span>Comment</span></a>
+        </div>
+      </div>
+    </div>
+    {{> commentForm this}}
+    <div class="commentList" style="display: {{#if lastUpdated}}inherit{{else}}none{{/if}};">
+      {{> commentList this}}
+    </div>
+  {{/with}}
+</template>
+
 <template name="shortForm">
   <form class="custom">
     <div class="row">

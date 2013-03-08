@@ -57,5 +57,9 @@ Template.loggedin.events({
 });
 
 Template.loggedin.isSettingsRoute = function () {
-  return !!Backbone.history.fragment.match(/settings/);
+  var fragment = Backbone.history.fragment;
+  if(!fragment)
+    return false;
+
+  return !!(fragment.match(/settings/));
 };

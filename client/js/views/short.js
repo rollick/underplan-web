@@ -1,3 +1,56 @@
+///////////////////////////////////////////////////////////////////////////////
+// Short View
+
+Template.short.events({
+  'click .new-comment': function (event, template) {
+    // Session.set("createError", null);
+
+    var target =  $(event.target),
+        short =   target.closest(".short");
+
+    if(short.hasClass("faded"))
+      return false;
+
+    var link =      target.closest("a"),
+        form =      short.find(".comment-form"),
+        siblings =  $(template.find("blockquote")).closest(".short").siblings(),
+        comments =  $(template.find(".commentList"));
+
+    if(form.is(":visible")) {
+      siblings.removeClass("faded");
+      comments.hide();
+      link.removeClass("disabled");
+      form.hide();
+    } else {
+      short.removeClass("faded");
+      siblings.addClass("faded");//.find(".commentList, .comment-form").hide();
+      comments.show();
+      link.addClass("disabled");
+      form.show();
+    }
+
+    return false;
+  },
+  'click .short-comments': function (event, template) {
+    $(template.find("blockquote")).closest(".short").siblings().toggleClass("faded");
+    $(template.find(".commentList")).toggle();
+
+    return false;
+  }
+});
+
+Template.short.lastUpdated = function () {
+  return this._id == Session.get("lastUpdatedActivity");
+}
+
+// override this method to specify a different short
+Template.short.activity = function() {
+  return this;
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Short Form
+
 Template.shortForm.events({
   'keyup .text': function (event, template) {
     var max = shortMaxLength();

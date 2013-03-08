@@ -49,7 +49,11 @@ Template.activityActions.events({
 });
 
 Template.activityActions.isNewRoute = function () {
-  return !!Backbone.history.fragment.match(/\/new/);
+    var fragment = Backbone.history.fragment;
+  if(!fragment)
+    return false;
+
+  return !!(fragment.match(/\/new/));
 };
 
 Template.activityActions.userBelongsToGroup = function () {
