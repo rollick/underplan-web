@@ -85,3 +85,14 @@
 .comment-form .comment {
     /*height: 100px;*/
 }
+
+.text-length {
+    padding: 0;
+}
+
+.text-length span {
+    line-height: 28px;
+    font-weight: bold;
+    font-size: 0.9em;
+    opacity: 0.6;
+}

@@ -1,14 +1,3 @@
-.text-length {
-  text-align: center;
-  padding: 0;
-}
-
-.text-length span {
-  font-weight: bold;
-  font-size: 0.9em;
-  opacity: 0.6;
-}
-
 .action {
   margin-top: -5px !important;
 }
