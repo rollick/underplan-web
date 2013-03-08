@@ -81,7 +81,7 @@ Template.page.showMainSettings = function () {
 
 var appSettings = function () {
   return { 
-    mapsApiKey: "AIzaSyAjqFCF9kmQtcK9uvqMcZfbqWVehprY7Bc"
+    mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"
   }
 }
 
