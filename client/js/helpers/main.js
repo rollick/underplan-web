@@ -17,10 +17,15 @@ Handlebars.registerHelper('ownerName', function() {
 Handlebars.registerHelper('commentsLink', function() {
   if(!this._id)
     return "";
-  
+
   var commentCount = Comments.find({activityId: this._id}).count();
-  var text = commentCount > 1 ? "comments" : "comment";
-  var html = "<a class=\"short-comments\" href=\"#\">" + commentCount + " " + text + "</a>";
+  var html = "<span class=\"short-comments\">0 comments</span>";
+
+  if(commentCount > 0) {
+    var text = commentCount > 1 ? "comments" : "comment";
+    html = "<a class=\"short-comments\" href=\"#\">" + commentCount + " " + text + "</a>";
+  }
+
   return new Handlebars.SafeString(html);
 });
 

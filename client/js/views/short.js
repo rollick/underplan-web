@@ -31,7 +31,7 @@ Template.short.events({
 
     return false;
   },
-  'click .short-comments': function (event, template) {
+  'click a.short-comments': function (event, template) {
     $(template.find("blockquote")).closest(".short").siblings().toggleClass("faded");
     $(template.find(".commentList")).toggle();
 
