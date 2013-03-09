@@ -17,7 +17,7 @@
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
-// $body-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$body-font-family: 'Open Sans', Arial, sans-serif;
 // $body-font-weight: normal;
 // $body-font-style: normal;
 
@@ -70,7 +70,7 @@ $primary-color: #008000;
 //
 
 // We use these to control header font styles
-// $header-font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+$header-font-family: 'Open Sans', Arial, sans-serif;
 // $header-font-weight: bold;
 // $header-font-style: normal;
 // $header-font-color: #222;
@@ -953,7 +953,7 @@ $primary-color: #008000;
 //
 
 // Background color for the top bar
-// $topbar-bg: #111;
+$topbar-bg: #111;
 
 // Height and margin
 // $topbar-height: 45px;

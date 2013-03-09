@@ -1,7 +1,8 @@
+/* line 1, ../../sass/app/common.scss */
 .action {
   margin-top: -5px !important;
 }
-
+/* line 4, ../../sass/app/common.scss */
 .action a {
   font-size: 0.95em;
   height: 34px;
@@ -9,11 +10,11 @@
   padding: 0;
   color: #008000;
 }
-
+/* line 11, ../../sass/app/common.scss */
 .action a.disabled {
   opacity: 0.3;
 }
-
+/* line 15, ../../sass/app/common.scss */
 .action a span {
   position: absolute;
   right: 0;
@@ -22,17 +23,16 @@
   height: 0;
   margin-right: 15px;
 }
-
+/* line 25, ../../sass/app/common.scss */
 .action.new-short a {
   text-indent: -35px;
 }
-
+/* line 29, ../../sass/app/common.scss */
 .action.new-comment a {
   text-indent: -73px;
 }
-
-.action.new-comment span:before,
-.action.new-short span:before {
+/* line 34, ../../sass/app/common.scss */
+.action.new-comment span:before, .action.new-short span:before {
   content: "+";
   font-size: 1.6em;
   font-weight: bold;
@@ -42,34 +42,38 @@
 }
 
 @media only screen and (min-width: 48em) {
+  /* line 45, ../../sass/app/common.scss */
   .action a {
     font-size: 0.9em;
   }
-  
+
+  /* line 49, ../../sass/app/common.scss */
   .action {
     margin-top: 4px !important;
   }
 
+  /* line 53, ../../sass/app/common.scss */
   .action.new-short a {
     text-indent: -28px;
   }
 
+  /* line 57, ../../sass/app/common.scss */
   .action.new-comment a {
     text-indent: -65px;
   }
 }
-
+/* line 62, ../../sass/app/common.scss */
 .activity {
   border-left: 1px solid red;
   margin-bottom: 10px;
   border-left: 1px solid #dddddd;
 }
-
+/* line 67, ../../sass/app/common.scss */
 .activity .action {
   margin-top: -25px !important;
   height: 30px;
 }
-
+/* line 71, ../../sass/app/common.scss */
 .activity blockquote {
   margin-bottom: 0px;
 }

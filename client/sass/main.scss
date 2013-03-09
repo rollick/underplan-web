@@ -1,0 +1,167 @@
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-image: url("/images/4.jpg");
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+h2 {
+  margin-bottom: 0.2em;
+}
+
+.faded {
+  opacity: 0.1;
+  // display: none;
+}
+
+.row.main-content {
+  border-bottom: 3px solid green;
+  padding-bottom: 0px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -80px; /* the bottom margin is the negative value of the footer's height */
+
+  &.dashboard {
+    background: url("/images/sun3.jpg") 0 0 no-repeat;
+    background-color: black;
+  }
+}
+
+footer, .push {
+    height: 80px; /* .push must be the same height as .footer */
+    margin: 0px;
+    padding: 0px;
+}
+
+footer.dashboard {
+  font-color: white;
+  
+  .row:first-of-type {
+    border-top: 2px solid #2b2b2b;
+  }
+
+  p {
+    color: #fff;
+  }
+}
+
+footer p,
+footer a {
+    margin-top: 10px;
+}
+
+.no-side-padding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.bordered {
+    border: 1px solid rgb(231, 228, 228);
+    padding: 2px;
+}
+
+.normal {
+    padding-bottom: 15px;
+    background: #fff; 
+    background: rgba(255, 255, 255, 1); 
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.input-subtext {
+    margin-top: -10px;
+    font-style: italic;
+    margin-bottom: 10px;
+    padding: 0px;
+    color: #9f9f9f;
+    font-size: 0.8em;
+    min-height: 1px;
+}
+
+.actions {
+  display: block;
+  line-height: 32px;
+  padding-top: 18px;
+  
+  a {
+    float: right;
+  }
+
+  i:hover {
+    color: green;
+    cursor: pointer;
+  }
+}
+
+.top-bar .name h1 a {
+  font-weight: normal;
+  padding: 0 5px;
+  font-size: 1.3em;
+}
+
+.top-bar-section ul li > a,
+.top-bar .toggle-topbar.menu-icon a span {
+  font-weight: normal !important;
+}
+
+.title-area h1 {
+  color: white;
+  padding: 0 10px 0 10px;
+}
+
+div.alert-box {
+  margin-top: 8px;
+  text-align: center;
+  
+  a.close {
+    position: relative;
+    padding: 10px;
+    color: white;
+  }
+
+  &.secondary {
+    background-color: green;
+    color: white;
+  }
+}
+
+.button {
+  font-weight: normal;
+}
+
+.custom.checkbox {
+  border-color: black !important;
+
+  &.checked::before {
+    color: rgb(0, 0, 0) !important;
+    font-weight: bold !important;
+    padding-left: 1px;
+    padding-top: 1px
+  }
+}
+
+form fieldset legend {
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+.section-container .section.active {
+  padding-top: 0px !important;
+}
+
+ul.dropdown h5 a {
+  color: white;
+}
+
+.carousel {
+  margin: 0 6px;
+}

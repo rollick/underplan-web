@@ -4,34 +4,48 @@
 Template.short.events({
   'click .new-comment': function (event, template) {
     // Session.set("createError", null);
+    var target = $(event.target),
+        short =  target.closest(".short");
 
-    var target =  $(event.target),
-        short =   target.closest(".short");
+    if(!!short && short.hasClass("faded")) {
+      resetActivityList(template);
 
-    if(short.hasClass("faded"))
-      return false;
+      return true;
+    }
 
     var form =      short.find(".comment-form"),
         siblings =  $(template.find("blockquote")).closest(".short").siblings(),
         comments =  $(template.find(".commentList"));
 
-    if(form.is(":visible")) {
-      siblings.removeClass("faded");
-      comments.hide();
-      form.hide();
-    } else {
+    if(!form.is(":visible")) {
       short.removeClass("faded");
       siblings.addClass("faded");//.find(".commentList, .comment-form").hide();
       comments.show();
       form.show();
     }
+
+    return true;
   },
   'click a.short-comments': function (event, template) {
+    var target = $(event.target),
+        short =  target.closest(".short");
+
+    if(!!short && short.hasClass("faded")) {
+      resetActivityList(template);
+
+      return true;
+    }
+
     $(template.find("blockquote")).closest(".short").siblings().toggleClass("faded");
     $(template.find(".short-comments")).toggleClass("open");
     $(template.find(".commentList")).toggle();
 
-    return false;
+    return true;
+  },
+  'click .faded, click .feed-list': function (event, template) {
+    resetActivityList(template);
+
+    return true;
   }
 });
 
@@ -43,6 +57,15 @@ Template.short.lastUpdated = function () {
 Template.short.activity = function() {
   return this;
 };
+
+var resetActivityList = function (template) {
+  var parent = $(template.find(".short")).parent();
+
+  parent.find(".short, .story").removeClass("faded").
+         find(".short-comments").removeClass("open").
+         find(".comment-form:visible").hide(),
+         find(".commentList:visible").hide();
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Short Form

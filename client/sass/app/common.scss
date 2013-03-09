@@ -1,0 +1,74 @@
+.action {
+  margin-top: -5px !important;
+
+  a {
+    font-size: 0.95em;
+    height: 34px;
+    line-height: 33px;
+    padding: 0;
+    color: #008000;
+
+    &.disabled {
+      opacity: 0.3;
+    }
+
+    span {
+      position: absolute;
+      right: 0;
+      display: block;
+      width: 14px;
+      height: 0;
+      margin-right: 15px;
+    }
+  }
+
+  &.new-short a {
+    text-indent: -35px;
+  }
+
+  &.new-comment a {
+    text-indent: -73px;
+  }
+  
+  &.new-comment span:before,
+  &.new-short span:before {
+    content: "+";
+    font-size: 1.6em;
+    font-weight: bold;
+    padding-right: 3px;
+    top: 3px;
+    position: relative;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  .action a {
+    font-size: 0.9em;
+  }
+  
+  .action {
+    margin-top: 4px !important;
+  }
+
+  .action.new-short a {
+    text-indent: -28px;
+  }
+
+  .action.new-comment a {
+    text-indent: -65px;
+  }
+}
+
+.activity {
+  border-left: 1px solid red;
+  margin-bottom: 10px;
+  border-left: 1px solid #dddddd;
+  
+  .action {
+    margin-top: -25px !important;
+    height: 30px;
+  }
+  blockquote {
+    margin-bottom: 0px;
+  }
+}

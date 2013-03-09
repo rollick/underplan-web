@@ -1,60 +1,58 @@
+/* line 2, ../../sass/app/home.scss */
 #homepage .columns {
-    text-align: center;
+  text-align: center;
 }
-
+/* line 6, ../../sass/app/home.scss */
 #homepage .or {
-    padding: 20px 0px;
-    font-size: 1.2em;
-    font-weight: bold;
+  padding: 20px 0px;
+  font-size: 1.2em;
+  font-weight: bold;
 }
 
+/* line 13, ../../sass/app/home.scss */
 .dashboard {
-    margin: 15px;
-    margin-top: 0;
+  margin: 15px;
+  margin-top: 0;
 }
-
-.dashboard, .normal {
-    margin-left: 0px;
-    margin-right: 0px;
+/* line 17, ../../sass/app/home.scss */
+.dashboard h4, .dashboard .or {
+  color: white;
 }
-
-.dashboard .groups .panel {
-    border: 1px solid rgb(51, 50, 50);
-    background-color: rgba(48, 48, 48, 0.53) !important;
-}
-
-.dashboard .groups .panel a {
-    font-size: 1.1em;
-}
-
-.dashboard .groups .panel p {
-    font-size: 0.9em;
-    color: white;
-}
-
+/* line 20, ../../sass/app/home.scss */
 .dashboard h4 {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
-
+/* line 23, ../../sass/app/home.scss */
+.dashboard .normal {
+  margin-left: 0px;
+  margin-right: 0px;
+}
+/* line 29, ../../sass/app/home.scss */
+.dashboard .groups .panel {
+  border: 1px solid #333232;
+  background-color: rgba(48, 48, 48, 0.53) !important;
+}
+/* line 33, ../../sass/app/home.scss */
+.dashboard .groups .panel a {
+  font-size: 1.1em;
+}
+/* line 36, ../../sass/app/home.scss */
+.dashboard .groups .panel p {
+  font-size: 0.9em;
+  color: white;
+}
+/* line 42, ../../sass/app/home.scss */
 .dashboard blockquote {
-    border-left: none;
-    margin-bottom: 45px;
+  border-left: none;
+  margin-bottom: 45px;
 }
-
+/* line 46, ../../sass/app/home.scss */
 .dashboard blockquote p {
-    font-size: 1.5em;
-    color: white;
+  font-size: 1.5em;
+  color: white;
 }
-
+/* line 50, ../../sass/app/home.scss */
 .dashboard blockquote cite {
-    font-size: 0.8em;
-    color: rgb(187, 187, 187);
-}
-
-.dashboard h4,
-.dashboard .or {
-    color: white;
-}
-
-.dashboard .groups {
+  font-size: 0.8em;
+  color: #bbbbbb;
 }

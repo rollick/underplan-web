@@ -6,6 +6,7 @@ require 'zurb-foundation'
 http_path = "/"
 css_dir = "stylesheets"
 sass_dir = "sass"
+add_import_path "sass/app"
 images_dir = "images"
 javascripts_dir = "javascripts"
 

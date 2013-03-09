@@ -1,49 +1,53 @@
+/* line 1, ../../sass/app/nav.scss */
 .logo {
-    float: left;
-    width: 45px;
-    height: 45px;
-    background-color: green;
+  float: left;
+  width: 45px;
+  height: 45px;
+  background-color: green;
 }
-
+/* line 7, ../../sass/app/nav.scss */
 .logo a {
-    font-size: 1.8em;
-    color: white !important;
-    display: block;
-    padding: 7px 12px;
+  font-size: 1.8em;
+  color: white !important;
+  display: block;
+  padding: 7px 12px;
 }
 
+/* line 15, ../../sass/app/nav.scss */
 .top-bar {
-    margin-left: 45px;
+  margin-left: 45px;
 }
 
+/* line 19, ../../sass/app/nav.scss */
 .columns.no-side-padding {
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
-    background-color: rgb(0, 151, 0);
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
+  background-color: #009700;
 }
 
+/* line 24, ../../sass/app/nav.scss */
 li.login-services {
-    height: 40px;
+  height: 40px;
 }
-
+/* line 27, ../../sass/app/nav.scss */
 li.login-services a {
-    padding-top: 5px !important;
-    line-height: 35px !important;
+  padding-top: 5px !important;
+  line-height: 35px !important;
 }
-
+/* line 32, ../../sass/app/nav.scss */
 li.login-services p {
-    display: inline;
-    position: relative;
-    top: -5px;
-    margin-left: 8px;
-    font-size: 0.7em;
+  display: inline;
+  position: relative;
+  top: -5px;
+  margin-left: 8px;
+  font-size: 0.7em;
 }
-
+/* line 40, ../../sass/app/nav.scss */
 li.login-services i {
-    -webkit-transition: color .5s;
-    -moz-transition: color .5s;
-    -o-transition: color .5s;
-    transition: color .5s;
-    font-size: 18px;
-    overflow: hidden;
-    font-style: normal;
+  -webkit-transition: color .5s;
+  -moz-transition: color .5s;
+  -o-transition: color .5s;
+  transition: color .5s;
+  font-size: 18px;
+  overflow: hidden;
+  font-style: normal;
 }

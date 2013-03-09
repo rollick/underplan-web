@@ -1,168 +1,193 @@
+/* line 1, ../sass/main.scss */
 * {
-    margin: 0;
+  margin: 0;
 }
 
+/* line 5, ../sass/main.scss */
 html, body {
-    height: 100%;
+  height: 100%;
 }
 
+/* line 9, ../sass/main.scss */
 body {
-    background-image: url("/images/4.jpg");
-    /*background-color: green;*/
-    font-family: 'Open Sans', sans-serif;
+  background-image: url("/images/4.jpg");
 }
 
+/* line 13, ../sass/main.scss */
 h1, h2, h3, h4, h5 {
-    font-weight: normal;
+  font-weight: normal;
 }
 
+/* line 17, ../sass/main.scss */
 h2 {
-    margin-bottom: 0.2em;
+  margin-bottom: 0.2em;
 }
 
+/* line 21, ../sass/main.scss */
 .faded {
-    opacity: 0.2;
-    display: none;
+  opacity: 0.1;
 }
 
-.row.main-content.dashboard {
-    background: url("/images/sun3.jpg") 0 0 no-repeat;
-    background-color: black;
-}
-
+/* line 26, ../sass/main.scss */
 .row.main-content {
-    border-bottom: 3px solid green;
-    padding-bottom: 0px;
-    min-height: 100%;
-    height: auto !important;
-    height: 100%;
-    margin: 0 auto -80px; /* the bottom margin is the negative value of the footer's height */
+  border-bottom: 3px solid green;
+  padding-bottom: 0px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -80px;
+  /* the bottom margin is the negative value of the footer's height */
+}
+/* line 34, ../sass/main.scss */
+.row.main-content.dashboard {
+  background: url("/images/sun3.jpg") 0 0 no-repeat;
+  background-color: black;
 }
 
+/* line 40, ../sass/main.scss */
 footer, .push {
-    height: 80px; /* .push must be the same height as .footer */
-    margin: 0px;
-    padding: 0px;
+  height: 80px;
+  /* .push must be the same height as .footer */
+  margin: 0px;
+  padding: 0px;
 }
 
+/* line 46, ../sass/main.scss */
 footer.dashboard {
-    font-color: white;
+  font-color: white;
 }
-
+/* line 49, ../sass/main.scss */
 footer.dashboard .row:first-of-type {
-    border-top: 2px solid #2b2b2b;
+  border-top: 2px solid #2b2b2b;
+}
+/* line 53, ../sass/main.scss */
+footer.dashboard p {
+  color: #fff;
 }
 
+/* line 59, ../sass/main.scss */
 footer p,
 footer a {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
-footer.dashboard p {
-    color: #fff;
-}
-
+/* line 63, ../sass/main.scss */
 .no-side-padding {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
+  padding-left: 0px !important;
+  padding-right: 0px !important;
 }
 
+/* line 68, ../sass/main.scss */
 .bordered {
-    border: 1px solid rgb(231, 228, 228);
-    padding: 2px;
+  border: 1px solid #e7e4e4;
+  padding: 2px;
 }
 
+/* line 73, ../sass/main.scss */
 .normal {
-    padding-bottom: 15px;
-    background: #fff; 
-    background: rgba(255, 255, 255, 1); 
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
+  padding-bottom: 15px;
+  background: #fff;
+  background: white;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
 }
 
+/* line 80, ../sass/main.scss */
 .input-subtext {
-    margin-top: -10px;
-    font-style: italic;
-    margin-bottom: 10px;
-    padding: 0px;
-    color: #9f9f9f;
-    font-size: 0.8em;
-    min-height: 1px;
+  margin-top: -10px;
+  font-style: italic;
+  margin-bottom: 10px;
+  padding: 0px;
+  color: #9f9f9f;
+  font-size: 0.8em;
+  min-height: 1px;
 }
 
+/* line 90, ../sass/main.scss */
 .actions {
-    display: block;
-    line-height: 32px;
-    padding-top: 18px;
+  display: block;
+  line-height: 32px;
+  padding-top: 18px;
 }
+/* line 95, ../sass/main.scss */
 .actions a {
-    float: right;
+  float: right;
 }
-
+/* line 99, ../sass/main.scss */
 .actions i:hover {
-    color: green;
-    cursor: pointer;
+  color: green;
+  cursor: pointer;
 }
 
+/* line 105, ../sass/main.scss */
 .top-bar .name h1 a {
   font-weight: normal;
   padding: 0 5px;
   font-size: 1.3em;
 }
 
+/* line 112, ../sass/main.scss */
 .top-bar-section ul li > a,
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
+/* line 116, ../sass/main.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
+/* line 121, ../sass/main.scss */
 div.alert-box {
   margin-top: 8px;
   text-align: center;
 }
-
+/* line 125, ../sass/main.scss */
 div.alert-box a.close {
   position: relative;
   padding: 10px;
   color: white;
 }
-
+/* line 131, ../sass/main.scss */
 div.alert-box.secondary {
   background-color: green;
   color: white;
 }
 
+/* line 137, ../sass/main.scss */
 .button {
   font-weight: normal;
 }
 
+/* line 141, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-
+/* line 144, ../sass/main.scss */
 .custom.checkbox.checked::before {
-  color: rgb(0, 0, 0) !important;
+  color: black !important;
   font-weight: bold !important;
   padding-left: 1px;
-  padding-top: 1px
+  padding-top: 1px;
 }
 
+/* line 152, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
+/* line 157, ../sass/main.scss */
 .section-container .section.active {
   padding-top: 0px !important;
 }
 
+/* line 161, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
+/* line 165, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }

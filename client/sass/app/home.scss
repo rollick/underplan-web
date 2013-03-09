@@ -1,0 +1,55 @@
+#homepage {
+  .columns {
+    text-align: center;
+  }
+    
+  .or {
+    padding: 20px 0px;
+    font-size: 1.2em;
+    font-weight: bold;
+  }
+}
+
+.dashboard {
+  margin: 15px;
+  margin-top: 0;
+  
+  h4, .or {
+    color: white;
+  }
+  h4 {
+    margin-bottom: 40px;
+  }
+  .normal {
+    margin-left: 0px;
+    margin-right: 0px;
+  }
+  
+  .groups { 
+    .panel {
+      border: 1px solid rgb(51, 50, 50);
+      background-color: rgba(48, 48, 48, 0.53) !important;
+      
+      a {
+        font-size: 1.1em;
+      }
+      p {
+        font-size: 0.9em;
+        color: white;
+      }
+    }
+  }
+  blockquote {
+    border-left: none;
+    margin-bottom: 45px;
+    
+    p {
+      font-size: 1.5em;
+      color: white;
+    }
+    cite {
+      font-size: 0.8em;
+      color: rgb(187, 187, 187);
+    }
+  }
+}

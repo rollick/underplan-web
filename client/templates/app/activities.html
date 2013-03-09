@@ -27,7 +27,7 @@
           </div>
         </div>
       {{/if}}
-      <div class="row">
+      <div class="row feed-list">
         <div class="small-12 large-12 columns">
           {{#if anyActivities}}
             {{#each recentActivities}}
@@ -40,9 +40,7 @@
                       </blockquote>
                     </div>
                   {{else}}
-                    <div class="short">
-                      {{> short}}
-                    </div>
+                    {{> short}}
                   {{/if}}
                 {{/with}}
               </div>

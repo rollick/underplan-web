@@ -1,0 +1,141 @@
+.activity cite:before { 
+    content: "\2014 \0020";
+    color: gray; 
+}
+
+.feed {
+  li { 
+    p {
+      display: inline;
+      position: relative;
+      top: -4px;
+      margin-left: 8px;
+    }
+
+    i {
+      -webkit-transition: color .5s;
+      -moz-transition: color .5s;
+      -o-transition: color .5s;
+      transition: color .5s;
+      font-size: 18px;
+      overflow: hidden;
+      line-height: 1.5;
+    }
+  }
+  .row.feed-list {
+    &:first-child {
+      padding-left: 0px;
+      padding-right: 0px;
+    }
+  }
+}
+
+.short {
+  margin-bottom: 10px;
+  
+  blockquote {
+    margin-left: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-bottom: 0px;
+
+    cite {
+      padding-bottom: 5px;
+    }
+  }
+
+  a.short-comments {
+    font-size: 1em;
+    color: white !important;
+
+    &:before {
+      content: "\025B6";
+      margin-left: -5px;
+      margin-right: 5px;
+      width: 20px;
+    }
+
+    &.open:before {
+      content: "\025BC";
+      margin-left: -8px;
+      margin-right: 7px;
+    }
+  }
+
+  .commentList {
+    blockquote {
+      margin-left: 20px;
+
+      p {
+        margin-bottom: 5px;
+      }
+    }
+  }
+
+  .row {
+    .columns {
+      /*padding-left: 32px;*/
+      line-height: 33px;
+    }
+
+    &.short-actions {
+      font-size: 0.9em;
+      margin-left: 0px;
+      margin-right: 0px;
+      margin-top: 0;
+      background-color: green;
+      color: white;
+
+      .action {
+        &.new-comment {
+          height: 30px;
+          margin-top: -3px !important;
+
+          span {
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  .short a.short-comments,
+  .short span.short-comments {
+    font-size: 0.9em;
+  }
+}
+
+.activities-map {
+  text-align: right;
+  float: right;
+  min-width: 120px;
+  min-height: 120px;
+  
+  img {
+    margin: 20px 0 10px 0;
+  }
+}
+
+.feed li,
+.groups li {
+  cursor: pointer;
+
+  &:hover { color: green; }
+}
+
+.comment-form .comment {
+    /*height: 100px;*/
+}
+
+.text-length {
+  padding: 0;
+  
+  span {
+    line-height: 28px;
+    font-weight: bold;
+    font-size: 0.9em;
+    opacity: 0.6;
+  }
+}

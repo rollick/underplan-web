@@ -1,5 +1,4 @@
 /* global foundicon styles */
-/* line 2, ../../sass/app/icons.scss */
 [class*="icon-underplan-"] {
   display: inline;
   width: auto;
@@ -11,7 +10,6 @@
   background-repeat: repeat;
 }
 
-/* line 13, ../../sass/app/icons.scss */
 [class*="icon-underplan-"]:before {
   font-weight: normal;
   font-style: normal;
@@ -19,7 +17,6 @@
 }
 
 /* icons */
-/* line 20, ../../sass/app/icons.scss */
 .icon-underplan-logo:before {
   content: "\fU";
   padding: 2px;

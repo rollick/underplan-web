@@ -1,41 +1,36 @@
-/* line 1, ../sass/sections.scss */
 .section-container {
   border: none !important;
-}
-/* line 4, ../sass/sections.scss */
-.section-container .section, .section-container section {
-  border-top: none;
+
+  .section, section {
+    border-top: none;
+  }
 }
 
-/* line 11, ../sass/sections.scss */
+
 .section-container .section .content,
 .section-container section .content {
   padding: 5px;
   margin: 0;
 }
 
-/* line 17, ../sass/sections.scss */
 .section-container .section .content:last-of-type,
 .section-container section .content:last-of-type {
   /*border-bottom: 1px solid #ccc;*/
   padding-bottom: 10px;
 }
 
-/* line 23, ../sass/sections.scss */
 .section-container .section .title,
 .section-container section .title {
   background-color: rgba(17, 17, 17, 0.05);
   padding-left: 17px;
 }
 
-/* line 29, ../sass/sections.scss */
 .section-container .section .title a,
 .section-container section .title a {
   color: #2ba6cb;
   padding: 5px;
 }
 
-/* line 35, ../sass/sections.scss */
 .section-container .section .title:before,
 .section-container section .title:before {
   color: #2ba6cb;
@@ -49,7 +44,6 @@
   content: "\025B6";
 }
 
-/* line 48, ../sass/sections.scss */
 .section-container .section.active .title:before,
 .section-container section.active .title:before {
   content: "\025BC";
@@ -58,13 +52,11 @@
 
 /* For larger displays */
 @media only screen and (min-width: 48em) {
-  /* line 56, ../sass/sections.scss */
   .section-container .section .title,
   .section-container section .title {
     padding-left: 20px;
   }
 
-  /* line 63, ../sass/sections.scss */
   .section-container .section .title:before,
   .section-container section .title:before,
   .section-container .section.active .title:before,
@@ -72,24 +64,21 @@
     top: 7px;
   }
 
-  /* line 68, ../sass/sections.scss */
   .section-container .section .content,
   .section-container section .content {
     padding: 10px 5px 0 5px;
     margin: 0 10px;
-    /*    border-left: 1px solid #ccc;
-        border-right: 1px solid #ccc;
-    */
-  }
+/*    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+*/  }
 
-  /* line 76, ../sass/sections.scss */
   .section-container .section .content:last-of-type,
   .section-container section .content:last-of-type {
     /*border-bottom: 1px solid #ccc;*/
     padding-bottom: 10px;
   }
 }
-/* line 85, ../sass/sections.scss */
+
 .section-container .section.active .title,
 .section-container section.active .title,
 .section-container .section:not(.active) .title:hover,
@@ -97,7 +86,6 @@
   background-color: rgba(17, 17, 17, 0.1);
 }
 
-/* line 89, ../sass/sections.scss */
 .section-container .section a.button {
   padding-bottom: 8px;
 }
