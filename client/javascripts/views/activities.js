@@ -133,6 +133,7 @@ var hideActivityEditor = function() {
 Template.activityFeed.events({
   'click .story a': function (event, template) {
     Router.setActivity(getCurrentGroup(), this);
+    return false;
   },
   'click .new-short a': function (event, template) {
     $(event.target).closest("a").toggleClass("disabled");

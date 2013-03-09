@@ -20,6 +20,7 @@ var AppRouter = Backbone.Router.extend({
   group: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
     showTemplate("activityMap");
+    $('html,body').scrollTop(0);
   },
 
   mainSettings: function() {
@@ -57,6 +58,7 @@ var AppRouter = Backbone.Router.extend({
     Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", activitySlug);
     showTemplate("currentActivity");
+    $('html,body').scrollTop(0);
   },
 
   editActivity: function(groupSlug, activitySlug) {
