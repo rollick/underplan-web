@@ -25,8 +25,6 @@ Template.short.events({
       comments.show();
       form.show();
     }
-
-    return false;
   },
   'click a.short-comments': function (event, template) {
     $(template.find("blockquote")).closest(".short").siblings().toggleClass("faded");
