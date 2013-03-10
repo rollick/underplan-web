@@ -77,53 +77,54 @@
   background-color: green;
   color: white;
   box-shadow: 0px 0px 10px #CCC, 0px 0px 10px #CCC;
+  cursor: pointer;
 }
-/* line 90, ../../sass/app/activities.scss */
+/* line 91, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 94, ../../sass/app/activities.scss */
+/* line 95, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment span {
   color: white;
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 107, ../../sass/app/activities.scss */
+  /* line 108, ../../sass/app/activities.scss */
   .short a.short-comments,
   .short span.short-comments {
     font-size: 0.9em;
   }
 }
-/* line 112, ../../sass/app/activities.scss */
+/* line 113, ../../sass/app/activities.scss */
 .activities-map {
   text-align: right;
   float: right;
   min-width: 120px;
   min-height: 120px;
 }
-/* line 118, ../../sass/app/activities.scss */
+/* line 119, ../../sass/app/activities.scss */
 .activities-map img {
   margin: 20px 0 10px 0;
 }
 
-/* line 124, ../../sass/app/activities.scss */
+/* line 125, ../../sass/app/activities.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 127, ../../sass/app/activities.scss */
+/* line 128, ../../sass/app/activities.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;
 }
 
-/* line 130, ../../sass/app/activities.scss */
+/* line 131, ../../sass/app/activities.scss */
 .comment-form .comment {
   /*height: 100px;*/
 }
 
-/* line 134, ../../sass/app/activities.scss */
+/* line 135, ../../sass/app/activities.scss */
 span.text-length {
   margin-left: 5px;
   line-height: 28px;

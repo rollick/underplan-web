@@ -18,7 +18,7 @@ Template.short.events({
 
     return false;
   },
-  'click a.short-comments': function (event, template) {
+  'click .short-actions': function (event, template) {
     var target =    $(event.target),
         short =     target.closest(".short"),
         link =      $(template.find(".short-comments")),
