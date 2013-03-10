@@ -4,48 +4,37 @@
 Template.short.events({
   'click .new-comment': function (event, template) {
     // Session.set("createError", null);
-    var target = $(event.target),
-        short =  target.closest(".short");
-
-    if(!!short && short.hasClass("faded")) {
-      resetActivityList(template);
-
-      return true;
-    }
-
-    var form =      short.find(".comment-form"),
-        siblings =  $(template.find("blockquote")).closest(".short").siblings(),
+    var target =    $(event.target),
+        short =     target.closest(".short"),
+        form =      short.find(".comment-form"),
+        link =      $(template.find(".short-comments")),
         comments =  $(template.find(".commentList"));
 
     if(!form.is(":visible")) {
-      short.removeClass("faded");
-      siblings.addClass("faded");//.find(".commentList, .comment-form").hide();
       comments.show();
       form.show();
+      link.addClass("open");
     }
 
-    return true;
+    return false;
   },
   'click a.short-comments': function (event, template) {
-    var target = $(event.target),
-        short =  target.closest(".short");
+    var target =    $(event.target),
+        short =     target.closest(".short"),
+        link =      $(template.find(".short-comments")),
+        comments =  $(template.find(".commentList")),
+        form =      $(template.find(".comment-form"));
 
-    if(!!short && short.hasClass("faded")) {
-      resetActivityList(template);
-
-      return true;
+    if(link.hasClass("open")) {
+      comments.hide();
+      link.removeClass("open");
+      form.hide();
+    } else {
+      comments.show();
+      link.addClass("open");      
     }
 
-    $(template.find("blockquote")).closest(".short").siblings().toggleClass("faded");
-    $(template.find(".short-comments")).toggleClass("open");
-    $(template.find(".commentList")).toggle();
-
-    return true;
-  },
-  'click .faded, click .feed-list': function (event, template) {
-    resetActivityList(template);
-
-    return true;
+    return false;
   }
 });
 
@@ -58,23 +47,19 @@ Template.short.activity = function() {
   return this;
 };
 
-var resetActivityList = function (template) {
-  var parent = $(template.find(".short")).parent();
-
-  parent.find(".short, .story").removeClass("faded").
-         find(".short-comments").removeClass("open").
-         find(".comment-form:visible").hide(),
-         find(".commentList:visible").hide();
-}
-
 ///////////////////////////////////////////////////////////////////////////////
 // Short Form
 
 Template.shortForm.events({
+  'click .cancel': function (event, template) {
+    $(template.firstNode).closest(".short-form.row").hide();
+
+    return false;
+  },
   'keyup .text': function (event, template) {
     var max = shortMaxLength();
     var textElem = template.find(".text");
-    var countElem = template.find(".text-length span");
+    var countElem = template.find(".text-length");
     var submit = template.find(".post");
 
     if(textElem.value.length > max) {
@@ -132,7 +117,7 @@ Template.shortForm.events({
           template.find(".lng").value = 
           template.find(".location").value = "";
 
-          template.find(".text-length span").innerHTML = shortMaxLength();
+          template.find(".text-length").innerHTML = shortMaxLength();
         }
       });
     } else {

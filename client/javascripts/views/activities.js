@@ -136,7 +136,7 @@ Template.activityFeed.events({
     return false;
   },
   'click .new-short a': function (event, template) {
-    $(event.target).closest("a").toggleClass("disabled");
+    // $(event.target).closest("a").toggleClass("disabled");
     $(".short-form.row").toggle();
     return false;
   }

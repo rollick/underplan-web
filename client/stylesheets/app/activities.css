@@ -1,17 +1,17 @@
-/* line 1, ../../sass/app/activities.scss */
+/* line 4, ../../sass/app/activities.scss */
 .activity cite:before {
   content: "\2014 \0020";
   color: gray;
 }
 
-/* line 8, ../../sass/app/activities.scss */
+/* line 11, ../../sass/app/activities.scss */
 .feed li p {
   display: inline;
   position: relative;
   top: -4px;
   margin-left: 8px;
 }
-/* line 15, ../../sass/app/activities.scss */
+/* line 18, ../../sass/app/activities.scss */
 .feed li i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;
@@ -21,59 +21,46 @@
   overflow: hidden;
   line-height: 1.5;
 }
-/* line 26, ../../sass/app/activities.scss */
+/* line 29, ../../sass/app/activities.scss */
 .feed .row.feed-list:first-child {
   padding-left: 0px;
   padding-right: 0px;
 }
 
-/* line 33, ../../sass/app/activities.scss */
+/* line 36, ../../sass/app/activities.scss */
 .short {
   margin-bottom: 10px;
 }
-/* line 36, ../../sass/app/activities.scss */
-.short blockquote {
-  margin-left: 10px;
-  padding-left: 10px;
-  padding-right: 10px;
-  margin-bottom: 0px;
-}
-/* line 42, ../../sass/app/activities.scss */
-.short blockquote cite {
-  padding-bottom: 5px;
-}
-/* line 47, ../../sass/app/activities.scss */
+/* line 39, ../../sass/app/activities.scss */
 .short a.short-comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 51, ../../sass/app/activities.scss */
+/* line 43, ../../sass/app/activities.scss */
 .short a.short-comments:before {
-  content: "\025B6";
-  margin-left: -5px;
-  margin-right: 5px;
-  width: 20px;
+  background-image: url("/images/right.svg");
+  background-repeat: no-repeat;
+  background-size: 14px 18px;
+  content: "\00a0\00a0";
+  display: block;
+  padding-left: 14px;
+}
+/* line 52, ../../sass/app/activities.scss */
+.short a.short-comments.open:before {
+  background-image: url("/images/down.svg");
 }
 /* line 58, ../../sass/app/activities.scss */
-.short a.short-comments.open:before {
-  content: "\025BC";
-  margin-left: -8px;
-  margin-right: 7px;
-}
-/* line 66, ../../sass/app/activities.scss */
 .short .commentList blockquote {
+  margin-top: 0px;
+  margin-bottom: 5px;
   margin-left: 20px;
 }
-/* line 69, ../../sass/app/activities.scss */
-.short .commentList blockquote p {
-  margin-bottom: 5px;
-}
-/* line 76, ../../sass/app/activities.scss */
+/* line 66, ../../sass/app/activities.scss */
 .short .row .columns {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 81, ../../sass/app/activities.scss */
+/* line 71, ../../sass/app/activities.scss */
 .short .row.short-actions {
   font-size: 0.9em;
   margin-left: 0px;
@@ -81,58 +68,56 @@
   margin-top: 0;
   background-color: green;
   color: white;
+  box-shadow: 0px 0px 20px #CCC, 0px 0px 20px #CCC;
 }
-/* line 90, ../../sass/app/activities.scss */
+/* line 82, ../../sass/app/activities.scss */
 .short .row.short-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 94, ../../sass/app/activities.scss */
+/* line 86, ../../sass/app/activities.scss */
 .short .row.short-actions .action.new-comment span {
   color: white;
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 105, ../../sass/app/activities.scss */
+  /* line 97, ../../sass/app/activities.scss */
   .short a.short-comments,
   .short span.short-comments {
     font-size: 0.9em;
   }
 }
-/* line 110, ../../sass/app/activities.scss */
+/* line 102, ../../sass/app/activities.scss */
 .activities-map {
   text-align: right;
   float: right;
   min-width: 120px;
   min-height: 120px;
 }
-/* line 116, ../../sass/app/activities.scss */
+/* line 108, ../../sass/app/activities.scss */
 .activities-map img {
   margin: 20px 0 10px 0;
 }
 
-/* line 122, ../../sass/app/activities.scss */
+/* line 114, ../../sass/app/activities.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 125, ../../sass/app/activities.scss */
+/* line 117, ../../sass/app/activities.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;
 }
 
-/* line 128, ../../sass/app/activities.scss */
+/* line 120, ../../sass/app/activities.scss */
 .comment-form .comment {
   /*height: 100px;*/
 }
 
-/* line 132, ../../sass/app/activities.scss */
-.text-length {
-  padding: 0;
-}
-/* line 135, ../../sass/app/activities.scss */
-.text-length span {
+/* line 124, ../../sass/app/activities.scss */
+span.text-length {
+  margin-left: 5px;
   line-height: 28px;
   font-weight: bold;
   font-size: 0.9em;

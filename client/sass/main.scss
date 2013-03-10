@@ -1,3 +1,5 @@
+@import "settings";
+
 * {
   margin: 0;
 }
@@ -16,11 +18,6 @@ h1, h2, h3, h4, h5 {
 
 h2 {
   margin-bottom: 0.2em;
-}
-
-.faded {
-  opacity: 0.1;
-  // display: none;
 }
 
 .row.main-content {
@@ -149,6 +146,14 @@ div.alert-box {
   }
 }
 
+blockquote {
+  margin: 10px 10px 0px 10px;
+
+  cite {
+    padding-bottom: 10px;
+  }
+}
+
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
@@ -164,4 +169,36 @@ ul.dropdown h5 a {
 
 .carousel {
   margin: 0 6px;
+}
+
+@mixin arrow($size: 10px) {
+  margin: 5px;
+  height: 0;
+  width: 0;    
+  display: inline-block;
+  zoom: 1;
+
+  &.right {
+      border-left: $size solid white;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;    
+  }
+
+  &.left {
+      border-right: $size solid white;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;    
+  }
+
+  &.down {
+      border-top: $size solid white;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;    
+  }
+
+  &.up {
+      border-bottom: $size solid white;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;    
+  }
 }
