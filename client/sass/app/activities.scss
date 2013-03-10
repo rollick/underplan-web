@@ -30,61 +30,71 @@
       padding-left: 0px;
       padding-right: 0px;
     }
-  }
-}
 
-.short {
-  margin-bottom: 10px;
-  
-  a.short-comments {
-    font-size: 1em;
-    color: white !important;
-
-    &:before {
-      background-image: url('/images/right.svg');
-      background-repeat: no-repeat;
-      background-size: 14px 18px;
-      content: "\00a0\00a0";
-      display: block;
-      padding-left: 14px;
-    }
-
-    &.open:before {
-      background-image: url("/images/down.svg");
-    }
-  }
-
-  .commentList {
-    blockquote {
-      margin-top: 0px;
-      margin-bottom: 5px;
-      margin-left: 20px;
-    }
-  }
-
-  .row {
     .columns {
-      /*padding-left: 32px;*/
-      line-height: 33px;
+      .entry:first-child {
+        blockquote {
+          margin-top: 0px !important;
+        }
+      }
     }
 
-    &.short-actions {
-      font-size: 0.9em;
-      margin-left: 0px;
-      margin-right: 0px;
-      margin-top: 0;
-      background-color: green;
-      color: white;
-      
-      box-shadow: 0px 0px 20px #CCC, 0px 0px 20px #CCC;
+    .short {
+      margin-bottom: 10px;
 
-      .action {
-        &.new-comment {
-          height: 30px;
-          margin-top: -3px !important;
+      a.short-comments {
+        font-size: 1em;
+        color: white !important;
 
-          span {
-            color: white;
+        &:before {
+          background-image: url('/images/right.svg');
+          background-repeat: no-repeat;
+          background-size: 14px 18px;
+          content: "\00a0\00a0";
+          display: block;
+          padding-left: 14px;
+        }
+
+        &.open:before {
+          background-image: url("/images/down.svg");
+        }
+      }
+
+      .commentList {
+        border-bottom: 1px solid #dddddd !important;
+        margin-bottom: 18px !important;
+
+        blockquote {
+          margin-top: 0px;
+          margin-bottom: 5px;
+          margin-left: 20px;
+        }
+      }
+
+      .row {
+        .columns {
+          /*padding-left: 32px;*/
+          line-height: 33px;
+        }
+
+        &.short-actions {
+          font-size: 0.9em;
+          margin-left: 0px;
+          margin-right: 0px;
+          margin-top: 0;
+          background-color: green;
+          color: white;
+          box-shadow: 0px 0px 10px #CCC, 0px 0px 10px #CCC;
+
+          .action {
+            &.new-comment {
+              height: 30px;
+              margin-top: -3px !important;
+
+              span {
+                color: white;
+              }
+            }
           }
         }
       }
