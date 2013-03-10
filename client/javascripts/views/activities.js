@@ -182,7 +182,7 @@ Template.activityFeed.anyActivities = function () {
 };
 
 Template.activityFeed.recentActivities = function () {
-  return Activities.find({group: getCurrentGroupId()}, {limit: 15, sort: {created: -1}});
+  return Activities.find({group: getCurrentGroupId()}, {limit: 30, sort: {created: -1}});
 };
 
 Template.activityFeed.typeIs = function (what) {
@@ -191,7 +191,7 @@ Template.activityFeed.typeIs = function (what) {
 
 var recentActivitiesMap = function() {
   var dimensions = "640x240";
-  var recentActivities = Activities.find({group: getCurrentGroupId()}, {limit: 15, sort: {created: -1}});
+  var recentActivities = Activities.find({group: getCurrentGroupId()}, {limit: 30, sort: {created: -1}});
   var apiKey = appSettings().mapsApiKey;
 
   // FIXME: The code here shouldn't need to know about DOM elements.
