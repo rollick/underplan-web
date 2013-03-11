@@ -136,8 +136,7 @@ Template.activityFeed.events({
     return false;
   },
   'click .new-short a': function (event, template) {
-    // $(event.target).closest("a").toggleClass("disabled");
-    $(".short-form.row").toggle();
+    $(".short-form.row").show();
     return false;
   }
 });
@@ -234,6 +233,12 @@ Template.currentActivity.hasMap = function () {
 
 Template.currentActivity.anyActivities = function () {
   return Activities.find().count() > 0;
+};
+
+Template.currentActivity.anyComments = function () {
+  var activity = getCurrentActivity();
+
+  return Comments.find({activityId: activity._id}).count() > 0;
 };
 
 Template.currentActivity.creatorName = function () {

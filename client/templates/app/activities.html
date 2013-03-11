@@ -5,7 +5,7 @@
 </template>
 
 <template name="activityFeed">
-  <div class="row">
+  <div class="row no-side-padding">
     <div class="show-for-small small-12 columns">
       <div class="activities-map"></div>
     </div>
@@ -118,6 +118,7 @@
     </div>
     {{> commentForm activity}}
     {{> commentList activity}}
+    {{#unless anyComments}}<p class="alert-box secondary">No Comments</p>{{/unless}}
   {{else}}
     <div class="row">
       <div class="small-12 large-12 columns">
