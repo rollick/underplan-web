@@ -35,7 +35,7 @@
                   {{#if typeIs "story"}}
                     <div class="story entry">
                       <blockquote>
-                        Story: <a href="#">{{title}}</a>
+                        Story: <a href="#" class="title">{{title}} {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}</a>
                         <cite>{{date created}} by {{ownerName}}</cite>
                       </blockquote>
                     </div>
@@ -73,7 +73,7 @@
     {{#with activity}}
       <div class="row header">
         <div class="small-10 large-10 columns">
-          <h2>{{title}}</h2>
+          <h2>{{title}} {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}</h2>
         </div>
         <div class="actions small-2 large-2 columns">
           {{#if canEdit}}

@@ -43,6 +43,10 @@
     .short {
       margin-bottom: 10px;
 
+      span.short-comments {
+        cursor: default;
+      }
+
       a.short-comments {
         @extend .up-down;
 
@@ -56,7 +60,6 @@
 
         blockquote {
           margin-top: 0px;
-          margin-bottom: 5px;
           margin-left: 20px;
         }
       }
@@ -69,6 +72,7 @@
 
         &.short-actions {
           @extend .standard-bar;
+          cursor: default;
 
           .action {
             &.new-comment {

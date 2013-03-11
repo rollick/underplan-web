@@ -53,7 +53,7 @@
 </template>
 
 <template name="groupEditor">
-  {{#if group}} {{else}}<h2>New Group</h2>{{/if}}
+  {{#unless group}}<h2>New Group</h2>{{/unless}}
   {{#if error}}
     <div class="alert-box alert">{{error}}</div>
   {{/if}}

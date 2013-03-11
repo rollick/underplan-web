@@ -20,6 +20,13 @@ h2 {
   margin-bottom: 0.2em;
 }
 
+h2, a {
+  span.warning {
+    font-size: 0.7em;
+    color: $alert-color;
+  }
+}
+
 .row.main-content {
   border-bottom: 3px solid green;
   padding-bottom: 0px;
@@ -179,6 +186,8 @@ ul.dropdown h5 a {
   background-color: green;
   box-shadow: 0px 0px 10px #CCC, 0px 0px 10px #CCC;
   cursor: pointer;
+
+  a, span { color: white; }
 }
 
 .up-down {
@@ -187,7 +196,7 @@ ul.dropdown h5 a {
     background-repeat: no-repeat;
     background-size: 14px 18px;
     content: "\00a0\00a0";
-    display: block;
+    // display: block;
     padding-left: 14px;
   }
 
