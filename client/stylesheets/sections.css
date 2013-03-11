@@ -1,103 +1,269 @@
-/* line 1, ../sass/sections.scss */
-.section-container {
-  border: none !important;
-}
-/* line 4, ../sass/sections.scss */
-.section-container .section, .section-container section {
-  border-top: none;
-}
-
-/* line 11, ../sass/sections.scss */
-.section-container .section .content,
-.section-container section .content {
-  padding: 5px;
+/* line 3, ../sass/main.scss */
+* {
   margin: 0;
 }
 
-/* line 17, ../sass/sections.scss */
-.section-container .section .content:last-of-type,
-.section-container section .content:last-of-type {
-  /*border-bottom: 1px solid #ccc;*/
+/* line 7, ../sass/main.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 11, ../sass/main.scss */
+body {
+  background-image: url("/images/4.jpg");
+}
+
+/* line 15, ../sass/main.scss */
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+
+/* line 19, ../sass/main.scss */
+h2 {
+  margin-bottom: 0.2em;
+}
+
+/* line 23, ../sass/main.scss */
+.row.main-content {
+  border-bottom: 3px solid green;
+  padding-bottom: 0px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 0 auto -80px;
+  /* the bottom margin is the negative value of the footer's height */
+}
+/* line 31, ../sass/main.scss */
+.row.main-content.dashboard {
+  background: url("/images/sun3.jpg") 0 0 no-repeat;
+  background-color: black;
+}
+
+/* line 37, ../sass/main.scss */
+footer, .push {
+  height: 80px;
+  /* .push must be the same height as .footer */
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 43, ../sass/main.scss */
+footer.dashboard {
+  font-color: white;
+}
+/* line 46, ../sass/main.scss */
+footer.dashboard .row:first-of-type {
+  border-top: 2px solid #2b2b2b;
+}
+/* line 50, ../sass/main.scss */
+footer.dashboard p {
+  color: #fff;
+}
+
+/* line 56, ../sass/main.scss */
+footer p,
+footer a {
+  margin-top: 10px;
+}
+
+/* line 60, ../sass/main.scss */
+.no-side-padding {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+/* line 65, ../sass/main.scss */
+.bordered {
+  border: 1px solid #e7e4e4;
+  padding: 2px;
+}
+
+/* line 70, ../sass/main.scss */
+.normal {
+  padding-bottom: 15px;
+  background: #fff;
+  background: white;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* line 77, ../sass/main.scss */
+.input-subtext {
+  margin-top: -10px;
+  font-style: italic;
+  margin-bottom: 10px;
+  padding: 0px;
+  color: #9f9f9f;
+  font-size: 0.8em;
+  min-height: 1px;
+}
+
+/* line 87, ../sass/main.scss */
+.actions {
+  display: block;
+  line-height: 32px;
+  padding-top: 18px;
+}
+/* line 92, ../sass/main.scss */
+.actions a {
+  float: right;
+}
+/* line 96, ../sass/main.scss */
+.actions i:hover {
+  color: green;
+  cursor: pointer;
+}
+
+/* line 102, ../sass/main.scss */
+.top-bar .name h1 a {
+  font-weight: normal;
+  padding: 0 5px;
+  font-size: 1.3em;
+}
+
+/* line 109, ../sass/main.scss */
+.top-bar-section ul li > a,
+.top-bar .toggle-topbar.menu-icon a span {
+  font-weight: normal !important;
+}
+
+/* line 113, ../sass/main.scss */
+.title-area h1 {
+  color: white;
+  padding: 0 10px 0 10px;
+}
+
+/* line 118, ../sass/main.scss */
+div.alert-box {
+  margin-top: 8px;
+  text-align: center;
+}
+/* line 122, ../sass/main.scss */
+div.alert-box a.close {
+  position: relative;
+  padding: 10px;
+  color: white;
+}
+/* line 128, ../sass/main.scss */
+div.alert-box.secondary {
+  background-color: green;
+  color: white;
+}
+
+/* line 134, ../sass/main.scss */
+.button {
+  font-weight: normal;
+}
+
+/* line 138, ../sass/main.scss */
+.custom.checkbox {
+  border-color: black !important;
+}
+/* line 141, ../sass/main.scss */
+.custom.checkbox.checked::before {
+  color: black !important;
+  font-weight: bold !important;
+  padding-left: 1px;
+  padding-top: 1px;
+}
+
+/* line 149, ../sass/main.scss */
+blockquote {
+  margin: 10px 10px 0px 10px;
+}
+/* line 152, ../sass/main.scss */
+blockquote cite {
   padding-bottom: 10px;
 }
 
-/* line 23, ../sass/sections.scss */
-.section-container .section .title,
-.section-container section .title {
-  background-color: rgba(17, 17, 17, 0.05);
-  padding-left: 17px;
+/* line 157, ../sass/main.scss */
+form fieldset legend {
+  margin-bottom: 10px;
+  font-weight: normal;
 }
 
-/* line 29, ../sass/sections.scss */
-.section-container .section .title a,
-.section-container section .title a {
-  color: #2ba6cb;
+/* line 162, ../sass/main.scss */
+.section-container .section.active {
+  padding-top: 0px !important;
+}
+
+/* line 166, ../sass/main.scss */
+ul.dropdown h5 a {
+  color: white;
+}
+
+/* line 170, ../sass/main.scss */
+.carousel {
+  margin: 0 6px;
+}
+
+/* line 174, ../sass/main.scss */
+.standard-bar, .section-container .section, .section-container section {
+  font-size: 0.9em;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0;
+  background-color: green;
+  box-shadow: 0px 0px 10px #CCC, 0px 0px 10px #CCC;
+  cursor: pointer;
+}
+
+/* line 185, ../sass/main.scss */
+.up-down:before, .section-container .section .title a:before, .section-container section .title a:before {
+  background-image: url("/images/right.svg");
+  background-repeat: no-repeat;
+  background-size: 14px 18px;
+  content: "\00a0\00a0";
+  display: block;
+  padding-left: 14px;
+}
+/* line 194, ../sass/main.scss */
+.up-down.open:before, .section-container .section .title a.open:before, .section-container section .title a.open:before, .section-container .section.active .title a:before, .section-container section.active .title a:before {
+  background-image: url("/images/down.svg");
+}
+
+/* line 4, ../sass/sections.scss */
+.section-container {
+  border: none !important;
+}
+/* line 7, ../sass/sections.scss */
+.section-container .section, .section-container section {
+  border-top: none;
+}
+/* line 12, ../sass/sections.scss */
+.section-container .section .title, .section-container section .title {
+  padding-left: 5px;
+  margin-bottom: 5px;
+  background-color: green;
+}
+/* line 17, ../sass/sections.scss */
+.section-container .section .title:hover, .section-container section .title:hover {
+  background-color: green;
+}
+/* line 21, ../sass/sections.scss */
+.section-container .section .title a, .section-container section .title a {
+  color: white;
+  padding: 5px;
+  display: inline;
+  line-height: 33px;
+}
+/* line 33, ../sass/sections.scss */
+.section-container .section.active .title, .section-container section.active .title {
+  background-color: green;
+  margin-bottom: 0px;
+}
+/* line 44, ../sass/sections.scss */
+.section-container .section a.button, .section-container section a.button {
+  padding-bottom: 8px !important;
+}
+/* line 48, ../sass/sections.scss */
+.section-container .section .content, .section-container section .content {
   padding: 5px;
 }
-
-/* line 35, ../sass/sections.scss */
-.section-container .section .title:before,
-.section-container section .title:before {
-  color: #2ba6cb;
-  display: block;
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 7px;
-  left: 8px;
-  font-size: 0.7em;
-  content: "\025B6";
+/* line 51, ../sass/sections.scss */
+.section-container .section .content ul.disc, .section-container section .content ul.disc {
+  margin-left: 20px;
 }
-
-/* line 48, ../sass/sections.scss */
-.section-container .section.active .title:before,
-.section-container section.active .title:before {
-  content: "\025BC";
-  left: 7px;
-}
-
-/* For larger displays */
-@media only screen and (min-width: 48em) {
-  /* line 56, ../sass/sections.scss */
-  .section-container .section .title,
-  .section-container section .title {
-    padding-left: 20px;
-  }
-
-  /* line 63, ../sass/sections.scss */
-  .section-container .section .title:before,
-  .section-container section .title:before,
-  .section-container .section.active .title:before,
-  .section-container section.active .title:before {
-    top: 7px;
-  }
-
-  /* line 68, ../sass/sections.scss */
-  .section-container .section .content,
-  .section-container section .content {
-    padding: 10px 5px 0 5px;
-    margin: 0 10px;
-    /*    border-left: 1px solid #ccc;
-        border-right: 1px solid #ccc;
-    */
-  }
-
-  /* line 76, ../sass/sections.scss */
-  .section-container .section .content:last-of-type,
-  .section-container section .content:last-of-type {
-    /*border-bottom: 1px solid #ccc;*/
-    padding-bottom: 10px;
-  }
-}
-/* line 85, ../sass/sections.scss */
-.section-container .section.active .title,
-.section-container section.active .title,
-.section-container .section:not(.active) .title:hover,
-.section-container section:not(.active) .title:hover {
-  background-color: rgba(17, 17, 17, 0.1);
-}
-
-/* line 89, ../sass/sections.scss */
-.section-container .section a.button {
-  padding-bottom: 8px;
+/* line 56, ../sass/sections.scss */
+.section-container .section .content:last-of-type, .section-container section .content:last-of-type {
+  padding-bottom: 10px;
 }

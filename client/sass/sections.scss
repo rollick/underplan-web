@@ -1,91 +1,61 @@
+@import "main";
+@import "_settings";
+
 .section-container {
   border: none !important;
 
   .section, section {
+    @extend .standard-bar;
+
     border-top: none;
+
+    .title {
+      padding-left: 5px;
+      margin-bottom: 5px;
+      background-color: $primary-color;
+      
+      &:hover {
+        background-color: $primary-color;
+      }
+
+      a {
+        color: white;
+        padding: 5px;
+        display: inline;
+        line-height: 33px;
+
+        &:before {
+          @extend .up-down:before;
+        }
+      }
+    }
+
+    &.active .title {
+      background-color: $primary-color;
+      margin-bottom: 0px;
+
+      a {
+        &:before {
+          @extend .up-down.open:before;
+        }
+      }
+    }
+
+    a.button {
+      padding-bottom: 8px !important;
+    }
+
+    .content {
+      padding: 5px;
+
+      ul.disc {
+        margin-left: 20px;
+      }
+    }
+
+    .content:last-of-type {
+      padding-bottom: 10px;
+    }
+
   }
-}
-
-
-.section-container .section .content,
-.section-container section .content {
-  padding: 5px;
-  margin: 0;
-}
-
-.section-container .section .content:last-of-type,
-.section-container section .content:last-of-type {
-  /*border-bottom: 1px solid #ccc;*/
-  padding-bottom: 10px;
-}
-
-.section-container .section .title,
-.section-container section .title {
-  background-color: rgba(17, 17, 17, 0.05);
-  padding-left: 17px;
-}
-
-.section-container .section .title a,
-.section-container section .title a {
-  color: #2ba6cb;
-  padding: 5px;
-}
-
-.section-container .section .title:before,
-.section-container section .title:before {
-  color: #2ba6cb;
-  display: block;
-  width: 0;
-  height: 0;
-  position: absolute;
-  top: 7px;
-  left: 8px;
-  font-size: 0.7em;
-  content: "\025B6";
-}
-
-.section-container .section.active .title:before,
-.section-container section.active .title:before {
-  content: "\025BC";
-  left: 7px;
-}
-
-/* For larger displays */
-@media only screen and (min-width: 48em) {
-  .section-container .section .title,
-  .section-container section .title {
-    padding-left: 20px;
-  }
-
-  .section-container .section .title:before,
-  .section-container section .title:before,
-  .section-container .section.active .title:before,
-  .section-container section.active .title:before {
-    top: 7px;
-  }
-
-  .section-container .section .content,
-  .section-container section .content {
-    padding: 10px 5px 0 5px;
-    margin: 0 10px;
-/*    border-left: 1px solid #ccc;
-    border-right: 1px solid #ccc;
-*/  }
-
-  .section-container .section .content:last-of-type,
-  .section-container section .content:last-of-type {
-    /*border-bottom: 1px solid #ccc;*/
-    padding-bottom: 10px;
-  }
-}
-
-.section-container .section.active .title,
-.section-container section.active .title,
-.section-container .section:not(.active) .title:hover,
-.section-container section:not(.active) .title:hover {
-  background-color: rgba(17, 17, 17, 0.1);
-}
-
-.section-container .section a.button {
-  padding-bottom: 8px;
 }
