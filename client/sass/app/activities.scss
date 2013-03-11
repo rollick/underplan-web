@@ -2,9 +2,16 @@
 @import "../main";
 @import "compass";
 
-.activity cite:before { 
+.activity {
+  cite:before { 
     content: "\2014 \0020";
     color: gray; 
+  }
+
+  .activity-map {
+    margin-left: 8px;
+    float: right;
+  }
 }
 
 .feed {
@@ -26,6 +33,7 @@
       line-height: 1.5;
     }
   }
+
   .row.feed-list {
     &:first-child {
       padding-left: 0px;
@@ -73,7 +81,8 @@
         &.short-actions {
           @extend .standard-bar;
           cursor: default;
-
+          color: white;
+          
           .action {
             &.new-comment {
               height: 30px;

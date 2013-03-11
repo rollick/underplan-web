@@ -186,18 +186,16 @@ ul.dropdown h5 a {
   background-color: green;
   box-shadow: 0px 0px 10px #CCC, 0px 0px 10px #CCC;
   cursor: pointer;
-
-  a, span { color: white; }
 }
 
 .up-down {
   &:before {
     background-image: url('/images/right.svg');
     background-repeat: no-repeat;
-    background-size: 14px 18px;
+    background-size: 12px 18px;
     content: "\00a0\00a0";
     // display: block;
-    padding-left: 14px;
+    padding-left: 12px;
   }
 
   &.open:before {
