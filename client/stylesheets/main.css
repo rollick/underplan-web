@@ -32,7 +32,7 @@ h2 span.warning, a span.warning {
 /* line 30, ../sass/main.scss */
 .row.main-content {
   border-bottom: 3px solid green;
-  padding-bottom: 0px;
+  padding: 0px;
   min-height: 100%;
   height: auto !important;
   height: 100%;
@@ -40,12 +40,27 @@ h2 span.warning, a span.warning {
   /* the bottom margin is the negative value of the footer's height */
 }
 /* line 38, ../sass/main.scss */
+.row.main-content > .columns {
+  padding: 5px;
+  padding-top: 10px;
+}
+/* line 43, ../sass/main.scss */
 .row.main-content.dashboard {
   background: url("/images/sun3.jpg") 0 0 no-repeat;
   background-color: black;
 }
 
-/* line 44, ../sass/main.scss */
+@media only screen and (min-width: 48em) {
+  /* line 50, ../sass/main.scss */
+  .row.main-content {
+    padding: 5px 5px 0px 5px;
+  }
+  /* line 53, ../sass/main.scss */
+  .row.main-content > .columns {
+    padding: 10px;
+  }
+}
+/* line 59, ../sass/main.scss */
 footer, .push {
   height: 80px;
   /* .push must be the same height as .footer */
@@ -53,38 +68,38 @@ footer, .push {
   padding: 0px;
 }
 
-/* line 50, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 footer.dashboard {
   font-color: white;
 }
-/* line 53, ../sass/main.scss */
+/* line 68, ../sass/main.scss */
 footer.dashboard .row:first-of-type {
   border-top: 2px solid #2b2b2b;
 }
-/* line 57, ../sass/main.scss */
+/* line 72, ../sass/main.scss */
 footer.dashboard p {
   color: #fff;
 }
 
-/* line 63, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 footer p,
 footer a {
   margin-top: 10px;
 }
 
-/* line 67, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 .no-side-padding {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
 
-/* line 72, ../sass/main.scss */
+/* line 87, ../sass/main.scss */
 .bordered {
   border: 1px solid #e7e4e4;
   padding: 2px;
 }
 
-/* line 77, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 .normal {
   padding-bottom: 15px;
   background: #fff;
@@ -92,7 +107,7 @@ footer a {
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* line 84, ../sass/main.scss */
+/* line 99, ../sass/main.scss */
 .input-subtext {
   margin-top: -10px;
   font-style: italic;
@@ -103,68 +118,68 @@ footer a {
   min-height: 1px;
 }
 
-/* line 94, ../sass/main.scss */
+/* line 109, ../sass/main.scss */
 .actions {
   display: block;
   line-height: 32px;
   padding-top: 18px;
 }
-/* line 99, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 .actions a {
   float: right;
 }
-/* line 103, ../sass/main.scss */
+/* line 118, ../sass/main.scss */
 .actions i:hover {
   color: green;
   cursor: pointer;
 }
 
-/* line 109, ../sass/main.scss */
+/* line 124, ../sass/main.scss */
 .top-bar .name h1 a {
   font-weight: normal;
   padding: 0 5px;
   font-size: 1.3em;
 }
 
-/* line 116, ../sass/main.scss */
+/* line 131, ../sass/main.scss */
 .top-bar-section ul li > a,
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 120, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 125, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 div.alert-box {
   margin-top: 8px;
   text-align: center;
 }
-/* line 129, ../sass/main.scss */
+/* line 144, ../sass/main.scss */
 div.alert-box a.close {
   position: relative;
   padding: 10px;
   color: white;
 }
-/* line 135, ../sass/main.scss */
+/* line 150, ../sass/main.scss */
 div.alert-box.secondary {
   background-color: green;
   color: white;
 }
 
-/* line 141, ../sass/main.scss */
+/* line 156, ../sass/main.scss */
 .button {
   font-weight: normal;
 }
 
-/* line 145, ../sass/main.scss */
+/* line 160, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 148, ../sass/main.scss */
+/* line 163, ../sass/main.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -172,37 +187,37 @@ div.alert-box.secondary {
   padding-top: 1px;
 }
 
-/* line 156, ../sass/main.scss */
+/* line 171, ../sass/main.scss */
 blockquote {
   margin: 10px 10px 0px 10px;
 }
-/* line 159, ../sass/main.scss */
+/* line 174, ../sass/main.scss */
 blockquote cite {
   padding-bottom: 10px;
 }
 
-/* line 164, ../sass/main.scss */
+/* line 179, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 169, ../sass/main.scss */
+/* line 184, ../sass/main.scss */
 .section-container .section.active {
   padding-top: 0px !important;
 }
 
-/* line 173, ../sass/main.scss */
+/* line 188, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 177, ../sass/main.scss */
+/* line 192, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }
 
-/* line 181, ../sass/main.scss */
+/* line 196, ../sass/main.scss */
 .standard-bar {
   font-size: 0.9em;
   margin-left: 0px;
@@ -213,7 +228,7 @@ ul.dropdown h5 a {
   cursor: pointer;
 }
 
-/* line 192, ../sass/main.scss */
+/* line 207, ../sass/main.scss */
 .up-down:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
@@ -221,7 +236,7 @@ ul.dropdown h5 a {
   padding-left: 12px;
   content: "\00a0\00a0";
 }
-/* line 200, ../sass/main.scss */
+/* line 215, ../sass/main.scss */
 .up-down.open:before {
   background-image: url("/images/down.svg");
 }

@@ -82,7 +82,7 @@
           @extend .standard-bar;
           cursor: default;
           color: white;
-          
+
           .action {
             &.new-comment {
               height: 30px;
@@ -111,10 +111,6 @@
   float: right;
   min-width: 120px;
   min-height: 120px;
-  
-  img {
-    margin: 20px 0 10px 0;
-  }
 }
 
 .feed li,

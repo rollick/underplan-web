@@ -29,15 +29,30 @@ h2, a {
 
 .row.main-content {
   border-bottom: 3px solid green;
-  padding-bottom: 0px;
+  padding: 0px;
   min-height: 100%;
   height: auto !important;
   height: 100%;
   margin: 0 auto -80px; /* the bottom margin is the negative value of the footer's height */
 
+  & > .columns {
+    padding: 5px;
+    padding-top: 10px;
+  }
+
   &.dashboard {
     background: url("/images/sun3.jpg") 0 0 no-repeat;
     background-color: black;
+  }
+}
+
+@media only screen and (min-width: 48em) {
+  .row.main-content {
+    padding: 5px 5px 0px 5px;
+
+    & > .columns {
+      padding: 10px;
+    }
   }
 }
 
