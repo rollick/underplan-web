@@ -218,10 +218,10 @@ ul.dropdown h5 a {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
   background-size: 12px 18px;
-  content: "\00a0\00a0";
   padding-left: 12px;
+  content: "\00a0\00a0";
 }
-/* line 201, ../sass/main.scss */
+/* line 200, ../sass/main.scss */
 .up-down.open:before {
   background-image: url("/images/down.svg");
 }
