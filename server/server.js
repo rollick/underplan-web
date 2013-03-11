@@ -10,11 +10,14 @@ Meteor.publish("activities", function () {
   //        but is linked to a group to which the current user belongs.
   var conditions = {
     $and: [
-      {"approved": true}, 
+      {$or: [
+        {"approved": {$exists: false}}, 
+        {"approved": true}
+      ]}, 
       {$or: [
         {"owner": this.userId},
-        {"invited": this.userId}]
-      }
+        {"invited": this.userId}
+      ]}
     ]};
 
   var groups = Groups.find(conditions, {fields: {_id: 1}}).map(function(group) {
