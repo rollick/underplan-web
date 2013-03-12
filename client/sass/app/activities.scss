@@ -20,6 +20,19 @@
   }
 }
 
+.activities-map {
+  padding: 10px 0px 10px 0px !important;
+  min-width: 120px;
+  min-height: 120px;
+}
+
+@media only screen and (min-width: 48em) {
+  .activities-map {
+    padding: 5px;
+    padding-left: 10px;
+  }
+}
+
 .feed {
   li { 
     p {
@@ -109,20 +122,6 @@
   .short a.short-comments,
   .short span.short-comments {
     font-size: 0.9em;
-  }
-}
-
-.activities-map {
-  padding: 10px 0px 10px 0px !important;
-  min-width: 120px;
-  min-height: 120px;
-}
-
-@media only screen and (min-width: 48em) {
-  .activities-map {
-    float: right;
-    padding: 5px;
-    padding-left: 10px;
   }
 }
 
