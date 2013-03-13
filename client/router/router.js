@@ -15,6 +15,7 @@ var AppRouter = Backbone.Router.extend({
   main: function() {
     resetGroup();
     showTemplate("mainHome");
+    trackRoute("Landing Page Loaded");
   },
 
   group: function(groupSlug) {
