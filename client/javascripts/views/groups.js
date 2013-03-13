@@ -15,7 +15,7 @@ Template.mainHome.events({
 });
 
 Template.mainHome.events({
-  'click .groups a': function (event, template) {
+  'click .groups a, click .groups .panel': function (event, template) {
     Router.setGroup(this);
     return false;
   },

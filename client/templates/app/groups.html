@@ -22,7 +22,7 @@
       </div>
       <div class="row">
         <div class="small-12 large-12 columns">
-          <a href="#" class="large round success button new-group">Create your Group</a>
+          <a href="/new" class="large round success button new-group">Create your Group</a>
         </div>
       </div>
       <div class="row">
@@ -34,7 +34,7 @@
             <div class="small-12 large-4 columns">
               {{#with this}}
                 <div class="panel radius">
-                  <a href="#" class="foundicon-flag"> {{name}}</a>
+                  <a href="/{{slug}}" class="foundicon-flag"> {{name}}</a>
                   <p>started {{date created}}</p>
                   {{#if description}}<p>{{description}}</p>{{/if}}
                 </div>

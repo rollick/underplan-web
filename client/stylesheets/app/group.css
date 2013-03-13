@@ -2,3 +2,8 @@
 .group-form .description {
   height: 80px;
 }
+
+/* line 6, ../../sass/app/group.scss */
+.groups .panel {
+  cursor: pointer;
+}
