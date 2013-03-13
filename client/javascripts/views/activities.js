@@ -295,15 +295,15 @@ Template.currentActivity.rendered = function() {
 
   if(group && group.picasaUsername.length && currentActivityHasPhotos()) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, activity.picasaTags, function(images) {
-      var picasaAlbum = "<ul class=\"block-grid eight-up\" data-clearing>";
+      var picasaAlbum = "<ul class=\"clearing-thumbs small-block-grid-4 large-block-grid-6\" data-clearing>";
 
       var index = 0;
       $.each(images, function(i, element) {
         if(index > max)
           return false;
 
-        picasaAlbum += " <li>";
-        picasaAlbum += "   <a href=\"" + element.url + "\"><img src=\"" + element.thumbs[0].url + "\"></a>";
+        picasaAlbum += " <li style=\"padding: 4px;\">";
+        picasaAlbum += "   <a href=\"" + element.url + "\"><img class=\"bordered\" src=\"" + element.thumbs[0].url + "\"></a>";
         picasaAlbum += " </li>";
 
         index += 1;
