@@ -295,7 +295,7 @@ Template.currentActivity.rendered = function() {
 
   if(group && group.picasaUsername.length && currentActivityHasPhotos()) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, activity.picasaTags, function(images) {
-      var picasaAlbum = "<ul class=\"clearing-thumbs small-block-grid-4 large-block-grid-6\" data-clearing>";
+      var picasaAlbum = "<ul class=\"clearing-thumbs small-block-grid-4 large-block-grid-10\" data-clearing>";
 
       var index = 0;
       $.each(images, function(i, element) {
