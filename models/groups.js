@@ -84,7 +84,7 @@ Meteor.methods({
         // This code only runs on the server. If you didn't want clients
         // to be able to see it, you could move it to a separate file.
         Email.send({
-          from: "noreply@example.com",
+          from: "noreply@underplan.it",
           to: to,
           replyTo: from || undefined,
           subject: "Underplan: " + group.name,
