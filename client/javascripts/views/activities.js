@@ -12,24 +12,34 @@ Template.storyEditor.defaultMapZoom = function () {
 Template.storyEditor.events({
   'keyup .location': function (event, template) {
     var location = template.find(".location").value;
+
+    if(!(location.length > 3))
+      return false;
     
-    coords = geoLocation(location, function(geo) {
-      if(typeof geo === "object") {
-        var lat = geo.lat,
-            lng = geo.lng,
-            address = geo.address;
+    if (timeout) {  
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(function() {
+      console.log("Geolocating: " + location);
+      coords = geoLocation(location, function(geo) {
+        if(typeof geo === "object") {
+          var lat = geo.lat,
+              lng = geo.lng,
+              address = geo.address;
 
-        template.find(".lat").value = lat;
-        template.find(".lng").value = lng;
+          template.find(".lat").value = lat;
+          template.find(".lng").value = lng;
 
-        template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + address + ")";
-      } else {
-        template.find(".lat").value = "";
-        template.find(".lng").value = "";
+          template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + address + ")";
+        } else {
+          template.find(".lat").value = "";
+          template.find(".lng").value = "";
 
-        template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
-      }
-    });
+          template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
+        }
+      });
+    }, 750);
+
   },
   'click .cancel': function (event, template) {
     Router.setGroup(getCurrentGroup());
@@ -168,8 +178,7 @@ Template.activityFeed.rendered = function() {
     });
   }
 
-  var imageUrl = recentActivitiesMap();
-  $(".activities-map").html("<img class=\"bordered\" src='" + imageUrl + "' />");
+  generateActivitesMap(group, ".activities-map:visible");
 };
 
 Template.activityFeed.userBelongsToGroup = function () {
@@ -186,6 +195,66 @@ Template.activityFeed.recentActivities = function () {
 
 Template.activityFeed.typeIs = function (what) {
   return this.type === what;
+};
+
+var dashboardMap = null;
+
+var generateActivitesMap = function(group, elementSelector) {
+  // load default group if only string passed to function
+  if(typeof group === "string" && typeof elementSelector === "undefined") {
+    group = getCurrentGroup();
+  } else if(typeof elementSelector === "undefined" && typeof elementSelector === "undefined") {
+    console.log("No group or container element defined!");
+    return false;
+  }
+
+  if(!_.isObject(group)) {
+    console.log("No current group defined!");
+    return false;
+  }
+
+  var element = $(elementSelector)[0];
+  if(typeof element === "undefined")
+    return false;
+
+  var locations = [];
+  var index = 1;
+
+  var activities = Activities.find({group: group._id}).forEach( function (activity) {
+    if(activity.lat && activity.lng) {
+      locations.push([activity.subject, activity.lat, activity.lng, index]);
+      index+=1;
+    }
+  });
+
+  dashboardMap = new google.maps.Map(element, {
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  var bounds = new google.maps.LatLngBounds();
+  var infowindow = new google.maps.InfoWindow();
+
+  var marker, i;
+
+  for (i = 0; i < locations.length; i++) {  
+    var latLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+
+    marker = new google.maps.Marker({
+      position: latLng,
+      map: dashboardMap
+    });
+
+    google.maps.event.addListener(marker, 'click', (function(marker, i) {
+      return function() {
+        infowindow.setContent(locations[i][0]);
+        infowindow.open(dashboardMap, marker);
+      }
+    })(marker, i));
+
+    bounds.extend(latLng);
+  }
+
+  dashboardMap.fitBounds(bounds);
 };
 
 var recentActivitiesMap = function() {

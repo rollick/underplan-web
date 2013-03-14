@@ -79,23 +79,33 @@ Template.shortForm.events({
   'keyup .location': function (event, template) {
     var location = template.find(".location").value;
     
-    coords = geoLocation(location, function(geo) {
-      if(typeof geo === "object") {
-        var lat = geo.lat,
-            lng = geo.lng,
-            address = geo.address;
+    if(!(location.length > 3))
+      return false;
+    
+    if (timeout) {  
+      clearTimeout(timeout);
+    }
+    timeout = setTimeout(function() {
+      console.log("Geolocating: " + location);
 
-        template.find(".lat").value = lat;
-        template.find(".lng").value = lng;
+      coords = geoLocation(location, function(geo) {
+        if(typeof geo === "object") {
+          var lat = geo.lat,
+              lng = geo.lng,
+              address = geo.address;
 
-        template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + address + ")";
-      } else {
-        template.find(".lat").value = "";
-        template.find(".lng").value = "";
+          template.find(".lat").value = lat;
+          template.find(".lng").value = lng;
 
-        template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
-      }
-    });
+          template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + address + ")";
+        } else {
+          template.find(".lat").value = "";
+          template.find(".lng").value = "";
+
+          template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
+        }
+      });
+    }, 750);
   },
   'click .post': function (event, template) {
     if($(template.find("a")).hasClass("disabled"))
@@ -107,6 +117,7 @@ Template.shortForm.events({
     values.lng      = template.find(".lng").value;
     values.groupId  = getCurrentGroupId();
 
+    debugger
     if (values.groupId && values.text.length) {
       Meteor.call('createActivity', values, function (error, activityId) {
         if (error) {

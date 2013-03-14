@@ -21,7 +21,7 @@ var appTemplates = function () {
   };
 }
 
-var showTemplate = function (templateName) {
+var showTemplate = function (templateName, callback) {
   var conditions = appTemplates();
   
   _.each(_.keys(conditions), function(key) {
@@ -31,6 +31,9 @@ var showTemplate = function (templateName) {
       Session.set(conditions[key], false);
     }
   });
+
+  if(_.isFunction(callback))
+    callback();
 };
 
 // var initTemplateChecks = function() {
@@ -207,8 +210,10 @@ var trackRoute = function(action) {
   }
 };
 
+var timeout = null;
+
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.38");
+  Session.set("appVersion", "v0.9.39");
 
   Backbone.history.start({ pushState: true });
   // initTemplateChecks();
