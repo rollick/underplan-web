@@ -32,6 +32,30 @@
   }
 }
 
+.map-info {
+  width: 300px;
+  // height: 200px;
+
+  blockquote {
+    border-left: none !important;
+    margin: 0px !important;
+    padding: 8px;
+    font-size: 0.9em;
+
+    p:last-of-type {
+      margin-bottom: 10px;
+    }
+  }
+
+  @media only screen and (min-width: 48em) {
+    width: 400px;
+
+    blockquote {
+      font-size: 1em;
+    }
+  }
+}
+
 @media only screen and (min-width: 48em) {
   .activities-map {
     padding: 5px;
@@ -76,6 +100,12 @@
 
     .short {
       margin-bottom: 10px;
+
+      blockquote {
+        p:last-of-type {
+          margin-bottom: 10px;
+        }
+      }
 
       span.short-comments {
         cursor: default;

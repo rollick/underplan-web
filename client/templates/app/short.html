@@ -1,10 +1,14 @@
+<template name="shortContent">
+  <blockquote>
+    {{#markdown}}{{text}}{{/markdown}}
+    <cite>{{date created}} by {{ownerName}}</cite>
+  </blockquote>
+</template>
+
 <template name="short">
   <div class="short entry">
     {{#with activity}}
-      <blockquote>
-        {{text}}
-        <cite>{{date created}} by {{ownerName}}</cite>
-      </blockquote>
+      {{> shortContent}}
       <div class="row short-actions">
         <div class="small-6 large-6 columns">
           {{commentsLink lastUpdated}}

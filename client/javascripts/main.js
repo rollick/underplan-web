@@ -213,7 +213,7 @@ var trackRoute = function(action) {
 var timeout = null;
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.39");
+  Session.set("appVersion", "v0.9.40");
 
   Backbone.history.start({ pushState: true });
   // initTemplateChecks();

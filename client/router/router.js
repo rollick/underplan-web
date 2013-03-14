@@ -111,10 +111,10 @@ var AppRouter = Backbone.Router.extend({
     this.navigate(group.slug + "/" + activity.slug + "/edit", true);
   },
 
-  setActivity: function(group, activity) {
-    // TODO:  should just pass activity here and then use it's slug and the
-    //        associated groups slug to generate url
-    this.navigate(group.slug + "/" + activity.slug, true);
+  setActivity: function(activity) {
+    var groupSlug = Groups.findOne(activity.group).slug;
+    
+    this.navigate(groupSlug + "/" + activity.slug, true);
   },
 
   setNewActivity: function (group) {

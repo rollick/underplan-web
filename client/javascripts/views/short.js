@@ -117,7 +117,6 @@ Template.shortForm.events({
     values.lng      = template.find(".lng").value;
     values.groupId  = getCurrentGroupId();
 
-    debugger
     if (values.groupId && values.text.length) {
       Meteor.call('createActivity', values, function (error, activityId) {
         if (error) {

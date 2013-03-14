@@ -19,7 +19,7 @@
 
 <template name="comment">
   <blockquote>
-    <p>{{comment}}
+    <p>{{#markdown}}{{comment}}{{/markdown}}
     <cite>{{date created}} by {{userName owner}}</cite></p>
   </blockquote>
 </template>

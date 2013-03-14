@@ -46,7 +46,7 @@ Template.storyEditor.events({
     return false;
   },
   'click .back': function (event, template) {
-    Router.setActivity(getCurrentGroup(), this);
+    Router.setActivity(this);
     return false;
   },
   'click .save': function (event, template) {
@@ -57,7 +57,7 @@ Template.storyEditor.events({
         if (error) {
           Session.set("createError", error);
         } else {
-          Router.setActivity(getCurrentGroup(), Activities.findOne(activityId));
+          Router.setActivity(Activities.findOne(activityId));
         }
       });
     } else {
@@ -75,7 +75,7 @@ Template.storyEditor.events({
         if (error) {
           Session.set("createError", error);
         } else {
-          Router.setActivity(getCurrentGroup(), Activities.findOne(activityId));
+          Router.setActivity(Activities.findOne(activityId));
         }
       });
     } else {
@@ -142,7 +142,7 @@ var hideActivityEditor = function() {
 
 Template.activityFeed.events({
   'click .story a': function (event, template) {
-    Router.setActivity(getCurrentGroup(), this);
+    Router.setActivity(this);
     return false;
   },
   'click .new-short a': function (event, template) {
@@ -219,10 +219,27 @@ var generateActivitesMap = function(group, elementSelector) {
 
   var locations = [];
   var index = 1;
+  var icons = {
+    short: "http://maps.google.com/mapfiles/marker.png",
+    story: "http://maps.google.com/mapfiles/marker_green.png"
+  }
 
   var activities = Activities.find({group: group._id}).forEach( function (activity) {
     if(activity.lat && activity.lng) {
-      locations.push([activity.subject, activity.lat, activity.lng, index]);
+      var text = "";
+      if(activity.type == "short")
+        text = activity.text;
+
+      locations.push(
+        {
+          lat: activity.lat, 
+          lng: activity.lng, 
+          text: text, 
+          type: activity.type, 
+          activityId: activity._id, 
+          index: index
+        }
+      );
       index+=1;
     }
   });
@@ -237,17 +254,28 @@ var generateActivitesMap = function(group, elementSelector) {
   var marker, i;
 
   for (i = 0; i < locations.length; i++) {  
-    var latLng = new google.maps.LatLng(locations[i][1], locations[i][2]);
+    var latLng = new google.maps.LatLng(locations[i].lat, locations[i].lng);
 
     marker = new google.maps.Marker({
       position: latLng,
-      map: dashboardMap
+      map: dashboardMap,
+      icon: icons[locations[i].type]
     });
 
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
       return function() {
-        infowindow.setContent(locations[i][0]);
-        infowindow.open(dashboardMap, marker);
+        var location = locations[i];
+        var activity = Activities.findOne(location.activityId);
+
+        if(location.type === "story") {
+          Router.setActivity(activity);
+        } else {
+          var html = Template.shortContent(activity);
+          html = "<div class=\"map-info\">" + html + "</div>";
+
+          infowindow.setContent(html);
+          infowindow.open(dashboardMap, marker);
+        }
       }
     })(marker, i));
 

@@ -24,7 +24,6 @@ Handlebars.registerHelper('commentsLink', function(options) {
   var html = "<span class=\"short-comments\">0 comments</span>";
 
   if(commentCount > 0) {
-    // debugger
     var open = selected ? "open" : "";
     var text = commentCount > 1 ? "comments" : "comment";
     html = "<a class=\"short-comments " + open + "\" href=\"#\">" + commentCount + " " + text + "</a>";
