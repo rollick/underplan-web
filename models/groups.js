@@ -81,8 +81,6 @@ Meteor.methods({
       var from = contactEmail(Meteor.users.findOne(this.userId));
       var to = contactEmail(Meteor.users.findOne(userId));
       if (Meteor.isServer && to) {
-        // This code only runs on the server. If you didn't want clients
-        // to be able to see it, you could move it to a separate file.
         Email.send({
           from: "noreply@underplan.it",
           to: to,
@@ -90,7 +88,7 @@ Meteor.methods({
           subject: "Underplan: " + group.name,
           text:
 "Hey, I just invited you to '" + group.name + "' on Underplan." +
-"\n\nCome check it out: " + Meteor.absoluteUrl() + "\n"
+"\n\nCome check it out: " + Meteor.absoluteUrl() + "/" + group.slug + "\n"
         });
       }
     }

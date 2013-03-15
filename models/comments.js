@@ -37,11 +37,51 @@ Meteor.methods({
     if ( typeof options.created === "undefined" )
       options.created = new Date()
 
-    return Comments.insert({
+    var comment = Comments.insert({
       owner:      this.userId,
       comment:    options.comment,
       activityId: options.activityId,
       created:    options.created
     });
+
+    // Notify group members about new comment
+    if (Meteor.isServer) {
+      var commentor = Meteor.users.findOne(this.userId);
+      var activity = Activities.findOne(options.activityId);
+      var group = Groups.findOne(activity.group);
+      var members = Meteor.users.find({$nor: [{_id: {$in: group.invited}},
+                                      {_id: group.owner}]});
+
+      var memberEmails = [];
+      members.forEach( function (user) { 
+        var email = contactEmail(user);
+        if(email)
+          memberEmails.push(email);
+      });
+
+      if(memberEmails.length > 0) {
+        var text  =  "Hey, " + displayName(commentor) + " just commented on a " + activity.type; 
+        if(activity.type == "story") {
+          text += " titled '" + activity.title + "'. ";
+          text += "Check it out here: " + Meteor.absoluteUrl() + [group.slug, activity.slug].join("/") + "\n\n"
+        } else if(activity.type == "short") {
+          text += " for the group '" + group.name + "'. ";
+          text += "Check it out here: " + Meteor.absoluteUrl() + group.slug + "\n\n"
+        }
+
+        text += "They said:\n\n" + options.comment + "\n\n";
+        text += "Yours faithfully, Underplan"
+
+        Email.send({
+          from: "noreply@underplan.it",
+          to: memberEmails,
+          replyTo: undefined,
+          subject: "Underplan: New Comment for '" + group.name + "'",
+          text: text
+        });
+      }
+    }
+
+    return comment;
   },
 });

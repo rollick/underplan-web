@@ -17,7 +17,7 @@ Template.commentForm.events({
     if (activityId && Meteor.userId() && comment.length) {
       Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
         if (error) {
-          Session.set("createError", error);
+          Session.set("createError", [error.error, error.reason].join(": "));
         } else {
           Session.set("lastUpdatedActivity", activityId)
           template.find(".comment").value = "";
