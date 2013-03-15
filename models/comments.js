@@ -49,7 +49,7 @@ Meteor.methods({
       var commentor = Meteor.users.findOne(this.userId);
       var activity = Activities.findOne(options.activityId);
       var group = Groups.findOne(activity.group);
-      var members = Meteor.users.find({$nor: [{_id: {$in: group.invited}},
+      var members = Meteor.users.find({$or: [{_id: {$in: group.invited}},
                                       {_id: group.owner}]});
 
       var memberEmails = [];

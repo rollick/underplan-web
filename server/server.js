@@ -1,8 +1,8 @@
 // Underplan -- server
 
 Meteor.publish("directory", function () {
-  return Meteor.users.find({});
-  //return Meteor.users.find({}, {fields: {"emails": 1, "profile": 1, "admin": 1}});
+  //return Meteor.users.find({});
+  return Meteor.users.find({}, {fields: {"profile": 1, "admin": 1}});
 });
 
 Meteor.publish("activities", function () {
