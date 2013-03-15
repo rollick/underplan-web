@@ -354,50 +354,54 @@ ul.dropdown h5 a {
   margin-top: 0px;
   margin-left: 20px;
 }
-/* line 132, ../../sass/app/activities.scss */
+/* line 129, ../../sass/app/activities.scss */
+.feed .row.feed-list .short .commentList blockquote p:last-of-type {
+  margin-bottom: 10px !important;
+}
+/* line 136, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row .columns {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 137, ../../sass/app/activities.scss */
+/* line 141, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions {
   cursor: default;
   color: white;
 }
-/* line 143, ../../sass/app/activities.scss */
+/* line 147, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 147, ../../sass/app/activities.scss */
+/* line 151, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment span {
   color: white;
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 160, ../../sass/app/activities.scss */
+  /* line 164, ../../sass/app/activities.scss */
   .short a.short-comments,
   .short span.short-comments {
     font-size: 0.9em;
   }
 }
-/* line 166, ../../sass/app/activities.scss */
+/* line 170, ../../sass/app/activities.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 169, ../../sass/app/activities.scss */
+/* line 173, ../../sass/app/activities.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;
 }
 
-/* line 172, ../../sass/app/activities.scss */
+/* line 176, ../../sass/app/activities.scss */
 .comment-form .comment {
   /*height: 100px;*/
 }
 
-/* line 176, ../../sass/app/activities.scss */
+/* line 180, ../../sass/app/activities.scss */
 span.text-length {
   margin-left: 5px;
   line-height: 28px;
