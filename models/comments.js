@@ -54,7 +54,7 @@ Meteor.methods({
 
       var memberEmails = [];
       members.forEach( function (user) { 
-        var email = contactEmail(user);
+        var email = userEmail(user);
         if(email)
           memberEmails.push(email);
       });

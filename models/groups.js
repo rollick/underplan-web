@@ -78,8 +78,8 @@ Meteor.methods({
     if (userId !== group.owner && ! _.contains(group.invited, userId)) {
       Groups.update(groupId, { $addToSet: { invited: userId } });
 
-      var from = contactEmail(Meteor.users.findOne(this.userId));
-      var to = contactEmail(Meteor.users.findOne(userId));
+      var from = userEmail(Meteor.users.findOne(this.userId));
+      var to = userEmail(Meteor.users.findOne(userId));
       if (Meteor.isServer && to) {
         Email.send({
           from: "noreply@underplan.it",

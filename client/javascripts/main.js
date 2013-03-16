@@ -202,14 +202,6 @@ var geoLocation = function(location, callback) {
   }
 };
 
-var trackRoute = function(action) {
-  if(typeof mixpanel === "object") {
-    mixpanel.track(action);
-  } else {
-    console.log("Mixpanel not loaded!!");
-  }
-};
-
 var timeout = null;
 
 Meteor.startup(function () {

@@ -6,7 +6,7 @@ var displayName = function (user) {
   if (user.profile && user.profile.name)
     return user.profile.name;
   
-  var email = contactEmail(user);
+  var email = userEmail(user);
   if(!!email) {
     return email;
   } else {
@@ -14,16 +14,33 @@ var displayName = function (user) {
   }
 };
 
-var contactEmail = function (user) {
-  if (user.emails && user.emails.length)
-    return user.emails[0].address;
-  if (user.services && user.services.facebook && user.services.facebook.email)
-    return user.services.facebook.email;
-  if (user.services && user.services.github && user.services.github.email)
-    return user.services.github.email;
-  if (user.services && user.services.google && user.services.google.email)
-    return user.services.google.email;
-  if (user.services && user.services.twitter && user.services.twitter.email)
-    return user.services.twitter.email;
+var userEmail = function (user) {
+  if(!user)
+    return null;
+
+  var profile = userSettings(user);
+  if(!!profile && profile.email)
+    return profile.email;
   return null;
 };
+
+var userPicture = function (user) {
+  if(!user)
+    return null;
+
+  var profile = userSettings(user);
+  if(!!profile && profile.picture)
+    return profile.picture;
+  return null;
+};
+
+var userSettings = function(user) {
+  if(!user)
+    return null;
+
+  if(user.services) {
+    return user.services.facebook || user.services.github || user.services.google || user.services.twitter;
+  } else {
+    return null;
+  }
+}
