@@ -284,7 +284,7 @@ var generateActivitesMap = function(group, elementSelector) {
 
     dashboardMapBounds.extend(latLng);
   }
-  dashboardMap.fitBounds(dashboardMapBounds);
+  // dashboardMap.fitBounds(dashboardMapBounds);
 };
 
 var recentActivitiesMap = function() {
@@ -318,6 +318,30 @@ var recentActivitiesMap = function() {
 ///////////////////////////////////////////////////////////////////////////////
 // Activity view
 
+Template.currentActivity.nextActivity = function () {
+  return Activities.find({
+    $and: [
+      {"_id": {"$not": getCurrentActivityId()}}, 
+      {type: "story"}, 
+      {created: {"$gte": getCurrentActivity().created}}
+    ]
+  }, {sort: {created: 1, _id: 1}}).fetch()[0];
+};
+
+Template.currentActivity.previousActivity = function () {
+  return Activities.find({
+    $and: [
+      {"_id": {"$not": getCurrentActivityId()}}, 
+      {type: "story"}, 
+      {created: {"$lte": getCurrentActivity().created}}
+    ]
+  }, {sort: {created: -1, _id: -1}}).fetch()[0];
+};
+
+Template.currentActivity.group = function () {
+  return getCurrentGroup();
+};
+
 Template.currentActivity.activity = function () {
   return Activities.findOne(getCurrentActivityId());
 };
@@ -342,8 +366,12 @@ Template.currentActivity.anyComments = function () {
 
 Template.currentActivity.creatorName = function () {
   var owner = Meteor.users.findOne(this.owner);
-  if (owner._id === Meteor.userId())
+  if(!owner)
+    return "";
+
+  if(owner._id === Meteor.userId())
     return "me";
+
   return displayName(owner);
 };
 
@@ -426,6 +454,10 @@ Template.currentActivity.events({
     
     $(event.target).closest("a").toggleClass("disabled");
     $(".comment-form.row").toggle();
+    return false;
+  },
+  'click .activity-controls a': function (event, template) {
+    Router.setActivity(this);
     return false;
   }
 });

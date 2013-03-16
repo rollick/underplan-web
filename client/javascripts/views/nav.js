@@ -30,10 +30,6 @@ Template.mainNav.events({
   'click .home': function () {
     Router.setGroup(getCurrentGroup());
     return false;
-  },
-  'click .main-settings': function(event, template) {
-    Router.setMainSettings(getCurrentGroup());
-    return false;
   }
 });
 

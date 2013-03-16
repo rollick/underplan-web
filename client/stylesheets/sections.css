@@ -218,7 +218,6 @@ ul.dropdown h5 a {
   margin-right: 0px;
   margin-top: 0;
   background-color: green;
-  box-shadow: 0px 0px 10px #CCC, 0px 0px 10px #CCC;
   cursor: pointer;
 }
 
@@ -274,12 +273,13 @@ ul.dropdown h5 a {
 /* line 48, ../sass/sections.scss */
 .section-container .section .content, .section-container section .content {
   padding: 5px;
+  padding-top: 15px;
 }
-/* line 51, ../sass/sections.scss */
+/* line 52, ../sass/sections.scss */
 .section-container .section .content ul.disc, .section-container section .content ul.disc {
   margin-left: 20px;
 }
-/* line 56, ../sass/sections.scss */
+/* line 57, ../sass/sections.scss */
 .section-container .section .content:last-of-type, .section-container section .content:last-of-type {
   padding-bottom: 10px;
 }

@@ -51,13 +51,22 @@ Template.loggedin.events({
       }
     });
   },
-  'click #user-settings': function(event, template) {
-    Router.setUserSettings();
+  'click .user-settings': function(event, template) {
+    Router.setMainSettings();
+    return false;
+  },
+  'click .main-settings': function(event, template) {
+    Router.setMainSettings(getCurrentGroup());
+    return false;
   }
 });
 
 Template.loggedin.profilePicture = function () {
   return userPicture(Meteor.user());
+};
+
+Template.loggedin.group = function () {
+  return getCurrentGroup();
 };
 
 Template.loggedin.isSettingsRoute = function () {

@@ -20,6 +20,43 @@
   }
 }
 
+.activity-controls {
+  padding-top: 10px;
+
+  a {
+    height: 24px;
+    font-size: 1em;
+
+    &:before, &:after {
+      background-size: 17px 17px;
+      background-repeat: no-repeat;
+      content: "\00a0\00a0\00a0\00a0";
+    }
+  }
+
+  .previous {
+    a {
+      &:before {
+        padding-right: 5px;
+        background-position: 0px 3px;
+        background-image: url("/images/left_green.svg");
+      }
+    }
+  }
+
+  .next {
+    text-align: right;
+
+    a {
+      &:after {
+        padding-left: 5px;
+        background-position: 5px;
+        background-image: url('/images/right_green.svg');
+      }
+    }
+  }
+}
+
 .activities-map {
   margin: 10px 0px 10px 0px !important;
   min-width: 120px;

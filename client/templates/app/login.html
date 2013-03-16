@@ -24,14 +24,17 @@
 <template name="loggedin">
   {{#unless loggingIn}}
     <li class="hide-for-small divider"></li>
-    <li class="main-settings {{#if isSettingsRoute}}active{{/if}}">
+    <li class="has-dropdown settings">
       <a href="#">
         {{#if profilePicture}}<img src="{{profilePicture}}">{{/if}}
-        <span>Settings</span>
+        <span>{{displayName currentUser}}</span>
       </a>
+      <ul class="dropdown">
+        <li><a href="#" class="{{#if group}}main{{else}}user{{/if}}-settings {{#if isSettingsRoute}}active{{/if}}">Settings</a></li>
+        <li><a href="#" id="logout">Logout</a></li>
+      </ul>
     </li>
-    <li><a href="#" id="logout"><span>Logout</span></a>
-    </li>
+    <!-- <li><a href="#" id="logout"><span>Logout</span></a></li> -->
   {{/unless}}
 </template>
 
