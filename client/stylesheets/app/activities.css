@@ -260,17 +260,17 @@ ul.dropdown h5 a {
 /* line 26, ../../sass/app/activities.scss */
 .activity-controls a {
   height: 24px;
-  font-size: 1em;
+  font-size: 0.9em;
 }
 /* line 30, ../../sass/app/activities.scss */
 .activity-controls a:before, .activity-controls a:after {
-  background-size: 17px 17px;
+  background-size: 14px 14px;
   background-repeat: no-repeat;
   content: "\00a0\00a0\00a0\00a0";
 }
 /* line 39, ../../sass/app/activities.scss */
 .activity-controls .previous a:before {
-  padding-right: 5px;
+  padding-right: 4px;
   background-position: 0px 3px;
   background-image: url("/images/left_green.svg");
 }
