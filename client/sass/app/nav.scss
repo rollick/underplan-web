@@ -1,51 +1,69 @@
 .logo {
-    float: left;
-    width: 45px;
-    height: 45px;
-    background-color: green;
+  float: left;
+  width: 45px;
+  height: 45px;
+  background-color: green;
 
-    a {
-        font-size: 1.8em;
-        color: white !important;
-        display: block;
-        padding: 7px 12px;
-    }
+  a {
+    font-size: 1.8em;
+    color: white !important;
+    display: block;
+    padding: 7px 12px;
+  }
 }
 
 .top-bar {
-    margin-left: 45px;
+  margin-left: 45px;
+
+  li.main-settings a {
+    span {
+      padding-left: 40px;
+    }
+
+    img {
+      width: 34px;
+      padding: 2px;
+      border: 1px solid gray;
+      position: absolute;
+      margin-top: -6px;
+
+      @media only screen and (min-width: 58.75em) {
+        margin-top: 5px;
+      }
+    }
+  }
 }
 
 .columns.no-side-padding {
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
-    background-color: rgb(0, 151, 0);
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
+  background-color: rgb(0, 151, 0);
 }
 
 li.login-services {
-    height: 40px;
+  height: 40px;
 
-    a {
-        padding-top: 5px !important;
-        line-height: 35px !important;
-    }
+  a {
+    padding-top: 5px !important;
+    line-height: 35px !important;
+  }
 
-    p {
-        display: inline;
-        position: relative;
-        top: -5px;
-        margin-left: 8px;
-        font-size: 0.7em;
-    }
+  p {
+    display: inline;
+    position: relative;
+    top: -5px;
+    margin-left: 8px;
+    font-size: 0.7em;
+  }
 
-    i {
-        -webkit-transition: color .5s;
-        -moz-transition: color .5s;
-        -o-transition: color .5s;
-        transition: color .5s;
-        font-size: 18px;
-        overflow: hidden;
-        font-style: normal;
-    }
+  i {
+    -webkit-transition: color .5s;
+    -moz-transition: color .5s;
+    -o-transition: color .5s;
+    transition: color .5s;
+    font-size: 18px;
+    overflow: hidden;
+    font-style: normal;
+  }
 }
 
 

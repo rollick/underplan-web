@@ -1,3 +1,20 @@
+var trackRoute = function(eventName, properties) {
+  if(typeof mixpanel === "object") {
+    if(!!Meteor.userId()) {
+      var user = Meteor.user();
+      mixpanel.identify(user._id);
+      mixpanel.people.set({
+        "$name": user.profile.name,
+        "$created": (new Date(user.createdAt)).toUTCString()
+      });
+    }
+
+    mixpanel.track(eventName, properties);
+  } else {
+    console.log("Mixpanel not loaded!!");
+  }
+};
+
 var AppRouter = Backbone.Router.extend({
   routes: {
     "":                               "main",
@@ -12,10 +29,43 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug/:activitySlug/edit":  "editActivity",
   },
 
+  routeLabels: {
+    "":                               "Landing Page Loaded",
+    "new":                            "New Group Loaded",
+    "user/settings":                  "User Settings Loaded",
+    "settings":                       "Settings Loaded",
+    ":groupSlug":                     "Group Loaded",
+    ":groupSlug/settings":            "Group Settings Loaded",
+    ":groupSlug/new":                 "New Group Loaded",
+    ":groupSlug/membership":          "Group Membership Loaded",
+    ":groupSlug/:activitySlug":       "Story Loaded",
+    ":groupSlug/:activitySlug/edit":  "Story Editor Loaded",
+  },
+
+  before: function(route, params) {
+    // Some permission checks:
+    // settings only for logged in users
+    if(!!route.match(/setting/) && !Meteor.userId()) {
+      this.setHome();
+      return false;
+    }
+  },
+
+  after: function(route, params) {
+    var label = this.routeLabels[route];
+    if(!label)
+      label = "Unknown route loaded";
+
+    var path = "/" + route;
+    params.forEach( function(part) {
+      path = path.replace(/:[a-z|0-9|-]*/i, part);
+    });
+    trackRoute(label, {route: route, params: params, path: path});
+  },
+
   main: function() {
     resetGroup();
     showTemplate("mainHome");
-    trackRoute("Landing Page Loaded");
   },
 
   group: function(groupSlug) {
@@ -113,7 +163,7 @@ var AppRouter = Backbone.Router.extend({
 
   setActivity: function(activity) {
     var groupSlug = Groups.findOne(activity.group).slug;
-    
+
     this.navigate(groupSlug + "/" + activity.slug, true);
   },
 

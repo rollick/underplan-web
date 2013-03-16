@@ -17,23 +17,41 @@
 .top-bar {
   margin-left: 45px;
 }
-
 /* line 19, ../../sass/app/nav.scss */
+.top-bar li.main-settings a span {
+  padding-left: 40px;
+}
+/* line 23, ../../sass/app/nav.scss */
+.top-bar li.main-settings a img {
+  width: 34px;
+  padding: 2px;
+  border: 1px solid gray;
+  position: absolute;
+  margin-top: -6px;
+}
+@media only screen and (min-width: 58.75em) {
+  /* line 23, ../../sass/app/nav.scss */
+  .top-bar li.main-settings a img {
+    margin-top: 5px;
+  }
+}
+
+/* line 37, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
   background-color: #009700;
 }
 
-/* line 24, ../../sass/app/nav.scss */
+/* line 42, ../../sass/app/nav.scss */
 li.login-services {
   height: 40px;
 }
-/* line 27, ../../sass/app/nav.scss */
+/* line 45, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 32, ../../sass/app/nav.scss */
+/* line 50, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -41,7 +59,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 40, ../../sass/app/nav.scss */
+/* line 58, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

@@ -178,7 +178,10 @@ Template.activityFeed.rendered = function() {
     });
   }
 
-  generateActivitesMap(group, ".activities-map:visible");
+  // google.maps.event.addListener(map, 'tilesloaded', _.bind(function() {
+    generateActivitesMap(group, ".activities-map:visible");
+    // google.maps.event.clearListeners(map, 'tilesloaded');
+  // }, this));
 };
 
 Template.activityFeed.userBelongsToGroup = function () {
@@ -190,14 +193,14 @@ Template.activityFeed.anyActivities = function () {
 };
 
 Template.activityFeed.recentActivities = function () {
-  return Activities.find({group: getCurrentGroupId()}, {limit: 30, sort: {created: -1}});
+  return Activities.find({group: getCurrentGroupId()}, {sort: {created: -1}});
 };
 
 Template.activityFeed.typeIs = function (what) {
   return this.type === what;
 };
 
-var dashboardMap = null;
+var dashboardMap = dashboardMapBounds = null;
 
 var generateActivitesMap = function(group, elementSelector) {
   // load default group if only string passed to function
@@ -248,7 +251,7 @@ var generateActivitesMap = function(group, elementSelector) {
     mapTypeId: google.maps.MapTypeId.ROADMAP
   });
 
-  var bounds = new google.maps.LatLngBounds();
+  dashboardMapBounds = new google.maps.LatLngBounds();
   var infowindow = new google.maps.InfoWindow();
 
   var marker, i;
@@ -279,10 +282,9 @@ var generateActivitesMap = function(group, elementSelector) {
       }
     })(marker, i));
 
-    bounds.extend(latLng);
+    dashboardMapBounds.extend(latLng);
   }
-
-  dashboardMap.fitBounds(bounds);
+  dashboardMap.fitBounds(dashboardMapBounds);
 };
 
 var recentActivitiesMap = function() {

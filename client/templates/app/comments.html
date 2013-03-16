@@ -17,13 +17,6 @@
   </div>
 </template>
 
-<template name="comment">
-  <blockquote>
-    <p>{{#markdown}}{{comment}}{{/markdown}}
-    <cite>{{date created}} by {{userName owner}}</cite></p>
-  </blockquote>
-</template>
-
 <template name="commentList">
   <div class="row">
     <div class="small-12 large-12 columns">
@@ -34,4 +27,11 @@
       {{/if}}
     </div>
   </div>
+</template>
+
+<template name="comment">
+  <blockquote>
+    {{#markdown}}{{comment}}{{/markdown}}
+    <cite>{{date created}} by {{userName owner}}</cite>
+  </blockquote>
 </template>

@@ -22,13 +22,17 @@
 </template>
 
 <template name="loggedin">
-  {{#if loggingIn}}
-
-  {{else}}
+  {{#unless loggingIn}}
     <li class="hide-for-small divider"></li>
-    <li class="main-settings {{#if isSettingsRoute}}active{{/if}}"><a href="#">Settings</a></li>
-    <li><a href="#" id="logout">Logout</a></li>
-  {{/if}}
+    <li class="main-settings {{#if isSettingsRoute}}active{{/if}}">
+      <a href="#">
+        {{#if profilePicture}}<img src="{{profilePicture}}">{{/if}}
+        <span>Settings</span>
+      </a>
+    </li>
+    <li><a href="#" id="logout"><span>Logout</span></a>
+    </li>
+  {{/unless}}
 </template>
 
 <template name="loggedout">
@@ -46,48 +50,4 @@
       </a>
     </li>
   {{/if}}
-</template>
-
-
-<template name="loggedinOld">
-  <li class="{{#unless loggingIn}}has-dropdown{{/unless}}">
-    {{#if loggingIn}}
-      <a>Logging in...</a>
-    {{else}}
-      <a href="#">{{currentUser.profile.name}}</a>
-      <ul class="dropdown">
-        <li><a href="#" id="user-settings">Settings</a></li>
-        <li><a href="#" id="logout">Logout</a></li>
-      </ul>
-    {{/if}}
-  </li>
-</template>
-
-<template name="loggedoutOld">
-  <li class="has-dropdown">
-    <a>Log in with...</a>
-    <ul class="dropdown login-services">
-      {{#if hasTwitter}}
-        <li>
-          <a href="#" class="login twitter">
-            <i class="foundicon-social-twitter"><p>Twitter</p></i>
-          </a>
-        </li>
-      {{/if}}
-      {{#if hasGoogle}}
-        <li>
-          <a href="#" class="login google">
-            <i class="foundicon-social-google-plus"><p>Google</p></i>
-          </a>
-        </li>
-      {{/if}}
-      {{#if hasGitHub}}
-        <li>
-          <a href="#" class="login github">
-            <i class="foundicon-social-github"><p>Github</p></i>
-          </a>
-        </li>
-      {{/if}}
-    </ul>
-  </li>
 </template>

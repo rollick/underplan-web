@@ -56,6 +56,10 @@ Template.loggedin.events({
   }
 });
 
+Template.loggedin.profilePicture = function () {
+  return userPicture(Meteor.user());
+};
+
 Template.loggedin.isSettingsRoute = function () {
   var fragment = Backbone.history.fragment;
   if(!fragment)
