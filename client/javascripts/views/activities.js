@@ -284,7 +284,7 @@ var generateActivitesMap = function(group, elementSelector) {
 
     dashboardMapBounds.extend(latLng);
   }
-  // dashboardMap.fitBounds(dashboardMapBounds);
+  dashboardMap.fitBounds(dashboardMapBounds);
 };
 
 var recentActivitiesMap = function() {
