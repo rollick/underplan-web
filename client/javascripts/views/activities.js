@@ -289,7 +289,7 @@ var generateActivitesMap = function(group, elementSelector) {
 
 var recentActivitiesMap = function() {
   var dimensions = "640x240";
-  var recentActivities = Activities.find({group: getCurrentGroupId()}, {limit: 30, sort: {created: -1}});
+  var recentActivities = Activities.find({group: getCurrentGroupId()}, {limit: 100, sort: {created: -1}});
   var apiKey = appSettings().mapsApiKey;
 
   // FIXME: The code here shouldn't need to know about DOM elements.
@@ -321,6 +321,7 @@ var recentActivitiesMap = function() {
 Template.currentActivity.nextActivity = function () {
   return Activities.find({
     $and: [
+      {group: getCurrentGroupId()},
       {"_id": {"$not": getCurrentActivityId()}}, 
       {type: "story"}, 
       {created: {"$gte": getCurrentActivity().created}}
@@ -331,6 +332,7 @@ Template.currentActivity.nextActivity = function () {
 Template.currentActivity.previousActivity = function () {
   return Activities.find({
     $and: [
+      {group: getCurrentGroupId()},
       {"_id": {"$not": getCurrentActivityId()}}, 
       {type: "story"}, 
       {created: {"$lte": getCurrentActivity().created}}
