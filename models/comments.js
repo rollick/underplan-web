@@ -74,7 +74,7 @@ Meteor.methods({
 
         Email.send({
           from: "noreply@underplan.it",
-          to: memberEmails,
+          bcc: memberEmails,
           replyTo: undefined,
           subject: "Underplan: New Comment for '" + group.name + "'",
           text: text
