@@ -19,7 +19,7 @@ Template.short.countText = function () {
 };
 
 Template.short.events({
-  'click .short-actions .comments a': function (event, template) {
+  'click .short-actions a.comments': function (event, template) {
     $(template.find(".short")).toggleClass("expanded");
 
     return false;

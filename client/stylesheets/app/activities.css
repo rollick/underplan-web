@@ -395,16 +395,26 @@ ul.dropdown h5 a {
   font-size: 1em;
   color: white !important;
 }
-/* line 176, ../../sass/app/activities.scss */
+/* line 170, ../../sass/app/activities.scss */
+.feed .row.feed-list .short .row.short-actions a.comments:before {
+  background-position: 0px 4px;
+}
+@media only screen and (min-width: 48em) {
+  /* line 170, ../../sass/app/activities.scss */
+  .feed .row.feed-list .short .row.short-actions a.comments:before {
+    background-position: 0px 6px;
+  }
+}
+/* line 182, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 180, ../../sass/app/activities.scss */
+/* line 186, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment a {
   text-indent: -50px;
 }
-/* line 183, ../../sass/app/activities.scss */
+/* line 189, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment a span {
   color: white;
 }
@@ -413,33 +423,33 @@ ul.dropdown h5 a {
   .feed .row.feed-list .short .row.short-actions {
     font-size: 0.9em;
   }
-  /* line 195, ../../sass/app/activities.scss */
+  /* line 201, ../../sass/app/activities.scss */
   .feed .row.feed-list .short .row.short-actions .action.new-comment a {
     text-indent: -60px;
   }
 }
-/* line 210, ../../sass/app/activities.scss */
+/* line 216, ../../sass/app/activities.scss */
 .feed .row.feed-list .short.expanded .short-comments {
   display: inherit;
 }
 
-/* line 219, ../../sass/app/activities.scss */
+/* line 225, ../../sass/app/activities.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 222, ../../sass/app/activities.scss */
+/* line 228, ../../sass/app/activities.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;
 }
 
-/* line 225, ../../sass/app/activities.scss */
+/* line 231, ../../sass/app/activities.scss */
 .comment-form .comment {
   /*height: 100px;*/
 }
 
-/* line 229, ../../sass/app/activities.scss */
+/* line 235, ../../sass/app/activities.scss */
 span.text-length {
   margin-left: 5px;
   line-height: 28px;

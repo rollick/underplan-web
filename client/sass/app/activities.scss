@@ -169,6 +169,12 @@
 
             &:before {
               @extend .up-down:before;
+
+              background-position: 0px 4px;
+
+              @media only screen and (min-width: 48em) {
+                background-position: 0px 6px;
+              }
             }
           }
 
