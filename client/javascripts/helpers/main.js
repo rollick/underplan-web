@@ -1,3 +1,12 @@
+// Taken from http://stackoverflow.com/a/8897628
+jQuery.expr.filters.offscreen = function(el) {
+  return (
+    (el.offsetLeft + el.offsetWidth) < 0 
+    || (el.offsetTop + el.offsetHeight) < 0
+    || (el.offsetLeft > window.innerWidth || el.offsetTop > window.innerHeight)
+  );
+};
+
 Handlebars.registerHelper('ownerName', function() {
   if(typeof this == "undefined")
     return "N/A";
@@ -12,24 +21,6 @@ Handlebars.registerHelper('ownerName', function() {
   } else {
     return "N/A";
   }
-});
-
-Handlebars.registerHelper('commentsLink', function(options) {
-  if(!this._id)
-    return "";
-
-  var selected = (this._id == Session.get("lastUpdatedActivity"));
-
-  var commentCount = Comments.find({activityId: this._id}).count();
-  var html = "<span class=\"short-comments\">0 comments</span>";
-
-  if(commentCount > 0) {
-    var open = selected ? "open" : "";
-    var text = commentCount > 1 ? "comments" : "comment";
-    html = "<a class=\"short-comments " + open + "\" href=\"#\">" + commentCount + " " + text + "</a>";
-  }
-
-  return new Handlebars.SafeString(html);
 });
 
 // Compare the passed value to the current context

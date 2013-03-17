@@ -180,6 +180,10 @@ footer a {
 blockquote {
   margin: 10px 10px 0px 10px;
 
+  p:last-of-type {
+    margin-bottom: 10px;
+  }
+
   cite {
     padding-bottom: 10px;
   }

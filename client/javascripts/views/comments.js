@@ -19,9 +19,8 @@ Template.commentForm.events({
         if (error) {
           Session.set("createError", [error.error, error.reason].join(": "));
         } else {
-          Session.set("lastUpdatedActivity", activityId)
+          Session.set("lastUpdatedActivityId", activityId)
           template.find(".comment").value = "";
-          // $(template.find(".comment-form")).hide();
         }
       });
     } else {
@@ -39,7 +38,6 @@ Template.commentForm.events({
     } else {
       $(submit).addClass("disabled");
     }
-
   },
 });
 
@@ -58,5 +56,5 @@ Template.commentList.anyComments = function () {
 };
 
 Template.commentList.comments = function () {
-  return Comments.find({activityId: this._id}, {sort: {created: -1}});
+  return Comments.find({activityId: this._id}, {sort: {created: 1}});
 };

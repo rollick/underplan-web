@@ -1,38 +1,32 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Short View
 
-Template.short.events({
-  'click .new-comment': function (event, template) {
-    // Session.set("createError", null);
-    var target =    $(event.target),
-        short =     target.closest(".short"),
-        form =      short.find(".comment-form"),
-        link =      $(template.find(".short-comments")),
-        comments =  $(template.find(".commentList"));
+Template.short.lastCommented = function () {
+  return Session.get("lastUpdatedActivityId") == this._id;
+}
 
-    if(!form.is(":visible")) {
-      comments.show();
-      form.show();
-      link.addClass("open");
-    }
+Template.short.hasComments = function () {
+  return Comments.find({activityId: this._id}).count() > 0;
+};
+
+Template.short.countText = function () {
+  var count = Comments.find({activityId: this._id}).count();
+  var text = count;
+
+  text += (count > 1 || count == 0) ? " comments" : " comment";
+
+  return text;
+};
+
+Template.short.events({
+  'click .short-actions .comments': function (event, template) {
+    $(template.find(".short")).toggleClass("expanded");
 
     return false;
   },
-  'click a.short-comments': function (event, template) {
-    var target =    $(event.target),
-        short =     target.closest(".short"),
-        link =      $(template.find(".short-comments")),
-        comments =  $(template.find(".commentList")),
-        form =      $(template.find(".comment-form"));
-
-    if(link.hasClass("open")) {
-      comments.hide();
-      link.removeClass("open");
-      form.hide();
-    } else {
-      comments.show();
-      link.addClass("open");      
-    }
+  'click .short-actions .new-comment a': function (event, template) {
+    $(template.find(".short")).addClass("expanded");
+    $("#" + this._id + " form").find("textarea").focus();
 
     return false;
   }
@@ -46,6 +40,16 @@ Template.short.lastUpdated = function () {
 Template.short.activity = function() {
   return this;
 };
+
+var toggleComments = function(template) {
+  var link = template.find("a.comments");
+  var actions = template.find(".short-comments");
+
+  if(link.hasClass("open")) {
+    $(actions).toggle();
+    $(link).toggleClass("open");
+  } else {}
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Short Form

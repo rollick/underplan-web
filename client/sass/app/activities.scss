@@ -138,25 +138,8 @@
     .short {
       margin-bottom: 10px;
 
-      blockquote {
-        p:last-of-type {
-          margin-bottom: 10px;
-        }
-      }
-
-      span.short-comments {
-        cursor: default;
-      }
-
-      a.short-comments {
-        @extend .up-down;
-
-        font-size: 1em;
-        color: white !important;
-      }
-
-      .commentList {
-        border-bottom: 1px solid #dddddd !important;
+      .short-comments {
+        display: none;
         margin-bottom: 18px !important;
 
         blockquote {
@@ -178,27 +161,57 @@
           @extend .standard-bar;
           cursor: default;
           color: white;
+          font-size: 0.8em;
+
+          a.comments {
+            font-size: 1em;
+            color: white !important;
+
+            &:before {
+              @extend .up-down:before;
+            }
+          }
 
           .action {
             &.new-comment {
               height: 30px;
               margin-top: -3px !important;
 
-              span {
-                color: white;
+              a {
+                text-indent: -50px;
+
+                span {
+                  color: white;
+                }
+              }
+              
+            }
+          }
+
+          @media only screen and (min-width: 48em) {
+            font-size: 0.9em;
+
+            .action {
+              &.new-comment a {
+                text-indent: -60px;
               }
             }
           }
         }
       }
-    }
-  }
-}
 
-@media only screen and (min-width: 48em) {
-  .short a.short-comments,
-  .short span.short-comments {
-    font-size: 0.9em;
+      &.expanded {
+        .short-actions a.comments {
+          &:before {
+            @extend .up-down.open:before;
+          }
+        }
+
+        .short-comments {
+          display: inherit;
+        }
+      }
+    }
   }
 }
 

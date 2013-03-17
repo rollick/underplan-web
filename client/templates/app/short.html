@@ -6,12 +6,16 @@
 </template>
 
 <template name="short">
-  <div class="short entry">
-    {{#with activity}}
+  {{#with activity}}
+    <div class="short entry {{#if lastCommented}}expanded{{/if}}" id="{{_id}}">
       {{> shortContent}}
       <div class="row short-actions">
         <div class="small-6 large-6 columns">
-          {{commentsLink lastUpdated}}
+          {{#if hasComments}}
+            <a class="comments" href="#">{{countText}}</a>
+          {{else}}
+            <span class="comments">{{countText}}</span>
+          {{/if}}
         </div>
         {{#if currentUser}}
           <div class="small-5 large-5 columns">
@@ -21,12 +25,14 @@
           </div>
         {{/if}}
       </div>
-      {{> commentForm this}}
-      <div class="commentList" style="display: {{#if lastUpdated}}inherit{{else}}none{{/if}};">
-        {{> commentList this}}
+      <div class="row short-comments">
+        <div class="small-12 large-12 columns">
+          {{> commentList this}}
+          {{> commentForm this}}
+        </div>
       </div>
-    {{/with}}
-  </div>
+    </div>
+  {{/with}}
 </template>
 
 <template name="shortForm">
