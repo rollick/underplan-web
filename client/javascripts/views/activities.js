@@ -228,7 +228,10 @@ var generateActivitesMap = function(group, elementSelector) {
   }
 
   var activities = Activities.find({group: group._id}).forEach( function (activity) {
-    if(activity.lat && activity.lng) {
+    var lat = parseFloat(activity.lat);
+    var lng = parseFloat(activity.lng);
+
+    if(!isNaN(lat) && !isNaN(lng)) {
       var text = "";
       if(activity.type == "short")
         text = activity.text;
