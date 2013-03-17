@@ -402,7 +402,7 @@ ul.dropdown h5 a {
 @media only screen and (min-width: 48em) {
   /* line 170, ../../sass/app/activities.scss */
   .feed .row.feed-list .short .row.short-actions a.comments:before {
-    background-position: 0px 6px;
+    background-position: 0px 5px;
   }
 }
 /* line 182, ../../sass/app/activities.scss */
