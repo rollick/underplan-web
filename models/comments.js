@@ -15,11 +15,9 @@ Comments.allow({
   update: function (userId, comments, fields, modifier) {
     return false; // no updates for now!
   },
-  remove: function (userId, comments) {
-    return ! _.any(comments, function (comment) {
-      // deny if not the owner
-      return comment.owner !== userId;
-    });
+  remove: function (userId, comment) {
+    // deny if not the owner, or if other people are going
+    return comment.owner === userId;
   }
 });
 

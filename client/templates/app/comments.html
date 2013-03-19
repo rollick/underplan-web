@@ -33,6 +33,7 @@
 
 <template name="comment">
   <blockquote id="{{_id}}">
+    {{#if canDelete}}<a href="#" class="remove foundicon-general-remove"></a>{{/if}}
     {{#markdown}}{{comment}}{{/markdown}}
     <cite>{{date created}} by {{userName owner}}</cite>
   </blockquote>

@@ -171,7 +171,7 @@ footer a {
 
 /* line 172, ../../sass/main.scss */
 .clearing-assembled {
-  padding-bottom: 20px !important;
+  padding-bottom: 10px !important;
 }
 @media only screen and (min-width: 48em) {
   /* line 172, ../../sass/main.scss */
@@ -182,7 +182,7 @@ footer a {
 /* line 179, ../../sass/main.scss */
 .clearing-assembled .clearing-caption {
   background-color: rgba(17, 17, 17, 0.6);
-  padding-bottom: 20px !important;
+  padding-bottom: 30px !important;
 }
 @media only screen and (min-width: 48em) {
   /* line 179, ../../sass/main.scss */

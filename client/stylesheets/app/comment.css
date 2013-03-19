@@ -1,0 +1,8 @@
+/* line 3, ../../sass/app/comment.scss */
+blockquote a.remove {
+  color: #c60f13;
+  float: right;
+  font-size: 0.8em;
+  margin-right: -20px;
+  margin-top: -10px;
+}

@@ -58,3 +58,18 @@ Template.commentList.anyComments = function () {
 Template.commentList.comments = function () {
   return Comments.find({activityId: this._id}, {sort: {created: 1}});
 };
+
+///////////////////////////////////////////////////////////////////////////////
+// Comment
+
+Template.comment.canDelete = function () {
+  return this.owner == Meteor.userId();
+}
+
+Template.comment.events({
+  'click .remove': function (event, template) {
+    Comments.remove(this._id);
+
+    return false;
+  }
+});
