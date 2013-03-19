@@ -169,8 +169,21 @@ footer a {
   font-weight: normal;
 }
 
-.clearing-caption {
-  padding: 10px 30px 20px 30px !important;
+.clearing-assembled {
+  padding-bottom: 20px !important;
+
+  @media only screen and (min-width: 48em) {
+    padding-bottom: 0px !important;
+  }
+  
+  .clearing-caption {
+    background-color: rgba(17, 17, 17, 0.6);
+    padding-bottom: 20px !important;
+
+    @media only screen and (min-width: 48em) {
+      padding-bottom: 10px !important;
+    }
+  }
 }
 
 .custom.checkbox {

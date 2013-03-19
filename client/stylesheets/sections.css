@@ -170,15 +170,32 @@ footer a {
 }
 
 /* line 172, ../sass/main.scss */
-.clearing-caption {
-  padding: 10px 30px 20px 30px !important;
+.clearing-assembled {
+  padding-bottom: 20px !important;
+}
+@media only screen and (min-width: 48em) {
+  /* line 172, ../sass/main.scss */
+  .clearing-assembled {
+    padding-bottom: 0px !important;
+  }
+}
+/* line 179, ../sass/main.scss */
+.clearing-assembled .clearing-caption {
+  background-color: rgba(17, 17, 17, 0.6);
+  padding-bottom: 20px !important;
+}
+@media only screen and (min-width: 48em) {
+  /* line 179, ../sass/main.scss */
+  .clearing-assembled .clearing-caption {
+    padding-bottom: 10px !important;
+  }
 }
 
-/* line 176, ../sass/main.scss */
+/* line 189, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 179, ../sass/main.scss */
+/* line 192, ../sass/main.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -186,36 +203,36 @@ footer a {
   padding-top: 1px;
 }
 
-/* line 187, ../sass/main.scss */
+/* line 200, ../sass/main.scss */
 blockquote {
   margin: 10px 10px 0px 10px;
 }
-/* line 190, ../sass/main.scss */
+/* line 203, ../sass/main.scss */
 blockquote p:last-of-type {
   margin-bottom: 10px;
 }
-/* line 194, ../sass/main.scss */
+/* line 207, ../sass/main.scss */
 blockquote cite {
   padding-bottom: 10px;
 }
 
-/* line 199, ../sass/main.scss */
+/* line 212, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 204, ../sass/main.scss */
+/* line 217, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 208, ../sass/main.scss */
+/* line 221, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }
 
-/* line 212, ../sass/main.scss */
+/* line 225, ../sass/main.scss */
 .standard-bar, .section-container .section, .section-container section {
   font-size: 0.9em;
   margin-left: 0px;
@@ -225,7 +242,7 @@ ul.dropdown h5 a {
   cursor: pointer;
 }
 
-/* line 223, ../sass/main.scss */
+/* line 236, ../sass/main.scss */
 .up-down:before, .section-container .section .title a:before, .section-container section .title a:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
@@ -235,7 +252,7 @@ ul.dropdown h5 a {
   height: 24px;
   content: "\00a0\00a0";
 }
-/* line 233, ../sass/main.scss */
+/* line 246, ../sass/main.scss */
 .up-down.open:before, .section-container .section .title a.open:before, .section-container section .title a.open:before, .section-container .section.active .title a:before, .section-container section.active .title a:before {
   background-image: url("/images/down.svg");
 }
