@@ -147,6 +147,9 @@ footer a {
   padding: 0 10px 0 10px;
 }
 
+///////////////////////////////////////////////////////////////////////////////
+// Foundation Overrides
+
 .alert-box {
   margin-top: 8px;
   text-align: center;
@@ -164,6 +167,10 @@ footer a {
 
 .button {
   font-weight: normal;
+}
+
+.clearing-caption {
+  padding: 10px 30px 20px 30px !important;
 }
 
 .custom.checkbox {
@@ -192,10 +199,6 @@ blockquote {
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
-}
-
-.section-container .section.active {
-  padding-top: 0px !important;
 }
 
 ul.dropdown h5 a {

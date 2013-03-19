@@ -154,25 +154,27 @@ Template.activityFeed.events({
 Template.activityFeed.rendered = function() {
   var group = getCurrentGroup();
   var max = 16;
+  var options = {gridSmall: 4, gridLarge: 6};
   
   if(group && group.picasaUsername.length && group.picasaAlbum.length) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, null, function(images) {
-      var picasaAlbum = "<ul class=\"clearing-thumbs small-block-grid-4 large-block-grid-6\" data-clearing>";
-
+      var photos = []
       var index = 0;
+
       $.each(images, function(i, element) {
         if(index >= max)
           return false;
 
-        picasaAlbum += " <li style=\"padding: 4px;\">";
-        picasaAlbum += "   <a href=\"" + element.url + "\"><img class=\"bordered\" src=\"" + element.thumbs[0].url + "\"></a>";
-        picasaAlbum += " </li>";
+        photos.push({
+          url: element.url, 
+          thumbUrl: element.thumbs[0].url,
+          caption: element.title
+        });
 
         index += 1;
       });
-      picasaAlbum += "</ul>";
       
-      $(".recent-photos").html(picasaAlbum)
+      $(".recent-photos").html(Template.picasaGallery($.extend({photos: photos}, options)));
       // FIXME: implement new clearing code
       $(".recent-photos").foundation("clearing");
     });
@@ -423,26 +425,25 @@ Template.currentActivity.rendered = function() {
 
   ///////////////////////
   // Picasa Image (WIP)
-  var max = 10;
+  var options = {gridLarge: 10, gridSmall: 4};
 
   if(group && group.picasaUsername.length && currentActivityHasPhotos()) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, activity.picasaTags, function(images) {
-      var picasaAlbum = "<ul class=\"clearing-thumbs small-block-grid-4 large-block-grid-10\" data-clearing>";
-
+      var photos = []
       var index = 0;
-      $.each(images, function(i, element) {
-        if(index > max)
-          return false;
 
-        picasaAlbum += " <li style=\"padding: 4px;\">";
-        picasaAlbum += "   <a href=\"" + element.url + "\"><img class=\"bordered\" src=\"" + element.thumbs[0].url + "\"></a>";
-        picasaAlbum += " </li>";
+      $.each(images, function(i, element) {
+        photos.push({
+          url: element.url, 
+          thumbUrl: element.thumbs[0].url,
+          caption: element.title
+        });
 
         index += 1;
       });
-      picasaAlbum += "</ul>";
       
-      $(".activity-photos").html(picasaAlbum)
+      $(".activity-photos").html(Template.picasaGallery($.extend({photos: photos}, options)));
+
       // FIXME: implement new clearing code
       $(".activity-photos").foundation("clearing");
     });

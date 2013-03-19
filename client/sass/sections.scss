@@ -30,13 +30,17 @@
       }
     }
 
-    &.active .title {
-      background-color: $primary-color;
-      margin-bottom: 0px;
+    &.active {
+      padding-top: 0px !important;
 
-      a {
-        &:before {
-          @extend .up-down.open:before;
+      .title {
+        background-color: $primary-color;
+        margin-bottom: 0px;
+
+        a {
+          &:before {
+            @extend .up-down.open:before;
+          }
         }
       }
     }
