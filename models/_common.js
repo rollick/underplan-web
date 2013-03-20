@@ -24,13 +24,21 @@ var userEmail = function (user) {
   return null;
 };
 
-var userPicture = function (user) {
+var userPicture = function (user, width) {
   if(!user)
     return null;
 
   var profile = userSettings(user);
-  if(!!profile && profile.picture)
-    return profile.picture;
+  if(!!profile && profile.picture) {
+    var url = profile.picture;
+    if(typeof width !== "undefined") {
+      if(user.services.google)
+        // FIXME: handle url params here!
+        url = url + "?sz=" + width;        
+    }
+
+    return url;
+  }
   return null;
 };
 

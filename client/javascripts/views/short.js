@@ -1,6 +1,22 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Short View
 
+Template.short.preserve([".short.entry.expanded"]);
+
+Template.short.events({
+  'click .short-actions a.comments': function (event, template) {
+    $(template.find(".short")).toggleClass("expanded");
+
+    return false;
+  },
+  'click .short-actions .new-comment a': function (event, template) {
+    $(template.find(".short")).addClass("expanded");
+    $("#" + this._id + " form").find("textarea").focus();
+
+    return false;
+  }
+});
+
 Template.short.lastCommented = function () {
   return Session.get("lastUpdatedActivityId") == this._id;
 }
@@ -17,20 +33,6 @@ Template.short.countText = function () {
 
   return text;
 };
-
-Template.short.events({
-  'click .short-actions a.comments': function (event, template) {
-    $(template.find(".short")).toggleClass("expanded");
-
-    return false;
-  },
-  'click .short-actions .new-comment a': function (event, template) {
-    $(template.find(".short")).addClass("expanded");
-    $("#" + this._id + " form").find("textarea").focus();
-
-    return false;
-  }
-});
 
 Template.short.lastUpdated = function () {
   return this._id == Session.get("lastUpdatedActivity");

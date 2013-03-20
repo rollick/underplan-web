@@ -171,22 +171,22 @@
   <form class="custom">
     {{#if activity}}
       {{#with activity}}
-        <input type="hidden" class="id" value="{{_id}}">
+        <input type="hidden" id="_id" value="{{_id}}">
         <label>Title</label>
-        <input type="text" class="title" value="{{title}}">
+        <input type="text" id="title" value="{{title}}">
         <label>Story</label>
-        <textarea class="text" rows="20" style="height: 240px;">{{text}}</textarea><br />
+        <textarea id="text" rows="20" style="height: 240px;">{{text}}</textarea><br />
         <label>Location</label>
-        <input type="text" class="location" value="{{location}}">
-        <div class="location-coords input-subtext"></div>
-        <input type="hidden" class="lat" value="{{lat}}">
-        <input type="hidden" class="lng" value="{{lng}}">
+        <input type="text" id="location" value="{{location}}">
+        <div id="location-coords input-subtext"></div>
+        <input type="hidden" id="lat" value="{{lat}}">
+        <input type="hidden" id="lng" value="{{lng}}">
         <label>Map Zoom</label>
-        <input type="text" class="map-zoom" value="{{mapZoom}}">        
+        <input type="text" id="map-zoom" value="{{mapZoom}}">        
         <label>Link Slug</label>
-        <input type="text" class="slug" value="{{slug}}">
+        <input type="text" id="slug" value="{{slug}}">
         <label>Picasa Tag</label>
-        <input type="text" class="picasa-tags" value="{{picasaTags}}">
+        <input type="text" id="picasa-tags" value="{{picasaTags}}">
         <label for="published">
           <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
           <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published
@@ -199,19 +199,20 @@
       {{/with}}
     {{else}}
       <label>Title</label>
-      <input type="text" class="title">
+      <input type="text" id="title">
       <label>Story</label>
-      <textarea class="text" rows="20" style="height: 240px;"></textarea><br />
+      <textarea id="text" rows="20" style="height: 240px;"></textarea><br />
       <label>Location</label>
-      <input type="text" class="location"><div class="location-coords input-subtext"></div>
-      <input type="hidden" class="lat" value="{{lat}}">
-      <input type="hidden" class="lng" value="{{lng}}">
+      <input type="text" id="location">
+      <div id="location-coords input-subtext"></div>
+      <input type="hidden" id="lat" value="{{lat}}">
+      <input type="hidden" id="lng" value="{{lng}}">
       <label>Map Zoom</label>
-      <input type="text" class="map-zoom" value="{{defaultMapZoom}}">
+      <input type="text" id="map-zoom" value="{{defaultMapZoom}}">
       <label>Link Slug</label>
-      <input type="text" class="slug">
+      <input type="text" id="slug">
       <label>Picasa Tag</label>
-      <input type="text" class="picasa-tags" value="{{picasaTags}}">
+      <input type="text" id="picasa-tags" value="{{picasaTags}}">
       <label for="published">
         <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
         <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published

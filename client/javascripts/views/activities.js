@@ -27,15 +27,15 @@ Template.storyEditor.events({
               lng = geo.lng,
               address = geo.address;
 
-          template.find(".lat").value = lat;
-          template.find(".lng").value = lng;
+          template.find("#lat").value = lat;
+          template.find("#lng").value = lng;
 
-          template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + address + ")";
+          template.find("#location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + address + ")";
         } else {
-          template.find(".lat").value = "";
-          template.find(".lng").value = "";
+          template.find("#lat").value = "";
+          template.find("#lng").value = "";
 
-          template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
+          template.find("#location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
         }
       });
     }, 750);
@@ -64,10 +64,12 @@ Template.storyEditor.events({
       Session.set("createError",
                   "It needs a title and a story");
     }
+    $(document).scrollTop(0);
+
     return false;
   },
   'click .update': function (event, template) {
-    var activityId = template.find(".id").value;
+    var activityId = template.find("#_id").value;
     var values = getStoryValues(template);
 
     if (values.title.length && values.text.length) {
@@ -82,6 +84,8 @@ Template.storyEditor.events({
       Session.set("createError",
                   "It needs a title and a story");
     }
+    $(document).scrollTop(0);
+    
     return false;
   },
 });
@@ -90,8 +94,8 @@ var getStoryValues = function(template) {
   values = {};
 
   // Latitude and Longitude
-  var lat = template.find(".lat").value;
-  var lng = template.find(".lng").value;
+  var lat = template.find("#lat").value;
+  var lng = template.find("#lng").value;
 
   if(lat != "" && lng != "") {
     values.lat = lat;
@@ -116,13 +120,13 @@ var getStoryValues = function(template) {
   //     values.created = created;
   // }
 
-  values.title =        template.find(".title").value;
-  values.text =         template.find(".text").value;
-  values.location =     template.find(".location").value;
-  values.published =    template.find(".published").checked;
-  values.slug =         template.find(".slug").value;
-  values.picasaTags =   template.find(".picasa-tags").value;
-  values.mapZoom =      template.find(".map-zoom").value;
+  values.title =        template.find("#title").value;
+  values.text =         template.find("#text").value;
+  values.location =     template.find("#location").value;
+  values.published =    template.find("#published").checked;
+  values.slug =         template.find("#slug").value;
+  values.picasaTags =   template.find("#picasa-tags").value;
+  values.mapZoom =      template.find("#map-zoom").value;
   values.groupId =      getCurrentGroupId();
 
   return values;

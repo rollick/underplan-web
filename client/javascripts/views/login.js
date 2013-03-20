@@ -62,7 +62,7 @@ Template.loggedin.events({
 });
 
 Template.loggedin.profilePicture = function () {
-  return userPicture(Meteor.user());
+  return userPicture(Meteor.user(), 34);
 };
 
 Template.loggedin.group = function () {
