@@ -7,7 +7,6 @@
 
 <template name="short">
   {{#with activity}}
-    <div class="short entry" id="{{_id}}">
       {{> shortContent}}
       <div class="row short-actions">
         <div class="small-6 large-6 columns">
@@ -31,7 +30,6 @@
           {{> commentForm this}}
         </div>
       </div>
-    </div>
   {{/with}}
 </template>
 
@@ -45,7 +43,7 @@
     <div class="row">
       <div class="small-12 large-12 columns">
         <label>Location</label>
-        <input type="text" class="location" value="">
+        <input type="text" class="location" value="" placeholder="Write your post...">
         <div class="location-coords input-subtext"></div>
         <input type="hidden" class="lat" value="">
         <input type="hidden" class="lng" value="">

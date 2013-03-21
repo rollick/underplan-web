@@ -208,31 +208,35 @@ blockquote {
   margin: 10px 10px 0px 10px;
 }
 /* line 203, ../../sass/main.scss */
+blockquote.disabled {
+  opacity: 0.6;
+}
+/* line 207, ../../sass/main.scss */
 blockquote p:last-of-type {
   margin-bottom: 10px;
 }
-/* line 207, ../../sass/main.scss */
+/* line 211, ../../sass/main.scss */
 blockquote cite {
   padding-bottom: 10px;
 }
 
-/* line 212, ../../sass/main.scss */
+/* line 216, ../../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 217, ../../sass/main.scss */
+/* line 221, ../../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 221, ../../sass/main.scss */
+/* line 225, ../../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }
 
-/* line 225, ../../sass/main.scss */
+/* line 229, ../../sass/main.scss */
 .standard-bar, .feed .row.feed-list .short .row.short-actions {
   font-size: 0.9em;
   margin-left: 0px;
@@ -242,7 +246,7 @@ ul.dropdown h5 a {
   cursor: pointer;
 }
 
-/* line 236, ../../sass/main.scss */
+/* line 240, ../../sass/main.scss */
 .up-down:before, .feed .row.feed-list .short .row.short-actions a.comments:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
@@ -252,7 +256,7 @@ ul.dropdown h5 a {
   height: 24px;
   content: "\00a0\00a0";
 }
-/* line 246, ../../sass/main.scss */
+/* line 250, ../../sass/main.scss */
 .up-down.open:before, .feed .row.feed-list .short .row.short-actions a.open.comments:before, .feed .row.feed-list .short.expanded .short-actions a.comments:before {
   background-image: url("/images/down.svg");
 }

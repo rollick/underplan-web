@@ -34,7 +34,9 @@
                       </blockquote>
                     </div>
                   {{else}}
-                    {{> short}}
+                    <div class="short entry" id="{{_id}}">
+                      {{> short}}
+                    </div>
                   {{/if}}
                 {{/with}}
               </div>
@@ -173,9 +175,9 @@
       {{#with activity}}
         <input type="hidden" id="_id" value="{{_id}}">
         <label>Title</label>
-        <input type="text" id="title" value="{{title}}">
+        <input type="text" id="title" value="{{title}}" placeholder="Write a title...">
         <label>Story</label>
-        <textarea id="text" rows="20" style="height: 240px;">{{text}}</textarea><br />
+        <textarea id="text" rows="20" style="height: 240px;" placeholder="Write your story...">{{text}}</textarea><br />
         <label>Location</label>
         <input type="text" id="location" value="{{location}}">
         <div id="location-coords input-subtext"></div>
@@ -199,9 +201,9 @@
       {{/with}}
     {{else}}
       <label>Title</label>
-      <input type="text" id="title">
+      <input type="text" id="title" placeholder="Write a title...">
       <label>Story</label>
-      <textarea id="text" rows="20" style="height: 240px;"></textarea><br />
+      <textarea id="text" rows="20" style="height: 240px;" placeholder="Write your story..."></textarea><br />
       <label>Location</label>
       <input type="text" id="location">
       <div id="location-coords input-subtext"></div>

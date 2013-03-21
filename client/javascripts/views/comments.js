@@ -68,6 +68,8 @@ Template.comment.canDelete = function () {
 
 Template.comment.events({
   'click .remove': function (event, template) {
+    $(template.find("blockquote")).addClass("disabled");
+
     Comments.remove(this._id);
 
     return false;

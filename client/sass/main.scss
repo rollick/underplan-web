@@ -200,6 +200,10 @@ footer a {
 blockquote {
   margin: 10px 10px 0px 10px;
 
+  &.disabled {
+    opacity: 0.6;
+  }
+
   p:last-of-type {
     margin-bottom: 10px;
   }
