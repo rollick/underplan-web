@@ -78,6 +78,19 @@ var setupLoginServices = function () {
 
       settings.public.authServices.push("google");
     }
+
+    if(auth.facebook) {
+      console.log("-- facebook");
+      Accounts.loginServiceConfiguration.remove({
+        service: "facebook"
+      });
+
+      Accounts.loginServiceConfiguration.insert({
+        service: "facebook",
+        appId: auth.facebook.appId,
+        secret: auth.facebook.secret
+      });
+    }
   }
 };
 
