@@ -57,7 +57,7 @@ Template.storyEditor.events({
         if (error) {
           Session.set("createError", error);
         } else {
-          Router.setActivity(Activities.findOne(activityId));
+          Router.setActivity(activityId);
         }
       });
     } else {
@@ -85,7 +85,7 @@ Template.storyEditor.events({
                   "It needs a title and a story");
     }
     $(document).scrollTop(0);
-    
+
     return false;
   },
 });

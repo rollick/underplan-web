@@ -75,7 +75,7 @@ Meteor.methods({
     if ( typeof options.mapZoom === "undefined" )
       options.mapZoom = 12;
 
-    return Activities.insert({
+    var activity = Activities.insert({
       owner:      this.userId,
       group:      options.groupId,
       lat:        options.lat,
@@ -93,6 +93,45 @@ Meteor.methods({
       type:       options.type,
       published:  !! options.published
     });
+
+    // Notify group members about new activity
+    if (Meteor.isServer) {
+      var owner = Meteor.users.findOne(this.userId);
+      var group = Groups.findOne(options.groupId);
+      var members = Meteor.users.find({$or: [{_id: {$in: group.invited}},
+                                      {_id: group.owner}]});
+
+      var memberEmails = [];
+      members.forEach( function (user) { 
+        var email = userEmail(user);
+        if(email)
+          memberEmails.push(email);
+      });
+
+      if(memberEmails.length > 0) {
+        var text  =  "Hey, " + displayName(owner) + " just created a new " + options.type;
+        if(options.type == "story") {
+          text += " titled '" + options.title + "'. ";
+          text += "Check it out here: " + Meteor.absoluteUrl() + [group.slug, options.slug].join("/") + "\n\n"
+        } else if(options.type == "short") {
+          text += " for the group '" + group.name + "'. ";
+          text += "Check it out here: " + Meteor.absoluteUrl() + group.slug + ". "
+          text += "They wrote:\n\n" + options.text + "\n\n";
+        }
+
+        text += "Yours faithfully, Underplan"
+
+        Email.send({
+          from: "noreply@underplan.it",
+          bcc: memberEmails,
+          replyTo: undefined,
+          subject: "Underplan: New Activity for '" + group.name + "'",
+          text: text
+        });
+      }
+    }
+
+    return activity;
   },
 });
 

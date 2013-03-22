@@ -162,6 +162,9 @@ var AppRouter = Backbone.Router.extend({
   },
 
   setActivity: function(activity) {
+    if(typeof activity == "string") {
+      activity = Activities.findOne({_id: activity});
+    }
     var groupSlug = Groups.findOne(activity.group).slug;
 
     this.navigate(groupSlug + "/" + activity.slug, true);
