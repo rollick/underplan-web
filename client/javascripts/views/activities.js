@@ -10,8 +10,8 @@ Template.storyEditor.defaultMapZoom = function () {
 };
 
 Template.storyEditor.events({
-  'keyup .location': function (event, template) {
-    var location = template.find(".location").value;
+  'keyup #location': function (event, template) {
+    var location = template.find("#location").value;
 
     if(!(location.length > 3))
       return false;
