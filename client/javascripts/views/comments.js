@@ -63,7 +63,10 @@ Template.commentList.comments = function () {
 // Comment
 
 Template.comment.canDelete = function () {
-  return this.owner == Meteor.userId();
+  var userId = Meteor.userId();
+  var groupId = Activities.findOne(this.activityId).group;
+
+  return (groupAdmin(userId, groupId) || systemAdmin(userId) || this.owner === userId);
 }
 
 Template.comment.events({

@@ -14,6 +14,26 @@ var displayName = function (user) {
   }
 };
 
+var groupAdmin = function (userId, groupId) {
+  var group = Groups.findOne({_id: groupId});
+
+  if(!!group && group.owner === userId) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
+var systemAdmin = function (userId) {
+  var user = Meteor.users.findOne({_id: userId});
+
+  if(!!user && user.admin) {
+    return true;
+  } else {
+    return false;
+  }
+};
+
 var userEmail = function (user) {
   if(!user)
     return null;

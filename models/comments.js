@@ -16,8 +16,10 @@ Comments.allow({
     return false; // no updates for now!
   },
   remove: function (userId, comment) {
+    var groupId = Activities.findOne(comment.activityId).group;
+
     // deny if not the owner, or if other people are going
-    return comment.owner === userId;
+    return (groupAdmin(userId, groupId) || systemAdmin(userId) || comment.owner === userId);
   }
 });
 

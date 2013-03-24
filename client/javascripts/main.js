@@ -82,6 +82,7 @@ Template.page.showMainSettings = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Common Functions
 
+// FIXME: move the maps api key to the settings file
 var appSettings = function () {
   return { 
     mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"
@@ -205,7 +206,7 @@ var geoLocation = function(location, callback) {
 var timeout = null;
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.51");
+  Session.set("appVersion", "v0.9.52");
 
   Backbone.history.start({ pushState: true });
   // initTemplateChecks();
