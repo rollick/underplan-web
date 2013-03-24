@@ -18,8 +18,12 @@ Comments.allow({
   remove: function (userId, comment) {
     var groupId = Activities.findOne(comment.activityId).group;
 
-    // deny if not the owner, or if other people are going
-    return (groupAdmin(userId, groupId) || systemAdmin(userId) || comment.owner === userId);
+    // deny if not the owner or a system admin or the group admin
+    var canRemove = groupAdmin(userId, groupId) || systemAdmin(userId) || comment.owner === userId;
+
+    // REMOVE: temp logging to track down issue where comments can't be deleted on server
+    console.log("Can " + userId + " remove " + comment._id + "? " + (canRemove ? "Yes!" : "No!"));
+    return canRemove;
   }
 });
 
