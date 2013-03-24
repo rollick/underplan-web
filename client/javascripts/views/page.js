@@ -1,6 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Page
 
+Template.page.appVersion = function () {
+  return Session.get("appVersion");
+};
+
 Template.page.noGroup = function () {
   var group = getCurrentGroup();
   return group ? false : true;

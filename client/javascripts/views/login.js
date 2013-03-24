@@ -59,6 +59,9 @@ Template.loggedin.events({
       }
     });
   },
+  'click .settings > a': function() {
+    // return false;
+  },
   'click .user-settings': function(event, template) {
     Router.setMainSettings();
     return false;

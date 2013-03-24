@@ -56,6 +56,12 @@ Meteor.methods({
     if ( typeof options.slug === "undefined" || options.slug == "" )
       options.slug = createLinkSlug(options.name);
 
+    var approved = false // unapproved by default. Admins can approve
+    var owner = Meteor.users.findOne({_id: this.userId});
+    if (owner.admin) {
+      approved = true;
+    }
+
     return Groups.insert({
       owner:            this.userId,
       name:             options.name,
@@ -66,7 +72,7 @@ Meteor.methods({
       slug:             options.slug,
       invited:          [],
       rsvps:            [],
-      approved:         true // unapproved by default. Admins can approve
+      approved:         approved
     });
   },
 
