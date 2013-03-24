@@ -16,16 +16,10 @@ Comments.allow({
     return false; // no updates for now!
   },
   remove: function (userId, comment) {
-    console.log("Attempting to remove comment: " + _.keys(comment).join(", "));
-
-    var groupId = Activities.findOne({_id: comment.activityId}).group;
+    var groupId = Activities.findOne(comment.activityId).group;
 
     // deny if not the owner or a system admin or the group admin
-    var canRemove = groupAdmin(userId, groupId) || systemAdmin(userId) || comment.owner === userId;
-
-    // REMOVE: temp logging to track down issue where comments can't be deleted on server
-    console.log("Can " + userId + " remove " + comment._id + "? " + (canRemove ? "Yes!" : "No!"));
-    return canRemove;
+    return (groupAdmin(userId, groupId) || systemAdmin(userId) || comment.owner === userId);
   }
 });
 
