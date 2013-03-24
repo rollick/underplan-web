@@ -16,6 +16,8 @@ Comments.allow({
     return false; // no updates for now!
   },
   remove: function (userId, comment) {
+    console.log("Attempting to remove comment: " + comment);
+    
     var groupId = Activities.findOne(comment.activityId).group;
 
     // deny if not the owner or a system admin or the group admin
