@@ -16,9 +16,9 @@ Comments.allow({
     return false; // no updates for now!
   },
   remove: function (userId, comment) {
-    console.log("Attempting to remove comment: " + comment);
-    
-    var groupId = Activities.findOne(comment.activityId).group;
+    console.log("Attempting to remove comment: " + comment._id);
+
+    var groupId = Activities.findOne({_id: comment.activityId}).group;
 
     // deny if not the owner or a system admin or the group admin
     var canRemove = groupAdmin(userId, groupId) || systemAdmin(userId) || comment.owner === userId;
@@ -43,10 +43,14 @@ Meteor.methods({
     if ( typeof options.created === "undefined" )
       options.created = new Date()
 
+    if ( typeof options.groupId === "undefined" )
+      options.groupId = Activities.findOne({_id: options.activityId}).group;
+
     var comment = Comments.insert({
       owner:      this.userId,
       comment:    options.comment,
       activityId: options.activityId,
+      groupId:    options.groupId,
       created:    options.created
     });
 
