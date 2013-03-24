@@ -4,11 +4,13 @@ Meteor.publish("directory", function () {
   return Meteor.users.find({}, {
     fields: {
       "createdAt": 1, 
-      "profile": 1, 
-      "admin": 1, 
-      "services.google.picture": 1,
-      "services.twitter.picture": 1,
-      "services.facebook.picture": 1
+      "admin": 1,
+      "profile.name": 1,
+      "profile.picture": 1,
+      "profile.link": 1,
+      "services.google.id": 1,
+      "services.twitter.id": 1,
+      "services.facebook.id": 1
     }
   });
 });

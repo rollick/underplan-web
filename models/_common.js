@@ -28,7 +28,7 @@ var userPicture = function (user, width) {
   if(!user)
     return null;
 
-  var profile = userSettings(user);
+  var profile = user.profile;
   if(!!profile && profile.picture) {
     var url = profile.picture;
     if(typeof width !== "undefined") {

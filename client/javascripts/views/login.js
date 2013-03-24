@@ -14,6 +14,10 @@ Template.loggedout.events({
     } else if(target.hasClass("twitter")) {
       loginCall = Meteor.loginWithTwitter;
       params = {};
+
+    } else if(target.hasClass("facebook")) {
+      loginCall = Meteor.loginWithFacebook;
+      params = {};
     }
 
     loginCall(params, function(err){
@@ -39,6 +43,10 @@ Template.loggedout.hasTwitter = function () {
 
 Template.loggedout.hasGoogle = function () {
   return !!Accounts.google;
+};
+
+Template.loggedout.hasFacebook = function () {
+  return !!Accounts.facebook;
 };
 
 Template.loggedin.events({

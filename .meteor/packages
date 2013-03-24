@@ -5,7 +5,7 @@
 
 preserve-inputs
 #accounts-password
-#accounts-facebook
+accounts-facebook
 accounts-github
 accounts-twitter
 accounts-google

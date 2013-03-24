@@ -9,6 +9,7 @@ var setupAdmins = function () {
     if((user.services.twitter && _.contains(settings.admins, user.services.twitter.email)) ||
        (user.services.github && _.contains(settings.admins, user.services.github.email)) ||
        (user.services.google && _.contains(settings.admins, user.services.google.email)) ||
+       (user.services.facebook && _.contains(settings.admins, user.services.facebook.email)) ||
        (user.services.password && _.contains(settings.admins, user.services.password.email))) {
       isAdmin = true;
       console.log("Adding admin: " + user._id);
@@ -25,16 +26,6 @@ var setupLoginServices = function () {
     console.log("Found authentication settings for:");
     settings.public = settings.public || {};
     settings.public.authServices = settings.public.authServices || [];
-
-    // Accounts.loginServiceConfiguration.remove({
-    //  service: "facebook"
-    // });
-
-    // Accounts.loginServiceConfiguration.insert({
-    //  service: "facebook",
-    //  appId: process.env.FACEBOOK_APP_ID,
-    //  secret: process.env.FACEBOOK_APP_SECRET
-    // });
 
     // Accounts config
     if(auth.twitter) {
@@ -90,6 +81,8 @@ var setupLoginServices = function () {
         appId: auth.facebook.appId,
         secret: auth.facebook.secret
       });
+
+      settings.public.authServices.push("facebook");
     }
   }
 };
@@ -103,24 +96,35 @@ var createUserHook = function () {
 
       result = Meteor.http.get('https://api.github.com/user', { params: params });
     } else if (user.services.twitter) {
-      params = { oauth_token: user.services.twitter.accessToken };
+      console.log("Twitter has not been setup!!")
+      // params = { oauth_token: user.services.twitter.accessToken };
 
-      result = Meteor.http.get('https://api.twitter.com/oauth/authenticate', { params: params });
+      // result = Meteor.http.get('https://api.twitter.com/oauth/authenticate', { params: params });
     } else if (user.services.google) {
       params = { access_token: user.services.google.accessToken, alt: "json" };
 
-      result = Meteor.http.get('https://accounts.google.com/o/oauth2/auth', { params: params });
+      result = Meteor.http.get('https://www.googleapis.com/oauth2/v1/userinfo', { params: params });
+    } else if (user.services.facebook) {
+      params = { access_token: user.services.facebook.accessToken, fields: "id,username,first_name,last_name,name,link,locale,gender,email,picture" };
+
+      result = Meteor.http.get('https://graph.facebook.com/me', { params: params });
     }
     
     if (result.error) {
       console.log(result.error)
       // throw error;
     }
-    
+
     profile = _.pick(result.data,
       "login",
       "name",
       "avatar_url",
+      "gender",
+      "locale",
+      "link",
+      "first_name",
+      "last_name",
+      "picture",
       "url",
       "company",
       "blog",
@@ -129,6 +133,10 @@ var createUserHook = function () {
       "bio",
       "html_url");
     
+    if(user.services.facebook) {
+      profile.picture = result.data.picture.data.url;
+    }
+
     user.profile = profile;
     
     return user;
@@ -138,5 +146,5 @@ var createUserHook = function () {
 Meteor.startup(function() {
   setupAdmins();
   setupLoginServices();
-  // createUserHook();
+  createUserHook();
 });
