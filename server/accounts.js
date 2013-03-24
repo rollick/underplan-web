@@ -27,12 +27,24 @@ var setupLoginServices = function () {
     settings.public = settings.public || {};
     settings.public.authServices = settings.public.authServices || [];
 
+    // Disable login services by default
+    Accounts.loginServiceConfiguration.remove({
+      service: "twitter"
+    });
+    Accounts.loginServiceConfiguration.remove({
+      service: "github"
+    });
+    Accounts.loginServiceConfiguration.remove({
+      service: "google"
+    });
+    Accounts.loginServiceConfiguration.remove({
+      service: "facebook"
+    });
+    
     // Accounts config
     if(auth.twitter) {
       console.log("-- twitter");
-      Accounts.loginServiceConfiguration.remove({
-        service: "twitter"
-      });
+
       Accounts.loginServiceConfiguration.insert({
         service: "twitter",
         consumerKey: auth.twitter.clientId,
@@ -44,9 +56,7 @@ var setupLoginServices = function () {
 
     if(auth.github) {
       console.log("-- github");
-      Accounts.loginServiceConfiguration.remove({
-        service: "github"
-      });
+
       Accounts.loginServiceConfiguration.insert({
         service: "github",
         clientId: auth.github.clientId,
@@ -58,9 +68,7 @@ var setupLoginServices = function () {
 
     if(auth.google) {
       console.log("-- google");
-      Accounts.loginServiceConfiguration.remove({
-        service: "google"
-      });
+
       Accounts.loginServiceConfiguration.insert({
         service: "google",
         clientId: auth.google.clientId,
@@ -72,9 +80,6 @@ var setupLoginServices = function () {
 
     if(auth.facebook) {
       console.log("-- facebook");
-      Accounts.loginServiceConfiguration.remove({
-        service: "facebook"
-      });
 
       Accounts.loginServiceConfiguration.insert({
         service: "facebook",
