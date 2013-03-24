@@ -1,3 +1,5 @@
+@import "../_settings";
+
 .logo {
   float: left;
   width: 45px;
@@ -44,6 +46,19 @@
 .columns.no-side-padding {
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
   background-color: rgb(0, 151, 0);
+}
+
+li.text {
+  color: lighten($topbar-bg, 70%);
+  padding: 10px;
+  font-size: 0.9em;
+  cursor: default;
+  // font-style: italic;
+
+  @media only screen and (min-width: 58.75em) {
+    color: lighten($topbar-bg, 50%);
+    background-color: $topbar-bg;
+  }
 }
 
 li.login-services {

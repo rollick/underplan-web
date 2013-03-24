@@ -1,11 +1,11 @@
-/* line 1, ../../sass/app/nav.scss */
+/* line 3, ../../sass/app/nav.scss */
 .logo {
   float: left;
   width: 45px;
   height: 45px;
   background-color: green;
 }
-/* line 7, ../../sass/app/nav.scss */
+/* line 9, ../../sass/app/nav.scss */
 .logo a {
   font-size: 1.8em;
   color: white !important;
@@ -13,15 +13,15 @@
   padding: 7px 12px;
 }
 
-/* line 15, ../../sass/app/nav.scss */
+/* line 17, ../../sass/app/nav.scss */
 .top-bar {
   margin-left: 45px;
 }
-/* line 19, ../../sass/app/nav.scss */
+/* line 21, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 23, ../../sass/app/nav.scss */
+/* line 25, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 28px;
   padding: 2px;
@@ -30,33 +30,48 @@
   margin-top: -4px;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 32, ../../sass/app/nav.scss */
+  /* line 34, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 36, ../../sass/app/nav.scss */
+  /* line 38, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
 
-/* line 44, ../../sass/app/nav.scss */
+/* line 46, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
   background-color: #009700;
 }
 
-/* line 49, ../../sass/app/nav.scss */
+/* line 51, ../../sass/app/nav.scss */
+li.text {
+  color: #c4c4c4;
+  padding: 10px;
+  font-size: 0.9em;
+  cursor: default;
+}
+@media only screen and (min-width: 58.75em) {
+  /* line 51, ../../sass/app/nav.scss */
+  li.text {
+    color: #919191;
+    background-color: #111111;
+  }
+}
+
+/* line 64, ../../sass/app/nav.scss */
 li.login-services {
   height: 40px;
 }
-/* line 52, ../../sass/app/nav.scss */
+/* line 67, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 57, ../../sass/app/nav.scss */
+/* line 72, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -64,7 +79,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 65, ../../sass/app/nav.scss */
+/* line 80, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

@@ -51,7 +51,7 @@ var setupLoginServices = function () {
         secret: auth.twitter.secret
       });
 
-      settings.public.authServices.push("twitter");
+      // settings.public.authServices.twitter = true;
     }
 
     if(auth.github) {
@@ -63,7 +63,7 @@ var setupLoginServices = function () {
         secret: auth.github.secret
       });
 
-      settings.public.authServices.push("github");
+      // settings.public.authServices.github = true;
     }
 
     if(auth.google) {
@@ -75,7 +75,7 @@ var setupLoginServices = function () {
         secret: auth.google.secret
       });
 
-      settings.public.authServices.push("google");
+      // settings.public.authServices.google = true;
     }
 
     if(auth.facebook) {
@@ -87,7 +87,7 @@ var setupLoginServices = function () {
         secret: auth.facebook.secret
       });
 
-      settings.public.authServices.push("facebook");
+      // settings.public.authServices.facebook = true;
     }
   }
 };

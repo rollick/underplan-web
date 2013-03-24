@@ -34,19 +34,19 @@ Template.loggedout.events({
 });
 
 Template.loggedout.hasGitHub = function () {
-  return !!Accounts.github;
+  return !!Meteor.settings.public.authServices.github;
 };
 
 Template.loggedout.hasTwitter = function () {
-  return !!Accounts.twitter;
+  return !!Meteor.settings.public.authServices.twitter;
 };
 
 Template.loggedout.hasGoogle = function () {
-  return !!Accounts.google;
+  return !!Meteor.settings.public.authServices.google;
 };
 
 Template.loggedout.hasFacebook = function () {
-  return !!Accounts.facebook;
+  return !!Meteor.settings.public.authServices.facebook;
 };
 
 Template.loggedin.events({
