@@ -157,7 +157,7 @@ Template.activityFeed.events({
 
 Template.activityFeed.rendered = function() {
   var group = getCurrentGroup();
-  var max = 16;
+  var max = 24;
   var options = {gridSmall: 4, gridLarge: 6};
   
   if(group && group.picasaUsername.length && group.picasaAlbum.length) {
