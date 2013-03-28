@@ -12,24 +12,22 @@ Groups.allow({
   insert: function (userId, group) {
     return false; // no cowboy inserts -- use createGroup method
   },
-  update: function (userId, groups, fields, modifier) {
-    return _.all(groups, function (group) {
-      if (userId !== group.owner)
-        return false; // not the owner
+  update: function (userId, group, fields, modifier) {
+    if (userId !== group.owner)
+      return false; // not the owner
 
-      // TODO: implement an isAdmin check here.
-      // if (isAdmin(userId))
-      //   return false; // not an admin
+    // TODO: implement an isAdmin check here.
+    // if (isAdmin(userId))
+    //   return false; // not an admin
 
-      var allowed = ["name", "description", "picasaUsername", "picasaAlbum"];
-      if (_.difference(fields, allowed).length)
-        return false; // tried to write to forbidden field
+    var allowed = ["name", "description", "picasaUsername", "picasaAlbum"];
+    if (_.difference(fields, allowed).length)
+      return false; // tried to write to forbidden field
 
-      // A good improvement would be to validate the type of the new
-      // value of the field (and if a string, the length.) In the
-      // future Meteor will have a schema system to makes that easier.
-      return true;
-    });
+    // A good improvement would be to validate the type of the new
+    // value of the field (and if a string, the length.) In the
+    // future Meteor will have a schema system to makes that easier.
+    return true;
   },
   remove: function (userId, groups) {
     return ! _.any(groups, function (group) {

@@ -12,7 +12,7 @@ Comments.allow({
   insert: function (userId, comment) {
     return false; // no cowboy inserts -- use createComment method
   },
-  update: function (userId, comments, fields, modifier) {
+  update: function (userId, comment, fields, modifier) {
     return false; // no updates for now!
   },
   remove: function (userId, comment) {

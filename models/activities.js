@@ -15,26 +15,39 @@ Activities.allow({
   insert: function (userId, activity) {
     return false; // no cowboy inserts -- use createActivity method
   },
-  update: function (userId, activities, fields, modifier) {
-    return _.all(activities, function (activity) {
-      if (userId !== activity.owner)
-        return false; // not the owner
+  update: function (userId, activity, fields, modifier) {
+    if (userId !== activity.owner)
+      return false; // not the owner
 
-      var allowed = ["type", "mapZoom", "picasaTags", "groupId", "slug", "published", "location", "title", "text", "lat", "lng", "url", "urlType", "created"];
-      if (_.difference(fields, allowed).length)
-        return false; // tried to write to forbidden field
+    var allowed = [
+      "title", 
+      "text", 
+      "groupId", 
+      "type", 
+      "location", 
+      "lat", 
+      "lng", 
+      "mapZoom", 
+      "picasaTags", 
+      "published", 
+      "slug", 
+      "url", 
+      "urlType", 
+      "created"
+    ];
+    if (_.difference(fields, allowed).length)
+      return false; // tried to write to forbidden field
 
-      // A good improvement would be to validate the type of the new
-      // value of the field (and if a string, the length.) In the
-      // future Meteor will have a schema system to makes that easier.
-      return true;
-    });
+    // A good improvement would be to validate the type of the new
+    // value of the field (and if a string, the length.) In the
+    // future Meteor will have a schema system to makes that easier.
+    return true;
   },
-  remove: function (userId, activities) {
-    return ! _.any(activities, function (activity) {
-      // deny if not the owner
-      return activity.owner !== userId;
-    });
+  remove: function (userId, activity) {
+    return false; // TODO: need to add logic for removing associated comments etc before removing the activity
+
+    // deny if not the owner
+    return activity.owner !== userId;
   }
 });
 
