@@ -5,16 +5,31 @@ Meteor.publish("directory", function () {
     fields: {
       "createdAt": 1, 
       "admin": 1,
+      // The profile fields below will be published for all 
+      // users but only the logged in user will receive email, locale etc
       "profile.name": 1,
       "profile.picture": 1,
       "profile.link": 1,
-      "profile.locale": 1,
       "services.google.id": 1,
       "services.twitter.id": 1,
       "services.facebook.id": 1
     }
   });
 });
+
+// Meteor.publish(null, function () {
+//   // If logged in, autopublish the current user's settings
+//   // to the client (which isn't published by default).
+//   return this.userId &&
+//     Meteor.users.find(this.userId,
+//                       {
+//                         fields: {
+//                           "services.google": 1,
+//                           "services.facebook": 1,
+//                         }
+//                       }
+//                     );
+// });
 
 Meteor.publish("activities", function () {
   // TODO:  need to also publish activities if the activity is unpublished

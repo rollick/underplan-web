@@ -7,6 +7,14 @@ jQuery.expr.filters.offscreen = function(el) {
   );
 };
 
+Handlebars.registerHelper("activityLink", function() {
+  var group = Groups.findOne({_id: this.group}, {slug: 1});
+
+  if(!group)
+    return "#";
+  return "/" + group.slug + "/" + this.slug;
+});
+
 Handlebars.registerHelper('ownerName', function() {
   if(typeof this == "undefined")
     return "N/A";

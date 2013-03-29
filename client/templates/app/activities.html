@@ -29,7 +29,7 @@
                   {{#if typeIs "story"}}
                     <div class="story entry">
                       <blockquote>
-                        Story: <a href="#" class="title">{{title}} {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}</a>
+                        Story: <a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}</a>
                         <cite>{{date created}} by {{ownerName}}</cite>
                       </blockquote>
                     </div>
@@ -173,20 +173,20 @@
       {{#with activity}}
         <input type="hidden" id="_id" value="{{_id}}">
         <label>Title</label>
-        <input type="text" id="title" value="{{title}}" placeholder="A title for your story...">
+        <input type="text" id="title" value="{{title}}" placeholder="Start with a title...">
         <label>Story</label>
-        <textarea id="text" rows="20" style="height: 240px;" placeholder="Write your story...">{{text}}</textarea><br />
+        <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something...">{{text}}</textarea><br />
         <label>Location</label>
-        <input type="text" id="location" value="{{location}}">
+        <input type="text" id="location" value="{{location}}" placeholder="Enter a location...">
         <div id="location-coords" class="input-subtext"></div>
         <input type="hidden" id="lat" value="{{lat}}">
         <input type="hidden" id="lng" value="{{lng}}">
         <label>Map Zoom</label>
-        <input type="text" id="map-zoom" value="{{mapZoom}}">        
+        <input type="text" id="map-zoom" value="{{mapZoom}}" placeholder="0 (world) to 21+ (buildings)">        
         <label>Link Slug</label>
         <input type="text" id="slug" value="{{slug}}">
         <label>Picasa Tag</label>
-        <input type="text" id="picasa-tags" value="{{picasaTags}}">
+        <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
         <label for="published">
           <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
           <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published
@@ -199,20 +199,20 @@
       {{/with}}
     {{else}}
       <label>Title</label>
-      <input type="text" id="title" placeholder="A title for your story...">
+      <input type="text" id="title" placeholder="Start with a title...">
       <label>Story</label>
-      <textarea id="text" rows="20" style="height: 240px;" placeholder="Write your story..."></textarea><br />
+      <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something..."></textarea><br />
       <label>Location</label>
-      <input type="text" id="location">
+      <input type="text" id="location" placeholder="Enter a location...">
       <div id="location-coords" class="input-subtext"></div>
       <input type="hidden" id="lat" value="{{lat}}">
       <input type="hidden" id="lng" value="{{lng}}">
       <label>Map Zoom</label>
-      <input type="text" id="map-zoom" value="{{defaultMapZoom}}">
+      <input type="text" id="map-zoom" value="{{defaultMapZoom}}" placeholder="0 (world) to 21+ (buildings)">
       <label>Link Slug</label>
       <input type="text" id="slug">
-      <label>Picasa Tag</label>
-      <input type="text" id="picasa-tags" value="{{picasaTags}}">
+      <label>Picasa Tags</label>
+      <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
       <label for="published">
         <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
         <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published

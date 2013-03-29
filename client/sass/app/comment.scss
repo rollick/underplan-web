@@ -7,3 +7,9 @@ blockquote a.remove {
   margin-right: -20px;
   margin-top: -8px;
 }
+
+textarea.comment {
+  font-size: 0.9em;
+  border: 1px solid #dddddd;
+  // border-top: none;
+}

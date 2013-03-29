@@ -27,18 +27,15 @@ Meteor.methods({
   // options should include: activityId, comment
   createComment: function (options) {
     options = options || {};
-    if (typeof options.comment === "string" && options.comment.length > 1024 )
-      throw new Meteor.Error(413, "Comment too long");
-    if (! options.activityId )
-      throw new Meteor.Error(413, "No associated activity");
-    if (! this.userId)
-      throw new Meteor.Error(403, "You must be logged in");
 
     if ( typeof options.created === "undefined" )
       options.created = new Date()
 
     if ( typeof options.groupId === "undefined" )
       options.groupId = Activities.findOne({_id: options.activityId}).group;
+
+    // run check before saving. check will throw exceptions on invalid data
+    checkCreateComment(this.userId, options);
 
     var comment = Comments.insert({
       owner:      this.userId,
@@ -49,43 +46,57 @@ Meteor.methods({
     });
 
     // Notify group members about new comment
-    if (Meteor.isServer) {
-      var commentor = Meteor.users.findOne(this.userId);
-      var activity = Activities.findOne(options.activityId);
-      var group = Groups.findOne(activity.group);
-      var members = Meteor.users.find({$or: [{_id: {$in: group.invited}},
-                                      {_id: group.owner}]});
-
-      var memberEmails = [];
-      members.forEach( function (user) { 
-        var email = userEmail(user);
-        if(email)
-          memberEmails.push(email);
-      });
-
-      if(memberEmails.length > 0) {
-        var text  =  "Hey, " + displayName(commentor) + " just commented on a " + activity.type; 
-        if(activity.type == "story") {
-          text += " titled '" + activity.title + "'. ";
-          text += "Check it out here: " + Meteor.absoluteUrl() + [group.slug, activity.slug].join("/") + "\n\n"
-        } else if(activity.type == "short") {
-          text += " for the group '" + group.name + "'. ";
-          text += "Check it out here: " + Meteor.absoluteUrl() + group.slug + "\n\n"
-        }
-
-        text += "They said:\n\n" + options.comment + "\n\n";
-        text += "Yours faithfully, Underplan"
-
-        Email.send({
-          from: "noreply@underplan.it",
-          bcc: memberEmails,
-          replyTo: undefined,
-          subject: "Underplan: New Comment for '" + group.name + "'",
-          text: text
-        });
-      }
-    }
+    notifyCommentCreated(this.userId, options);
 
     return comment;
   },
 });
+
+var checkCreateComment = function (userId, options) {
+  if (! userId)
+    throw new Meteor.Error(403, "You must be logged in");
+  if (typeof options.comment === "string" && options.comment.length > 1024 )
+    throw new Meteor.Error(413, "Comment too long");
+  if (! options.activityId )
+    throw new Meteor.Error(413, "No associated activity");
+};
+
+if(Meteor.isServer) {
+  
+  var notifyCommentCreated = function (userId, options) {
+    var commentor = Meteor.users.findOne(userId);
+    var activity = Activities.findOne(options.activityId);
+    var group = Groups.findOne(activity.group);
+    var members = Meteor.users.find({$or: [{_id: {$in: group.invited}},
+                                    {_id: group.owner}]});
+
+    var memberEmails = [];
+    members.forEach( function (user) { 
+      var email = userEmail(user);
+      if(email)
+        memberEmails.push(email);
+    });
+
+    if(memberEmails.length > 0) {
+      var text  =  "Hey, " + displayName(commentor) + " just commented on a " + activity.type; 
+      if(activity.type == "story") {
+        text += " titled '" + activity.title + "'. ";
+        text += "Check it out here: " + Meteor.absoluteUrl() + [group.slug, activity.slug].join("/") + "\n\n"
+      } else if(activity.type == "short") {
+        text += " for the group '" + group.name + "'. ";
+        text += "Check it out here: " + Meteor.absoluteUrl() + group.slug + "\n\n"
+      }
+
+      text += "They said:\n\n" + options.comment + "\n\n";
+      text += "Yours faithfully, Underplan"
+
+      Email.send({
+        from: "noreply@underplan.it",
+        bcc: memberEmails,
+        replyTo: undefined,
+        subject: "Underplan: New Comment for '" + group.name + "'",
+        text: text
+      });
+    }
+  }
+}

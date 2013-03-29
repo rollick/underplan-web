@@ -27,12 +27,6 @@ Meteor.methods({
   // options should include: name
   createGroup: function (options) {
     options = options || {};
-    if (typeof options.name === "string" && options.name.length > 100)
-      throw new Meteor.Error(413, "Name too long");
-    if (typeof options.description === "string" && options.description.length > 100)
-      throw new Meteor.Error(413, "Description too long");
-    if (! this.userId)
-      throw new Meteor.Error(403, "You must be logged in");
 
     if ( typeof options.created === "undefined" )
       options.created = new Date();
@@ -45,6 +39,9 @@ Meteor.methods({
     if (owner.admin) {
       approved = true;
     }
+    options.approved = approved;
+
+    checkGroupCreate(this.userId, options);
 
     return Groups.insert({
       owner:            this.userId,
@@ -56,7 +53,7 @@ Meteor.methods({
       slug:             options.slug,
       invited:          [],
       rsvps:            [],
-      approved:         approved
+      approved:         options.approved
     });
   },
 
@@ -120,7 +117,22 @@ Meteor.methods({
   }
 });
 
+var checkGroupCreate = function(userId, options) {
+  if (! userId)
+    throw new Meteor.Error(403, "You must be logged in");
+
+  if (typeof options.name === "string" && options.name.length > 100)
+    throw new Meteor.Error(413, "Name too long");
+
+  if (typeof options.description === "string" && options.description.length > 100)
+    throw new Meteor.Error(413, "Description too long");
+
+  if (typeof options.approved === true && !isSystemAdmin(userId))
+    throw new Meteor.Error(413, "You can't approve a group");
+};
+
 if(Meteor.isServer) {
+
   var canUpdateGroup = function(userId, group, fields) {
     var sysAdmin = isSystemAdmin(userId);
     
@@ -135,9 +147,11 @@ if(Meteor.isServer) {
     if (_.difference(fields, allowed).length)
       return false; // tried to write to forbidden field
 
-    // A good improvement would be to validate the type of the new
-    // value of the field (and if a string, the length.) In the
-    // future Meteor will have a schema system to makes that easier.
     return true;
   }
+
+  // TODO: Implement group watching for non-members
+  var groupWatcherEmails = function(groupId) {
+    return []
+  };
 }
