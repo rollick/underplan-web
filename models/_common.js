@@ -14,7 +14,7 @@ var displayName = function (user) {
   }
 };
 
-var groupAdmin = function (userId, groupId) {
+var isGroupAdmin = function (userId, groupId) {
   var group = Groups.findOne({_id: groupId});
 
   if(!!group && group.owner === userId) {
@@ -24,7 +24,7 @@ var groupAdmin = function (userId, groupId) {
   }
 };
 
-var systemAdmin = function (userId) {
+var isSystemAdmin = function (userId) {
   var user = Meteor.users.findOne({_id: userId});
 
   if(!!user && user.admin) {

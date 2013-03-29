@@ -127,8 +127,7 @@ Template.groupAdminActions.events({
 });
 
 Template.groupAdminActions.isGroupAdmin = function () {
-  var group = getCurrentGroup();
-  return !!group && group.owner === Meteor.userId();
+  return isGroupAdmin(Meteor.userId(), getCurrentGroupId());
 };
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -16,32 +16,7 @@ Activities.allow({
     return false; // no cowboy inserts -- use createActivity method
   },
   update: function (userId, activity, fields, modifier) {
-    if (userId !== activity.owner)
-      return false; // not the owner
-
-    var allowed = [
-      "title", 
-      "text", 
-      "groupId", 
-      "type", 
-      "location", 
-      "lat", 
-      "lng", 
-      "mapZoom", 
-      "picasaTags", 
-      "published", 
-      "slug", 
-      "url", 
-      "urlType", 
-      "created"
-    ];
-    if (_.difference(fields, allowed).length)
-      return false; // tried to write to forbidden field
-
-    // A good improvement would be to validate the type of the new
-    // value of the field (and if a string, the length.) In the
-    // future Meteor will have a schema system to makes that easier.
-    return true;
+    return canUpdateActivity(userId, activity, fields);
   },
   remove: function (userId, activity) {
     return false; // TODO: need to add logic for removing associated comments etc before removing the activity
@@ -157,5 +132,36 @@ var activityType = function (activity) {
     return "location";
   } else {
     return "undefined";
+  }
+}
+
+if(Meteor.isServer) {
+  var canUpdateActivity = function(userId, activity, fields) {
+    if (userId !== activity.owner)
+      return false; // not the owner
+
+    var allowed = [
+      "title", 
+      "text", 
+      "groupId", 
+      "type", 
+      "location", 
+      "lat", 
+      "lng", 
+      "mapZoom", 
+      "picasaTags", 
+      "published", 
+      "slug", 
+      "url", 
+      "urlType", 
+      "created"
+    ];
+    if (_.difference(fields, allowed).length)
+      return false; // tried to write to forbidden field
+
+    // A good improvement would be to validate the type of the new
+    // value of the field (and if a string, the length.) In the
+    // future Meteor will have a schema system to makes that easier.
+    return true;
   }
 }

@@ -2,8 +2,7 @@
 // Main Settings
 
 Template.mainSettings.isGroupAdmin = function () {
-  var group = getCurrentGroup();
-  return !!group && group.owner === Meteor.userId();
+  return isGroupAdmin(Meteor.userId(), getCurrentGroupId());
 };
 
 Template.mainSettings.rendered = function () {

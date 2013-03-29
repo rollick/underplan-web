@@ -19,7 +19,7 @@ Comments.allow({
     var groupId = Activities.findOne(comment.activityId).group;
 
     // deny if not the owner or a system admin or the group admin
-    return (groupAdmin(userId, groupId) || systemAdmin(userId) || comment.owner === userId);
+    return (isGroupAdmin(userId, groupId) || isSystemAdmin(userId) || comment.owner === userId);
   }
 });
 
