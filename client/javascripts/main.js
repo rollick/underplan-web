@@ -145,6 +145,34 @@ var getCurrentGroup = function () {
   }
 };
 
+var isWatchingGroup = function (userId, groupId) {
+  var user = Meteor.users.findOne({_id: userId});
+
+  if (user && user.profile.watchGroups) {
+    return user.profile.watchGroups[groupId];
+  } else {
+    return false
+  }
+};
+
+// Set group watch for current user
+var watchGroup = function (groupId, state) {
+  if(typeof state === "undefined")
+    state = true;
+
+  var currentWatch = Meteor.user().profile.watchGroups || {};
+  currentWatch[groupId] = state;
+
+  Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.watchGroups": currentWatch}});
+};
+
+var watchCurrentGroup = function (state) {
+  if(typeof state === "undefined")
+    state = true;
+
+  watchGroup(getCurrentGroupId(), state);
+}
+
 var getCurrentGroupId = function () {
   group = getCurrentGroup();
   return !!group ? group._id : null;
@@ -206,7 +234,7 @@ var geoLocation = function(location, callback) {
 var timeout = null;
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.56");
+  Session.set("appVersion", "v0.9.57");
 
   Backbone.history.start({ pushState: true });
   // initTemplateChecks();

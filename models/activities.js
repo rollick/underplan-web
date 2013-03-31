@@ -86,9 +86,9 @@ Meteor.methods({
       published:  !! options.published
     });
 
-    // Notify group members about new activity
+    // Notify group members and watchers about new activity
     if(Meteor.isServer) {
-      notifyActivityCreated(this.userId, options);
+      notifyActivityEvent(this.userId, options, "created");
     }
 
     return activity;
@@ -111,7 +111,7 @@ var checkCreateActivity = function(userId, options) {
   if (! userId)
     throw new Meteor.Error(403, "You must be logged in");
 
-  if (Activities.find({slug: options.slug, group: options.groupId}).count() > 0)
+  if (options.type == "story" && Activities.find({slug: options.slug, group: options.groupId}).count() > 0)
     throw new Meteor.Error(403, "Slug is already taken.");
 
   if (typeof options.title === "string" && options.title.length > 100)
@@ -129,30 +129,38 @@ var checkCreateActivity = function(userId, options) {
 }
 
 if(Meteor.isServer) {
-  var notifyActivityCreated = function(userId, options) {
+  var notifyActivityEvent = function(userId, options, action) {
     var owner = Meteor.users.findOne(userId);
     var group = Groups.findOne(options.groupId);
-    var memberEmails = _.union(groupMemberEmails(options.groupId), groupWatcherEmails(options.groupId));
+
+    var watcherEmails = [];
+    // Only notify watchers if the activity is published
+    if(options.published)
+      watcherEmails = groupWatcherEmails(options.groupId);
+    
+    var memberEmails = _.union(groupMemberEmails(options.groupId), watcherEmails);
+
+    console.log(memberEmails.join());
 
     if(memberEmails.length > 0) {
       // TODO: replace this with a handlebars template!
-      var text  =  "Hey, " + displayName(owner) + " just created a new " + options.type;
+      // var text = Handlebars.templates["notifyActivityUpdate"];
+      // console.log(text);
+
+      var text  =  "Hey, " + displayName(owner) + " just " + action + " a " + options.type;
       if(options.type == "story") {
         text += " titled '" + options.title + "'. ";
         text += "Check it out here: " + Meteor.absoluteUrl() + [group.slug, options.slug].join("/") + "\n\n"
       } else if(options.type == "short") {
-        text += " for the group '" + group.name + "'. ";
-        text += "Check it out here: " + Meteor.absoluteUrl() + group.slug + ". "
+        text += " for the group '" + group.name + "': " + Meteor.absoluteUrl() + group.slug + "\n\n"
         text += "They wrote:\n\n" + options.text + "\n\n";
       }
-
-      text += "Yours faithfully, Underplan"
 
       Email.send({
         from: "noreply@underplan.it",
         bcc: memberEmails,
         replyTo: undefined,
-        subject: "Underplan: New Activity for '" + group.name + "'",
+        subject: "Underplan: " + (action == "created" ? "New" : "Updated") + " Activity for '" + group.name + "'",
         text: text
       });
     }

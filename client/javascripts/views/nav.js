@@ -37,19 +37,27 @@ Template.mainNav.events({
 // Activity actions
 
 Template.activityActions.events({
-  'click .new-story': function () {
-
+  "click .new-story": function () {
     Router.setNewActivity(getCurrentGroup());
+    return false;
+  },
+  "click .watch-group a": function (event, template) {
+    var watched = $(template.find("a")).hasClass("watched");
+    watchCurrentGroup(!watched);
     return false;
   }
 });
 
 Template.activityActions.isNewRoute = function () {
-    var fragment = Backbone.history.fragment;
+  var fragment = Backbone.history.fragment;
   if(!fragment)
     return false;
 
   return !!(fragment.match(/\/new/));
+};
+
+Template.activityActions.watchingGroup = function () {
+  return isWatchingGroup(Meteor.userId(), getCurrentGroupId());
 };
 
 Template.activityActions.userBelongsToGroup = function () {

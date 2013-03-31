@@ -17,6 +17,23 @@
 .top-bar {
   margin-left: 45px;
 
+  li.watch-group a {
+    &:before {
+      line-height: 18px;
+      padding-right: 4px;
+      color: #575656;
+
+      @media only screen and (min-width: 58.75em) {
+        line-height: 42px;
+        color: #2b2b2b;
+      }
+    }
+
+    &.watched:before {
+      color: yellow;
+    }
+  }
+
   li.settings {
     a {
       span {
