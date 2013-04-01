@@ -202,9 +202,12 @@ Template.activityFeed.rendered = function() {
       $(".recent-photos").foundation("clearing");
     });
   }
+  
+
+  generateActivitesMap(group, ".activities-map:visible");
 
   // google.maps.event.addListener(map, 'tilesloaded', _.bind(function() {
-    generateActivitesMap(group, ".activities-map:visible");
+    // generateActivitesMap(group, ".activities-map:visible");
     // google.maps.event.clearListeners(map, 'tilesloaded');
   // }, this));
 };
@@ -471,6 +474,27 @@ Template.currentActivity.rendered = function() {
       $(".activity-photos").foundation("clearing");
     });
   }
+
+  ///////////////////////
+  // Share this on Google+
+  window.___gcfg = {lang: 'en-GB'};
+
+  (function() {
+    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+    po.src = 'https://apis.google.com/js/plusone.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  })();
+
+  ///////////////////////
+  // Share this on Facebook
+  // <div id="fb-root"></div>
+  // <script>(function(d, s, id) {
+  //   var js, fjs = d.getElementsByTagName(s)[0];
+  //   if (d.getElementById(id)) return;
+  //   js = d.createElement(s); js.id = id;
+  //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=618066764874981";
+  //   fjs.parentNode.insertBefore(js, fjs);
+  // }(document, 'script', 'facebook-jssdk'));</script>
 };
 
 Template.currentActivity.events({
