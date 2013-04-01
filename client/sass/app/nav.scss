@@ -21,11 +21,10 @@
     &:before {
       line-height: 18px;
       padding-right: 4px;
-      color: #575656;
+      color: rgba(255, 255, 255, 0.3);
 
       @media only screen and (min-width: 58.75em) {
         line-height: 42px;
-        color: #2b2b2b;
       }
     }
 
