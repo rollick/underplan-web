@@ -53,6 +53,11 @@ Template.activityActions.isNewRoute = function () {
   return !!(fragment.match(/\/new/));
 };
 
+Template.activityActions.userCanFollow = function () {
+  // can follow if logged in but not a group member
+  return !!Meteor.user() && !currentUserBelongsToCurrentGroup()
+};
+
 Template.activityActions.followingGroup = function () {
   return isFollowingGroup(Meteor.userId(), getCurrentGroupId());
 };

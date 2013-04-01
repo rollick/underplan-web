@@ -7,9 +7,12 @@ Template.commentForm.activity = function () {
 
 Template.commentForm.events({
   'click .save': function (event, template) {
-    var submit = template.find(".save.button");
-    if($(submit).hasClass("disabled"))
+    var btns = $(template.find(".save.button, .cancel.button"));
+    if(btns.hasClass("disabled")) {
       return false;
+    } else {
+      btns.addClass("disabled");
+    }
 
     var comment = template.find("form .comment").value;
     var activityId = template.find("form .activity-id").value;
@@ -27,6 +30,8 @@ Template.commentForm.events({
       Session.set("createError",
                   "It needs a comment");
     }
+    btns.removeClass("disabled");
+
     return false;
   },
   'keyup .comment': function (event, template) {

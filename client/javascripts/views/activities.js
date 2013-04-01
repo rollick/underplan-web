@@ -50,8 +50,14 @@ Template.storyEditor.events({
     return false;
   },
   'click .save': function (event, template) {
-    var values = getStoryValues(template);
+    var btns = $(template.find(".save.button, .cancel.button"));
+    if(btns.hasClass("disabled")) {
+      return false;
+    } else {
+      btns.addClass("disabled");
+    }
 
+    var values = getStoryValues(template);
     if (values.groupId && values.title.length && values.text.length) {
       Meteor.call('createActivity', values, function (error, activityId) {
         if (error) {
@@ -64,6 +70,7 @@ Template.storyEditor.events({
       Session.set("createError",
                   "It needs a title and a story");
     }
+    btns.removeClass("disabled");
     $(document).scrollTop(0);
 
     return false;

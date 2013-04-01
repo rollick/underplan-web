@@ -62,7 +62,7 @@ var checkCreateComment = function (userId, options) {
 };
 
 if(Meteor.isServer) {
-  
+
   var notifyCommentCreated = function (userId, options) {
     var commentor = Meteor.users.findOne(userId);
     var activity = Activities.findOne(options.activityId);
