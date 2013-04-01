@@ -37,13 +37,10 @@ Template.mainNav.events({
 // Activity actions
 
 Template.activityActions.events({
-  "click .new-story": function () {
-    Router.setNewActivity(getCurrentGroup());
-    return false;
-  },
-  "click .watch-group a": function (event, template) {
-    var watched = $(template.find("a")).hasClass("watched");
-    watchCurrentGroup(!watched);
+  "click .follow-group a": function (event, template) {
+    var followed = $(template.find("a")).hasClass("followed");
+
+    followCurrentGroup(!followed);
     return false;
   }
 });
@@ -56,8 +53,8 @@ Template.activityActions.isNewRoute = function () {
   return !!(fragment.match(/\/new/));
 };
 
-Template.activityActions.watchingGroup = function () {
-  return isWatchingGroup(Meteor.userId(), getCurrentGroupId());
+Template.activityActions.followingGroup = function () {
+  return isFollowingGroup(Meteor.userId(), getCurrentGroupId());
 };
 
 Template.activityActions.userBelongsToGroup = function () {

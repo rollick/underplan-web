@@ -18,20 +18,20 @@
   margin-left: 45px;
 }
 /* line 21, ../../sass/app/nav.scss */
-.top-bar li.watch-group a:before {
+.top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: #575656;
 }
 @media only screen and (min-width: 58.75em) {
   /* line 21, ../../sass/app/nav.scss */
-  .top-bar li.watch-group a:before {
+  .top-bar li.follow-group a:before {
     line-height: 42px;
     color: #2b2b2b;
   }
 }
 /* line 32, ../../sass/app/nav.scss */
-.top-bar li.watch-group a.watched:before {
+.top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 /* line 39, ../../sass/app/nav.scss */

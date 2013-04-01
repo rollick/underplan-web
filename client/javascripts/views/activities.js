@@ -149,10 +149,14 @@ Template.activityFeed.events({
     Router.setActivity(this);
     return false;
   },
-  'click .new-short a': function (event, template) {
+  'click .new-short': function (event, template) {
     $(".short-form.row").show();
     return false;
-  }
+  },
+  "click .new-story": function () {
+    Router.setNewActivity(getCurrentGroup());
+    return false;
+  },
 });
 
 Template.activityFeed.rendered = function() {
@@ -411,18 +415,18 @@ Template.currentActivity.rendered = function() {
 
     imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:green|label::location|:lat,:lng&sensor=false";
     imageUrl = imageUrl.replace(/:dimensions/, dimensions).
-              replace(/:lat/g, activity.lat).
-              replace(/:lng/g, activity.lng).
-              replace(/:zoom/, zoom).
-              replace(/:location/, activity.location);
+                        replace(/:lat/g, activity.lat).
+                        replace(/:lng/g, activity.lng).
+                        replace(/:zoom/, zoom).
+                        replace(/:location/, activity.location);
 
     if(apiKey != "")
       imageUrl = imageUrl + "&key=" + apiKey;
 
     mapUrl = "http://maps.google.com/maps?t=h&q=loc::lat,:lng&z=:zoom";
     mapUrl = mapUrl.replace(/:zoom/, zoom).
-              replace(/:lat/g, activity.lat).
-              replace(/:lng/g, activity.lng);
+                    replace(/:lat/g, activity.lat).
+                    replace(/:lng/g, activity.lng);
 
     $(".activity-map").html('<a target="_blank" href="' + mapUrl + '" class="th"><img src="' + imageUrl + '"></a>');
   }

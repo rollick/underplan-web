@@ -1,11 +1,7 @@
 <template name="activityActions">
-  <li class="divider show-for-medium-and-up"></li>
-  {{#if userBelongsToGroup}}
-    <li class="new-story {{#if isNewRoute}}active{{/if}}"><a href="#">Tell a story</a></li>
-  {{else}}
-    {{#if currentUser}}
-      <li class="watch-group"><a href="#" class="{{#if watchingGroup}}watched{{/if}} foundicon-general-star">Watch</a></li>
-    {{/if}}
+  {{#if currentUser}}
+    <li class="divider show-for-medium-and-up"></li>
+    <li class="follow-group"><a href="#" class="{{#if followingGroup}}followed{{/if}} foundicon-general-star">Follow</a></li>
   {{/if}}
 </template>
 

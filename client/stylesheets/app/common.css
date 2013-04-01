@@ -1,20 +1,39 @@
-/* line 1, ../../sass/app/common.scss */
+/* line 3, ../../sass/app/common.scss */
 .action {
   margin-top: -5px !important;
 }
-/* line 4, ../../sass/app/common.scss */
+/* line 6, ../../sass/app/common.scss */
+.action ul {
+  list-style: none;
+  display: inline;
+  width: auto;
+  float: right;
+}
+/* line 12, ../../sass/app/common.scss */
+.action ul li {
+  float: left;
+  padding-left: 5px;
+}
+/* line 17, ../../sass/app/common.scss */
+.action ul > .separator {
+  width: 2px;
+  height: 24px;
+  margin: 6px 5px 0 5px;
+  border-right: 1px solid green;
+}
+/* line 29, ../../sass/app/common.scss */
 .action a {
   font-size: 0.95em;
   height: 34px;
   line-height: 33px;
   padding: 0;
-  color: #008000;
+  color: green;
 }
-/* line 11, ../../sass/app/common.scss */
+/* line 36, ../../sass/app/common.scss */
 .action a.disabled {
   opacity: 0.3;
 }
-/* line 15, ../../sass/app/common.scss */
+/* line 40, ../../sass/app/common.scss */
 .action a span {
   position: absolute;
   right: 0;
@@ -23,16 +42,18 @@
   height: 0;
   margin-right: 15px;
 }
-/* line 25, ../../sass/app/common.scss */
-.action.new-short a {
+/* line 50, ../../sass/app/common.scss */
+.action a.new-short {
   text-indent: -35px;
 }
-/* line 29, ../../sass/app/common.scss */
+/* line 54, ../../sass/app/common.scss */
 .action.new-comment a {
   text-indent: -73px;
 }
-/* line 34, ../../sass/app/common.scss */
-.action.new-comment span:before, .action.new-short span:before {
+/* line 59, ../../sass/app/common.scss */
+.action.new-comment span:before,
+.action a.new-short:before,
+.action a.new-story:before {
   content: "+";
   font-size: 1.6em;
   font-weight: bold;
@@ -40,40 +61,44 @@
   top: 3px;
   position: relative;
 }
+/* line 68, ../../sass/app/common.scss */
+.action a.new-story:before {
+  content: "+";
+}
 
 @media only screen and (min-width: 48em) {
-  /* line 45, ../../sass/app/common.scss */
+  /* line 76, ../../sass/app/common.scss */
   .action a {
     font-size: 0.9em;
   }
 
-  /* line 49, ../../sass/app/common.scss */
+  /* line 80, ../../sass/app/common.scss */
   .action {
     margin-top: 4px !important;
   }
 
-  /* line 53, ../../sass/app/common.scss */
+  /* line 84, ../../sass/app/common.scss */
   .action.new-short a {
     text-indent: -28px;
   }
 
-  /* line 57, ../../sass/app/common.scss */
+  /* line 88, ../../sass/app/common.scss */
   .action.new-comment a {
     text-indent: -65px;
   }
 }
-/* line 62, ../../sass/app/common.scss */
+/* line 93, ../../sass/app/common.scss */
 .activity {
   border-left: 1px solid red;
   margin-bottom: 10px;
   border-left: 1px solid #dddddd;
 }
-/* line 67, ../../sass/app/common.scss */
+/* line 98, ../../sass/app/common.scss */
 .activity .action {
   margin-top: -25px !important;
   height: 30px;
 }
-/* line 71, ../../sass/app/common.scss */
+/* line 102, ../../sass/app/common.scss */
 .activity blockquote {
   margin-bottom: 0px;
 }

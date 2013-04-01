@@ -17,7 +17,7 @@
 .top-bar {
   margin-left: 45px;
 
-  li.watch-group a {
+  li.follow-group a {
     &:before {
       line-height: 18px;
       padding-right: 4px;
@@ -29,7 +29,7 @@
       }
     }
 
-    &.watched:before {
+    &.followed:before {
       color: yellow;
     }
   }

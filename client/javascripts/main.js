@@ -145,32 +145,32 @@ var getCurrentGroup = function () {
   }
 };
 
-var isWatchingGroup = function (userId, groupId) {
+var isFollowingGroup = function (userId, groupId) {
   var user = Meteor.users.findOne({_id: userId});
 
-  if (user && user.profile.watchGroups) {
-    return user.profile.watchGroups[groupId];
+  if (user && user.profile.followedGroups) {
+    return user.profile.followedGroups[groupId];
   } else {
     return false
   }
 };
 
-// Set group watch for current user
-var watchGroup = function (groupId, state) {
+// Set group follow for current user
+var followGroup = function (groupId, state) {
   if(typeof state === "undefined")
     state = true;
 
-  var currentWatch = Meteor.user().profile.watchGroups || {};
-  currentWatch[groupId] = state;
+  var currentFollows = Meteor.user().profile.followedGroups || {};
+  currentFollows[groupId] = state;
 
-  Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.watchGroups": currentWatch}});
+  Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.followedGroups": currentFollows}});
 };
 
-var watchCurrentGroup = function (state) {
+var followCurrentGroup = function (state) {
   if(typeof state === "undefined")
     state = true;
 
-  watchGroup(getCurrentGroupId(), state);
+  followGroup(getCurrentGroupId(), state);
 }
 
 var getCurrentGroupId = function () {
@@ -234,7 +234,7 @@ var geoLocation = function(location, callback) {
 var timeout = null;
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.57");
+  Session.set("appVersion", "v0.9.58");
 
   Backbone.history.start({ pushState: true });
   // initTemplateChecks();

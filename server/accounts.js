@@ -100,19 +100,22 @@ var createUserHook = function () {
       params = { access_token: user.services.github.accessToken };
 
       result = Meteor.http.get('https://api.github.com/user', { params: params });
+
     } else if (user.services.twitter) {
       console.log("Twitter has not been setup!!")
-      // params = { oauth_token: user.services.twitter.accessToken };
 
-      // result = Meteor.http.get('https://api.twitter.com/oauth/authenticate', { params: params });
     } else if (user.services.google) {
       params = { access_token: user.services.google.accessToken, alt: "json" };
 
       result = Meteor.http.get('https://www.googleapis.com/oauth2/v1/userinfo', { params: params });
+
     } else if (user.services.facebook) {
       params = { access_token: user.services.facebook.accessToken, fields: "id,username,first_name,last_name,name,link,locale,gender,email,picture" };
 
       result = Meteor.http.get('https://graph.facebook.com/me', { params: params });
+
+    } else { // local password user created
+      return user;
     }
     
     if (result.error) {
