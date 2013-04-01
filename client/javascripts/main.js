@@ -216,7 +216,33 @@ var geoLocation = function(location, callback) {
         lat = results[0].geometry.location.lat() || results[0].geometry.location.Ya || results[0].geometry.location.hb;
         lng = results[0].geometry.location.lng() || results[0].geometry.location.Za || results[0].geometry.location.ib;
 
-        result = {lat: lat, lng: lng, address: results[0].formatted_address};
+        var city, region, country;
+        for (var i=0; i < results[0].address_components.length; i++) {
+          if (results[0].address_components[i].types[0] == "locality") {
+            //this is the object you are looking for
+            city = results[0].address_components[i].long_name;
+          }
+          
+          if (results[0].address_components[i].types[0] == "administrative_area_level_1") {
+            //this is the object you are looking for
+            region = results[0].address_components[i].long_name;
+          }
+          
+          if (results[0].address_components[i].types[0] == "country") {
+            //this is the object you are looking for
+            country = results[0].address_components[i].long_name;
+          }
+        }
+
+        result = {
+          lat: lat, 
+          lng: lng, 
+          address: results[0].formatted_address,
+          city: city,
+          region: region,
+          country: country
+        };
+
         if(typeof callback == "function") {
           callback(result);
         } else {
@@ -234,7 +260,7 @@ var geoLocation = function(location, callback) {
 var timeout = null;
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.58");
+  Session.set("appVersion", "v0.9.59");
 
   Backbone.history.start({ pushState: true });
   // initTemplateChecks();

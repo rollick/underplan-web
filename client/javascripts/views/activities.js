@@ -23,17 +23,19 @@ Template.storyEditor.events({
       console.log("Geolocating: " + location);
       coords = geoLocation(location, function(geo) {
         if(typeof geo === "object") {
-          var lat = geo.lat,
-              lng = geo.lng,
-              address = geo.address;
+          template.find("#lat").value = geo.lat;
+          template.find("#lng").value = geo.lng;
+          template.find("#city").value = geo.city;
+          template.find("#region").value = geo.region;
+          template.find("#country").value = geo.country;
 
-          template.find("#lat").value = lat;
-          template.find("#lng").value = lng;
-
-          template.find("#location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + address + ")";
+          template.find("#location-coords").innerHTML = Math.round(geo.lat*10000)/10000 + ", " + Math.round(geo.lng*10000)/10000 + " (" + geo.address + ")";
         } else {
-          template.find("#lat").value = "";
-          template.find("#lng").value = "";
+          template.find("#lat").value = 
+          template.find("#lng").value = 
+          template.find("#city").value = 
+          template.find("#region").value = 
+          template.find("#country").value = "";
 
           template.find("#location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
         }
@@ -84,6 +86,9 @@ Template.storyEditor.events({
         if (error) {
           Session.set("createError", error);
         } else {
+          // FIXME: the notify call should be server side.
+          Meteor.call('notifyActivityUpdated', activityId);
+
           Router.setActivity(Activities.findOne(activityId));
         }
       });
@@ -107,6 +112,9 @@ var getStoryValues = function(template) {
   if(lat != "" && lng != "") {
     values.lat = lat;
     values.lng = lng;
+    values.city = template.find("#city").value;
+    values.region = template.find("#region").value;
+    values.country = template.find("#country").value;
   } else {
     values.lat = values.lng = null;
   }

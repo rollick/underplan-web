@@ -62,9 +62,9 @@ Template.shortForm.events({
 
     return false;
   },
-  'keyup .text': function (event, template) {
+  'keyup #text': function (event, template) {
     var max = shortMaxLength();
-    var textElem = template.find(".text");
+    var textElem = template.find("#text");
     var countElem = template.find(".text-length");
     var submit = template.find(".post");
 
@@ -82,8 +82,8 @@ Template.shortForm.events({
       countElem.style.color = "";
     }
   },
-  'keyup .location': function (event, template) {
-    var location = template.find(".location").value;
+  'keyup #location': function (event, template) {
+    var location = template.find("#location").value;
     
     if(!(location.length > 3))
       return false;
@@ -96,17 +96,19 @@ Template.shortForm.events({
 
       coords = geoLocation(location, function(geo) {
         if(typeof geo === "object") {
-          var lat = geo.lat,
-              lng = geo.lng,
-              address = geo.address;
+          template.find("#lat").value = geo.lat;
+          template.find("#lng").value = geo.lng;
+          template.find("#city").value = geo.city;
+          template.find("#country").value = geo.country;
+          template.find("#region").value = geo.region;
 
-          template.find(".lat").value = lat;
-          template.find(".lng").value = lng;
-
-          template.find(".location-coords").innerHTML = Math.round(lat*10000)/10000 + ", " + Math.round(lng*10000)/10000 + " (" + address + ")";
+          template.find(".location-coords").innerHTML = Math.round(geo.lat*10000)/10000 + ", " + Math.round(geo.lng*10000)/10000 + " (" + geo.address + ")";
         } else {
-          template.find(".lat").value = "";
-          template.find(".lng").value = "";
+          template.find("#lat").value =
+          template.find("#lng").value =
+          template.find("#city").value =
+          template.find("#country").value =
+          template.find("#region").value = "";
 
           template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
         }
@@ -118,9 +120,12 @@ Template.shortForm.events({
       return false;
 
     var values = {};
-    values.text     = template.find(".text").value;
-    values.lat      = template.find(".lat").value;
-    values.lng      = template.find(".lng").value;
+    values.text     = template.find("#text").value;
+    values.lat      = template.find("#lat").value;
+    values.lng      = template.find("#lng").value;
+    values.city     = template.find("#city").value;
+    values.country  = template.find("#country").value;
+    values.region   = template.find("#region").value;
     values.groupId  = getCurrentGroupId();
 
     if (values.groupId && values.text.length) {
@@ -128,10 +133,13 @@ Template.shortForm.events({
         if (error) {
           Session.set("createError", error);
         } else {
-          template.find(".text").value = 
-          template.find(".lat").value = 
-          template.find(".lng").value = 
-          template.find(".location").value = "";
+          template.find("#text").value = 
+          template.find("#lat").value = 
+          template.find("#lng").value = 
+          template.find("#location").value =
+          template.find("#city").value =
+          template.find("#country").value =
+          template.find("#region").value = "";
 
           template.find(".text-length").innerHTML = shortMaxLength();
         }

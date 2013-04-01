@@ -27,6 +27,20 @@ Activities.allow({
 });
 
 Meteor.methods({
+  notifyActivityUpdated: function(activityId) {
+    var activity = Activities.findOne(activityId);
+    if(!!activity && this.userId === activity.owner) {
+      notifyActivityEvent(this.userId, activity, "updated");
+    }
+  },
+
+  notifyActivityCreated: function(activityId) {
+    var activity = Activities.findOne(activityId);
+    if(!!activity && this.userId === activity.owner) {
+      notifyActivityEvent(this.userId, activity, "created");
+    }
+  },
+
   // options should include: title, description, x, y, public
   createActivity: function (options) {
     options = options || {};
@@ -72,6 +86,9 @@ Meteor.methods({
       group:      options.groupId,
       lat:        options.lat,
       lng:        options.lng,
+      city:       options.city,
+      region:     options.region,
+      country:    options.country,
       title:      options.title,
       text:       options.text,
       url:        options.url,
@@ -86,7 +103,7 @@ Meteor.methods({
       published:  !! options.published
     });
 
-    // Notify group members and watchers about new activity
+    // Notify group members and followers about new activity
     if(Meteor.isServer) {
       notifyActivityEvent(this.userId, options, "created");
     }
@@ -128,37 +145,43 @@ var checkCreateActivity = function(userId, options) {
     throw new Meteor.Error(403, "You must be a member of " + group.name);
 }
 
+if(Meteor.isClient) {
+  // Just a stub for the client. See isServer section for actual code.
+  var notifyActivityEvent = function(userId, activity, action) {
+    return true;
+  }
+}
+
 if(Meteor.isServer) {
-  var notifyActivityEvent = function(userId, options, action) {
+  var notifyActivityEvent = function(userId, activity, action) {
     var owner = Meteor.users.findOne(userId);
-    var group = Groups.findOne(options.groupId);
+    var group = Groups.findOne(activity.groupId);
 
-    var watcherEmails = [];
-    // Only notify watchers if the activity is published
-    if(options.published)
-      watcherEmails = groupWatcherEmails(options.groupId);
+    var followerEmails = [];
+    // Only notify followers if the activity is published
+    if(activity.published) {
+      followerEmails = groupFollowerEmails(activity.groupId);
+    }
     
-    var memberEmails = _.union(groupMemberEmails(options.groupId), watcherEmails);
+    var allEmails = _.union(groupMemberEmails(activity.groupId), followerEmails);
 
-    console.log(memberEmails.join());
-
-    if(memberEmails.length > 0) {
+    if(allEmails.length > 0) {
       // TODO: replace this with a handlebars template!
       // var text = Handlebars.templates["notifyActivityUpdate"];
       // console.log(text);
 
-      var text  =  "Hey, " + displayName(owner) + " just " + action + " a " + options.type;
-      if(options.type == "story") {
-        text += " titled '" + options.title + "'. ";
-        text += "Check it out here: " + Meteor.absoluteUrl() + [group.slug, options.slug].join("/") + "\n\n"
-      } else if(options.type == "short") {
+      var text  =  "Hey, " + displayName(owner) + " just " + action + " a " + activity.type;
+      if(activity.type == "story") {
+        text += " titled '" + activity.title + "'. ";
+        text += "Check it out here: " + Meteor.absoluteUrl() + [group.slug, activity.slug].join("/") + "\n\n"
+      } else if(activity.type == "short") {
         text += " for the group '" + group.name + "': " + Meteor.absoluteUrl() + group.slug + "\n\n"
-        text += "They wrote:\n\n" + options.text + "\n\n";
+        text += "They wrote:\n\n" + activity.text + "\n\n";
       }
 
       Email.send({
         from: "noreply@underplan.it",
-        bcc: memberEmails,
+        bcc: allEmails,
         replyTo: undefined,
         subject: "Underplan: " + (action == "created" ? "New" : "Updated") + " Activity for '" + group.name + "'",
         text: text
@@ -178,6 +201,9 @@ if(Meteor.isServer) {
       "location", 
       "lat", 
       "lng", 
+      "city",
+      "region",
+      "country",
       "mapZoom", 
       "picasaTags", 
       "published", 

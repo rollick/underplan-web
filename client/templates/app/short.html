@@ -37,16 +37,19 @@
   <form class="custom">
     <div class="row">
       <div class="small-12 large-12 columns">
-        <textarea type="text" class="text" value="" style="height: 100px;" placeholder="Write something..." /><br />
+        <textarea type="text" id="text" value="" style="height: 100px;" placeholder="Write something..." /><br />
       </div>
     </div>
     <div class="row">
       <div class="small-12 large-12 columns">
         <label>Location</label>
-        <input type="text" class="location" value="" placeholder="Enter a location...">
+        <input type="text" id="location" value="" placeholder="Enter a location...">
         <div class="location-coords input-subtext"></div>
-        <input type="hidden" class="lat" value="">
-        <input type="hidden" class="lng" value="">
+        <input type="hidden" id="lat" value="">
+        <input type="hidden" id="lng" value="">
+        <input type="hidden" id="city" value="">
+        <input type="hidden" id="country" value="">
+        <input type="hidden" id="region" value="">
       </div>
     </div>
     <div class="row">

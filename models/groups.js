@@ -150,12 +150,12 @@ if(Meteor.isServer) {
     return true;
   }
 
-  // Find all users in the system who are watching this group
-  var groupWatcherEmails = function(groupId) {
+  // Find all users in the system who are following this group
+  var groupFollowerEmails = function(groupId) {
     var emails = [];
     Meteor.users.find({}).forEach( function (user) {
-      var watching = user.profile.watchGroups;
-      if(!!watching && watching[groupId]) {
+      var following = user.profile.followedGroups;
+      if(!!following && following[groupId]) {
         emails.push(userEmail(user));
       }
     });
