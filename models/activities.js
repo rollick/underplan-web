@@ -179,6 +179,8 @@ if(Meteor.isServer) {
         text += "They wrote:\n\n" + activity.text + "\n\n";
       }
 
+      text += "Yours faithfully, Underplan"
+
       Email.send({
         from: "noreply@underplan.it",
         bcc: allEmails,
