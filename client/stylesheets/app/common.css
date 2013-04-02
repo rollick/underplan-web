@@ -89,16 +89,14 @@
 }
 /* line 93, ../../sass/app/common.scss */
 .activity {
-  border-left: 1px solid red;
   margin-bottom: 10px;
-  border-left: 1px solid #dddddd;
 }
-/* line 98, ../../sass/app/common.scss */
+/* line 96, ../../sass/app/common.scss */
 .activity .action {
   margin-top: -25px !important;
   height: 30px;
 }
-/* line 102, ../../sass/app/common.scss */
+/* line 100, ../../sass/app/common.scss */
 .activity blockquote {
   margin-bottom: 0px;
 }

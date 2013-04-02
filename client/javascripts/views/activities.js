@@ -391,6 +391,17 @@ Template.currentActivity.anyActivities = function () {
   return Activities.find().count() > 0;
 };
 
+Template.currentActivity.textPreview = function () {
+  var text = getCurrentActivity().text;
+  var limit = 160;
+
+  var preview = text.substring(0, limit);
+  if(text.length > limit)
+    preview += "...";
+
+  return preview;
+};
+
 Template.currentActivity.anyComments = function () {
   var activity = getCurrentActivity();
 

@@ -1,6 +1,16 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Page
 
+// Template.pageTitle.title = function () {
+//   var activity = getCurrentActivity();
+//   var title = "Underplan";
+
+//   if(!!activity && activity.type == "story") {
+//     return title + " " + activity.title;
+//   }
+//   return title;
+// }
+
 Template.page.appVersion = function () {
   return Session.get("appVersion");
 };
