@@ -38,9 +38,10 @@ var userEmail = function (user) {
   if(!user)
     return null;
 
-  var profile = userSettings(user);
+  var profile = user.profile;
   if(!!profile && profile.email)
     return profile.email;
+
   return null;
 };
 
@@ -61,14 +62,3 @@ var userPicture = function (user, width) {
   }
   return null;
 };
-
-var userSettings = function(user) {
-  if(!user)
-    return null;
-
-  if(user.services) {
-    return user.services.facebook || user.services.github || user.services.google || user.services.twitter;
-  } else {
-    return null;
-  }
-}
