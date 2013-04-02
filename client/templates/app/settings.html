@@ -5,7 +5,9 @@
   <form class="custom">
     {{#with user}}
       <label>Nickname</label>
-      <input type="text" class="name" value="{{profile.name}}">
+      <input type="text" id="name" value="{{profile.name}}">
+      <label>Email</label>
+      <input type="text" id="email" value="{{profile.email}}">
       <hr />
       <a href="#" class="small secondary button cancel">Cancel</a>
       <a href="#" class="small button success save">Save</a>

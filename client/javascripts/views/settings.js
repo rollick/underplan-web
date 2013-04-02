@@ -16,10 +16,11 @@ Template.mainSettings.rendered = function () {
 
 Template.userSettings.events({
   'click .save': function (event, template) {
-    var nickname = template.find(".name").value;
+    var nickname = template.find("#name").value;
+    var email = template.find("#email").value;
 
     if (nickname.length) {
-      Meteor.users.update(Meteor.userId(),{$set: {'profile.name':nickname}});
+      Meteor.users.update(Meteor.userId(),{$set: {'profile.name': nickname, 'profile.email': email}});
       defaultBack();
     } else {
       Session.set("createError",
