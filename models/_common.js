@@ -53,7 +53,7 @@ var userPicture = function (user, width) {
   if(!!profile && profile.picture) {
     var url = profile.picture;
     if(typeof width !== "undefined") {
-      if(user.services.google)
+      if(!!user.services && !!user.services.google)
         // FIXME: handle url params here!
         url = url + "?sz=" + width;        
     }
