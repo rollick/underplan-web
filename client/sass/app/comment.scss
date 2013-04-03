@@ -1,11 +1,19 @@
 @import "../settings";
 
-blockquote a.remove {
-  color: $alert-color;
-  float: right;
-  font-size: 0.8em;
-  margin-right: -20px;
-  margin-top: -8px;
+blockquote { 
+  a.remove {
+    color: $alert-color;
+    float: right;
+    font-size: 0.8em;
+    margin-right: -20px;
+    margin-top: -8px;
+  }
+}
+
+.row.short-comments {
+  blockquote {
+    font-size: 0.9em;
+  }
 }
 
 textarea.comment {

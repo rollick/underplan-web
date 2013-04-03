@@ -1,4 +1,4 @@
-/* line 3, ../../sass/app/comment.scss */
+/* line 4, ../../sass/app/comment.scss */
 blockquote a.remove {
   color: #c60f13;
   float: right;
@@ -7,7 +7,12 @@ blockquote a.remove {
   margin-top: -8px;
 }
 
-/* line 11, ../../sass/app/comment.scss */
+/* line 14, ../../sass/app/comment.scss */
+.row.short-comments blockquote {
+  font-size: 0.9em;
+}
+
+/* line 19, ../../sass/app/comment.scss */
 textarea.comment {
   font-size: 0.9em;
   border: 1px solid #dddddd;
