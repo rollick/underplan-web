@@ -159,6 +159,8 @@ var hideActivityEditor = function() {
 ///////////////////////////////////////////////////////////////////////////////
 // Activity feed 
 
+var feedLimitSkip = 5;
+
 Template.activityFeed.events({
   'click .story a': function (event, template) {
     Router.setActivity(this);
@@ -172,6 +174,10 @@ Template.activityFeed.events({
     Router.setNewActivity(getCurrentGroup());
     return false;
   },
+  "click .feed-more a": function () {
+    Session.set("feedLimit", Session.get("feedLimit") + feedLimitSkip);
+    return false;
+  }
 });
 
 Template.activityFeed.rendered = function() {
@@ -221,11 +227,20 @@ Template.activityFeed.anyActivities = function () {
 };
 
 Template.activityFeed.recentActivities = function () {
-  return Activities.find({group: getCurrentGroupId()}, {sort: {created: -1}});
+  var feedLimit = Session.get("feedLimit");
+  if(!feedLimit) {
+    Session.set("feedLimit", feedLimitSkip);
+    feedLimit = feedLimitSkip;
+  }
+  return Activities.find({group: getCurrentGroupId()}, {sort: {created: -1}, limit: feedLimit});
 };
 
 Template.activityFeed.typeIs = function (what) {
   return this.type === what;
+};
+
+Template.activityFeed.feedLimitReached = function () {
+  return Session.get("feedLimit") >= Activities.find({group: getCurrentGroupId()}, {sort: {created: -1}}).count();
 };
 
 var dashboardMap = dashboardMapBounds = null;

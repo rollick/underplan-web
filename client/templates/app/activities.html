@@ -50,6 +50,13 @@
           {{/if}}
         </div>
       </div>
+      {{#unless feedLimitReached}}
+      <div class="row feed-more">
+        <div class="small-12 large-12 columns">
+          <a href="#" class="load-more small secondary button">Load More</a>
+        </div>
+      </div>
+      {{/unless}}
     </div>
     <div class="small-12 large-7 columns">
       <div class="row show-for-medium-up">
@@ -153,12 +160,6 @@
       </div>
     </div>
     {{/if}}
-  {{else}}
-    <div class="row">
-      <div class="small-12 large-12 columns">
-        <div class="alert">What just happened!? Let's go <a href="/">home</a>.</div>
-      </div>
-    </div>
   {{/if}}
 </template>
 

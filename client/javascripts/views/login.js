@@ -34,19 +34,19 @@ Template.loggedout.events({
 });
 
 Template.loggedout.hasGitHub = function () {
-  return !!Meteor.settings.public.authServices.github;
+  return !!Meteor.settings && !!Meteor.settings.public.authServices.github;
 };
 
 Template.loggedout.hasTwitter = function () {
-  return !!Meteor.settings.public.authServices.twitter;
+  return !!Meteor.settings && !!Meteor.settings.public.authServices.twitter;
 };
 
 Template.loggedout.hasGoogle = function () {
-  return !!Meteor.settings.public.authServices.google;
+  return !!Meteor.settings && !!Meteor.settings.public.authServices.google;
 };
 
 Template.loggedout.hasFacebook = function () {
-  return !!Meteor.settings.public.authServices.facebook;
+  return !!Meteor.settings && !!Meteor.settings.public.authServices.facebook;
 };
 
 Template.loggedin.events({
