@@ -388,105 +388,106 @@ ul.dropdown h5 a {
 }
 /* line 130, ../../sass/app/activities.scss */
 .feed .feed-more > .columns {
+  margin-top: 10px;
   text-align: center;
 }
-/* line 135, ../../sass/app/activities.scss */
+/* line 136, ../../sass/app/activities.scss */
 .feed .row.feed-list:first-child {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 142, ../../sass/app/activities.scss */
+/* line 143, ../../sass/app/activities.scss */
 .feed .row.feed-list .columns .entry:first-child blockquote {
   margin-top: 0px !important;
 }
-/* line 148, ../../sass/app/activities.scss */
+/* line 149, ../../sass/app/activities.scss */
 .feed .row.feed-list .short {
   margin-bottom: 10px;
 }
-/* line 151, ../../sass/app/activities.scss */
+/* line 152, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .short-comments {
   display: none;
   margin-bottom: 18px !important;
 }
-/* line 155, ../../sass/app/activities.scss */
+/* line 156, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .short-comments blockquote {
   margin: 0px 10px 10px 20px;
 }
-/* line 158, ../../sass/app/activities.scss */
+/* line 159, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .short-comments blockquote p:last-of-type {
   margin-bottom: 10px !important;
 }
-/* line 165, ../../sass/app/activities.scss */
+/* line 166, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row .columns {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 170, ../../sass/app/activities.scss */
+/* line 171, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions {
   cursor: default;
   color: white;
   font-size: 0.8em;
 }
-/* line 176, ../../sass/app/activities.scss */
+/* line 177, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions a.comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 180, ../../sass/app/activities.scss */
+/* line 181, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions a.comments:before {
   background-position: 0px 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 180, ../../sass/app/activities.scss */
+  /* line 181, ../../sass/app/activities.scss */
   .feed .row.feed-list .short .row.short-actions a.comments:before {
     background-position: 0px 3px;
   }
 }
-/* line 192, ../../sass/app/activities.scss */
+/* line 193, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 196, ../../sass/app/activities.scss */
+/* line 197, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment a {
   text-indent: -50px;
 }
-/* line 199, ../../sass/app/activities.scss */
+/* line 200, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment a span {
   color: white;
 }
 @media only screen and (min-width: 48em) {
-  /* line 170, ../../sass/app/activities.scss */
+  /* line 171, ../../sass/app/activities.scss */
   .feed .row.feed-list .short .row.short-actions {
     font-size: 0.9em;
   }
-  /* line 211, ../../sass/app/activities.scss */
+  /* line 212, ../../sass/app/activities.scss */
   .feed .row.feed-list .short .row.short-actions .action.new-comment a {
     text-indent: -60px;
   }
 }
-/* line 226, ../../sass/app/activities.scss */
+/* line 227, ../../sass/app/activities.scss */
 .feed .row.feed-list .short.expanded .short-comments {
   display: inherit;
 }
 
-/* line 235, ../../sass/app/activities.scss */
+/* line 236, ../../sass/app/activities.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 238, ../../sass/app/activities.scss */
+/* line 239, ../../sass/app/activities.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;
 }
 
-/* line 241, ../../sass/app/activities.scss */
+/* line 242, ../../sass/app/activities.scss */
 .comment-form .comment {
   /*height: 100px;*/
 }
 
-/* line 245, ../../sass/app/activities.scss */
+/* line 246, ../../sass/app/activities.scss */
 span.text-length {
   margin-left: 5px;
   line-height: 28px;

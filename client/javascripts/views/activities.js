@@ -209,8 +209,7 @@ Template.activityFeed.rendered = function() {
     });
   }
   
-
-  generateActivitesMap(group, ".activities-map:visible");
+  generateActivitesMap(group, ".activities-map:visible", Template.activityFeed.recentActivities());
 
   // google.maps.event.addListener(map, 'tilesloaded', _.bind(function() {
     // generateActivitesMap(group, ".activities-map:visible");
@@ -245,7 +244,7 @@ Template.activityFeed.feedLimitReached = function () {
 
 var dashboardMap = dashboardMapBounds = null;
 
-var generateActivitesMap = function(group, elementSelector) {
+var generateActivitesMap = function(group, elementSelector, activities) {
   // load default group if only string passed to function
   if(typeof group === "string" && typeof elementSelector === "undefined") {
     group = getCurrentGroup();
@@ -263,6 +262,9 @@ var generateActivitesMap = function(group, elementSelector) {
   if(typeof element === "undefined")
     return false;
 
+  if(typeof activities === "undefined")
+    activities = Activities.find({group: group._id});
+
   var locations = [];
   var index = 1;
   var icons = {
@@ -270,7 +272,7 @@ var generateActivitesMap = function(group, elementSelector) {
     story: "http://maps.google.com/mapfiles/marker_green.png"
   }
 
-  var activities = Activities.find({group: group._id}).forEach( function (activity) {
+  activities.forEach( function (activity) {
     var lat = parseFloat(activity.lat);
     var lng = parseFloat(activity.lng);
 
