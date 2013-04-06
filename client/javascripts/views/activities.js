@@ -175,7 +175,7 @@ Template.activityFeed.events({
     return false;
   },
   "click .feed-more a": function () {
-    Session.set("feedLimit", Session.get("feedLimit") + feedLimitSkip);
+    this._feedLimit += feedLimitSkip;
     return false;
   }
 });
@@ -227,12 +227,10 @@ Template.activityFeed.anyActivities = function () {
 };
 
 Template.activityFeed.recentActivities = function () {
-  var feedLimit = Session.get("feedLimit");
-  if(!feedLimit) {
-    Session.set("feedLimit", feedLimitSkip);
-    feedLimit = feedLimitSkip;
-  }
-  return Activities.find({group: getCurrentGroupId()}, {sort: {created: -1}, limit: feedLimit});
+  if(!this._feedLimit)
+    this._feedLimit = feedLimitSkip
+
+  return Activities.find({group: getCurrentGroupId()}, {sort: {created: -1}, limit: this._feedLimit});
 };
 
 Template.activityFeed.typeIs = function (what) {
@@ -240,7 +238,7 @@ Template.activityFeed.typeIs = function (what) {
 };
 
 Template.activityFeed.feedLimitReached = function () {
-  return Session.get("feedLimit") >= Activities.find({group: getCurrentGroupId()}, {sort: {created: -1}}).count();
+  return this._feedLimit >= Activities.find({group: getCurrentGroupId()}, {sort: {created: -1}}).count();
 };
 
 var dashboardMap = dashboardMapBounds = null;
