@@ -14,6 +14,10 @@
 // This is the default html and body font-size for the base em value.
 // $em-base: 16px;
 
+// This maintains compatibility with compass framework since default compass
+// $base-line-height is 24px while $base-font-size is 16px
+$base-line-height: 150% !default;
+
 // We use these to control various global styles
 // $body-bg: #fff;
 // $body-font-color: #222;
