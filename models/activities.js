@@ -194,7 +194,7 @@ if(Meteor.isServer) {
   };
 
   var canUpdateActivity = function(userId, activity, fields) {
-    if (userId !== activity.owner || ! isGroupAdmin(userId, activity.group))
+    if (userId !== activity.owner && ! isGroupAdmin(userId, activity.group))
       return false; // not the owner or the group admin
 
     var allowed = [

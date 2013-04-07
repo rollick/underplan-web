@@ -82,7 +82,7 @@ Template.storyEditor.events({
     var values = getStoryValues(template);
 
     if (values.title.length && values.text.length) {
-      Activities.update({_id: activityId}, {$set: values}, true, function (error) {
+      Activities.update(activityId, {$set: values}, false, function (error) {
         if (error) {
           Session.set("createError", error);
         } else {
