@@ -189,6 +189,7 @@ Template.activityFeed.events({
       $.extend(filter, {country: targetElem.text()});
     }
     Session.set("feedFilter", filter);
+    Session.set("feedLimit", feedLimitSkip);
 
     return false;
   }
