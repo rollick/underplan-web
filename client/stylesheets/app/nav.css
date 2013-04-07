@@ -15,7 +15,7 @@
 
 /* line 17, ../../sass/app/nav.scss */
 .top-bar {
-  margin-left: 45px;
+  margin: 0px 0px 0px 45px !important;
 }
 /* line 21, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {

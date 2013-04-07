@@ -111,12 +111,13 @@
 .country-filter {
   & > .columns {
     min-height: 20px; 
-    margin: 5px 0px 10px 0px;
+    margin: 5px 0px 0px 0px !important;
   }
 
   dl {
     @extend .sub-nav;
-    
+    margin-bottom: 0px;
+
     dt.active a {
       font-weight: normal;
     }

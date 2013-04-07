@@ -5919,21 +5919,25 @@ table tfoot tr td {
 /* line 112, ../../sass/app/activities.scss */
 .country-filter > .columns {
   min-height: 20px;
-  margin: 5px 0px 10px 0px;
+  margin: 5px 0px 0px 0px !important;
 }
-/* line 120, ../../sass/app/activities.scss */
+/* line 117, ../../sass/app/activities.scss */
+.country-filter dl {
+  margin-bottom: 0px;
+}
+/* line 121, ../../sass/app/activities.scss */
 .country-filter dl dt.active a {
   font-weight: normal;
 }
 
-/* line 128, ../../sass/app/activities.scss */
+/* line 129, ../../sass/app/activities.scss */
 .feed li p {
   display: inline;
   position: relative;
   top: -4px;
   margin-left: 8px;
 }
-/* line 135, ../../sass/app/activities.scss */
+/* line 136, ../../sass/app/activities.scss */
 .feed li i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;
@@ -5943,108 +5947,108 @@ table tfoot tr td {
   overflow: hidden;
   line-height: 1.5;
 }
-/* line 146, ../../sass/app/activities.scss */
+/* line 147, ../../sass/app/activities.scss */
 .feed .feed-more > .columns {
   margin-top: 10px;
   text-align: center;
 }
-/* line 152, ../../sass/app/activities.scss */
+/* line 153, ../../sass/app/activities.scss */
 .feed .row.feed-list:first-child {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 159, ../../sass/app/activities.scss */
+/* line 160, ../../sass/app/activities.scss */
 .feed .row.feed-list .columns .entry:first-child blockquote {
   margin-top: 0px !important;
 }
-/* line 165, ../../sass/app/activities.scss */
+/* line 166, ../../sass/app/activities.scss */
 .feed .row.feed-list .short {
   margin-bottom: 10px;
 }
-/* line 168, ../../sass/app/activities.scss */
+/* line 169, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .short-comments {
   display: none;
   margin-bottom: 18px !important;
 }
-/* line 172, ../../sass/app/activities.scss */
+/* line 173, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .short-comments blockquote {
   margin: 0px 10px 10px 20px;
 }
-/* line 175, ../../sass/app/activities.scss */
+/* line 176, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .short-comments blockquote p:last-of-type {
   margin-bottom: 10px !important;
 }
-/* line 182, ../../sass/app/activities.scss */
+/* line 183, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row .columns {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 187, ../../sass/app/activities.scss */
+/* line 188, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions {
   cursor: default;
   color: white;
   font-size: 0.8em;
 }
-/* line 193, ../../sass/app/activities.scss */
+/* line 194, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions a.comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 197, ../../sass/app/activities.scss */
+/* line 198, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions a.comments:before {
   background-position: 0px 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 197, ../../sass/app/activities.scss */
+  /* line 198, ../../sass/app/activities.scss */
   .feed .row.feed-list .short .row.short-actions a.comments:before {
     background-position: 0px 3px;
   }
 }
-/* line 209, ../../sass/app/activities.scss */
+/* line 210, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 213, ../../sass/app/activities.scss */
+/* line 214, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment a {
   text-indent: -50px;
 }
-/* line 216, ../../sass/app/activities.scss */
+/* line 217, ../../sass/app/activities.scss */
 .feed .row.feed-list .short .row.short-actions .action.new-comment a span {
   color: white;
 }
 @media only screen and (min-width: 48em) {
-  /* line 187, ../../sass/app/activities.scss */
+  /* line 188, ../../sass/app/activities.scss */
   .feed .row.feed-list .short .row.short-actions {
     font-size: 0.9em;
   }
-  /* line 228, ../../sass/app/activities.scss */
+  /* line 229, ../../sass/app/activities.scss */
   .feed .row.feed-list .short .row.short-actions .action.new-comment a {
     text-indent: -60px;
   }
 }
-/* line 243, ../../sass/app/activities.scss */
+/* line 244, ../../sass/app/activities.scss */
 .feed .row.feed-list .short.expanded .short-comments {
   display: inherit;
 }
 
-/* line 252, ../../sass/app/activities.scss */
+/* line 253, ../../sass/app/activities.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 255, ../../sass/app/activities.scss */
+/* line 256, ../../sass/app/activities.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;
 }
 
-/* line 258, ../../sass/app/activities.scss */
+/* line 259, ../../sass/app/activities.scss */
 .comment-form .comment {
   /*height: 100px;*/
 }
 
-/* line 262, ../../sass/app/activities.scss */
+/* line 263, ../../sass/app/activities.scss */
 span.text-length {
   margin-left: 5px;
   line-height: 28px;
