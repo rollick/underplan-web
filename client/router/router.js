@@ -89,10 +89,12 @@ var AppRouter = Backbone.Router.extend({
   newGroup: function() {
     Session.set("createError", null);
     showTemplate("groupEditor");
+    jumpToTop();
   },
 
   userSettings: function() {
     showTemplate("userSettings");
+    jumpToTop();
   },
 
   groupMembership: function(groupSlug) {
@@ -105,6 +107,7 @@ var AppRouter = Backbone.Router.extend({
     Session.set("activitySlug", null);
     Session.set("createError", null);
     showTemplate("storyEditor");
+    jumpToTop();
   },
 
   activity: function(groupSlug, activitySlug) {
@@ -119,6 +122,7 @@ var AppRouter = Backbone.Router.extend({
     Session.set("activitySlug", activitySlug);
     Session.set("createError", null);
     showTemplate("storyEditor");
+    jumpToTop();
   },
 
   setHome: function() {
