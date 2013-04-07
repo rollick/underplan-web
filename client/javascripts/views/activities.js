@@ -490,11 +490,11 @@ Template.currentActivity.creatorName = function () {
 };
 
 Template.currentActivity.canRemove = function () {
-  return this.owner === Meteor.userId();
+  return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
 };
 
 Template.currentActivity.canEdit = function () {
-  return this.owner === Meteor.userId();
+  return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
 };
 
 Template.currentActivity.rendered = function() {

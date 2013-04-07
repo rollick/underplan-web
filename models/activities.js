@@ -29,6 +29,8 @@ Activities.allow({
 Meteor.methods({
   notifyActivityUpdated: function(activityId) {
     var activity = Activities.findOne(activityId);
+
+    // only notify if the activity owner updates, eg not if it is the group admin
     if(!!activity && this.userId === activity.owner) {
       notifyActivityEvent(this.userId, activity, "updated");
     }
@@ -192,8 +194,8 @@ if(Meteor.isServer) {
   };
 
   var canUpdateActivity = function(userId, activity, fields) {
-    if (userId !== activity.owner)
-      return false; // not the owner
+    if (userId !== activity.owner || ! isGroupAdmin(userId, activity.group))
+      return false; // not the owner or the group admin
 
     var allowed = [
       "title", 
