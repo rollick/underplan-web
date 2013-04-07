@@ -110,6 +110,8 @@
 }
 
 .country-filter {
+  margin-top: 5px !important;
+
   & > .columns {
     min-height: 20px; 
     margin: 5px 0px 0px 0px !important;
@@ -117,17 +119,30 @@
 
   dl {
     @extend .sub-nav;
-    margin-bottom: 0px;
+    margin-bottom: 0px !important;
 
-    dt.active a {
-      font-weight: normal;
+    dt {
+      margin-bottom: 0px !important;
+      
+      &.active a {
+        font-weight: normal;
+        line-height: 35px;
+        padding-top: 20px;
+      }
+
+      a {
+        vertical-align: bottom;
+        line-height: 35px;
+        -webkit-border-radius: 0px !important;
+        border-radius: 0px !important;
+      }      
     }
   }
 }
 
 .feed-header {
   height: 50px;
-  
+
   h4 {
     margin-bottom: 0px;
   }
