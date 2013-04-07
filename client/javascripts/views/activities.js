@@ -244,6 +244,13 @@ Template.activityFeed.destroyed = function () {
   // Session.set("feedFilter", null);
 };
 
+Template.activityFeed.picasaGalleryUrl = function () {
+  var group = getCurrentGroup();
+  var picasaPath = [group.picasaUsername, group.picasaAlbum].join("/");
+
+  return "https://picasaweb.google.com/" + picasaPath;
+};
+
 Template.activityFeed.countries = function () {
   var countries = [];
 
