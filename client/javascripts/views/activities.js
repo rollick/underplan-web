@@ -177,8 +177,28 @@ Template.activityFeed.events({
   "click .feed-more a": function () {
     Session.set("feedLimit", Session.get("feedLimit") + feedLimitSkip);
     return false;
+  },
+  "click .country-filter a": function (event, template) {
+    var filterElem = $(template.find(".country-filter"));
+    var selected = event.target.text;
+    var filter = {group: Session.get("groupId")}; 
+    var targetElem = $(event.target);
+
+    // set filter
+    if(! targetElem.hasClass("all")) {
+      $.extend(filter, {country: targetElem.text()});
+    }
+    Session.set("feedFilter", filter);
+
+    return false;
   }
 });
+
+Template.activityFeed.created = function () {
+  // console.log("Created Activity Feed Template");
+  Session.setDefault("feedLimit", feedLimitSkip);
+  Session.setDefault("feedFilter", {group: Session.get("groupId")});
+};
 
 Template.activityFeed.rendered = function() {
   var group = getCurrentGroup();
@@ -217,21 +237,54 @@ Template.activityFeed.rendered = function() {
   // }, this));
 };
 
+Template.activityFeed.destroyed = function () {
+  // console.log("Destroyed Activity Feed Template");
+  // Session.set("feedLimit", null);
+  // Session.set("feedFilter", null);
+};
+
+Template.activityFeed.countries = function () {
+  var countries = [];
+
+  Activities.find({group: Session.get("groupId")}).forEach( function(activity) {
+    if(typeof activity.country === "string" && activity.country.length) {
+      countries.push(activity.country);
+    }
+  });
+
+  return _.uniq(countries).sort();
+};
+
+Template.activityFeed.showCountryFilter = function () {
+  return Template.activityFeed.countries().length > 1;
+};
+
+Template.activityFeed.feedTitle = function () {
+  if(Template.activityFeed.feedLimitReached()) {
+    return "All Activities";
+  } else {
+    return "Last " + Session.get("feedLimit") + " Activities";
+  }
+};
+
 Template.activityFeed.userBelongsToGroup = function () {
   return currentUserBelongsToCurrentGroup();
 };
 
+Template.activityFeed.activityCount = function () {
+  return Activities.find(Session.get("feedFilter")).count();
+};
+
+Template.activityFeed.totalActivities = function () {
+  return Activities.find(Session.get("feedFilter")).count();
+}
+
 Template.activityFeed.anyActivities = function () {
-  return Activities.find({group: getCurrentGroupId()}).count() > 0;
+  return Template.activityFeed.activityCount() > 0;
 };
 
 Template.activityFeed.recentActivities = function () {
-  var feedLimit = Session.get("feedLimit");
-  if(!feedLimit) {
-    Session.set("feedLimit", feedLimitSkip);
-    feedLimit = feedLimitSkip;
-  }
-  return Activities.find({group: getCurrentGroupId()}, {sort: {created: -1}, limit: feedLimit});
+  return Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
 };
 
 Template.activityFeed.typeIs = function (what) {
@@ -239,7 +292,7 @@ Template.activityFeed.typeIs = function (what) {
 };
 
 Template.activityFeed.feedLimitReached = function () {
-  return Session.get("feedLimit") >= Activities.find({group: getCurrentGroupId()}, {sort: {created: -1}}).count();
+  return Session.get("feedLimit") >= Activities.find(Session.get("feedFilter")).count();
 };
 
 var dashboardMap = dashboardMapBounds = null;

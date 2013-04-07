@@ -7,6 +7,29 @@ jQuery.expr.filters.offscreen = function(el) {
   );
 };
 
+Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
+  if (arguments.length < 3)
+    throw new Error("Handlebars Helper equal needs 2 parameters");
+  if( lvalue!=rvalue ) {
+    return options.inverse(this);
+  } else {
+    return options.fn(this);
+  }
+});
+
+Handlebars.registerHelper("isCurrentCountry", function (country) {
+  if(country === "all" && !Session.get("feedFilter").country)
+    return "active";
+
+  return (country === Session.get("feedFilter").country ? "active" : "");
+});
+
+Handlebars.registerHelper("countryFilter", function(countries) {
+  Template.countryFilter.countries = countries;
+
+  return new Handlebars.SafeString(Template.countryFilter());
+});
+
 Handlebars.registerHelper("activityLink", function() {
   var group = Groups.findOne({_id: this.group}, {slug: 1});
 

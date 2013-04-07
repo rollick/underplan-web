@@ -18,7 +18,7 @@
 .action ul > .separator {
   width: 2px;
   height: 24px;
-  margin: 8px 5px 0 6px;
+  margin: 8px 1px 0 1px;
   border-right: 1px solid green;
 }
 /* line 29, ../../sass/app/common.scss */
