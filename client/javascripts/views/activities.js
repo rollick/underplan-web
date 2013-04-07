@@ -167,7 +167,7 @@ Template.activityFeed.events({
     return false;
   },
   'click .new-short': function (event, template) {
-    $(".short-form.row").show();
+    $(".short-form.row").show().find("textarea").focus();
     return false;
   },
   "click .new-story": function () {

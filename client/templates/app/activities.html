@@ -2,25 +2,25 @@
   {{#if showCountryFilter}}
     {{countryFilter countries}}
   {{/if}}
+  <div class="row feed-header">
+    <div class="small-7 large-7 columns">
+      <h4>{{feedTitle}}</h4>
+    </div>
+    {{#if userBelongsToGroup}}
+      <div class="action small-5 large-5 columns">
+        <ul class="">
+          <li><a href="#" class="new-short">Shorty</a></li>
+          <li class="separator"></li>
+          <li><a href="#" class="new-story">Story</a></li>
+        </ul>
+      </div>
+    {{/if}}
+  </div>
   <div class="row no-side-padding">
     <div class="show-for-small small-12 columns">
       <div class="activities-map"></div>
     </div>
     <div class="small-12 large-5 columns feed">
-      <div class="row">
-        <div class="small-7 large-7 columns">
-          <h4>{{feedTitle}}</h4>
-        </div>
-        {{#if userBelongsToGroup}}
-          <div class="action small-5 large-5 columns">
-            <ul class="">
-              <li><a href="#" class="new-short">Shorty</a></li>
-              <li class="separator"></li>
-              <li><a href="#" class="new-story">Story</a></li>
-            </ul>
-          </div>
-        {{/if}}
-      </div>
       {{#if userBelongsToGroup}}
         <div class="short-form row" style="display: none;">
           <div class="small-12 large-12 columns">
