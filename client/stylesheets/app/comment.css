@@ -1,11 +1,10 @@
 /* line 4, ../../sass/app/comment.scss */
 blockquote a.remove {
   color: #c60f13;
-  opacity: 0.75;
   float: right;
-  font-size: 0.9em;
+  font-size: 0.8em;
   margin-right: -20px;
-  margin-top: -4px;
+  margin-top: -8px;
 }
 
 /* line 14, ../../sass/app/comment.scss */
