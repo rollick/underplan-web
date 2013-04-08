@@ -26,19 +26,23 @@ h1, h2, h3, h4, h5 {
 h1 .sub-header, h2 .sub-header, h3 .sub-header, h4 .sub-header, h5 .sub-header {
   font-size: 0.75em;
 }
+/* line 25, ../sass/main.scss */
+h1 .sub-header:before, h2 .sub-header:before, h3 .sub-header:before, h4 .sub-header:before, h5 .sub-header:before {
+  content: " - ";
+}
 
-/* line 27, ../sass/main.scss */
+/* line 31, ../sass/main.scss */
 h2 {
   margin-bottom: 0.2em;
 }
 
-/* line 32, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 h2 span.warning, a span.warning {
   font-size: 0.7em;
   color: #c60f13;
 }
 
-/* line 38, ../sass/main.scss */
+/* line 42, ../sass/main.scss */
 .row.main-content {
   border-bottom: 3px solid green;
   padding: 0px;
@@ -50,24 +54,24 @@ h2 span.warning, a span.warning {
   margin-top: 0px;
   box-shadow: none;
 }
-/* line 48, ../sass/main.scss */
+/* line 52, ../sass/main.scss */
 .row.main-content.normal {
   padding-top: 5px;
   margin-top: 0px;
 }
-/* line 61, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 .row.main-content.dashboard {
   background: url("/images/sun3.jpg") 0 0 no-repeat;
   background-color: black;
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 68, ../sass/main.scss */
+  /* line 72, ../sass/main.scss */
   .row.main-content {
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
   }
 }
-/* line 77, ../sass/main.scss */
+/* line 81, ../sass/main.scss */
 footer, .push {
   height: 80px;
   /* .push must be the same height as .footer */
@@ -75,38 +79,38 @@ footer, .push {
   padding: 0px;
 }
 
-/* line 83, ../sass/main.scss */
+/* line 87, ../sass/main.scss */
 footer.dashboard {
   font-color: white;
 }
-/* line 86, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 footer.dashboard .row:first-of-type {
   border-top: 2px solid #2b2b2b;
 }
-/* line 90, ../sass/main.scss */
+/* line 94, ../sass/main.scss */
 footer.dashboard p {
   color: #fff;
 }
 
-/* line 96, ../sass/main.scss */
+/* line 100, ../sass/main.scss */
 footer p,
 footer a {
   margin-top: 10px;
 }
 
-/* line 100, ../sass/main.scss */
+/* line 104, ../sass/main.scss */
 .no-side-padding {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
 
-/* line 105, ../sass/main.scss */
+/* line 109, ../sass/main.scss */
 .bordered {
   border: 1px solid #e7e4e4;
   padding: 2px;
 }
 
-/* line 110, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 .normal {
   padding-bottom: 15px;
   background: #fff;
@@ -114,7 +118,7 @@ footer a {
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* line 117, ../sass/main.scss */
+/* line 121, ../sass/main.scss */
 .input-subtext {
   margin-top: -10px;
   font-style: italic;
@@ -125,86 +129,86 @@ footer a {
   min-height: 1px;
 }
 
-/* line 127, ../sass/main.scss */
+/* line 131, ../sass/main.scss */
 .actions {
   display: block;
   line-height: 32px;
   padding-top: 18px;
 }
-/* line 132, ../sass/main.scss */
+/* line 136, ../sass/main.scss */
 .actions a {
   float: right;
 }
-/* line 136, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 .actions i:hover {
   color: green;
   cursor: pointer;
 }
 
-/* line 142, ../sass/main.scss */
+/* line 146, ../sass/main.scss */
 .top-bar .name h1 a {
   font-weight: normal;
   padding: 0 5px;
   font-size: 1.3em;
 }
 
-/* line 149, ../sass/main.scss */
+/* line 153, ../sass/main.scss */
 .top-bar-section ul li > a,
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 153, ../sass/main.scss */
+/* line 157, ../sass/main.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 161, ../sass/main.scss */
+/* line 165, ../sass/main.scss */
 .alert-box {
   margin-top: 8px;
   text-align: center;
   font-weight: normal !important;
 }
-/* line 166, ../sass/main.scss */
+/* line 170, ../sass/main.scss */
 .alert-box a.close {
   position: relative;
   padding: 10px;
   color: white;
 }
 
-/* line 176, ../sass/main.scss */
+/* line 180, ../sass/main.scss */
 .button {
   font-weight: normal;
 }
 
-/* line 180, ../sass/main.scss */
+/* line 184, ../sass/main.scss */
 .clearing-assembled {
   padding-bottom: 10px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 180, ../sass/main.scss */
+  /* line 184, ../sass/main.scss */
   .clearing-assembled {
     padding-bottom: 0px !important;
   }
 }
-/* line 187, ../sass/main.scss */
+/* line 191, ../sass/main.scss */
 .clearing-assembled .clearing-caption {
   background-color: rgba(17, 17, 17, 0.6);
   padding-bottom: 30px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 187, ../sass/main.scss */
+  /* line 191, ../sass/main.scss */
   .clearing-assembled .clearing-caption {
     padding-bottom: 10px !important;
   }
 }
 
-/* line 197, ../sass/main.scss */
+/* line 201, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 200, ../sass/main.scss */
+/* line 204, ../sass/main.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -212,40 +216,40 @@ footer a {
   padding-top: 1px;
 }
 
-/* line 208, ../sass/main.scss */
+/* line 212, ../sass/main.scss */
 blockquote {
   margin: 10px 10px 0px 10px;
 }
-/* line 211, ../sass/main.scss */
+/* line 215, ../sass/main.scss */
 blockquote.disabled {
   opacity: 0.6;
 }
-/* line 215, ../sass/main.scss */
+/* line 219, ../sass/main.scss */
 blockquote p:last-of-type {
   margin-bottom: 10px;
 }
-/* line 219, ../sass/main.scss */
+/* line 223, ../sass/main.scss */
 blockquote cite {
   padding-bottom: 10px;
 }
 
-/* line 224, ../sass/main.scss */
+/* line 228, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 229, ../sass/main.scss */
+/* line 233, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 233, ../sass/main.scss */
+/* line 237, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }
 
-/* line 237, ../sass/main.scss */
+/* line 241, ../sass/main.scss */
 .standard-bar {
   font-size: 0.9em;
   margin-left: 0px;
@@ -255,7 +259,7 @@ ul.dropdown h5 a {
   cursor: pointer;
 }
 
-/* line 248, ../sass/main.scss */
+/* line 252, ../sass/main.scss */
 .up-down:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
@@ -265,7 +269,7 @@ ul.dropdown h5 a {
   height: 24px;
   content: "\00a0\00a0";
 }
-/* line 258, ../sass/main.scss */
+/* line 262, ../sass/main.scss */
 .up-down.open:before {
   background-image: url("/images/down.svg");
 }
