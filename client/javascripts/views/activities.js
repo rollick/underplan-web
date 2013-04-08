@@ -178,6 +178,10 @@ Template.activityFeed.events({
     Session.set("feedLimit", Session.get("feedLimit") + feedLimitSkip);
     return false;
   },
+  "click a.feed-all": function () {
+    Session.set("feedLimit", Template.activityFeed.activityCount() + 1);
+    return false;
+  },
   "click .country-filter a": function (event, template) {
     var filterElem = $(template.find(".country-filter"));
     var selected = event.target.text;
@@ -301,6 +305,12 @@ Template.activityFeed.typeIs = function (what) {
 
 Template.activityFeed.feedLimitReached = function () {
   return Session.get("feedLimit") >= Activities.find(Session.get("feedFilter")).count();
+};
+
+// FIXME: this is a hack! Should be able to use "unless" feedLimitReached in template
+//        but it only seems to work for a single reference.
+Template.activityFeed.moreActivities = function() {
+  return Session.get("feedLimit") < Activities.find(Session.get("feedFilter")).count();
 };
 
 var dashboardMap = dashboardMapBounds = null;

@@ -4,7 +4,12 @@
   {{/if}}
   <div class="row feed-header">
     <div class="small-7 large-7 columns">
-      <h4>{{feedTitle}}</h4>
+      <h4>
+        {{feedTitle}}
+        {{#if moreActivities}}
+          <span class="sub-header"><a href="#" class="feed-all">Show all</a></span>
+        {{/if}}
+      </h4>
     </div>
     {{#if userBelongsToGroup}}
       <div class="action small-5 large-5 columns">
@@ -71,7 +76,7 @@
         <div class="row">
           <div class="small-12 large-12 columns">
             {{#constant}}
-              <h5>Recent Group Photos (<a target="blank" href="{{picasaGalleryUrl}}">See All</a>)</h5>
+              <h5>Recent Group Photos <span class="sub-header"> <a target="blank" href="{{picasaGalleryUrl}}">See All</a></span></h5>
               <div class="recent-photos"><p class="alert-box secondary">Loading photos...</p></div>
             {{/constant}}
           </div>
