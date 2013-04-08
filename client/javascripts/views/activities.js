@@ -211,7 +211,7 @@ Template.activityFeed.rendered = function() {
   var options = {gridSmall: 4, gridLarge: 6};
   
   if(group && group.picasaUsername.length && group.picasaAlbum.length) {
-    $.picasa.images(group.picasaUsername, group.picasaAlbum, null, function(images) {
+    $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, null, function(images) {
       var photos = []
       var index = 0;
 
@@ -553,7 +553,7 @@ Template.currentActivity.rendered = function() {
   var options = {gridLarge: 10, gridSmall: 4};
 
   if(group && group.picasaUsername.length && currentActivityHasPhotos()) {
-    $.picasa.images(group.picasaUsername, group.picasaAlbum, activity.picasaTags, function(images) {
+    $.picasa.images(group.picasaUsername, group.picasaAlbum, activity.picasaKey, activity.picasaTags, function(images) {
       var photos = []
       var index = 0;
 

@@ -22,11 +22,16 @@
       });
     },
     
-    images: function(user, album, tags, callback) {
+    images: function(user, album, key, tags, callback) {
       var url = "http://picasaweb.google.com/data/feed/base/user/:user_id/album/:album_id?alt=json&fields=entry(title,gphoto:numphotos,media:group(media:content,media:thumbnail))&kind=photo&imgmax=912&thumbsize=105c&callback=?";
       url = url.replace(/:user_id/, user).replace(/:album_id/, album);
+
+      // TODO: use proper url encoding here
       if(typeof tags == "string" && tags.length)
         url = url + "&tag=" + tags;
+
+      if(typeof key == "string" && key.length)
+        url = url + "&authkey=" + key;
 
       var image = null;
       var images = [];
