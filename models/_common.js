@@ -16,7 +16,20 @@ if(Meteor.isServer) {
     });
 
     return memberEmails;
-  }
+  };
+
+  // Find all users in the system who are following this group
+  groupFollowerEmails = function(groupId) {
+    var emails = [];
+    Meteor.users.find({}).forEach( function (user) {
+      var following = user.profile.followedGroups;
+      if(!!following && following[groupId]) {
+        emails.push(userEmail(user));
+      }
+    });
+
+    return emails;
+  };
 }
 
 userBelongsToGroup = function(userId, groupId) {

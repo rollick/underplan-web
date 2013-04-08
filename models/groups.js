@@ -132,7 +132,6 @@ var checkGroupCreate = function(userId, options) {
 };
 
 if(Meteor.isServer) {
-
   var canUpdateGroup = function(userId, group, fields) {
     var sysAdmin = isSystemAdmin(userId);
     
@@ -149,17 +148,4 @@ if(Meteor.isServer) {
 
     return true;
   }
-
-  // Find all users in the system who are following this group
-  var groupFollowerEmails = function(groupId) {
-    var emails = [];
-    Meteor.users.find({}).forEach( function (user) {
-      var following = user.profile.followedGroups;
-      if(!!following && following[groupId]) {
-        emails.push(userEmail(user));
-      }
-    });
-
-    return emails;
-  };
 }
