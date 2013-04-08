@@ -199,10 +199,18 @@ Template.activityFeed.events({
   }
 });
 
+Template.activityFeed.filter = function () {
+  filter = Session.get("feedFilter") || {};
+  filter.group = Session.get("groupId");
+
+  Session.set("feedFilter", filter);
+  return filter
+};
+
 Template.activityFeed.created = function () {
   // console.log("Created Activity Feed Template");
   Session.setDefault("feedLimit", feedLimitSkip);
-  Session.setDefault("feedFilter", {group: Session.get("groupId")});
+  Session.setDefault("feedFilter", {});
 };
 
 Template.activityFeed.rendered = function() {

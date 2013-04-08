@@ -43,6 +43,9 @@ var AppRouter = Backbone.Router.extend({
   },
 
   before: function(route, params) {
+    // Shouldn't be any create errors when re-routing
+    Session.set("createError", null);
+
     // Some permission checks:
     // settings only for logged in users
     if(!!route.match(/setting/) && !Meteor.userId()) {
@@ -72,7 +75,6 @@ var AppRouter = Backbone.Router.extend({
   group: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
     showTemplate("activityMap");
-    Session.set("feedLimit", feedLimitSkip)
     jumpToTop();
   },
 
@@ -82,12 +84,10 @@ var AppRouter = Backbone.Router.extend({
 
   groupSettings: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
-    Session.set("createError", null);
     showTemplate("mainSettings");
   },
 
   newGroup: function() {
-    Session.set("createError", null);
     showTemplate("groupEditor");
     jumpToTop();
   },
@@ -105,7 +105,6 @@ var AppRouter = Backbone.Router.extend({
   newActivity: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", null);
-    Session.set("createError", null);
     showTemplate("storyEditor");
     jumpToTop();
   },
@@ -120,7 +119,6 @@ var AppRouter = Backbone.Router.extend({
   editActivity: function(groupSlug, activitySlug) {
     Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", activitySlug);
-    Session.set("createError", null);
     showTemplate("storyEditor");
     jumpToTop();
   },
