@@ -66,16 +66,23 @@
 }
 
 .activities-map {
-  margin: 10px 0px 10px 0px !important;
   min-width: 120px;
   min-height: 120px;
   width: 100%;
   height: 240px;
+  margin-bottom: 20px;
+
+  @media only screen and (min-width: 48em) {
+    padding: 5px;
+    padding-left: 10px;
+    height: 400px;
+  }
 
   img {
     max-width: inherit;
   }
 }
+
 
 .map-info {
   width: 300px;
@@ -101,16 +108,8 @@
   }
 }
 
-@media only screen and (min-width: 48em) {
-  .activities-map {
-    padding: 5px;
-    padding-left: 10px;
-    height: 400px;
-  }
-}
-
 .country-filter {
-  margin-top: 5px !important;
+  // margin-top: 5px !important;
 
   & > .columns {
     min-height: 20px; 
@@ -122,19 +121,25 @@
     margin-bottom: 0px !important;
 
     dt {
-      margin-bottom: 0px !important;
-      
+      margin-bottom: 0px;
+      margin-left: 0px;
+
+      // &:first-of-type {
+      //   margin-left: 10px;
+      // }
+
       &.active a {
         font-weight: normal;
-        line-height: 35px;
-        padding-top: 20px;
+        // line-height: 35px;
+        // padding-top: 20px;
       }
 
       a {
+        padding: 2px 8px !important;
         vertical-align: bottom;
         line-height: 35px;
-        -webkit-border-radius: 0px !important;
-        border-radius: 0px !important;
+        -webkit-border-radius: 12px;
+        border-radius: 12px;
       }      
     }
   }
