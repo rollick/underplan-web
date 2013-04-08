@@ -83,30 +83,30 @@ Meteor.methods({
     // run check before saving. check will throw exceptions on invalid data
     checkCreateActivity(this.userId, options);
 
-    var activity = Activities.insert({
-      owner:      this.userId,
-      group:      options.groupId,
-      lat:        options.lat,
-      lng:        options.lng,
-      city:       options.city,
-      region:     options.region,
-      country:    options.country,
-      title:      options.title,
-      text:       options.text,
-      url:        options.url,
-      urlType:    options.urlType,
-      picasaTags: options.picasaTags,
-      tags:       [],
-      created:    options.created,
-      mapZoom:    options.mapZoom,
-      location:   options.location,
-      slug:       options.slug,
-      type:       options.type,
-      published:  !! options.published
-    });
-
-    // Notify group members and followers about new activity
     if(Meteor.isServer) {
+      var activity = Activities.insert({
+        owner:      this.userId,
+        group:      options.groupId,
+        lat:        options.lat,
+        lng:        options.lng,
+        city:       options.city,
+        region:     options.region,
+        country:    options.country,
+        title:      options.title,
+        text:       options.text,
+        url:        options.url,
+        urlType:    options.urlType,
+        picasaTags: options.picasaTags,
+        tags:       [],
+        created:    options.created,
+        mapZoom:    options.mapZoom,
+        location:   options.location,
+        slug:       options.slug,
+        type:       options.type,
+        published:  !! options.published
+      });
+
+      // Notify group members and followers about new activity
       notifyActivityEvent(this.userId, options, "created");
     }
 

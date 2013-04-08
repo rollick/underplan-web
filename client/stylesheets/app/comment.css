@@ -2,9 +2,9 @@
 blockquote a.remove {
   color: #c60f13;
   float: right;
-  font-size: 0.8em;
+  font-size: 0.9em;
   margin-right: -20px;
-  margin-top: -8px;
+  margin-top: -3px;
 }
 
 /* line 14, ../../sass/app/comment.scss */

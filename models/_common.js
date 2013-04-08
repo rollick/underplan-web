@@ -1,8 +1,40 @@
-var createLinkSlug = function (str) {
+if(Meteor.isServer) {
+  groupMemberEmails = function (groupId) {
+    var group = Groups.findOne(groupId);
+
+    if(!group)
+      return [];
+
+    var members = Meteor.users.find({$or: [{_id: {$in: group.invited}},
+                                    {_id: group.owner}]});
+
+    var memberEmails = [];
+    members.forEach( function (user) { 
+      var email = userEmail(user);
+      if(email)
+        memberEmails.push(email);
+    });
+
+    return memberEmails;
+  }
+}
+
+userBelongsToGroup = function(userId, groupId) {
+  group = Groups.findOne(groupId);
+  if (!group) {
+    return false;
+  } else if (_.contains(group.invited, userId) || group.owner === userId) {
+    return true
+  } else {
+    return false;
+  }
+};
+
+createLinkSlug = function (str) {
   return str.replace(/!|'|"|,/g, "").replace(/\s/g, "-").toLowerCase();
 }
 
-var displayName = function (user) {
+displayName = function (user) {
   if (user.profile && user.profile.name)
     return user.profile.name;
   
@@ -14,7 +46,7 @@ var displayName = function (user) {
   }
 };
 
-var isGroupAdmin = function (userId, groupId) {
+isGroupAdmin = function (userId, groupId) {
   var group = Groups.findOne({_id: groupId});
 
   if(!!group && group.owner === userId) {
@@ -24,7 +56,7 @@ var isGroupAdmin = function (userId, groupId) {
   }
 };
 
-var isSystemAdmin = function (userId) {
+isSystemAdmin = function (userId) {
   var user = Meteor.users.findOne({_id: userId});
 
   if(!!user && user.admin) {
@@ -34,7 +66,7 @@ var isSystemAdmin = function (userId) {
   }
 };
 
-var userEmail = function (user) {
+userEmail = function (user) {
   if(!user)
     return null;
 
@@ -45,7 +77,7 @@ var userEmail = function (user) {
   return null;
 };
 
-var userPicture = function (user, width) {
+userPicture = function (user, width) {
   if(!user)
     return null;
 

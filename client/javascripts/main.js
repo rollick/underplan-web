@@ -7,7 +7,9 @@ Meteor.subscribe("directory");
 ///////////////////////////////////////////////////////////////////////////////
 // Templates
 
-var appTemplates = function () {
+feedLimitSkip = 5;
+
+appTemplates = function () {
   return {
     groupInviteList: "showInviteList", 
     currentActivity: "showActivity", 
@@ -21,7 +23,7 @@ var appTemplates = function () {
   };
 }
 
-var showTemplate = function (templateName, callback) {
+showTemplate = function (templateName, callback) {
   var conditions = appTemplates();
   
   _.each(_.keys(conditions), function(key) {
@@ -83,17 +85,17 @@ Template.page.showMainSettings = function () {
 // Common Functions
 
 // FIXME: move the maps api key to the settings file
-var appSettings = function () {
+appSettings = function () {
   return { 
     mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"
   }
 }
 
-var shortMaxLength = function () {
+shortMaxLength = function () {
   return 250;
 };
 
-var getCurrentActivity = function () {
+getCurrentActivity = function () {
   if (Session.get("activitySlug")) {
     activity = Activities.findOne({slug: Session.get("activitySlug")});
     if (!activity) { // activity hasn't loaded!
@@ -106,7 +108,7 @@ var getCurrentActivity = function () {
   }
 };
 
-var getCurrentActivityId = function () {
+getCurrentActivityId = function () {
   activity = getCurrentActivity();
 
   if (!activity) { // activity hasn't loaded!
@@ -117,7 +119,7 @@ var getCurrentActivityId = function () {
   }
 };
 
-var currentActivityHasPhotos = function () {
+currentActivityHasPhotos = function () {
   activity = getCurrentActivity();
 
   if(activity) {
@@ -127,7 +129,7 @@ var currentActivityHasPhotos = function () {
   }
 };
 
-var currentActivityHasMap = function () {
+currentActivityHasMap = function () {
   activity = getCurrentActivity();
 
   if(activity) {
@@ -137,7 +139,7 @@ var currentActivityHasMap = function () {
   }
 };
 
-var getCurrentGroup = function () {
+getCurrentGroup = function () {
   if (Session.get("groupId")) {
     return Groups.findOne(Session.get("groupId"));
   } else {
@@ -145,7 +147,7 @@ var getCurrentGroup = function () {
   }
 };
 
-var isFollowingGroup = function (userId, groupId) {
+isFollowingGroup = function (userId, groupId) {
   var user = Meteor.users.findOne({_id: userId});
 
   if (user && user.profile.followedGroups) {
@@ -156,7 +158,7 @@ var isFollowingGroup = function (userId, groupId) {
 };
 
 // Set group follow for current user
-var followGroup = function (groupId, state) {
+followGroup = function (groupId, state) {
   if(typeof state === "undefined")
     state = true;
 
@@ -166,24 +168,24 @@ var followGroup = function (groupId, state) {
   Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.followedGroups": currentFollows}});
 };
 
-var followCurrentGroup = function (state) {
+followCurrentGroup = function (state) {
   if(typeof state === "undefined")
     state = true;
 
   followGroup(getCurrentGroupId(), state);
 }
 
-var getCurrentGroupId = function () {
+getCurrentGroupId = function () {
   group = getCurrentGroup();
   return !!group ? group._id : null;
 };
 
-var resetGroup = function () {
+resetGroup = function () {
   Session.set("groupId", null);
   Session.set("groupSlug", null);
 };
 
-var userBelongsToCurrentGroup = function (userId) {
+userBelongsToCurrentGroup = function (userId) {
   group = getCurrentGroup();
   if (!group) {
     return false;
@@ -192,11 +194,11 @@ var userBelongsToCurrentGroup = function (userId) {
   }
 };
 
-var currentUserBelongsToCurrentGroup = function () {
+currentUserBelongsToCurrentGroup = function () {
   return userBelongsToCurrentGroup(Meteor.userId());
 };
 
-var defaultBack = function () {
+defaultBack = function () {
   var group = getCurrentGroup();
   if(group) {
     Router.setGroup(group);
@@ -205,7 +207,7 @@ var defaultBack = function () {
   }
 };
 
-var geoLocation = function(location, callback) {
+geoLocation = function(location, callback) {
   if (typeof google == "object" && typeof google.maps == "object") {
     var lat,
         lng,
@@ -257,7 +259,7 @@ var geoLocation = function(location, callback) {
   }
 };
 
-var timeout = null;
+timeout = null;
 
 Meteor.startup(function () {
   Session.set("appVersion", "v0.9.69");
