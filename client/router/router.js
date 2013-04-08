@@ -74,6 +74,13 @@ var AppRouter = Backbone.Router.extend({
 
   group: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
+    // ensure the feed filter has correct group
+    filter = {};
+    var group = Groups.findOne({slug: groupSlug});
+    if(group)
+      filter.group = group._id;
+    Session.set("feedFilter", filter);
+
     showTemplate("activityMap");
     jumpToTop();
   },
