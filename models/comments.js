@@ -37,16 +37,18 @@ Meteor.methods({
     // run check before saving. check will throw exceptions on invalid data
     checkCreateComment(this.userId, options);
 
-    var comment = Comments.insert({
-      owner:      this.userId,
-      comment:    options.comment,
-      activityId: options.activityId,
-      groupId:    options.groupId,
-      created:    options.created
-    });
+    if(Meteor.isServer) {
+      var comment = Comments.insert({
+        owner:      this.userId,
+        comment:    options.comment,
+        activityId: options.activityId,
+        groupId:    options.groupId,
+        created:    options.created
+      });
 
-    // Notify group members about new comment
-    notifyCommentCreated(this.userId, options);
+      // Notify group members about new comment
+      notifyCommentCreated(this.userId, options);
+    }
 
     return comment;
   },
