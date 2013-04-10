@@ -129,26 +129,19 @@
 
   dl {
     @extend .sub-nav;
-    margin-bottom: 0px !important;
+    margin-bottom: 5px !important;
 
     dt {
-      margin-bottom: 0px;
+      margin-bottom: 3px;
       margin-left: 0px;
-
-      // &:first-of-type {
-      //   margin-left: 10px;
-      // }
 
       &.active a {
         font-weight: normal;
-        // line-height: 35px;
-        // padding-top: 20px;
       }
 
       a {
         padding: 2px 8px !important;
         vertical-align: bottom;
-        line-height: 35px;
         -webkit-border-radius: 12px;
         border-radius: 12px;
       }      
