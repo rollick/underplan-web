@@ -207,51 +207,58 @@ defaultBack = function () {
   }
 };
 
-geoLocation = function(location, callback) {
+autocomplete = null;
+
+geoLocation = function(location, inputId, callback) {
   if (typeof google == "object" && typeof google.maps == "object") {
     var lat,
         lng,
-        geocoder = new google.maps.Geocoder();
+        result,
+        pac_input = document.getElementById(inputId);
 
-    geocoder.geocode( { 'address': location }, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        lat = results[0].geometry.location.lat() || results[0].geometry.location.Ya || results[0].geometry.location.hb;
-        lng = results[0].geometry.location.lng() || results[0].geometry.location.Za || results[0].geometry.location.ib;
+    autocomplete = new google.maps.places.Autocomplete(pac_input);
 
-        var city, region, country;
-        for (var i=0; i < results[0].address_components.length; i++) {
-          if (results[0].address_components[i].types[0] == "locality") {
-            //this is the object you are looking for
-            city = results[0].address_components[i].long_name;
-          }
-          
-          if (results[0].address_components[i].types[0] == "administrative_area_level_1") {
-            //this is the object you are looking for
-            region = results[0].address_components[i].long_name;
-          }
-          
-          if (results[0].address_components[i].types[0] == "country") {
-            //this is the object you are looking for
-            country = results[0].address_components[i].long_name;
-          }
+    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+      var place = autocomplete.getPlace();
+
+      if (!place || !place.geometry) {
+        return false;
+      }
+
+      lat = place.geometry.location.lat() || place.geometry.location.Ya || place.geometry.location.hb;
+      lng = place.geometry.location.lng() || place.geometry.location.Za || place.geometry.location.ib;
+
+      var city, region, country;
+      for (var i=0; i < place.address_components.length; i++) {
+        if (place.address_components[i].types[0] == "locality") {
+          //this is the object you are looking for
+          city = place.address_components[i].long_name;
         }
-
-        result = {
-          lat: lat, 
-          lng: lng, 
-          address: results[0].formatted_address,
-          city: city,
-          region: region,
-          country: country
-        };
-
-        if(typeof callback == "function") {
-          callback(result);
-        } else {
-          return result;
+        
+        if (place.address_components[i].types[0] == "administrative_area_level_1") {
+          //this is the object you are looking for
+          region = place.address_components[i].long_name;
         }
+        
+        if (place.address_components[i].types[0] == "country") {
+          //this is the object you are looking for
+          country = place.address_components[i].long_name;
+        }
+      }
+
+      result = {
+        lat: lat, 
+        lng: lng, 
+        address: place.formatted_address,
+        city: city,
+        region: region,
+        country: country
+      };
+
+      if(typeof callback == "function") {
+        callback(result);
       } else {
-        callback(false);
+        return result;
       }
     });
   } else {

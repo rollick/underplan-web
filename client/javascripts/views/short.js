@@ -56,8 +56,24 @@ var toggleComments = function(template) {
 ///////////////////////////////////////////////////////////////////////////////
 // Short Form
 
+var clearHiddenLocationFields = function(template) {
+  template.find("#lat").value =
+  template.find("#lng").value =
+  template.find("#city").value =
+  template.find("#country").value =
+  template.find("#region").value = "";
+};
+
+var clearForm = function(template) {
+  clearHiddenLocationFields(template);
+  template.find("#text").value = "";
+  template.find("#location").value = "";
+  template.find(".location-coords").innerHTML = "";
+};
+
 Template.shortForm.events({
   'click .cancel': function (event, template) {
+    clearForm(template);
     $(template.firstNode).closest(".short-form.row").hide();
 
     return false;
@@ -82,19 +98,28 @@ Template.shortForm.events({
       countElem.style.color = "";
     }
   },
+  'keydown #location': function (event, template) {
+    if(event.which === 13)
+      event.preventDefault();
+  },
   'keyup #location': function (event, template) {
-    var location = template.find("#location").value;
+    var locationElem = $(template.find("#location"))
+    var location = locationElem.val();
+
+    if (event.keyCode === 13) {
+      google.maps.event.trigger(autocomplete, 'place_changed');
+      return false;
+    }
     
-    if(!(location.length > 3))
+    // debugger
+    if(event.keyCode === 40 || event.keyCode === 38)
       return false;
     
-    if (timeout) {  
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(function() {
+    // only intitialise new geo autocomplete if one doesn't
+    // already exist for this input
+    if(! locationElem.attr("autocomplete")) {
       console.log("Geolocating: " + location);
-
-      coords = geoLocation(location, function(geo) {
+      coords = geoLocation(location, "location", function(geo) {
         if(typeof geo === "object") {
           template.find("#lat").value = geo.lat;
           template.find("#lng").value = geo.lng;
@@ -104,16 +129,14 @@ Template.shortForm.events({
 
           template.find(".location-coords").innerHTML = Math.round(geo.lat*10000)/10000 + ", " + Math.round(geo.lng*10000)/10000 + " (" + geo.address + ")";
         } else {
-          template.find("#lat").value =
-          template.find("#lng").value =
-          template.find("#city").value =
-          template.find("#country").value =
-          template.find("#region").value = "";
+          clearHiddenLocationFields(template);
 
           template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
         }
       });
-    }, 750);
+    }
+
+    return false;
   },
   'click .post': function (event, template) {
     if($(template.find("a")).hasClass("disabled"))

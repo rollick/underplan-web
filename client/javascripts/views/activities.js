@@ -10,18 +10,28 @@ Template.storyEditor.defaultMapZoom = function () {
 };
 
 Template.storyEditor.events({
+  'keydown #location': function (event, template) {
+    if(event.which === 13)
+      event.preventDefault();
+  },
   'keyup #location': function (event, template) {
-    var location = template.find("#location").value;
+    var locationElem = $(template.find("#location"))
+    var location = locationElem.val();
 
-    if(!(location.length > 3))
+    if (event.keyCode === 13) {
+      google.maps.event.trigger(autocomplete, 'place_changed');
+      return false;
+    }
+    
+    // debugger
+    if(event.keyCode === 40 || event.keyCode === 38)
       return false;
     
-    if (timeout) {  
-      clearTimeout(timeout);
-    }
-    timeout = setTimeout(function() {
+    // only intitialise new geo autocomplete if one doesn't
+    // already exist for this input
+    if(! locationElem.attr("autocomplete")) {
       console.log("Geolocating: " + location);
-      coords = geoLocation(location, function(geo) {
+      coords = geoLocation(location, "location", function(geo) {
         if(typeof geo === "object") {
           template.find("#lat").value = geo.lat;
           template.find("#lng").value = geo.lng;
@@ -40,8 +50,9 @@ Template.storyEditor.events({
           template.find("#location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
         }
       });
-    }, 750);
+    }
 
+    return false;
   },
   'click .cancel': function (event, template) {
     Router.setGroup(getCurrentGroup());
@@ -251,6 +262,9 @@ Template.activityFeed.destroyed = function () {
 Template.activityFeed.picasaGalleryUrl = function () {
   var group = getCurrentGroup();
   var picasaPath = [group.picasaUsername, group.picasaAlbum].join("/");
+
+  if(group.picasaKey)
+    picasaPath += "?authkey=" + group.picasaKey;
 
   return "https://picasaweb.google.com/" + picasaPath;
 };

@@ -22,6 +22,17 @@
   }
 }
 
+.pac-container {
+  &:after {
+    content: "";
+  }
+
+  .pac-item {
+    font-size: 0.8em;
+    padding: 4px;
+  }
+}
+
 .share-links {
   float: right;
   height: 20px;
