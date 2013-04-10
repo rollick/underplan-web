@@ -14,8 +14,8 @@ Template.commentForm.events({
       btns.addClass("disabled");
     }
 
-    var comment = template.find("form .comment").value;
-    var activityId = template.find("form .activity-id").value;
+    var comment = template.find("form #comment").value;
+    var activityId = template.find("form #activity-id").value;
     
     if (activityId && Meteor.userId() && comment.length) {
       Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
@@ -23,7 +23,7 @@ Template.commentForm.events({
           Session.set("createError", [error.error, error.reason].join(": "));
         } else {
           Session.set("lastUpdatedActivityId", activityId)
-          template.find(".comment").value = "";
+          template.find("#comment").value = "";
         }
       });
     } else {
@@ -34,8 +34,8 @@ Template.commentForm.events({
 
     return false;
   },
-  'keyup .comment': function (event, template) {
-    var comment = template.find(".comment").value,
+  'keyup #comment': function (event, template) {
+    var comment = template.find("#comment").value,
         submit =  template.find(".save.button");
 
     if(comment.length > 0) {
@@ -79,10 +79,17 @@ Template.comment.events({
     event.preventDefault();
     event.stopPropagation();
 
-    $(template.find("blockquote")).addClass("disabled");
+    $(template.find(".comment")).addClass("disabled");
 
     Comments.remove(this._id);
 
     return false;
-  }
+  },
+  'mouseenter .content': function (event, template) {
+    $(template.find(".content .remove")).show();
+  },
+  'mouseleave .content': function (event, template) {
+    $(template.find(".content .remove")).hide();
+  } 
+
 });

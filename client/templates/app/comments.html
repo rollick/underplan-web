@@ -7,8 +7,8 @@
         {{/if}}
         {{#if _id}}
           <form class="custom">
-            <input type="hidden" class="activity-id" value="{{_id}}">
-            <textarea type="text" class="comment" rows="8" placeholder="Write your comment..."></textarea>
+            <input type="hidden" id="activity-id" value="{{_id}}">
+            <textarea type="text" id="comment" rows="8" placeholder="Write your comment..."></textarea>
             <a href="#" class="small button success save disabled">Save comment</a>
           </form>
         {{else}}
@@ -32,9 +32,16 @@
 </template>
 
 <template name="comment">
-  <blockquote id="{{_id}}">
-    {{#if canDelete}}<a href="#" class="remove foundicon-general-remove"></a>{{/if}}
-    {{#markdown}}{{comment}}{{/markdown}}
-    <cite>{{date created}} by {{userName owner}}</cite>
-  </blockquote>
+  <div class="comment" id="{{_id}}">
+    <div class="picture">
+      <img src="{{profilePicture owner}}">
+    </div>
+    <div class="content">
+      <div class="info">
+        {{userName owner}} <span class="date">{{date created}}</span>
+        {{#if canDelete}} <a href="#" class="remove" style="display: none;">remove</a>{{/if}}
+      </div>
+      {{#markdown}}{{comment}}{{/markdown}}
+    </div>
+  </div>
 </template>
