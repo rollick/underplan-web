@@ -62,12 +62,27 @@ Handlebars.registerHelper('ifCond', function(value) {
   return "";
 });
 
-Handlebars.registerHelper('date', function(date) {
-  if(date) {
-    dateObj = new Date(date);
-    return Handlebars._escape($.timeago(dateObj));
+Handlebars.registerHelper('date', function(dateValue) {
+  if(dateValue) {
+    var date = new Date(dateValue);
+    var today = new Date();
+    // if greater than 1 week use the standard date format
+    // otherwise use the time ago version.
+    var week = new Date().getTime() - (7 * 24 * 60 * 60 * 1000);
+    var result;
+
+    if(today.toLocaleDateString() == date.toLocaleDateString()) {
+      var hour = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
+      var ampm = date.getHours() > 12 ? "PM" : "AM";
+      result = hour + ":" + date.getMinutes() + " " + ampm;
+    } else if (date.getTime() > week) {
+      result = $.timeago(date);
+    } else {
+      result = date.toLocaleDateString();
+    }
+    return Handlebars._escape(result);
   }
-  return 'N/A';
+  return '';
 });
 
 Handlebars.registerHelper('simpleDate', function(date) {
@@ -85,6 +100,16 @@ Handlebars.registerHelper('userName', function(userId) {
       return displayName(user);
   }
   return 'Anonymous Coward';
+});
+
+Handlebars.registerHelper('profilePicture', function(userId) {
+  var pictureUrl = userPicture(Meteor.users.findOne(userId), 34);
+
+  if(!pictureUrl) {
+    pictureUrl = Meteor.absoluteUrl() + "images/torso.png";
+  }
+
+  return pictureUrl;
 });
 
 Handlebars.registerHelper('datePicker', function(date) {
