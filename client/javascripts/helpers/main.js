@@ -74,7 +74,8 @@ Handlebars.registerHelper('date', function(dateValue) {
     if(today.toLocaleDateString() == date.toLocaleDateString()) {
       var hour = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
       var ampm = date.getHours() > 12 ? "PM" : "AM";
-      result = hour + ":" + date.getMinutes() + " " + ampm;
+      var mins = date.getMinutes() > 9 ? date.getMinutes() : "0" + date.getMinutes();
+      result = hour + ":" + mins + " " + ampm;
     } else if (date.getTime() > week) {
       result = $.timeago(date);
     } else {
