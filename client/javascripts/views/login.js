@@ -55,7 +55,7 @@ Template.loggedin.events({
       if (err) {
         // handle error
       } else {
-        // Router.setHome();
+        Router.setHome();
       }
     });
   },
