@@ -3,6 +3,7 @@ var trackRoute = function(eventName, properties) {
     if(!!Meteor.userId()) {
       var user = Meteor.user();
       mixpanel.identify(user._id);
+      mixpanel.name_tag(userEmail(user));
       mixpanel.people.set({
         "$name": user.profile.name,
         "$created": (new Date(user.createdAt)).toUTCString()
