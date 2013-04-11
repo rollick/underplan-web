@@ -95,15 +95,29 @@ userPicture = function (user, width) {
     return null;
 
   var profile = user.profile;
-  if(!!profile && profile.picture) {
-    var url = profile.picture;
-    if(typeof width !== "undefined") {
-      if(!!user.services && !!user.services.google)
+  var url = null;
+
+  if(! _.isEmpty(user.services)) {
+    if(user.services.google) {
+      url = "https://profiles.google.com/s2/photos/profile/" + user.services.google.id;
+      if(typeof width !== "undefined") {
         // FIXME: handle url params here!
         url = url + "?sz=" + width;        
+      }
+    } else if(user.services.facebook) {
+      url = "https://graph.facebook.com/" + user.services.facebook.id + "/picture";
+      if(typeof width !== "undefined") {
+        // FIXME: handle url params here!
+        url = url + "?width=" + width;
+      }
     }
-
-    return url;
+  } else if(!!profile && !!profile.picture) {
+    if(!!profile && profile.picture) {
+      var url = profile.picture;
+    }    
+  } else {
+    url = Meteor.absoluteUrl() + "images/torso.png";
   }
-  return null;
+
+  return url;
 };
