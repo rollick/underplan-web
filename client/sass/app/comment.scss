@@ -69,7 +69,13 @@ $picture-width: 70px;
     font-size: 0.9em;
 
     .picture {
-      width: $picture-width - 10px !important;
+      width: $picture-width - 20px !important;
+    }
+
+    @media only screen and (min-width: 48em) {
+      .picture {
+        width: $picture-width - 10px !important;
+      }
     }
   }
 }

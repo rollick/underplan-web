@@ -1107,10 +1107,16 @@ blockquote p {
 }
 /* line 71, ../../sass/app/comment.scss */
 .row.short-comments .comment .picture, .short-comments.comment .comment .picture {
-  width: 60px !important;
+  width: 50px !important;
+}
+@media only screen and (min-width: 48em) {
+  /* line 76, ../../sass/app/comment.scss */
+  .row.short-comments .comment .picture, .short-comments.comment .comment .picture {
+    width: 60px !important;
+  }
 }
 
-/* line 77, ../../sass/app/comment.scss */
+/* line 83, ../../sass/app/comment.scss */
 textarea.comment {
   font-size: 0.9em;
   border: 1px solid #dddddd;
