@@ -217,6 +217,9 @@ Template.activityFeed.events({
 // };
 
 Template.activityFeed.rendered = function() {
+  var filter = Session.get("feedFilter");
+  Session.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
+
   var group = getCurrentGroup();
   var max = 24;
   var options = {gridSmall: 4, gridLarge: 6};
@@ -310,7 +313,12 @@ Template.activityFeed.anyActivities = function () {
 };
 
 Template.activityFeed.recentActivities = function () {
-  return Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
+  // never return activities without a group
+  if(!!Session.get("feedFilter").group) {
+    return Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
+  } else {
+    return [];
+  }
 };
 
 Template.activityFeed.typeIs = function (what) {
