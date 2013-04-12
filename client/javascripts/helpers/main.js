@@ -63,25 +63,19 @@ Handlebars.registerHelper('ifCond', function(value) {
 });
 
 Handlebars.registerHelper('date', function(dateValue) {
-  if(dateValue) {
-    var date = new Date(dateValue);
-    var today = new Date();
-    // if greater than 1 week use the standard date format
-    // otherwise use the time ago version.
-    var week = new Date().getTime() - (7 * 24 * 60 * 60 * 1000);
-    var result;
-
-    if(today.toLocaleDateString() == date.toLocaleDateString()) {
-      var hour = date.getHours() > 12 ? date.getHours() - 12 : date.getHours();
-      var ampm = date.getHours() > 12 ? "PM" : "AM";
-      var mins = date.getMinutes() > 9 ? date.getMinutes() : "0" + date.getMinutes();
-      result = hour + ":" + mins + " " + ampm;
-    } else if (date.getTime() > week) {
-      result = $.timeago(date);
-    } else {
-      result = date.toLocaleDateString();
+  moment.lang('en', {
+    calendar : {
+      lastDay : '[Yesterday at] LT',
+      sameDay : '[Today at] LT',
+      nextDay : '[Tomorrow at] LT',
+      lastWeek : 'D MMMM',
+      nextWeek : 'dddd [at] LT',
+      sameElse : 'D MMMM YYYY'
     }
-    return Handlebars._escape(result);
+  });
+
+  if(dateValue) {
+    return Handlebars._escape(moment(dateValue).calendar());
   }
   return '';
 });
