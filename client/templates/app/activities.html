@@ -4,12 +4,7 @@
   {{/if}}
   <div class="row feed-header">
     <div class="small-7 large-7 columns">
-      <h4>
-        {{feedTitle}}
-        {{#if moreActivities}}
-          <span class="sub-header"><a href="#" class="feed-all">Show all</a></span>
-        {{/if}}
-      </h4>
+      {{feedTitle}}
     </div>
     {{#if userBelongsToGroup}}
       <div class="action small-5 large-5 columns">
@@ -40,13 +35,26 @@
                 {{#with this}}
                   {{#if typeIs "story"}}
                     <div class="story entry">
-                      <blockquote>
+                      <div class="info">
+                        <div class="picture">
+                          <img src="{{profilePicture owner}}">
+                        </div>
+                        <div class="details">
+                          <div class="owner">
+                            {{userName owner}}
+                          </div>
+                          <div class="date">{{date created}}</div>
+                          {{#if canDelete}}
+                            <a href="#" class="remove" style="display: none;">remove</a>
+                          {{/if}}
+                        </div>
+                      </div>
+                      <div class="content">
                         Story: <a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}</a>
-                        <cite>{{date this.created}} by {{ownerName}}</cite>
-                      </blockquote>
+                      </div>
                     </div>
                   {{else}}
-                    <div class="short entry" id="{{_id}}">
+                    <div class="short-full entry" id="{{_id}}">
                       {{> short}}
                     </div>
                   {{/if}}

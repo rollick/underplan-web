@@ -33,14 +33,21 @@
 
 <template name="comment">
   <div class="comment" id="{{_id}}">
-    <div class="picture">
-      <img src="{{profilePicture owner}}">
+    <div class="info">
+      <div class="picture">
+        <img src="{{profilePicture owner}}">
+      </div>
+      <div class="details">
+        <div class="owner">
+          {{userName owner}}
+        </div>
+        <div class="date">{{date created}}</div>
+        {{#if canDelete}}
+          <a href="#" class="remove" style="display: none;">remove</a>
+        {{/if}}
+      </div>
     </div>
     <div class="content">
-      <div class="info">
-        {{userName owner}} <span class="date">{{date created}}</span>
-        {{#if canDelete}} <a href="#" class="remove" style="display: none;">remove</a>{{/if}}
-      </div>
       {{#markdown}}{{comment}}{{/markdown}}
     </div>
   </div>

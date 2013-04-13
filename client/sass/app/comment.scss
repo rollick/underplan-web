@@ -1,87 +1,12 @@
-@import "compass/css3/border-radius";
-@import "../settings";
-@import "foundation/components/type";
-@import "foundation/components/grid";
-
-$picture-width: 70px;
+@import "../components";
 
 .comment {
-  @extend .row;
-  padding-bottom: 10px;
+  @include entry-with-profile(3.7em);
 
-  .picture {
-    @extend .columns;
-    @extend .large-2;
-    @extend .small-2;
-
-    width: $picture-width !important;
-
-    img {
-      @include border-radius(4px);
-
-      margin-top: 6px;
-      margin-left: 6px;
-    }
-  }
-
-  .content {
-    @extend .columns;
-    @extend .large-9;
-    @extend .small-10;
-
-    border-left: 1px solid #dddddd;
-
-    p:last-of-type {
-      margin-bottom: 0em;
-    }
-
-    .info {
-      margin-bottom: 5px;
-      font-size: 1em;
-      color: black;
-
-      .date {
-        font-size: 0.9em;
-        color: #999999;
-
-        &:before {
-          content: " - ";
-        }
-      }
-
-      a.remove {
-        margin-left: 4px;
-        color: $alert-color;
-        font-size: 0.9em;
-
-        &:before {
-          content: "x";
-          padding-right: 3px;
-          font-weight: bold;
-        }
-      }
-    }    
-  }
-}
-
-.row.short-comments {
-  .comment {
-    font-size: 0.9em;
-
-    .picture {
-      width: $picture-width - 20px !important;
-    }
-
-    @media only screen and (min-width: 48em) {
-      .picture {
-        width: $picture-width - 10px !important;
-      }
-    }
-  }
+  font-size: 0.9em;
 }
 
 textarea.comment {
   font-size: 0.9em;
   border: 1px solid #dddddd;
-  // border-top: none;
 }

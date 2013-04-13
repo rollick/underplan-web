@@ -172,6 +172,34 @@ var hideActivityEditor = function() {
 
 var feedLimitSkip = 5;
 
+Template.activityFeed.helpers({
+  feedTitle: function() {
+    text = "All Activities";
+    if(! Template.activityFeed.feedLimitReached()) {
+      text = "Last " + Session.get("feedLimit") + " Activities";
+    }
+
+    // larger displays
+    html = "<h4 class=\"hide-for-small\">";
+    html += Template.activityFeed.feedLimitReached() ? "All Activities" : "Last " + Session.get("feedLimit") + " Activities";
+    if(Template.activityFeed.moreActivities()) {
+      html += "<span class=\"sub-header\"><a href=\"#\" class=\"feed-all\">Show all</a></span>";
+    }
+    html += "</h4>";
+
+    // small displays
+    html += "<h4 class=\"show-for-small\">";
+    html += "Last " + Session.get("feedLimit");
+    if(Template.activityFeed.moreActivities()) {
+      html += "<span class=\"sub-header\"><a href=\"#\" class=\"feed-all\">Show all</a></span>";
+    }
+    html += "</h4>";
+    html += "<h5 class=\"show-for-small\">Activities</h5>";
+
+    return new Handlebars.SafeString(html);
+  }
+});
+
 Template.activityFeed.events({
   'click .story a': function (event, template) {
     Router.setActivity(this);
@@ -286,14 +314,6 @@ Template.activityFeed.countries = function () {
 
 Template.activityFeed.showCountryFilter = function () {
   return Template.activityFeed.countries().length > 1;
-};
-
-Template.activityFeed.feedTitle = function () {
-  if(Template.activityFeed.feedLimitReached()) {
-    return "All Activities";
-  } else {
-    return "Last " + Session.get("feedLimit") + " Activities";
-  }
 };
 
 Template.activityFeed.userBelongsToGroup = function () {

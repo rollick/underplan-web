@@ -1,0 +1,93 @@
+@import "compass/css3/border-radius";
+@import "../settings";
+@import "foundation/components/type";
+@import "foundation/components/grid";
+
+@mixin entry-with-profile($picture-width: 4em) {
+  @extend .row;
+  padding: $picture-width*0.2 0;
+
+  .info {
+    @extend .columns;
+    @extend .large-12;
+    @extend .small-12;
+
+    font-size: 1em;
+    color: black;
+    height: 2.8em !important;
+    margin-bottom: 0.2em;
+
+    .picture {
+      float: left;
+      width: $picture-width - 0.4em !important;
+      height: $picture-width - 0.2em !important;
+
+      @media only screen and (min-width: 48em) {
+        height: $picture-width !important;
+        width: $picture-width !important;
+      }
+
+      img {
+        @include border-radius(4px);
+
+        @media only screen and (min-width: 48em) {
+          margin-top: 8px;
+          margin-left: 6px;
+        }
+      }
+    }
+
+    .details {
+      padding-top: 0;
+      height: $picture-width - 0.4em !important;
+
+      @media only screen and (min-width: 48em) {
+        padding-top: 0.5em;
+        height: $picture-width !important;
+      }
+
+      .owner {
+        line-height: 1em;
+      }
+
+      .date {
+        font-size: 0.9em;
+        color: #999999;
+        line-height: 1.7em;
+
+        // @media only screen and (min-width: 48em) {
+          // &:before {
+          //   content: " - ";
+          // }
+        // }
+      }
+
+      a.remove {
+        margin-left: 4px;
+        color: $alert-color;
+        font-size: 0.9em;
+
+        &:before {
+          content: "x";
+          padding-right: 3px;
+          font-weight: bold;
+        }
+      }
+    }    
+  }
+
+  .content {
+    @extend .columns;
+    @extend .large-10;
+    @extend .large-offset-2;
+    @extend .small-12;
+
+    @media only screen and (min-width: 48em) {
+      margin-left: $picture-width !important;
+    }
+
+    p:last-of-type {
+      margin-bottom: 0em;
+    }
+  }
+}

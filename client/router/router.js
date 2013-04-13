@@ -76,6 +76,7 @@ var AppRouter = Backbone.Router.extend({
   group: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
     Session.set("feedFilter", {});
+    Session.set("feedLimit", feedLimitSkip);
     showTemplate("activityMap");
     jumpToTop();
   },

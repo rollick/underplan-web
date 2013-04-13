@@ -14,4 +14,4 @@ showdown
 backbone
 underscore
 spiderable
-appcache
+#appcache

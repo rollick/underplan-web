@@ -5,12 +5,12 @@
 
 Template.short.events({
   'click .short-actions a.comments': function (event, template) {
-    $(template.firstNode).closest(".short").toggleClass("expanded");
+    $(template.firstNode).closest(".short-full").toggleClass("expanded").find(".short-comments").toggle("blind", 500);
 
     return false;
   },
   'click .short-actions .new-comment a': function (event, template) {
-    $(template.firstNode).closest(".short").addClass("expanded");
+    $(template.firstNode).closest(".short-full").addClass("expanded");
     $("#" + this._id + " form").find("textarea").focus();
 
     return false;

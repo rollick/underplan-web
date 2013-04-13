@@ -250,7 +250,7 @@ ul.dropdown h5 a {
 }
 
 /* line 241, ../../sass/main.scss */
-.standard-bar, .feed .row.feed-list .short .row.short-actions {
+.standard-bar {
   font-size: 0.9em;
   margin-left: 0px;
   margin-right: 0px;
@@ -260,7 +260,7 @@ ul.dropdown h5 a {
 }
 
 /* line 252, ../../sass/main.scss */
-.up-down:before, .feed .row.feed-list .short .row.short-actions a.comments:before {
+.up-down:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
   background-size: 12px 12px;
@@ -270,7 +270,7 @@ ul.dropdown h5 a {
   content: "\00a0\00a0";
 }
 /* line 262, ../../sass/main.scss */
-.up-down.open:before, .feed .row.feed-list .short .row.short-actions a.open.comments:before, .feed .row.feed-list .short.expanded .short-actions a.comments:before {
+.up-down.open:before {
   background-image: url("/images/down.svg");
 }
 
@@ -6001,94 +6001,24 @@ table tfoot tr td {
 .feed .row.feed-list .columns .entry:first-child blockquote {
   margin-top: 0px !important;
 }
-/* line 199, ../../sass/app/activities.scss */
-.feed .row.feed-list .short {
-  margin-bottom: 10px;
-}
-/* line 202, ../../sass/app/activities.scss */
-.feed .row.feed-list .short .short-comments {
-  display: none;
-  margin-bottom: 18px !important;
-}
-/* line 206, ../../sass/app/activities.scss */
-.feed .row.feed-list .short .short-comments blockquote {
-  margin: 0px 10px 10px 20px;
-}
-/* line 209, ../../sass/app/activities.scss */
-.feed .row.feed-list .short .short-comments blockquote p:last-of-type {
-  margin-bottom: 10px !important;
-}
-/* line 216, ../../sass/app/activities.scss */
-.feed .row.feed-list .short .row .columns {
-  /*padding-left: 32px;*/
-  line-height: 33px;
-}
-/* line 221, ../../sass/app/activities.scss */
-.feed .row.feed-list .short .row.short-actions {
-  cursor: default;
-  color: white;
-  font-size: 0.8em;
-}
-/* line 227, ../../sass/app/activities.scss */
-.feed .row.feed-list .short .row.short-actions a.comments {
-  font-size: 1em;
-  color: white !important;
-}
-/* line 231, ../../sass/app/activities.scss */
-.feed .row.feed-list .short .row.short-actions a.comments:before {
-  background-position: 0px 4px;
-}
-@media only screen and (min-width: 48em) {
-  /* line 231, ../../sass/app/activities.scss */
-  .feed .row.feed-list .short .row.short-actions a.comments:before {
-    background-position: 0px 3px;
-  }
-}
-/* line 243, ../../sass/app/activities.scss */
-.feed .row.feed-list .short .row.short-actions .action.new-comment {
-  height: 30px;
-  margin-top: -3px !important;
-}
-/* line 247, ../../sass/app/activities.scss */
-.feed .row.feed-list .short .row.short-actions .action.new-comment a {
-  text-indent: -50px;
-}
-/* line 250, ../../sass/app/activities.scss */
-.feed .row.feed-list .short .row.short-actions .action.new-comment a span {
-  color: white;
-}
-@media only screen and (min-width: 48em) {
-  /* line 221, ../../sass/app/activities.scss */
-  .feed .row.feed-list .short .row.short-actions {
-    font-size: 0.9em;
-  }
-  /* line 262, ../../sass/app/activities.scss */
-  .feed .row.feed-list .short .row.short-actions .action.new-comment a {
-    text-indent: -60px;
-  }
-}
-/* line 277, ../../sass/app/activities.scss */
-.feed .row.feed-list .short.expanded .short-comments {
-  display: inherit;
-}
 
-/* line 286, ../../sass/app/activities.scss */
+/* line 202, ../../sass/app/activities.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 289, ../../sass/app/activities.scss */
+/* line 205, ../../sass/app/activities.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;
 }
 
-/* line 292, ../../sass/app/activities.scss */
+/* line 208, ../../sass/app/activities.scss */
 .comment-form .comment {
   /*height: 100px;*/
 }
 
-/* line 296, ../../sass/app/activities.scss */
+/* line 212, ../../sass/app/activities.scss */
 span.text-length {
   margin-left: 5px;
   line-height: 28px;

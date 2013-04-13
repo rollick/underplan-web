@@ -1,35 +1,50 @@
 <template name="shortContent">
-  <blockquote>
-    {{#markdown}}{{text}}{{/markdown}}
-    <cite>{{date created}} by {{ownerName}}</cite>
-  </blockquote>
+  <div class="short" id="{{_id}}">
+    <div class="info">
+      <div class="picture">
+        <img src="{{profilePicture owner}}">
+      </div>
+      <div class="details">
+        <div class="owner">
+          {{userName owner}}
+        </div>
+        <div class="date">{{date created}}</div>
+        {{#if canDelete}}
+          <a href="#" class="remove" style="display: none;">remove</a>
+        {{/if}}
+      </div>
+    </div>
+    <div class="content">
+      {{#markdown}}{{text}}{{/markdown}}
+    </div>
+  </div>
 </template>
 
 <template name="short">
   {{#with activity}}
-      {{> shortContent}}
-      <div class="row short-actions">
-        <div class="small-6 large-6 columns">
-          {{#if hasComments}}
-            <a class="comments" href="#">{{countText}}</a>
-          {{else}}
-            <span class="comments">{{countText}}</span>
-          {{/if}}
-        </div>
-        {{#if currentUser}}
-          <div class="small-5 large-5 columns">
-            <div class="action new-comment">
-              <a href="#"><span>Comment</span></a>
-            </div>
-          </div>
+    {{> shortContent}}
+    <div class="row short-actions">
+      <div class="small-6 large-6 columns">
+        {{#if hasComments}}
+          <a class="comments" href="#">{{countText}}</a>
+        {{else}}
+          <span class="comments">{{countText}}</span>
         {{/if}}
       </div>
-      <div class="row short-comments">
-        <div class="small-12 large-12 columns">
-          {{> commentList this}}
-          {{> commentForm this}}
+      {{#if currentUser}}
+        <div class="small-5 large-5 columns">
+          <div class="action new-comment">
+            <a href="#"><span>Comment</span></a>
+          </div>
         </div>
+      {{/if}}
+    </div>
+    <div class="row short-comments">
+      <div class="small-12 large-12 columns">
+        {{> commentList this}}
+        {{> commentForm this}}
       </div>
+    </div>
   {{/with}}
 </template>
 

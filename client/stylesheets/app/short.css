@@ -431,7 +431,7 @@ blockquote p {
 }
 /* Grid HTML Classes */
 /* line 106, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-.row, .comment {
+.row, .story, .short-full .short {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -441,24 +441,39 @@ blockquote p {
   *zoom: 1;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/_foundation-global.scss */
-.row:before, .comment:before, .row:after, .comment:after {
+.row:before, .story:before, .short-full .short:before, .row:after, .story:after, .short-full .short:after {
   content: " ";
   display: table;
 }
 /* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/_foundation-global.scss */
-.row:after, .comment:after {
+.row:after, .story:after, .short-full .short:after {
   clear: both;
 }
 /* line 110, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-.row .column, .comment .column,
+.row .column, .story .column, .short-full .short .column,
 .row .columns,
-.comment .columns,
-.row .comment .info,
-.comment .row .info,
-.comment .info,
-.row .comment .content,
-.comment .row .content,
-.comment .content {
+.story .columns,
+.short-full .short .columns,
+.row .story .info,
+.story .row .info,
+.story .info,
+.short-full .short .story .info,
+.story .short-full .short .info,
+.row .story .content,
+.story .row .content,
+.story .content,
+.short-full .short .story .content,
+.story .short-full .short .content,
+.row .short-full .short .info,
+.short-full .short .row .info,
+.story .short-full .short .info,
+.short-full .short .story .info,
+.short-full .short .info,
+.row .short-full .short .content,
+.short-full .short .row .content,
+.story .short-full .short .content,
+.short-full .short .story .content,
+.short-full .short .content {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -466,22 +481,37 @@ blockquote p {
   float: left;
 }
 /* line 114, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-.row.collapse .column, .collapse.comment .column,
+.row.collapse .column, .collapse.story .column, .short-full .collapse.short .column,
 .row.collapse .columns,
-.collapse.comment .columns,
-.row.collapse .comment .info,
-.comment .row.collapse .info,
-.collapse.comment .info,
-.row.collapse .comment .content,
-.comment .row.collapse .content,
-.collapse.comment .content {
+.collapse.story .columns,
+.short-full .collapse.short .columns,
+.row.collapse .story .info,
+.story .row.collapse .info,
+.collapse.story .info,
+.short-full .collapse.short .story .info,
+.story .short-full .collapse.short .info,
+.row.collapse .story .content,
+.story .row.collapse .content,
+.collapse.story .content,
+.short-full .collapse.short .story .content,
+.story .short-full .collapse.short .content,
+.row.collapse .short-full .short .info,
+.short-full .short .row.collapse .info,
+.collapse.story .short-full .short .info,
+.short-full .short .collapse.story .info,
+.short-full .collapse.short .info,
+.row.collapse .short-full .short .content,
+.short-full .short .row.collapse .content,
+.collapse.story .short-full .short .content,
+.short-full .short .collapse.story .content,
+.short-full .collapse.short .content {
   position: relative;
   padding-left: 0;
   padding-right: 0;
   float: left;
 }
 /* line 117, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-.row .row, .comment .row, .row .comment, .comment .comment {
+.row .row, .story .row, .short-full .short .row, .row .story, .story .story, .short-full .short .story, .row .short-full .short, .short-full .row .short, .story .short-full .short, .short-full .story .short, .short-full .short .short {
   width: auto;
   margin-left: -0.9375em;
   margin-right: -0.9375em;
@@ -491,42 +521,57 @@ blockquote p {
   *zoom: 1;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/_foundation-global.scss */
-.row .row:before, .comment .row:before, .row .comment:before, .comment .comment:before, .row .row:after, .comment .row:after, .row .comment:after, .comment .comment:after {
+.row .row:before, .story .row:before, .short-full .short .row:before, .row .story:before, .story .story:before, .short-full .short .story:before, .row .short-full .short:before, .short-full .row .short:before, .story .short-full .short:before, .short-full .story .short:before, .short-full .short .short:before, .row .row:after, .story .row:after, .short-full .short .row:after, .row .story:after, .story .story:after, .short-full .short .story:after, .row .short-full .short:after, .short-full .row .short:after, .story .short-full .short:after, .short-full .story .short:after, .short-full .short .short:after {
   content: " ";
   display: table;
 }
 /* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/_foundation-global.scss */
-.row .row:after, .comment .row:after, .row .comment:after, .comment .comment:after {
+.row .row:after, .story .row:after, .short-full .short .row:after, .row .story:after, .story .story:after, .short-full .short .story:after, .row .short-full .short:after, .short-full .row .short:after, .story .short-full .short:after, .short-full .story .short:after, .short-full .short .short:after {
   clear: both;
 }
 /* line 118, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-.row .row.collapse, .comment .row.collapse, .row .collapse.comment, .comment .collapse.comment {
+.row .row.collapse, .story .row.collapse, .short-full .short .row.collapse, .row .collapse.story, .story .collapse.story, .short-full .short .collapse.story, .row .short-full .collapse.short, .short-full .row .collapse.short, .story .short-full .collapse.short, .short-full .story .collapse.short, .short-full .short .collapse.short {
   width: auto;
   margin: 0;
   max-width: none;
   *zoom: 1;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/_foundation-global.scss */
-.row .row.collapse:before, .comment .row.collapse:before, .row .collapse.comment:before, .comment .collapse.comment:before, .row .row.collapse:after, .comment .row.collapse:after, .row .collapse.comment:after, .comment .collapse.comment:after {
+.row .row.collapse:before, .story .row.collapse:before, .short-full .short .row.collapse:before, .row .collapse.story:before, .story .collapse.story:before, .short-full .short .collapse.story:before, .row .short-full .collapse.short:before, .short-full .row .collapse.short:before, .story .short-full .collapse.short:before, .short-full .story .collapse.short:before, .short-full .short .collapse.short:before, .row .row.collapse:after, .story .row.collapse:after, .short-full .short .row.collapse:after, .row .collapse.story:after, .story .collapse.story:after, .short-full .short .collapse.story:after, .row .short-full .collapse.short:after, .short-full .row .collapse.short:after, .story .short-full .collapse.short:after, .short-full .story .collapse.short:after, .short-full .short .collapse.short:after {
   content: " ";
   display: table;
 }
 /* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/_foundation-global.scss */
-.row .row.collapse:after, .comment .row.collapse:after, .row .collapse.comment:after, .comment .collapse.comment:after {
+.row .row.collapse:after, .story .row.collapse:after, .short-full .short .row.collapse:after, .row .collapse.story:after, .story .collapse.story:after, .short-full .short .collapse.story:after, .row .short-full .collapse.short:after, .short-full .row .collapse.short:after, .story .short-full .collapse.short:after, .short-full .story .collapse.short:after, .short-full .short .collapse.short:after {
   clear: both;
 }
 
 @media only screen {
   /* line 125, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .column, .comment .column,
+  .row .column, .story .column, .short-full .short .column,
   .row .columns,
-  .comment .columns,
-  .row .comment .info,
-  .comment .row .info,
-  .comment .info,
-  .row .comment .content,
-  .comment .row .content,
-  .comment .content {
+  .story .columns,
+  .short-full .short .columns,
+  .row .story .info,
+  .story .row .info,
+  .story .info,
+  .short-full .short .story .info,
+  .story .short-full .short .info,
+  .row .story .content,
+  .story .row .content,
+  .story .content,
+  .short-full .short .story .content,
+  .story .short-full .short .content,
+  .row .short-full .short .info,
+  .short-full .short .row .info,
+  .story .short-full .short .info,
+  .short-full .short .story .info,
+  .short-full .short .info,
+  .row .short-full .short .content,
+  .short-full .short .row .content,
+  .story .short-full .short .content,
+  .short-full .short .story .content,
+  .short-full .short .content {
     position: relative;
     padding-left: 0.9375em;
     padding-right: 0.9375em;
@@ -534,133 +579,133 @@ blockquote p {
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-1, .comment .small-1 {
+  .row .small-1, .story .small-1, .short-full .short .small-1 {
     position: relative;
     width: 8.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-2, .comment .small-2 {
+  .row .small-2, .story .small-2, .short-full .short .small-2 {
     position: relative;
     width: 16.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-3, .comment .small-3 {
+  .row .small-3, .story .small-3, .short-full .short .small-3 {
     position: relative;
     width: 25%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-4, .comment .small-4 {
+  .row .small-4, .story .small-4, .short-full .short .small-4 {
     position: relative;
     width: 33.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-5, .comment .small-5 {
+  .row .small-5, .story .small-5, .short-full .short .small-5 {
     position: relative;
     width: 41.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-6, .comment .small-6 {
+  .row .small-6, .story .small-6, .short-full .short .small-6 {
     position: relative;
     width: 50%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-7, .comment .small-7 {
+  .row .small-7, .story .small-7, .short-full .short .small-7 {
     position: relative;
     width: 58.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-8, .comment .small-8 {
+  .row .small-8, .story .small-8, .short-full .short .small-8 {
     position: relative;
     width: 66.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-9, .comment .small-9 {
+  .row .small-9, .story .small-9, .short-full .short .small-9 {
     position: relative;
     width: 75%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-10, .comment .small-10 {
+  .row .small-10, .story .small-10, .short-full .short .small-10 {
     position: relative;
     width: 83.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-11, .comment .small-11 {
+  .row .small-11, .story .small-11, .short-full .short .small-11 {
     position: relative;
     width: 91.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-12, .comment .small-12, .row .comment .info, .comment .row .info, .comment .info, .row .comment .content, .comment .row .content, .comment .content {
+  .row .small-12, .story .small-12, .short-full .short .small-12, .row .story .info, .story .row .info, .story .info, .short-full .short .story .info, .story .short-full .short .info, .row .story .content, .story .row .content, .story .content, .short-full .short .story .content, .story .short-full .short .content, .row .short-full .short .info, .short-full .short .row .info, .story .short-full .short .info, .short-full .short .story .info, .short-full .short .info, .row .short-full .short .content, .short-full .short .row .content, .story .short-full .short .content, .short-full .short .story .content, .short-full .short .content {
     position: relative;
     width: 100%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-offset-1, .comment .small-offset-1 {
+  .row .small-offset-1, .story .small-offset-1, .short-full .short .small-offset-1 {
     position: relative;
     margin-left: 8.33333%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-offset-2, .comment .small-offset-2 {
+  .row .small-offset-2, .story .small-offset-2, .short-full .short .small-offset-2 {
     position: relative;
     margin-left: 16.66667%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-offset-3, .comment .small-offset-3 {
+  .row .small-offset-3, .story .small-offset-3, .short-full .short .small-offset-3 {
     position: relative;
     margin-left: 25%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-offset-4, .comment .small-offset-4 {
+  .row .small-offset-4, .story .small-offset-4, .short-full .short .small-offset-4 {
     position: relative;
     margin-left: 33.33333%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-offset-5, .comment .small-offset-5 {
+  .row .small-offset-5, .story .small-offset-5, .short-full .short .small-offset-5 {
     position: relative;
     margin-left: 41.66667%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-offset-6, .comment .small-offset-6 {
+  .row .small-offset-6, .story .small-offset-6, .short-full .short .small-offset-6 {
     position: relative;
     margin-left: 50%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-offset-7, .comment .small-offset-7 {
+  .row .small-offset-7, .story .small-offset-7, .short-full .short .small-offset-7 {
     position: relative;
     margin-left: 58.33333%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-offset-8, .comment .small-offset-8 {
+  .row .small-offset-8, .story .small-offset-8, .short-full .short .small-offset-8 {
     position: relative;
     margin-left: 66.66667%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-offset-9, .comment .small-offset-9 {
+  .row .small-offset-9, .story .small-offset-9, .short-full .short .small-offset-9 {
     position: relative;
     margin-left: 75%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-offset-10, .comment .small-offset-10 {
+  .row .small-offset-10, .story .small-offset-10, .short-full .short .small-offset-10 {
     position: relative;
     margin-left: 83.33333%;
   }
@@ -678,8 +723,10 @@ blockquote p {
   /* line 139, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
   .column.small-centered,
   .columns.small-centered,
-  .comment .small-centered.info,
-  .comment .small-centered.content {
+  .story .small-centered.info,
+  .story .small-centered.content,
+  .short-full .short .small-centered.info,
+  .short-full .short .small-centered.content {
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -689,133 +736,133 @@ blockquote p {
 /* Styles for screens that are atleast 768px; */
 @media only screen and (min-width: 48em) {
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-1, .comment .large-1 {
+  .row .large-1, .story .large-1, .short-full .short .large-1 {
     position: relative;
     width: 8.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-2, .comment .large-2 {
+  .row .large-2, .story .large-2, .short-full .short .large-2 {
     position: relative;
     width: 16.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-3, .comment .large-3 {
+  .row .large-3, .story .large-3, .short-full .short .large-3 {
     position: relative;
     width: 25%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-4, .comment .large-4 {
+  .row .large-4, .story .large-4, .short-full .short .large-4 {
     position: relative;
     width: 33.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-5, .comment .large-5 {
+  .row .large-5, .story .large-5, .short-full .short .large-5 {
     position: relative;
     width: 41.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-6, .comment .large-6 {
+  .row .large-6, .story .large-6, .short-full .short .large-6 {
     position: relative;
     width: 50%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-7, .comment .large-7 {
+  .row .large-7, .story .large-7, .short-full .short .large-7 {
     position: relative;
     width: 58.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-8, .comment .large-8 {
+  .row .large-8, .story .large-8, .short-full .short .large-8 {
     position: relative;
     width: 66.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-9, .comment .large-9 {
+  .row .large-9, .story .large-9, .short-full .short .large-9 {
     position: relative;
     width: 75%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-10, .comment .large-10, .row .comment .content, .comment .row .content, .comment .content {
+  .row .large-10, .story .large-10, .short-full .short .large-10, .row .story .content, .story .row .content, .story .content, .short-full .short .story .content, .story .short-full .short .content, .row .short-full .short .content, .short-full .short .row .content, .story .short-full .short .content, .short-full .short .story .content, .short-full .short .content {
     position: relative;
     width: 83.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-11, .comment .large-11 {
+  .row .large-11, .story .large-11, .short-full .short .large-11 {
     position: relative;
     width: 91.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-12, .comment .large-12, .row .comment .info, .comment .row .info, .comment .info {
+  .row .large-12, .story .large-12, .short-full .short .large-12, .row .story .info, .story .row .info, .story .info, .short-full .short .story .info, .story .short-full .short .info, .row .short-full .short .info, .short-full .short .row .info, .story .short-full .short .info, .short-full .short .story .info, .short-full .short .info {
     position: relative;
     width: 100%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-1, .comment .large-offset-1 {
+  .row .large-offset-1, .story .large-offset-1, .short-full .short .large-offset-1 {
     position: relative;
     margin-left: 8.33333%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-2, .comment .large-offset-2, .row .comment .content, .comment .row .content, .comment .content {
+  .row .large-offset-2, .story .large-offset-2, .short-full .short .large-offset-2, .row .story .content, .story .row .content, .story .content, .short-full .short .story .content, .story .short-full .short .content, .row .short-full .short .content, .short-full .short .row .content, .story .short-full .short .content, .short-full .short .story .content, .short-full .short .content {
     position: relative;
     margin-left: 16.66667%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-3, .comment .large-offset-3 {
+  .row .large-offset-3, .story .large-offset-3, .short-full .short .large-offset-3 {
     position: relative;
     margin-left: 25%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-4, .comment .large-offset-4 {
+  .row .large-offset-4, .story .large-offset-4, .short-full .short .large-offset-4 {
     position: relative;
     margin-left: 33.33333%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-5, .comment .large-offset-5 {
+  .row .large-offset-5, .story .large-offset-5, .short-full .short .large-offset-5 {
     position: relative;
     margin-left: 41.66667%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-6, .comment .large-offset-6 {
+  .row .large-offset-6, .story .large-offset-6, .short-full .short .large-offset-6 {
     position: relative;
     margin-left: 50%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-7, .comment .large-offset-7 {
+  .row .large-offset-7, .story .large-offset-7, .short-full .short .large-offset-7 {
     position: relative;
     margin-left: 58.33333%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-8, .comment .large-offset-8 {
+  .row .large-offset-8, .story .large-offset-8, .short-full .short .large-offset-8 {
     position: relative;
     margin-left: 66.66667%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-9, .comment .large-offset-9 {
+  .row .large-offset-9, .story .large-offset-9, .short-full .short .large-offset-9 {
     position: relative;
     margin-left: 75%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-offset-10, .comment .large-offset-10 {
+  .row .large-offset-10, .story .large-offset-10, .short-full .short .large-offset-10 {
     position: relative;
     margin-left: 83.33333%;
   }
@@ -1039,41 +1086,319 @@ blockquote p {
   /* line 164, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
   .column.large-centered,
   .columns.large-centered,
-  .comment .large-centered.info,
-  .comment .large-centered.content {
+  .story .large-centered.info,
+  .story .large-centered.content,
+  .short-full .short .large-centered.info,
+  .short-full .short .large-centered.content {
     position: relative;
     margin-left: auto;
     margin-right: auto;
     float: none !important;
   }
 }
-/* line 3, ../../sass/app/comment.scss */
-.comment {
-  padding: 0.74em 0;
+/* line 3, ../../sass/main.scss */
+* {
+  margin: 0;
+}
+
+/* line 7, ../../sass/main.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 11, ../../sass/main.scss */
+body {
+  background-image: url("/images/bg.jpg");
+}
+
+/* line 15, ../../sass/main.scss */
+hr {
+  margin: 10px 0;
+}
+
+/* line 19, ../../sass/main.scss */
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+/* line 22, ../../sass/main.scss */
+h1 .sub-header, h2 .sub-header, h3 .sub-header, h4 .sub-header, h5 .sub-header {
+  font-size: 0.75em;
+}
+/* line 25, ../../sass/main.scss */
+h1 .sub-header:before, h2 .sub-header:before, h3 .sub-header:before, h4 .sub-header:before, h5 .sub-header:before {
+  content: " - ";
+}
+
+/* line 31, ../../sass/main.scss */
+h2 {
+  margin-bottom: 0.2em;
+}
+
+/* line 36, ../../sass/main.scss */
+h2 span.warning, a span.warning {
+  font-size: 0.7em;
+  color: #c60f13;
+}
+
+/* line 42, ../../sass/main.scss */
+.row.main-content, .main-content.story, .short-full .main-content.short {
+  border-bottom: 3px solid green;
+  padding: 0px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin: 20px auto -80px;
+  /* the bottom margin is the negative value of the footer's height */
+  margin-top: 0px;
+  box-shadow: none;
+}
+/* line 52, ../../sass/main.scss */
+.row.main-content.normal, .main-content.normal.story, .short-full .main-content.normal.short {
+  padding-top: 5px;
+  margin-top: 0px;
+}
+/* line 65, ../../sass/main.scss */
+.row.main-content.dashboard, .main-content.dashboard.story, .short-full .main-content.dashboard.short {
+  background: url("/images/sun3.jpg") 0 0 no-repeat;
+  background-color: black;
+}
+
+@media only screen and (min-width: 48em) {
+  /* line 72, ../../sass/main.scss */
+  .row.main-content, .main-content.story, .short-full .main-content.short {
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
+  }
+}
+/* line 81, ../../sass/main.scss */
+footer, .push {
+  height: 80px;
+  /* .push must be the same height as .footer */
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 87, ../../sass/main.scss */
+footer.dashboard {
+  font-color: white;
+}
+/* line 90, ../../sass/main.scss */
+footer.dashboard .row:first-of-type, footer.dashboard .story:first-of-type, footer.dashboard .short-full .short:first-of-type, .short-full footer.dashboard .short:first-of-type {
+  border-top: 2px solid #2b2b2b;
+}
+/* line 94, ../../sass/main.scss */
+footer.dashboard p {
+  color: #fff;
+}
+
+/* line 100, ../../sass/main.scss */
+footer p,
+footer a {
+  margin-top: 10px;
+}
+
+/* line 104, ../../sass/main.scss */
+.no-side-padding {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+/* line 109, ../../sass/main.scss */
+.bordered {
+  border: 1px solid #e7e4e4;
+  padding: 2px;
+}
+
+/* line 114, ../../sass/main.scss */
+.normal {
+  padding-bottom: 15px;
+  background: #fff;
+  background: white;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* line 121, ../../sass/main.scss */
+.input-subtext {
+  margin-top: -10px;
+  font-style: italic;
+  margin-bottom: 10px;
+  padding: 0px;
+  color: #9f9f9f;
+  font-size: 0.8em;
+  min-height: 1px;
+}
+
+/* line 131, ../../sass/main.scss */
+.actions {
+  display: block;
+  line-height: 32px;
+  padding-top: 18px;
+}
+/* line 136, ../../sass/main.scss */
+.actions a {
+  float: right;
+}
+/* line 140, ../../sass/main.scss */
+.actions i:hover {
+  color: green;
+  cursor: pointer;
+}
+
+/* line 146, ../../sass/main.scss */
+.top-bar .name h1 a {
+  font-weight: normal;
+  padding: 0 5px;
+  font-size: 1.3em;
+}
+
+/* line 153, ../../sass/main.scss */
+.top-bar-section ul li > a,
+.top-bar .toggle-topbar.menu-icon a span {
+  font-weight: normal !important;
+}
+
+/* line 157, ../../sass/main.scss */
+.title-area h1 {
+  color: white;
+  padding: 0 10px 0 10px;
+}
+
+/* line 165, ../../sass/main.scss */
+.alert-box {
+  margin-top: 8px;
+  text-align: center;
+  font-weight: normal !important;
+}
+/* line 170, ../../sass/main.scss */
+.alert-box a.close {
+  position: relative;
+  padding: 10px;
+  color: white;
+}
+
+/* line 180, ../../sass/main.scss */
+.button {
+  font-weight: normal;
+}
+
+/* line 184, ../../sass/main.scss */
+.clearing-assembled {
+  padding-bottom: 10px !important;
+}
+@media only screen and (min-width: 48em) {
+  /* line 184, ../../sass/main.scss */
+  .clearing-assembled {
+    padding-bottom: 0px !important;
+  }
+}
+/* line 191, ../../sass/main.scss */
+.clearing-assembled .clearing-caption {
+  background-color: rgba(17, 17, 17, 0.6);
+  padding-bottom: 30px !important;
+}
+@media only screen and (min-width: 48em) {
+  /* line 191, ../../sass/main.scss */
+  .clearing-assembled .clearing-caption {
+    padding-bottom: 10px !important;
+  }
+}
+
+/* line 201, ../../sass/main.scss */
+.custom.checkbox {
+  border-color: black !important;
+}
+/* line 204, ../../sass/main.scss */
+.custom.checkbox.checked::before {
+  color: black !important;
+  font-weight: bold !important;
+  padding-left: 1px;
+  padding-top: 1px;
+}
+
+/* line 212, ../../sass/main.scss */
+blockquote {
+  margin: 10px 10px 0px 10px;
+}
+/* line 215, ../../sass/main.scss */
+blockquote.disabled {
+  opacity: 0.6;
+}
+/* line 219, ../../sass/main.scss */
+blockquote p:last-of-type {
+  margin-bottom: 10px;
+}
+/* line 223, ../../sass/main.scss */
+blockquote cite {
+  padding-bottom: 10px;
+}
+
+/* line 228, ../../sass/main.scss */
+form fieldset legend {
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+/* line 233, ../../sass/main.scss */
+ul.dropdown h5 a {
+  color: white;
+}
+
+/* line 237, ../../sass/main.scss */
+.carousel {
+  margin: 0 6px;
+}
+
+/* line 241, ../../sass/main.scss */
+.standard-bar, .short-full .row.short-actions, .short-full .short-actions.story, .short-full .short-actions.short {
   font-size: 0.9em;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0;
+  background-color: green;
+  cursor: pointer;
+}
+
+/* line 252, ../../sass/main.scss */
+.up-down:before, .short-full .row.short-actions a.comments:before, .short-full .short-actions.story a.comments:before, .short-full .short-actions.short a.comments:before {
+  background-image: url("/images/right.svg");
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: 0px 3px;
+  padding-left: 12px;
+  height: 24px;
+  content: "\00a0\00a0";
+}
+/* line 262, ../../sass/main.scss */
+.up-down.open:before, .short-full .row.short-actions a.open.comments:before, .short-full .short-actions.story a.open.comments:before, .short-full .short-actions.short a.open.comments:before, .short-full.expanded .short-actions a.comments:before {
+  background-image: url("/images/down.svg");
+}
+
+/* line 6, ../../sass/app/short.scss */
+.story {
+  padding: 0.66em 0;
+  margin-bottom: 0.9em;
 }
 /* line 10, ../../sass/components.scss */
-.comment .info {
+.story .info {
   font-size: 1em;
   color: black;
   height: 2.8em !important;
   margin-bottom: 0.2em;
 }
 /* line 20, ../../sass/components.scss */
-.comment .info .picture {
+.story .info .picture {
   float: left;
-  width: 3.3em !important;
-  height: 3.5em !important;
+  width: 2.9em !important;
+  height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
   /* line 20, ../../sass/components.scss */
-  .comment .info .picture {
-    height: 3.7em !important;
-    width: 3.7em !important;
+  .story .info .picture {
+    height: 3.3em !important;
+    width: 3.3em !important;
   }
 }
 /* line 30, ../../sass/components.scss */
-.comment .info .picture img {
+.story .info .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -1082,58 +1407,203 @@ blockquote p {
 }
 @media only screen and (min-width: 48em) {
   /* line 30, ../../sass/components.scss */
-  .comment .info .picture img {
+  .story .info .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
 /* line 40, ../../sass/components.scss */
-.comment .info .details {
+.story .info .details {
   padding-top: 0;
-  height: 3.3em !important;
+  height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
   /* line 40, ../../sass/components.scss */
-  .comment .info .details {
+  .story .info .details {
     padding-top: 0.5em;
-    height: 3.7em !important;
+    height: 3.3em !important;
   }
 }
 /* line 49, ../../sass/components.scss */
-.comment .info .details .owner {
+.story .info .details .owner {
   line-height: 1em;
 }
 /* line 53, ../../sass/components.scss */
-.comment .info .details .date {
+.story .info .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
 /* line 65, ../../sass/components.scss */
-.comment .info .details a.remove {
+.story .info .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
 /* line 70, ../../sass/components.scss */
-.comment .info .details a.remove:before {
+.story .info .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
 }
 @media only screen and (min-width: 48em) {
   /* line 79, ../../sass/components.scss */
-  .comment .content {
-    margin-left: 3.7em !important;
+  .story .content {
+    margin-left: 3.3em !important;
   }
 }
 /* line 89, ../../sass/components.scss */
-.comment .content p:last-of-type {
+.story .content p:last-of-type {
   margin-bottom: 0em;
 }
+/* line 11, ../../sass/app/short.scss */
+.story .content {
+  padding-bottom: 0.5em;
+}
 
-/* line 9, ../../sass/app/comment.scss */
-textarea.comment {
+/* line 16, ../../sass/app/short.scss */
+.short-full {
+  margin-bottom: 0.8em;
+}
+/* line 19, ../../sass/app/short.scss */
+.short-full .short {
+  padding: 0.66em 0;
+  padding-bottom: 0px;
+  margin-bottom: 0px !important;
+}
+/* line 10, ../../sass/components.scss */
+.short-full .short .info {
+  font-size: 1em;
+  color: black;
+  height: 2.8em !important;
+  margin-bottom: 0.2em;
+}
+/* line 20, ../../sass/components.scss */
+.short-full .short .info .picture {
+  float: left;
+  width: 2.9em !important;
+  height: 3.1em !important;
+}
+@media only screen and (min-width: 48em) {
+  /* line 20, ../../sass/components.scss */
+  .short-full .short .info .picture {
+    height: 3.3em !important;
+    width: 3.3em !important;
+  }
+}
+/* line 30, ../../sass/components.scss */
+.short-full .short .info .picture img {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+}
+@media only screen and (min-width: 48em) {
+  /* line 30, ../../sass/components.scss */
+  .short-full .short .info .picture img {
+    margin-top: 8px;
+    margin-left: 6px;
+  }
+}
+/* line 40, ../../sass/components.scss */
+.short-full .short .info .details {
+  padding-top: 0;
+  height: 2.9em !important;
+}
+@media only screen and (min-width: 48em) {
+  /* line 40, ../../sass/components.scss */
+  .short-full .short .info .details {
+    padding-top: 0.5em;
+    height: 3.3em !important;
+  }
+}
+/* line 49, ../../sass/components.scss */
+.short-full .short .info .details .owner {
+  line-height: 1em;
+}
+/* line 53, ../../sass/components.scss */
+.short-full .short .info .details .date {
   font-size: 0.9em;
-  border: 1px solid #dddddd;
+  color: #999999;
+  line-height: 1.7em;
+}
+/* line 65, ../../sass/components.scss */
+.short-full .short .info .details a.remove {
+  margin-left: 4px;
+  color: #c60f13;
+  font-size: 0.9em;
+}
+/* line 70, ../../sass/components.scss */
+.short-full .short .info .details a.remove:before {
+  content: "x";
+  padding-right: 3px;
+  font-weight: bold;
+}
+@media only screen and (min-width: 48em) {
+  /* line 79, ../../sass/components.scss */
+  .short-full .short .content {
+    margin-left: 3.3em !important;
+  }
+}
+/* line 89, ../../sass/components.scss */
+.short-full .short .content p:last-of-type {
+  margin-bottom: 0em;
+}
+/* line 25, ../../sass/app/short.scss */
+.short-full .short .content {
+  padding-bottom: 0.5em;
+}
+/* line 30, ../../sass/app/short.scss */
+.short-full .short-comments {
+  display: none;
+}
+/* line 35, ../../sass/app/short.scss */
+.short-full .row .columns, .short-full .story .columns, .short-full .short .columns, .short-full .row .story .info, .story .short-full .row .info, .short-full .story .info, .short-full .short .story .info, .story .short-full .short .info, .short-full .row .story .content, .story .short-full .row .content, .short-full .story .content, .short-full .short .story .content, .story .short-full .short .content, .short-full .row .short .info, .short-full .short .row .info, .short-full .story .short .info, .short-full .short .story .info, .short-full .short .info, .short-full .row .short .content, .short-full .short .row .content, .short-full .story .short .content, .short-full .short .story .content, .short-full .short .content {
+  /*padding-left: 32px;*/
+  line-height: 33px;
+}
+/* line 39, ../../sass/app/short.scss */
+.short-full .row.short-actions, .short-full .short-actions.story, .short-full .short-actions.short {
+  cursor: default;
+  color: white;
+  font-size: 0.8em;
+}
+/* line 46, ../../sass/app/short.scss */
+.short-full .row.short-actions a.comments, .short-full .short-actions.story a.comments, .short-full .short-actions.short a.comments {
+  font-size: 1em;
+  color: white !important;
+}
+/* line 50, ../../sass/app/short.scss */
+.short-full .row.short-actions a.comments:before, .short-full .short-actions.story a.comments:before, .short-full .short-actions.short a.comments:before {
+  background-position: 0px 4px;
+}
+@media only screen and (min-width: 48em) {
+  /* line 50, ../../sass/app/short.scss */
+  .short-full .row.short-actions a.comments:before, .short-full .short-actions.story a.comments:before, .short-full .short-actions.short a.comments:before {
+    background-position: 0px 3px;
+  }
+}
+/* line 61, ../../sass/app/short.scss */
+.short-full .row.short-actions .action.new-comment, .short-full .short-actions.story .action.new-comment, .short-full .short-actions.short .action.new-comment {
+  height: 30px;
+  margin-top: -3px !important;
+}
+/* line 65, ../../sass/app/short.scss */
+.short-full .row.short-actions .action.new-comment a, .short-full .short-actions.story .action.new-comment a, .short-full .short-actions.short .action.new-comment a {
+  text-indent: -50px;
+}
+/* line 68, ../../sass/app/short.scss */
+.short-full .row.short-actions .action.new-comment a span, .short-full .short-actions.story .action.new-comment a span, .short-full .short-actions.short .action.new-comment a span {
+  color: white;
+}
+@media only screen and (min-width: 48em) {
+  /* line 39, ../../sass/app/short.scss */
+  .short-full .row.short-actions, .short-full .short-actions.story, .short-full .short-actions.short {
+    font-size: 0.9em;
+  }
+  /* line 80, ../../sass/app/short.scss */
+  .short-full .row.short-actions .action.new-comment a, .short-full .short-actions.story .action.new-comment a, .short-full .short-actions.short .action.new-comment a {
+    text-indent: -60px;
+  }
 }
