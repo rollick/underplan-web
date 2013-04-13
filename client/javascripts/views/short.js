@@ -10,7 +10,7 @@ Template.short.events({
     return false;
   },
   'click .short-actions .new-comment a': function (event, template) {
-    $(template.firstNode).closest(".short-full").addClass("expanded");
+    $(template.firstNode).closest(".short-full").addClass("expanded").find(".short-comments").toggle("blind", 500);
     $("#" + this._id + " form").find("textarea").focus();
 
     return false;

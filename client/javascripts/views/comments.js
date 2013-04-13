@@ -23,6 +23,7 @@ Template.commentForm.events({
           Session.set("createError", [error.error, error.reason].join(": "));
         } else {
           Session.set("lastUpdatedActivityId", activityId)
+          debugger
           template.find("#comment").value = "";
         }
       });
@@ -81,11 +82,11 @@ Template.comment.events({
 
     return false;
   },
-  'mouseenter .content': function (event, template) {
-    $(template.find(".content .remove")).show();
+  'mouseenter .comment': function (event, template) {
+    $(template.find(".info .remove")).show();
   },
-  'mouseleave .content': function (event, template) {
-    $(template.find(".content .remove")).hide();
+  'mouseleave .comment': function (event, template) {
+    $(template.find(".info .remove")).hide();
   } 
 
 });
