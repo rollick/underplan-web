@@ -8,8 +8,17 @@
         {{#if _id}}
           <form class="custom">
             <input type="hidden" id="activity-id" value="{{_id}}">
-            <textarea type="text" id="comment" rows="8" placeholder="Write your comment..."></textarea>
-            <a href="#" class="small button success save disabled">Save comment</a>
+            <div class="user-comment">
+              <div class="top-section">
+                <div class="picture">
+                  <img src="{{profilePicture owner}}">
+                </div>
+                <div class="details">
+                  <input type="text" id="comment" placeholder="Write your comment..." />
+                  <a href="#" class="small button success save disabled">Save comment</a>
+                </div>
+              </div>
+            </div>
           </form>
         {{else}}
           <p>Huh?! No Activity selected!</p>
@@ -33,7 +42,7 @@
 
 <template name="comment">
   <div class="comment" id="{{_id}}">
-    <div class="info">
+    <div class="top-section">
       <div class="picture">
         <img src="{{profilePicture owner}}">
       </div>

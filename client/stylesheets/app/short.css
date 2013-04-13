@@ -454,21 +454,21 @@ blockquote p {
 .row .columns,
 .story .columns,
 .short-full .short .columns,
-.row .story .info,
-.story .row .info,
-.story .info,
-.short-full .short .story .info,
-.story .short-full .short .info,
+.row .story .top-section,
+.story .row .top-section,
+.story .top-section,
+.short-full .short .story .top-section,
+.story .short-full .short .top-section,
 .row .story .content,
 .story .row .content,
 .story .content,
 .short-full .short .story .content,
 .story .short-full .short .content,
-.row .short-full .short .info,
-.short-full .short .row .info,
-.story .short-full .short .info,
-.short-full .short .story .info,
-.short-full .short .info,
+.row .short-full .short .top-section,
+.short-full .short .row .top-section,
+.story .short-full .short .top-section,
+.short-full .short .story .top-section,
+.short-full .short .top-section,
 .row .short-full .short .content,
 .short-full .short .row .content,
 .story .short-full .short .content,
@@ -485,21 +485,21 @@ blockquote p {
 .row.collapse .columns,
 .collapse.story .columns,
 .short-full .collapse.short .columns,
-.row.collapse .story .info,
-.story .row.collapse .info,
-.collapse.story .info,
-.short-full .collapse.short .story .info,
-.story .short-full .collapse.short .info,
+.row.collapse .story .top-section,
+.story .row.collapse .top-section,
+.collapse.story .top-section,
+.short-full .collapse.short .story .top-section,
+.story .short-full .collapse.short .top-section,
 .row.collapse .story .content,
 .story .row.collapse .content,
 .collapse.story .content,
 .short-full .collapse.short .story .content,
 .story .short-full .collapse.short .content,
-.row.collapse .short-full .short .info,
-.short-full .short .row.collapse .info,
-.collapse.story .short-full .short .info,
-.short-full .short .collapse.story .info,
-.short-full .collapse.short .info,
+.row.collapse .short-full .short .top-section,
+.short-full .short .row.collapse .top-section,
+.collapse.story .short-full .short .top-section,
+.short-full .short .collapse.story .top-section,
+.short-full .collapse.short .top-section,
 .row.collapse .short-full .short .content,
 .short-full .short .row.collapse .content,
 .collapse.story .short-full .short .content,
@@ -552,21 +552,21 @@ blockquote p {
   .row .columns,
   .story .columns,
   .short-full .short .columns,
-  .row .story .info,
-  .story .row .info,
-  .story .info,
-  .short-full .short .story .info,
-  .story .short-full .short .info,
+  .row .story .top-section,
+  .story .row .top-section,
+  .story .top-section,
+  .short-full .short .story .top-section,
+  .story .short-full .short .top-section,
   .row .story .content,
   .story .row .content,
   .story .content,
   .short-full .short .story .content,
   .story .short-full .short .content,
-  .row .short-full .short .info,
-  .short-full .short .row .info,
-  .story .short-full .short .info,
-  .short-full .short .story .info,
-  .short-full .short .info,
+  .row .short-full .short .top-section,
+  .short-full .short .row .top-section,
+  .story .short-full .short .top-section,
+  .short-full .short .story .top-section,
+  .short-full .short .top-section,
   .row .short-full .short .content,
   .short-full .short .row .content,
   .story .short-full .short .content,
@@ -645,7 +645,7 @@ blockquote p {
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .small-12, .story .small-12, .short-full .short .small-12, .row .story .info, .story .row .info, .story .info, .short-full .short .story .info, .story .short-full .short .info, .row .story .content, .story .row .content, .story .content, .short-full .short .story .content, .story .short-full .short .content, .row .short-full .short .info, .short-full .short .row .info, .story .short-full .short .info, .short-full .short .story .info, .short-full .short .info, .row .short-full .short .content, .short-full .short .row .content, .story .short-full .short .content, .short-full .short .story .content, .short-full .short .content {
+  .row .small-12, .story .small-12, .short-full .short .small-12, .row .story .top-section, .story .row .top-section, .story .top-section, .short-full .short .story .top-section, .story .short-full .short .top-section, .row .story .content, .story .row .content, .story .content, .short-full .short .story .content, .story .short-full .short .content, .row .short-full .short .top-section, .short-full .short .row .top-section, .story .short-full .short .top-section, .short-full .short .story .top-section, .short-full .short .top-section, .row .short-full .short .content, .short-full .short .row .content, .story .short-full .short .content, .short-full .short .story .content, .short-full .short .content {
     position: relative;
     width: 100%;
   }
@@ -723,9 +723,9 @@ blockquote p {
   /* line 139, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
   .column.small-centered,
   .columns.small-centered,
-  .story .small-centered.info,
+  .story .small-centered.top-section,
   .story .small-centered.content,
-  .short-full .short .small-centered.info,
+  .short-full .short .small-centered.top-section,
   .short-full .short .small-centered.content {
     position: relative;
     margin-left: auto;
@@ -802,7 +802,7 @@ blockquote p {
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
-  .row .large-12, .story .large-12, .short-full .short .large-12, .row .story .info, .story .row .info, .story .info, .short-full .short .story .info, .story .short-full .short .info, .row .short-full .short .info, .short-full .short .row .info, .story .short-full .short .info, .short-full .short .story .info, .short-full .short .info {
+  .row .large-12, .story .large-12, .short-full .short .large-12, .row .story .top-section, .story .row .top-section, .story .top-section, .short-full .short .story .top-section, .story .short-full .short .top-section, .row .short-full .short .top-section, .short-full .short .row .top-section, .story .short-full .short .top-section, .short-full .short .story .top-section, .short-full .short .top-section {
     position: relative;
     width: 100%;
   }
@@ -1086,9 +1086,9 @@ blockquote p {
   /* line 164, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.1/scss/foundation/components/_grid.scss */
   .column.large-centered,
   .columns.large-centered,
-  .story .large-centered.info,
+  .story .large-centered.top-section,
   .story .large-centered.content,
-  .short-full .short .large-centered.info,
+  .short-full .short .large-centered.top-section,
   .short-full .short .large-centered.content {
     position: relative;
     margin-left: auto;
@@ -1378,27 +1378,27 @@ ul.dropdown h5 a {
   margin-bottom: 0.9em;
 }
 /* line 10, ../../sass/components.scss */
-.story .info {
+.story .top-section {
   font-size: 1em;
   color: black;
   height: 2.8em !important;
   margin-bottom: 0.2em;
 }
 /* line 20, ../../sass/components.scss */
-.story .info .picture {
+.story .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
   /* line 20, ../../sass/components.scss */
-  .story .info .picture {
+  .story .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
 /* line 30, ../../sass/components.scss */
-.story .info .picture img {
+.story .top-section .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -1407,41 +1407,41 @@ ul.dropdown h5 a {
 }
 @media only screen and (min-width: 48em) {
   /* line 30, ../../sass/components.scss */
-  .story .info .picture img {
+  .story .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
 /* line 40, ../../sass/components.scss */
-.story .info .details {
+.story .top-section .details {
   padding-top: 0;
   height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
   /* line 40, ../../sass/components.scss */
-  .story .info .details {
+  .story .top-section .details {
     padding-top: 0.5em;
     height: 3.3em !important;
   }
 }
 /* line 49, ../../sass/components.scss */
-.story .info .details .owner {
+.story .top-section .details .owner {
   line-height: 1em;
 }
 /* line 53, ../../sass/components.scss */
-.story .info .details .date {
+.story .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
 /* line 65, ../../sass/components.scss */
-.story .info .details a.remove {
+.story .top-section .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
 /* line 70, ../../sass/components.scss */
-.story .info .details a.remove:before {
+.story .top-section .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
@@ -1472,27 +1472,27 @@ ul.dropdown h5 a {
   margin-bottom: 0px !important;
 }
 /* line 10, ../../sass/components.scss */
-.short-full .short .info {
+.short-full .short .top-section {
   font-size: 1em;
   color: black;
   height: 2.8em !important;
   margin-bottom: 0.2em;
 }
 /* line 20, ../../sass/components.scss */
-.short-full .short .info .picture {
+.short-full .short .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
   /* line 20, ../../sass/components.scss */
-  .short-full .short .info .picture {
+  .short-full .short .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
 /* line 30, ../../sass/components.scss */
-.short-full .short .info .picture img {
+.short-full .short .top-section .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -1501,41 +1501,41 @@ ul.dropdown h5 a {
 }
 @media only screen and (min-width: 48em) {
   /* line 30, ../../sass/components.scss */
-  .short-full .short .info .picture img {
+  .short-full .short .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
 /* line 40, ../../sass/components.scss */
-.short-full .short .info .details {
+.short-full .short .top-section .details {
   padding-top: 0;
   height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
   /* line 40, ../../sass/components.scss */
-  .short-full .short .info .details {
+  .short-full .short .top-section .details {
     padding-top: 0.5em;
     height: 3.3em !important;
   }
 }
 /* line 49, ../../sass/components.scss */
-.short-full .short .info .details .owner {
+.short-full .short .top-section .details .owner {
   line-height: 1em;
 }
 /* line 53, ../../sass/components.scss */
-.short-full .short .info .details .date {
+.short-full .short .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
 /* line 65, ../../sass/components.scss */
-.short-full .short .info .details a.remove {
+.short-full .short .top-section .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
 /* line 70, ../../sass/components.scss */
-.short-full .short .info .details a.remove:before {
+.short-full .short .top-section .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
@@ -1559,31 +1559,29 @@ ul.dropdown h5 a {
   height: 0px;
   overflow: hidden;
 }
-/* line 36, ../../sass/app/short.scss */
-.short-full .row .columns, .short-full .story .columns, .short-full .short .columns, .short-full .row .story .info, .story .short-full .row .info, .short-full .story .info, .short-full .short .story .info, .story .short-full .short .info, .short-full .row .story .content, .story .short-full .row .content, .short-full .story .content, .short-full .short .story .content, .story .short-full .short .content, .short-full .row .short .info, .short-full .short .row .info, .short-full .story .short .info, .short-full .short .story .info, .short-full .short .info, .short-full .row .short .content, .short-full .short .row .content, .short-full .story .short .content, .short-full .short .story .content, .short-full .short .content {
+/* line 34, ../../sass/app/short.scss */
+.short-full .short-comments .comment {
+  padding-left: 1em;
+}
+/* line 40, ../../sass/app/short.scss */
+.short-full .row .columns, .short-full .story .columns, .short-full .short .columns, .short-full .row .story .top-section, .story .short-full .row .top-section, .short-full .story .top-section, .short-full .short .story .top-section, .story .short-full .short .top-section, .short-full .row .story .content, .story .short-full .row .content, .short-full .story .content, .short-full .short .story .content, .story .short-full .short .content, .short-full .row .short .top-section, .short-full .short .row .top-section, .short-full .story .short .top-section, .short-full .short .story .top-section, .short-full .short .top-section, .short-full .row .short .content, .short-full .short .row .content, .short-full .story .short .content, .short-full .short .story .content, .short-full .short .content {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 40, ../../sass/app/short.scss */
+/* line 44, ../../sass/app/short.scss */
 .short-full .row.short-actions, .short-full .short-actions.story, .short-full .short-actions.short {
   cursor: default;
   color: white;
   font-size: 0.8em;
 }
-/* line 47, ../../sass/app/short.scss */
+/* line 51, ../../sass/app/short.scss */
 .short-full .row.short-actions a.comments, .short-full .short-actions.story a.comments, .short-full .short-actions.short a.comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 51, ../../sass/app/short.scss */
+/* line 55, ../../sass/app/short.scss */
 .short-full .row.short-actions a.comments:before, .short-full .short-actions.story a.comments:before, .short-full .short-actions.short a.comments:before {
-  background-position: 0px 4px;
-}
-@media only screen and (min-width: 48em) {
-  /* line 51, ../../sass/app/short.scss */
-  .short-full .row.short-actions a.comments:before, .short-full .short-actions.story a.comments:before, .short-full .short-actions.short a.comments:before {
-    background-position: 0px 3px;
-  }
+  background-position: 0em 0.3em;
 }
 /* line 62, ../../sass/app/short.scss */
 .short-full .row.short-actions .action.new-comment, .short-full .short-actions.story .action.new-comment, .short-full .short-actions.short .action.new-comment {
@@ -1599,7 +1597,7 @@ ul.dropdown h5 a {
   color: white;
 }
 @media only screen and (min-width: 48em) {
-  /* line 40, ../../sass/app/short.scss */
+  /* line 44, ../../sass/app/short.scss */
   .short-full .row.short-actions, .short-full .short-actions.story, .short-full .short-actions.short {
     font-size: 0.9em;
   }

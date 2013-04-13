@@ -6,7 +6,26 @@
   font-size: 0.9em;
 }
 
-textarea.comment {
-  font-size: 0.9em;
-  border: 1px solid #dddddd;
+.comment-form {
+  input.comment {
+    font-size: 0.9em;
+    border: 1px solid #dddddd;
+  }
+
+  .user-comment {
+    @include entry-with-profile(3.3em);
+
+    height: 6em;
+
+    .top-section {
+      height: 6em;
+  
+      input {
+        width: 20em !important;
+        height: 3em;
+        margin-bottom: 0em;
+      }
+    }
+
+  }
 }
