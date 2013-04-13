@@ -28,7 +28,8 @@ $entry-bottom-margin: 0.9em;
   }
 
   .short-comments {
-    display: none;
+    height: 0px;
+    overflow: hidden;
   }
 
   .row {
@@ -90,8 +91,8 @@ $entry-bottom-margin: 0.9em;
         @extend .up-down.open:before;
       }
     }
-    // .short-comments {
-    //   display: inherit;
-    // }
+    .short-comments {
+      height: 100%;
+    }
   }
 }

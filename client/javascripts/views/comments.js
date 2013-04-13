@@ -22,8 +22,6 @@ Template.commentForm.events({
         if (error) {
           Session.set("createError", [error.error, error.reason].join(": "));
         } else {
-          Session.set("lastUpdatedActivityId", activityId)
-          debugger
           template.find("#comment").value = "";
         }
       });

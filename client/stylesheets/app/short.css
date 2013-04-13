@@ -1556,54 +1556,59 @@ ul.dropdown h5 a {
 }
 /* line 30, ../../sass/app/short.scss */
 .short-full .short-comments {
-  display: none;
+  height: 0px;
+  overflow: hidden;
 }
-/* line 35, ../../sass/app/short.scss */
+/* line 36, ../../sass/app/short.scss */
 .short-full .row .columns, .short-full .story .columns, .short-full .short .columns, .short-full .row .story .info, .story .short-full .row .info, .short-full .story .info, .short-full .short .story .info, .story .short-full .short .info, .short-full .row .story .content, .story .short-full .row .content, .short-full .story .content, .short-full .short .story .content, .story .short-full .short .content, .short-full .row .short .info, .short-full .short .row .info, .short-full .story .short .info, .short-full .short .story .info, .short-full .short .info, .short-full .row .short .content, .short-full .short .row .content, .short-full .story .short .content, .short-full .short .story .content, .short-full .short .content {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 39, ../../sass/app/short.scss */
+/* line 40, ../../sass/app/short.scss */
 .short-full .row.short-actions, .short-full .short-actions.story, .short-full .short-actions.short {
   cursor: default;
   color: white;
   font-size: 0.8em;
 }
-/* line 46, ../../sass/app/short.scss */
+/* line 47, ../../sass/app/short.scss */
 .short-full .row.short-actions a.comments, .short-full .short-actions.story a.comments, .short-full .short-actions.short a.comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 50, ../../sass/app/short.scss */
+/* line 51, ../../sass/app/short.scss */
 .short-full .row.short-actions a.comments:before, .short-full .short-actions.story a.comments:before, .short-full .short-actions.short a.comments:before {
   background-position: 0px 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 50, ../../sass/app/short.scss */
+  /* line 51, ../../sass/app/short.scss */
   .short-full .row.short-actions a.comments:before, .short-full .short-actions.story a.comments:before, .short-full .short-actions.short a.comments:before {
     background-position: 0px 3px;
   }
 }
-/* line 61, ../../sass/app/short.scss */
+/* line 62, ../../sass/app/short.scss */
 .short-full .row.short-actions .action.new-comment, .short-full .short-actions.story .action.new-comment, .short-full .short-actions.short .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 65, ../../sass/app/short.scss */
+/* line 66, ../../sass/app/short.scss */
 .short-full .row.short-actions .action.new-comment a, .short-full .short-actions.story .action.new-comment a, .short-full .short-actions.short .action.new-comment a {
   text-indent: -50px;
 }
-/* line 68, ../../sass/app/short.scss */
+/* line 69, ../../sass/app/short.scss */
 .short-full .row.short-actions .action.new-comment a span, .short-full .short-actions.story .action.new-comment a span, .short-full .short-actions.short .action.new-comment a span {
   color: white;
 }
 @media only screen and (min-width: 48em) {
-  /* line 39, ../../sass/app/short.scss */
+  /* line 40, ../../sass/app/short.scss */
   .short-full .row.short-actions, .short-full .short-actions.story, .short-full .short-actions.short {
     font-size: 0.9em;
   }
-  /* line 80, ../../sass/app/short.scss */
+  /* line 81, ../../sass/app/short.scss */
   .short-full .row.short-actions .action.new-comment a, .short-full .short-actions.story .action.new-comment a, .short-full .short-actions.short .action.new-comment a {
     text-indent: -60px;
   }
+}
+/* line 94, ../../sass/app/short.scss */
+.short-full.expanded .short-comments {
+  height: 100%;
 }
