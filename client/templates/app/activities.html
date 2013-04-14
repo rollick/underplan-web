@@ -18,7 +18,9 @@
   </div>
   <div class="row no-side-padding">
     <div class="show-for-small small-12 columns">
-      <div class="activities-map"></div>
+      {{#constant}}
+        <div class="activities-map"></div>
+      {{/constant}}
     </div>
     <div class="small-12 large-5 columns feed">
       {{#if userBelongsToGroup}}
@@ -79,7 +81,9 @@
     <div class="small-12 large-7 columns">
       <div class="row show-for-medium-up">
         <div class="small-12 large-12 columns">
-          <div class="activities-map"></div>
+          {{#constant}}
+            <div class="activities-map"></div>
+          {{/constant}}
         </div>
       </div>
       {{#if group.picasaUsername}}

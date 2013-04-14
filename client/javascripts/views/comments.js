@@ -1,37 +1,48 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Activity comment
 
+var saveComment = function (template) {
+  var btns = $(template.find(".save.button, .cancel.button"));
+  if(btns.hasClass("disabled")) {
+    return false;
+  } else {
+    btns.addClass("disabled");
+  }
+
+  var comment = template.find("form #comment").value;
+  var activityId = template.find("form #activity-id").value;
+  
+  if (activityId && Meteor.userId() && comment.length) {
+    Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
+      if (error) {
+        Session.set("createError", [error.error, error.reason].join(": "));
+      } else {
+        template.find("#comment").value = "";
+      }
+    });
+  } else {
+    Session.set("createError",
+                "It needs a comment");
+  }
+  btns.removeClass("disabled");
+
+  return false;
+};
+
 Template.commentForm.activity = function () {
   return Activities.findOne(getCurrentActivityId());
 };
 
 Template.commentForm.events({
   'click .save': function (event, template) {
-    var btns = $(template.find(".save.button, .cancel.button"));
-    if(btns.hasClass("disabled")) {
-      return false;
-    } else {
-      btns.addClass("disabled");
+    return saveComment(template);
+  },
+  'keydown #comment': function (event, template) {
+    if(event.which === 13) {
+      var result = saveComment(template);
+      event.preventDefault();
+      return result;
     }
-
-    var comment = template.find("form #comment").value;
-    var activityId = template.find("form #activity-id").value;
-    
-    if (activityId && Meteor.userId() && comment.length) {
-      Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
-        if (error) {
-          Session.set("createError", [error.error, error.reason].join(": "));
-        } else {
-          template.find("#comment").value = "";
-        }
-      });
-    } else {
-      Session.set("createError",
-                  "It needs a comment");
-    }
-    btns.removeClass("disabled");
-
-    return false;
   },
   'keyup #comment': function (event, template) {
     var comment = template.find("#comment").value,

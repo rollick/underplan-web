@@ -20,12 +20,14 @@
     .top-section {
       height: 6em;
   
-      input {
-        width: 20em !important;
-        height: 3em;
-        margin-bottom: 0em;
+      .details {
+        padding-left: 3.3em;
+        
+        input {
+          height: 3em;
+          margin-bottom: 0em;
+        }        
       }
     }
-
   }
 }

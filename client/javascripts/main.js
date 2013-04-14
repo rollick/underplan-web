@@ -7,13 +7,15 @@ Meteor.subscribe("directory");
 ///////////////////////////////////////////////////////////////////////////////
 // Templates
 
-feedLimitSkip = 5;
+this.feedLimitSkip   = 5;
+this.defaultMapZoom  = 12;
+this.shortMaxLength  = 250;
 
-appTemplates = function () {
+this.appTemplates = function () {
   return {
-    groupInviteList: "showInviteList", 
-    currentActivity: "showActivity", 
-    storyEditor: "showStoryEditor", 
+    groupInviteList: "showInviteList",
+    currentActivity: "showActivity",
+    storyEditor: "showStoryEditor",
     groupEditor: "showGroupEditor",
     activityMap: "showActivityMap",
     mainHome: "showGroupList",
@@ -21,21 +23,22 @@ appTemplates = function () {
     loginForm: "showLoginForm",
     mainSettings: "showMainSettings"
   };
-}
+};
 
-showTemplate = function (templateName, callback) {
-  var conditions = appTemplates();
-  
-  _.each(_.keys(conditions), function(key) {
-    if(key === templateName) {
+this.showTemplate = function (templateName, callback) {
+  var conditions = this.appTemplates();
+
+  _.each(_.keys(conditions), function (key) {
+    if (key === templateName) {
       Session.set(conditions[key], true);
     } else {
       Session.set(conditions[key], false);
     }
   });
 
-  if(_.isFunction(callback))
+  if (_.isFunction(callback)) {
     callback();
+  }
 };
 
 // var initTemplateChecks = function() {
@@ -85,82 +88,84 @@ Template.page.showMainSettings = function () {
 // Common Functions
 
 // FIXME: move the maps api key to the settings file
-appSettings = function () {
-  return { 
-    mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"
-  }
-}
-
-shortMaxLength = function () {
-  return 250;
+this.appSettings = function () {
+  return {mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"};
 };
 
-getCurrentActivity = function () {
+
+this.getCurrentActivity = function () {
+  var result = null;
+
   if (Session.get("activitySlug")) {
-    activity = Activities.findOne({slug: Session.get("activitySlug")});
-    if (!activity) { // activity hasn't loaded!
-      return null;
-    } else {
-      return activity;      
+    var activity = Activities.findOne({slug: Session.get("activitySlug")});
+
+    if (activity) { // activity hasn't loaded!
+      result = activity;
     }
-  } else {
-    return null;
   }
+  return result;
 };
 
-getCurrentActivityId = function () {
-  activity = getCurrentActivity();
+this.getCurrentActivityId = function () {
+  var activity = getCurrentActivity();
+  var result = null;
 
-  if (!activity) { // activity hasn't loaded!
-    return null;
-  } else {
+  if (activity) { // activity hasn't loaded!
     Session.set("activityId", activity._id);
-    return Session.get("activityId");      
+    result = Session.get("activityId");
   }
+
+  return result;
 };
 
-currentActivityHasPhotos = function () {
-  activity = getCurrentActivity();
+this.currentActivityHasPhotos = function () {
+  var activity = this.getCurrentActivity();
+  var result = false;
 
-  if(activity) {
-    return !!activity.picasaTags && activity.picasaTags.length
-  } else {
-    return false;
+  if (activity) {
+    result = !!activity.picasaTags && activity.picasaTags.length;
   }
+
+  return result;
 };
 
-currentActivityHasMap = function () {
-  activity = getCurrentActivity();
+this.currentActivityHasMap = function () {
+  var activity = this.getCurrentActivity();
+  var result = false;
 
-  if(activity) {
-    return activity.lat && activity.lng
-  } else {
-    return false;
+  if (activity) {
+    result = activity.lat && activity.lng;
   }
+
+  return result;
 };
 
-getCurrentGroup = function () {
+this.getCurrentGroup = function () {
+  var result = null;
+
   if (Session.get("groupId")) {
-    return Groups.findOne(Session.get("groupId"));
-  } else {
-    return null;
+    result = Groups.findOne(Session.get("groupId"));
   }
+
+  return result;
 };
 
-isFollowingGroup = function (userId, groupId) {
+this.isFollowingGroup = function (userId, groupId) {
   var user = Meteor.users.findOne({_id: userId});
+  var result = false;
 
   if (user && user.profile.followedGroups) {
-    return user.profile.followedGroups[groupId];
-  } else {
-    return false
+    result = user.profile.followedGroups[groupId];
   }
+
+  return result;
 };
 
 // Set group follow for current user
-followGroup = function (groupId, state) {
-  if(typeof state === "undefined")
+this.followGroup = function (groupId, state) {
+  if (state === undefined) {
     state = true;
+  }
 
   var currentFollows = Meteor.user().profile.followedGroups || {};
   currentFollows[groupId] = state;
@@ -168,57 +173,60 @@ followGroup = function (groupId, state) {
   Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.followedGroups": currentFollows}});
 };
 
-followCurrentGroup = function (state) {
-  if(typeof state === "undefined")
+this.followCurrentGroup = function (state) {
+  if (state === undefined) {
     state = true;
+  }
 
-  followGroup(getCurrentGroupId(), state);
-}
+  this.followGroup(this.getCurrentGroupId(), state);
+};
 
-getCurrentGroupId = function () {
-  group = getCurrentGroup();
+this.getCurrentGroupId = function () {
+  var group = this.getCurrentGroup();
   return !!group ? group._id : null;
 };
 
-resetGroup = function () {
+this.resetGroup = function () {
   Session.set("groupId", null);
   Session.set("groupSlug", null);
 };
 
-userBelongsToCurrentGroup = function (userId) {
-  group = getCurrentGroup();
+this.userBelongsToCurrentGroup = function (userId) {
+  var group = this.getCurrentGroup();
+  var result;
+
   if (!group) {
-    return false;
+    result = false;
   } else {
-   return userBelongsToGroup(userId, group._id);
+    result = this.userBelongsToGroup(userId, group._id);
   }
+
+  return result;
 };
 
-currentUserBelongsToCurrentGroup = function () {
-  return userBelongsToCurrentGroup(Meteor.userId());
+this.currentUserBelongsToCurrentGroup = function () {
+  return this.userBelongsToCurrentGroup(Meteor.userId());
 };
 
-defaultBack = function () {
-  var group = getCurrentGroup();
-  if(group) {
+this.defaultBack = function () {
+  var group = this.getCurrentGroup();
+  if (group) {
     Router.setGroup(group);
   } else {
     Router.setHome();
   }
 };
 
-autocomplete = null;
+this.autocomplete = null;
 
-geoLocation = function(location, inputId, callback) {
-  if (typeof google == "object" && typeof google.maps == "object") {
-    var lat,
-        lng,
-        result,
-        pac_input = document.getElementById(inputId);
+this.geoLocation = function (location, inputId, callback) {
+  if (typeof google === "object" && typeof google.maps === "object") {
+    var lat, lng, result;
+    var pac_input = document.getElementById(inputId);
 
     autocomplete = new google.maps.places.Autocomplete(pac_input);
 
-    google.maps.event.addListener(autocomplete, 'place_changed', function() {
+    google.maps.event.addListener(autocomplete, 'place_changed', function () {
       var place = autocomplete.getPlace();
 
       if (!place || !place.geometry) {
@@ -266,10 +274,20 @@ geoLocation = function(location, inputId, callback) {
   }
 };
 
-timeout = null;
+this.logRenders = function () {
+  _.each(Template, function (template, name) {
+    var oldRender = template.rendered;
+    var counter = 0;
+
+    template.rendered = function () {
+      console.log(name, "render count: ", ++counter);
+      oldRender && oldRender.apply(this, arguments);
+    };
+  });
+}
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.76");
+  Session.set("appVersion", "v0.9.77");
 
   Backbone.history.start({ pushState: true });
   // initTemplateChecks();

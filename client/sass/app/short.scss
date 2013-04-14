@@ -30,9 +30,10 @@ $entry-bottom-margin: 0.9em;
   .short-comments {
     height: 0px;
     overflow: hidden;
+    padding-left: 1em;
 
     .comment {
-      padding-left: 1em;
+
     }
   }
 

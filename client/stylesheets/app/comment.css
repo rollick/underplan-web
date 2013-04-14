@@ -1275,8 +1275,11 @@ blockquote p {
   height: 6em;
 }
 /* line 23, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section input {
-  width: 20em !important;
+.comment-form .user-comment .top-section .details {
+  padding-left: 3.3em;
+}
+/* line 26, ../../sass/app/comment.scss */
+.comment-form .user-comment .top-section .details input {
   height: 3em;
   margin-bottom: 0em;
 }

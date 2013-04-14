@@ -10,8 +10,11 @@ Template.short.events({
     return false;
   },
   'click .short-actions .new-comment a': function (event, template) {
-    $(template.firstNode).closest(".short-full").addClass("expanded", 500);
-    $("#" + this._id + " form").find("textarea").focus();
+    var self = this;
+    $(template.firstNode).closest(".short-full").
+                          addClass("expanded", 500, function () {
+                            $("#" + self._id + " input#comment").focus();
+                          });
 
     return false;
   }
