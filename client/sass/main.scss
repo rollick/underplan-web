@@ -45,7 +45,7 @@ h2, a {
   min-height: 100%;
   height: auto !important;
   height: 100%;
-  margin: 20px auto -80px; /* the bottom margin is the negative value of the footer's height */
+  margin: 20px auto -50px; /* the bottom margin is the negative value of the footer's height */
   margin-top: 0px;
   box-shadow: none;
 
@@ -79,9 +79,18 @@ h2, a {
 }
 
 footer, .push {
-    height: 80px; /* .push must be the same height as .footer */
-    margin: 0px;
-    padding: 0px;
+  height: 80px; /* .push must be the same height as .footer */
+  margin: 0px;
+  padding: 0px;
+
+  .info {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding: 14px;
+    color: #777;
+    font-size: 0.8em;
+  }
 }
 
 footer.dashboard {
