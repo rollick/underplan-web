@@ -1,13 +1,16 @@
 var trackRoute = function(eventName, properties) {
   if(typeof mixpanel === "object") {
     if(!!Meteor.userId()) {
+      mixpanel.identify(Meteor.userId());
+
       var user = Meteor.user();
-      mixpanel.identify(user._id);
-      mixpanel.name_tag(userEmail(user));
-      mixpanel.people.set({
-        "$name": user.profile.name,
-        "$created": (new Date(user.createdAt)).toUTCString()
-      });
+      if (user) { // FIXME: can't always rely on the user data being present
+        mixpanel.name_tag(userEmail(user));
+        mixpanel.people.set({
+          "$name": user.profile.name,
+          "$created": (new Date(user.createdAt)).toUTCString()
+        });        
+      }
     }
 
     mixpanel.track(eventName, properties);
