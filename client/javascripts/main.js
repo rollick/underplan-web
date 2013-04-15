@@ -287,7 +287,7 @@ this.logRenders = function () {
 }
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.77");
+  Session.set("appVersion", "v0.9.78");
 
   Backbone.history.start({ pushState: true });
   // initTemplateChecks();
