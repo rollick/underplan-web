@@ -48,11 +48,14 @@
   
     display: block;
     height: 20px;
-    border: 1px solid rgb(207, 207, 207);
+    border: 1px solid rgb(184, 180, 180);
     width: 56px;
     padding: 2px 5px 2px 2px;
-    background-color: #3B5998;
-    background-image: -webkit-linear-gradient(top,#f4f4f4,#e4e4e4);
+    background-image: -webkit-linear-gradient(top, rgb(236, 236, 236), rgb(231, 231, 231));;
+
+    &:hover {
+      background-image: -webkit-linear-gradient(top, #fff, #f2f2f2);
+    }
 
     i {
       color: #3B5998;
