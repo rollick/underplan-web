@@ -1,44 +1,5 @@
 @import "settings";
 
-* {
-  margin: 0;
-}
-
-html, body {
-  height: 100%;
-}
-
-body {
-  background-image: url("/images/bg.jpg");
-}
-
-hr {
-  margin: 10px 0;
-}
-
-h1, h2, h3, h4, h5 {
-  font-weight: normal;
-
-  .sub-header {
-    font-size: 0.75em;
-
-    &:before {
-      content: " - ";
-    }
-  }
-}
-
-h2 {
-  margin-bottom: 0.2em;
-}
-
-h2, a {
-  span.warning {
-    font-size: 0.7em;
-    color: $alert-color;
-  }
-}
-
 .row.main-content {
   border-bottom: 3px solid green;
   padding: 0px;
@@ -76,38 +37,6 @@ h2, a {
       // padding: 10px;
     }
   }
-}
-
-footer, .push {
-  height: 80px; /* .push must be the same height as .footer */
-  margin: 0px;
-  padding: 0px;
-
-  .info {
-    width: 100%;
-    display: inline-block;
-    text-align: center;
-    padding: 14px;
-    color: #777;
-    font-size: 0.8em;
-  }
-}
-
-footer.dashboard {
-  font-color: white;
-  
-  .row:first-of-type {
-    border-top: 2px solid #2b2b2b;
-  }
-
-  p {
-    color: #fff;
-  }
-}
-
-footer p,
-footer a {
-    margin-top: 10px;
 }
 
 .no-side-padding {

@@ -287,12 +287,16 @@ this.logRenders = function () {
 }
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.78");
+  Session.set("appVersion", "v0.9.79");
 
+  // Routing
   Backbone.history.start({ pushState: true });
-  // initTemplateChecks();
 
+  // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
+
+  // Foundation js loader
+  $(document).foundation();
 
   Meteor.autorun(function () {
     // if (! Session.get("groupName")) {  

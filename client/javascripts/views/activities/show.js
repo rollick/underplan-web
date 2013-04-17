@@ -63,7 +63,7 @@ Template.currentActivity.anyActivities = function () {
 
 Template.currentActivity.textPreview = function () {
   var text = getCurrentActivity().text;
-  var limit = 160;
+  var limit = 240;
 
   var preview = text.substring(0, limit);
   if(text.length > limit)
@@ -96,6 +96,36 @@ Template.currentActivity.canRemove = function () {
 Template.currentActivity.canEdit = function () {
   return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
 };
+
+Template.currentActivity.facebookShareUrl = function () {
+  if(Session.get("groupId") && Session.get("activityId")) {
+    var activity = Activities.findOne(Session.get("activityId"));
+    var group = Groups.findOne(Session.get("groupId"));
+
+    if(activity && group) {
+      var activityUrl = Meteor.absoluteUrl() + [group.slug, activity.slug].join("/");
+      var link = "https://www.facebook.com/dialog/feed?app_id=:appId&link=:activityUrl&name=:activityTitle&description=:activityPreview&redirect_uri=:activityUrl";
+
+      link = link.replace(/:appId/, Meteor.settings.public.fbAppId).
+           replace(/:activityUrl/g, encodeURIComponent(activityUrl)).
+           replace(/:activityTitle/g, encodeURIComponent(activity.title)).
+           replace(/:activityPreview/g, encodeURIComponent(Template.currentActivity.textPreview()));
+
+      var imageUrl = Session.get("activityImageUrl");
+      if (!!imageUrl) {
+        link += "&picture=" + encodeURIComponent(imageUrl);
+      }
+
+      if (!!activity.country && !!activity.city) {
+        link += "&caption=" + encodeURIComponent(activity.city + ", " + activity.country);
+      }
+
+      return link;
+    }
+  }
+
+  return "#";
+}
 
 Template.currentActivity.rendered = function() {
   var group = getCurrentGroup();
@@ -140,6 +170,10 @@ Template.currentActivity.rendered = function() {
       var index = 0;
 
       $.each(images, function(i, element) {
+        if (!index) {
+          Session.set("activityImageUrl", element.url);
+        }
+
         photos.push({
           url: element.url, 
           thumbUrl: element.thumbs[0].url,
@@ -165,15 +199,4 @@ Template.currentActivity.rendered = function() {
     po.src = 'https://apis.google.com/js/plusone.js';
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
-
-  ///////////////////////
-  // Share this on Facebook
-  // <div id="fb-root"></div>
-  // <script>(function(d, s, id) {
-  //   var js, fjs = d.getElementsByTagName(s)[0];
-  //   if (d.getElementById(id)) return;
-  //   js = d.createElement(s); js.id = id;
-  //   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=618066764874981";
-  //   fjs.parentNode.insertBefore(js, fjs);
-  // }(document, 'script', 'facebook-jssdk'));</script>
 };

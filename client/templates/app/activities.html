@@ -107,7 +107,6 @@
         <div class="row header">
           <div class="small-10 large-10 columns">
             <h2 itemprop="name">{{title}}</h2>
-            {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}
           </div>
           <div class="actions small-2 large-2 columns">
             {{#if canEdit}}
@@ -126,6 +125,7 @@
             <div class="activity-map hide-for-small"></div>
             {{/if}}
             <div class="text">
+              {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
               {{#markdown}}{{text}}{{/markdown}}
             </div>
             <cite>{{creatorName}} - {{date created}}</cite>
@@ -135,15 +135,25 @@
         {{#if hasPhotos}}
           <div class="row">
             <div class="small-12 large-12 columns">
-              <div class="activity-photos"></div>
+              {{#constant}}
+                <div class="activity-photos"></div>
+              {{/constant}}
             </div>
           </div>
         {{/if}}
-        <div class="share-links">
-          <div class="g-plus" data-action="share" data-annotation="none"></div>
-          <div id="fb-root"></div><div class="fb-like" data-send="false" data-layout="button_count" data-width="450" data-show-faces="false" data-font="arial"></div>
-        </div>
-        
+        {{#if published}}
+          <div class="share-links">
+            <div class="g-plus" data-action="share" data-annotation="none"></div>
+            <div class="fb-share">
+              <a href="{{facebookShareUrl}}" target="_blank">
+                <i class="foundicon-social-facebook">
+                  <p>Share</p>
+                </i>
+              </a>
+            </div>
+          </div>
+        {{/if}}
+
         <hr>
 
         <div class="row activity-controls">

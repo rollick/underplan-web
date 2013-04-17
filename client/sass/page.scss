@@ -1,0 +1,80 @@
+@import "settings";
+
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(240, 240, 240);
+}
+
+hr {
+  margin: 10px 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+
+  .sub-header {
+    font-size: 0.75em;
+
+    &:before {
+      content: " - ";
+    }
+  }
+}
+
+h2 {
+  margin-bottom: 0.2em;
+}
+
+span.warning {
+  color: $alert-color;
+}
+
+h2, a {
+  span.warning {
+    @extend span.warning;
+
+    font-size: 0.7em;
+  }
+}
+
+footer, .push {
+  height: 80px; /* .push must be the same height as .footer */
+  margin: 0px;
+  padding: 0px;
+
+  .info {
+    width: 100%;
+    display: inline-block;
+    text-align: center;
+    padding-top: 1.2em;
+    font-size: 1em;
+    // font-weight: bold;
+    // text-shadow: 0px 1px 2px #6f6f6f;
+    color: rgb(185, 185, 185);
+    font-family: 'helvetica';
+  }
+}
+
+footer.dashboard {
+  font-color: white;
+  
+  .row:first-of-type {
+    border-top: 2px solid #2b2b2b;
+  }
+
+  p {
+    color: #fff;
+  }
+}
+
+footer p,
+footer a {
+    margin-top: 10px;
+}

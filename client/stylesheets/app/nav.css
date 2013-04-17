@@ -1,43 +1,43 @@
-/* line 3, ../../sass/app/nav.scss */
-.logo {
+/* line 4, ../../sass/app/nav.scss */
+.nav .logo {
   float: left;
   width: 45px;
   height: 45px;
   background-color: green;
 }
-/* line 9, ../../sass/app/nav.scss */
-.logo a {
+/* line 10, ../../sass/app/nav.scss */
+.nav .logo a {
   font-size: 1.8em;
   color: white !important;
   display: block;
   padding: 7px 12px;
 }
 
-/* line 17, ../../sass/app/nav.scss */
+/* line 19, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
 }
-/* line 21, ../../sass/app/nav.scss */
+/* line 23, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: rgba(255, 255, 255, 0.3);
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 21, ../../sass/app/nav.scss */
+  /* line 23, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
   }
 }
-/* line 31, ../../sass/app/nav.scss */
+/* line 33, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
-/* line 38, ../../sass/app/nav.scss */
+/* line 40, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 42, ../../sass/app/nav.scss */
+/* line 44, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 28px;
   padding: 2px;
@@ -46,24 +46,24 @@
   margin-top: -4px;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 51, ../../sass/app/nav.scss */
+  /* line 53, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 55, ../../sass/app/nav.scss */
+  /* line 57, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
 
-/* line 64, ../../sass/app/nav.scss */
+/* line 66, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
   background-color: #009700;
 }
 
-/* line 69, ../../sass/app/nav.scss */
+/* line 71, ../../sass/app/nav.scss */
 li.text {
   color: #c4c4c4;
   padding: 10px;
@@ -71,23 +71,23 @@ li.text {
   cursor: default;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 69, ../../sass/app/nav.scss */
+  /* line 71, ../../sass/app/nav.scss */
   li.text {
     color: #919191;
     background-color: #111111;
   }
 }
 
-/* line 82, ../../sass/app/nav.scss */
+/* line 84, ../../sass/app/nav.scss */
 li.login-services {
   height: 40px;
 }
-/* line 85, ../../sass/app/nav.scss */
+/* line 87, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 90, ../../sass/app/nav.scss */
+/* line 92, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -95,7 +95,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 98, ../../sass/app/nav.scss */
+/* line 100, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

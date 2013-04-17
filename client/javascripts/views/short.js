@@ -60,11 +60,13 @@ var toggleComments = function(template) {
 // Short Form
 
 var clearHiddenLocationFields = function(template) {
-  template.find("#lat").value =
-  template.find("#lng").value =
-  template.find("#city").value =
-  template.find("#country").value =
+  template.find("#lat").value = "";
+  template.find("#lng").value = "";
+  template.find("#city").value = "";
+  template.find("#country").value = "";
   template.find("#region").value = "";
+  
+  template.find(".location-coords").innerHTML = "";
 };
 
 var clearForm = function(template) {
@@ -108,6 +110,11 @@ Template.shortForm.events({
   'keyup #location': function (event, template) {
     var locationElem = $(template.find("#location"))
     var location = locationElem.val();
+
+    if (location.length === 0) {
+      clearHiddenLocationFields(template);
+      return false;
+    }
 
     if (event.keyCode === 13) {
       google.maps.event.trigger(autocomplete, 'place_changed');

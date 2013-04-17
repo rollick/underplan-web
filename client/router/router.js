@@ -118,6 +118,7 @@ var AppRouter = Backbone.Router.extend({
   activity: function(groupSlug, activitySlug) {
     Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", activitySlug);
+    Session.set("activityImageUrl", null);
     showTemplate("currentActivity");
     jumpToTop();
   },

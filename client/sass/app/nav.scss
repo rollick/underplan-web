@@ -1,16 +1,18 @@
 @import "../_settings";
 
-.logo {
-  float: left;
-  width: 45px;
-  height: 45px;
-  background-color: green;
+.nav {
+  .logo {
+    float: left;
+    width: 45px;
+    height: 45px;
+    background-color: green;
 
-  a {
-    font-size: 1.8em;
-    color: white !important;
-    display: block;
-    padding: 7px 12px;
+    a {
+      font-size: 1.8em;
+      color: white !important;
+      display: block;
+      padding: 7px 12px;
+    }
   }
 }
 

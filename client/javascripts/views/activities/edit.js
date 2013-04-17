@@ -1,6 +1,16 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Activity editor
 
+var clearHiddenLocationFields = function(template) {
+  template.find("#lat").value = "";
+  template.find("#lng").value = "";
+  template.find("#city").value = "";
+  template.find("#country").value = "";
+  template.find("#region").value = "";
+
+  template.find("#location-coords").innerHTML = "";
+};
+
 Template.storyEditor.activity = function () {
   return Activities.findOne(getCurrentActivityId());
 };
@@ -17,6 +27,11 @@ Template.storyEditor.events({
   'keyup #location': function (event, template) {
     var locationElem = $(template.find("#location"))
     var location = locationElem.val();
+
+    if (location.length === 0) {
+      clearHiddenLocationFields(template);
+      return false;
+    }
 
     if (event.keyCode === 13) {
       google.maps.event.trigger(autocomplete, 'place_changed');
@@ -41,13 +56,9 @@ Template.storyEditor.events({
 
           template.find("#location-coords").innerHTML = Math.round(geo.lat*10000)/10000 + ", " + Math.round(geo.lng*10000)/10000 + " (" + geo.address + ")";
         } else {
-          template.find("#lat").value = 
-          template.find("#lng").value = 
-          template.find("#city").value = 
-          template.find("#region").value = 
-          template.find("#country").value = "";
+          clearHiddenLocationFields(template);
 
-          template.find("#location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
+          template.find("#location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");        
         }
       });
     }
