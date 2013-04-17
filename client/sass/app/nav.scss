@@ -25,7 +25,7 @@
       padding-right: 4px;
       color: rgba(255, 255, 255, 0.3);
 
-      @media only screen and (min-width: 58.75em) {
+      @media only screen and (min-width: 48em) {
         line-height: 42px;
       }
     }
@@ -36,6 +36,12 @@
   }
 
   li.settings {
+    @media only screen and (min-width: 58.75em) {
+      ul.dropdown li a { 
+        padding: 15px !important;
+      }
+    }
+
     a {
       span {
         padding-left: 34px;
@@ -75,7 +81,7 @@ li.text {
   cursor: default;
   // font-style: italic;
 
-  @media only screen and (min-width: 58.75em) {
+  @media only screen and (min-width: 48em) {
     color: lighten($topbar-bg, 50%);
     background-color: $topbar-bg;
   }

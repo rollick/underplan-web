@@ -47,37 +47,43 @@ h2 span.warning, h2 span.warning, h2 a span.warning, a h2 span.warning, a span.w
 }
 
 /* line 47, ../sass/page.scss */
-footer, .push {
-  height: 80px;
-  /* .push must be the same height as .footer */
+.push {
+  height: 50px;
   margin: 0px;
   padding: 0px;
 }
-/* line 52, ../sass/page.scss */
-footer .info, .push .info {
+
+/* line 53, ../sass/page.scss */
+footer {
+  height: 50px;
+  margin: 0px;
+  padding: 0px;
+}
+/* line 58, ../sass/page.scss */
+footer .info {
   width: 100%;
   display: inline-block;
   text-align: center;
-  padding-top: 1.2em;
-  font-size: 1em;
+  padding-top: 2.8em;
+  font-size: 0.7em;
   color: #b9b9b9;
   font-family: 'helvetica';
 }
 
-/* line 65, ../sass/page.scss */
+/* line 71, ../sass/page.scss */
 footer.dashboard {
   font-color: white;
 }
-/* line 68, ../sass/page.scss */
+/* line 74, ../sass/page.scss */
 footer.dashboard .row:first-of-type {
   border-top: 2px solid #2b2b2b;
 }
-/* line 72, ../sass/page.scss */
+/* line 78, ../sass/page.scss */
 footer.dashboard p {
   color: #fff;
 }
 
-/* line 78, ../sass/page.scss */
+/* line 84, ../sass/page.scss */
 footer p,
 footer a {
   margin-top: 10px;
