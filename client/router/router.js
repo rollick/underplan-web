@@ -73,15 +73,13 @@ var AppRouter = Backbone.Router.extend({
   main: function() {
     resetGroup();
     showTemplate("mainHome");
-    jumpToTop();
+    this.jumpToTop();
   },
 
   group: function(groupSlug) {
-    Session.set("groupSlug", groupSlug);
-    Session.set("feedFilter", {});
-    Session.set("feedLimit", feedLimitSkip);
+    this.setGroupDefaults(groupSlug);
     showTemplate("activityMap");
-    jumpToTop();
+    this.jumpToTop();
   },
 
   mainSettings: function() {
@@ -95,12 +93,12 @@ var AppRouter = Backbone.Router.extend({
 
   newGroup: function() {
     showTemplate("groupEditor");
-    jumpToTop();
+    this.jumpToTop();
   },
 
   userSettings: function() {
     showTemplate("userSettings");
-    jumpToTop();
+    this.jumpToTop();
   },
 
   groupMembership: function(groupSlug) {
@@ -112,22 +110,24 @@ var AppRouter = Backbone.Router.extend({
     Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", null);
     showTemplate("storyEditor");
-    jumpToTop();
+    this.jumpToTop();
   },
 
   activity: function(groupSlug, activitySlug) {
+    var slugParts = activitySlug.split("?");
+
     Session.set("groupSlug", groupSlug);
-    Session.set("activitySlug", activitySlug);
+    Session.set("activitySlug", slugParts[0]);
     Session.set("activityImageUrl", null);
     showTemplate("currentActivity");
-    jumpToTop();
+    this.jumpToTop();
   },
 
   editActivity: function(groupSlug, activitySlug) {
     Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", activitySlug);
     showTemplate("storyEditor");
-    jumpToTop();
+    this.jumpToTop();
   },
 
   setHome: function() {
@@ -185,10 +185,15 @@ var AppRouter = Backbone.Router.extend({
     this.navigate(group.slug + "/new", true)
   },
 
-});
+  setGroupDefaults: function (groupSlug) {
+    Session.set("groupSlug", groupSlug);
+    Session.set("feedFilter", {});
+    Session.set("feedLimit", feedLimitSkip);
+  },
 
-var jumpToTop = function() {
-  $('html,body').scrollTop(0);
-}
+  jumpToTop: function() {
+    $('html,body').scrollTop(0);
+  }
+});
 
 Router = new AppRouter();
