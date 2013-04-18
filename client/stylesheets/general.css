@@ -1,0 +1,137 @@
+/* line 3, ../sass/general.scss */
+.no-side-padding {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
+/* line 8, ../sass/general.scss */
+.bordered {
+  border: 1px solid #e7e4e4;
+  padding: 2px;
+}
+
+/* line 13, ../sass/general.scss */
+.normal {
+  padding-bottom: 15px;
+  background: #fff;
+  background: white;
+  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
+}
+
+/* line 20, ../sass/general.scss */
+.input-subtext {
+  margin-top: -10px;
+  font-style: italic;
+  margin-bottom: 10px;
+  padding: 0px;
+  color: #9f9f9f;
+  font-size: 0.8em;
+  min-height: 1px;
+}
+
+/* line 30, ../sass/general.scss */
+.actions {
+  display: block;
+  line-height: 32px;
+  padding-top: 18px;
+}
+/* line 35, ../sass/general.scss */
+.actions a {
+  float: right;
+}
+/* line 39, ../sass/general.scss */
+.actions i:hover {
+  color: green;
+  cursor: pointer;
+}
+
+/* line 45, ../sass/general.scss */
+.clearing-thumbs img {
+  height: 90px;
+  width: 90px;
+}
+
+/* line 53, ../sass/general.scss */
+.alert-box {
+  margin-top: 8px;
+  text-align: center;
+  font-weight: normal !important;
+}
+/* line 58, ../sass/general.scss */
+.alert-box a.close {
+  position: relative;
+  padding: 10px;
+  color: white;
+}
+
+/* line 68, ../sass/general.scss */
+.button {
+  font-weight: normal;
+}
+
+/* line 72, ../sass/general.scss */
+.clearing-assembled {
+  padding-bottom: 10px !important;
+}
+@media only screen and (min-width: 48em) {
+  /* line 72, ../sass/general.scss */
+  .clearing-assembled {
+    padding-bottom: 0px !important;
+  }
+}
+/* line 79, ../sass/general.scss */
+.clearing-assembled .clearing-caption {
+  background-color: rgba(17, 17, 17, 0.6);
+  padding-bottom: 30px !important;
+}
+@media only screen and (min-width: 48em) {
+  /* line 79, ../sass/general.scss */
+  .clearing-assembled .clearing-caption {
+    padding-bottom: 10px !important;
+  }
+}
+
+/* line 89, ../sass/general.scss */
+.custom.checkbox {
+  border-color: black !important;
+}
+/* line 92, ../sass/general.scss */
+.custom.checkbox.checked::before {
+  color: black !important;
+  font-weight: bold !important;
+  padding-left: 1px;
+  padding-top: 1px;
+}
+
+/* line 100, ../sass/general.scss */
+blockquote {
+  margin: 10px 10px 0px 10px;
+}
+/* line 103, ../sass/general.scss */
+blockquote.disabled {
+  opacity: 0.6;
+}
+/* line 107, ../sass/general.scss */
+blockquote p:last-of-type {
+  margin-bottom: 10px;
+}
+/* line 111, ../sass/general.scss */
+blockquote cite {
+  padding-bottom: 10px;
+}
+
+/* line 116, ../sass/general.scss */
+form fieldset legend {
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+/* line 121, ../sass/general.scss */
+ul.dropdown h5 a {
+  color: white;
+}
+
+/* line 125, ../sass/general.scss */
+.carousel {
+  margin: 0 6px;
+}

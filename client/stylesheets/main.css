@@ -1,4 +1,59 @@
 /* line 3, ../sass/main.scss */
+* {
+  margin: 0;
+}
+
+/* line 7, ../sass/main.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 11, ../sass/main.scss */
+body {
+  background-color: #f0f0f0;
+}
+
+/* line 15, ../sass/main.scss */
+hr {
+  margin: 10px 0;
+}
+
+/* line 19, ../sass/main.scss */
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+}
+/* line 22, ../sass/main.scss */
+h1 .sub-header, h2 .sub-header, h3 .sub-header, h4 .sub-header, h5 .sub-header {
+  font-size: 0.75em;
+}
+/* line 25, ../sass/main.scss */
+h1 .sub-header:before, h2 .sub-header:before, h3 .sub-header:before, h4 .sub-header:before, h5 .sub-header:before {
+  content: " - ";
+}
+
+/* line 31, ../sass/main.scss */
+h2 {
+  margin-bottom: 0.2em;
+}
+
+/* line 35, ../sass/main.scss */
+span.warning, h2 span.warning, a span.warning {
+  color: #c60f13;
+}
+
+/* line 40, ../sass/main.scss */
+h2 span.warning, h2 span.warning, h2 a span.warning, a h2 span.warning, a span.warning, a h2 span.warning, h2 a span.warning, a span.warning {
+  font-size: 0.7em;
+}
+
+/* line 47, ../sass/main.scss */
+.push {
+  height: 40px;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 53, ../sass/main.scss */
 .row.main-content {
   border-bottom: 3px solid green;
   padding: 0px;
@@ -10,176 +65,71 @@
   margin-top: 0px;
   box-shadow: none;
 }
-/* line 13, ../sass/main.scss */
+/* line 63, ../sass/main.scss */
 .row.main-content.normal {
   padding-top: 5px;
   margin-top: 0px;
 }
-/* line 26, ../sass/main.scss */
+/* line 76, ../sass/main.scss */
 .row.main-content.dashboard {
   background: url("/images/sun3.jpg") 0 0 no-repeat;
   background-color: black;
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 33, ../sass/main.scss */
+  /* line 83, ../sass/main.scss */
   .row.main-content {
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
   }
 }
-/* line 42, ../sass/main.scss */
-.no-side-padding {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
-
-/* line 47, ../sass/main.scss */
-.bordered {
-  border: 1px solid #e7e4e4;
-  padding: 2px;
-}
-
-/* line 52, ../sass/main.scss */
-.normal {
-  padding-bottom: 15px;
-  background: #fff;
-  background: white;
-  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* line 59, ../sass/main.scss */
-.input-subtext {
-  margin-top: -10px;
-  font-style: italic;
-  margin-bottom: 10px;
+/* line 92, ../sass/main.scss */
+footer {
+  height: 40px;
+  margin: 0px;
   padding: 0px;
-  color: #9f9f9f;
-  font-size: 0.8em;
-  min-height: 1px;
 }
-
-/* line 69, ../sass/main.scss */
-.actions {
-  display: block;
-  line-height: 32px;
-  padding-top: 18px;
-}
-/* line 74, ../sass/main.scss */
-.actions a {
-  float: right;
-}
-/* line 78, ../sass/main.scss */
-.actions i:hover {
-  color: green;
-  cursor: pointer;
-}
-
-/* line 84, ../sass/main.scss */
-.top-bar .name h1 a {
-  font-weight: normal;
-  padding: 0 5px;
-  font-size: 1.3em;
-}
-
-/* line 91, ../sass/main.scss */
-.top-bar-section ul li > a,
-.top-bar .toggle-topbar.menu-icon a span {
-  font-weight: normal !important;
-}
-
-/* line 95, ../sass/main.scss */
-.title-area h1 {
-  color: white;
-  padding: 0 10px 0 10px;
-}
-
-/* line 100, ../sass/main.scss */
-.clearing-thumbs img {
-  height: 90px;
-  width: 90px;
-}
-
-/* line 108, ../sass/main.scss */
-.alert-box {
-  margin-top: 8px;
-  text-align: center;
-  font-weight: normal !important;
-}
-/* line 113, ../sass/main.scss */
-.alert-box a.close {
+/* line 97, ../sass/main.scss */
+footer .info {
+  margin: 5px;
+  padding: 10px !important;
+  width: 100%;
   position: relative;
-  padding: 10px;
-  color: white;
+  text-align: center;
+  font-size: 0.7em;
+  color: #b9b9b9;
+  font-family: 'helvetica';
+  min-height: 5px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+  _height: 5px;
 }
-
-/* line 123, ../sass/main.scss */
-.button {
-  font-weight: normal;
+/* line 117, ../sass/main.scss */
+footer .info > div {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin-bottom: 5px;
 }
 
 /* line 127, ../sass/main.scss */
-.clearing-assembled {
-  padding-bottom: 10px !important;
+footer.dashboard {
+  font-color: white;
 }
-@media only screen and (min-width: 48em) {
-  /* line 127, ../sass/main.scss */
-  .clearing-assembled {
-    padding-bottom: 0px !important;
-  }
+/* line 130, ../sass/main.scss */
+footer.dashboard .row:first-of-type {
+  border-top: 2px solid #2b2b2b;
 }
 /* line 134, ../sass/main.scss */
-.clearing-assembled .clearing-caption {
-  background-color: rgba(17, 17, 17, 0.6);
-  padding-bottom: 30px !important;
-}
-@media only screen and (min-width: 48em) {
-  /* line 134, ../sass/main.scss */
-  .clearing-assembled .clearing-caption {
-    padding-bottom: 10px !important;
-  }
+footer.dashboard p {
+  color: #fff;
 }
 
-/* line 144, ../sass/main.scss */
-.custom.checkbox {
-  border-color: black !important;
-}
-/* line 147, ../sass/main.scss */
-.custom.checkbox.checked::before {
-  color: black !important;
-  font-weight: bold !important;
-  padding-left: 1px;
-  padding-top: 1px;
-}
-
-/* line 155, ../sass/main.scss */
-blockquote {
-  margin: 10px 10px 0px 10px;
-}
-/* line 158, ../sass/main.scss */
-blockquote.disabled {
-  opacity: 0.6;
-}
-/* line 162, ../sass/main.scss */
-blockquote p:last-of-type {
-  margin-bottom: 10px;
-}
-/* line 166, ../sass/main.scss */
-blockquote cite {
-  padding-bottom: 10px;
-}
-
-/* line 171, ../sass/main.scss */
-form fieldset legend {
-  margin-bottom: 10px;
-  font-weight: normal;
-}
-
-/* line 176, ../sass/main.scss */
-ul.dropdown h5 a {
-  color: white;
-}
-
-/* line 180, ../sass/main.scss */
-.carousel {
-  margin: 0 6px;
+/* line 140, ../sass/main.scss */
+footer p,
+footer a {
+  margin-top: 10px;
 }

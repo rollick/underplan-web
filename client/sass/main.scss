@@ -1,5 +1,55 @@
 @import "settings";
 
+* {
+  margin: 0;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  background-color: rgb(240, 240, 240);
+}
+
+hr {
+  margin: 10px 0;
+}
+
+h1, h2, h3, h4, h5 {
+  font-weight: normal;
+
+  .sub-header {
+    font-size: 0.75em;
+
+    &:before {
+      content: " - ";
+    }
+  }
+}
+
+h2 {
+  margin-bottom: 0.2em;
+}
+
+span.warning {
+  color: $alert-color;
+}
+
+h2, a {
+  span.warning {
+    @extend span.warning;
+
+    font-size: 0.7em;
+  }
+}
+
+.push {
+  height: 40px;
+  margin: 0px;
+  padding: 0px;
+}
+
 .row.main-content {
   border-bottom: 3px solid green;
   padding: 0px;
@@ -39,176 +89,54 @@
   }
 }
 
-.no-side-padding {
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-}
+footer {
+  height: 40px;
+  margin: 0px;
+  padding: 0px;
 
-.bordered {
-    border: 1px solid rgb(231, 228, 228);
-    padding: 2px;
-}
-
-.normal {
-    padding-bottom: 15px;
-    background: #fff; 
-    background: rgba(255, 255, 255, 1); 
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
-}
-
-.input-subtext {
-    margin-top: -10px;
-    font-style: italic;
-    margin-bottom: 10px;
-    padding: 0px;
-    color: #9f9f9f;
-    font-size: 0.8em;
-    min-height: 1px;
-}
-
-.actions {
-  display: block;
-  line-height: 32px;
-  padding-top: 18px;
-  
-  a {
-    float: right;
-  }
-
-  i:hover {
-    color: green;
-    cursor: pointer;
-  }
-}
-
-.top-bar .name h1 a {
-  font-weight: normal;
-  padding: 0 5px;
-  font-size: 1.3em;
-}
-
-.top-bar-section ul li > a,
-.top-bar .toggle-topbar.menu-icon a span {
-  font-weight: normal !important;
-}
-
-.title-area h1 {
-  color: white;
-  padding: 0 10px 0 10px;
-}
-
-.clearing-thumbs img {
-  height: 90px;
-  width: 90px;
-}
-
-///////////////////////////////////////////////////////////////////////////////
-// Foundation Overrides
-
-.alert-box {
-  margin-top: 8px;
-  text-align: center;
-  font-weight: normal !important;
-  
-  a.close {
+  .info {
+    margin: 5px;
+    padding: 10px !important;
+    width: 100%;
     position: relative;
-    padding: 10px;
-    color: white;
-  }
+    text-align: center;
+    font-size: 0.7em;
+    // font-weight: bold;
+    // text-shadow: 0px 1px 2px #6f6f6f;
+    color: rgb(185, 185, 185);
+    font-family: 'helvetica';
 
-  &.secondary {
-  }
-}
+    min-height: 5px;
+    display: -moz-inline-stack;
+    display: inline-block;
+    vertical-align: top;
+    zoom: 1;
+    *display: inline;
+    _height: 5px;
 
-.button {
-  font-weight: normal;
-}
-
-.clearing-assembled {
-  padding-bottom: 10px !important;
-
-  @media only screen and (min-width: 48em) {
-    padding-bottom: 0px !important;
-  }
-  
-  .clearing-caption {
-    background-color: rgba(17, 17, 17, 0.6);
-    padding-bottom: 30px !important;
-
-    @media only screen and (min-width: 48em) {
-      padding-bottom: 10px !important;
+    & > div {
+      width: 100%;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      margin-bottom: 5px;
     }
   }
 }
 
-.custom.checkbox {
-  border-color: black !important;
+footer.dashboard {
+  font-color: white;
+  
+  .row:first-of-type {
+    border-top: 2px solid #2b2b2b;
+  }
 
-  &.checked::before {
-    color: rgb(0, 0, 0) !important;
-    font-weight: bold !important;
-    padding-left: 1px;
-    padding-top: 1px
+  p {
+    color: #fff;
   }
 }
 
-blockquote {
-  margin: 10px 10px 0px 10px;
-
-  &.disabled {
-    opacity: 0.6;
-  }
-
-  p:last-of-type {
-    margin-bottom: 10px;
-  }
-
-  cite {
-    padding-bottom: 10px;
-  }
-}
-
-form fieldset legend {
-  margin-bottom: 10px;
-  font-weight: normal;
-}
-
-ul.dropdown h5 a {
-  color: white;
-}
-
-.carousel {
-  margin: 0 6px;
-}
-
-@mixin arrow($size: 10px) {
-  margin: 5px;
-  height: 0;
-  width: 0;    
-  display: inline-block;
-  zoom: 1;
-
-  &.right {
-      border-left: $size solid white;
-      border-top: $size solid transparent;
-      border-bottom: $size solid transparent;    
-  }
-
-  &.left {
-      border-right: $size solid white;
-      border-top: $size solid transparent;
-      border-bottom: $size solid transparent;    
-  }
-
-  &.down {
-      border-top: $size solid white;
-      border-left: $size solid transparent;
-      border-right: $size solid transparent;    
-  }
-
-  &.up {
-      border-bottom: $size solid white;
-      border-left: $size solid transparent;
-      border-right: $size solid transparent;    
-  }
+footer p,
+footer a {
+    margin-top: 10px;
 }

@@ -16,8 +16,24 @@
   }
 }
 
+.top-bar-section ul li > a,
+.top-bar .toggle-topbar.menu-icon a span {
+  font-weight: normal !important;
+}
+
+.title-area h1 {
+  color: white;
+  padding: 0 10px 0 10px;
+}
+
 .top-bar {
   margin: 0px 0px 0px 45px !important;
+
+  .name h1 a {
+    font-weight: normal !important;
+    padding: 0 5px;
+    font-size: 1.3em;
+  }
 
   li.follow-group a {
     &:before {

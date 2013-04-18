@@ -117,3 +117,35 @@
     }
   }
 }
+
+@mixin arrow($size: 10px) {
+  margin: 5px;
+  height: 0;
+  width: 0;    
+  display: inline-block;
+  zoom: 1;
+
+  &.right {
+      border-left: $size solid white;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;    
+  }
+
+  &.left {
+      border-right: $size solid white;
+      border-top: $size solid transparent;
+      border-bottom: $size solid transparent;    
+  }
+
+  &.down {
+      border-top: $size solid white;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;    
+  }
+
+  &.up {
+      border-bottom: $size solid white;
+      border-left: $size solid transparent;
+      border-right: $size solid transparent;    
+  }
+}
