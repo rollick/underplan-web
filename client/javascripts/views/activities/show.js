@@ -169,7 +169,7 @@ Template.currentActivity.rendered = function() {
 
   ///////////////////////
   // Picasa Image (WIP)
-  var options = {gridLarge: 10, gridSmall: 4};
+  var options = {gridLarge: 10, gridSmall: 4, element: ".activity-photos"};
 
   if(group && group.picasaUsername.length && currentActivityHasPhotos()) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, activity.picasaKey, activity.picasaTags, function(images) {
@@ -177,23 +177,21 @@ Template.currentActivity.rendered = function() {
       var index = 0;
 
       $.each(images, function(i, element) {
+        var version = element.versions[0];
         if (!index) {
-          Session.set("activityImageUrl", element.url);
+          Session.set("activityImageUrl", version.url);
         }
 
         photos.push({
-          url: element.url, 
+          url: version.url, 
           thumbUrl: element.thumbs[0].url,
           caption: element.title
         });
 
         index += 1;
       });
-      
-      $(".activity-photos").html(Template.picasaGallery($.extend({photos: photos}, options)));
 
-      // FIXME: implement new clearing code
-      $(".activity-photos").foundation("clearing");
+      renderPicasaPhotos(photos, options);
     });
   }
 

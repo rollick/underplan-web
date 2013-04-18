@@ -38,7 +38,8 @@
       $.getJSON(url, function(data) {
         if(data.feed.entry) {
           $.each(data.feed.entry, function(i, element) {
-            image = element["media$group"]["media$content"][0];
+            image = {};
+            image.versions = element["media$group"]["media$content"];
             image.title = element.title["$t"];
             image.thumbs = [];
             $.each(element["media$group"]["media$thumbnail"], function(j, j_element) {

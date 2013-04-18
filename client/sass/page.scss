@@ -56,6 +56,7 @@ footer {
   padding: 0px;
 
   .info {
+    margin: 5px;
     padding: 10px !important;
     width: 100%;
     position: relative;
@@ -74,11 +75,12 @@ footer {
     *display: inline;
     _height: 5px;
 
-    span {
+    & > div {
       width: 100%;
       position: absolute;
       bottom: 0;
       left: 0;
+      margin-bottom: 5px;
     }
   }
 }

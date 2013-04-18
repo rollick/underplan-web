@@ -13,3 +13,18 @@
     <p class="alert-box secondary">No Photos</p>
   {{/if}}
 </template>
+
+<template name="picasaSlideshow">
+  {{#if photos}}
+    <ul data-orbit class="picasa-slideshow" style="height: 300px;">
+      {{#each photos}}
+        <li>
+          <img src="{{url}}" height="300" />
+          <div class="orbit-caption">{{caption}}</div>
+        </li>
+      {{/each}}
+    </ul>
+  {{else}}
+    <p class="alert-box secondary">No Photos</p>
+  {{/if}}
+</template>

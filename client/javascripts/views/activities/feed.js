@@ -83,7 +83,7 @@ Template.activityFeed.rendered = function() {
 
   var group = getCurrentGroup();
   var max = 24;
-  var options = {gridSmall: 4, gridLarge: 6};
+  var options = {gridSmall: 4, gridLarge: 6, element: ".recent-photos"};
   
   if(group && group.picasaUsername.length && group.picasaAlbum.length) {
     $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, null, function(images) {
@@ -95,7 +95,7 @@ Template.activityFeed.rendered = function() {
           return false;
 
         photos.push({
-          url: element.url, 
+          url: element.versions[0].url, 
           thumbUrl: element.thumbs[0].url,
           caption: element.title
         });
@@ -103,9 +103,7 @@ Template.activityFeed.rendered = function() {
         index += 1;
       });
       
-      $(".recent-photos").html(Template.picasaGallery($.extend({photos: photos}, options)));
-      // FIXME: implement new clearing code
-      $(".recent-photos").foundation("clearing");
+      renderPicasaPhotos(photos, options);
     });
   }
   
