@@ -111,9 +111,13 @@ Template.currentActivity.facebookShareUrl = function () {
            replace(/:activityTitle/g, encodeURIComponent(activity.title)).
            replace(/:activityPreview/g, encodeURIComponent(Template.currentActivity.textPreview()));
 
+      // FIXME: work out how to show map in share post if no image available
       var imageUrl = Session.get("activityImageUrl");
+      // var mapUrl = Session.get("activityMapUrl");
       if (!!imageUrl) {
         link += "&picture=" + encodeURIComponent(imageUrl);
+      // } else if (!!mapUrl) {
+      //   link += "&picture=" + encodeURIComponent(mapUrl); 
       }
 
       if (!!activity.country && !!activity.city) {
@@ -148,6 +152,9 @@ Template.currentActivity.rendered = function() {
                         replace(/:lng/g, activity.lng).
                         replace(/:zoom/, zoom).
                         replace(/:location/, activity.location);
+
+    // imageUrl without possible apiKey                        
+    Session.set("activityMapUrl", imageUrl);
 
     if(apiKey != "")
       imageUrl = imageUrl + "&key=" + apiKey;
