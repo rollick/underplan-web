@@ -36,6 +36,11 @@
   }
 
   li.follow-group a {
+
+    @media only screen and (min-width: 48em) {
+      padding: 0 15px;
+    }
+
     &:before {
       line-height: 18px;
       padding-right: 4px;

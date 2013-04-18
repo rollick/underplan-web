@@ -287,7 +287,7 @@ this.logRenders = function () {
 }
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.84");
+  Session.set("appVersion", "v0.9.85");
 
   // Routing
   Backbone.history.start({ pushState: true });
