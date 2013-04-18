@@ -1,5 +1,4 @@
 @import "../components";
-@import "../main";
 
 $entry-bottom-margin: 0.9em;
 
@@ -43,7 +42,7 @@ $entry-bottom-margin: 0.9em;
       line-height: 33px;
     }
     &.short-actions {
-      @extend .standard-bar;
+      @include standard-bar();
 
       cursor: default;
       color: white;

@@ -1022,3 +1022,17 @@ blockquote p {
     float: none !important;
   }
 }
+/* line 7, ../sass/components.scss */
+.up-down:before {
+  background-image: url("/images/right.svg");
+  background-repeat: no-repeat;
+  background-size: 12px 12px;
+  background-position: 0px 3px;
+  padding-left: 12px;
+  height: 24px;
+  content: "\00a0\00a0";
+}
+/* line 17, ../sass/components.scss */
+.up-down.open:before {
+  background-image: url("/images/down.svg");
+}

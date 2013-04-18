@@ -1096,197 +1096,7 @@ blockquote p {
     float: none !important;
   }
 }
-/* line 3, ../../sass/main.scss */
-.row.main-content, .main-content.story, .short-full .main-content.short {
-  border-bottom: 3px solid green;
-  padding: 0px;
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
-  margin: 20px auto -50px;
-  /* the bottom margin is the negative value of the footer's height */
-  margin-top: 0px;
-  box-shadow: none;
-}
-/* line 13, ../../sass/main.scss */
-.row.main-content.normal, .main-content.normal.story, .short-full .main-content.normal.short {
-  padding-top: 5px;
-  margin-top: 0px;
-}
-/* line 26, ../../sass/main.scss */
-.row.main-content.dashboard, .main-content.dashboard.story, .short-full .main-content.dashboard.short {
-  background: url("/images/sun3.jpg") 0 0 no-repeat;
-  background-color: black;
-}
-
-@media only screen and (min-width: 48em) {
-  /* line 33, ../../sass/main.scss */
-  .row.main-content, .main-content.story, .short-full .main-content.short {
-    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
-  }
-}
-/* line 42, ../../sass/main.scss */
-.no-side-padding {
-  padding-left: 0px !important;
-  padding-right: 0px !important;
-}
-
-/* line 47, ../../sass/main.scss */
-.bordered {
-  border: 1px solid #e7e4e4;
-  padding: 2px;
-}
-
-/* line 52, ../../sass/main.scss */
-.normal {
-  padding-bottom: 15px;
-  background: #fff;
-  background: white;
-  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
-}
-
-/* line 59, ../../sass/main.scss */
-.input-subtext {
-  margin-top: -10px;
-  font-style: italic;
-  margin-bottom: 10px;
-  padding: 0px;
-  color: #9f9f9f;
-  font-size: 0.8em;
-  min-height: 1px;
-}
-
-/* line 69, ../../sass/main.scss */
-.actions {
-  display: block;
-  line-height: 32px;
-  padding-top: 18px;
-}
-/* line 74, ../../sass/main.scss */
-.actions a {
-  float: right;
-}
-/* line 78, ../../sass/main.scss */
-.actions i:hover {
-  color: green;
-  cursor: pointer;
-}
-
-/* line 84, ../../sass/main.scss */
-.top-bar .name h1 a {
-  font-weight: normal;
-  padding: 0 5px;
-  font-size: 1.3em;
-}
-
-/* line 91, ../../sass/main.scss */
-.top-bar-section ul li > a,
-.top-bar .toggle-topbar.menu-icon a span {
-  font-weight: normal !important;
-}
-
-/* line 95, ../../sass/main.scss */
-.title-area h1 {
-  color: white;
-  padding: 0 10px 0 10px;
-}
-
-/* line 103, ../../sass/main.scss */
-.alert-box {
-  margin-top: 8px;
-  text-align: center;
-  font-weight: normal !important;
-}
-/* line 108, ../../sass/main.scss */
-.alert-box a.close {
-  position: relative;
-  padding: 10px;
-  color: white;
-}
-
-/* line 118, ../../sass/main.scss */
-.button {
-  font-weight: normal;
-}
-
-/* line 122, ../../sass/main.scss */
-.clearing-assembled {
-  padding-bottom: 10px !important;
-}
-@media only screen and (min-width: 48em) {
-  /* line 122, ../../sass/main.scss */
-  .clearing-assembled {
-    padding-bottom: 0px !important;
-  }
-}
-/* line 129, ../../sass/main.scss */
-.clearing-assembled .clearing-caption {
-  background-color: rgba(17, 17, 17, 0.6);
-  padding-bottom: 30px !important;
-}
-@media only screen and (min-width: 48em) {
-  /* line 129, ../../sass/main.scss */
-  .clearing-assembled .clearing-caption {
-    padding-bottom: 10px !important;
-  }
-}
-
-/* line 139, ../../sass/main.scss */
-.custom.checkbox {
-  border-color: black !important;
-}
-/* line 142, ../../sass/main.scss */
-.custom.checkbox.checked::before {
-  color: black !important;
-  font-weight: bold !important;
-  padding-left: 1px;
-  padding-top: 1px;
-}
-
-/* line 150, ../../sass/main.scss */
-blockquote {
-  margin: 10px 10px 0px 10px;
-}
-/* line 153, ../../sass/main.scss */
-blockquote.disabled {
-  opacity: 0.6;
-}
-/* line 157, ../../sass/main.scss */
-blockquote p:last-of-type {
-  margin-bottom: 10px;
-}
-/* line 161, ../../sass/main.scss */
-blockquote cite {
-  padding-bottom: 10px;
-}
-
-/* line 166, ../../sass/main.scss */
-form fieldset legend {
-  margin-bottom: 10px;
-  font-weight: normal;
-}
-
-/* line 171, ../../sass/main.scss */
-ul.dropdown h5 a {
-  color: white;
-}
-
-/* line 175, ../../sass/main.scss */
-.carousel {
-  margin: 0 6px;
-}
-
-/* line 179, ../../sass/main.scss */
-.standard-bar, .short-full .row.short-actions, .short-full .short-actions.story, .short-full .short-actions.short {
-  font-size: 0.9em;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0;
-  background-color: green;
-  cursor: pointer;
-}
-
-/* line 190, ../../sass/main.scss */
+/* line 7, ../../sass/components.scss */
 .up-down:before, .short-full .row.short-actions a.comments:before, .short-full .short-actions.story a.comments:before, .short-full .short-actions.short a.comments:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
@@ -1296,37 +1106,37 @@ ul.dropdown h5 a {
   height: 24px;
   content: "\00a0\00a0";
 }
-/* line 200, ../../sass/main.scss */
+/* line 17, ../../sass/components.scss */
 .up-down.open:before, .short-full .row.short-actions a.open.comments:before, .short-full .short-actions.story a.open.comments:before, .short-full .short-actions.short a.open.comments:before, .short-full.expanded .short-actions a.comments:before {
   background-image: url("/images/down.svg");
 }
 
-/* line 6, ../../sass/app/short.scss */
+/* line 5, ../../sass/app/short.scss */
 .story {
   padding: 0.66em 0;
   margin-bottom: 0.9em;
 }
-/* line 10, ../../sass/components.scss */
+/* line 36, ../../sass/components.scss */
 .story .top-section {
   font-size: 1em;
   color: black;
   height: 2.8em !important;
   margin-bottom: 0.2em;
 }
-/* line 20, ../../sass/components.scss */
+/* line 46, ../../sass/components.scss */
 .story .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 20, ../../sass/components.scss */
+  /* line 46, ../../sass/components.scss */
   .story .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
-/* line 30, ../../sass/components.scss */
+/* line 56, ../../sass/components.scss */
 .story .top-section .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1335,92 +1145,92 @@ ul.dropdown h5 a {
   border-radius: 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 30, ../../sass/components.scss */
+  /* line 56, ../../sass/components.scss */
   .story .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
-/* line 40, ../../sass/components.scss */
+/* line 66, ../../sass/components.scss */
 .story .top-section .details {
   padding-top: 0;
   height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 40, ../../sass/components.scss */
+  /* line 66, ../../sass/components.scss */
   .story .top-section .details {
     padding-top: 0.5em;
     height: 3.3em !important;
   }
 }
-/* line 49, ../../sass/components.scss */
+/* line 75, ../../sass/components.scss */
 .story .top-section .details .owner {
   line-height: 1em;
 }
-/* line 53, ../../sass/components.scss */
+/* line 79, ../../sass/components.scss */
 .story .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
-/* line 65, ../../sass/components.scss */
+/* line 91, ../../sass/components.scss */
 .story .top-section .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
-/* line 70, ../../sass/components.scss */
+/* line 96, ../../sass/components.scss */
 .story .top-section .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
 }
 @media only screen and (min-width: 48em) {
-  /* line 79, ../../sass/components.scss */
+  /* line 105, ../../sass/components.scss */
   .story .content {
     margin-left: 3.3em !important;
   }
 }
-/* line 89, ../../sass/components.scss */
+/* line 115, ../../sass/components.scss */
 .story .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 11, ../../sass/app/short.scss */
+/* line 10, ../../sass/app/short.scss */
 .story .content {
   padding-bottom: 0.5em;
 }
 
-/* line 16, ../../sass/app/short.scss */
+/* line 15, ../../sass/app/short.scss */
 .short-full {
   margin-bottom: 0.8em;
 }
-/* line 19, ../../sass/app/short.scss */
+/* line 18, ../../sass/app/short.scss */
 .short-full .short {
   padding: 0.66em 0;
   padding-bottom: 0px;
   margin-bottom: 0px !important;
 }
-/* line 10, ../../sass/components.scss */
+/* line 36, ../../sass/components.scss */
 .short-full .short .top-section {
   font-size: 1em;
   color: black;
   height: 2.8em !important;
   margin-bottom: 0.2em;
 }
-/* line 20, ../../sass/components.scss */
+/* line 46, ../../sass/components.scss */
 .short-full .short .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 20, ../../sass/components.scss */
+  /* line 46, ../../sass/components.scss */
   .short-full .short .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
-/* line 30, ../../sass/components.scss */
+/* line 56, ../../sass/components.scss */
 .short-full .short .top-section .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1429,110 +1239,116 @@ ul.dropdown h5 a {
   border-radius: 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 30, ../../sass/components.scss */
+  /* line 56, ../../sass/components.scss */
   .short-full .short .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
-/* line 40, ../../sass/components.scss */
+/* line 66, ../../sass/components.scss */
 .short-full .short .top-section .details {
   padding-top: 0;
   height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 40, ../../sass/components.scss */
+  /* line 66, ../../sass/components.scss */
   .short-full .short .top-section .details {
     padding-top: 0.5em;
     height: 3.3em !important;
   }
 }
-/* line 49, ../../sass/components.scss */
+/* line 75, ../../sass/components.scss */
 .short-full .short .top-section .details .owner {
   line-height: 1em;
 }
-/* line 53, ../../sass/components.scss */
+/* line 79, ../../sass/components.scss */
 .short-full .short .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
-/* line 65, ../../sass/components.scss */
+/* line 91, ../../sass/components.scss */
 .short-full .short .top-section .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
-/* line 70, ../../sass/components.scss */
+/* line 96, ../../sass/components.scss */
 .short-full .short .top-section .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
 }
 @media only screen and (min-width: 48em) {
-  /* line 79, ../../sass/components.scss */
+  /* line 105, ../../sass/components.scss */
   .short-full .short .content {
     margin-left: 3.3em !important;
   }
 }
-/* line 89, ../../sass/components.scss */
+/* line 115, ../../sass/components.scss */
 .short-full .short .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 25, ../../sass/app/short.scss */
+/* line 24, ../../sass/app/short.scss */
 .short-full .short .content {
   padding-bottom: 0.5em;
 }
-/* line 30, ../../sass/app/short.scss */
+/* line 29, ../../sass/app/short.scss */
 .short-full .short-comments {
   height: 0px;
   overflow: hidden;
   padding-left: 1em;
 }
-/* line 41, ../../sass/app/short.scss */
+/* line 40, ../../sass/app/short.scss */
 .short-full .row .columns, .short-full .story .columns, .short-full .short .columns, .short-full .row .story .top-section, .story .short-full .row .top-section, .short-full .story .top-section, .short-full .short .story .top-section, .story .short-full .short .top-section, .short-full .row .story .content, .story .short-full .row .content, .short-full .story .content, .short-full .short .story .content, .story .short-full .short .content, .short-full .row .short .top-section, .short-full .short .row .top-section, .short-full .story .short .top-section, .short-full .short .story .top-section, .short-full .short .top-section, .short-full .row .short .content, .short-full .short .row .content, .short-full .story .short .content, .short-full .short .story .content, .short-full .short .content {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 45, ../../sass/app/short.scss */
+/* line 44, ../../sass/app/short.scss */
 .short-full .row.short-actions, .short-full .short-actions.story, .short-full .short-actions.short {
+  font-size: 0.9em;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-top: 0;
+  background-color: green;
+  cursor: pointer;
   cursor: default;
   color: white;
   font-size: 0.8em;
 }
-/* line 52, ../../sass/app/short.scss */
+/* line 51, ../../sass/app/short.scss */
 .short-full .row.short-actions a.comments, .short-full .short-actions.story a.comments, .short-full .short-actions.short a.comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 56, ../../sass/app/short.scss */
+/* line 55, ../../sass/app/short.scss */
 .short-full .row.short-actions a.comments:before, .short-full .short-actions.story a.comments:before, .short-full .short-actions.short a.comments:before {
   background-position: 0em 0.3em;
 }
-/* line 63, ../../sass/app/short.scss */
+/* line 62, ../../sass/app/short.scss */
 .short-full .row.short-actions .action.new-comment, .short-full .short-actions.story .action.new-comment, .short-full .short-actions.short .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 67, ../../sass/app/short.scss */
+/* line 66, ../../sass/app/short.scss */
 .short-full .row.short-actions .action.new-comment a, .short-full .short-actions.story .action.new-comment a, .short-full .short-actions.short .action.new-comment a {
   text-indent: -50px;
 }
-/* line 70, ../../sass/app/short.scss */
+/* line 69, ../../sass/app/short.scss */
 .short-full .row.short-actions .action.new-comment a span, .short-full .short-actions.story .action.new-comment a span, .short-full .short-actions.short .action.new-comment a span {
   color: white;
 }
 @media only screen and (min-width: 48em) {
-  /* line 45, ../../sass/app/short.scss */
+  /* line 44, ../../sass/app/short.scss */
   .short-full .row.short-actions, .short-full .short-actions.story, .short-full .short-actions.short {
     font-size: 0.9em;
   }
-  /* line 82, ../../sass/app/short.scss */
+  /* line 81, ../../sass/app/short.scss */
   .short-full .row.short-actions .action.new-comment a, .short-full .short-actions.story .action.new-comment a, .short-full .short-actions.short .action.new-comment a {
     text-indent: -60px;
   }
 }
-/* line 95, ../../sass/app/short.scss */
+/* line 94, ../../sass/app/short.scss */
 .short-full.expanded .short-comments {
   height: 100%;
 }

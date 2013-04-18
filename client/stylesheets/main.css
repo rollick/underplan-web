@@ -93,51 +93,57 @@
   padding: 0 10px 0 10px;
 }
 
-/* line 103, ../sass/main.scss */
+/* line 100, ../sass/main.scss */
+.clearing-thumbs img {
+  height: 90px;
+  width: 90px;
+}
+
+/* line 108, ../sass/main.scss */
 .alert-box {
   margin-top: 8px;
   text-align: center;
   font-weight: normal !important;
 }
-/* line 108, ../sass/main.scss */
+/* line 113, ../sass/main.scss */
 .alert-box a.close {
   position: relative;
   padding: 10px;
   color: white;
 }
 
-/* line 118, ../sass/main.scss */
+/* line 123, ../sass/main.scss */
 .button {
   font-weight: normal;
 }
 
-/* line 122, ../sass/main.scss */
+/* line 127, ../sass/main.scss */
 .clearing-assembled {
   padding-bottom: 10px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 122, ../sass/main.scss */
+  /* line 127, ../sass/main.scss */
   .clearing-assembled {
     padding-bottom: 0px !important;
   }
 }
-/* line 129, ../sass/main.scss */
+/* line 134, ../sass/main.scss */
 .clearing-assembled .clearing-caption {
   background-color: rgba(17, 17, 17, 0.6);
   padding-bottom: 30px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 129, ../sass/main.scss */
+  /* line 134, ../sass/main.scss */
   .clearing-assembled .clearing-caption {
     padding-bottom: 10px !important;
   }
 }
 
-/* line 139, ../sass/main.scss */
+/* line 144, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 142, ../sass/main.scss */
+/* line 147, ../sass/main.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -145,60 +151,35 @@
   padding-top: 1px;
 }
 
-/* line 150, ../sass/main.scss */
+/* line 155, ../sass/main.scss */
 blockquote {
   margin: 10px 10px 0px 10px;
 }
-/* line 153, ../sass/main.scss */
+/* line 158, ../sass/main.scss */
 blockquote.disabled {
   opacity: 0.6;
 }
-/* line 157, ../sass/main.scss */
+/* line 162, ../sass/main.scss */
 blockquote p:last-of-type {
   margin-bottom: 10px;
 }
-/* line 161, ../sass/main.scss */
+/* line 166, ../sass/main.scss */
 blockquote cite {
   padding-bottom: 10px;
 }
 
-/* line 166, ../sass/main.scss */
+/* line 171, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 171, ../sass/main.scss */
+/* line 176, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 175, ../sass/main.scss */
+/* line 180, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
-}
-
-/* line 179, ../sass/main.scss */
-.standard-bar {
-  font-size: 0.9em;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0;
-  background-color: green;
-  cursor: pointer;
-}
-
-/* line 190, ../sass/main.scss */
-.up-down:before {
-  background-image: url("/images/right.svg");
-  background-repeat: no-repeat;
-  background-size: 12px 12px;
-  background-position: 0px 3px;
-  padding-left: 12px;
-  height: 24px;
-  content: "\00a0\00a0";
-}
-/* line 200, ../sass/main.scss */
-.up-down.open:before {
-  background-image: url("/images/down.svg");
 }

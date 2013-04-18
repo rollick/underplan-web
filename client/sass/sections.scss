@@ -1,11 +1,11 @@
-@import "main";
 @import "_settings";
+@import "components";
 
 .section-container {
   border: none !important;
 
   .section, section {
-    @extend .standard-bar;
+    @include standard-bar();
 
     border-top: none;
 

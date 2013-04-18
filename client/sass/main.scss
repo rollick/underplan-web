@@ -97,6 +97,11 @@
   padding: 0 10px 0 10px;
 }
 
+.clearing-thumbs img {
+  height: 90px;
+  width: 90px;
+}
+
 ///////////////////////////////////////////////////////////////////////////////
 // Foundation Overrides
 
@@ -174,32 +179,6 @@ ul.dropdown h5 a {
 
 .carousel {
   margin: 0 6px;
-}
-
-.standard-bar {
-  font-size: 0.9em;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0;
-  background-color: green;
-  // box-shadow: 0px 0px 10px #CCC, 0px 0px 10px #CCC;
-  cursor: pointer;
-}
-
-.up-down {
-  &:before {
-    background-image: url('/images/right.svg');
-    background-repeat: no-repeat;
-    background-size: 12px 12px;
-    background-position: 0px 3px;
-    padding-left: 12px;
-    height: 24px;
-    content: "\00a0\00a0";
-  }
-
-  &.open:before {
-    background-image: url("/images/down.svg");
-  }
 }
 
 @mixin arrow($size: 10px) {
