@@ -48,42 +48,56 @@ h2 span.warning, h2 span.warning, h2 a span.warning, a h2 span.warning, a span.w
 
 /* line 47, ../sass/page.scss */
 .push {
-  height: 50px;
+  height: 40px;
   margin: 0px;
   padding: 0px;
 }
 
 /* line 53, ../sass/page.scss */
 footer {
-  height: 50px;
+  height: 40px;
   margin: 0px;
   padding: 0px;
 }
 /* line 58, ../sass/page.scss */
 footer .info {
+  padding: 10px !important;
   width: 100%;
-  display: inline-block;
+  position: relative;
   text-align: center;
-  padding-top: 2.8em;
   font-size: 0.7em;
   color: #b9b9b9;
   font-family: 'helvetica';
+  min-height: 5px;
+  display: -moz-inline-stack;
+  display: inline-block;
+  vertical-align: top;
+  zoom: 1;
+  *display: inline;
+  _height: 5px;
+}
+/* line 77, ../sass/page.scss */
+footer .info span {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 0;
 }
 
-/* line 71, ../sass/page.scss */
+/* line 86, ../sass/page.scss */
 footer.dashboard {
   font-color: white;
 }
-/* line 74, ../sass/page.scss */
+/* line 89, ../sass/page.scss */
 footer.dashboard .row:first-of-type {
   border-top: 2px solid #2b2b2b;
 }
-/* line 78, ../sass/page.scss */
+/* line 93, ../sass/page.scss */
 footer.dashboard p {
   color: #fff;
 }
 
-/* line 84, ../sass/page.scss */
+/* line 99, ../sass/page.scss */
 footer p,
 footer a {
   margin-top: 10px;
