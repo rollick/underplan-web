@@ -87,23 +87,26 @@
   -o-border-radius: 4px;
   border-radius: 4px;
   display: block;
+  border: 1px solid #bababa;
+  border-top: 1px solid #cacaca;
+  border-bottom: 1px solid #acacac;
+  width: 58px;
   height: 20px;
-  border: 1px solid #b8b4b4;
-  width: 56px;
   padding: 2px 5px 2px 2px;
-  background-image: -webkit-linear-gradient(top, #ececec, #e7e7e7);
+  background-image: linear-gradient(#f4f4f4, #e4e4e4);
 }
-/* line 55, ../../sass/app/activities.scss */
+/* line 57, ../../sass/app/activities.scss */
 .share-links .fb-share:hover {
-  background-image: -webkit-linear-gradient(top, white, #f2f2f2);
+  background-image: linear-gradient(#ffffff, #f2f2f2);
 }
-/* line 59, ../../sass/app/activities.scss */
+/* line 61, ../../sass/app/activities.scss */
 .share-links .fb-share i {
   color: #3B5998;
   font-size: 0.9em;
 }
-/* line 64, ../../sass/app/activities.scss */
+/* line 66, ../../sass/app/activities.scss */
 .share-links .fb-share i p {
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
   font-size: 0.75em;
   font-family: arial;
   font-weight: bold;
@@ -114,39 +117,39 @@
   margin-top: -17px;
 }
 
-/* line 78, ../../sass/app/activities.scss */
+/* line 81, ../../sass/app/activities.scss */
 .activity-controls {
   margin-bottom: 10px;
 }
-/* line 81, ../../sass/app/activities.scss */
+/* line 84, ../../sass/app/activities.scss */
 .activity-controls a {
   height: 24px;
   font-size: 0.9em;
 }
-/* line 85, ../../sass/app/activities.scss */
+/* line 88, ../../sass/app/activities.scss */
 .activity-controls a:before, .activity-controls a:after {
   background-size: 14px 14px;
   background-repeat: no-repeat;
   content: "\00a0\00a0\00a0\00a0";
 }
-/* line 94, ../../sass/app/activities.scss */
+/* line 97, ../../sass/app/activities.scss */
 .activity-controls .previous a:before {
   padding-right: 4px;
   background-position: 0px 3px;
   background-image: url("/images/left_green.svg");
 }
-/* line 102, ../../sass/app/activities.scss */
+/* line 105, ../../sass/app/activities.scss */
 .activity-controls .next {
   text-align: right;
 }
-/* line 106, ../../sass/app/activities.scss */
+/* line 109, ../../sass/app/activities.scss */
 .activity-controls .next a:after {
   padding-left: 5px;
   background-position: 5px;
   background-image: url("/images/right_green.svg");
 }
 
-/* line 115, ../../sass/app/activities.scss */
+/* line 118, ../../sass/app/activities.scss */
 .activities-map {
   min-width: 120px;
   min-height: 120px;
@@ -155,63 +158,63 @@
   margin-bottom: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 115, ../../sass/app/activities.scss */
+  /* line 118, ../../sass/app/activities.scss */
   .activities-map {
     padding: 5px;
     padding-left: 10px;
     height: 400px;
   }
 }
-/* line 128, ../../sass/app/activities.scss */
+/* line 131, ../../sass/app/activities.scss */
 .activities-map img {
   max-width: inherit;
 }
 
-/* line 134, ../../sass/app/activities.scss */
+/* line 137, ../../sass/app/activities.scss */
 .map-info {
   width: 300px;
 }
-/* line 138, ../../sass/app/activities.scss */
+/* line 141, ../../sass/app/activities.scss */
 .map-info blockquote {
   border-left: none !important;
   margin: 0px !important;
   padding: 8px;
   font-size: 0.9em;
 }
-/* line 144, ../../sass/app/activities.scss */
+/* line 147, ../../sass/app/activities.scss */
 .map-info blockquote p:last-of-type {
   margin-bottom: 10px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 134, ../../sass/app/activities.scss */
+  /* line 137, ../../sass/app/activities.scss */
   .map-info {
     width: 400px;
   }
-  /* line 152, ../../sass/app/activities.scss */
+  /* line 155, ../../sass/app/activities.scss */
   .map-info blockquote {
     font-size: 1em;
   }
 }
 
-/* line 161, ../../sass/app/activities.scss */
+/* line 164, ../../sass/app/activities.scss */
 .country-filter > .columns {
   min-height: 20px;
   margin: 5px 0px 0px 0px !important;
 }
-/* line 166, ../../sass/app/activities.scss */
+/* line 169, ../../sass/app/activities.scss */
 .country-filter dl {
   margin-bottom: 5px !important;
 }
-/* line 170, ../../sass/app/activities.scss */
+/* line 173, ../../sass/app/activities.scss */
 .country-filter dl dt {
   margin-bottom: 3px;
   margin-left: 0px;
 }
-/* line 174, ../../sass/app/activities.scss */
+/* line 177, ../../sass/app/activities.scss */
 .country-filter dl dt.active a {
   font-weight: normal;
 }
-/* line 178, ../../sass/app/activities.scss */
+/* line 181, ../../sass/app/activities.scss */
 .country-filter dl dt a {
   padding: 2px 8px !important;
   vertical-align: bottom;
@@ -219,23 +222,23 @@
   border-radius: 12px;
 }
 
-/* line 188, ../../sass/app/activities.scss */
+/* line 191, ../../sass/app/activities.scss */
 .feed-header {
   height: 50px;
 }
-/* line 191, ../../sass/app/activities.scss */
+/* line 194, ../../sass/app/activities.scss */
 .feed-header h4 {
   margin-bottom: 0px;
 }
 
-/* line 198, ../../sass/app/activities.scss */
+/* line 201, ../../sass/app/activities.scss */
 .feed li p {
   display: inline;
   position: relative;
   top: -4px;
   margin-left: 8px;
 }
-/* line 205, ../../sass/app/activities.scss */
+/* line 208, ../../sass/app/activities.scss */
 .feed li i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;
@@ -245,38 +248,38 @@
   overflow: hidden;
   line-height: 1.5;
 }
-/* line 216, ../../sass/app/activities.scss */
+/* line 219, ../../sass/app/activities.scss */
 .feed .feed-more > .columns {
   margin-top: 10px;
   text-align: center;
 }
-/* line 222, ../../sass/app/activities.scss */
+/* line 225, ../../sass/app/activities.scss */
 .feed .row.feed-list:first-child {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 229, ../../sass/app/activities.scss */
+/* line 232, ../../sass/app/activities.scss */
 .feed .row.feed-list .columns .entry:first-child blockquote {
   margin-top: 0px !important;
 }
 
-/* line 238, ../../sass/app/activities.scss */
+/* line 241, ../../sass/app/activities.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 241, ../../sass/app/activities.scss */
+/* line 244, ../../sass/app/activities.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;
 }
 
-/* line 244, ../../sass/app/activities.scss */
+/* line 247, ../../sass/app/activities.scss */
 .comment-form .comment {
   /*height: 100px;*/
 }
 
-/* line 248, ../../sass/app/activities.scss */
+/* line 251, ../../sass/app/activities.scss */
 span.text-length {
   margin-left: 5px;
   line-height: 28px;

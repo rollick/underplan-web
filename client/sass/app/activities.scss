@@ -46,14 +46,16 @@
     @include border-radius(4px);
   
     display: block;
+    border: 1px solid #bababa;
+    border-top: 1px solid #cacaca;
+    border-bottom: 1px solid #acacac;
+    width: 58px;
     height: 20px;
-    border: 1px solid rgb(184, 180, 180);
-    width: 56px;
     padding: 2px 5px 2px 2px;
-    background-image: -webkit-linear-gradient(top, rgb(236, 236, 236), rgb(231, 231, 231));;
+    background-image: linear-gradient(color-stops(#f4f4f4, #e4e4e4));
 
     &:hover {
-      background-image: -webkit-linear-gradient(top, #fff, #f2f2f2);
+      background-image: linear-gradient(color-stops(#fff, #f2f2f2));
     }
 
     i {
@@ -62,6 +64,7 @@
       // @include border-radius(4px);
 
       p {
+        text-shadow: 0 1px 3px rgba(255, 255, 255, .7);
         font-size: 0.75em;
         font-family: arial;
         font-weight: bold;
