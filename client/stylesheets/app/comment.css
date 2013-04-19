@@ -1195,13 +1195,17 @@ blockquote p {
 .comment .content p:last-of-type {
   margin-bottom: 0em;
 }
+/* line 8, ../../sass/app/comment.scss */
+.comment:nth-child(odd) {
+  background-color: #f3f3f3;
+}
 
-/* line 10, ../../sass/app/comment.scss */
+/* line 14, ../../sass/app/comment.scss */
 .comment-form input.comment {
   font-size: 0.9em;
   border: 1px solid #dddddd;
 }
-/* line 15, ../../sass/app/comment.scss */
+/* line 19, ../../sass/app/comment.scss */
 .comment-form .user-comment {
   padding: 0.66em 0;
   height: 6em;
@@ -1285,15 +1289,15 @@ blockquote p {
 .comment-form .user-comment .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 20, ../../sass/app/comment.scss */
+/* line 24, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section {
   height: 6em;
 }
-/* line 23, ../../sass/app/comment.scss */
+/* line 27, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details {
   padding-left: 3.3em;
 }
-/* line 26, ../../sass/app/comment.scss */
+/* line 30, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details input {
   height: 3em;
   margin-bottom: 0em;

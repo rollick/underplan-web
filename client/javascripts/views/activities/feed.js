@@ -165,10 +165,6 @@ Template.activityFeed.totalActivities = function () {
   return Activities.find(Session.get("feedFilter")).count();
 }
 
-Template.activityFeed.typeIs = function (what) {
-  return this.type === what;
-};
-
 ///////////////////////////////////////////////////////////////////////////////
 // Activity feed list
 
@@ -202,7 +198,9 @@ Template.feedList.moreActivities = function() {
   return Session.get("feedLimit") < Activities.find(Session.get("feedFilter")).count();
 };
 
-
+Template.feedList.typeIs = function (what) {
+  return this.type === what;
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Common Functions

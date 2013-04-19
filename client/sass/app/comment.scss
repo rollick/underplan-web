@@ -4,6 +4,10 @@
   @include entry-with-profile(3.7em);
 
   font-size: 0.9em;
+
+  &:nth-child(odd) {
+    background-color: #f3f3f3;
+  }
 }
 
 .comment-form {

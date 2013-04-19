@@ -45,12 +45,6 @@
   cursor: pointer;
 }
 
-/* line 45, ../sass/general.scss */
-.clearing-thumbs img {
-  height: 90px;
-  width: 90px;
-}
-
 /* line 53, ../sass/general.scss */
 .alert-box {
   margin-top: 8px;

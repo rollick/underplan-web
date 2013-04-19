@@ -1297,7 +1297,7 @@ blockquote p {
 .short-full .short-comments {
   height: 0px;
   overflow: hidden;
-  padding-left: 1em;
+  padding: 0 1.2em;
 }
 /* line 40, ../../sass/app/short.scss */
 .short-full .row .columns, .short-full .story .columns, .short-full .short .columns, .short-full .row .story .top-section, .story .short-full .row .top-section, .short-full .story .top-section, .short-full .short .story .top-section, .story .short-full .short .top-section, .short-full .row .story .content, .story .short-full .row .content, .short-full .story .content, .short-full .short .story .content, .story .short-full .short .content, .short-full .row .short .top-section, .short-full .short .row .top-section, .short-full .story .short .top-section, .short-full .short .story .top-section, .short-full .short .top-section, .short-full .row .short .content, .short-full .short .row .content, .short-full .story .short .content, .short-full .short .story .content, .short-full .short .content {
