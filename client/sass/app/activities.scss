@@ -34,7 +34,7 @@
 
 .share-links {
   float: right;
-  width: 120px;
+  width: 125px;
   height: 20px;
   margin-bottom: 10px;
 
@@ -53,9 +53,11 @@
     height: 20px;
     padding: 2px 5px 2px 2px;
     background-image: linear-gradient(color-stops(#f4f4f4, #e4e4e4));
+    background-image: -webkit-linear-gradient(top, #f4f4f4, #e4e4e4);
 
     &:hover {
       background-image: linear-gradient(color-stops(#fff, #f2f2f2));
+      background-image: -webkit-linear-gradient(top, #f4f4f4, #e4e4e4);
     }
 
     i {
