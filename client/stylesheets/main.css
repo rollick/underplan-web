@@ -90,7 +90,7 @@ footer {
 }
 /* line 97, ../sass/main.scss */
 footer .info {
-  margin: 5px;
+  margin: 5px 0px;
   padding: 10px !important;
   width: 100%;
   position: relative;
