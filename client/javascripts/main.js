@@ -3,8 +3,45 @@
 Meteor.subscribe("groups");
 Meteor.subscribe("directory");
 
+var self = this;
+self.commentsSubscription = self.activitiesSubscription = null;
+
+Deps.autorun(function () {
+  if (Session.get("activitySlug")) {
+    var activity = Activities.findOne({slug: Session.get("activitySlug")});
+
+    if (activity) { // activity hasn't loaded!
+      Session.set("activityId", activity._id);
+    }
+  } else {
+    Session.set("activityId", null);
+  }
+
+  if (Session.get("groupSlug")) {
+    var group = Groups.findOne({slug: Session.get("groupSlug")});
+
+    if (group) { // activity hasn't loaded!
+      Session.set("groupId", group._id);
+    }
+  } else {
+    Session.set("groupId", null);
+  }
+
+  self.commentsSubscription = Meteor.subscribe("comments", Session.get("groupId"));
+  self.activitiesSubscription = Meteor.subscribe("activities", Session.get("groupId"));
+
+  // if (! Session.get("groupName")) {  
+  //   Session.set("groupName", "A Trip");
+  // }
+  // if (! Session.get("selectedActivity")) {  
+  //   var activity = Activities.findOne();
+  //   if (activity)
+  //     Session.set("selectedActivity", activity._id);
+  // }
+});
+
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.86");
+  Session.set("appVersion", "v0.9.87");
 
   // Routing
   Backbone.history.start({ pushState: true });
@@ -14,41 +51,6 @@ Meteor.startup(function () {
 
   // Foundation js loader
   $(document).foundation();
-
-  Deps.autorun(function () {
-    Meteor.subscribe("comments", Session.get("groupId"));
-    Meteor.subscribe("activities", Session.get("groupId"));
-
-    if (Session.get("activitySlug")) {
-      var activity = Activities.findOne({slug: Session.get("activitySlug")});
-
-      if (activity) { // activity hasn't loaded!
-        Session.set("activityId", activity._id);
-      }
-    } else {
-      Session.set("activityId", null);
-    }
-
-    if (Session.get("groupSlug")) {
-      var group = Groups.findOne({slug: Session.get("groupSlug")});
-
-      if (group) { // activity hasn't loaded!
-        Session.set("groupId", group._id);
-      }
-    } else {
-      Session.set("groupId", null);
-    }
-
-    // if (! Session.get("groupName")) {  
-    //   Session.set("groupName", "A Trip");
-    // }
-    // if (! Session.get("selectedActivity")) {  
-    //   var activity = Activities.findOne();
-    //   if (activity)
-    //     Session.set("selectedActivity", activity._id);
-    // }
-  });
-
 });
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -212,6 +214,8 @@ this.followCurrentGroup = function (state) {
 this.resetGroup = function () {
   Session.set("groupId", null);
   Session.set("groupSlug", null);
+  Session.set("activityId", null);
+  Session.set("activitySlug", null);
 };
 
 this.userBelongsToCurrentGroup = function (userId) {

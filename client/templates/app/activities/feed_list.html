@@ -1,0 +1,48 @@
+<template name="feedList">
+  <div class="row feed-list">
+    <div class="small-12 large-12 columns">
+      {{#if anyActivities}}
+        {{#each recentActivities}}
+          {{#with this}}
+            {{#if typeIs "story"}}
+              <div class="story entry">
+                <div class="top-section">
+                  <div class="picture">
+                    <img src="{{profilePicture owner}}">
+                  </div>
+                  <div class="details">
+                    <div class="owner">
+                      {{userName owner}}
+                    </div>
+                    <div class="date">{{date created}}</div>
+                    {{#if canDelete}}
+                      <a href="#" class="remove" style="display: none;">remove</a>
+                    {{/if}}
+                  </div>
+                </div>
+                <div class="content">
+                  <p>
+                    Story: <a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}</a>
+                  </p>
+                </div>
+              </div>
+            {{else}}
+              <div class="short-full entry" id="{{_id}}">
+                {{> short}}
+              </div>
+            {{/if}}
+          {{/with}}
+        {{/each}}
+        {{#unless feedLimitReached}}
+          <div class="row feed-more">
+            <div class="small-12 large-12 columns">
+              <a href="#" class="load-more small secondary button">Load More</a>
+            </div>
+          </div>
+        {{/unless}}
+      {{else}}
+        <p>No activities yet :-(</p>
+      {{/if}}
+    </div>
+  </div>
+</template>

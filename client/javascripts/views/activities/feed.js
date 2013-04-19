@@ -8,14 +8,14 @@ var dashboardMapBounds = null;
 Template.activityFeed.helpers({
   feedTitle: function() {
     text = "All Activities";
-    if (!Template.activityFeed.feedLimitReached()) {
+    if (!Template.feedList.feedLimitReached()) {
       text = "Last " + Session.get("feedLimit") + " Activities";
     }
 
     // larger displays
     var html = "<h4 class=\"hide-for-small\">";
-    html += Template.activityFeed.feedLimitReached() ? "All Activities" : "Last " + Session.get("feedLimit") + " Activities";
-    if (Template.activityFeed.moreActivities()) {
+    html += Template.feedList.feedLimitReached() ? "All Activities" : "Last " + Session.get("feedLimit") + " Activities";
+    if (Template.feedList.moreActivities()) {
       html += "<span class=\"sub-header\"><a href=\"#\" class=\"feed-all\">Show all</a></span>";
     }
     html += "</h4>";
@@ -23,7 +23,7 @@ Template.activityFeed.helpers({
     // small displays
     html += "<h4 class=\"show-for-small\">";
     html += "Last " + Session.get("feedLimit");
-    if (Template.activityFeed.moreActivities()) {
+    if (Template.feedList.moreActivities()) {
       html += "<span class=\"sub-header\"><a href=\"#\" class=\"feed-all\">Show all</a></span>";
     }
     html += "</h4>";
@@ -44,10 +44,6 @@ Template.activityFeed.events({
   },
   "click .new-story": function () {
     Router.setNewActivity(getCurrentGroup());
-    return false;
-  },
-  "click .feed-more a": function () {
-    Session.set("feedLimit", Session.get("feedLimit") + feedLimitSkip);
     return false;
   },
   "click a.feed-all": function () {
@@ -76,6 +72,7 @@ Template.activityFeed.events({
 //   Session.setDefault("feedLimit", feedLimitSkip);
 //   Session.setDefault("feedFilter", {});
 // };
+
 
 Template.activityFeed.rendered = function() {
   var filter = Session.get("feedFilter");
@@ -107,12 +104,21 @@ Template.activityFeed.rendered = function() {
     });
   }
   
-  generateActivitesMap(group, ".activities-map:visible", Template.activityFeed.recentActivities());
+  var recentActivities = [];
+  if(!!Session.get("feedFilter").group) {
+    recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
+  }
+
+  generateActivitesMap(group, ".activities-map:visible", recentActivities);
 
   // google.maps.event.addListener(map, 'tilesloaded', _.bind(function() {
     // generateActivitesMap(group, ".activities-map:visible");
     // google.maps.event.clearListeners(map, 'tilesloaded');
   // }, this));
+};
+
+Template.activityFeed.loading = function () {
+  return _.isNull(activitiesSubscription) || !activitiesSubscription.ready();
 };
 
 Template.activityFeed.destroyed = function () {
@@ -159,11 +165,25 @@ Template.activityFeed.totalActivities = function () {
   return Activities.find(Session.get("feedFilter")).count();
 }
 
-Template.activityFeed.anyActivities = function () {
+Template.activityFeed.typeIs = function (what) {
+  return this.type === what;
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Activity feed list
+
+Template.feedList.events({
+  "click .feed-more a": function () {
+    Session.set("feedLimit", Session.get("feedLimit") + feedLimitSkip);
+    return false;
+  },
+})
+
+Template.feedList.anyActivities = function () {
   return Template.activityFeed.activityCount() > 0;
 };
 
-Template.activityFeed.recentActivities = function () {
+Template.feedList.recentActivities = function () {
   // never return activities without a group
   if(!!Session.get("feedFilter").group) {
     return Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
@@ -172,19 +192,20 @@ Template.activityFeed.recentActivities = function () {
   }
 };
 
-Template.activityFeed.typeIs = function (what) {
-  return this.type === what;
-};
-
-Template.activityFeed.feedLimitReached = function () {
+Template.feedList.feedLimitReached = function () {
   return Session.get("feedLimit") >= Activities.find(Session.get("feedFilter")).count();
 };
 
 // FIXME: this is a hack! Should be able to use "unless" feedLimitReached in template
 //        but it only seems to work for a single reference.
-Template.activityFeed.moreActivities = function() {
+Template.feedList.moreActivities = function() {
   return Session.get("feedLimit") < Activities.find(Session.get("feedFilter")).count();
 };
+
+
+
+///////////////////////////////////////////////////////////////////////////////
+// Common Functions
 
 var recentActivitiesMap = function() {
   var dimensions = "640x240";

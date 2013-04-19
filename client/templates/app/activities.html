@@ -1,103 +1,61 @@
 <template name="activityFeed">
-  {{#if showCountryFilter}}
-    {{countryFilter countries}}
-  {{/if}}
-  <div class="row feed-header">
-    <div class="small-7 large-7 columns">
-      {{feedTitle}}
-    </div>
-    {{#if userBelongsToGroup}}
-      <div class="action small-5 large-5 columns">
-        <ul class="">
-          <li><a href="#" class="new-short">Shorty</a></li>
-          <li class="separator"></li>
-          <li><a href="#" class="new-story">Story</a></li>
-        </ul>
-      </div>
+  {{#if loading}}
+    <p class="loading-feed alert-box secondary">Loading Group...</p>
+  {{else}}
+    {{#if showCountryFilter}}
+      {{countryFilter countries}}
     {{/if}}
-  </div>
-  <div class="row no-side-padding">
-    <div class="show-for-small small-12 columns">
-      {{#constant}}
-        <div class="activities-map"></div>
-      {{/constant}}
-    </div>
-    <div class="small-12 large-5 columns feed">
+    <div class="row feed-header">
+      <div class="small-7 large-7 columns">
+        {{feedTitle}}
+      </div>
       {{#if userBelongsToGroup}}
-        <div class="short-form row" style="display: none;">
-          <div class="small-12 large-12 columns">
-            {{> shortForm}}
-          </div>
+        <div class="action small-5 large-5 columns">
+          <ul class="">
+            <li><a href="#" class="new-short">Shorty</a></li>
+            <li class="separator"></li>
+            <li><a href="#" class="new-story">Story</a></li>
+          </ul>
         </div>
       {{/if}}
-      <div class="row feed-list">
-        <div class="small-12 large-12 columns">
-          {{#if anyActivities}}
-            {{#each recentActivities}}
-                {{#with this}}
-                  {{#if typeIs "story"}}
-                    <div class="story entry">
-                      <div class="top-section">
-                        <div class="picture">
-                          <img src="{{profilePicture owner}}">
-                        </div>
-                        <div class="details">
-                          <div class="owner">
-                            {{userName owner}}
-                          </div>
-                          <div class="date">{{date created}}</div>
-                          {{#if canDelete}}
-                            <a href="#" class="remove" style="display: none;">remove</a>
-                          {{/if}}
-                        </div>
-                      </div>
-                      <div class="content">
-                        <p>
-                          Story: <a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}</a>
-                        </p>
-                      </div>
-                    </div>
-                  {{else}}
-                    <div class="short-full entry" id="{{_id}}">
-                      {{> short}}
-                    </div>
-                  {{/if}}
-                {{/with}}
-              </div>
-            {{/each}}
-            {{#unless feedLimitReached}}
-              <div class="row feed-more">
-                <div class="small-12 large-12 columns">
-                  <a href="#" class="load-more small secondary button">Load More</a>
-                </div>
-              </div>
-            {{/unless}}
-          {{else}}
-            <p>No activities yet :-(</p>
-          {{/if}}
-        </div>
-      </div>
     </div>
-    <div class="small-12 large-7 columns">
-      <div class="row show-for-medium-up">
-        <div class="small-12 large-12 columns">
-          {{#constant}}
-            <div class="activities-map"></div>
-          {{/constant}}
-        </div>
+    <div class="row no-side-padding">
+      <div class="show-for-small small-12 columns">
+        {{#constant}}
+          <div class="activities-map"></div>
+        {{/constant}}
       </div>
-      {{#if group.picasaUsername}}
-        <div class="row">
+      <div class="small-12 large-5 columns feed">
+        {{#if userBelongsToGroup}}
+          <div class="short-form row" style="display: none;">
+            <div class="small-12 large-12 columns">
+              {{> shortForm}}
+            </div>
+          </div>
+        {{/if}}
+        {{> feedList}}
+      </div>
+      <div class="small-12 large-7 columns">
+        <div class="row show-for-medium-up">
           <div class="small-12 large-12 columns">
             {{#constant}}
-              <h5>Recent Group Photos <span class="sub-header"><a target="blank" href="{{picasaGalleryUrl}}">Show All</a></span></h5>
-              <div class="recent-photos"><p class="alert-box secondary">Loading photos...</p></div>
+              <div class="activities-map"></div>
             {{/constant}}
           </div>
         </div>
-      {{/if}}
+        {{#if group.picasaUsername}}
+          <div class="row">
+            <div class="small-12 large-12 columns">
+              {{#constant}}
+                <h5>Recent Group Photos <span class="sub-header"><a target="blank" href="{{picasaGalleryUrl}}">Show All</a></span></h5>
+                <div class="recent-photos"><p class="alert-box secondary">Loading photos...</p></div>
+              {{/constant}}
+            </div>
+          </div>
+        {{/if}}
+      </div>
     </div>
-  </div>
+  {{/if}}
 </template>
 
 <template name="currentActivity">
