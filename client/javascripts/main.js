@@ -1,8 +1,55 @@
 // Underplan -- client
-Meteor.subscribe("activities");
-Meteor.subscribe("allComments");
-Meteor.subscribe("allGroups");
+// Meteor.subscribe("activities");
+Meteor.subscribe("groups");
 Meteor.subscribe("directory");
+
+Meteor.startup(function () {
+  Session.set("appVersion", "v0.9.86");
+
+  // Routing
+  Backbone.history.start({ pushState: true });
+
+  // Mixpanel tracking
+  mixpanel.init(Meteor.settings.public.mixpanelToken);
+
+  // Foundation js loader
+  $(document).foundation();
+
+  Deps.autorun(function () {
+    Meteor.subscribe("comments", Session.get("groupId"));
+    Meteor.subscribe("activities", Session.get("groupId"));
+
+    if (Session.get("activitySlug")) {
+      var activity = Activities.findOne({slug: Session.get("activitySlug")});
+
+      if (activity) { // activity hasn't loaded!
+        Session.set("activityId", activity._id);
+      }
+    } else {
+      Session.set("activityId", null);
+    }
+
+    if (Session.get("groupSlug")) {
+      var group = Groups.findOne({slug: Session.get("groupSlug")});
+
+      if (group) { // activity hasn't loaded!
+        Session.set("groupId", group._id);
+      }
+    } else {
+      Session.set("groupId", null);
+    }
+
+    // if (! Session.get("groupName")) {  
+    //   Session.set("groupName", "A Trip");
+    // }
+    // if (! Session.get("selectedActivity")) {  
+    //   var activity = Activities.findOne();
+    //   if (activity)
+    //     Session.set("selectedActivity", activity._id);
+    // }
+  });
+
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Templates
@@ -94,28 +141,11 @@ this.appSettings = function () {
 
 
 this.getCurrentActivity = function () {
-  var result = null;
-
-  if (Session.get("activitySlug")) {
-    var activity = Activities.findOne({slug: Session.get("activitySlug")});
-
-    if (activity) { // activity hasn't loaded!
-      result = activity;
-    }
-  }
-  return result;
+  return Activities.findOne(Session.get("activityId"));
 };
 
 this.getCurrentActivityId = function () {
-  var activity = getCurrentActivity();
-  var result = null;
-
-  if (activity) { // activity hasn't loaded!
-    Session.set("activityId", activity._id);
-    result = Session.get("activityId");
-  }
-
-  return result;
+  return Session.get("activityId");
 };
 
 this.currentActivityHasPhotos = function () {
@@ -141,13 +171,11 @@ this.currentActivityHasMap = function () {
 };
 
 this.getCurrentGroup = function () {
-  var result = null;
+  return Groups.findOne(Session.get("groupId"));
+};
 
-  if (Session.get("groupId")) {
-    result = Groups.findOne(Session.get("groupId"));
-  }
-
-  return result;
+this.getCurrentGroupId = function () {
+  return Session.get("groupId");
 };
 
 this.isFollowingGroup = function (userId, groupId) {
@@ -179,11 +207,6 @@ this.followCurrentGroup = function (state) {
   }
 
   this.followGroup(this.getCurrentGroupId(), state);
-};
-
-this.getCurrentGroupId = function () {
-  var group = this.getCurrentGroup();
-  return !!group ? group._id : null;
 };
 
 this.resetGroup = function () {
@@ -285,27 +308,3 @@ this.logRenders = function () {
     };
   });
 }
-
-Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.85");
-
-  // Routing
-  Backbone.history.start({ pushState: true });
-
-  // Mixpanel tracking
-  mixpanel.init(Meteor.settings.public.mixpanelToken);
-
-  // Foundation js loader
-  $(document).foundation();
-
-  Meteor.autorun(function () {
-    // if (! Session.get("groupName")) {  
-    //   Session.set("groupName", "A Trip");
-    // }
-    // if (! Session.get("selectedActivity")) {  
-    //   var activity = Activities.findOne();
-    //   if (activity)
-    //     Session.set("selectedActivity", activity._id);
-    // }
-  });
-});

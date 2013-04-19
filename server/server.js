@@ -24,36 +24,58 @@ Meteor.publish("directory", function () {
 //     Meteor.users.find(this.userId,
 //                       {
 //                         fields: {
-//                           "services.google": 1,
-//                           "services.facebook": 1,
+//                           "profile.email": 1,
+//                           "profile.followedGroups": 1,
 //                         }
 //                       }
 //                     );
 // });
 
-Meteor.publish("activities", function () {
+Meteor.publish("activities", function (groupId) {
+  // don't return any activities without a groupId
+  if (_.isNull(groupId))
+    return [];
+
   // TODO:  need to also publish activities if the activity is unpublished
   //        but is linked to a group to which the current user belongs.
-  var conditions = {
+  var groupConds = {
     $and: [
       {$or: [
         {"approved": {$exists: false}}, 
-        {"approved": true}
-      ]}, 
-      {$or: [
+        {"approved": true},
         {"owner": this.userId},
         {"invited": this.userId}
       ]}
-    ]};
+    ]
+  };
 
-  var groups = Groups.find(conditions, {fields: {_id: 1}}).map(function(group) {
+  if (_.isString(groupId)) {
+    groupConds.$and.push({_id: groupId});
+  }
+
+  console.log("Group conditions for activity feed :" + JSON.stringify(groupConds));
+
+  var groups = Groups.find(groupConds, {fields: {_id: 1}}).map(function(group) {
     return group._id;
   });
 
-  return Activities.find({$or: [{"published": true}, {"owner": this.userId}, {"group": {$in: groups}}]});
+  var activityConds = {
+    $and: [ 
+      {$or: [
+        {"published": true},
+        {"owner": this.userId}
+      ]},
+      {"group": {$in: groups}},
+    ]
+  }
+
+  var activities = Activities.find(activityConds);
+  
+  console.log("Found " + activities.count() + " activities with conditions: " + JSON.stringify(activityConds));
+  return activities;
 });
 
-Meteor.publish("allGroups", function () {
+Meteor.publish("groups", function () {
   var conditions = {};
   var settings = Meteor.settings;
   var user = Meteor.users.findOne(this.userId);
@@ -74,6 +96,16 @@ Meteor.publish("allGroups", function () {
   return Groups.find(conditions);
 });
 
-Meteor.publish("allComments", function () {
-  return Comments.find();
+Meteor.publish("comments", function (groupId) {
+  // don't return any comments without a groupId
+  if (_.isNull(groupId))
+    return [];
+
+  var conditions = {};
+
+  if (_.isString(groupId)) {
+    conditions.groupId = groupId;
+  }
+
+  return Comments.find(conditions);
 });

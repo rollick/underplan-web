@@ -22,9 +22,11 @@ if(Meteor.isServer) {
   groupFollowerEmails = function(groupId) {
     var emails = [];
     Meteor.users.find({}).forEach( function (user) {
-      var following = user.profile.followedGroups;
-      if(!!following && following[groupId]) {
-        emails.push(userEmail(user));
+      if (user.profile && user.profile.followedGroups) {
+        var following = user.profile.followedGroups;
+        if(!!following && following[groupId]) {
+          emails.push(userEmail(user));
+        }        
       }
     });
 
