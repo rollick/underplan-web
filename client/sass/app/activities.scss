@@ -193,8 +193,54 @@
 .feed-header {
   height: 50px;
 
+  ul {
+    margin-bottom: 0em;
+
+    @media only screen {
+      // margin-top: 1.8em;
+    }
+
+    @media only screen and (min-width: 48em) {
+      margin-top: 0em;
+      margin-bottom: 0em;
+    }
+  }
+
+  h4, h5 {
+    width: 100%;
+  }
+
   h4 {
     margin-bottom: 0px;
+
+    &.show-for-small {
+      font-size: 1.5em;
+      text-transform: uppercase;
+      display: inline-block;
+      zoom: 1;
+      letter-spacing: 1px;
+    }
+  }
+
+  h5 {
+    &.show-for-small {
+      color: #888;
+      display: inline-block;
+      font-size: 1em;
+      zoom: 1;
+
+      &.wide {
+        letter-spacing: 1px;
+      }
+
+      &.wider {
+        letter-spacing: 3px;
+      }
+
+      .sub-header {
+        letter-spacing: 1px;
+      }
+    }
   }
 }
 

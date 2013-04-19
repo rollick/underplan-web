@@ -1197,7 +1197,7 @@ blockquote p {
 }
 /* line 8, ../../sass/app/comment.scss */
 .comment:nth-child(odd) {
-  background-color: #f3f3f3;
+  background-color: #f8f8f8;
 }
 
 /* line 14, ../../sass/app/comment.scss */

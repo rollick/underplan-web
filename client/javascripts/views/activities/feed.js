@@ -21,13 +21,18 @@ Template.activityFeed.helpers({
     html += "</h4>";
 
     // small displays
-    html += "<h4 class=\"show-for-small\">";
-    html += "Last " + Session.get("feedLimit");
+    html += "<h4 class=\"show-for-small\">Last " + Session.get("feedLimit") + "</h4>";
+
+    var h5Style = "wide";
+    if (Session.get("feedLimit") > 9) {
+      h5Style = "wider";
+    }
+
+    html += "<h5 class=\"show-for-small " + h5Style + "\">Activities";
     if (Template.feedList.moreActivities()) {
       html += "<span class=\"sub-header\"><a href=\"#\" class=\"feed-all\">Show all</a></span>";
     }
-    html += "</h4>";
-    html += "<h5 class=\"show-for-small\">Activities</h5>";
+    html += "</h5>";
 
     return new Handlebars.SafeString(html);
   }

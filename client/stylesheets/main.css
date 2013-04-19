@@ -29,31 +29,32 @@ h1 .sub-header, h2 .sub-header, h3 .sub-header, h4 .sub-header, h5 .sub-header {
 /* line 25, ../sass/main.scss */
 h1 .sub-header:before, h2 .sub-header:before, h3 .sub-header:before, h4 .sub-header:before, h5 .sub-header:before {
   content: " - ";
+  line-spacing: 1px;
 }
 
-/* line 31, ../sass/main.scss */
+/* line 32, ../sass/main.scss */
 h2 {
   margin-bottom: 0.2em;
 }
 
-/* line 35, ../sass/main.scss */
+/* line 36, ../sass/main.scss */
 span.warning, h2 span.warning, a span.warning {
   color: #c60f13;
 }
 
-/* line 40, ../sass/main.scss */
+/* line 41, ../sass/main.scss */
 h2 span.warning, h2 span.warning, h2 a span.warning, a h2 span.warning, a span.warning, a h2 span.warning, h2 a span.warning, a span.warning {
   font-size: 0.7em;
 }
 
-/* line 47, ../sass/main.scss */
+/* line 48, ../sass/main.scss */
 .push {
   height: 40px;
   margin: 0px;
   padding: 0px;
 }
 
-/* line 53, ../sass/main.scss */
+/* line 54, ../sass/main.scss */
 .row.main-content {
   border-bottom: 3px solid green;
   padding: 0px;
@@ -65,30 +66,30 @@ h2 span.warning, h2 span.warning, h2 a span.warning, a h2 span.warning, a span.w
   margin-top: 0px;
   box-shadow: none;
 }
-/* line 63, ../sass/main.scss */
+/* line 64, ../sass/main.scss */
 .row.main-content.normal {
   padding-top: 5px;
   margin-top: 0px;
 }
-/* line 76, ../sass/main.scss */
+/* line 77, ../sass/main.scss */
 .row.main-content.dashboard {
   background: url("/images/sun3.jpg") 0 0 no-repeat;
   background-color: black;
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 83, ../sass/main.scss */
+  /* line 84, ../sass/main.scss */
   .row.main-content {
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
   }
 }
-/* line 92, ../sass/main.scss */
+/* line 93, ../sass/main.scss */
 footer {
   height: 40px;
   margin: 0px;
   padding: 0px;
 }
-/* line 97, ../sass/main.scss */
+/* line 98, ../sass/main.scss */
 footer .info {
   margin: 5px 0px;
   padding: 10px !important;
@@ -106,7 +107,7 @@ footer .info {
   *display: inline;
   _height: 5px;
 }
-/* line 117, ../sass/main.scss */
+/* line 118, ../sass/main.scss */
 footer .info > div {
   width: 100%;
   position: absolute;
@@ -115,20 +116,20 @@ footer .info > div {
   margin-bottom: 5px;
 }
 
-/* line 127, ../sass/main.scss */
+/* line 128, ../sass/main.scss */
 footer.dashboard {
   font-color: white;
 }
-/* line 130, ../sass/main.scss */
+/* line 131, ../sass/main.scss */
 footer.dashboard .row:first-of-type {
   border-top: 2px solid #2b2b2b;
 }
-/* line 134, ../sass/main.scss */
+/* line 135, ../sass/main.scss */
 footer.dashboard p {
   color: #fff;
 }
 
-/* line 140, ../sass/main.scss */
+/* line 141, ../sass/main.scss */
 footer p,
 footer a {
   margin-top: 10px;

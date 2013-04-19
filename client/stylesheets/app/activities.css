@@ -229,18 +229,60 @@
   height: 50px;
 }
 /* line 196, ../../sass/app/activities.scss */
+.feed-header ul {
+  margin-bottom: 0em;
+}
+@media only screen and (min-width: 48em) {
+  /* line 196, ../../sass/app/activities.scss */
+  .feed-header ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+}
+/* line 209, ../../sass/app/activities.scss */
+.feed-header h4, .feed-header h5 {
+  width: 100%;
+}
+/* line 213, ../../sass/app/activities.scss */
 .feed-header h4 {
   margin-bottom: 0px;
 }
+/* line 216, ../../sass/app/activities.scss */
+.feed-header h4.show-for-small {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  display: inline-block;
+  zoom: 1;
+  letter-spacing: 1px;
+}
+/* line 226, ../../sass/app/activities.scss */
+.feed-header h5.show-for-small {
+  color: #888;
+  display: inline-block;
+  font-size: 1em;
+  zoom: 1;
+}
+/* line 232, ../../sass/app/activities.scss */
+.feed-header h5.show-for-small.wide {
+  letter-spacing: 1px;
+}
+/* line 236, ../../sass/app/activities.scss */
+.feed-header h5.show-for-small.wider {
+  letter-spacing: 3px;
+}
+/* line 240, ../../sass/app/activities.scss */
+.feed-header h5.show-for-small .sub-header {
+  letter-spacing: 1px;
+}
 
-/* line 203, ../../sass/app/activities.scss */
+/* line 249, ../../sass/app/activities.scss */
 .feed li p {
   display: inline;
   position: relative;
   top: -4px;
   margin-left: 8px;
 }
-/* line 210, ../../sass/app/activities.scss */
+/* line 256, ../../sass/app/activities.scss */
 .feed li i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;
@@ -250,38 +292,38 @@
   overflow: hidden;
   line-height: 1.5;
 }
-/* line 221, ../../sass/app/activities.scss */
+/* line 267, ../../sass/app/activities.scss */
 .feed .feed-more > .columns {
   margin-top: 10px;
   text-align: center;
 }
-/* line 227, ../../sass/app/activities.scss */
+/* line 273, ../../sass/app/activities.scss */
 .feed .row.feed-list:first-child {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 234, ../../sass/app/activities.scss */
+/* line 280, ../../sass/app/activities.scss */
 .feed .row.feed-list .columns .entry:first-child blockquote {
   margin-top: 0px !important;
 }
 
-/* line 243, ../../sass/app/activities.scss */
+/* line 289, ../../sass/app/activities.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 246, ../../sass/app/activities.scss */
+/* line 292, ../../sass/app/activities.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;
 }
 
-/* line 249, ../../sass/app/activities.scss */
+/* line 295, ../../sass/app/activities.scss */
 .comment-form .comment {
   /*height: 100px;*/
 }
 
-/* line 253, ../../sass/app/activities.scss */
+/* line 299, ../../sass/app/activities.scss */
 span.text-length {
   margin-left: 5px;
   line-height: 28px;
