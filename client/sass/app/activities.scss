@@ -9,14 +9,12 @@
   }
 
   .activity-map {
-    padding: 0 0 5px 0px;
     float: right;
-  }
-
-  @media only screen and (min-width: 48em) {
-    .activity-map {
+    padding: 0;
+    padding-bottom: 5px;      
+    
+    &.hide-for-small {
       padding: 10px;
-      padding-top: 0px;
     }
   }
 }
