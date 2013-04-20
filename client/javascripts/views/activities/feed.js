@@ -20,13 +20,13 @@ Template.activityFeed.helpers({
     }
     html += "</h4>";
 
-    // small displays
-    html += "<h4 class=\"show-for-small\">Last " + Session.get("feedLimit") + "</h4>";
-
     var h5Style = "wide";
     if (Session.get("feedLimit") > 9) {
       h5Style = "wider";
     }
+
+    // small displays
+    html += "<h4 class=\"show-for-small " + h5Style + "\">Last " + Session.get("feedLimit") + "</h4>";
 
     html += "<h5 class=\"show-for-small " + h5Style + "\">Activities";
     if (Template.feedList.moreActivities()) {

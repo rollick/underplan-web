@@ -10,6 +10,10 @@ Template.short.events({
     return false;
   },
   'click .short-actions .new-comment a': function (event, template) {
+    if (!!$(event.target).closest("a").hasClass("disabled")) {
+      return false;
+    }
+
     var self = this;
     $(template.firstNode).closest(".short-full").
                           addClass("expanded", 500, function () {

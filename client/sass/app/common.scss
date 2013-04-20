@@ -37,22 +37,26 @@
       opacity: 0.3;
     }
 
-    span {
-      position: absolute;
-      right: 0;
-      display: block;
-      width: 14px;
-      height: 0;
-      margin-right: 15px;
-    }
+    // span {
+    //   position: absolute;
+    //   right: 0;
+    //   display: block;
+    //   width: 14px;
+    //   height: 0;
+    //   margin-right: 15px;
+    // }
   }
 
   a.new-short {
     text-indent: -35px;
   }
 
-  &.new-comment a {
-    text-indent: -73px;
+  &.new-comment {
+    float: right;
+    
+    a {
+      text-indent: -73px;
+    }
   }
   
   &.new-comment span:before,
@@ -60,7 +64,7 @@
     content: "+";
     font-size: 1.6em;
     font-weight: bold;
-    padding-right: 3px;
+    padding-right: 1px;
     top: 3px;
     position: relative;
   }

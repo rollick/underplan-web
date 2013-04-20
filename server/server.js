@@ -53,7 +53,7 @@ Meteor.publish("activities", function (groupId) {
     groupConds.$and.push({_id: groupId});
   }
 
-  console.log("Group conditions for activity feed :" + JSON.stringify(groupConds));
+  // console.log("Group conditions for activity feed :" + JSON.stringify(groupConds));
 
   var groups = Groups.find(groupConds, {fields: {_id: 1}}).map(function(group) {
     return group._id;
@@ -71,7 +71,7 @@ Meteor.publish("activities", function (groupId) {
 
   var activities = Activities.find(activityConds);
   
-  console.log("Found " + activities.count() + " activities with conditions: " + JSON.stringify(activityConds));
+  // console.log("Found " + activities.count() + " activities with conditions: " + JSON.stringify(activityConds));
   return activities;
 });
 

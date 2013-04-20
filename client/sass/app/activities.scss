@@ -217,6 +217,14 @@
       display: inline-block;
       zoom: 1;
       letter-spacing: 1px;
+
+      &.wide {
+        letter-spacing: 2px;
+      }
+
+      &.wider {
+        letter-spacing: 1px;
+      }
     }
   }
 
@@ -228,7 +236,7 @@
       zoom: 1;
 
       &.wide {
-        letter-spacing: 1px;
+        letter-spacing: 2px;
       }
 
       &.wider {

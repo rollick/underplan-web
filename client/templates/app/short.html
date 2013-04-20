@@ -31,13 +31,15 @@
           <span class="comments">{{countText}}</span>
         {{/if}}
       </div>
-      {{#if currentUser}}
-        <div class="small-5 large-5 columns">
-          <div class="action new-comment">
-            <a href="#"><span>Comment</span></a>
-          </div>
+      <div class="small-5 large-5 columns">
+        <div class="action new-comment">
+          <a href="#" class="{{#unless currentUser}}disabled{{/unless}}">
+            <span {{#unless currentUser}}data-tooltip title="Log in to comment"{{/unless}}>
+              Comment
+            </span>
+          </a>
         </div>
-      {{/if}}
+      </div>
     </div>
     <div class="row short-comments">
       <div class="small-12 large-12 columns">
