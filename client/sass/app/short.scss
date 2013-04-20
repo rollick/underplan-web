@@ -16,6 +16,12 @@ $entry-bottom-margin: 0.9em;
   @extend .row;
 
   form {
+    @include border-radius(4px);
+
+    background-color: #f7f7f7;
+    border: 1px solid #f3f3f3;
+    padding: 10px;
+
     .text-section, 
     .location-section, 
     .action-section {
@@ -30,7 +36,6 @@ $entry-bottom-margin: 0.9em;
         @extend .small-8;
 
         textarea {
-          margin-bottom: 0.8em;
           height: 40px;
           min-height: 0px !important;
         }
@@ -40,16 +45,20 @@ $entry-bottom-margin: 0.9em;
         @extend .columns;
         @extend .large-4;
         @extend .small-4;
-        
+
+        text-align: center;
         padding-left: 0px !important;
-        padding-right: 0px !important;
-        margin-top: 0.6em;
+        margin-top: 0.8em;
       }
     }
 
     .location-section, 
     .action-section {
       display: none;
+
+      .button {
+        margin-bottom: 0em;
+      }
     }
 
     &.expanded {
@@ -64,6 +73,7 @@ $entry-bottom-margin: 0.9em;
           @extend .small-12;
   
           textarea {
+            margin-bottom: 0.8em;
             height: 80px;
           }
         }

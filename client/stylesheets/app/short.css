@@ -2073,42 +2073,58 @@ blockquote p {
   padding-bottom: 0.5em;
 }
 
-/* line 32, ../../sass/app/short.scss */
+/* line 18, ../../sass/app/short.scss */
+.short-form form {
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
+  background-color: #f7f7f7;
+  border: 1px solid #f3f3f3;
+  padding: 10px;
+}
+/* line 38, ../../sass/app/short.scss */
 .short-form form .text-section .input-field textarea {
-  margin-bottom: 0.8em;
   height: 40px;
   min-height: 0px !important;
 }
-/* line 39, ../../sass/app/short.scss */
+/* line 44, ../../sass/app/short.scss */
 .short-form form .text-section .add-story {
+  text-align: center;
   padding-left: 0px !important;
-  padding-right: 0px !important;
-  margin-top: 0.6em;
+  margin-top: 0.8em;
 }
-/* line 51, ../../sass/app/short.scss */
+/* line 56, ../../sass/app/short.scss */
 .short-form form .location-section,
 .short-form form .action-section {
   display: none;
 }
-/* line 57, ../../sass/app/short.scss */
+/* line 59, ../../sass/app/short.scss */
+.short-form form .location-section .button,
+.short-form form .action-section .button {
+  margin-bottom: 0em;
+}
+/* line 66, ../../sass/app/short.scss */
 .short-form form.expanded .location-section,
 .short-form form.expanded .action-section {
   display: inherit;
 }
-/* line 66, ../../sass/app/short.scss */
+/* line 75, ../../sass/app/short.scss */
 .short-form form.expanded .text-section .input-field textarea {
+  margin-bottom: 0.8em;
   height: 80px;
 }
-/* line 71, ../../sass/app/short.scss */
+/* line 81, ../../sass/app/short.scss */
 .short-form form.expanded .text-section .add-story {
   display: none;
 }
 
-/* line 79, ../../sass/app/short.scss */
+/* line 89, ../../sass/app/short.scss */
 .short-full {
   margin-bottom: 0.8em;
 }
-/* line 82, ../../sass/app/short.scss */
+/* line 92, ../../sass/app/short.scss */
 .short-full .short {
   padding: 0.66em 0;
   padding-bottom: 0px;
@@ -2193,11 +2209,11 @@ blockquote p {
 .short-full .short .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 88, ../../sass/app/short.scss */
+/* line 98, ../../sass/app/short.scss */
 .short-full .short .content {
   padding-bottom: 0.5em;
 }
-/* line 93, ../../sass/app/short.scss */
+/* line 103, ../../sass/app/short.scss */
 .short-full .short-actions {
   font-size: 0.9em;
   margin-left: 0px;
@@ -2215,50 +2231,50 @@ blockquote p {
   color: white;
   font-size: 0.8em;
 }
-/* line 104, ../../sass/app/short.scss */
+/* line 114, ../../sass/app/short.scss */
 .short-full .short-actions .columns, .short-full .short-actions .story .top-section, .story .short-full .short-actions .top-section, .short-full .short-actions .story .content, .story .short-full .short-actions .content, .short-full .short-actions .short-form form .text-section .input-field, .short-form form .text-section .short-full .short-actions .input-field, .short-full .short-actions .short-form form .text-section .add-story, .short-form form .text-section .short-full .short-actions .add-story, .short-full .short-actions .short .top-section, .short-full .short .short-actions .top-section, .short-full .short-actions .short .content, .short-full .short .short-actions .content, .short-full .short-actions .short-comments .inner, .short-full .short-comments .short-actions .inner {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 109, ../../sass/app/short.scss */
+/* line 119, ../../sass/app/short.scss */
 .short-full .short-actions a.comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 113, ../../sass/app/short.scss */
+/* line 123, ../../sass/app/short.scss */
 .short-full .short-actions a.comments:before {
   background-position: 0em 0.3em;
 }
-/* line 121, ../../sass/app/short.scss */
+/* line 131, ../../sass/app/short.scss */
 .short-full .short-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 125, ../../sass/app/short.scss */
+/* line 135, ../../sass/app/short.scss */
 .short-full .short-actions .action.new-comment a {
   text-indent: -50px;
 }
-/* line 128, ../../sass/app/short.scss */
+/* line 138, ../../sass/app/short.scss */
 .short-full .short-actions .action.new-comment a span {
   color: white;
 }
 @media only screen and (min-width: 48em) {
-  /* line 93, ../../sass/app/short.scss */
+  /* line 103, ../../sass/app/short.scss */
   .short-full .short-actions {
     font-size: 0.9em;
   }
-  /* line 141, ../../sass/app/short.scss */
+  /* line 151, ../../sass/app/short.scss */
   .short-full .short-actions .action.new-comment a {
     text-indent: -60px;
   }
 }
-/* line 148, ../../sass/app/short.scss */
+/* line 158, ../../sass/app/short.scss */
 .short-full .short-comments {
   height: 0px;
   overflow: hidden;
   padding: 0 1.4em;
 }
-/* line 159, ../../sass/app/short.scss */
+/* line 169, ../../sass/app/short.scss */
 .short-full .short-comments .inner {
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
@@ -2271,7 +2287,7 @@ blockquote p {
   border-top: none;
   padding-bottom: 0.5em;
 }
-/* line 182, ../../sass/app/short.scss */
+/* line 192, ../../sass/app/short.scss */
 .short-full.expanded .short-comments {
   height: 100%;
 }
