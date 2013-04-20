@@ -12,12 +12,14 @@ var saveComment = function (template) {
   var comment = template.find("form #comment").value;
   var activityId = template.find("form #activity-id").value;
   
+  // Clear input here and then re-set if save fails
+  template.find("#comment").value = "";
+
   if (activityId && Meteor.userId() && comment.length) {
     Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
       if (error) {
         Session.set("createError", [error.error, error.reason].join(": "));
-      } else {
-        template.find("#comment").value = "";
+        template.find("#comment").value = comment;        
       }
     });
   } else {
