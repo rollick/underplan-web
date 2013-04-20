@@ -23,7 +23,7 @@
 <template name="short">
   {{#with activity}}
     {{> shortContent}}
-    <div class="row short-actions">
+    <div class="short-actions">
       <div class="small-6 large-6 columns">
         {{#if hasComments}}
           <a class="comments" href="#">{{countText}}</a>
@@ -34,15 +34,15 @@
       <div class="small-5 large-5 columns">
         <div class="action new-comment">
           <a href="#" class="{{#unless currentUser}}disabled{{/unless}}">
-            <span {{#unless currentUser}}data-tooltip title="Log in to comment"{{/unless}}>
+            <span {{#unless currentUser}}data-tooltip class="tip-top" title="Log in to comment"{{/unless}}>
               Comment
             </span>
           </a>
         </div>
       </div>
     </div>
-    <div class="row short-comments">
-      <div class="small-12 large-12 columns">
+    <div class="short-comments">
+      <div class="inner">
         {{> commentList this}}
         {{> commentForm this}}
       </div>
@@ -51,13 +51,16 @@
 </template>
 
 <template name="shortForm">
-  <form class="custom">
-    <div class="row">
-      <div class="small-12 large-12 columns">
-        <textarea type="text" id="text" value="" style="height: 100px;" placeholder="Write something..." /><br />
+  <form>
+    <div class="text-section">
+      <div class="input-field">
+        <textarea type="text" id="text" value="" placeholder="Write something..." />
+      </div>
+      <div class="add-story">
+        <span>Or, <a href="#" class="new-story">Add Story</a></span>
       </div>
     </div>
-    <div class="row">
+    <div class="location-section">
       <div class="small-12 large-12 columns">
         <label>Location</label>
         <input type="text" id="location" value="" placeholder="Enter a location...">
@@ -69,10 +72,10 @@
         <input type="hidden" id="region" value="">
       </div>
     </div>
-    <div class="row">
+    <div class="action-section">
       <div class="small-12 large-12 columns">
         <a href="#" class="small button secondary cancel">Cancel</a>
-        <a href="#" class="small button success post">Post</a>
+        <a href="#" class="disabled small button success post">Post</a>
         <span class="text-length">250</span>
       </div>
     </div>

@@ -83,23 +83,25 @@ var clearForm = function(template) {
 Template.shortForm.events({
   'click .cancel': function (event, template) {
     clearForm(template);
-    $(template.firstNode).closest(".short-form.row").hide();
+    $(template.find("form")).removeClass("expanded");
 
     return false;
   },
+  'focus #text': function (event, template) {
+    $(template.find("form")).addClass("expanded");
+  },
   'keyup #text': function (event, template) {
-    var max = shortMaxLength();
     var textElem = template.find("#text");
     var countElem = template.find(".text-length");
     var submit = template.find(".post");
 
-    if(textElem.value.length > max) {
+    if(textElem.value.length === 0 || textElem.value.length > shortMaxLength) {
       $(submit).addClass("disabled");
     } else {
       $(submit).removeClass("disabled");
     }
 
-    var count = max - textElem.value.length;
+    var count = shortMaxLength - textElem.value.length;
     countElem.innerHTML = count;
     if(count <= 10) {
       countElem.style.color = "red";
@@ -178,7 +180,7 @@ Template.shortForm.events({
           template.find("#country").value =
           template.find("#region").value = "";
 
-          template.find(".text-length").innerHTML = shortMaxLength();
+          template.find(".text-length").innerHTML = shortMaxLength;
         }
       });
     } else {

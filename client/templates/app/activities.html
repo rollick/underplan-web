@@ -9,23 +9,6 @@
       <div class="small-7 large-7 columns">
         {{feedTitle}}
       </div>
-      {{#if userBelongsToGroup}}
-        <div class="action small-5 large-5 columns">
-          <ul>
-            <li>
-              <a href="#" class="new-short">
-                Sh<span class="hide-for-small">ort</span>y
-              </a>
-            </li>
-            <li class="separator"></li>
-            <li>
-              <a href="#" class="new-story">
-                St<span class="hide-for-small">or</span>y
-              </a>
-            </li>
-          </ul>
-        </div>
-      {{/if}}
     </div>
     <div class="row no-side-padding">
       <div class="show-for-small small-12 columns">
@@ -35,7 +18,7 @@
       </div>
       <div class="small-12 large-5 columns feed">
         {{#if userBelongsToGroup}}
-          <div class="short-form row" style="display: none;">
+          <div class="short-form">
             <div class="small-12 large-12 columns">
               {{> shortForm}}
             </div>
@@ -203,7 +186,7 @@
         <input type="hidden" id="region" value="{{region}}">
         <input type="hidden" id="country" value="{{country}}">
         <label>Map Zoom</label>
-        <input type="text" id="map-zoom" value="{{mapZoom}}" placeholder="0 (world) to 21+ (buildings)">        
+        <input type="text" id="map-zoom" value="{{mapZoom}}" placeholder="0 (world) to 21+ (buildings)">
         <label>Link Slug</label>
         <input type="text" id="slug" value="{{slug}}">
         <label>Picasa Tag</label>
@@ -216,7 +199,13 @@
         {{datePicker created}}
         <hr />
         <a href="#" class="small button secondary back">Cancel</a>
-        <a href="#" class="small button success update">Save story</a>
+        <span>
+          <a href="#" class="small button success update">Save story</a>
+          <label for="notify">
+            <input type="checkbox" class="notify" id="notify" style="display: none;">
+            <span class="custom checkbox"></span> Notify Followers
+          </label>
+        </span>
       {{/with}}
     {{else}}
       <label>Title</label>

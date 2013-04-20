@@ -1195,10 +1195,6 @@ blockquote p {
 .comment .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 8, ../../sass/app/comment.scss */
-.comment:nth-child(odd) {
-  background-color: #f8f8f8;
-}
 
 /* line 14, ../../sass/app/comment.scss */
 .comment-form input.comment {

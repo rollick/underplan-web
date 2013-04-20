@@ -12,6 +12,70 @@ $entry-bottom-margin: 0.9em;
   }
 }
 
+.short-form {
+  @extend .row;
+
+  form {
+    .text-section, 
+    .location-section, 
+    .action-section {
+      @extend .row;
+    }
+
+    .text-section {
+      
+      .input-field {
+        @extend .columns;
+        @extend .large-8;
+        @extend .small-8;
+
+        textarea {
+          margin-bottom: 0.8em;
+          height: 40px;
+          min-height: 0px !important;
+        }
+      }
+
+      .add-story {
+        @extend .columns;
+        @extend .large-4;
+        @extend .small-4;
+        
+        padding-left: 0px !important;
+        padding-right: 0px !important;
+        margin-top: 0.6em;
+      }
+    }
+
+    .location-section, 
+    .action-section {
+      display: none;
+    }
+
+    &.expanded {
+      .location-section, 
+      .action-section {
+        display: inherit;
+      }
+
+      .text-section {
+        .input-field {
+          @extend .large-12;
+          @extend .small-12;
+  
+          textarea {
+            height: 80px;
+          }
+        }
+
+        .add-story {
+          display: none;
+        }
+      }
+    }
+  }
+}
+
 .short-full {
   margin-bottom: 0.8em;
 
@@ -26,69 +90,93 @@ $entry-bottom-margin: 0.9em;
     }
   }
 
-  .short-comments {
-    height: 0px;
-    overflow: hidden;
-    padding: 0 1.2em;
+  .short-actions {
+    @extend .row;
 
-    .comment {
+    @include standard-bar();
+    @include border-radius(3px);
 
-    }
-  }
+    margin: 0 !important;
+    cursor: default;
+    color: white;
+    font-size: 0.8em;
 
-  .row {
     .columns {
       /*padding-left: 32px;*/
       line-height: 33px;
     }
-    &.short-actions {
-      @include standard-bar();
 
-      cursor: default;
-      color: white;
-      font-size: 0.8em;
+    a.comments {
+      font-size: 1em;
+      color: white !important;
 
-      a.comments {
-        font-size: 1em;
-        color: white !important;
+      &:before {
+        @extend .up-down:before;
 
-        &:before {
-          @extend .up-down:before;
-
-          background-position: 0em 0.3em;
-        }
+        background-position: 0em 0.3em;
       }
+    }
+
+    .action {
+      &.new-comment {
+        height: 30px;
+        margin-top: -3px !important;
+
+        a {
+          text-indent: -50px;
+
+          span {
+            color: white;
+          }
+        }
+        
+      }
+    }
+
+    @media only screen and (min-width: 48em) {
+      font-size: 0.9em;
+
       .action {
-        &.new-comment {
-          height: 30px;
-          margin-top: -3px !important;
 
-          a {
-            text-indent: -50px;
-
-            span {
-              color: white;
-            }
-          }
-          
-        }
-      }
-      @media only screen and (min-width: 48em) {
-        font-size: 0.9em;
-
-        .action {
-
-          &.new-comment a {
-            text-indent: -60px;
-          }
+        &.new-comment a {
+          text-indent: -60px;
         }
       }
     }
   }
+
+  .short-comments {
+    @extend .row;
+
+    height: 0px;
+    overflow: hidden;
+    padding: 0 1.4em;
+
+    .comment {
+
+    }
+
+    .inner {
+      @extend .columns;
+      @extend .large-12;
+      @extend .small-12;
+
+      @include border-bottom-left-radius(4px);
+      @include border-bottom-right-radius(4px);
+
+      background-color: #f7f7f7;
+      border: 1px solid #f3f3f3;
+      border-top: none;
+      padding-bottom: 0.5em;
+    }
+  }
+
   &.expanded {
-    .short-actions a.comments {
-      &:before {
-        @extend .up-down.open:before;
+    .short-actions {
+      a.comments {
+        &:before {
+          @extend .up-down.open:before;
+        }
       }
     }
     .short-comments {
