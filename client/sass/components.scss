@@ -63,13 +63,11 @@
     }
 
     .details {
-      @if $fixed-details {
-        height: $picture-width - 0.4em !important;
+      @if $fixed-details { height: $picture-width - 0.4em !important; }
 
-        @media only screen and (min-width: 48em) {
-          padding-top: 0.5em;
-          height: $picture-width !important;
-        }
+      @media only screen and (min-width: 48em) {
+        padding-top: 0.5em;
+        @if $fixed-details { height: $picture-width !important; }
       }
 
       .owner {
