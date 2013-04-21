@@ -29,18 +29,17 @@
   cursor: pointer;
 }
 
-@mixin entry-with-profile($picture-width: 4em) {
-  @extend .row;
+@mixin entry-with-profile($picture-width: 4em, $fixed-details: true) {
+  @include grid-row(nest);
+
   padding: $picture-width*0.2 0;
 
   .top-section {
-    @extend .columns;
-    @extend .large-12;
-    @extend .small-12;
+    @include grid-column(12);
 
+    @if $fixed-details { height: 2.8em !important; }
     font-size: 1em;
     color: black;
-    height: 2.8em !important;
     margin-bottom: 0.2em;
 
     .picture {
@@ -64,12 +63,13 @@
     }
 
     .details {
-      padding-top: 0;
-      height: $picture-width - 0.4em !important;
+      @if $fixed-details {
+        height: $picture-width - 0.4em !important;
 
-      @media only screen and (min-width: 48em) {
-        padding-top: 0.5em;
-        height: $picture-width !important;
+        @media only screen and (min-width: 48em) {
+          padding-top: 0.5em;
+          height: $picture-width !important;
+        }
       }
 
       .owner {
@@ -103,12 +103,11 @@
   }
 
   .content {
-    @extend .columns;
-    @extend .large-10;
-    @extend .large-offset-2;
-    @extend .small-12;
+    @include grid-column(12);
 
     @media only screen and (min-width: 48em) {
+      @include grid-column(10, false, false, 2);
+
       margin-left: $picture-width !important;
     }
 

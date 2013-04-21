@@ -431,7 +431,7 @@ blockquote p {
 }
 /* Grid HTML Classes */
 /* line 106, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-.row, .comment, .comment-form, .comment-form .user-comment {
+.row {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -441,46 +441,17 @@ blockquote p {
   *zoom: 1;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row:before, .comment:before, .comment-form:before, .comment-form .user-comment:before, .row:after, .comment:after, .comment-form:after, .comment-form .user-comment:after {
+.row:before, .row:after {
   content: " ";
   display: table;
 }
 /* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row:after, .comment:after, .comment-form:after, .comment-form .user-comment:after {
+.row:after {
   clear: both;
 }
 /* line 110, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-.row .column, .comment .column, .comment-form .column,
-.row .columns,
-.comment .columns,
-.comment-form .columns,
-.comment-form .user-comment .columns,
-.row .comment .top-section,
-.comment .row .top-section,
-.comment .top-section,
-.comment-form .comment .top-section,
-.comment .comment-form .top-section,
-.comment-form .user-comment .comment .top-section,
-.comment .comment-form .user-comment .top-section,
-.row .comment .content,
-.comment .row .content,
-.comment .content,
-.comment-form .comment .content,
-.comment .comment-form .content,
-.comment-form .user-comment .comment .content,
-.comment .comment-form .user-comment .content,
-.row .comment-form .user-comment .top-section,
-.comment-form .user-comment .row .top-section,
-.comment .comment-form .user-comment .top-section,
-.comment-form .user-comment .comment .top-section,
-.comment-form .user-comment .top-section,
-.comment-form .user-comment .top-section,
-.row .comment-form .user-comment .content,
-.comment-form .user-comment .row .content,
-.comment .comment-form .user-comment .content,
-.comment-form .user-comment .comment .content,
-.comment-form .user-comment .content,
-.comment-form .user-comment .content {
+.row .column,
+.row .columns {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -488,44 +459,15 @@ blockquote p {
   float: left;
 }
 /* line 114, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-.row.collapse .column, .collapse.comment .column, .collapse.comment-form .column, .comment-form .collapse.user-comment .column,
-.row.collapse .columns,
-.collapse.comment .columns,
-.collapse.comment-form .columns,
-.comment-form .collapse.user-comment .columns,
-.row.collapse .comment .top-section,
-.comment .row.collapse .top-section,
-.collapse.comment .top-section,
-.collapse.comment-form .comment .top-section,
-.comment .collapse.comment-form .top-section,
-.comment-form .collapse.user-comment .comment .top-section,
-.comment .comment-form .collapse.user-comment .top-section,
-.row.collapse .comment .content,
-.comment .row.collapse .content,
-.collapse.comment .content,
-.collapse.comment-form .comment .content,
-.comment .collapse.comment-form .content,
-.comment-form .collapse.user-comment .comment .content,
-.comment .comment-form .collapse.user-comment .content,
-.row.collapse .comment-form .user-comment .top-section,
-.comment-form .user-comment .row.collapse .top-section,
-.collapse.comment .comment-form .user-comment .top-section,
-.comment-form .user-comment .collapse.comment .top-section,
-.collapse.comment-form .user-comment .top-section,
-.comment-form .collapse.user-comment .top-section,
-.row.collapse .comment-form .user-comment .content,
-.comment-form .user-comment .row.collapse .content,
-.collapse.comment .comment-form .user-comment .content,
-.comment-form .user-comment .collapse.comment .content,
-.collapse.comment-form .user-comment .content,
-.comment-form .collapse.user-comment .content {
+.row.collapse .column,
+.row.collapse .columns {
   position: relative;
   padding-left: 0;
   padding-right: 0;
   float: left;
 }
 /* line 117, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-.row .row, .comment .row, .comment-form .row, .comment-form .user-comment .row, .row .comment, .comment .comment, .comment-form .comment, .comment-form .user-comment .comment, .row .comment-form, .comment .comment-form, .comment-form .comment-form, .comment-form .user-comment .comment-form, .row .comment-form .user-comment, .comment-form .row .user-comment, .comment .comment-form .user-comment, .comment-form .comment .user-comment, .comment-form .user-comment, .comment-form .user-comment .user-comment {
+.row .row {
   width: auto;
   margin-left: -0.9375em;
   margin-right: -0.9375em;
@@ -535,64 +477,35 @@ blockquote p {
   *zoom: 1;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row .row:before, .comment .row:before, .comment-form .row:before, .comment-form .user-comment .row:before, .row .comment:before, .comment .comment:before, .comment-form .comment:before, .comment-form .user-comment .comment:before, .row .comment-form:before, .comment .comment-form:before, .comment-form .comment-form:before, .comment-form .user-comment .comment-form:before, .row .comment-form .user-comment:before, .comment-form .row .user-comment:before, .comment .comment-form .user-comment:before, .comment-form .comment .user-comment:before, .comment-form .user-comment:before, .comment-form .user-comment .user-comment:before, .row .row:after, .comment .row:after, .comment-form .row:after, .comment-form .user-comment .row:after, .row .comment:after, .comment .comment:after, .comment-form .comment:after, .comment-form .user-comment .comment:after, .row .comment-form:after, .comment .comment-form:after, .comment-form .comment-form:after, .comment-form .user-comment .comment-form:after, .row .comment-form .user-comment:after, .comment-form .row .user-comment:after, .comment .comment-form .user-comment:after, .comment-form .comment .user-comment:after, .comment-form .user-comment:after, .comment-form .user-comment .user-comment:after {
+.row .row:before, .row .row:after {
   content: " ";
   display: table;
 }
 /* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row .row:after, .comment .row:after, .comment-form .row:after, .comment-form .user-comment .row:after, .row .comment:after, .comment .comment:after, .comment-form .comment:after, .comment-form .user-comment .comment:after, .row .comment-form:after, .comment .comment-form:after, .comment-form .comment-form:after, .comment-form .user-comment .comment-form:after, .row .comment-form .user-comment:after, .comment-form .row .user-comment:after, .comment .comment-form .user-comment:after, .comment-form .comment .user-comment:after, .comment-form .user-comment:after, .comment-form .user-comment .user-comment:after {
+.row .row:after {
   clear: both;
 }
 /* line 118, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-.row .row.collapse, .comment .row.collapse, .comment-form .row.collapse, .comment-form .user-comment .row.collapse, .row .collapse.comment, .comment .collapse.comment, .comment-form .collapse.comment, .comment-form .user-comment .collapse.comment, .row .collapse.comment-form, .comment .collapse.comment-form, .comment-form .collapse.comment-form, .comment-form .user-comment .collapse.comment-form, .row .comment-form .collapse.user-comment, .comment-form .row .collapse.user-comment, .comment .comment-form .collapse.user-comment, .comment-form .comment .collapse.user-comment, .comment-form .collapse.user-comment, .comment-form .user-comment .collapse.user-comment {
+.row .row.collapse {
   width: auto;
   margin: 0;
   max-width: none;
   *zoom: 1;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row .row.collapse:before, .comment .row.collapse:before, .comment-form .row.collapse:before, .comment-form .user-comment .row.collapse:before, .row .collapse.comment:before, .comment .collapse.comment:before, .comment-form .collapse.comment:before, .comment-form .user-comment .collapse.comment:before, .row .collapse.comment-form:before, .comment .collapse.comment-form:before, .comment-form .collapse.comment-form:before, .comment-form .user-comment .collapse.comment-form:before, .row .comment-form .collapse.user-comment:before, .comment-form .row .collapse.user-comment:before, .comment .comment-form .collapse.user-comment:before, .comment-form .comment .collapse.user-comment:before, .comment-form .collapse.user-comment:before, .comment-form .user-comment .collapse.user-comment:before, .row .row.collapse:after, .comment .row.collapse:after, .comment-form .row.collapse:after, .comment-form .user-comment .row.collapse:after, .row .collapse.comment:after, .comment .collapse.comment:after, .comment-form .collapse.comment:after, .comment-form .user-comment .collapse.comment:after, .row .collapse.comment-form:after, .comment .collapse.comment-form:after, .comment-form .collapse.comment-form:after, .comment-form .user-comment .collapse.comment-form:after, .row .comment-form .collapse.user-comment:after, .comment-form .row .collapse.user-comment:after, .comment .comment-form .collapse.user-comment:after, .comment-form .comment .collapse.user-comment:after, .comment-form .collapse.user-comment:after, .comment-form .user-comment .collapse.user-comment:after {
+.row .row.collapse:before, .row .row.collapse:after {
   content: " ";
   display: table;
 }
 /* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row .row.collapse:after, .comment .row.collapse:after, .comment-form .row.collapse:after, .comment-form .user-comment .row.collapse:after, .row .collapse.comment:after, .comment .collapse.comment:after, .comment-form .collapse.comment:after, .comment-form .user-comment .collapse.comment:after, .row .collapse.comment-form:after, .comment .collapse.comment-form:after, .comment-form .collapse.comment-form:after, .comment-form .user-comment .collapse.comment-form:after, .row .comment-form .collapse.user-comment:after, .comment-form .row .collapse.user-comment:after, .comment .comment-form .collapse.user-comment:after, .comment-form .comment .collapse.user-comment:after, .comment-form .collapse.user-comment:after, .comment-form .user-comment .collapse.user-comment:after {
+.row .row.collapse:after {
   clear: both;
 }
 
 @media only screen {
   /* line 125, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .column, .comment .column, .comment-form .column, .comment-form .user-comment .column,
-  .row .columns,
-  .comment .columns,
-  .comment-form .columns,
-  .comment-form .user-comment .columns,
-  .row .comment .top-section,
-  .comment .row .top-section,
-  .comment .top-section,
-  .comment-form .comment .top-section,
-  .comment .comment-form .top-section,
-  .comment-form .user-comment .comment .top-section,
-  .comment .comment-form .user-comment .top-section,
-  .row .comment .content,
-  .comment .row .content,
-  .comment .content,
-  .comment-form .comment .content,
-  .comment .comment-form .content,
-  .comment-form .user-comment .comment .content,
-  .comment .comment-form .user-comment .content,
-  .row .comment-form .user-comment .top-section,
-  .comment-form .user-comment .row .top-section,
-  .comment .comment-form .user-comment .top-section,
-  .comment-form .user-comment .comment .top-section,
-  .comment-form .user-comment .top-section,
-  .comment-form .user-comment .top-section,
-  .row .comment-form .user-comment .content,
-  .comment-form .user-comment .row .content,
-  .comment .comment-form .user-comment .content,
-  .comment-form .user-comment .comment .content,
-  .comment-form .user-comment .content,
-  .comment-form .user-comment .content {
+  .row .column,
+  .row .columns {
     position: relative;
     padding-left: 0.9375em;
     padding-right: 0.9375em;
@@ -600,133 +513,133 @@ blockquote p {
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-1, .comment .small-1, .comment-form .small-1, .comment-form .user-comment .small-1 {
+  .row .small-1 {
     position: relative;
     width: 8.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-2, .comment .small-2, .comment-form .small-2, .comment-form .user-comment .small-2 {
+  .row .small-2 {
     position: relative;
     width: 16.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-3, .comment .small-3, .comment-form .small-3, .comment-form .user-comment .small-3 {
+  .row .small-3 {
     position: relative;
     width: 25%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-4, .comment .small-4, .comment-form .small-4, .comment-form .user-comment .small-4 {
+  .row .small-4 {
     position: relative;
     width: 33.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-5, .comment .small-5, .comment-form .small-5, .comment-form .user-comment .small-5 {
+  .row .small-5 {
     position: relative;
     width: 41.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-6, .comment .small-6, .comment-form .small-6, .comment-form .user-comment .small-6 {
+  .row .small-6 {
     position: relative;
     width: 50%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-7, .comment .small-7, .comment-form .small-7, .comment-form .user-comment .small-7 {
+  .row .small-7 {
     position: relative;
     width: 58.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-8, .comment .small-8, .comment-form .small-8, .comment-form .user-comment .small-8 {
+  .row .small-8 {
     position: relative;
     width: 66.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-9, .comment .small-9, .comment-form .small-9, .comment-form .user-comment .small-9 {
+  .row .small-9 {
     position: relative;
     width: 75%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-10, .comment .small-10, .comment-form .small-10, .comment-form .user-comment .small-10 {
+  .row .small-10 {
     position: relative;
     width: 83.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-11, .comment .small-11, .comment-form .small-11, .comment-form .user-comment .small-11 {
+  .row .small-11 {
     position: relative;
     width: 91.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-12, .comment .small-12, .comment-form .small-12, .comment-form .user-comment .small-12, .row .comment .top-section, .comment .row .top-section, .comment .top-section, .comment-form .comment .top-section, .comment .comment-form .top-section, .comment-form .user-comment .comment .top-section, .comment .comment-form .user-comment .top-section, .row .comment .content, .comment .row .content, .comment .content, .comment-form .comment .content, .comment .comment-form .content, .comment-form .user-comment .comment .content, .comment .comment-form .user-comment .content, .row .comment-form .user-comment .top-section, .comment-form .user-comment .row .top-section, .comment .comment-form .user-comment .top-section, .comment-form .user-comment .comment .top-section, .comment-form .user-comment .top-section, .comment-form .user-comment .top-section, .row .comment-form .user-comment .content, .comment-form .user-comment .row .content, .comment .comment-form .user-comment .content, .comment-form .user-comment .comment .content, .comment-form .user-comment .content, .comment-form .user-comment .content {
+  .row .small-12 {
     position: relative;
     width: 100%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-1, .comment .small-offset-1, .comment-form .small-offset-1, .comment-form .user-comment .small-offset-1 {
+  .row .small-offset-1 {
     position: relative;
     margin-left: 8.33333%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-2, .comment .small-offset-2, .comment-form .small-offset-2, .comment-form .user-comment .small-offset-2 {
+  .row .small-offset-2 {
     position: relative;
     margin-left: 16.66667%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-3, .comment .small-offset-3, .comment-form .small-offset-3, .comment-form .user-comment .small-offset-3 {
+  .row .small-offset-3 {
     position: relative;
     margin-left: 25%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-4, .comment .small-offset-4, .comment-form .small-offset-4, .comment-form .user-comment .small-offset-4 {
+  .row .small-offset-4 {
     position: relative;
     margin-left: 33.33333%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-5, .comment .small-offset-5, .comment-form .small-offset-5, .comment-form .user-comment .small-offset-5 {
+  .row .small-offset-5 {
     position: relative;
     margin-left: 41.66667%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-6, .comment .small-offset-6, .comment-form .small-offset-6, .comment-form .user-comment .small-offset-6 {
+  .row .small-offset-6 {
     position: relative;
     margin-left: 50%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-7, .comment .small-offset-7, .comment-form .small-offset-7, .comment-form .user-comment .small-offset-7 {
+  .row .small-offset-7 {
     position: relative;
     margin-left: 58.33333%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-8, .comment .small-offset-8, .comment-form .small-offset-8, .comment-form .user-comment .small-offset-8 {
+  .row .small-offset-8 {
     position: relative;
     margin-left: 66.66667%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-9, .comment .small-offset-9, .comment-form .small-offset-9, .comment-form .user-comment .small-offset-9 {
+  .row .small-offset-9 {
     position: relative;
     margin-left: 75%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-10, .comment .small-offset-10, .comment-form .small-offset-10, .comment-form .user-comment .small-offset-10 {
+  .row .small-offset-10 {
     position: relative;
     margin-left: 83.33333%;
   }
@@ -743,11 +656,7 @@ blockquote p {
 
   /* line 139, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
   .column.small-centered,
-  .columns.small-centered,
-  .comment .small-centered.top-section,
-  .comment .small-centered.content,
-  .comment-form .user-comment .small-centered.top-section,
-  .comment-form .user-comment .small-centered.content {
+  .columns.small-centered {
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -757,133 +666,133 @@ blockquote p {
 /* Styles for screens that are atleast 768px; */
 @media only screen and (min-width: 48em) {
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-1, .comment .large-1, .comment-form .large-1, .comment-form .user-comment .large-1 {
+  .row .large-1 {
     position: relative;
     width: 8.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-2, .comment .large-2, .comment-form .large-2, .comment-form .user-comment .large-2 {
+  .row .large-2 {
     position: relative;
     width: 16.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-3, .comment .large-3, .comment-form .large-3, .comment-form .user-comment .large-3 {
+  .row .large-3 {
     position: relative;
     width: 25%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-4, .comment .large-4, .comment-form .large-4, .comment-form .user-comment .large-4 {
+  .row .large-4 {
     position: relative;
     width: 33.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-5, .comment .large-5, .comment-form .large-5, .comment-form .user-comment .large-5 {
+  .row .large-5 {
     position: relative;
     width: 41.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-6, .comment .large-6, .comment-form .large-6, .comment-form .user-comment .large-6 {
+  .row .large-6 {
     position: relative;
     width: 50%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-7, .comment .large-7, .comment-form .large-7, .comment-form .user-comment .large-7 {
+  .row .large-7 {
     position: relative;
     width: 58.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-8, .comment .large-8, .comment-form .large-8, .comment-form .user-comment .large-8 {
+  .row .large-8 {
     position: relative;
     width: 66.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-9, .comment .large-9, .comment-form .large-9, .comment-form .user-comment .large-9 {
+  .row .large-9 {
     position: relative;
     width: 75%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-10, .comment .large-10, .comment-form .large-10, .comment-form .user-comment .large-10, .row .comment .content, .comment .row .content, .comment .content, .comment-form .comment .content, .comment .comment-form .content, .comment-form .user-comment .comment .content, .comment .comment-form .user-comment .content, .row .comment-form .user-comment .content, .comment-form .user-comment .row .content, .comment .comment-form .user-comment .content, .comment-form .user-comment .comment .content, .comment-form .user-comment .content, .comment-form .user-comment .content {
+  .row .large-10 {
     position: relative;
     width: 83.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-11, .comment .large-11, .comment-form .large-11, .comment-form .user-comment .large-11 {
+  .row .large-11 {
     position: relative;
     width: 91.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-12, .comment .large-12, .comment-form .large-12, .comment-form .user-comment .large-12, .row .comment .top-section, .comment .row .top-section, .comment .top-section, .comment-form .comment .top-section, .comment .comment-form .top-section, .comment-form .user-comment .comment .top-section, .comment .comment-form .user-comment .top-section, .row .comment-form .user-comment .top-section, .comment-form .user-comment .row .top-section, .comment .comment-form .user-comment .top-section, .comment-form .user-comment .comment .top-section, .comment-form .user-comment .top-section, .comment-form .user-comment .top-section {
+  .row .large-12 {
     position: relative;
     width: 100%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-1, .comment .large-offset-1, .comment-form .large-offset-1, .comment-form .user-comment .large-offset-1 {
+  .row .large-offset-1 {
     position: relative;
     margin-left: 8.33333%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-2, .comment .large-offset-2, .comment-form .large-offset-2, .comment-form .user-comment .large-offset-2, .row .comment .content, .comment .row .content, .comment .content, .comment-form .comment .content, .comment .comment-form .content, .comment-form .user-comment .comment .content, .comment .comment-form .user-comment .content, .row .comment-form .user-comment .content, .comment-form .user-comment .row .content, .comment .comment-form .user-comment .content, .comment-form .user-comment .comment .content, .comment-form .user-comment .content, .comment-form .user-comment .content {
+  .row .large-offset-2 {
     position: relative;
     margin-left: 16.66667%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-3, .comment .large-offset-3, .comment-form .large-offset-3, .comment-form .user-comment .large-offset-3 {
+  .row .large-offset-3 {
     position: relative;
     margin-left: 25%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-4, .comment .large-offset-4, .comment-form .large-offset-4, .comment-form .user-comment .large-offset-4 {
+  .row .large-offset-4 {
     position: relative;
     margin-left: 33.33333%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-5, .comment .large-offset-5, .comment-form .large-offset-5, .comment-form .user-comment .large-offset-5 {
+  .row .large-offset-5 {
     position: relative;
     margin-left: 41.66667%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-6, .comment .large-offset-6, .comment-form .large-offset-6, .comment-form .user-comment .large-offset-6 {
+  .row .large-offset-6 {
     position: relative;
     margin-left: 50%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-7, .comment .large-offset-7, .comment-form .large-offset-7, .comment-form .user-comment .large-offset-7 {
+  .row .large-offset-7 {
     position: relative;
     margin-left: 58.33333%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-8, .comment .large-offset-8, .comment-form .large-offset-8, .comment-form .user-comment .large-offset-8 {
+  .row .large-offset-8 {
     position: relative;
     margin-left: 66.66667%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-9, .comment .large-offset-9, .comment-form .large-offset-9, .comment-form .user-comment .large-offset-9 {
+  .row .large-offset-9 {
     position: relative;
     margin-left: 75%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-10, .comment .large-offset-10, .comment-form .large-offset-10, .comment-form .user-comment .large-offset-10 {
+  .row .large-offset-10 {
     position: relative;
     margin-left: 83.33333%;
   }
@@ -1106,11 +1015,7 @@ blockquote p {
 
   /* line 164, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
   .column.large-centered,
-  .columns.large-centered,
-  .comment .large-centered.top-section,
-  .comment .large-centered.content,
-  .comment-form .user-comment .large-centered.top-section,
-  .comment-form .user-comment .large-centered.content {
+  .columns.large-centered {
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -1134,30 +1039,51 @@ blockquote p {
 
 /* line 3, ../../sass/app/comment.scss */
 .comment {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
   padding: 0.74em 0;
   font-size: 0.9em;
 }
-/* line 36, ../../sass/components.scss */
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.comment:before, .comment:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.comment:after {
+  clear: both;
+}
+/* line 37, ../../sass/components.scss */
 .comment .top-section {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+  height: 2.8em !important;
   font-size: 1em;
   color: black;
-  height: 2.8em !important;
   margin-bottom: 0.2em;
 }
-/* line 46, ../../sass/components.scss */
+/* line 45, ../../sass/components.scss */
 .comment .top-section .picture {
   float: left;
   width: 3.3em !important;
   height: 3.5em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 46, ../../sass/components.scss */
+  /* line 45, ../../sass/components.scss */
   .comment .top-section .picture {
     height: 3.7em !important;
     width: 3.7em !important;
   }
 }
-/* line 56, ../../sass/components.scss */
+/* line 55, ../../sass/components.scss */
 .comment .top-section .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1166,19 +1092,18 @@ blockquote p {
   border-radius: 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 56, ../../sass/components.scss */
+  /* line 55, ../../sass/components.scss */
   .comment .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
-/* line 66, ../../sass/components.scss */
+/* line 65, ../../sass/components.scss */
 .comment .top-section .details {
-  padding-top: 0;
   height: 3.3em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 66, ../../sass/components.scss */
+  /* line 65, ../../sass/components.scss */
   .comment .top-section .details {
     padding-top: 0.5em;
     height: 3.7em !important;
@@ -1206,48 +1131,111 @@ blockquote p {
   padding-right: 3px;
   font-weight: bold;
 }
+/* line 105, ../../sass/components.scss */
+.comment .content {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+}
 @media only screen and (min-width: 48em) {
   /* line 105, ../../sass/components.scss */
   .comment .content {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    width: 83.33333%;
+    margin-left: 16.66667%;
+    float: left;
     margin-left: 3.7em !important;
   }
 }
-/* line 115, ../../sass/components.scss */
+/* line 114, ../../sass/components.scss */
 .comment .content p:last-of-type {
   margin-bottom: 0em;
 }
 
-/* line 16, ../../sass/app/comment.scss */
-.comment-form input.comment {
-  font-size: 0.9em;
-  border: 1px solid #dddddd;
+/* line 9, ../../sass/app/comment.scss */
+.comment-form {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
 }
-/* line 21, ../../sass/app/comment.scss */
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.comment-form:before, .comment-form:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.comment-form:after {
+  clear: both;
+}
+/* line 15, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .top-section .picture {
+  display: inherit;
+}
+/* line 19, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .top-section .details {
+  padding-left: 3.3em;
+}
+/* line 22, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .top-section .details #comment {
+  height: 5em;
+}
+/* line 26, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .top-section .details .button {
+  display: inline-block;
+}
+/* line 34, ../../sass/app/comment.scss */
 .comment-form .user-comment {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
   padding: 0.66em 0;
-  height: 6em;
 }
-/* line 36, ../../sass/components.scss */
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.comment-form .user-comment:before, .comment-form .user-comment:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.comment-form .user-comment:after {
+  clear: both;
+}
+/* line 37, ../../sass/components.scss */
 .comment-form .user-comment .top-section {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
   font-size: 1em;
   color: black;
-  height: 2.8em !important;
   margin-bottom: 0.2em;
 }
-/* line 46, ../../sass/components.scss */
+/* line 45, ../../sass/components.scss */
 .comment-form .user-comment .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 46, ../../sass/components.scss */
+  /* line 45, ../../sass/components.scss */
   .comment-form .user-comment .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
-/* line 56, ../../sass/components.scss */
+/* line 55, ../../sass/components.scss */
 .comment-form .user-comment .top-section .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1256,22 +1244,10 @@ blockquote p {
   border-radius: 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 56, ../../sass/components.scss */
+  /* line 55, ../../sass/components.scss */
   .comment-form .user-comment .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
-  }
-}
-/* line 66, ../../sass/components.scss */
-.comment-form .user-comment .top-section .details {
-  padding-top: 0;
-  height: 2.9em !important;
-}
-@media only screen and (min-width: 48em) {
-  /* line 66, ../../sass/components.scss */
-  .comment-form .user-comment .top-section .details {
-    padding-top: 0.5em;
-    height: 3.3em !important;
   }
 }
 /* line 75, ../../sass/components.scss */
@@ -1296,26 +1272,52 @@ blockquote p {
   padding-right: 3px;
   font-weight: bold;
 }
+/* line 105, ../../sass/components.scss */
+.comment-form .user-comment .content {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+}
 @media only screen and (min-width: 48em) {
   /* line 105, ../../sass/components.scss */
   .comment-form .user-comment .content {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    width: 83.33333%;
+    margin-left: 16.66667%;
+    float: left;
     margin-left: 3.3em !important;
   }
 }
-/* line 115, ../../sass/components.scss */
+/* line 114, ../../sass/components.scss */
 .comment-form .user-comment .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 26, ../../sass/app/comment.scss */
+/* line 37, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section {
-  height: 6em;
-}
-/* line 29, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .details {
-  padding-left: 3.3em;
-}
-/* line 32, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .details input {
-  height: 3em;
   margin-bottom: 0em;
+}
+/* line 40, ../../sass/app/comment.scss */
+.comment-form .user-comment .top-section .picture {
+  display: none;
+}
+/* line 44, ../../sass/app/comment.scss */
+.comment-form .user-comment .top-section .details {
+  padding-left: 0em;
+}
+/* line 47, ../../sass/app/comment.scss */
+.comment-form .user-comment .top-section .details .button {
+  display: none;
+  margin-bottom: 0em;
+}
+/* line 52, ../../sass/app/comment.scss */
+.comment-form .user-comment .top-section .details #comment {
+  font-size: 0.9em;
+  border: 1px solid #dddddd;
+  height: 2.5em;
+  margin-bottom: 0.3em;
+  min-height: 0em;
 }

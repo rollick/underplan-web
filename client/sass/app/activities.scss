@@ -167,7 +167,8 @@
   }
 
   dl {
-    @extend .sub-nav;
+    @include sub-nav();
+    
     margin-bottom: 5px !important;
 
     dt {
@@ -296,10 +297,6 @@
   cursor: pointer;
 
   &:hover { color: green; }
-}
-
-.comment-form .comment {
-    /*height: 100px;*/
 }
 
 span.text-length {

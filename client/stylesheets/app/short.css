@@ -431,9 +431,7 @@ blockquote p {
 }
 /* Grid HTML Classes */
 /* line 106, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-.row, .story, .short-form, .short-form form .text-section,
-.short-form form .location-section,
-.short-form form .action-section, .short-full .short, .short-full .short-actions, .short-full .short-comments {
+.row {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
@@ -443,150 +441,17 @@ blockquote p {
   *zoom: 1;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row:before, .story:before, .short-form:before, .short-form form .text-section:before,
-.short-form form .location-section:before,
-.short-form form .action-section:before, .short-full .short:before, .short-full .short-actions:before, .short-full .short-comments:before, .row:after, .story:after, .short-form:after, .short-form form .text-section:after,
-.short-form form .location-section:after,
-.short-form form .action-section:after, .short-full .short:after, .short-full .short-actions:after, .short-full .short-comments:after {
+.row:before, .row:after {
   content: " ";
   display: table;
 }
 /* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row:after, .story:after, .short-form:after, .short-form form .text-section:after,
-.short-form form .location-section:after,
-.short-form form .action-section:after, .short-full .short:after, .short-full .short-actions:after, .short-full .short-comments:after {
+.row:after {
   clear: both;
 }
 /* line 110, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-.row .column, .story .column, .short-form .column, .short-form form .text-section .column,
-.short-form form .location-section .column,
-.short-form form .action-section .column, .short-full .short .column, .short-full .short-actions .column, .short-full .short-comments .column,
-.row .columns,
-.story .columns,
-.short-form .columns,
-.short-form form .text-section .columns,
-.short-form form .location-section .columns,
-.short-form form .action-section .columns,
-.short-full .short .columns,
-.short-full .short-actions .columns,
-.short-full .short-comments .columns,
-.row .story .top-section,
-.story .row .top-section,
-.story .top-section,
-.short-form .story .top-section,
-.story .short-form .top-section,
-.short-form form .text-section .story .top-section,
-.story .short-form form .text-section .top-section,
-.short-form form .location-section .story .top-section,
-.story .short-form form .location-section .top-section,
-.short-form form .action-section .story .top-section,
-.story .short-form form .action-section .top-section,
-.short-full .short .story .top-section,
-.story .short-full .short .top-section,
-.short-full .short-actions .story .top-section,
-.story .short-full .short-actions .top-section,
-.short-full .short-comments .story .top-section,
-.story .short-full .short-comments .top-section,
-.row .story .content,
-.story .row .content,
-.story .content,
-.short-form .story .content,
-.story .short-form .content,
-.short-form form .text-section .story .content,
-.story .short-form form .text-section .content,
-.short-form form .location-section .story .content,
-.story .short-form form .location-section .content,
-.short-form form .action-section .story .content,
-.story .short-form form .action-section .content,
-.short-full .short .story .content,
-.story .short-full .short .content,
-.short-full .short-actions .story .content,
-.story .short-full .short-actions .content,
-.short-full .short-comments .story .content,
-.story .short-full .short-comments .content,
-.row .short-form form .text-section .input-field,
-.short-form form .text-section .row .input-field,
-.story .short-form form .text-section .input-field,
-.short-form form .text-section .story .input-field,
-.short-form form .text-section .input-field,
-.short-form form .text-section .input-field,
-.short-form form .location-section .text-section .input-field,
-.short-form form .text-section .location-section .input-field,
-.short-form form .action-section .text-section .input-field,
-.short-form form .text-section .action-section .input-field,
-.short-full .short .short-form form .text-section .input-field,
-.short-form form .text-section .short-full .short .input-field,
-.short-full .short-actions .short-form form .text-section .input-field,
-.short-form form .text-section .short-full .short-actions .input-field,
-.short-full .short-comments .short-form form .text-section .input-field,
-.short-form form .text-section .short-full .short-comments .input-field,
-.row .short-form form .text-section .add-story,
-.short-form form .text-section .row .add-story,
-.story .short-form form .text-section .add-story,
-.short-form form .text-section .story .add-story,
-.short-form form .text-section .add-story,
-.short-form form .text-section .add-story,
-.short-form form .location-section .text-section .add-story,
-.short-form form .text-section .location-section .add-story,
-.short-form form .action-section .text-section .add-story,
-.short-form form .text-section .action-section .add-story,
-.short-full .short .short-form form .text-section .add-story,
-.short-form form .text-section .short-full .short .add-story,
-.short-full .short-actions .short-form form .text-section .add-story,
-.short-form form .text-section .short-full .short-actions .add-story,
-.short-full .short-comments .short-form form .text-section .add-story,
-.short-form form .text-section .short-full .short-comments .add-story,
-.row .short-full .short .top-section,
-.short-full .short .row .top-section,
-.story .short-full .short .top-section,
-.short-full .short .story .top-section,
-.short-form .short-full .short .top-section,
-.short-full .short .short-form .top-section,
-.short-form form .text-section .short-full .short .top-section,
-.short-full .short .short-form form .text-section .top-section,
-.short-form form .location-section .short-full .short .top-section,
-.short-full .short .short-form form .location-section .top-section,
-.short-form form .action-section .short-full .short .top-section,
-.short-full .short .short-form form .action-section .top-section,
-.short-full .short .top-section,
-.short-full .short-actions .short .top-section,
-.short-full .short .short-actions .top-section,
-.short-full .short-comments .short .top-section,
-.short-full .short .short-comments .top-section,
-.row .short-full .short .content,
-.short-full .short .row .content,
-.story .short-full .short .content,
-.short-full .short .story .content,
-.short-form .short-full .short .content,
-.short-full .short .short-form .content,
-.short-form form .text-section .short-full .short .content,
-.short-full .short .short-form form .text-section .content,
-.short-form form .location-section .short-full .short .content,
-.short-full .short .short-form form .location-section .content,
-.short-form form .action-section .short-full .short .content,
-.short-full .short .short-form form .action-section .content,
-.short-full .short .content,
-.short-full .short-actions .short .content,
-.short-full .short .short-actions .content,
-.short-full .short-comments .short .content,
-.short-full .short .short-comments .content,
-.row .short-full .short-comments .inner,
-.short-full .short-comments .row .inner,
-.story .short-full .short-comments .inner,
-.short-full .short-comments .story .inner,
-.short-form .short-full .short-comments .inner,
-.short-full .short-comments .short-form .inner,
-.short-form form .text-section .short-full .short-comments .inner,
-.short-full .short-comments .short-form form .text-section .inner,
-.short-form form .location-section .short-full .short-comments .inner,
-.short-full .short-comments .short-form form .location-section .inner,
-.short-form form .action-section .short-full .short-comments .inner,
-.short-full .short-comments .short-form form .action-section .inner,
-.short-full .short .short-comments .inner,
-.short-full .short-comments .short .inner,
-.short-full .short-actions .short-comments .inner,
-.short-full .short-comments .short-actions .inner,
-.short-full .short-comments .inner {
+.row .column,
+.row .columns {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -594,190 +459,15 @@ blockquote p {
   float: left;
 }
 /* line 114, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-.row.collapse .column, .collapse.story .column, .collapse.short-form .column, .short-form form .collapse.text-section .column,
-.short-form form .collapse.location-section .column,
-.short-form form .collapse.action-section .column, .short-full .collapse.short .column, .short-full .collapse.short-actions .column, .short-full .collapse.short-comments .column,
-.row.collapse .columns,
-.collapse.story .columns,
-.collapse.short-form .columns,
-.short-form form .collapse.text-section .columns,
-.short-form form .collapse.location-section .columns,
-.short-form form .collapse.action-section .columns,
-.short-full .collapse.short .columns,
-.short-full .collapse.short-actions .columns,
-.short-full .collapse.short-comments .columns,
-.row.collapse .story .top-section,
-.story .row.collapse .top-section,
-.collapse.story .top-section,
-.collapse.short-form .story .top-section,
-.story .collapse.short-form .top-section,
-.short-form form .collapse.text-section .story .top-section,
-.story .short-form form .collapse.text-section .top-section,
-.short-form form .collapse.location-section .story .top-section,
-.story .short-form form .collapse.location-section .top-section,
-.short-form form .collapse.action-section .story .top-section,
-.story .short-form form .collapse.action-section .top-section,
-.short-full .collapse.short .story .top-section,
-.story .short-full .collapse.short .top-section,
-.short-full .collapse.short-actions .story .top-section,
-.story .short-full .collapse.short-actions .top-section,
-.short-full .collapse.short-comments .story .top-section,
-.story .short-full .collapse.short-comments .top-section,
-.row.collapse .story .content,
-.story .row.collapse .content,
-.collapse.story .content,
-.collapse.short-form .story .content,
-.story .collapse.short-form .content,
-.short-form form .collapse.text-section .story .content,
-.story .short-form form .collapse.text-section .content,
-.short-form form .collapse.location-section .story .content,
-.story .short-form form .collapse.location-section .content,
-.short-form form .collapse.action-section .story .content,
-.story .short-form form .collapse.action-section .content,
-.short-full .collapse.short .story .content,
-.story .short-full .collapse.short .content,
-.short-full .collapse.short-actions .story .content,
-.story .short-full .collapse.short-actions .content,
-.short-full .collapse.short-comments .story .content,
-.story .short-full .collapse.short-comments .content,
-.row.collapse .short-form form .text-section .input-field,
-.short-form form .text-section .row.collapse .input-field,
-.collapse.story .short-form form .text-section .input-field,
-.short-form form .text-section .collapse.story .input-field,
-.collapse.short-form form .text-section .input-field,
-.short-form form .collapse.text-section .input-field,
-.short-form form .collapse.location-section .text-section .input-field,
-.short-form form .text-section .collapse.location-section .input-field,
-.short-form form .collapse.action-section .text-section .input-field,
-.short-form form .text-section .collapse.action-section .input-field,
-.short-full .collapse.short .short-form form .text-section .input-field,
-.short-form form .text-section .short-full .collapse.short .input-field,
-.short-full .collapse.short-actions .short-form form .text-section .input-field,
-.short-form form .text-section .short-full .collapse.short-actions .input-field,
-.short-full .collapse.short-comments .short-form form .text-section .input-field,
-.short-form form .text-section .short-full .collapse.short-comments .input-field,
-.row.collapse .short-form form .text-section .add-story,
-.short-form form .text-section .row.collapse .add-story,
-.collapse.story .short-form form .text-section .add-story,
-.short-form form .text-section .collapse.story .add-story,
-.collapse.short-form form .text-section .add-story,
-.short-form form .collapse.text-section .add-story,
-.short-form form .collapse.location-section .text-section .add-story,
-.short-form form .text-section .collapse.location-section .add-story,
-.short-form form .collapse.action-section .text-section .add-story,
-.short-form form .text-section .collapse.action-section .add-story,
-.short-full .collapse.short .short-form form .text-section .add-story,
-.short-form form .text-section .short-full .collapse.short .add-story,
-.short-full .collapse.short-actions .short-form form .text-section .add-story,
-.short-form form .text-section .short-full .collapse.short-actions .add-story,
-.short-full .collapse.short-comments .short-form form .text-section .add-story,
-.short-form form .text-section .short-full .collapse.short-comments .add-story,
-.row.collapse .short-full .short .top-section,
-.short-full .short .row.collapse .top-section,
-.collapse.story .short-full .short .top-section,
-.short-full .short .collapse.story .top-section,
-.collapse.short-form .short-full .short .top-section,
-.short-full .short .collapse.short-form .top-section,
-.short-form form .collapse.text-section .short-full .short .top-section,
-.short-full .short .short-form form .collapse.text-section .top-section,
-.short-form form .collapse.location-section .short-full .short .top-section,
-.short-full .short .short-form form .collapse.location-section .top-section,
-.short-form form .collapse.action-section .short-full .short .top-section,
-.short-full .short .short-form form .collapse.action-section .top-section,
-.short-full .collapse.short .top-section,
-.short-full .collapse.short-actions .short .top-section,
-.short-full .short .collapse.short-actions .top-section,
-.short-full .collapse.short-comments .short .top-section,
-.short-full .short .collapse.short-comments .top-section,
-.row.collapse .short-full .short .content,
-.short-full .short .row.collapse .content,
-.collapse.story .short-full .short .content,
-.short-full .short .collapse.story .content,
-.collapse.short-form .short-full .short .content,
-.short-full .short .collapse.short-form .content,
-.short-form form .collapse.text-section .short-full .short .content,
-.short-full .short .short-form form .collapse.text-section .content,
-.short-form form .collapse.location-section .short-full .short .content,
-.short-full .short .short-form form .collapse.location-section .content,
-.short-form form .collapse.action-section .short-full .short .content,
-.short-full .short .short-form form .collapse.action-section .content,
-.short-full .collapse.short .content,
-.short-full .collapse.short-actions .short .content,
-.short-full .short .collapse.short-actions .content,
-.short-full .collapse.short-comments .short .content,
-.short-full .short .collapse.short-comments .content,
-.row.collapse .short-full .short-comments .inner,
-.short-full .short-comments .row.collapse .inner,
-.collapse.story .short-full .short-comments .inner,
-.short-full .short-comments .collapse.story .inner,
-.collapse.short-form .short-full .short-comments .inner,
-.short-full .short-comments .collapse.short-form .inner,
-.short-form form .collapse.text-section .short-full .short-comments .inner,
-.short-full .short-comments .short-form form .collapse.text-section .inner,
-.short-form form .collapse.location-section .short-full .short-comments .inner,
-.short-full .short-comments .short-form form .collapse.location-section .inner,
-.short-form form .collapse.action-section .short-full .short-comments .inner,
-.short-full .short-comments .short-form form .collapse.action-section .inner,
-.short-full .collapse.short .short-comments .inner,
-.short-full .short-comments .collapse.short .inner,
-.short-full .collapse.short-actions .short-comments .inner,
-.short-full .short-comments .collapse.short-actions .inner,
-.short-full .collapse.short-comments .inner {
+.row.collapse .column,
+.row.collapse .columns {
   position: relative;
   padding-left: 0;
   padding-right: 0;
   float: left;
 }
 /* line 117, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-.row .row, .story .row, .short-form .row, .short-form form .text-section .row,
-.short-form form .location-section .row,
-.short-form form .action-section .row, .short-full .short .row, .short-full .short-actions .row, .short-full .short-comments .row, .row .story, .story .story, .short-form .story, .short-form form .text-section .story,
-.short-form form .location-section .story,
-.short-form form .action-section .story, .short-full .short .story, .short-full .short-actions .story, .short-full .short-comments .story, .row .short-form, .story .short-form, .short-form .short-form, .short-form form .text-section .short-form,
-.short-form form .location-section .short-form,
-.short-form form .action-section .short-form, .short-full .short .short-form, .short-full .short-actions .short-form, .short-full .short-comments .short-form, .row .short-form form .text-section, .short-form form .row .text-section, .story .short-form form .text-section, .short-form form .story .text-section, .short-form form .text-section, .short-form form .text-section .text-section,
-.short-form form .location-section .text-section,
-.short-form form .action-section .text-section, .short-full .short .short-form form .text-section, .short-form form .short-full .short .text-section, .short-full .short-actions .short-form form .text-section, .short-form form .short-full .short-actions .text-section, .short-full .short-comments .short-form form .text-section, .short-form form .short-full .short-comments .text-section,
-.row .short-form form .location-section,
-.short-form form .row .location-section,
-.story .short-form form .location-section,
-.short-form form .story .location-section,
-.short-form form .location-section,
-.short-form form .text-section .location-section,
-.short-form form .location-section .location-section,
-.short-form form .action-section .location-section,
-.short-full .short .short-form form .location-section,
-.short-form form .short-full .short .location-section,
-.short-full .short-actions .short-form form .location-section,
-.short-form form .short-full .short-actions .location-section,
-.short-full .short-comments .short-form form .location-section,
-.short-form form .short-full .short-comments .location-section,
-.row .short-form form .action-section,
-.short-form form .row .action-section,
-.story .short-form form .action-section,
-.short-form form .story .action-section,
-.short-form form .action-section,
-.short-form form .text-section .action-section,
-.short-form form .location-section .action-section,
-.short-form form .action-section .action-section,
-.short-full .short .short-form form .action-section,
-.short-form form .short-full .short .action-section,
-.short-full .short-actions .short-form form .action-section,
-.short-form form .short-full .short-actions .action-section,
-.short-full .short-comments .short-form form .action-section,
-.short-form form .short-full .short-comments .action-section, .row .short-full .short, .short-full .row .short, .story .short-full .short, .short-full .story .short, .short-form .short-full .short, .short-full .short-form .short, .short-form form .text-section .short-full .short, .short-full .short-form form .text-section .short,
-.short-form form .location-section .short-full .short,
-.short-full .short-form form .location-section .short,
-.short-form form .action-section .short-full .short,
-.short-full .short-form form .action-section .short, .short-full .short .short, .short-full .short-actions .short, .short-full .short-comments .short, .row .short-full .short-actions, .short-full .row .short-actions, .story .short-full .short-actions, .short-full .story .short-actions, .short-form .short-full .short-actions, .short-full .short-form .short-actions, .short-form form .text-section .short-full .short-actions, .short-full .short-form form .text-section .short-actions,
-.short-form form .location-section .short-full .short-actions,
-.short-full .short-form form .location-section .short-actions,
-.short-form form .action-section .short-full .short-actions,
-.short-full .short-form form .action-section .short-actions, .short-full .short .short-actions, .short-full .short-actions .short-actions, .short-full .short-comments .short-actions, .row .short-full .short-comments, .short-full .row .short-comments, .story .short-full .short-comments, .short-full .story .short-comments, .short-form .short-full .short-comments, .short-full .short-form .short-comments, .short-form form .text-section .short-full .short-comments, .short-full .short-form form .text-section .short-comments,
-.short-form form .location-section .short-full .short-comments,
-.short-full .short-form form .location-section .short-comments,
-.short-form form .action-section .short-full .short-comments,
-.short-full .short-form form .action-section .short-comments, .short-full .short .short-comments, .short-full .short-actions .short-comments, .short-full .short-comments .short-comments {
+.row .row {
   width: auto;
   margin-left: -0.9375em;
   margin-right: -0.9375em;
@@ -787,498 +477,35 @@ blockquote p {
   *zoom: 1;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row .row:before, .story .row:before, .short-form .row:before, .short-form form .text-section .row:before,
-.short-form form .location-section .row:before,
-.short-form form .action-section .row:before, .short-full .short .row:before, .short-full .short-actions .row:before, .short-full .short-comments .row:before, .row .story:before, .story .story:before, .short-form .story:before, .short-form form .text-section .story:before,
-.short-form form .location-section .story:before,
-.short-form form .action-section .story:before, .short-full .short .story:before, .short-full .short-actions .story:before, .short-full .short-comments .story:before, .row .short-form:before, .story .short-form:before, .short-form .short-form:before, .short-form form .text-section .short-form:before,
-.short-form form .location-section .short-form:before,
-.short-form form .action-section .short-form:before, .short-full .short .short-form:before, .short-full .short-actions .short-form:before, .short-full .short-comments .short-form:before, .row .short-form form .text-section:before, .short-form form .row .text-section:before, .story .short-form form .text-section:before, .short-form form .story .text-section:before, .short-form form .text-section:before, .short-form form .text-section .text-section:before,
-.short-form form .location-section .text-section:before,
-.short-form form .action-section .text-section:before, .short-full .short .short-form form .text-section:before, .short-form form .short-full .short .text-section:before, .short-full .short-actions .short-form form .text-section:before, .short-form form .short-full .short-actions .text-section:before, .short-full .short-comments .short-form form .text-section:before, .short-form form .short-full .short-comments .text-section:before,
-.row .short-form form .location-section:before,
-.short-form form .row .location-section:before,
-.story .short-form form .location-section:before,
-.short-form form .story .location-section:before,
-.short-form form .location-section:before,
-.short-form form .text-section .location-section:before,
-.short-form form .location-section .location-section:before,
-.short-form form .action-section .location-section:before,
-.short-full .short .short-form form .location-section:before,
-.short-form form .short-full .short .location-section:before,
-.short-full .short-actions .short-form form .location-section:before,
-.short-form form .short-full .short-actions .location-section:before,
-.short-full .short-comments .short-form form .location-section:before,
-.short-form form .short-full .short-comments .location-section:before,
-.row .short-form form .action-section:before,
-.short-form form .row .action-section:before,
-.story .short-form form .action-section:before,
-.short-form form .story .action-section:before,
-.short-form form .action-section:before,
-.short-form form .text-section .action-section:before,
-.short-form form .location-section .action-section:before,
-.short-form form .action-section .action-section:before,
-.short-full .short .short-form form .action-section:before,
-.short-form form .short-full .short .action-section:before,
-.short-full .short-actions .short-form form .action-section:before,
-.short-form form .short-full .short-actions .action-section:before,
-.short-full .short-comments .short-form form .action-section:before,
-.short-form form .short-full .short-comments .action-section:before, .row .short-full .short:before, .short-full .row .short:before, .story .short-full .short:before, .short-full .story .short:before, .short-form .short-full .short:before, .short-full .short-form .short:before, .short-form form .text-section .short-full .short:before, .short-full .short-form form .text-section .short:before,
-.short-form form .location-section .short-full .short:before,
-.short-full .short-form form .location-section .short:before,
-.short-form form .action-section .short-full .short:before,
-.short-full .short-form form .action-section .short:before, .short-full .short .short:before, .short-full .short-actions .short:before, .short-full .short-comments .short:before, .row .short-full .short-actions:before, .short-full .row .short-actions:before, .story .short-full .short-actions:before, .short-full .story .short-actions:before, .short-form .short-full .short-actions:before, .short-full .short-form .short-actions:before, .short-form form .text-section .short-full .short-actions:before, .short-full .short-form form .text-section .short-actions:before,
-.short-form form .location-section .short-full .short-actions:before,
-.short-full .short-form form .location-section .short-actions:before,
-.short-form form .action-section .short-full .short-actions:before,
-.short-full .short-form form .action-section .short-actions:before, .short-full .short .short-actions:before, .short-full .short-actions .short-actions:before, .short-full .short-comments .short-actions:before, .row .short-full .short-comments:before, .short-full .row .short-comments:before, .story .short-full .short-comments:before, .short-full .story .short-comments:before, .short-form .short-full .short-comments:before, .short-full .short-form .short-comments:before, .short-form form .text-section .short-full .short-comments:before, .short-full .short-form form .text-section .short-comments:before,
-.short-form form .location-section .short-full .short-comments:before,
-.short-full .short-form form .location-section .short-comments:before,
-.short-form form .action-section .short-full .short-comments:before,
-.short-full .short-form form .action-section .short-comments:before, .short-full .short .short-comments:before, .short-full .short-actions .short-comments:before, .short-full .short-comments .short-comments:before, .row .row:after, .story .row:after, .short-form .row:after, .short-form form .text-section .row:after,
-.short-form form .location-section .row:after,
-.short-form form .action-section .row:after, .short-full .short .row:after, .short-full .short-actions .row:after, .short-full .short-comments .row:after, .row .story:after, .story .story:after, .short-form .story:after, .short-form form .text-section .story:after,
-.short-form form .location-section .story:after,
-.short-form form .action-section .story:after, .short-full .short .story:after, .short-full .short-actions .story:after, .short-full .short-comments .story:after, .row .short-form:after, .story .short-form:after, .short-form .short-form:after, .short-form form .text-section .short-form:after,
-.short-form form .location-section .short-form:after,
-.short-form form .action-section .short-form:after, .short-full .short .short-form:after, .short-full .short-actions .short-form:after, .short-full .short-comments .short-form:after, .row .short-form form .text-section:after, .short-form form .row .text-section:after, .story .short-form form .text-section:after, .short-form form .story .text-section:after, .short-form form .text-section:after, .short-form form .text-section .text-section:after,
-.short-form form .location-section .text-section:after,
-.short-form form .action-section .text-section:after, .short-full .short .short-form form .text-section:after, .short-form form .short-full .short .text-section:after, .short-full .short-actions .short-form form .text-section:after, .short-form form .short-full .short-actions .text-section:after, .short-full .short-comments .short-form form .text-section:after, .short-form form .short-full .short-comments .text-section:after,
-.row .short-form form .location-section:after,
-.short-form form .row .location-section:after,
-.story .short-form form .location-section:after,
-.short-form form .story .location-section:after,
-.short-form form .location-section:after,
-.short-form form .text-section .location-section:after,
-.short-form form .location-section .location-section:after,
-.short-form form .action-section .location-section:after,
-.short-full .short .short-form form .location-section:after,
-.short-form form .short-full .short .location-section:after,
-.short-full .short-actions .short-form form .location-section:after,
-.short-form form .short-full .short-actions .location-section:after,
-.short-full .short-comments .short-form form .location-section:after,
-.short-form form .short-full .short-comments .location-section:after,
-.row .short-form form .action-section:after,
-.short-form form .row .action-section:after,
-.story .short-form form .action-section:after,
-.short-form form .story .action-section:after,
-.short-form form .action-section:after,
-.short-form form .text-section .action-section:after,
-.short-form form .location-section .action-section:after,
-.short-form form .action-section .action-section:after,
-.short-full .short .short-form form .action-section:after,
-.short-form form .short-full .short .action-section:after,
-.short-full .short-actions .short-form form .action-section:after,
-.short-form form .short-full .short-actions .action-section:after,
-.short-full .short-comments .short-form form .action-section:after,
-.short-form form .short-full .short-comments .action-section:after, .row .short-full .short:after, .short-full .row .short:after, .story .short-full .short:after, .short-full .story .short:after, .short-form .short-full .short:after, .short-full .short-form .short:after, .short-form form .text-section .short-full .short:after, .short-full .short-form form .text-section .short:after,
-.short-form form .location-section .short-full .short:after,
-.short-full .short-form form .location-section .short:after,
-.short-form form .action-section .short-full .short:after,
-.short-full .short-form form .action-section .short:after, .short-full .short .short:after, .short-full .short-actions .short:after, .short-full .short-comments .short:after, .row .short-full .short-actions:after, .short-full .row .short-actions:after, .story .short-full .short-actions:after, .short-full .story .short-actions:after, .short-form .short-full .short-actions:after, .short-full .short-form .short-actions:after, .short-form form .text-section .short-full .short-actions:after, .short-full .short-form form .text-section .short-actions:after,
-.short-form form .location-section .short-full .short-actions:after,
-.short-full .short-form form .location-section .short-actions:after,
-.short-form form .action-section .short-full .short-actions:after,
-.short-full .short-form form .action-section .short-actions:after, .short-full .short .short-actions:after, .short-full .short-actions .short-actions:after, .short-full .short-comments .short-actions:after, .row .short-full .short-comments:after, .short-full .row .short-comments:after, .story .short-full .short-comments:after, .short-full .story .short-comments:after, .short-form .short-full .short-comments:after, .short-full .short-form .short-comments:after, .short-form form .text-section .short-full .short-comments:after, .short-full .short-form form .text-section .short-comments:after,
-.short-form form .location-section .short-full .short-comments:after,
-.short-full .short-form form .location-section .short-comments:after,
-.short-form form .action-section .short-full .short-comments:after,
-.short-full .short-form form .action-section .short-comments:after, .short-full .short .short-comments:after, .short-full .short-actions .short-comments:after, .short-full .short-comments .short-comments:after {
+.row .row:before, .row .row:after {
   content: " ";
   display: table;
 }
 /* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row .row:after, .story .row:after, .short-form .row:after, .short-form form .text-section .row:after,
-.short-form form .location-section .row:after,
-.short-form form .action-section .row:after, .short-full .short .row:after, .short-full .short-actions .row:after, .short-full .short-comments .row:after, .row .story:after, .story .story:after, .short-form .story:after, .short-form form .text-section .story:after,
-.short-form form .location-section .story:after,
-.short-form form .action-section .story:after, .short-full .short .story:after, .short-full .short-actions .story:after, .short-full .short-comments .story:after, .row .short-form:after, .story .short-form:after, .short-form .short-form:after, .short-form form .text-section .short-form:after,
-.short-form form .location-section .short-form:after,
-.short-form form .action-section .short-form:after, .short-full .short .short-form:after, .short-full .short-actions .short-form:after, .short-full .short-comments .short-form:after, .row .short-form form .text-section:after, .short-form form .row .text-section:after, .story .short-form form .text-section:after, .short-form form .story .text-section:after, .short-form form .text-section:after, .short-form form .text-section .text-section:after,
-.short-form form .location-section .text-section:after,
-.short-form form .action-section .text-section:after, .short-full .short .short-form form .text-section:after, .short-form form .short-full .short .text-section:after, .short-full .short-actions .short-form form .text-section:after, .short-form form .short-full .short-actions .text-section:after, .short-full .short-comments .short-form form .text-section:after, .short-form form .short-full .short-comments .text-section:after,
-.row .short-form form .location-section:after,
-.short-form form .row .location-section:after,
-.story .short-form form .location-section:after,
-.short-form form .story .location-section:after,
-.short-form form .location-section:after,
-.short-form form .text-section .location-section:after,
-.short-form form .location-section .location-section:after,
-.short-form form .action-section .location-section:after,
-.short-full .short .short-form form .location-section:after,
-.short-form form .short-full .short .location-section:after,
-.short-full .short-actions .short-form form .location-section:after,
-.short-form form .short-full .short-actions .location-section:after,
-.short-full .short-comments .short-form form .location-section:after,
-.short-form form .short-full .short-comments .location-section:after,
-.row .short-form form .action-section:after,
-.short-form form .row .action-section:after,
-.story .short-form form .action-section:after,
-.short-form form .story .action-section:after,
-.short-form form .action-section:after,
-.short-form form .text-section .action-section:after,
-.short-form form .location-section .action-section:after,
-.short-form form .action-section .action-section:after,
-.short-full .short .short-form form .action-section:after,
-.short-form form .short-full .short .action-section:after,
-.short-full .short-actions .short-form form .action-section:after,
-.short-form form .short-full .short-actions .action-section:after,
-.short-full .short-comments .short-form form .action-section:after,
-.short-form form .short-full .short-comments .action-section:after, .row .short-full .short:after, .short-full .row .short:after, .story .short-full .short:after, .short-full .story .short:after, .short-form .short-full .short:after, .short-full .short-form .short:after, .short-form form .text-section .short-full .short:after, .short-full .short-form form .text-section .short:after,
-.short-form form .location-section .short-full .short:after,
-.short-full .short-form form .location-section .short:after,
-.short-form form .action-section .short-full .short:after,
-.short-full .short-form form .action-section .short:after, .short-full .short .short:after, .short-full .short-actions .short:after, .short-full .short-comments .short:after, .row .short-full .short-actions:after, .short-full .row .short-actions:after, .story .short-full .short-actions:after, .short-full .story .short-actions:after, .short-form .short-full .short-actions:after, .short-full .short-form .short-actions:after, .short-form form .text-section .short-full .short-actions:after, .short-full .short-form form .text-section .short-actions:after,
-.short-form form .location-section .short-full .short-actions:after,
-.short-full .short-form form .location-section .short-actions:after,
-.short-form form .action-section .short-full .short-actions:after,
-.short-full .short-form form .action-section .short-actions:after, .short-full .short .short-actions:after, .short-full .short-actions .short-actions:after, .short-full .short-comments .short-actions:after, .row .short-full .short-comments:after, .short-full .row .short-comments:after, .story .short-full .short-comments:after, .short-full .story .short-comments:after, .short-form .short-full .short-comments:after, .short-full .short-form .short-comments:after, .short-form form .text-section .short-full .short-comments:after, .short-full .short-form form .text-section .short-comments:after,
-.short-form form .location-section .short-full .short-comments:after,
-.short-full .short-form form .location-section .short-comments:after,
-.short-form form .action-section .short-full .short-comments:after,
-.short-full .short-form form .action-section .short-comments:after, .short-full .short .short-comments:after, .short-full .short-actions .short-comments:after, .short-full .short-comments .short-comments:after {
+.row .row:after {
   clear: both;
 }
 /* line 118, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-.row .row.collapse, .story .row.collapse, .short-form .row.collapse, .short-form form .text-section .row.collapse,
-.short-form form .location-section .row.collapse,
-.short-form form .action-section .row.collapse, .short-full .short .row.collapse, .short-full .short-actions .row.collapse, .short-full .short-comments .row.collapse, .row .collapse.story, .story .collapse.story, .short-form .collapse.story, .short-form form .text-section .collapse.story,
-.short-form form .location-section .collapse.story,
-.short-form form .action-section .collapse.story, .short-full .short .collapse.story, .short-full .short-actions .collapse.story, .short-full .short-comments .collapse.story, .row .collapse.short-form, .story .collapse.short-form, .short-form .collapse.short-form, .short-form form .text-section .collapse.short-form,
-.short-form form .location-section .collapse.short-form,
-.short-form form .action-section .collapse.short-form, .short-full .short .collapse.short-form, .short-full .short-actions .collapse.short-form, .short-full .short-comments .collapse.short-form, .row .short-form form .collapse.text-section, .short-form form .row .collapse.text-section, .story .short-form form .collapse.text-section, .short-form form .story .collapse.text-section, .short-form form .collapse.text-section, .short-form form .text-section .collapse.text-section,
-.short-form form .location-section .collapse.text-section,
-.short-form form .action-section .collapse.text-section, .short-full .short .short-form form .collapse.text-section, .short-form form .short-full .short .collapse.text-section, .short-full .short-actions .short-form form .collapse.text-section, .short-form form .short-full .short-actions .collapse.text-section, .short-full .short-comments .short-form form .collapse.text-section, .short-form form .short-full .short-comments .collapse.text-section,
-.row .short-form form .collapse.location-section,
-.short-form form .row .collapse.location-section,
-.story .short-form form .collapse.location-section,
-.short-form form .story .collapse.location-section,
-.short-form form .collapse.location-section,
-.short-form form .text-section .collapse.location-section,
-.short-form form .location-section .collapse.location-section,
-.short-form form .action-section .collapse.location-section,
-.short-full .short .short-form form .collapse.location-section,
-.short-form form .short-full .short .collapse.location-section,
-.short-full .short-actions .short-form form .collapse.location-section,
-.short-form form .short-full .short-actions .collapse.location-section,
-.short-full .short-comments .short-form form .collapse.location-section,
-.short-form form .short-full .short-comments .collapse.location-section,
-.row .short-form form .collapse.action-section,
-.short-form form .row .collapse.action-section,
-.story .short-form form .collapse.action-section,
-.short-form form .story .collapse.action-section,
-.short-form form .collapse.action-section,
-.short-form form .text-section .collapse.action-section,
-.short-form form .location-section .collapse.action-section,
-.short-form form .action-section .collapse.action-section,
-.short-full .short .short-form form .collapse.action-section,
-.short-form form .short-full .short .collapse.action-section,
-.short-full .short-actions .short-form form .collapse.action-section,
-.short-form form .short-full .short-actions .collapse.action-section,
-.short-full .short-comments .short-form form .collapse.action-section,
-.short-form form .short-full .short-comments .collapse.action-section, .row .short-full .collapse.short, .short-full .row .collapse.short, .story .short-full .collapse.short, .short-full .story .collapse.short, .short-form .short-full .collapse.short, .short-full .short-form .collapse.short, .short-form form .text-section .short-full .collapse.short, .short-full .short-form form .text-section .collapse.short,
-.short-form form .location-section .short-full .collapse.short,
-.short-full .short-form form .location-section .collapse.short,
-.short-form form .action-section .short-full .collapse.short,
-.short-full .short-form form .action-section .collapse.short, .short-full .short .collapse.short, .short-full .short-actions .collapse.short, .short-full .short-comments .collapse.short, .row .short-full .collapse.short-actions, .short-full .row .collapse.short-actions, .story .short-full .collapse.short-actions, .short-full .story .collapse.short-actions, .short-form .short-full .collapse.short-actions, .short-full .short-form .collapse.short-actions, .short-form form .text-section .short-full .collapse.short-actions, .short-full .short-form form .text-section .collapse.short-actions,
-.short-form form .location-section .short-full .collapse.short-actions,
-.short-full .short-form form .location-section .collapse.short-actions,
-.short-form form .action-section .short-full .collapse.short-actions,
-.short-full .short-form form .action-section .collapse.short-actions, .short-full .short .collapse.short-actions, .short-full .short-actions .collapse.short-actions, .short-full .short-comments .collapse.short-actions, .row .short-full .collapse.short-comments, .short-full .row .collapse.short-comments, .story .short-full .collapse.short-comments, .short-full .story .collapse.short-comments, .short-form .short-full .collapse.short-comments, .short-full .short-form .collapse.short-comments, .short-form form .text-section .short-full .collapse.short-comments, .short-full .short-form form .text-section .collapse.short-comments,
-.short-form form .location-section .short-full .collapse.short-comments,
-.short-full .short-form form .location-section .collapse.short-comments,
-.short-form form .action-section .short-full .collapse.short-comments,
-.short-full .short-form form .action-section .collapse.short-comments, .short-full .short .collapse.short-comments, .short-full .short-actions .collapse.short-comments, .short-full .short-comments .collapse.short-comments {
+.row .row.collapse {
   width: auto;
   margin: 0;
   max-width: none;
   *zoom: 1;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row .row.collapse:before, .story .row.collapse:before, .short-form .row.collapse:before, .short-form form .text-section .row.collapse:before,
-.short-form form .location-section .row.collapse:before,
-.short-form form .action-section .row.collapse:before, .short-full .short .row.collapse:before, .short-full .short-actions .row.collapse:before, .short-full .short-comments .row.collapse:before, .row .collapse.story:before, .story .collapse.story:before, .short-form .collapse.story:before, .short-form form .text-section .collapse.story:before,
-.short-form form .location-section .collapse.story:before,
-.short-form form .action-section .collapse.story:before, .short-full .short .collapse.story:before, .short-full .short-actions .collapse.story:before, .short-full .short-comments .collapse.story:before, .row .collapse.short-form:before, .story .collapse.short-form:before, .short-form .collapse.short-form:before, .short-form form .text-section .collapse.short-form:before,
-.short-form form .location-section .collapse.short-form:before,
-.short-form form .action-section .collapse.short-form:before, .short-full .short .collapse.short-form:before, .short-full .short-actions .collapse.short-form:before, .short-full .short-comments .collapse.short-form:before, .row .short-form form .collapse.text-section:before, .short-form form .row .collapse.text-section:before, .story .short-form form .collapse.text-section:before, .short-form form .story .collapse.text-section:before, .short-form form .collapse.text-section:before, .short-form form .text-section .collapse.text-section:before,
-.short-form form .location-section .collapse.text-section:before,
-.short-form form .action-section .collapse.text-section:before, .short-full .short .short-form form .collapse.text-section:before, .short-form form .short-full .short .collapse.text-section:before, .short-full .short-actions .short-form form .collapse.text-section:before, .short-form form .short-full .short-actions .collapse.text-section:before, .short-full .short-comments .short-form form .collapse.text-section:before, .short-form form .short-full .short-comments .collapse.text-section:before,
-.row .short-form form .collapse.location-section:before,
-.short-form form .row .collapse.location-section:before,
-.story .short-form form .collapse.location-section:before,
-.short-form form .story .collapse.location-section:before,
-.short-form form .collapse.location-section:before,
-.short-form form .text-section .collapse.location-section:before,
-.short-form form .location-section .collapse.location-section:before,
-.short-form form .action-section .collapse.location-section:before,
-.short-full .short .short-form form .collapse.location-section:before,
-.short-form form .short-full .short .collapse.location-section:before,
-.short-full .short-actions .short-form form .collapse.location-section:before,
-.short-form form .short-full .short-actions .collapse.location-section:before,
-.short-full .short-comments .short-form form .collapse.location-section:before,
-.short-form form .short-full .short-comments .collapse.location-section:before,
-.row .short-form form .collapse.action-section:before,
-.short-form form .row .collapse.action-section:before,
-.story .short-form form .collapse.action-section:before,
-.short-form form .story .collapse.action-section:before,
-.short-form form .collapse.action-section:before,
-.short-form form .text-section .collapse.action-section:before,
-.short-form form .location-section .collapse.action-section:before,
-.short-form form .action-section .collapse.action-section:before,
-.short-full .short .short-form form .collapse.action-section:before,
-.short-form form .short-full .short .collapse.action-section:before,
-.short-full .short-actions .short-form form .collapse.action-section:before,
-.short-form form .short-full .short-actions .collapse.action-section:before,
-.short-full .short-comments .short-form form .collapse.action-section:before,
-.short-form form .short-full .short-comments .collapse.action-section:before, .row .short-full .collapse.short:before, .short-full .row .collapse.short:before, .story .short-full .collapse.short:before, .short-full .story .collapse.short:before, .short-form .short-full .collapse.short:before, .short-full .short-form .collapse.short:before, .short-form form .text-section .short-full .collapse.short:before, .short-full .short-form form .text-section .collapse.short:before,
-.short-form form .location-section .short-full .collapse.short:before,
-.short-full .short-form form .location-section .collapse.short:before,
-.short-form form .action-section .short-full .collapse.short:before,
-.short-full .short-form form .action-section .collapse.short:before, .short-full .short .collapse.short:before, .short-full .short-actions .collapse.short:before, .short-full .short-comments .collapse.short:before, .row .short-full .collapse.short-actions:before, .short-full .row .collapse.short-actions:before, .story .short-full .collapse.short-actions:before, .short-full .story .collapse.short-actions:before, .short-form .short-full .collapse.short-actions:before, .short-full .short-form .collapse.short-actions:before, .short-form form .text-section .short-full .collapse.short-actions:before, .short-full .short-form form .text-section .collapse.short-actions:before,
-.short-form form .location-section .short-full .collapse.short-actions:before,
-.short-full .short-form form .location-section .collapse.short-actions:before,
-.short-form form .action-section .short-full .collapse.short-actions:before,
-.short-full .short-form form .action-section .collapse.short-actions:before, .short-full .short .collapse.short-actions:before, .short-full .short-actions .collapse.short-actions:before, .short-full .short-comments .collapse.short-actions:before, .row .short-full .collapse.short-comments:before, .short-full .row .collapse.short-comments:before, .story .short-full .collapse.short-comments:before, .short-full .story .collapse.short-comments:before, .short-form .short-full .collapse.short-comments:before, .short-full .short-form .collapse.short-comments:before, .short-form form .text-section .short-full .collapse.short-comments:before, .short-full .short-form form .text-section .collapse.short-comments:before,
-.short-form form .location-section .short-full .collapse.short-comments:before,
-.short-full .short-form form .location-section .collapse.short-comments:before,
-.short-form form .action-section .short-full .collapse.short-comments:before,
-.short-full .short-form form .action-section .collapse.short-comments:before, .short-full .short .collapse.short-comments:before, .short-full .short-actions .collapse.short-comments:before, .short-full .short-comments .collapse.short-comments:before, .row .row.collapse:after, .story .row.collapse:after, .short-form .row.collapse:after, .short-form form .text-section .row.collapse:after,
-.short-form form .location-section .row.collapse:after,
-.short-form form .action-section .row.collapse:after, .short-full .short .row.collapse:after, .short-full .short-actions .row.collapse:after, .short-full .short-comments .row.collapse:after, .row .collapse.story:after, .story .collapse.story:after, .short-form .collapse.story:after, .short-form form .text-section .collapse.story:after,
-.short-form form .location-section .collapse.story:after,
-.short-form form .action-section .collapse.story:after, .short-full .short .collapse.story:after, .short-full .short-actions .collapse.story:after, .short-full .short-comments .collapse.story:after, .row .collapse.short-form:after, .story .collapse.short-form:after, .short-form .collapse.short-form:after, .short-form form .text-section .collapse.short-form:after,
-.short-form form .location-section .collapse.short-form:after,
-.short-form form .action-section .collapse.short-form:after, .short-full .short .collapse.short-form:after, .short-full .short-actions .collapse.short-form:after, .short-full .short-comments .collapse.short-form:after, .row .short-form form .collapse.text-section:after, .short-form form .row .collapse.text-section:after, .story .short-form form .collapse.text-section:after, .short-form form .story .collapse.text-section:after, .short-form form .collapse.text-section:after, .short-form form .text-section .collapse.text-section:after,
-.short-form form .location-section .collapse.text-section:after,
-.short-form form .action-section .collapse.text-section:after, .short-full .short .short-form form .collapse.text-section:after, .short-form form .short-full .short .collapse.text-section:after, .short-full .short-actions .short-form form .collapse.text-section:after, .short-form form .short-full .short-actions .collapse.text-section:after, .short-full .short-comments .short-form form .collapse.text-section:after, .short-form form .short-full .short-comments .collapse.text-section:after,
-.row .short-form form .collapse.location-section:after,
-.short-form form .row .collapse.location-section:after,
-.story .short-form form .collapse.location-section:after,
-.short-form form .story .collapse.location-section:after,
-.short-form form .collapse.location-section:after,
-.short-form form .text-section .collapse.location-section:after,
-.short-form form .location-section .collapse.location-section:after,
-.short-form form .action-section .collapse.location-section:after,
-.short-full .short .short-form form .collapse.location-section:after,
-.short-form form .short-full .short .collapse.location-section:after,
-.short-full .short-actions .short-form form .collapse.location-section:after,
-.short-form form .short-full .short-actions .collapse.location-section:after,
-.short-full .short-comments .short-form form .collapse.location-section:after,
-.short-form form .short-full .short-comments .collapse.location-section:after,
-.row .short-form form .collapse.action-section:after,
-.short-form form .row .collapse.action-section:after,
-.story .short-form form .collapse.action-section:after,
-.short-form form .story .collapse.action-section:after,
-.short-form form .collapse.action-section:after,
-.short-form form .text-section .collapse.action-section:after,
-.short-form form .location-section .collapse.action-section:after,
-.short-form form .action-section .collapse.action-section:after,
-.short-full .short .short-form form .collapse.action-section:after,
-.short-form form .short-full .short .collapse.action-section:after,
-.short-full .short-actions .short-form form .collapse.action-section:after,
-.short-form form .short-full .short-actions .collapse.action-section:after,
-.short-full .short-comments .short-form form .collapse.action-section:after,
-.short-form form .short-full .short-comments .collapse.action-section:after, .row .short-full .collapse.short:after, .short-full .row .collapse.short:after, .story .short-full .collapse.short:after, .short-full .story .collapse.short:after, .short-form .short-full .collapse.short:after, .short-full .short-form .collapse.short:after, .short-form form .text-section .short-full .collapse.short:after, .short-full .short-form form .text-section .collapse.short:after,
-.short-form form .location-section .short-full .collapse.short:after,
-.short-full .short-form form .location-section .collapse.short:after,
-.short-form form .action-section .short-full .collapse.short:after,
-.short-full .short-form form .action-section .collapse.short:after, .short-full .short .collapse.short:after, .short-full .short-actions .collapse.short:after, .short-full .short-comments .collapse.short:after, .row .short-full .collapse.short-actions:after, .short-full .row .collapse.short-actions:after, .story .short-full .collapse.short-actions:after, .short-full .story .collapse.short-actions:after, .short-form .short-full .collapse.short-actions:after, .short-full .short-form .collapse.short-actions:after, .short-form form .text-section .short-full .collapse.short-actions:after, .short-full .short-form form .text-section .collapse.short-actions:after,
-.short-form form .location-section .short-full .collapse.short-actions:after,
-.short-full .short-form form .location-section .collapse.short-actions:after,
-.short-form form .action-section .short-full .collapse.short-actions:after,
-.short-full .short-form form .action-section .collapse.short-actions:after, .short-full .short .collapse.short-actions:after, .short-full .short-actions .collapse.short-actions:after, .short-full .short-comments .collapse.short-actions:after, .row .short-full .collapse.short-comments:after, .short-full .row .collapse.short-comments:after, .story .short-full .collapse.short-comments:after, .short-full .story .collapse.short-comments:after, .short-form .short-full .collapse.short-comments:after, .short-full .short-form .collapse.short-comments:after, .short-form form .text-section .short-full .collapse.short-comments:after, .short-full .short-form form .text-section .collapse.short-comments:after,
-.short-form form .location-section .short-full .collapse.short-comments:after,
-.short-full .short-form form .location-section .collapse.short-comments:after,
-.short-form form .action-section .short-full .collapse.short-comments:after,
-.short-full .short-form form .action-section .collapse.short-comments:after, .short-full .short .collapse.short-comments:after, .short-full .short-actions .collapse.short-comments:after, .short-full .short-comments .collapse.short-comments:after {
+.row .row.collapse:before, .row .row.collapse:after {
   content: " ";
   display: table;
 }
 /* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.row .row.collapse:after, .story .row.collapse:after, .short-form .row.collapse:after, .short-form form .text-section .row.collapse:after,
-.short-form form .location-section .row.collapse:after,
-.short-form form .action-section .row.collapse:after, .short-full .short .row.collapse:after, .short-full .short-actions .row.collapse:after, .short-full .short-comments .row.collapse:after, .row .collapse.story:after, .story .collapse.story:after, .short-form .collapse.story:after, .short-form form .text-section .collapse.story:after,
-.short-form form .location-section .collapse.story:after,
-.short-form form .action-section .collapse.story:after, .short-full .short .collapse.story:after, .short-full .short-actions .collapse.story:after, .short-full .short-comments .collapse.story:after, .row .collapse.short-form:after, .story .collapse.short-form:after, .short-form .collapse.short-form:after, .short-form form .text-section .collapse.short-form:after,
-.short-form form .location-section .collapse.short-form:after,
-.short-form form .action-section .collapse.short-form:after, .short-full .short .collapse.short-form:after, .short-full .short-actions .collapse.short-form:after, .short-full .short-comments .collapse.short-form:after, .row .short-form form .collapse.text-section:after, .short-form form .row .collapse.text-section:after, .story .short-form form .collapse.text-section:after, .short-form form .story .collapse.text-section:after, .short-form form .collapse.text-section:after, .short-form form .text-section .collapse.text-section:after,
-.short-form form .location-section .collapse.text-section:after,
-.short-form form .action-section .collapse.text-section:after, .short-full .short .short-form form .collapse.text-section:after, .short-form form .short-full .short .collapse.text-section:after, .short-full .short-actions .short-form form .collapse.text-section:after, .short-form form .short-full .short-actions .collapse.text-section:after, .short-full .short-comments .short-form form .collapse.text-section:after, .short-form form .short-full .short-comments .collapse.text-section:after,
-.row .short-form form .collapse.location-section:after,
-.short-form form .row .collapse.location-section:after,
-.story .short-form form .collapse.location-section:after,
-.short-form form .story .collapse.location-section:after,
-.short-form form .collapse.location-section:after,
-.short-form form .text-section .collapse.location-section:after,
-.short-form form .location-section .collapse.location-section:after,
-.short-form form .action-section .collapse.location-section:after,
-.short-full .short .short-form form .collapse.location-section:after,
-.short-form form .short-full .short .collapse.location-section:after,
-.short-full .short-actions .short-form form .collapse.location-section:after,
-.short-form form .short-full .short-actions .collapse.location-section:after,
-.short-full .short-comments .short-form form .collapse.location-section:after,
-.short-form form .short-full .short-comments .collapse.location-section:after,
-.row .short-form form .collapse.action-section:after,
-.short-form form .row .collapse.action-section:after,
-.story .short-form form .collapse.action-section:after,
-.short-form form .story .collapse.action-section:after,
-.short-form form .collapse.action-section:after,
-.short-form form .text-section .collapse.action-section:after,
-.short-form form .location-section .collapse.action-section:after,
-.short-form form .action-section .collapse.action-section:after,
-.short-full .short .short-form form .collapse.action-section:after,
-.short-form form .short-full .short .collapse.action-section:after,
-.short-full .short-actions .short-form form .collapse.action-section:after,
-.short-form form .short-full .short-actions .collapse.action-section:after,
-.short-full .short-comments .short-form form .collapse.action-section:after,
-.short-form form .short-full .short-comments .collapse.action-section:after, .row .short-full .collapse.short:after, .short-full .row .collapse.short:after, .story .short-full .collapse.short:after, .short-full .story .collapse.short:after, .short-form .short-full .collapse.short:after, .short-full .short-form .collapse.short:after, .short-form form .text-section .short-full .collapse.short:after, .short-full .short-form form .text-section .collapse.short:after,
-.short-form form .location-section .short-full .collapse.short:after,
-.short-full .short-form form .location-section .collapse.short:after,
-.short-form form .action-section .short-full .collapse.short:after,
-.short-full .short-form form .action-section .collapse.short:after, .short-full .short .collapse.short:after, .short-full .short-actions .collapse.short:after, .short-full .short-comments .collapse.short:after, .row .short-full .collapse.short-actions:after, .short-full .row .collapse.short-actions:after, .story .short-full .collapse.short-actions:after, .short-full .story .collapse.short-actions:after, .short-form .short-full .collapse.short-actions:after, .short-full .short-form .collapse.short-actions:after, .short-form form .text-section .short-full .collapse.short-actions:after, .short-full .short-form form .text-section .collapse.short-actions:after,
-.short-form form .location-section .short-full .collapse.short-actions:after,
-.short-full .short-form form .location-section .collapse.short-actions:after,
-.short-form form .action-section .short-full .collapse.short-actions:after,
-.short-full .short-form form .action-section .collapse.short-actions:after, .short-full .short .collapse.short-actions:after, .short-full .short-actions .collapse.short-actions:after, .short-full .short-comments .collapse.short-actions:after, .row .short-full .collapse.short-comments:after, .short-full .row .collapse.short-comments:after, .story .short-full .collapse.short-comments:after, .short-full .story .collapse.short-comments:after, .short-form .short-full .collapse.short-comments:after, .short-full .short-form .collapse.short-comments:after, .short-form form .text-section .short-full .collapse.short-comments:after, .short-full .short-form form .text-section .collapse.short-comments:after,
-.short-form form .location-section .short-full .collapse.short-comments:after,
-.short-full .short-form form .location-section .collapse.short-comments:after,
-.short-form form .action-section .short-full .collapse.short-comments:after,
-.short-full .short-form form .action-section .collapse.short-comments:after, .short-full .short .collapse.short-comments:after, .short-full .short-actions .collapse.short-comments:after, .short-full .short-comments .collapse.short-comments:after {
+.row .row.collapse:after {
   clear: both;
 }
 
 @media only screen {
   /* line 125, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .column, .story .column, .short-form .column, .short-form form .text-section .column,
-  .short-form form .location-section .column,
-  .short-form form .action-section .column, .short-full .short .column, .short-full .short-actions .column, .short-full .short-comments .column,
-  .row .columns,
-  .story .columns,
-  .short-form .columns,
-  .short-form form .text-section .columns,
-  .short-form form .location-section .columns,
-  .short-form form .action-section .columns,
-  .short-full .short .columns,
-  .short-full .short-actions .columns,
-  .short-full .short-comments .columns,
-  .row .story .top-section,
-  .story .row .top-section,
-  .story .top-section,
-  .short-form .story .top-section,
-  .story .short-form .top-section,
-  .short-form form .text-section .story .top-section,
-  .story .short-form form .text-section .top-section,
-  .short-form form .location-section .story .top-section,
-  .story .short-form form .location-section .top-section,
-  .short-form form .action-section .story .top-section,
-  .story .short-form form .action-section .top-section,
-  .short-full .short .story .top-section,
-  .story .short-full .short .top-section,
-  .short-full .short-actions .story .top-section,
-  .story .short-full .short-actions .top-section,
-  .short-full .short-comments .story .top-section,
-  .story .short-full .short-comments .top-section,
-  .row .story .content,
-  .story .row .content,
-  .story .content,
-  .short-form .story .content,
-  .story .short-form .content,
-  .short-form form .text-section .story .content,
-  .story .short-form form .text-section .content,
-  .short-form form .location-section .story .content,
-  .story .short-form form .location-section .content,
-  .short-form form .action-section .story .content,
-  .story .short-form form .action-section .content,
-  .short-full .short .story .content,
-  .story .short-full .short .content,
-  .short-full .short-actions .story .content,
-  .story .short-full .short-actions .content,
-  .short-full .short-comments .story .content,
-  .story .short-full .short-comments .content,
-  .row .short-form form .text-section .input-field,
-  .short-form form .text-section .row .input-field,
-  .story .short-form form .text-section .input-field,
-  .short-form form .text-section .story .input-field,
-  .short-form form .text-section .input-field,
-  .short-form form .text-section .input-field,
-  .short-form form .location-section .text-section .input-field,
-  .short-form form .text-section .location-section .input-field,
-  .short-form form .action-section .text-section .input-field,
-  .short-form form .text-section .action-section .input-field,
-  .short-full .short .short-form form .text-section .input-field,
-  .short-form form .text-section .short-full .short .input-field,
-  .short-full .short-actions .short-form form .text-section .input-field,
-  .short-form form .text-section .short-full .short-actions .input-field,
-  .short-full .short-comments .short-form form .text-section .input-field,
-  .short-form form .text-section .short-full .short-comments .input-field,
-  .row .short-form form .text-section .add-story,
-  .short-form form .text-section .row .add-story,
-  .story .short-form form .text-section .add-story,
-  .short-form form .text-section .story .add-story,
-  .short-form form .text-section .add-story,
-  .short-form form .text-section .add-story,
-  .short-form form .location-section .text-section .add-story,
-  .short-form form .text-section .location-section .add-story,
-  .short-form form .action-section .text-section .add-story,
-  .short-form form .text-section .action-section .add-story,
-  .short-full .short .short-form form .text-section .add-story,
-  .short-form form .text-section .short-full .short .add-story,
-  .short-full .short-actions .short-form form .text-section .add-story,
-  .short-form form .text-section .short-full .short-actions .add-story,
-  .short-full .short-comments .short-form form .text-section .add-story,
-  .short-form form .text-section .short-full .short-comments .add-story,
-  .row .short-full .short .top-section,
-  .short-full .short .row .top-section,
-  .story .short-full .short .top-section,
-  .short-full .short .story .top-section,
-  .short-form .short-full .short .top-section,
-  .short-full .short .short-form .top-section,
-  .short-form form .text-section .short-full .short .top-section,
-  .short-full .short .short-form form .text-section .top-section,
-  .short-form form .location-section .short-full .short .top-section,
-  .short-full .short .short-form form .location-section .top-section,
-  .short-form form .action-section .short-full .short .top-section,
-  .short-full .short .short-form form .action-section .top-section,
-  .short-full .short .top-section,
-  .short-full .short-actions .short .top-section,
-  .short-full .short .short-actions .top-section,
-  .short-full .short-comments .short .top-section,
-  .short-full .short .short-comments .top-section,
-  .row .short-full .short .content,
-  .short-full .short .row .content,
-  .story .short-full .short .content,
-  .short-full .short .story .content,
-  .short-form .short-full .short .content,
-  .short-full .short .short-form .content,
-  .short-form form .text-section .short-full .short .content,
-  .short-full .short .short-form form .text-section .content,
-  .short-form form .location-section .short-full .short .content,
-  .short-full .short .short-form form .location-section .content,
-  .short-form form .action-section .short-full .short .content,
-  .short-full .short .short-form form .action-section .content,
-  .short-full .short .content,
-  .short-full .short-actions .short .content,
-  .short-full .short .short-actions .content,
-  .short-full .short-comments .short .content,
-  .short-full .short .short-comments .content,
-  .row .short-full .short-comments .inner,
-  .short-full .short-comments .row .inner,
-  .story .short-full .short-comments .inner,
-  .short-full .short-comments .story .inner,
-  .short-form .short-full .short-comments .inner,
-  .short-full .short-comments .short-form .inner,
-  .short-form form .text-section .short-full .short-comments .inner,
-  .short-full .short-comments .short-form form .text-section .inner,
-  .short-form form .location-section .short-full .short-comments .inner,
-  .short-full .short-comments .short-form form .location-section .inner,
-  .short-form form .action-section .short-full .short-comments .inner,
-  .short-full .short-comments .short-form form .action-section .inner,
-  .short-full .short .short-comments .inner,
-  .short-full .short-comments .short .inner,
-  .short-full .short-actions .short-comments .inner,
-  .short-full .short-comments .short-actions .inner,
-  .short-full .short-comments .inner {
+  .row .column,
+  .row .columns {
     position: relative;
     padding-left: 0.9375em;
     padding-right: 0.9375em;
@@ -1286,209 +513,133 @@ blockquote p {
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-1, .story .small-1, .short-form .small-1, .short-form form .text-section .small-1,
-  .short-form form .location-section .small-1,
-  .short-form form .action-section .small-1, .short-full .short .small-1, .short-full .short-actions .small-1, .short-full .short-comments .small-1 {
+  .row .small-1 {
     position: relative;
     width: 8.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-2, .story .small-2, .short-form .small-2, .short-form form .text-section .small-2,
-  .short-form form .location-section .small-2,
-  .short-form form .action-section .small-2, .short-full .short .small-2, .short-full .short-actions .small-2, .short-full .short-comments .small-2 {
+  .row .small-2 {
     position: relative;
     width: 16.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-3, .story .small-3, .short-form .small-3, .short-form form .text-section .small-3,
-  .short-form form .location-section .small-3,
-  .short-form form .action-section .small-3, .short-full .short .small-3, .short-full .short-actions .small-3, .short-full .short-comments .small-3 {
+  .row .small-3 {
     position: relative;
     width: 25%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-4, .story .small-4, .short-form .small-4, .short-form form .text-section .small-4,
-  .short-form form .location-section .small-4,
-  .short-form form .action-section .small-4, .short-full .short .small-4, .short-full .short-actions .small-4, .short-full .short-comments .small-4, .row .short-form form .text-section .add-story, .short-form form .text-section .row .add-story, .story .short-form form .text-section .add-story, .short-form form .text-section .story .add-story, .short-form form .text-section .add-story, .short-form form .text-section .add-story,
-  .short-form form .location-section .text-section .add-story,
-  .short-form form .text-section .location-section .add-story,
-  .short-form form .action-section .text-section .add-story,
-  .short-form form .text-section .action-section .add-story, .short-full .short .short-form form .text-section .add-story, .short-form form .text-section .short-full .short .add-story, .short-full .short-actions .short-form form .text-section .add-story, .short-form form .text-section .short-full .short-actions .add-story, .short-full .short-comments .short-form form .text-section .add-story, .short-form form .text-section .short-full .short-comments .add-story {
+  .row .small-4 {
     position: relative;
     width: 33.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-5, .story .small-5, .short-form .small-5, .short-form form .text-section .small-5,
-  .short-form form .location-section .small-5,
-  .short-form form .action-section .small-5, .short-full .short .small-5, .short-full .short-actions .small-5, .short-full .short-comments .small-5 {
+  .row .small-5 {
     position: relative;
     width: 41.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-6, .story .small-6, .short-form .small-6, .short-form form .text-section .small-6,
-  .short-form form .location-section .small-6,
-  .short-form form .action-section .small-6, .short-full .short .small-6, .short-full .short-actions .small-6, .short-full .short-comments .small-6 {
+  .row .small-6 {
     position: relative;
     width: 50%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-7, .story .small-7, .short-form .small-7, .short-form form .text-section .small-7,
-  .short-form form .location-section .small-7,
-  .short-form form .action-section .small-7, .short-full .short .small-7, .short-full .short-actions .small-7, .short-full .short-comments .small-7 {
+  .row .small-7 {
     position: relative;
     width: 58.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-8, .story .small-8, .short-form .small-8, .short-form form .text-section .small-8,
-  .short-form form .location-section .small-8,
-  .short-form form .action-section .small-8, .short-full .short .small-8, .short-full .short-actions .small-8, .short-full .short-comments .small-8, .row .short-form form .text-section .input-field, .short-form form .text-section .row .input-field, .story .short-form form .text-section .input-field, .short-form form .text-section .story .input-field, .short-form form .text-section .input-field, .short-form form .text-section .input-field,
-  .short-form form .location-section .text-section .input-field,
-  .short-form form .text-section .location-section .input-field,
-  .short-form form .action-section .text-section .input-field,
-  .short-form form .text-section .action-section .input-field, .short-full .short .short-form form .text-section .input-field, .short-form form .text-section .short-full .short .input-field, .short-full .short-actions .short-form form .text-section .input-field, .short-form form .text-section .short-full .short-actions .input-field, .short-full .short-comments .short-form form .text-section .input-field, .short-form form .text-section .short-full .short-comments .input-field {
+  .row .small-8 {
     position: relative;
     width: 66.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-9, .story .small-9, .short-form .small-9, .short-form form .text-section .small-9,
-  .short-form form .location-section .small-9,
-  .short-form form .action-section .small-9, .short-full .short .small-9, .short-full .short-actions .small-9, .short-full .short-comments .small-9 {
+  .row .small-9 {
     position: relative;
     width: 75%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-10, .story .small-10, .short-form .small-10, .short-form form .text-section .small-10,
-  .short-form form .location-section .small-10,
-  .short-form form .action-section .small-10, .short-full .short .small-10, .short-full .short-actions .small-10, .short-full .short-comments .small-10 {
+  .row .small-10 {
     position: relative;
     width: 83.33333%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-11, .story .small-11, .short-form .small-11, .short-form form .text-section .small-11,
-  .short-form form .location-section .small-11,
-  .short-form form .action-section .small-11, .short-full .short .small-11, .short-full .short-actions .small-11, .short-full .short-comments .small-11 {
+  .row .small-11 {
     position: relative;
     width: 91.66667%;
   }
 
   /* line 128, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-12, .story .small-12, .short-form .small-12, .short-form form .text-section .small-12,
-  .short-form form .location-section .small-12,
-  .short-form form .action-section .small-12, .short-full .short .small-12, .short-full .short-actions .small-12, .short-full .short-comments .small-12, .row .story .top-section, .story .row .top-section, .story .top-section, .short-form .story .top-section, .story .short-form .top-section, .short-form form .text-section .story .top-section, .story .short-form form .text-section .top-section,
-  .short-form form .location-section .story .top-section,
-  .story .short-form form .location-section .top-section,
-  .short-form form .action-section .story .top-section,
-  .story .short-form form .action-section .top-section, .short-full .short .story .top-section, .story .short-full .short .top-section, .short-full .short-actions .story .top-section, .story .short-full .short-actions .top-section, .short-full .short-comments .story .top-section, .story .short-full .short-comments .top-section, .row .story .content, .story .row .content, .story .content, .short-form .story .content, .story .short-form .content, .short-form form .text-section .story .content, .story .short-form form .text-section .content,
-  .short-form form .location-section .story .content,
-  .story .short-form form .location-section .content,
-  .short-form form .action-section .story .content,
-  .story .short-form form .action-section .content, .short-full .short .story .content, .story .short-full .short .content, .short-full .short-actions .story .content, .story .short-full .short-actions .content, .short-full .short-comments .story .content, .story .short-full .short-comments .content, .row .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .row .input-field, .story .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .story .input-field, .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .input-field,
-  .short-form form.expanded .location-section .text-section .input-field,
-  .short-form form.expanded .text-section .location-section .input-field,
-  .short-form form.expanded .action-section .text-section .input-field,
-  .short-form form.expanded .text-section .action-section .input-field, .short-full .short .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .short-full .short .input-field, .short-full .short-actions .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .short-full .short-actions .input-field, .short-full .short-comments .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .short-full .short-comments .input-field, .row .short-full .short .top-section, .short-full .short .row .top-section, .story .short-full .short .top-section, .short-full .short .story .top-section, .short-form .short-full .short .top-section, .short-full .short .short-form .top-section, .short-form form .text-section .short-full .short .top-section, .short-full .short .short-form form .text-section .top-section,
-  .short-form form .location-section .short-full .short .top-section,
-  .short-full .short .short-form form .location-section .top-section,
-  .short-form form .action-section .short-full .short .top-section,
-  .short-full .short .short-form form .action-section .top-section, .short-full .short .top-section, .short-full .short-actions .short .top-section, .short-full .short .short-actions .top-section, .short-full .short-comments .short .top-section, .short-full .short .short-comments .top-section, .row .short-full .short .content, .short-full .short .row .content, .story .short-full .short .content, .short-full .short .story .content, .short-form .short-full .short .content, .short-full .short .short-form .content, .short-form form .text-section .short-full .short .content, .short-full .short .short-form form .text-section .content,
-  .short-form form .location-section .short-full .short .content,
-  .short-full .short .short-form form .location-section .content,
-  .short-form form .action-section .short-full .short .content,
-  .short-full .short .short-form form .action-section .content, .short-full .short .content, .short-full .short-actions .short .content, .short-full .short .short-actions .content, .short-full .short-comments .short .content, .short-full .short .short-comments .content, .row .short-full .short-comments .inner, .short-full .short-comments .row .inner, .story .short-full .short-comments .inner, .short-full .short-comments .story .inner, .short-form .short-full .short-comments .inner, .short-full .short-comments .short-form .inner, .short-form form .text-section .short-full .short-comments .inner, .short-full .short-comments .short-form form .text-section .inner,
-  .short-form form .location-section .short-full .short-comments .inner,
-  .short-full .short-comments .short-form form .location-section .inner,
-  .short-form form .action-section .short-full .short-comments .inner,
-  .short-full .short-comments .short-form form .action-section .inner, .short-full .short .short-comments .inner, .short-full .short-comments .short .inner, .short-full .short-actions .short-comments .inner, .short-full .short-comments .short-actions .inner, .short-full .short-comments .inner {
+  .row .small-12 {
     position: relative;
     width: 100%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-1, .story .small-offset-1, .short-form .small-offset-1, .short-form form .text-section .small-offset-1,
-  .short-form form .location-section .small-offset-1,
-  .short-form form .action-section .small-offset-1, .short-full .short .small-offset-1, .short-full .short-actions .small-offset-1, .short-full .short-comments .small-offset-1 {
+  .row .small-offset-1 {
     position: relative;
     margin-left: 8.33333%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-2, .story .small-offset-2, .short-form .small-offset-2, .short-form form .text-section .small-offset-2,
-  .short-form form .location-section .small-offset-2,
-  .short-form form .action-section .small-offset-2, .short-full .short .small-offset-2, .short-full .short-actions .small-offset-2, .short-full .short-comments .small-offset-2 {
+  .row .small-offset-2 {
     position: relative;
     margin-left: 16.66667%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-3, .story .small-offset-3, .short-form .small-offset-3, .short-form form .text-section .small-offset-3,
-  .short-form form .location-section .small-offset-3,
-  .short-form form .action-section .small-offset-3, .short-full .short .small-offset-3, .short-full .short-actions .small-offset-3, .short-full .short-comments .small-offset-3 {
+  .row .small-offset-3 {
     position: relative;
     margin-left: 25%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-4, .story .small-offset-4, .short-form .small-offset-4, .short-form form .text-section .small-offset-4,
-  .short-form form .location-section .small-offset-4,
-  .short-form form .action-section .small-offset-4, .short-full .short .small-offset-4, .short-full .short-actions .small-offset-4, .short-full .short-comments .small-offset-4 {
+  .row .small-offset-4 {
     position: relative;
     margin-left: 33.33333%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-5, .story .small-offset-5, .short-form .small-offset-5, .short-form form .text-section .small-offset-5,
-  .short-form form .location-section .small-offset-5,
-  .short-form form .action-section .small-offset-5, .short-full .short .small-offset-5, .short-full .short-actions .small-offset-5, .short-full .short-comments .small-offset-5 {
+  .row .small-offset-5 {
     position: relative;
     margin-left: 41.66667%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-6, .story .small-offset-6, .short-form .small-offset-6, .short-form form .text-section .small-offset-6,
-  .short-form form .location-section .small-offset-6,
-  .short-form form .action-section .small-offset-6, .short-full .short .small-offset-6, .short-full .short-actions .small-offset-6, .short-full .short-comments .small-offset-6 {
+  .row .small-offset-6 {
     position: relative;
     margin-left: 50%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-7, .story .small-offset-7, .short-form .small-offset-7, .short-form form .text-section .small-offset-7,
-  .short-form form .location-section .small-offset-7,
-  .short-form form .action-section .small-offset-7, .short-full .short .small-offset-7, .short-full .short-actions .small-offset-7, .short-full .short-comments .small-offset-7 {
+  .row .small-offset-7 {
     position: relative;
     margin-left: 58.33333%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-8, .story .small-offset-8, .short-form .small-offset-8, .short-form form .text-section .small-offset-8,
-  .short-form form .location-section .small-offset-8,
-  .short-form form .action-section .small-offset-8, .short-full .short .small-offset-8, .short-full .short-actions .small-offset-8, .short-full .short-comments .small-offset-8 {
+  .row .small-offset-8 {
     position: relative;
     margin-left: 66.66667%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-9, .story .small-offset-9, .short-form .small-offset-9, .short-form form .text-section .small-offset-9,
-  .short-form form .location-section .small-offset-9,
-  .short-form form .action-section .small-offset-9, .short-full .short .small-offset-9, .short-full .short-actions .small-offset-9, .short-full .short-comments .small-offset-9 {
+  .row .small-offset-9 {
     position: relative;
     margin-left: 75%;
   }
 
   /* line 132, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .small-offset-10, .story .small-offset-10, .short-form .small-offset-10, .short-form form .text-section .small-offset-10,
-  .short-form form .location-section .small-offset-10,
-  .short-form form .action-section .small-offset-10, .short-full .short .small-offset-10, .short-full .short-actions .small-offset-10, .short-full .short-comments .small-offset-10 {
+  .row .small-offset-10 {
     position: relative;
     margin-left: 83.33333%;
   }
@@ -1505,14 +656,7 @@ blockquote p {
 
   /* line 139, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
   .column.small-centered,
-  .columns.small-centered,
-  .story .small-centered.top-section,
-  .story .small-centered.content,
-  .short-form form .text-section .small-centered.input-field,
-  .short-form form .text-section .small-centered.add-story,
-  .short-full .short .small-centered.top-section,
-  .short-full .short .small-centered.content,
-  .short-full .short-comments .small-centered.inner {
+  .columns.small-centered {
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -1522,217 +666,133 @@ blockquote p {
 /* Styles for screens that are atleast 768px; */
 @media only screen and (min-width: 48em) {
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-1, .story .large-1, .short-form .large-1, .short-form form .text-section .large-1,
-  .short-form form .location-section .large-1,
-  .short-form form .action-section .large-1, .short-full .short .large-1, .short-full .short-actions .large-1, .short-full .short-comments .large-1 {
+  .row .large-1 {
     position: relative;
     width: 8.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-2, .story .large-2, .short-form .large-2, .short-form form .text-section .large-2,
-  .short-form form .location-section .large-2,
-  .short-form form .action-section .large-2, .short-full .short .large-2, .short-full .short-actions .large-2, .short-full .short-comments .large-2 {
+  .row .large-2 {
     position: relative;
     width: 16.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-3, .story .large-3, .short-form .large-3, .short-form form .text-section .large-3,
-  .short-form form .location-section .large-3,
-  .short-form form .action-section .large-3, .short-full .short .large-3, .short-full .short-actions .large-3, .short-full .short-comments .large-3 {
+  .row .large-3 {
     position: relative;
     width: 25%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-4, .story .large-4, .short-form .large-4, .short-form form .text-section .large-4,
-  .short-form form .location-section .large-4,
-  .short-form form .action-section .large-4, .short-full .short .large-4, .short-full .short-actions .large-4, .short-full .short-comments .large-4, .row .short-form form .text-section .add-story, .short-form form .text-section .row .add-story, .story .short-form form .text-section .add-story, .short-form form .text-section .story .add-story, .short-form form .text-section .add-story, .short-form form .text-section .add-story,
-  .short-form form .location-section .text-section .add-story,
-  .short-form form .text-section .location-section .add-story,
-  .short-form form .action-section .text-section .add-story,
-  .short-form form .text-section .action-section .add-story, .short-full .short .short-form form .text-section .add-story, .short-form form .text-section .short-full .short .add-story, .short-full .short-actions .short-form form .text-section .add-story, .short-form form .text-section .short-full .short-actions .add-story, .short-full .short-comments .short-form form .text-section .add-story, .short-form form .text-section .short-full .short-comments .add-story {
+  .row .large-4 {
     position: relative;
     width: 33.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-5, .story .large-5, .short-form .large-5, .short-form form .text-section .large-5,
-  .short-form form .location-section .large-5,
-  .short-form form .action-section .large-5, .short-full .short .large-5, .short-full .short-actions .large-5, .short-full .short-comments .large-5 {
+  .row .large-5 {
     position: relative;
     width: 41.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-6, .story .large-6, .short-form .large-6, .short-form form .text-section .large-6,
-  .short-form form .location-section .large-6,
-  .short-form form .action-section .large-6, .short-full .short .large-6, .short-full .short-actions .large-6, .short-full .short-comments .large-6 {
+  .row .large-6 {
     position: relative;
     width: 50%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-7, .story .large-7, .short-form .large-7, .short-form form .text-section .large-7,
-  .short-form form .location-section .large-7,
-  .short-form form .action-section .large-7, .short-full .short .large-7, .short-full .short-actions .large-7, .short-full .short-comments .large-7 {
+  .row .large-7 {
     position: relative;
     width: 58.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-8, .story .large-8, .short-form .large-8, .short-form form .text-section .large-8,
-  .short-form form .location-section .large-8,
-  .short-form form .action-section .large-8, .short-full .short .large-8, .short-full .short-actions .large-8, .short-full .short-comments .large-8, .row .short-form form .text-section .input-field, .short-form form .text-section .row .input-field, .story .short-form form .text-section .input-field, .short-form form .text-section .story .input-field, .short-form form .text-section .input-field, .short-form form .text-section .input-field,
-  .short-form form .location-section .text-section .input-field,
-  .short-form form .text-section .location-section .input-field,
-  .short-form form .action-section .text-section .input-field,
-  .short-form form .text-section .action-section .input-field, .short-full .short .short-form form .text-section .input-field, .short-form form .text-section .short-full .short .input-field, .short-full .short-actions .short-form form .text-section .input-field, .short-form form .text-section .short-full .short-actions .input-field, .short-full .short-comments .short-form form .text-section .input-field, .short-form form .text-section .short-full .short-comments .input-field {
+  .row .large-8 {
     position: relative;
     width: 66.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-9, .story .large-9, .short-form .large-9, .short-form form .text-section .large-9,
-  .short-form form .location-section .large-9,
-  .short-form form .action-section .large-9, .short-full .short .large-9, .short-full .short-actions .large-9, .short-full .short-comments .large-9 {
+  .row .large-9 {
     position: relative;
     width: 75%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-10, .story .large-10, .short-form .large-10, .short-form form .text-section .large-10,
-  .short-form form .location-section .large-10,
-  .short-form form .action-section .large-10, .short-full .short .large-10, .short-full .short-actions .large-10, .short-full .short-comments .large-10, .row .story .content, .story .row .content, .story .content, .short-form .story .content, .story .short-form .content, .short-form form .text-section .story .content, .story .short-form form .text-section .content,
-  .short-form form .location-section .story .content,
-  .story .short-form form .location-section .content,
-  .short-form form .action-section .story .content,
-  .story .short-form form .action-section .content, .short-full .short .story .content, .story .short-full .short .content, .short-full .short-actions .story .content, .story .short-full .short-actions .content, .short-full .short-comments .story .content, .story .short-full .short-comments .content, .row .short-full .short .content, .short-full .short .row .content, .story .short-full .short .content, .short-full .short .story .content, .short-form .short-full .short .content, .short-full .short .short-form .content, .short-form form .text-section .short-full .short .content, .short-full .short .short-form form .text-section .content,
-  .short-form form .location-section .short-full .short .content,
-  .short-full .short .short-form form .location-section .content,
-  .short-form form .action-section .short-full .short .content,
-  .short-full .short .short-form form .action-section .content, .short-full .short .content, .short-full .short-actions .short .content, .short-full .short .short-actions .content, .short-full .short-comments .short .content, .short-full .short .short-comments .content {
+  .row .large-10 {
     position: relative;
     width: 83.33333%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-11, .story .large-11, .short-form .large-11, .short-form form .text-section .large-11,
-  .short-form form .location-section .large-11,
-  .short-form form .action-section .large-11, .short-full .short .large-11, .short-full .short-actions .large-11, .short-full .short-comments .large-11 {
+  .row .large-11 {
     position: relative;
     width: 91.66667%;
   }
 
   /* line 146, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-12, .story .large-12, .short-form .large-12, .short-form form .text-section .large-12,
-  .short-form form .location-section .large-12,
-  .short-form form .action-section .large-12, .short-full .short .large-12, .short-full .short-actions .large-12, .short-full .short-comments .large-12, .row .story .top-section, .story .row .top-section, .story .top-section, .short-form .story .top-section, .story .short-form .top-section, .short-form form .text-section .story .top-section, .story .short-form form .text-section .top-section,
-  .short-form form .location-section .story .top-section,
-  .story .short-form form .location-section .top-section,
-  .short-form form .action-section .story .top-section,
-  .story .short-form form .action-section .top-section, .short-full .short .story .top-section, .story .short-full .short .top-section, .short-full .short-actions .story .top-section, .story .short-full .short-actions .top-section, .short-full .short-comments .story .top-section, .story .short-full .short-comments .top-section, .row .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .row .input-field, .story .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .story .input-field, .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .input-field,
-  .short-form form.expanded .location-section .text-section .input-field,
-  .short-form form.expanded .text-section .location-section .input-field,
-  .short-form form.expanded .action-section .text-section .input-field,
-  .short-form form.expanded .text-section .action-section .input-field, .short-full .short .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .short-full .short .input-field, .short-full .short-actions .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .short-full .short-actions .input-field, .short-full .short-comments .short-form form.expanded .text-section .input-field, .short-form form.expanded .text-section .short-full .short-comments .input-field, .row .short-full .short .top-section, .short-full .short .row .top-section, .story .short-full .short .top-section, .short-full .short .story .top-section, .short-form .short-full .short .top-section, .short-full .short .short-form .top-section, .short-form form .text-section .short-full .short .top-section, .short-full .short .short-form form .text-section .top-section,
-  .short-form form .location-section .short-full .short .top-section,
-  .short-full .short .short-form form .location-section .top-section,
-  .short-form form .action-section .short-full .short .top-section,
-  .short-full .short .short-form form .action-section .top-section, .short-full .short .top-section, .short-full .short-actions .short .top-section, .short-full .short .short-actions .top-section, .short-full .short-comments .short .top-section, .short-full .short .short-comments .top-section, .row .short-full .short-comments .inner, .short-full .short-comments .row .inner, .story .short-full .short-comments .inner, .short-full .short-comments .story .inner, .short-form .short-full .short-comments .inner, .short-full .short-comments .short-form .inner, .short-form form .text-section .short-full .short-comments .inner, .short-full .short-comments .short-form form .text-section .inner,
-  .short-form form .location-section .short-full .short-comments .inner,
-  .short-full .short-comments .short-form form .location-section .inner,
-  .short-form form .action-section .short-full .short-comments .inner,
-  .short-full .short-comments .short-form form .action-section .inner, .short-full .short .short-comments .inner, .short-full .short-comments .short .inner, .short-full .short-actions .short-comments .inner, .short-full .short-comments .short-actions .inner, .short-full .short-comments .inner {
+  .row .large-12 {
     position: relative;
     width: 100%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-1, .story .large-offset-1, .short-form .large-offset-1, .short-form form .text-section .large-offset-1,
-  .short-form form .location-section .large-offset-1,
-  .short-form form .action-section .large-offset-1, .short-full .short .large-offset-1, .short-full .short-actions .large-offset-1, .short-full .short-comments .large-offset-1 {
+  .row .large-offset-1 {
     position: relative;
     margin-left: 8.33333%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-2, .story .large-offset-2, .short-form .large-offset-2, .short-form form .text-section .large-offset-2,
-  .short-form form .location-section .large-offset-2,
-  .short-form form .action-section .large-offset-2, .short-full .short .large-offset-2, .short-full .short-actions .large-offset-2, .short-full .short-comments .large-offset-2, .row .story .content, .story .row .content, .story .content, .short-form .story .content, .story .short-form .content, .short-form form .text-section .story .content, .story .short-form form .text-section .content,
-  .short-form form .location-section .story .content,
-  .story .short-form form .location-section .content,
-  .short-form form .action-section .story .content,
-  .story .short-form form .action-section .content, .short-full .short .story .content, .story .short-full .short .content, .short-full .short-actions .story .content, .story .short-full .short-actions .content, .short-full .short-comments .story .content, .story .short-full .short-comments .content, .row .short-full .short .content, .short-full .short .row .content, .story .short-full .short .content, .short-full .short .story .content, .short-form .short-full .short .content, .short-full .short .short-form .content, .short-form form .text-section .short-full .short .content, .short-full .short .short-form form .text-section .content,
-  .short-form form .location-section .short-full .short .content,
-  .short-full .short .short-form form .location-section .content,
-  .short-form form .action-section .short-full .short .content,
-  .short-full .short .short-form form .action-section .content, .short-full .short .content, .short-full .short-actions .short .content, .short-full .short .short-actions .content, .short-full .short-comments .short .content, .short-full .short .short-comments .content {
+  .row .large-offset-2 {
     position: relative;
     margin-left: 16.66667%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-3, .story .large-offset-3, .short-form .large-offset-3, .short-form form .text-section .large-offset-3,
-  .short-form form .location-section .large-offset-3,
-  .short-form form .action-section .large-offset-3, .short-full .short .large-offset-3, .short-full .short-actions .large-offset-3, .short-full .short-comments .large-offset-3 {
+  .row .large-offset-3 {
     position: relative;
     margin-left: 25%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-4, .story .large-offset-4, .short-form .large-offset-4, .short-form form .text-section .large-offset-4,
-  .short-form form .location-section .large-offset-4,
-  .short-form form .action-section .large-offset-4, .short-full .short .large-offset-4, .short-full .short-actions .large-offset-4, .short-full .short-comments .large-offset-4 {
+  .row .large-offset-4 {
     position: relative;
     margin-left: 33.33333%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-5, .story .large-offset-5, .short-form .large-offset-5, .short-form form .text-section .large-offset-5,
-  .short-form form .location-section .large-offset-5,
-  .short-form form .action-section .large-offset-5, .short-full .short .large-offset-5, .short-full .short-actions .large-offset-5, .short-full .short-comments .large-offset-5 {
+  .row .large-offset-5 {
     position: relative;
     margin-left: 41.66667%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-6, .story .large-offset-6, .short-form .large-offset-6, .short-form form .text-section .large-offset-6,
-  .short-form form .location-section .large-offset-6,
-  .short-form form .action-section .large-offset-6, .short-full .short .large-offset-6, .short-full .short-actions .large-offset-6, .short-full .short-comments .large-offset-6 {
+  .row .large-offset-6 {
     position: relative;
     margin-left: 50%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-7, .story .large-offset-7, .short-form .large-offset-7, .short-form form .text-section .large-offset-7,
-  .short-form form .location-section .large-offset-7,
-  .short-form form .action-section .large-offset-7, .short-full .short .large-offset-7, .short-full .short-actions .large-offset-7, .short-full .short-comments .large-offset-7 {
+  .row .large-offset-7 {
     position: relative;
     margin-left: 58.33333%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-8, .story .large-offset-8, .short-form .large-offset-8, .short-form form .text-section .large-offset-8,
-  .short-form form .location-section .large-offset-8,
-  .short-form form .action-section .large-offset-8, .short-full .short .large-offset-8, .short-full .short-actions .large-offset-8, .short-full .short-comments .large-offset-8 {
+  .row .large-offset-8 {
     position: relative;
     margin-left: 66.66667%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-9, .story .large-offset-9, .short-form .large-offset-9, .short-form form .text-section .large-offset-9,
-  .short-form form .location-section .large-offset-9,
-  .short-form form .action-section .large-offset-9, .short-full .short .large-offset-9, .short-full .short-actions .large-offset-9, .short-full .short-comments .large-offset-9 {
+  .row .large-offset-9 {
     position: relative;
     margin-left: 75%;
   }
 
   /* line 150, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
-  .row .large-offset-10, .story .large-offset-10, .short-form .large-offset-10, .short-form form .text-section .large-offset-10,
-  .short-form form .location-section .large-offset-10,
-  .short-form form .action-section .large-offset-10, .short-full .short .large-offset-10, .short-full .short-actions .large-offset-10, .short-full .short-comments .large-offset-10 {
+  .row .large-offset-10 {
     position: relative;
     margin-left: 83.33333%;
   }
@@ -1955,14 +1015,7 @@ blockquote p {
 
   /* line 164, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_grid.scss */
   .column.large-centered,
-  .columns.large-centered,
-  .story .large-centered.top-section,
-  .story .large-centered.content,
-  .short-form form .text-section .large-centered.input-field,
-  .short-form form .text-section .large-centered.add-story,
-  .short-full .short .large-centered.top-section,
-  .short-full .short .large-centered.content,
-  .short-full .short-comments .large-centered.inner {
+  .columns.large-centered {
     position: relative;
     margin-left: auto;
     margin-right: auto;
@@ -1986,30 +1039,51 @@ blockquote p {
 
 /* line 5, ../../sass/app/short.scss */
 .story {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
   padding: 0.66em 0;
   margin-bottom: 0.9em;
 }
-/* line 36, ../../sass/components.scss */
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.story:before, .story:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.story:after {
+  clear: both;
+}
+/* line 37, ../../sass/components.scss */
 .story .top-section {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+  height: 2.8em !important;
   font-size: 1em;
   color: black;
-  height: 2.8em !important;
   margin-bottom: 0.2em;
 }
-/* line 46, ../../sass/components.scss */
+/* line 45, ../../sass/components.scss */
 .story .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 46, ../../sass/components.scss */
+  /* line 45, ../../sass/components.scss */
   .story .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
-/* line 56, ../../sass/components.scss */
+/* line 55, ../../sass/components.scss */
 .story .top-section .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -2018,19 +1092,18 @@ blockquote p {
   border-radius: 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 56, ../../sass/components.scss */
+  /* line 55, ../../sass/components.scss */
   .story .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
-/* line 66, ../../sass/components.scss */
+/* line 65, ../../sass/components.scss */
 .story .top-section .details {
-  padding-top: 0;
   height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 66, ../../sass/components.scss */
+  /* line 65, ../../sass/components.scss */
   .story .top-section .details {
     padding-top: 0.5em;
     height: 3.3em !important;
@@ -2058,13 +1131,27 @@ blockquote p {
   padding-right: 3px;
   font-weight: bold;
 }
+/* line 105, ../../sass/components.scss */
+.story .content {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+}
 @media only screen and (min-width: 48em) {
   /* line 105, ../../sass/components.scss */
   .story .content {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    width: 83.33333%;
+    margin-left: 16.66667%;
+    float: left;
     margin-left: 3.3em !important;
   }
 }
-/* line 115, ../../sass/components.scss */
+/* line 114, ../../sass/components.scss */
 .story .content p:last-of-type {
   margin-bottom: 0em;
 }
@@ -2073,8 +1160,35 @@ blockquote p {
   padding-bottom: 0.5em;
 }
 
+/* line 15, ../../sass/app/short.scss */
+.short-form {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
+}
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.short-form:before, .short-form:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.short-form:after {
+  clear: both;
+}
 /* line 18, ../../sass/app/short.scss */
-.short-form form {
+.short-form .form-content {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+}
+/* line 21, ../../sass/app/short.scss */
+.short-form .form-content form {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
   -ms-border-radius: 4px;
@@ -2084,73 +1198,142 @@ blockquote p {
   border: 1px solid #f3f3f3;
   padding: 10px;
 }
-/* line 38, ../../sass/app/short.scss */
-.short-form form .text-section .input-field textarea {
+/* line 30, ../../sass/app/short.scss */
+.short-form .form-content form .text-section,
+.short-form .form-content form .location-section,
+.short-form .form-content form .action-section {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
+}
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.short-form .form-content form .text-section:before, .short-form .form-content form .text-section:after,
+.short-form .form-content form .location-section:before,
+.short-form .form-content form .location-section:after,
+.short-form .form-content form .action-section:before,
+.short-form .form-content form .action-section:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.short-form .form-content form .text-section:after,
+.short-form .form-content form .location-section:after,
+.short-form .form-content form .action-section:after {
+  clear: both;
+}
+/* line 36, ../../sass/app/short.scss */
+.short-form .form-content form .text-section .input-field {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 66.66667%;
+  float: left;
+}
+/* line 39, ../../sass/app/short.scss */
+.short-form .form-content form .text-section .input-field textarea {
   height: 40px;
   min-height: 0px !important;
 }
-/* line 44, ../../sass/app/short.scss */
-.short-form form .text-section .add-story {
+/* line 45, ../../sass/app/short.scss */
+.short-form .form-content form .text-section .add-story {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 33.33333%;
+  float: left;
   text-align: center;
   padding-left: 0px !important;
   margin-top: 0.8em;
 }
-/* line 56, ../../sass/app/short.scss */
-.short-form form .location-section,
-.short-form form .action-section {
+/* line 55, ../../sass/app/short.scss */
+.short-form .form-content form .location-section,
+.short-form .form-content form .action-section {
   display: none;
 }
-/* line 59, ../../sass/app/short.scss */
-.short-form form .location-section .button,
-.short-form form .action-section .button {
+/* line 58, ../../sass/app/short.scss */
+.short-form .form-content form .location-section .button,
+.short-form .form-content form .action-section .button {
   margin-bottom: 0em;
 }
-/* line 66, ../../sass/app/short.scss */
-.short-form form.expanded .location-section,
-.short-form form.expanded .action-section {
+/* line 65, ../../sass/app/short.scss */
+.short-form .form-content form.expanded .location-section,
+.short-form .form-content form.expanded .action-section {
   display: inherit;
 }
-/* line 75, ../../sass/app/short.scss */
-.short-form form.expanded .text-section .input-field textarea {
+/* line 70, ../../sass/app/short.scss */
+.short-form .form-content form.expanded .text-section .input-field {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+}
+/* line 73, ../../sass/app/short.scss */
+.short-form .form-content form.expanded .text-section .input-field textarea {
   margin-bottom: 0.8em;
   height: 80px;
 }
-/* line 81, ../../sass/app/short.scss */
-.short-form form.expanded .text-section .add-story {
+/* line 79, ../../sass/app/short.scss */
+.short-form .form-content form.expanded .text-section .add-story {
   display: none;
 }
 
-/* line 89, ../../sass/app/short.scss */
+/* line 88, ../../sass/app/short.scss */
 .short-full {
   margin-bottom: 0.8em;
 }
-/* line 92, ../../sass/app/short.scss */
+/* line 91, ../../sass/app/short.scss */
 .short-full .short {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
   padding: 0.66em 0;
   padding-bottom: 0px;
   margin-bottom: 0px !important;
 }
-/* line 36, ../../sass/components.scss */
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.short-full .short:before, .short-full .short:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.short-full .short:after {
+  clear: both;
+}
+/* line 37, ../../sass/components.scss */
 .short-full .short .top-section {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+  height: 2.8em !important;
   font-size: 1em;
   color: black;
-  height: 2.8em !important;
   margin-bottom: 0.2em;
 }
-/* line 46, ../../sass/components.scss */
+/* line 45, ../../sass/components.scss */
 .short-full .short .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 46, ../../sass/components.scss */
+  /* line 45, ../../sass/components.scss */
   .short-full .short .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
-/* line 56, ../../sass/components.scss */
+/* line 55, ../../sass/components.scss */
 .short-full .short .top-section .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -2159,19 +1342,18 @@ blockquote p {
   border-radius: 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 56, ../../sass/components.scss */
+  /* line 55, ../../sass/components.scss */
   .short-full .short .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
-/* line 66, ../../sass/components.scss */
+/* line 65, ../../sass/components.scss */
 .short-full .short .top-section .details {
-  padding-top: 0;
   height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 66, ../../sass/components.scss */
+  /* line 65, ../../sass/components.scss */
   .short-full .short .top-section .details {
     padding-top: 0.5em;
     height: 3.3em !important;
@@ -2199,22 +1381,43 @@ blockquote p {
   padding-right: 3px;
   font-weight: bold;
 }
+/* line 105, ../../sass/components.scss */
+.short-full .short .content {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+}
 @media only screen and (min-width: 48em) {
   /* line 105, ../../sass/components.scss */
   .short-full .short .content {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    width: 83.33333%;
+    margin-left: 16.66667%;
+    float: left;
     margin-left: 3.3em !important;
   }
 }
-/* line 115, ../../sass/components.scss */
+/* line 114, ../../sass/components.scss */
 .short-full .short .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 98, ../../sass/app/short.scss */
+/* line 97, ../../sass/app/short.scss */
 .short-full .short .content {
   padding-bottom: 0.5em;
 }
-/* line 103, ../../sass/app/short.scss */
+/* line 102, ../../sass/app/short.scss */
 .short-full .short-actions {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
   font-size: 0.9em;
   margin-left: 0px;
   margin-right: 0px;
@@ -2231,51 +1434,81 @@ blockquote p {
   color: white;
   font-size: 0.8em;
 }
-/* line 114, ../../sass/app/short.scss */
-.short-full .short-actions .columns, .short-full .short-actions .story .top-section, .story .short-full .short-actions .top-section, .short-full .short-actions .story .content, .story .short-full .short-actions .content, .short-full .short-actions .short-form form .text-section .input-field, .short-form form .text-section .short-full .short-actions .input-field, .short-full .short-actions .short-form form .text-section .add-story, .short-form form .text-section .short-full .short-actions .add-story, .short-full .short-actions .short .top-section, .short-full .short .short-actions .top-section, .short-full .short-actions .short .content, .short-full .short .short-actions .content, .short-full .short-actions .short-comments .inner, .short-full .short-comments .short-actions .inner {
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.short-full .short-actions:before, .short-full .short-actions:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.short-full .short-actions:after {
+  clear: both;
+}
+/* line 112, ../../sass/app/short.scss */
+.short-full .short-actions .columns {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 119, ../../sass/app/short.scss */
+/* line 117, ../../sass/app/short.scss */
 .short-full .short-actions a.comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 123, ../../sass/app/short.scss */
+/* line 121, ../../sass/app/short.scss */
 .short-full .short-actions a.comments:before {
   background-position: 0em 0.3em;
 }
-/* line 131, ../../sass/app/short.scss */
+/* line 129, ../../sass/app/short.scss */
 .short-full .short-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 135, ../../sass/app/short.scss */
+/* line 133, ../../sass/app/short.scss */
 .short-full .short-actions .action.new-comment a {
   text-indent: -50px;
 }
-/* line 138, ../../sass/app/short.scss */
+/* line 136, ../../sass/app/short.scss */
 .short-full .short-actions .action.new-comment a span {
   color: white;
 }
 @media only screen and (min-width: 48em) {
-  /* line 103, ../../sass/app/short.scss */
+  /* line 102, ../../sass/app/short.scss */
   .short-full .short-actions {
     font-size: 0.9em;
   }
-  /* line 151, ../../sass/app/short.scss */
+  /* line 149, ../../sass/app/short.scss */
   .short-full .short-actions .action.new-comment a {
     text-indent: -60px;
   }
 }
-/* line 158, ../../sass/app/short.scss */
+/* line 156, ../../sass/app/short.scss */
 .short-full .short-comments {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
   height: 0px;
   overflow: hidden;
   padding: 0 1.4em;
 }
-/* line 169, ../../sass/app/short.scss */
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.short-full .short-comments:before, .short-full .short-comments:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.short-full .short-comments:after {
+  clear: both;
+}
+/* line 167, ../../sass/app/short.scss */
 .short-full .short-comments .inner {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
   -moz-border-radius-bottomleft: 4px;
   -webkit-border-bottom-left-radius: 4px;
   border-bottom-left-radius: 4px;
@@ -2287,7 +1520,7 @@ blockquote p {
   border-top: none;
   padding-bottom: 0.5em;
 }
-/* line 192, ../../sass/app/short.scss */
+/* line 188, ../../sass/app/short.scss */
 .short-full.expanded .short-comments {
   height: 100%;
 }

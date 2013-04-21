@@ -36,6 +36,16 @@ Template.commentForm.activity = function () {
 };
 
 Template.commentForm.events({
+  'focus #comment': function (event, template) {
+    $(template.find(".comment-form")).addClass("expanded");
+
+    return false;
+  },
+  'click .cancel': function (event, template) {
+    $(template.find(".comment-form")).removeClass("expanded");
+
+    return false;
+  },
   'click .save': function (event, template) {
     return saveComment(template);
   },

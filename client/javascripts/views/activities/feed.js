@@ -228,7 +228,7 @@ Template.feedItem.events({
     var self = this;
     $(event.target).closest(".short-full").
                           addClass("expanded", 500, function () {
-                            $("#" + self._id + " input#comment").focus();
+                            $("#" + self._id + " #comment").focus();
                           });
 
     return false;

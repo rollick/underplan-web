@@ -39,8 +39,6 @@ span.warning {
 
 h2, a {
   span.warning {
-    @extend span.warning;
-
     font-size: 0.7em;
   }
 }

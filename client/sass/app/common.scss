@@ -53,26 +53,21 @@
 
   &.new-comment {
     float: right;
-    
+
     a {
       text-indent: -73px;
     }
   }
   
   &.new-comment span:before,
-  a.new-short:before {
+  a.new-short:before,
+  a.new-story:before {
     content: "+";
     font-size: 1.6em;
     font-weight: bold;
     padding-right: 1px;
     top: 3px;
     position: relative;
-  }
-
-  a.new-story:before {
-    @extend a.new-short:before;
-
-    content: "+";
   }
 }
 

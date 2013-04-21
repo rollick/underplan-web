@@ -4,34 +4,57 @@
   @include entry-with-profile(3.7em);
 
   font-size: 0.9em;
-
-  // &:nth-child(odd) {
-  //   background-color: rgb(248, 248, 248);
-  // }
 }
 
 .comment-form {
-  @extend .row;
+  @include grid-row(nest);
 
-  input.comment {
-    font-size: 0.9em;
-    border: 1px solid #dddddd;
+  &.expanded {
+    .user-comment {
+      .top-section {
+        .picture {
+          display: inherit;
+        }
+
+        .details {
+          padding-left: 3.3em;
+
+          #comment {
+            height: 5em;
+          }
+
+          .button {
+            display: inline-block;
+          }
+        }
+      }
+    }
   }
 
   .user-comment {
-    @include entry-with-profile(3.3em);
-
-    height: 6em;
+    @include entry-with-profile(3.3em, false);
 
     .top-section {
-      height: 6em;
+      margin-bottom: 0em;
+
+      .picture {
+        display: none;
+      }
   
       .details {
-        padding-left: 3.3em;
+        padding-left: 0em;
         
-        input {
-          height: 3em;
+        .button {
+          display: none;
           margin-bottom: 0em;
+        }
+
+        #comment {
+          font-size: 0.9em;
+          border: 1px solid #dddddd;
+          height: 2.5em;
+          margin-bottom: 0.3em;
+          min-height: 0em;
         }        
       }
     }
