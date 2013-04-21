@@ -1,0 +1,50 @@
+<template name="activityFeed">
+  {{#if loading}}
+    <p class="loading-feed alert-box secondary">Loading Group...</p>
+  {{else}}
+    {{#if showCountryFilter}}
+      {{countryFilter countries}}
+    {{/if}}
+    <div class="row feed-header">
+      <div class="small-7 large-7 columns">
+        {{feedTitle}}
+      </div>
+    </div>
+    <div class="row no-side-padding">
+      <div class="show-for-small small-12 columns">
+        {{#constant}}
+          <div class="activities-map"></div>
+        {{/constant}}
+      </div>
+      <div class="small-12 large-5 columns feed">
+        {{#if userBelongsToGroup}}
+          <div class="short-form">
+            <div class="small-12 large-12 columns">
+              {{> shortForm}}
+            </div>
+          </div>
+        {{/if}}
+        {{> feedList}}
+      </div>
+      <div class="small-12 large-7 columns">
+        <div class="row show-for-medium-up">
+          <div class="small-12 large-12 columns">
+            {{#constant}}
+              <div class="activities-map"></div>
+            {{/constant}}
+          </div>
+        </div>
+        {{#if group.picasaUsername}}
+          <div class="row">
+            <div class="small-12 large-12 columns">
+              {{#constant}}
+                <h5>Recent Group Photos <span class="sub-header"><a target="blank" href="{{picasaGalleryUrl}}">Show All</a></span></h5>
+                <div class="recent-photos"><p class="alert-box secondary">Loading photos...</p></div>
+              {{/constant}}
+            </div>
+          </div>
+        {{/if}}
+      </div>
+    </div>
+  {{/if}}
+</template>

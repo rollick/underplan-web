@@ -6,6 +6,13 @@ var dashboardMap = null;
 var dashboardMapBounds = null;
 
 Template.activityFeed.helpers({
+  activitiesMap: function () {
+    var recentActivities = [];
+    if(!!Session.get("feedFilter").group) {
+      recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
+    }
+    generateActivitesMap(group, ".activities-map:visible", recentActivities);
+  },
   feedTitle: function() {
     text = "All Activities";
     if (!Template.feedList.feedLimitReached()) {
@@ -108,14 +115,13 @@ Template.activityFeed.rendered = function() {
       renderPicasaPhotos(photos, options);
     });
   }
-  
+
   var recentActivities = [];
   if(!!Session.get("feedFilter").group) {
     recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
   }
-
   generateActivitesMap(group, ".activities-map:visible", recentActivities);
-
+  
   // google.maps.event.addListener(map, 'tilesloaded', _.bind(function() {
     // generateActivitesMap(group, ".activities-map:visible");
     // google.maps.event.clearListeners(map, 'tilesloaded');
@@ -203,8 +209,73 @@ Template.feedList.moreActivities = function() {
   return Session.get("feedLimit") < Activities.find(Session.get("feedFilter")).count();
 };
 
-Template.feedList.typeIs = function (what) {
+///////////////////////////////////////////////////////////////////////////////
+// Feed Item View
+
+// Template.short.preserve([".short.entry.expanded"]);
+
+Template.feedItem.events({
+  'click .short-actions a.comments': function (event, template) {
+    $(event.target).closest(".short-full").toggleClass("expanded", 500);
+
+    return false;
+  },
+  'click .short-actions .new-comment a': function (event, template) {
+    if (!!$(event.target).closest("a").hasClass("disabled")) {
+      return false;
+    }
+
+    var self = this;
+    $(event.target).closest(".short-full").
+                          addClass("expanded", 500, function () {
+                            $("#" + self._id + " input#comment").focus();
+                          });
+
+    return false;
+  }
+});
+
+Template.feedItem.typeIs = function (what) {
   return this.type === what;
+};
+
+Template.feedItem.lastCommented = function () {
+  return Session.get("lastUpdatedActivityId") == this._id;
+}
+
+Template.feedItem.lastUpdated = function () {
+  return this._id == Session.get("lastUpdatedActivity");
+}
+
+// override this method to specify a different short
+Template.feedItem.activity = function() {
+  return this;
+};
+
+var toggleComments = function(template) {
+  var link = template.find("a.comments");
+  var actions = template.find(".short-comments");
+
+  if(link.hasClass("open")) {
+    $(actions).toggle();
+    $(link).toggleClass("open");
+  } else {}
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Feed Item Actions
+
+Template.feedItemActions.hasComments = function () {
+  return Comments.find({activityId: this._id}).count() > 0;
+};
+
+Template.feedItemActions.countText = function () {
+  var count = Comments.find({activityId: this._id}).count();
+  var text = count;
+
+  text += (count > 1 || count == 0) ? " comments" : " comment";
+
+  return text;
 };
 
 ///////////////////////////////////////////////////////////////////////////////

@@ -1,0 +1,23 @@
+<template name="storyFeedContent">
+  <div class="short" id="{{_id}}">
+    <div class="top-section">
+      <div class="picture">
+        <img src="{{profilePicture owner}}">
+      </div>
+      <div class="details">
+        <div class="owner">
+          {{userName owner}}
+        </div>
+        <div class="date">{{date created}}</div>
+        {{#if canDelete}}
+          <a href="#" class="remove" style="display: none;">remove</a>
+        {{/if}}
+      </div>
+    </div>
+    <div class="content">
+      <p>
+        Story: <a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}</a>
+      </p>
+    </div>
+  </div>
+</template>

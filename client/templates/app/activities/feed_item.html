@@ -1,0 +1,43 @@
+<template name="feedItem">
+  {{#with this}}
+    <div class="short-full entry" id="{{_id}}">
+      {{#if typeIs "story"}}
+        {{> storyFeedContent}}
+      {{else}}
+        {{> shortContent}}
+      {{/if}}
+      {{> feedItemActions}}
+      {{> feedItemComments}}
+    </div>
+  {{/with}}
+</template>
+
+<template name="feedItemActions">
+  <div class="short-actions">
+    <div class="small-6 large-6 columns">
+      {{#if hasComments}}
+        <a class="comments" href="#">{{countText}}</a>
+      {{else}}
+        <span class="comments">{{countText}}</span>
+      {{/if}}
+    </div>
+    <div class="small-5 large-5 columns">
+      <div class="action new-comment">
+        <a href="#" class="{{#unless currentUser}}disabled{{/unless}}">
+          <span {{#unless currentUser}}data-tooltip class="tip-top" title="Log in to comment"{{/unless}}>
+            Comment
+          </span>
+        </a>
+      </div>
+    </div>
+  </div>
+</template>
+
+<template name="feedItemComments">
+  <div class="short-comments">
+    <div class="inner">
+      {{> commentList this}}
+      {{> commentForm this}}
+    </div>
+  </div>
+</template>

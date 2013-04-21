@@ -11,6 +11,8 @@
 }
 
 .comment-form {
+  @extend .row;
+
   input.comment {
     font-size: 0.9em;
     border: 1px solid #dddddd;
