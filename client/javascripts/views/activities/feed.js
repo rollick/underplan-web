@@ -216,7 +216,7 @@ Template.feedList.moreActivities = function() {
 
 Template.feedItem.events({
   'click .short-actions a.comments': function (event, template) {
-    $(event.target).closest(".short-full").toggleClass("expanded", 500);
+    $(event.target).closest(".short-full").toggleClass("expanded");
 
     return false;
   },
@@ -226,11 +226,9 @@ Template.feedItem.events({
     }
 
     var self = this;
-    $(event.target).closest(".short-full").
-                          addClass("expanded", 500, function () {
-                            $("#" + self._id + " #comment").focus();
-                          });
-
+    $(event.target).closest(".short-full").addClass("expanded");
+    $("#" + self._id + " #comment").focus();
+    
     return false;
   }
 });
