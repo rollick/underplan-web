@@ -5,7 +5,7 @@ Template.loggedout.events({
 
     if(target.hasClass("github")) {
       loginCall = Meteor.loginWithGithub;
-      params = { requestPermissions: ["user", "public_repo"] };
+      params = { requestPermissions: ["user:email"] };
 
     } else if(target.hasClass("google")) {
       loginCall = Meteor.loginWithGoogle;

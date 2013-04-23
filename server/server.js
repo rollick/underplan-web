@@ -10,7 +10,9 @@ Meteor.publish("directory", function () {
       "profile.name": 1,
       "profile.picture": 1,
       "profile.link": 1,
+      "profile.url": 1,
       "services.google.id": 1,
+      "services.github.id": 1,
       "services.twitter.id": 1,
       "services.facebook.id": 1
     }

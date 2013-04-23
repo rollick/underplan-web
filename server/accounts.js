@@ -140,9 +140,12 @@ var createUserHook = function () {
       "email",
       "bio",
       "html_url");
-    
+
     if(user.services.facebook) {
       profile.picture = result.data.picture.data.url;
+    } else if (user.services.github) {
+      profile.picture = result.data.avatar_url;
+      delete profile["avatar_url"];
     }
 
     user.profile = profile;
