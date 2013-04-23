@@ -385,7 +385,7 @@ var generateActivitesMap = function(group, elementSelector, activities) {
           Router.setActivity(activity);
         } else {
           var html = Template.shortContent(activity);
-          html = "<div class=\"map-info\">" + html + "</div>";
+          html = "<div class=\"map-info short-full\">" + html + "</div>";
 
           infowindow.setContent(html);
           infowindow.open(dashboardMap, marker);
