@@ -49,13 +49,6 @@ Template.commentForm.events({
   'click .save': function (event, template) {
     return saveComment(template);
   },
-  'keydown #comment': function (event, template) {
-    if(event.which === 13) {
-      var result = saveComment(template);
-      event.preventDefault();
-      return result;
-    }
-  },
   'keyup #comment': function (event, template) {
     var comment = template.find("#comment").value,
         submit =  template.find(".save.button");
