@@ -79,7 +79,7 @@ if(Meteor.isServer) {
 
     var commentorEmails = commentFollowerEmails(options.owner, options.activityId);
     
-    var allEmails = _.union(groupMemberEmails(activity.groupId), commentorEmails);
+    var allEmails = _.union(groupMemberEmails(activity.group), commentorEmails);
 
     if(allEmails.length > 0) {
       var text  =  "Hey, " + displayName(commentor) + " just commented on a " + activity.type; 

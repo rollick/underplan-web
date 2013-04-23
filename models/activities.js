@@ -165,7 +165,7 @@ if(Meteor.isServer) {
       followerEmails = groupFollowerEmails(activity.groupId);
     }
     
-    var allEmails = _.union(groupMemberEmails(activity.groupId), followerEmails);
+    var allEmails = _.union(groupMemberEmails(activity.group), followerEmails);
 
     if(allEmails.length > 0) {
       // TODO: replace this with a handlebars template!
