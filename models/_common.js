@@ -109,10 +109,16 @@ userPicture = function (user, width) {
     } else if(user.services.facebook) {
       url = "https://graph.facebook.com/" + user.services.facebook.id + "/picture";
       if(typeof width !== "undefined") {
-        // FIXME: handle url params here!
         url = url + "?width=" + width;
       }
+    } else if(user.services.github) {
+      url = user.profile.picture;
+      if(typeof width !== "undefined") {
+        var sep = url.match(/\?/) ? "&" : "?";
+        url = url + sep + "s=" + width;
+      }
     }
+
   } else if(!!profile && !!profile.picture) {
     if(!!profile && profile.picture) {
       var url = profile.picture;
