@@ -46,10 +46,6 @@ Template.activityFeed.helpers({
 });
 
 Template.activityFeed.events({
-  'click .story a': function (event, template) {
-    Router.setActivity(this);
-    return false;
-  },
   'click .new-short': function (event, template) {
     $(".short-form.row").show().find("textarea").focus();
     return false;
@@ -215,8 +211,12 @@ Template.feedList.moreActivities = function() {
 // Template.short.preserve([".short.entry.expanded"]);
 
 Template.feedItem.events({
+  'click .feed-story a.title': function (event, template) {
+    Router.setActivity(this);
+    return false;
+  },
   'click .short-actions a.comments': function (event, template) {
-    $(event.target).closest(".short-full").toggleClass("expanded");
+    $(event.target).closest(".feed-item").toggleClass("expanded");
 
     return false;
   },
@@ -226,7 +226,7 @@ Template.feedItem.events({
     }
 
     var self = this;
-    $(event.target).closest(".short-full").addClass("expanded");
+    $(event.target).closest(".feed-item").addClass("expanded");
     $("#" + self._id + " #comment").focus();
     
     return false;
@@ -385,7 +385,7 @@ var generateActivitesMap = function(group, elementSelector, activities) {
           Router.setActivity(activity);
         } else {
           var html = Template.shortContent(activity);
-          html = "<div class=\"map-info short-full\">" + html + "</div>";
+          html = "<div class=\"map-info feed-item\">" + html + "</div>";
 
           infowindow.setContent(html);
           infowindow.open(dashboardMap, marker);

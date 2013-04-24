@@ -1,6 +1,6 @@
 <template name="feedItem">
   {{#with this}}
-    <div class="short-full entry" id="{{_id}}">
+    <div class="feed-item entry" id="{{_id}}">
       {{#if typeIs "story"}}
         {{> storyFeedContent}}
       {{else}}

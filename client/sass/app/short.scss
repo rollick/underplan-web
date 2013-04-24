@@ -85,10 +85,11 @@ $entry-bottom-margin: 0.9em;
   }
 }
 
-.short-full {
+.feed-item {
   margin-bottom: 0.8em;
 
-  .short {
+  .short,
+  .feed-story {
     @include entry-with-profile(3.3em);
 
     padding-bottom: 0px;

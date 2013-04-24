@@ -77,7 +77,11 @@ var AppRouter = Backbone.Router.extend({
   },
 
   group: function(groupSlug) {
-    this.setGroupDefaults(groupSlug);
+    // Only reset the defaults if the group has changed
+    if (Session.get("groupSlug") !== groupSlug) {
+      this.setGroupDefaults(groupSlug);
+    }
+
     showTemplate("activityMap");
     this.jumpToTop();
   },
