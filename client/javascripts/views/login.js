@@ -50,10 +50,10 @@ Template.loggedout.hasFacebook = function () {
 };
 
 Template.loggedin.events({
-  'click #logout': function(event, template) {
+  'click .logout': function(event, template) {
     Meteor.logout(function(err){
       if (err) {
-        // handle error
+        console.log("Logout error: " + err);
       } else {
         Router.setHome();
       }
