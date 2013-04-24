@@ -172,7 +172,7 @@ Template.currentActivity.rendered = function() {
   var options = {gridLarge: 10, gridSmall: 4, element: ".activity-photos"};
 
   if(group && group.picasaUsername.length && currentActivityHasPhotos()) {
-    $.picasa.images(group.picasaUsername, group.picasaAlbum, activity.picasaKey, activity.picasaTags, function(images) {
+    $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, activity.picasaTags, function(images) {
       var photos = []
       var index = 0;
 
