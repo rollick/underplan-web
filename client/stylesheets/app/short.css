@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /* line 106, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_type.scss */
 p.lead {
   font-size: 1.21875em;
@@ -1439,7 +1440,16 @@ blockquote p {
 .feed-item .feed-story .content {
   padding-bottom: 0.5em;
 }
-/* line 115, ../../sass/app/short.scss */
+/* line 117, ../../sass/app/short.scss */
+.feed-item .feed-story .content a.more {
+  line-height: 2em;
+  font-size: 0.8em;
+}
+/* line 121, ../../sass/app/short.scss */
+.feed-item .feed-story .content a.more:after {
+  content: "\00a0→";
+}
+/* line 128, ../../sass/app/short.scss */
 .feed-item .short-actions {
   width: auto;
   margin-left: -0.9375em;
@@ -1478,44 +1488,44 @@ blockquote p {
 .feed-item .short-actions:after {
   clear: both;
 }
-/* line 125, ../../sass/app/short.scss */
+/* line 138, ../../sass/app/short.scss */
 .feed-item .short-actions .columns {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 130, ../../sass/app/short.scss */
+/* line 143, ../../sass/app/short.scss */
 .feed-item .short-actions a.comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 134, ../../sass/app/short.scss */
+/* line 147, ../../sass/app/short.scss */
 .feed-item .short-actions a.comments:before {
   background-position: 0em 0.3em;
 }
-/* line 142, ../../sass/app/short.scss */
+/* line 155, ../../sass/app/short.scss */
 .feed-item .short-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 146, ../../sass/app/short.scss */
+/* line 159, ../../sass/app/short.scss */
 .feed-item .short-actions .action.new-comment a {
   text-indent: -50px;
 }
-/* line 149, ../../sass/app/short.scss */
+/* line 162, ../../sass/app/short.scss */
 .feed-item .short-actions .action.new-comment a span {
   color: white;
 }
 @media only screen and (min-width: 48em) {
-  /* line 115, ../../sass/app/short.scss */
+  /* line 128, ../../sass/app/short.scss */
   .feed-item .short-actions {
     font-size: 0.9em;
   }
-  /* line 162, ../../sass/app/short.scss */
+  /* line 175, ../../sass/app/short.scss */
   .feed-item .short-actions .action.new-comment a {
     text-indent: -60px;
   }
 }
-/* line 169, ../../sass/app/short.scss */
+/* line 182, ../../sass/app/short.scss */
 .feed-item .short-comments {
   width: auto;
   margin-left: -0.9375em;
@@ -1537,7 +1547,7 @@ blockquote p {
 .feed-item .short-comments:after {
   clear: both;
 }
-/* line 180, ../../sass/app/short.scss */
+/* line 193, ../../sass/app/short.scss */
 .feed-item .short-comments .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1555,7 +1565,7 @@ blockquote p {
   border-top: none;
   padding-bottom: 0.5em;
 }
-/* line 201, ../../sass/app/short.scss */
+/* line 214, ../../sass/app/short.scss */
 .feed-item.expanded .short-comments {
   height: 100%;
 }

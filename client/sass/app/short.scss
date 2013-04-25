@@ -112,6 +112,19 @@ $entry-bottom-margin: 0.9em;
     }
   }
 
+  .feed-story {
+    .content {
+      a.more {
+        line-height: 2em;
+        font-size: 0.8em;
+
+        &:after {
+          content: "\00a0→";
+        }
+      }
+    }
+  }
+
   .short-actions {
     @include grid-row(nest);
     @include standard-bar();

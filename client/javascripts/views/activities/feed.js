@@ -261,6 +261,20 @@ var toggleComments = function(template) {
 }
 
 ///////////////////////////////////////////////////////////////////////////////
+// Story Feed Content
+
+Template.storyFeedContent.textPreview = function () {
+  var text = this.text;
+  var limit = 180;
+
+  var preview = text.substring(0, limit);
+  if(text.length > limit)
+    preview += "...";
+
+  return preview;
+};
+
+///////////////////////////////////////////////////////////////////////////////
 // Feed Item Actions
 
 Template.feedItemActions.hasComments = function () {
