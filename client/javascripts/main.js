@@ -41,7 +41,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v0.9.103");
+  Session.set("appVersion", "v0.9.104");
 
   // Routing
   Backbone.history.start({ pushState: true });
@@ -311,4 +311,25 @@ this.logRenders = function () {
       oldRender && oldRender.apply(this, arguments);
     };
   });
-}
+};
+
+this.trackEvent = function(eventName, properties) {
+  if(typeof mixpanel === "object") {
+    if(!!Meteor.userId()) {
+      mixpanel.identify(Meteor.userId());
+
+      var user = Meteor.user();
+      if (user) { // FIXME: can't always rely on the user data being present
+        mixpanel.name_tag(userEmail(user));
+        mixpanel.people.set({
+          "$name": user.profile.name,
+          "$created": (new Date(user.createdAt)).toUTCString()
+        });        
+      }
+    }
+
+    mixpanel.track(eventName, properties);
+  } else {
+    console.log("Mixpanel not loaded!!");
+  }
+};

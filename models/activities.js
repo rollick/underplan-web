@@ -110,6 +110,8 @@ Meteor.methods({
       notifyActivityEvent(this.userId, options, "created");
     }
 
+    trackCreateActivity({"Group ID": options.groupId});
+
     return activity;
   },
 });
@@ -152,9 +154,17 @@ if(Meteor.isClient) {
   var notifyActivityEvent = function(userId, activity, action) {
     return true;
   }
+
+  var trackCreateActivity = function(properties) {
+    trackEvent("Activity Created", properties);
+  };
 }
 
 if(Meteor.isServer) {
+  var trackCreateActivity = function () {
+    // TODO: do some server side logging here!
+  };
+
   var notifyActivityEvent = function(userId, activity, action) {
     var owner = Meteor.users.findOne(userId);
     var group = Groups.findOne(activity.groupId);

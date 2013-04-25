@@ -56,6 +56,8 @@ Meteor.methods({
       rsvps:            [],
       approved:         options.approved
     });
+
+    trackCreateGroup();
   },
 
   invite: function (groupId, userId) {
@@ -132,7 +134,17 @@ var checkGroupCreate = function(userId, options) {
     throw new Meteor.Error(413, "You can't approve a group");
 };
 
-if(Meteor.isServer) {
+if (Meteor.isClient) {
+  var trackCreateGroup = function () {
+    trackEvent("Group Created", {});
+  };  
+}
+
+if (Meteor.isServer) {
+  var trackCreateGroup = function () {
+    // TODO: do some server side logging here!
+  };
+
   var canUpdateGroup = function(userId, group, fields) {
     var sysAdmin = isSystemAdmin(userId);
     

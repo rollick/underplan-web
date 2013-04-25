@@ -50,6 +50,10 @@ Meteor.methods({
       notifyCommentCreated(this.userId, options);
     }
 
+    // FIXME: Logging here even if the create fails. Would it be better to put it in
+    //        the client view handler, or is there a callback for the Comments.insert above?
+    trackCreateComment({"Activity ID": options.activityId});
+
     return comment;
   },
 });
@@ -64,13 +68,21 @@ var checkCreateComment = function (userId, options) {
 };
 
 if(Meteor.isClient) {
+  var trackCreateComment = function(properties) {
+    trackEvent("Comment Created", properties);
+  };
+
   // Stubbed for client. See isServer block for the actual code
   var notifyCommentCreated = function () {
     return true;
-  }
+  };
 }
 
 if(Meteor.isServer) {
+
+  var trackCreateComment = function () {
+    // TODO: do some server side logging here!
+  };
 
   var notifyCommentCreated = function (userId, options) {
     var commentor = Meteor.users.findOne(userId);

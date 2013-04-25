@@ -1,24 +1,3 @@
-var trackRoute = function(eventName, properties) {
-  if(typeof mixpanel === "object") {
-    if(!!Meteor.userId()) {
-      mixpanel.identify(Meteor.userId());
-
-      var user = Meteor.user();
-      if (user) { // FIXME: can't always rely on the user data being present
-        mixpanel.name_tag(userEmail(user));
-        mixpanel.people.set({
-          "$name": user.profile.name,
-          "$created": (new Date(user.createdAt)).toUTCString()
-        });        
-      }
-    }
-
-    mixpanel.track(eventName, properties);
-  } else {
-    console.log("Mixpanel not loaded!!");
-  }
-};
-
 var AppRouter = Backbone.Router.extend({
   routes: {
     "":                               "main",
@@ -67,7 +46,7 @@ var AppRouter = Backbone.Router.extend({
     params.forEach( function(part) {
       path = path.replace(/:[a-z|0-9|-]*/i, part);
     });
-    trackRoute(label, {route: route, params: params, path: path});
+    trackEvent(label, {route: route, params: params, path: path});
   },
 
   main: function() {
