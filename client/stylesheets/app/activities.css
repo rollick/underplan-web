@@ -1382,28 +1382,56 @@ blockquote p {
   margin-top: 10px;
   text-align: center;
 }
-/* line 283, ../../sass/app/activities.scss */
-.feed .row.feed-list:first-child {
+/* line 282, ../../sass/app/activities.scss */
+.feed .feed-list {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  overflow: hidden;
+  *zoom: 1;
+}
+/* line 285, ../../sass/app/activities.scss */
+.feed .feed-list:first-child {
   padding-left: 0px;
   padding-right: 0px;
 }
 /* line 290, ../../sass/app/activities.scss */
-.feed .row.feed-list .columns .entry:first-child blockquote {
+.feed .feed-list .content {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+}
+@media only screen and (min-width: 48em) {
+  /* line 290, ../../sass/app/activities.scss */
+  .feed .feed-list .content {
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+  }
+}
+/* line 302, ../../sass/app/activities.scss */
+.feed .feed-list .content .entry:first-child blockquote {
   margin-top: 0px !important;
 }
 
-/* line 299, ../../sass/app/activities.scss */
+/* line 311, ../../sass/app/activities.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 302, ../../sass/app/activities.scss */
+/* line 314, ../../sass/app/activities.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;
 }
 
-/* line 305, ../../sass/app/activities.scss */
+/* line 317, ../../sass/app/activities.scss */
 span.text-length {
   margin-left: 5px;
   line-height: 28px;
