@@ -91,9 +91,21 @@ $entry-bottom-margin: 0.9em;
   .short,
   .feed-story {
     @include entry-with-profile(3.3em);
+    @include border-top-left-radius(4px);
+    @include border-top-right-radius(4px);
+
+    border: 1px solid #f3f3f3;
+    border-bottom: none;
+    background-color: #f7f7f7;
+
+    // -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    // -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    // box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
+    position: relative;
+    z-index: 90;
 
     padding-bottom: 0px;
-    margin-bottom: 0px !important;
+    margin: 0.3em 0.3em 0 0.3em;
 
     .content {
       padding-bottom: 0.5em;

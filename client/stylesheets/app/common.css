@@ -1,38 +1,87 @@
 /* line 4, ../../sass/app/common.scss */
+.ribbon-wrapper-green {
+  width: 85px;
+  height: 88px;
+  overflow: hidden;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+/* line 12, ../../sass/app/common.scss */
+.ribbon-wrapper-green .ribbon-green {
+  font-size: 0.8em;
+  font-weight: bold;
+  font-family: sans-serif;
+  color: #f3f3f3;
+  text-align: center;
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  position: relative;
+  padding: 7px 0;
+  left: 6px;
+  top: 14px;
+  width: 104px;
+  background-color: #A00000;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 0 3px;
+}
+/* line 32, ../../sass/app/common.scss */
+.ribbon-wrapper-green .ribbon-green:before, .ribbon-wrapper-green .ribbon-green:after {
+  content: "";
+  border-top: 3px solid #6e8900;
+  border-left: 3px solid transparent;
+  border-right: 3px solid transparent;
+  position: absolute;
+  bottom: -3px;
+}
+/* line 41, ../../sass/app/common.scss */
+.ribbon-wrapper-green .ribbon-green:before {
+  left: 0;
+}
+/* line 45, ../../sass/app/common.scss */
+.ribbon-wrapper-green .ribbon-green:after {
+  right: 0;
+}
+
+/* line 55, ../../sass/app/common.scss */
 .alert-box.large {
   font-size: 1.2em;
 }
-/* line 7, ../../sass/app/common.scss */
+/* line 58, ../../sass/app/common.scss */
 .alert-box.clear {
   background-color: #fff;
   border-color: #f9f9f9;
   color: inherit;
 }
 
-/* line 14, ../../sass/app/common.scss */
+/* line 65, ../../sass/app/common.scss */
 .action {
   margin-top: -5px !important;
 }
-/* line 17, ../../sass/app/common.scss */
+/* line 68, ../../sass/app/common.scss */
 .action ul {
   list-style: none;
   display: inline;
   width: auto;
   float: right;
 }
-/* line 23, ../../sass/app/common.scss */
+/* line 74, ../../sass/app/common.scss */
 .action ul li {
   float: left;
   padding-left: 5px;
 }
-/* line 28, ../../sass/app/common.scss */
+/* line 79, ../../sass/app/common.scss */
 .action ul > .separator {
   width: 2px;
   height: 24px;
   margin: 8px 1px 0 1px;
   border-right: 1px solid green;
 }
-/* line 40, ../../sass/app/common.scss */
+/* line 91, ../../sass/app/common.scss */
 .action a {
   font-size: 0.95em;
   height: 34px;
@@ -40,23 +89,23 @@
   padding: 0;
   color: green;
 }
-/* line 47, ../../sass/app/common.scss */
+/* line 98, ../../sass/app/common.scss */
 .action a.disabled {
   opacity: 0.3;
 }
-/* line 61, ../../sass/app/common.scss */
+/* line 112, ../../sass/app/common.scss */
 .action a.new-short {
   text-indent: -35px;
 }
-/* line 65, ../../sass/app/common.scss */
+/* line 116, ../../sass/app/common.scss */
 .action.new-comment {
   float: right;
 }
-/* line 68, ../../sass/app/common.scss */
+/* line 119, ../../sass/app/common.scss */
 .action.new-comment a {
   text-indent: -73px;
 }
-/* line 75, ../../sass/app/common.scss */
+/* line 126, ../../sass/app/common.scss */
 .action.new-comment span:before,
 .action a.new-short:before,
 .action a.new-story:before {
@@ -69,36 +118,36 @@
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 86, ../../sass/app/common.scss */
+  /* line 137, ../../sass/app/common.scss */
   .action a {
     font-size: 0.9em;
   }
 
-  /* line 90, ../../sass/app/common.scss */
+  /* line 141, ../../sass/app/common.scss */
   .action {
     margin-top: 4px !important;
   }
 
-  /* line 94, ../../sass/app/common.scss */
+  /* line 145, ../../sass/app/common.scss */
   .action.new-short a {
     text-indent: -28px;
   }
 
-  /* line 98, ../../sass/app/common.scss */
+  /* line 149, ../../sass/app/common.scss */
   .action.new-comment a {
     text-indent: -65px;
   }
 }
-/* line 103, ../../sass/app/common.scss */
+/* line 154, ../../sass/app/common.scss */
 .activity {
   margin-bottom: 10px;
 }
-/* line 106, ../../sass/app/common.scss */
+/* line 157, ../../sass/app/common.scss */
 .activity .action {
   margin-top: -25px !important;
   height: 30px;
 }
-/* line 110, ../../sass/app/common.scss */
+/* line 161, ../../sass/app/common.scss */
 .activity blockquote {
   margin-bottom: 0px;
 }

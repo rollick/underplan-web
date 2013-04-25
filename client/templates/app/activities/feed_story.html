@@ -1,5 +1,8 @@
 <template name="storyFeedContent">
   <div class="feed-story" id="{{_id}}">
+    <div class="ribbon-wrapper-green">
+      <div class="ribbon-green">STORY</div>
+    </div>
     <div class="top-section">
       <div class="picture">
         <img src="{{profilePicture owner}}">
@@ -16,7 +19,7 @@
     </div>
     <div class="content">
       <p>
-        Story: <a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}</a>
+        <a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning">(Unpublished)</span>{{/unless}}</a>
       </p>
     </div>
   </div>

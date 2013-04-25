@@ -1,5 +1,6 @@
 @import "../settings";
 @import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 @import "foundation/components/type";
 @import "foundation/components/grid";
 
@@ -19,12 +20,20 @@
   }
 }
 
+@mixin standard-bar-background($color: green, $clear: false, $shadow: true) {
+  background-color: $color;
+  background-image: linear-gradient(rgba(255,255,255,.3), rgba(255,255,255,0));
+  @if $shadow { @include box-shadow(rgba(0,0,0,.3) 0 2px 3px); }
+  @if $clear { clear: both; }
+}
+
 @mixin standard-bar() {
+  @include standard-bar-background(green, true);
+  
   font-size: 0.9em;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0;
-  background-color: green;
   // box-shadow: 0px 0px 10px #CCC, 0px 0px 10px #CCC;
   cursor: pointer;
 }

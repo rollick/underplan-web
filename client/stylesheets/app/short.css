@@ -1022,7 +1022,7 @@ blockquote p {
     float: none !important;
   }
 }
-/* line 7, ../../sass/components.scss */
+/* line 8, ../../sass/components.scss */
 .up-down:before, .feed-item .short-actions a.comments:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
@@ -1032,7 +1032,7 @@ blockquote p {
   height: 24px;
   content: "\00a0\00a0";
 }
-/* line 17, ../../sass/components.scss */
+/* line 18, ../../sass/components.scss */
 .up-down.open:before, .feed-item .short-actions a.open.comments:before, .feed-item.expanded .short-actions a.comments:before {
   background-image: url("/images/down.svg");
 }
@@ -1058,7 +1058,7 @@ blockquote p {
 .story:after {
   clear: both;
 }
-/* line 37, ../../sass/components.scss */
+/* line 46, ../../sass/components.scss */
 .story .top-section {
   position: relative;
   padding-left: 0.9375em;
@@ -1070,20 +1070,20 @@ blockquote p {
   color: black;
   margin-bottom: 0.2em;
 }
-/* line 45, ../../sass/components.scss */
+/* line 54, ../../sass/components.scss */
 .story .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 45, ../../sass/components.scss */
+  /* line 54, ../../sass/components.scss */
   .story .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
-/* line 55, ../../sass/components.scss */
+/* line 64, ../../sass/components.scss */
 .story .top-section .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1092,46 +1092,46 @@ blockquote p {
   border-radius: 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 55, ../../sass/components.scss */
+  /* line 64, ../../sass/components.scss */
   .story .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
-/* line 65, ../../sass/components.scss */
+/* line 74, ../../sass/components.scss */
 .story .top-section .details {
   height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 65, ../../sass/components.scss */
+  /* line 74, ../../sass/components.scss */
   .story .top-section .details {
     padding-top: 0.5em;
     height: 3.3em !important;
   }
 }
-/* line 73, ../../sass/components.scss */
+/* line 82, ../../sass/components.scss */
 .story .top-section .details .owner {
   line-height: 1em;
 }
-/* line 77, ../../sass/components.scss */
+/* line 86, ../../sass/components.scss */
 .story .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
-/* line 89, ../../sass/components.scss */
+/* line 98, ../../sass/components.scss */
 .story .top-section .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
-/* line 94, ../../sass/components.scss */
+/* line 103, ../../sass/components.scss */
 .story .top-section .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
 }
-/* line 103, ../../sass/components.scss */
+/* line 112, ../../sass/components.scss */
 .story .content {
   position: relative;
   padding-left: 0.9375em;
@@ -1140,7 +1140,7 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 103, ../../sass/components.scss */
+  /* line 112, ../../sass/components.scss */
   .story .content {
     position: relative;
     padding-left: 0.9375em;
@@ -1151,7 +1151,7 @@ blockquote p {
     margin-left: 3.3em !important;
   }
 }
-/* line 112, ../../sass/components.scss */
+/* line 121, ../../sass/components.scss */
 .story .content p:last-of-type {
   margin-bottom: 0em;
 }
@@ -1297,8 +1297,19 @@ blockquote p {
   max-width: none;
   *zoom: 1;
   padding: 0.66em 0;
+  -moz-border-radius-topleft: 4px;
+  -webkit-border-top-left-radius: 4px;
+  border-top-left-radius: 4px;
+  -moz-border-radius-topright: 4px;
+  -webkit-border-top-right-radius: 4px;
+  border-top-right-radius: 4px;
+  border: 1px solid #f3f3f3;
+  border-bottom: none;
+  background-color: #f7f7f7;
+  position: relative;
+  z-index: 90;
   padding-bottom: 0px;
-  margin-bottom: 0px !important;
+  margin: 0.3em 0.3em 0 0.3em;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
 .feed-item .short:before, .feed-item .short:after,
@@ -1312,7 +1323,7 @@ blockquote p {
 .feed-item .feed-story:after {
   clear: both;
 }
-/* line 37, ../../sass/components.scss */
+/* line 46, ../../sass/components.scss */
 .feed-item .short .top-section,
 .feed-item .feed-story .top-section {
   position: relative;
@@ -1325,7 +1336,7 @@ blockquote p {
   color: black;
   margin-bottom: 0.2em;
 }
-/* line 45, ../../sass/components.scss */
+/* line 54, ../../sass/components.scss */
 .feed-item .short .top-section .picture,
 .feed-item .feed-story .top-section .picture {
   float: left;
@@ -1333,14 +1344,14 @@ blockquote p {
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 45, ../../sass/components.scss */
+  /* line 54, ../../sass/components.scss */
   .feed-item .short .top-section .picture,
   .feed-item .feed-story .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
-/* line 55, ../../sass/components.scss */
+/* line 64, ../../sass/components.scss */
 .feed-item .short .top-section .picture img,
 .feed-item .feed-story .top-section .picture img {
   -webkit-border-radius: 4px;
@@ -1350,53 +1361,53 @@ blockquote p {
   border-radius: 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 55, ../../sass/components.scss */
+  /* line 64, ../../sass/components.scss */
   .feed-item .short .top-section .picture img,
   .feed-item .feed-story .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
-/* line 65, ../../sass/components.scss */
+/* line 74, ../../sass/components.scss */
 .feed-item .short .top-section .details,
 .feed-item .feed-story .top-section .details {
   height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 65, ../../sass/components.scss */
+  /* line 74, ../../sass/components.scss */
   .feed-item .short .top-section .details,
   .feed-item .feed-story .top-section .details {
     padding-top: 0.5em;
     height: 3.3em !important;
   }
 }
-/* line 73, ../../sass/components.scss */
+/* line 82, ../../sass/components.scss */
 .feed-item .short .top-section .details .owner,
 .feed-item .feed-story .top-section .details .owner {
   line-height: 1em;
 }
-/* line 77, ../../sass/components.scss */
+/* line 86, ../../sass/components.scss */
 .feed-item .short .top-section .details .date,
 .feed-item .feed-story .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
-/* line 89, ../../sass/components.scss */
+/* line 98, ../../sass/components.scss */
 .feed-item .short .top-section .details a.remove,
 .feed-item .feed-story .top-section .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
-/* line 94, ../../sass/components.scss */
+/* line 103, ../../sass/components.scss */
 .feed-item .short .top-section .details a.remove:before,
 .feed-item .feed-story .top-section .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
 }
-/* line 103, ../../sass/components.scss */
+/* line 112, ../../sass/components.scss */
 .feed-item .short .content,
 .feed-item .feed-story .content {
   position: relative;
@@ -1406,7 +1417,7 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 103, ../../sass/components.scss */
+  /* line 112, ../../sass/components.scss */
   .feed-item .short .content,
   .feed-item .feed-story .content {
     position: relative;
@@ -1418,17 +1429,17 @@ blockquote p {
     margin-left: 3.3em !important;
   }
 }
-/* line 112, ../../sass/components.scss */
+/* line 121, ../../sass/components.scss */
 .feed-item .short .content p:last-of-type,
 .feed-item .feed-story .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 98, ../../sass/app/short.scss */
+/* line 110, ../../sass/app/short.scss */
 .feed-item .short .content,
 .feed-item .feed-story .content {
   padding-bottom: 0.5em;
 }
-/* line 103, ../../sass/app/short.scss */
+/* line 115, ../../sass/app/short.scss */
 .feed-item .short-actions {
   width: auto;
   margin-left: -0.9375em;
@@ -1437,11 +1448,16 @@ blockquote p {
   margin-bottom: 0;
   max-width: none;
   *zoom: 1;
+  background-color: green;
+  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
+  clear: both;
   font-size: 0.9em;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0;
-  background-color: green;
   cursor: pointer;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -1462,44 +1478,44 @@ blockquote p {
 .feed-item .short-actions:after {
   clear: both;
 }
-/* line 113, ../../sass/app/short.scss */
+/* line 125, ../../sass/app/short.scss */
 .feed-item .short-actions .columns {
   /*padding-left: 32px;*/
   line-height: 33px;
 }
-/* line 118, ../../sass/app/short.scss */
+/* line 130, ../../sass/app/short.scss */
 .feed-item .short-actions a.comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 122, ../../sass/app/short.scss */
+/* line 134, ../../sass/app/short.scss */
 .feed-item .short-actions a.comments:before {
   background-position: 0em 0.3em;
 }
-/* line 130, ../../sass/app/short.scss */
+/* line 142, ../../sass/app/short.scss */
 .feed-item .short-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 134, ../../sass/app/short.scss */
+/* line 146, ../../sass/app/short.scss */
 .feed-item .short-actions .action.new-comment a {
   text-indent: -50px;
 }
-/* line 137, ../../sass/app/short.scss */
+/* line 149, ../../sass/app/short.scss */
 .feed-item .short-actions .action.new-comment a span {
   color: white;
 }
 @media only screen and (min-width: 48em) {
-  /* line 103, ../../sass/app/short.scss */
+  /* line 115, ../../sass/app/short.scss */
   .feed-item .short-actions {
     font-size: 0.9em;
   }
-  /* line 150, ../../sass/app/short.scss */
+  /* line 162, ../../sass/app/short.scss */
   .feed-item .short-actions .action.new-comment a {
     text-indent: -60px;
   }
 }
-/* line 157, ../../sass/app/short.scss */
+/* line 169, ../../sass/app/short.scss */
 .feed-item .short-comments {
   width: auto;
   margin-left: -0.9375em;
@@ -1521,7 +1537,7 @@ blockquote p {
 .feed-item .short-comments:after {
   clear: both;
 }
-/* line 168, ../../sass/app/short.scss */
+/* line 180, ../../sass/app/short.scss */
 .feed-item .short-comments .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1539,7 +1555,7 @@ blockquote p {
   border-top: none;
   padding-bottom: 0.5em;
 }
-/* line 189, ../../sass/app/short.scss */
+/* line 201, ../../sass/app/short.scss */
 .feed-item.expanded .short-comments {
   height: 100%;
 }
