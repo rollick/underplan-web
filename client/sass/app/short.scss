@@ -15,6 +15,8 @@ $entry-bottom-margin: 0.9em;
 .short-form {
   @include grid-row(nest);
 
+  margin-bottom: 10px;
+
   .form-content {
     @include grid-column(12);
 
@@ -115,8 +117,7 @@ $entry-bottom-margin: 0.9em;
   .feed-story {
     .content {
       a.more {
-        line-height: 2em;
-        font-size: 0.8em;
+        line-height: 2.2em;
 
         &:after {
           content: "\00a0→";

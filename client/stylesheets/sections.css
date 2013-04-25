@@ -1022,7 +1022,7 @@ blockquote p {
     float: none !important;
   }
 }
-/* line 8, ../sass/components.scss */
+/* line 9, ../sass/components.scss */
 .up-down:before, .section-container .section .title a:before, .section-container section .title a:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
@@ -1032,7 +1032,7 @@ blockquote p {
   height: 24px;
   content: "\00a0\00a0";
 }
-/* line 18, ../sass/components.scss */
+/* line 19, ../sass/components.scss */
 .up-down.open:before, .section-container .section .title a.open:before, .section-container section .title a.open:before, .section-container .section.active .title a:before, .section-container section.active .title a:before {
   background-image: url("/images/down.svg");
 }
@@ -1044,7 +1044,11 @@ blockquote p {
 /* line 6, ../sass/sections.scss */
 .section-container .section, .section-container section {
   background-color: green;
-  background-image: linear-gradient(rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
   -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
   -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
   box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;

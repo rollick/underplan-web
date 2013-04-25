@@ -1,7 +1,9 @@
 @import "../settings";
+@import "../components";
 @import "compass/css3/box-shadow";
+@import "compass/css3/transform";
 
-.ribbon-wrapper-green {
+.ribbon-wrapper {
   width: 85px;
   height: 88px;
   overflow: hidden;
@@ -9,25 +11,23 @@
   top: -5px;
   right: -5px;
 
-  .ribbon-green {
+  .ribbon {
+    @include rotate(45deg);
+    @include standard-bar-background($notice-color);
+
     font-size: 0.8em;
     font-weight: bold;
     font-family: sans-serif;
     color: #f3f3f3;
-    text-align: center;
-    // text-shadow: rgba(255,255,255,0.5) 0px 1px 0px;
-    -webkit-transform: rotate(45deg);
-    -moz-transform: rotate(45deg);
-    -ms-transform: rotate(45deg);
-    -o-transform: rotate(45deg);
+    text-align: center;    
     position: relative;
     padding: 7px 0;
     left: 6px;
     top: 14px;
     width: 104px;
-    background-color: #A00000;
-    background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0));
-    @include box-shadow(rgba(0,0,0,.3) 0 0 3px);
+    // background-color: #A00000;
+    // background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0));
+    // @include box-shadow(rgba(0,0,0,.3) 0 0 3px);
 
     &:before, &:after {
       content: "";
