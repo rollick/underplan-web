@@ -76,11 +76,8 @@ Meteor.publish("activities", function (groupId) {
     ]
   }
 
-  console.log(JSON.stringify(activityConds));
-
   var activities = Activities.find(activityConds);
   
-  // console.log("Found " + activities.count() + " activities with conditions: " + JSON.stringify(activityConds));
   return activities;
 });
 
