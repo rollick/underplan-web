@@ -256,16 +256,18 @@ Template.feedItemActions.countText = function () {
 Template.feedMap.rendered = function () {
   console.log("Rendering Feed Map");
 
+  var group = Groups.findOne(Session.get("groupId"));
   var recentActivities = [];
+
   if(!!Session.get("feedFilter").group) {
     recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
   }
 
-    generateActivitesMap(group, ".activities-map:visible", recentActivities);
+  generateActivitesMap(group, ".activities-map:visible", recentActivities);
   
   // google.maps.event.addListener(map, 'tilesloaded', _.bind(function() {
-    // generateActivitesMap(group, ".activities-map:visible");
-    // google.maps.event.clearListeners(map, 'tilesloaded');
+  //   generateActivitesMap(group, ".activities-map:visible");
+  //   google.maps.event.clearListeners(map, 'tilesloaded');
   // }, this));
 };
 
@@ -279,7 +281,7 @@ Template.feedGallery.group = function () {
 Template.feedGallery.rendered = function () {
   console.log("Rendering Feed Gallery");
 
-  var group = getCurrentGroup();
+  var group = Groups.findOne(Session.get("groupId"));
   var max = 24;
   var options = {gridSmall: 4, gridLarge: 6, element: ".recent-photos"};
   
