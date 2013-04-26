@@ -43,9 +43,13 @@ var AppRouter = Backbone.Router.extend({
       label = "Unknown route loaded";
 
     var path = "/" + route;
-    params.forEach( function(part) {
-      path = path.replace(/:[a-z|0-9|-]*/i, part);
-    });
+
+    if (typeof params.forEach !== "undefined") {
+      params.forEach( function(part) {
+        path = path.replace(/:[a-z|0-9|-]*/i, part);
+      });
+    }
+
     trackEvent(label, {route: route, params: params, path: path});
   },
 
