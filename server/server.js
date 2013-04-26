@@ -38,8 +38,9 @@ Meteor.publish("activities", function (groupId) {
   if (_.isNull(groupId))
     return [];
 
-  // TODO:  need to also publish activities if the activity is unpublished
-  //        but is linked to a group to which the current user belongs.
+  // TODO: The code below to get the groups for matching the activities is 
+  //       reduntant now because we only pass a single groupId but will leave the 
+  //       code here for use in the future
   var groupConds = {
     $and: [
       {$or: [
@@ -55,9 +56,12 @@ Meteor.publish("activities", function (groupId) {
     groupConds.$and.push({_id: groupId});
   }
 
-  // console.log("Group conditions for activity feed :" + JSON.stringify(groupConds));
+  var groupIds = Groups.find(groupConds, {fields: {_id: 1}}).map(function(group) {
+    return group._id;
+  });
 
-  var groups = Groups.find(groupConds, {fields: {_id: 1}}).map(function(group) {
+  // Get a list of groups to which the current user belongs
+  var memberGroupIds = Groups.find({invited: this.userId}).map(function(group) {
     return group._id;
   });
 
@@ -65,9 +69,10 @@ Meteor.publish("activities", function (groupId) {
     $and: [ 
       {$or: [
         {"published": true},
-        {"owner": this.userId}
+        {"owner": this.userId},
+        {"group": {$in: memberGroupIds}}
       ]},
-      {"group": {$in: groups}},
+      {"group": {$in: groupIds}},
     ]
   }
 
