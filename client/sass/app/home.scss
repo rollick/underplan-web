@@ -26,9 +26,12 @@
   }
   
   .groups { 
+    margin-top: 50px;
+
     .panel {
       border: 1px solid rgb(51, 50, 50);
       background-color: rgba(48, 48, 48, 0.53) !important;
+      cursor: pointer;
       
       a {
         font-size: 1.1em;

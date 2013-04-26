@@ -27,31 +27,36 @@
   margin-left: 0px;
   margin-right: 0px;
 }
-/* line 29, ../../sass/app/home.scss */
+/* line 28, ../../sass/app/home.scss */
+.dashboard .groups {
+  margin-top: 50px;
+}
+/* line 31, ../../sass/app/home.scss */
 .dashboard .groups .panel {
   border: 1px solid #333232;
   background-color: rgba(48, 48, 48, 0.53) !important;
+  cursor: pointer;
 }
-/* line 33, ../../sass/app/home.scss */
+/* line 36, ../../sass/app/home.scss */
 .dashboard .groups .panel a {
   font-size: 1.1em;
 }
-/* line 36, ../../sass/app/home.scss */
+/* line 39, ../../sass/app/home.scss */
 .dashboard .groups .panel p {
   font-size: 0.9em;
   color: white;
 }
-/* line 42, ../../sass/app/home.scss */
+/* line 45, ../../sass/app/home.scss */
 .dashboard blockquote {
   border-left: none;
   margin-bottom: 25px;
 }
-/* line 46, ../../sass/app/home.scss */
+/* line 49, ../../sass/app/home.scss */
 .dashboard blockquote p {
   font-size: 1.5em;
   color: white;
 }
-/* line 50, ../../sass/app/home.scss */
+/* line 53, ../../sass/app/home.scss */
 .dashboard blockquote cite {
   font-size: 0.8em;
   color: #bbbbbb;
