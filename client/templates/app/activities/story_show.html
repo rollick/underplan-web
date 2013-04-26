@@ -1,0 +1,114 @@
+<template name="activityMap">
+  <div class="map">
+    {{#constant}}
+      <svg width="500" height="500">
+        <circle class="callout" cx=-100 cy=-100></circle>
+        <g class="circles"></g>
+        <g class="labels"></g>
+      </svg>
+    {{/constant}}
+    <div>
+      <small class="attribution muted">&copy;
+        <a href="http://www.openstreetmap.org/?lat=37.78212&lon=-122.40146&zoom=15&layers=M"
+           target="_blank">OpenStreetMap</a> contributors</small>
+    </div>
+  </div>
+</template>
+
+<template name="currentActivity">
+  {{#if activity}}
+    {{#with activity}}
+      <div class="activity" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="row header">
+          <div class="small-10 large-10 columns">
+            <h2 itemprop="name">{{title}}</h2>
+          </div>
+          <div class="actions small-2 large-2 columns">
+            {{#if canEdit}}
+              <a href="#" class="small button edit">Edit</a>
+            {{/if}}
+          </div>
+        </div>
+        <div class="row">
+          {{#if hasMap}}
+          <div class="small-12 large-12 columns show-for-small">
+            <div class="activity-map"></div>
+          </div>
+          {{/if}}
+          <div class="activity small-12 large-12 columns">
+            {{#if hasMap}}
+            <div class="activity-map hide-for-small"></div>
+            {{/if}}
+            <div class="text">
+              {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
+              {{#markdown}}{{text}}{{/markdown}}
+            </div>
+            <cite>{{creatorName}} - {{date created}}</cite>
+            <div itemprop="description" style="display: none">{{textPreview}}</div>
+          </div>
+        </div>
+        {{#if hasPhotos}}
+          <div class="row">
+            <div class="small-12 large-12 columns">
+              {{#constant}}
+                <div class="activity-photos"></div>
+              {{/constant}}
+            </div>
+          </div>
+        {{/if}}
+        {{#if published}}
+          <div class="share-links">
+            <div class="g-plus" data-action="share" data-annotation="none"></div>
+            <div class="fb-share">
+              <a href="{{facebookShareUrl}}" target="_blank">
+                <i class="foundicon-social-facebook">
+                  <p>Share</p>
+                </i>
+              </a>
+            </div>
+          </div>
+        {{/if}}
+
+        <hr>
+
+        <div class="row activity-controls">
+          <div class="previous small-7 large-6 columns">
+            {{#if previousActivity}}
+              {{#with previousActivity}}
+                <a href="/{{group.slug}}/{{slug}}">Previous Story</a>
+              {{/with}}
+            {{/if}}
+          </div>
+          <div class="next small-5 large-6 columns">
+            {{#if nextActivity}}
+              {{#with nextActivity}}
+                <a href="/{{group.slug}}/{{slug}}">Next Story</a>
+              {{/with}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+
+    {{/with}}
+
+    <div class="row sub-header">
+      <div class="small-12 large-12 columns">
+        <h4>Comments</h4>
+      </div>
+    </div>
+    <div class="row">
+      <div class="small-12 large-12 columns">
+        {{#if anyComments}}
+          {{> commentList activity}}
+        {{/if}}
+      </div>
+    </div>
+    {{#if currentUser}}
+      <div class="row">
+        <div class="small-12 large-12 columns">
+          {{> commentForm activity}}
+        </div>
+      </div>
+    {{/if}}
+  {{/if}}
+</template>
