@@ -204,7 +204,9 @@ if(Meteor.isServer) {
   };
 
   var canUpdateActivity = function(userId, activity, fields) {
-    if (userId !== activity.owner && ! isGroupAdmin(userId, activity.group))
+    var admin = isGroupAdmin(userId, activity.group);
+
+    if (userId !== activity.owner && !admin)
       return false; // not the owner or the group admin
 
     var allowed = [
@@ -226,6 +228,11 @@ if(Meteor.isServer) {
       "urlType", 
       "created"
     ];
+
+    // Admin can also change ownership
+    if (admin)
+      allowed.push("owner");
+
     if (_.difference(fields, allowed).length)
       return false; // tried to write to forbidden field
 
