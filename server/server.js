@@ -60,8 +60,8 @@ Meteor.publish("activities", function (groupId) {
     return group._id;
   });
 
-  // Get a list of groups to which the current user belongs
-  var memberGroupIds = Groups.find({invited: this.userId}).map(function(group) {
+  // Get a list of groups to which the current user belongs or is the owner
+  var memberGroupIds = Groups.find({$or: [{invited: this.userId}, {owner: this.userId}]}).map(function(group) {
     return group._id;
   });
 
