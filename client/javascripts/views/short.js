@@ -110,7 +110,7 @@ Template.shortForm.events({
         if (error) {
           Session.set("createError", error);
         } else {
-          template.find("form").removeClass("expanded");
+          $(template.find("form")).removeClass("expanded");
 
           template.find("#text").value = 
           template.find("#lat").value = 

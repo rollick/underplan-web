@@ -19,19 +19,19 @@ Meteor.publish("directory", function () {
   });
 });
 
-// Meteor.publish(null, function () {
-//   // If logged in, autopublish the current user's settings
-//   // to the client (which isn't published by default).
-//   return this.userId &&
-//     Meteor.users.find(this.userId,
-//                       {
-//                         fields: {
-//                           "profile.email": 1,
-//                           "profile.followedGroups": 1,
-//                         }
-//                       }
-//                     );
-// });
+Meteor.publish(null, function () {
+  // If logged in, autopublish the current user's settings
+  // to the client (which isn't published by default).
+  return this.userId &&
+    Meteor.users.find(this.userId,
+                      {
+                        fields: {
+                          "profile.email": 1,
+                          "profile.followedGroups": 1,
+                        }
+                      }
+                    );
+});
 
 Meteor.publish("activities", function (groupId) {
   // don't return any activities without a groupId
@@ -75,6 +75,8 @@ Meteor.publish("activities", function (groupId) {
       {"group": {$in: groupIds}},
     ]
   }
+
+  console.log(JSON.stringify(activityConds));
 
   var activities = Activities.find(activityConds);
   

@@ -81,47 +81,11 @@ Template.activityFeed.events({
 //   Session.setDefault("feedFilter", {});
 // };
 
-
-Template.activityFeed.rendered = function() {
+Template.activityFeed.created = function() {
   var filter = Session.get("feedFilter");
   Session.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
 
-  var group = getCurrentGroup();
-  var max = 24;
-  var options = {gridSmall: 4, gridLarge: 6, element: ".recent-photos"};
-  
-  if(group && group.picasaUsername.length && group.picasaAlbum.length) {
-    $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, null, function(images) {
-      var photos = []
-      var index = 0;
-
-      $.each(images, function(i, element) {
-        if(index >= max)
-          return false;
-
-        photos.push({
-          url: element.versions[0].url, 
-          thumbUrl: element.thumbs[0].url,
-          caption: element.title
-        });
-
-        index += 1;
-      });
-      
-      renderPicasaPhotos(photos, options);
-    });
-  }
-
-  var recentActivities = [];
-  if(!!Session.get("feedFilter").group) {
-    recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
-  }
-  generateActivitesMap(group, ".activities-map:visible", recentActivities);
-  
-  // google.maps.event.addListener(map, 'tilesloaded', _.bind(function() {
-    // generateActivitesMap(group, ".activities-map:visible");
-    // google.maps.event.clearListeners(map, 'tilesloaded');
-  // }, this));
+  console.log("created feed!!");
 };
 
 Template.activityFeed.loading = function () {
@@ -188,11 +152,7 @@ Template.feedList.anyActivities = function () {
 
 Template.feedList.recentActivities = function () {
   // never return activities without a group
-  if(!!Session.get("feedFilter").group) {
-    return Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
-  } else {
-    return [];
-  }
+    return Activities.find({group: Session.get("groupId")}, {sort: {created: -1}, limit: Session.get("feedLimit")});
 };
 
 Template.feedList.feedLimitReached = function () {
@@ -289,6 +249,62 @@ Template.feedItemActions.countText = function () {
 
   return text;
 };
+
+///////////////////////////////////////////////////////////////////////////////
+// Feed Map
+
+Template.feedMap.rendered = function () {
+  console.log("Rendering Feed Map");
+
+  var recentActivities = [];
+  if(!!Session.get("feedFilter").group) {
+    recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
+  }
+
+    generateActivitesMap(group, ".activities-map:visible", recentActivities);
+  
+  // google.maps.event.addListener(map, 'tilesloaded', _.bind(function() {
+    // generateActivitesMap(group, ".activities-map:visible");
+    // google.maps.event.clearListeners(map, 'tilesloaded');
+  // }, this));
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Feed Gallery
+
+Template.feedGallery.group = function () {
+  return Groups.findOne({_id: Session.get("groupId")});
+};
+
+Template.feedGallery.rendered = function () {
+  console.log("Rendering Feed Gallery");
+
+  var group = getCurrentGroup();
+  var max = 24;
+  var options = {gridSmall: 4, gridLarge: 6, element: ".recent-photos"};
+  
+  if(group && group.picasaUsername.length && group.picasaAlbum.length) {
+    $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, null, function(images) {
+      var photos = []
+      var index = 0;
+
+      $.each(images, function(i, element) {
+        if(index >= max)
+          return false;
+
+        photos.push({
+          url: element.versions[0].url, 
+          thumbUrl: element.thumbs[0].url,
+          caption: element.title
+        });
+
+        index += 1;
+      });
+      
+      renderPicasaPhotos(photos, options);
+    });
+  }
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Common Functions

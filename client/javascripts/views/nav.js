@@ -10,20 +10,7 @@ Template.mainNav.appVersion = function () {
 };
 
 Template.mainNav.group = function () {
-  var group = getCurrentGroup();
-  if (group) {
-    return group;
-  } else if (Session.get("groupSlug")) {
-    group = Groups.findOne({slug: Session.get("groupSlug")});
-    if (!group) { // group hasn't loaded!
-      return false;
-    } else {
-      Session.set("groupId", group._id);
-      return Session.get("groupId");      
-    }
-  } else {
-    return false;
-  }
+  return Groups.findOne(Session.get("groupId"));
 };
 
 Template.mainNav.events({
@@ -59,7 +46,7 @@ Template.activityActions.userCanFollow = function () {
 };
 
 Template.activityActions.followingGroup = function () {
-  return isFollowingGroup(Meteor.userId(), getCurrentGroupId());
+  return isFollowingGroup(Meteor.userId(), Session.get("groupId"));
 };
 
 Template.activityActions.userBelongsToGroup = function () {
