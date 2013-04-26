@@ -2,8 +2,6 @@
 
 .comment {
   @include entry-with-profile(3.7em);
-
-  font-size: 0.9em;
 }
 
 .comment-form {
@@ -18,7 +16,7 @@
 
         .details {
           padding-left: 3.3em;
-         
+
 
 
           #comment {

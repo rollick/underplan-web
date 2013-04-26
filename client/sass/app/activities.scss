@@ -43,6 +43,7 @@
 
   .fb-share {
     @include border-radius(4px);
+    @include background-image(linear-gradient(top, #f4f4f4, #e4e4e4));
   
     display: block;
     border: 1px solid #bababa;
@@ -51,12 +52,9 @@
     width: 58px;
     height: 20px;
     padding: 2px 5px 2px 2px;
-    background-image: linear-gradient(color-stops(#f4f4f4, #e4e4e4));
-    background-image: -webkit-linear-gradient(top, #f4f4f4, #e4e4e4);
 
     &:hover {
-      background-image: linear-gradient(color-stops(#fff, #f2f2f2));
-      background-image: -webkit-linear-gradient(top, #f4f4f4, #e4e4e4);
+      @include background-image(linear-gradient(top, #fff, #f2f2f2));
     }
 
     i {
@@ -287,7 +285,7 @@
       padding-right: 0px;
     }
 
-    .content {
+    & > .content {
       @include grid-column(12);
 
       padding-left: 0.4em;
@@ -296,12 +294,6 @@
       @media only screen and (min-width: 48em) {
         padding-left: 0.9em;
         padding-right: 0.9em;
-      }      
-
-      .entry:first-child {
-        blockquote {
-          margin-top: 0px !important;
-        }
       }
     }
   }
