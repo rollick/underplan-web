@@ -191,7 +191,7 @@ this.isFollowingGroup = function (userId, groupId) {
   return result;
 };
 
-// Set group follow for current user
+// Set group followed (true/false) for current user
 this.followGroup = function (groupId, state) {
   if (state === undefined) {
     state = true;
@@ -201,6 +201,10 @@ this.followGroup = function (groupId, state) {
   currentFollows[groupId] = state;
 
   Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.followedGroups": currentFollows}});
+
+  // Track for the change
+  var eventName = state ? "Group Followed" : "Group Unfollowed";
+  trackEvent(eventName, {"Group ID": groupId});
 };
 
 this.followCurrentGroup = function (state) {
@@ -330,6 +334,6 @@ this.trackEvent = function(eventName, properties) {
 
     mixpanel.track(eventName, properties);
   } else {
-    console.log("Mixpanel not loaded!!");
+    console.log("Mixpanel not loaded. Missed an event!");
   }
 };
