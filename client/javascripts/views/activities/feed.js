@@ -150,7 +150,7 @@ Template.feedList.anyActivities = function () {
 
 Template.feedList.recentActivities = function () {
   // never return activities without a group
-    return Activities.find({group: Session.get("groupId")}, {sort: {created: -1}, limit: Session.get("feedLimit")});
+  return Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
 };
 
 Template.feedList.feedLimitReached = function () {
@@ -334,6 +334,10 @@ var recentActivitiesMap = function() {
 };
 
 var generateActivitesMap = function(group, elementSelector, activities) {
+  // exit if google not defined
+  if (!_.isObject(window.google))
+    return false;
+
   // load default group if only string passed to function
   if(typeof group === "string" && typeof elementSelector === "undefined") {
     group = getCurrentGroup();

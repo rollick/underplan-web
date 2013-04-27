@@ -27,6 +27,14 @@ Deps.autorun(function () {
     Session.set("groupId", null);
   }
 
+  if (Session.get("groupId")) {
+    var filter = Session.get("feedFilter");
+    if (filter.group !== Session.get("groupId")) {
+      filter.group = Session.get("groupId");
+      Session.set("feedFilter", filter);
+    }
+  }
+
   self.commentsSubscription = Meteor.subscribe("comments", Session.get("groupId"));
   self.activitiesSubscription = Meteor.subscribe("activities", Session.get("groupId"));
 
