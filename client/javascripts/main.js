@@ -28,7 +28,7 @@ Deps.autorun(function () {
   }
 
   if (Session.get("groupId")) {
-    var filter = Session.get("feedFilter");
+    var filter = Session.get("feedFilter") || {};
     if (filter.group !== Session.get("groupId")) {
       filter.group = Session.get("groupId");
       Session.set("feedFilter", filter);
