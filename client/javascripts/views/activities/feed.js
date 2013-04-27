@@ -84,8 +84,6 @@ Template.activityFeed.events({
 Template.activityFeed.created = function() {
   var filter = Session.get("feedFilter");
   Session.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
-
-  console.log("created feed!!");
 };
 
 Template.activityFeed.loading = function () {
@@ -254,8 +252,6 @@ Template.feedItemActions.countText = function () {
 // Feed Map
 
 Template.feedMap.rendered = function () {
-  console.log("Rendering Feed Map");
-
   var group = Groups.findOne(Session.get("groupId"));
   var recentActivities = [];
 
@@ -279,8 +275,6 @@ Template.feedGallery.group = function () {
 };
 
 Template.feedGallery.rendered = function () {
-  console.log("Rendering Feed Gallery");
-
   var group = Groups.findOne(Session.get("groupId"));
   var max = 24;
   var options = {gridSmall: 4, gridLarge: 6, element: ".recent-photos"};

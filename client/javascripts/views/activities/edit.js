@@ -45,7 +45,6 @@ Template.storyEditor.events({
     // only intitialise new geo autocomplete if one doesn't
     // already exist for this input
     if(! locationElem.attr("autocomplete")) {
-      console.log("Geolocating: " + location);
       coords = geoLocation(location, "location", function(geo) {
         if(typeof geo === "object") {
           template.find("#lat").value = geo.lat;

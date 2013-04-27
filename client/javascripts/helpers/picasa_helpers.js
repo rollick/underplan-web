@@ -18,7 +18,5 @@ this.renderPicasaPhotos = function (photos, options) {
   // FIXME: implement new clearing code
   $(element).foundation(style);
 
-  console.log("Rendering picasa photos");
-
   return true;
 };

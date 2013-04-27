@@ -22,11 +22,6 @@ Template.page.groupName = function () {
   }
 };
 
-Template.page.rendered = function () {
-  console.log("page rendered: " + Session.get("groupId"));
-  console.log("page rendered 2: " + Session.get("groupSlug"));
-};
-
 Template.page.events({
   'click .main-home': function () {
     Router.setHome();
