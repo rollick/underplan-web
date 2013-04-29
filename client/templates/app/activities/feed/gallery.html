@@ -4,8 +4,15 @@
       <div class="small-12 large-12 columns">
         {{#constant}}
           <h5>Recent Group Photos <span class="sub-header"><a target="blank" href="{{picasaGalleryUrl}}">Show All</a></span></h5>
-          <div class="recent-photos"><p class="alert-box secondary">Loading photos...</p></div>
+          <div class="recent-photos">
+            {{gallery}}
+          </div>
         {{/constant}}
+      </div>
+    </div>
+    <div class="gallery-more">
+      <div class="content">
+        <a href="#" class="small secondary button">Load More</a>
       </div>
     </div>
   {{/if}}

@@ -21,6 +21,17 @@
   }
 }
 
+@mixin more-button() {
+  @include grid-row(nest);
+
+  & > .content {
+    @include grid-column(12);
+    
+    margin-top: 10px;
+    text-align: center;
+  }
+}
+
 @mixin standard-bar-background($color: green, $clear: false, $shadow: true) {
   background-color: $color;
   @include background-image(linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0)));

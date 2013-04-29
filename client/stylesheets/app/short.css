@@ -1059,7 +1059,7 @@ blockquote p {
 .story:after {
   clear: both;
 }
-/* line 47, ../../sass/components.scss */
+/* line 58, ../../sass/components.scss */
 .story .top-section {
   position: relative;
   padding-left: 0.9375em;
@@ -1071,20 +1071,20 @@ blockquote p {
   color: black;
   margin-bottom: 0.2em;
 }
-/* line 55, ../../sass/components.scss */
+/* line 66, ../../sass/components.scss */
 .story .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 55, ../../sass/components.scss */
+  /* line 66, ../../sass/components.scss */
   .story .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
-/* line 65, ../../sass/components.scss */
+/* line 76, ../../sass/components.scss */
 .story .top-section .picture img {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1093,46 +1093,46 @@ blockquote p {
   border-radius: 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 65, ../../sass/components.scss */
+  /* line 76, ../../sass/components.scss */
   .story .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
-/* line 75, ../../sass/components.scss */
+/* line 86, ../../sass/components.scss */
 .story .top-section .details {
   height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 75, ../../sass/components.scss */
+  /* line 86, ../../sass/components.scss */
   .story .top-section .details {
     padding-top: 0.5em;
     height: 3.3em !important;
   }
 }
-/* line 83, ../../sass/components.scss */
+/* line 94, ../../sass/components.scss */
 .story .top-section .details .owner {
   line-height: 1em;
 }
-/* line 87, ../../sass/components.scss */
+/* line 98, ../../sass/components.scss */
 .story .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
-/* line 99, ../../sass/components.scss */
+/* line 110, ../../sass/components.scss */
 .story .top-section .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
-/* line 104, ../../sass/components.scss */
+/* line 115, ../../sass/components.scss */
 .story .top-section .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
 }
-/* line 113, ../../sass/components.scss */
+/* line 124, ../../sass/components.scss */
 .story .content {
   position: relative;
   padding-left: 0.9375em;
@@ -1141,7 +1141,7 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 113, ../../sass/components.scss */
+  /* line 124, ../../sass/components.scss */
   .story .content {
     position: relative;
     padding-left: 0.9375em;
@@ -1152,7 +1152,7 @@ blockquote p {
     margin-left: 3.3em !important;
   }
 }
-/* line 122, ../../sass/components.scss */
+/* line 133, ../../sass/components.scss */
 .story .content p:last-of-type {
   margin-bottom: 0em;
 }
@@ -1325,7 +1325,7 @@ blockquote p {
 .feed-item .feed-story:after {
   clear: both;
 }
-/* line 47, ../../sass/components.scss */
+/* line 58, ../../sass/components.scss */
 .feed-item .short .top-section,
 .feed-item .feed-story .top-section {
   position: relative;
@@ -1338,7 +1338,7 @@ blockquote p {
   color: black;
   margin-bottom: 0.2em;
 }
-/* line 55, ../../sass/components.scss */
+/* line 66, ../../sass/components.scss */
 .feed-item .short .top-section .picture,
 .feed-item .feed-story .top-section .picture {
   float: left;
@@ -1346,14 +1346,14 @@ blockquote p {
   height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 55, ../../sass/components.scss */
+  /* line 66, ../../sass/components.scss */
   .feed-item .short .top-section .picture,
   .feed-item .feed-story .top-section .picture {
     height: 3.3em !important;
     width: 3.3em !important;
   }
 }
-/* line 65, ../../sass/components.scss */
+/* line 76, ../../sass/components.scss */
 .feed-item .short .top-section .picture img,
 .feed-item .feed-story .top-section .picture img {
   -webkit-border-radius: 4px;
@@ -1363,53 +1363,53 @@ blockquote p {
   border-radius: 4px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 65, ../../sass/components.scss */
+  /* line 76, ../../sass/components.scss */
   .feed-item .short .top-section .picture img,
   .feed-item .feed-story .top-section .picture img {
     margin-top: 8px;
     margin-left: 6px;
   }
 }
-/* line 75, ../../sass/components.scss */
+/* line 86, ../../sass/components.scss */
 .feed-item .short .top-section .details,
 .feed-item .feed-story .top-section .details {
   height: 2.9em !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 75, ../../sass/components.scss */
+  /* line 86, ../../sass/components.scss */
   .feed-item .short .top-section .details,
   .feed-item .feed-story .top-section .details {
     padding-top: 0.5em;
     height: 3.3em !important;
   }
 }
-/* line 83, ../../sass/components.scss */
+/* line 94, ../../sass/components.scss */
 .feed-item .short .top-section .details .owner,
 .feed-item .feed-story .top-section .details .owner {
   line-height: 1em;
 }
-/* line 87, ../../sass/components.scss */
+/* line 98, ../../sass/components.scss */
 .feed-item .short .top-section .details .date,
 .feed-item .feed-story .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
-/* line 99, ../../sass/components.scss */
+/* line 110, ../../sass/components.scss */
 .feed-item .short .top-section .details a.remove,
 .feed-item .feed-story .top-section .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
-/* line 104, ../../sass/components.scss */
+/* line 115, ../../sass/components.scss */
 .feed-item .short .top-section .details a.remove:before,
 .feed-item .feed-story .top-section .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
 }
-/* line 113, ../../sass/components.scss */
+/* line 124, ../../sass/components.scss */
 .feed-item .short .content,
 .feed-item .feed-story .content {
   position: relative;
@@ -1419,7 +1419,7 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 113, ../../sass/components.scss */
+  /* line 124, ../../sass/components.scss */
   .feed-item .short .content,
   .feed-item .feed-story .content {
     position: relative;
@@ -1431,7 +1431,7 @@ blockquote p {
     margin-left: 3.3em !important;
   }
 }
-/* line 122, ../../sass/components.scss */
+/* line 133, ../../sass/components.scss */
 .feed-item .short .content p:last-of-type,
 .feed-item .feed-story .content p:last-of-type {
   margin-bottom: 0em;
