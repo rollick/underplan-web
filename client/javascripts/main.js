@@ -65,6 +65,7 @@ Meteor.startup(function () {
 // Templates
 
 this.feedLimitSkip   = 5;
+this.galleryLimitSkip = 24;
 this.defaultMapZoom  = 12;
 this.shortMaxLength  = 250;
 

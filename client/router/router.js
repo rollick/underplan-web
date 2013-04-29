@@ -176,6 +176,7 @@ var AppRouter = Backbone.Router.extend({
     Session.set("groupSlug", groupSlug);
     Session.set("feedFilter", {});
     Session.set("feedLimit", feedLimitSkip);
+    Session.set("galleryLimit", galleryLimitSkip);
   },
 
   jumpToTop: function() {

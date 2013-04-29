@@ -96,16 +96,6 @@ Template.activityFeed.destroyed = function () {
   // Session.set("feedFilter", null);
 };
 
-Template.activityFeed.picasaGalleryUrl = function () {
-  var group = getCurrentGroup();
-  var picasaPath = [group.picasaUsername, group.picasaAlbum].join("/");
-
-  if(group.picasaKey)
-    picasaPath += "?authkey=" + group.picasaKey;
-
-  return "https://picasaweb.google.com/" + picasaPath;
-};
-
 Template.activityFeed.countries = function () {
   var countries = [];
 
@@ -270,37 +260,64 @@ Template.feedMap.rendered = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Gallery
 
+Template.feedGallery.events({
+  "click .gallery-more a": function () {
+    Session.set("galleryLimit", Session.get("galleryLimit") + galleryLimitSkip);
+    return false;
+  },
+})
+
+Template.feedGallery.helpers({
+  gallery: function () {
+    var group = Groups.findOne(Session.get("groupId"));
+    var max = Session.get("galleryLimit");
+
+    if (! max < 0)
+      return new Handlebars.SafeString("<p class=\"alert-box alert\">Gallery Error</p>");
+    
+    var options = {gridSmall: 4, gridLarge: 6, element: ".recent-photos"};
+    
+    // TODO:  refactor this into it's own function for use in story view and possibly 
+    //        the landing page
+    if(group && group.picasaUsername.length && group.picasaAlbum.length) {
+      $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, null, function(images) {
+        var photos = []
+        var index = 0;
+
+        $.each(images, function(i, element) {
+          if(index >= max)
+            return false;
+
+          photos.push({
+            url: element.versions[0].url, 
+            thumbUrl: element.thumbs[0].url,
+            caption: element.title
+          });
+
+          index += 1;
+        });
+        
+        renderPicasaPhotos(photos, options);
+      });
+    }
+
+    return new Handlebars.SafeString("<p class=\"alert-box secondary\">Loading photos...</p>");
+  }
+});
+
 Template.feedGallery.group = function () {
   return Groups.findOne({_id: Session.get("groupId")});
 };
 
-Template.feedGallery.rendered = function () {
-  var group = Groups.findOne(Session.get("groupId"));
-  var max = 24;
-  var options = {gridSmall: 4, gridLarge: 6, element: ".recent-photos"};
-  
-  if(group && group.picasaUsername.length && group.picasaAlbum.length) {
-    $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, null, function(images) {
-      var photos = []
-      var index = 0;
+Template.feedGallery.picasaGalleryUrl = function () {
+  var group = getCurrentGroup();
+  var picasaPath = [group.picasaUsername, group.picasaAlbum].join("/");
 
-      $.each(images, function(i, element) {
-        if(index >= max)
-          return false;
+  if(group.picasaKey)
+    picasaPath += "?authkey=" + group.picasaKey;
 
-        photos.push({
-          url: element.versions[0].url, 
-          thumbUrl: element.thumbs[0].url,
-          caption: element.title
-        });
-
-        index += 1;
-      });
-      
-      renderPicasaPhotos(photos, options);
-    });
-  }
-}
+  return "https://picasaweb.google.com/" + picasaPath;
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Common Functions

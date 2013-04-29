@@ -1037,248 +1037,175 @@ blockquote p {
   background-image: url("/images/down.svg");
 }
 
-/* line 3, ../../sass/app/comment.scss */
-.comment {
+/* Side Nav */
+/* line 65, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_sub-nav.scss */
+.sub-nav {
+  display: block;
   width: auto;
-  margin-left: -0.9375em;
-  margin-right: -0.9375em;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: none;
-  *zoom: 1;
-  padding: 0.74em 0;
+  overflow: hidden;
+  margin: -0.25em 0 1.125em;
+  padding-top: 0.25em;
+  margin-right: 0;
+  margin-left: -0.5625em;
 }
-/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.comment:before, .comment:after {
-  content: " ";
-  display: table;
-}
-/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.comment:after {
-  clear: both;
-}
-/* line 58, ../../sass/components.scss */
-.comment .top-section {
-  position: relative;
-  padding-left: 0.9375em;
-  padding-right: 0.9375em;
-  width: 100%;
+/* line 37, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_sub-nav.scss */
+.sub-nav dt,
+.sub-nav dd {
   float: left;
-  height: 2.8em !important;
-  font-size: 1em;
-  color: black;
-  margin-bottom: 0.2em;
+  display: inline;
+  margin-left: 0.5625em;
+  margin-bottom: 0.625em;
+  font-weight: normal;
+  font-size: 0.875em;
 }
-/* line 66, ../../sass/components.scss */
-.comment .top-section .picture {
-  float: left;
-  width: 3.3em !important;
-  height: 3.5em !important;
-}
-@media only screen and (min-width: 48em) {
-  /* line 66, ../../sass/components.scss */
-  .comment .top-section .picture {
-    height: 3.7em !important;
-    width: 3.7em !important;
-  }
-}
-/* line 76, ../../sass/components.scss */
-.comment .top-section .picture img {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-}
-@media only screen and (min-width: 48em) {
-  /* line 76, ../../sass/components.scss */
-  .comment .top-section .picture img {
-    margin-top: 8px;
-    margin-left: 6px;
-  }
-}
-/* line 86, ../../sass/components.scss */
-.comment .top-section .details {
-  height: 3.3em !important;
-}
-@media only screen and (min-width: 48em) {
-  /* line 86, ../../sass/components.scss */
-  .comment .top-section .details {
-    padding-top: 0.5em;
-    height: 3.7em !important;
-  }
-}
-/* line 94, ../../sass/components.scss */
-.comment .top-section .details .owner {
-  line-height: 1em;
-}
-/* line 98, ../../sass/components.scss */
-.comment .top-section .details .date {
-  font-size: 0.9em;
+/* line 45, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_sub-nav.scss */
+.sub-nav dt a,
+.sub-nav dd a {
   color: #999999;
-  line-height: 1.7em;
+  text-decoration: none;
 }
-/* line 110, ../../sass/components.scss */
-.comment .top-section .details a.remove {
-  margin-left: 4px;
-  color: #c60f13;
-  font-size: 0.9em;
-}
-/* line 115, ../../sass/components.scss */
-.comment .top-section .details a.remove:before {
-  content: "x";
-  padding-right: 3px;
+/* line 49, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_sub-nav.scss */
+.sub-nav dt.active a,
+.sub-nav dd.active a {
+  -webkit-border-radius: 1000px;
+  border-radius: 1000px;
   font-weight: bold;
-}
-/* line 124, ../../sass/components.scss */
-.comment .content {
-  position: relative;
-  padding-left: 0.9375em;
-  padding-right: 0.9375em;
-  width: 100%;
-  float: left;
-}
-@media only screen and (min-width: 48em) {
-  /* line 124, ../../sass/components.scss */
-  .comment .content {
-    position: relative;
-    padding-left: 0.9375em;
-    padding-right: 0.9375em;
-    width: 83.33333%;
-    margin-left: 16.66667%;
-    float: left;
-    margin-left: 3.7em !important;
-  }
-}
-/* line 133, ../../sass/components.scss */
-.comment .content p:last-of-type {
-  margin-bottom: 0em;
+  background: green;
+  padding: 0.1875em 0.5625em;
+  cursor: default;
+  color: white;
 }
 
-/* line 7, ../../sass/app/comment.scss */
-.comment-form {
+/* line 7, ../../sass/app/feed.scss */
+.country-filter > .columns {
+  min-height: 20px;
+  margin: 5px 0px 0px 0px !important;
+}
+/* line 12, ../../sass/app/feed.scss */
+.country-filter dl {
+  display: block;
   width: auto;
-  margin-left: -0.9375em;
-  margin-right: -0.9375em;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: none;
-  *zoom: 1;
+  overflow: hidden;
+  margin: -0.25em 0 1.125em;
+  padding-top: 0.25em;
+  margin-right: 0;
+  margin-left: -0.5625em;
+  margin-bottom: 5px !important;
 }
-/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.comment-form:before, .comment-form:after {
-  content: " ";
-  display: table;
-}
-/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.comment-form:after {
-  clear: both;
-}
-/* line 13, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .picture {
-  display: inherit;
-}
-/* line 17, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .details {
-  padding-left: 3.3em;
-}
-/* line 22, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .details #comment {
-  height: 5em;
-}
-/* line 26, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .details .button {
-  display: inline-block;
-}
-/* line 34, ../../sass/app/comment.scss */
-.comment-form .user-comment {
-  width: auto;
-  margin-left: -0.9375em;
-  margin-right: -0.9375em;
-  margin-top: 0;
-  margin-bottom: 0;
-  max-width: none;
-  *zoom: 1;
-  padding: 0.66em 0;
-}
-/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.comment-form .user-comment:before, .comment-form .user-comment:after {
-  content: " ";
-  display: table;
-}
-/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
-.comment-form .user-comment:after {
-  clear: both;
-}
-/* line 58, ../../sass/components.scss */
-.comment-form .user-comment .top-section {
-  position: relative;
-  padding-left: 0.9375em;
-  padding-right: 0.9375em;
-  width: 100%;
+/* line 37, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_sub-nav.scss */
+.country-filter dl dt,
+.country-filter dl dd {
   float: left;
-  font-size: 1em;
-  color: black;
-  margin-bottom: 0.2em;
+  display: inline;
+  margin-left: 0.5625em;
+  margin-bottom: 0.625em;
+  font-weight: normal;
+  font-size: 0.875em;
 }
-/* line 66, ../../sass/components.scss */
-.comment-form .user-comment .top-section .picture {
-  float: left;
-  width: 2.9em !important;
-  height: 3.1em !important;
-}
-@media only screen and (min-width: 48em) {
-  /* line 66, ../../sass/components.scss */
-  .comment-form .user-comment .top-section .picture {
-    height: 3.3em !important;
-    width: 3.3em !important;
-  }
-}
-/* line 76, ../../sass/components.scss */
-.comment-form .user-comment .top-section .picture img {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -ms-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-}
-@media only screen and (min-width: 48em) {
-  /* line 76, ../../sass/components.scss */
-  .comment-form .user-comment .top-section .picture img {
-    margin-top: 8px;
-    margin-left: 6px;
-  }
-}
-@media only screen and (min-width: 48em) {
-  /* line 86, ../../sass/components.scss */
-  .comment-form .user-comment .top-section .details {
-    padding-top: 0.5em;
-  }
-}
-/* line 94, ../../sass/components.scss */
-.comment-form .user-comment .top-section .details .owner {
-  line-height: 1em;
-}
-/* line 98, ../../sass/components.scss */
-.comment-form .user-comment .top-section .details .date {
-  font-size: 0.9em;
+/* line 45, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_sub-nav.scss */
+.country-filter dl dt a,
+.country-filter dl dd a {
   color: #999999;
-  line-height: 1.7em;
+  text-decoration: none;
 }
-/* line 110, ../../sass/components.scss */
-.comment-form .user-comment .top-section .details a.remove {
-  margin-left: 4px;
-  color: #c60f13;
-  font-size: 0.9em;
-}
-/* line 115, ../../sass/components.scss */
-.comment-form .user-comment .top-section .details a.remove:before {
-  content: "x";
-  padding-right: 3px;
+/* line 49, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/components/_sub-nav.scss */
+.country-filter dl dt.active a,
+.country-filter dl dd.active a {
+  -webkit-border-radius: 1000px;
+  border-radius: 1000px;
   font-weight: bold;
+  background: green;
+  padding: 0.1875em 0.5625em;
+  cursor: default;
+  color: white;
 }
-/* line 124, ../../sass/components.scss */
-.comment-form .user-comment .content {
+/* line 17, ../../sass/app/feed.scss */
+.country-filter dl dt {
+  margin-bottom: 3px;
+  margin-left: 0px;
+}
+/* line 21, ../../sass/app/feed.scss */
+.country-filter dl dt.active a {
+  background-color: green;
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(255, 255, 255, 0)));
+  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  background-image: linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
+  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
+  font-weight: normal;
+}
+/* line 27, ../../sass/app/feed.scss */
+.country-filter dl dt a {
+  padding: 2px 8px !important;
+  vertical-align: bottom;
+  -webkit-border-radius: 12px;
+  border-radius: 12px;
+}
+
+/* line 37, ../../sass/app/feed.scss */
+.feed-header {
+  height: 50px;
+}
+/* line 40, ../../sass/app/feed.scss */
+.feed-header ul {
+  margin-bottom: 0em;
+}
+@media only screen and (min-width: 48em) {
+  /* line 40, ../../sass/app/feed.scss */
+  .feed-header ul {
+    margin-top: 0em;
+    margin-bottom: 0em;
+  }
+}
+/* line 53, ../../sass/app/feed.scss */
+.feed-header h4, .feed-header h5 {
+  width: 100%;
+}
+/* line 57, ../../sass/app/feed.scss */
+.feed-header h4 {
+  margin-bottom: 0px;
+}
+/* line 60, ../../sass/app/feed.scss */
+.feed-header h4.show-for-small {
+  font-size: 1.5em;
+  text-transform: uppercase;
+  display: inline-block;
+  zoom: 1;
+  letter-spacing: 1px;
+}
+/* line 67, ../../sass/app/feed.scss */
+.feed-header h4.show-for-small.wide {
+  letter-spacing: 2px;
+}
+/* line 71, ../../sass/app/feed.scss */
+.feed-header h4.show-for-small.wider {
+  letter-spacing: 1px;
+}
+/* line 78, ../../sass/app/feed.scss */
+.feed-header h5.show-for-small {
+  color: #888;
+  display: inline-block;
+  font-size: 1em;
+  zoom: 1;
+}
+/* line 84, ../../sass/app/feed.scss */
+.feed-header h5.show-for-small.wide {
+  letter-spacing: 2px;
+}
+/* line 88, ../../sass/app/feed.scss */
+.feed-header h5.show-for-small.wider {
+  letter-spacing: 3px;
+}
+/* line 92, ../../sass/app/feed.scss */
+.feed-header h5.show-for-small .sub-header {
+  letter-spacing: 1px;
+}
+
+/* line 99, ../../sass/app/feed.scss */
+.feed {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -1286,43 +1213,158 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 124, ../../sass/components.scss */
-  .comment-form .user-comment .content {
+  /* line 99, ../../sass/app/feed.scss */
+  .feed {
     position: relative;
     padding-left: 0.9375em;
     padding-right: 0.9375em;
-    width: 83.33333%;
-    margin-left: 16.66667%;
+    width: 41.66667%;
     float: left;
-    margin-left: 3.3em !important;
   }
 }
-/* line 133, ../../sass/components.scss */
-.comment-form .user-comment .content p:last-of-type {
-  margin-bottom: 0em;
+/* line 107, ../../sass/app/feed.scss */
+.feed li p {
+  display: inline;
+  position: relative;
+  top: -4px;
+  margin-left: 8px;
 }
-/* line 37, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section {
-  margin-bottom: 0em;
+/* line 114, ../../sass/app/feed.scss */
+.feed li i {
+  -webkit-transition: color .5s;
+  -moz-transition: color .5s;
+  -o-transition: color .5s;
+  transition: color .5s;
+  font-size: 18px;
+  overflow: hidden;
+  line-height: 1.5;
 }
-/* line 40, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .picture {
-  display: none;
+/* line 125, ../../sass/app/feed.scss */
+.feed .feed-more {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
 }
-/* line 44, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .details {
-  padding-left: 0em;
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.feed .feed-more:before, .feed .feed-more:after {
+  content: " ";
+  display: table;
 }
-/* line 47, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .details .button {
-  display: none;
-  margin-bottom: 0em;
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.feed .feed-more:after {
+  clear: both;
 }
-/* line 52, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .details #comment {
-  font-size: 0.9em;
-  border: 1px solid #dddddd;
-  height: 2.5em;
-  margin-bottom: 0.3em;
-  min-height: 0em;
+/* line 27, ../../sass/components.scss */
+.feed .feed-more > .content {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+  text-align: center;
+}
+/* line 129, ../../sass/app/feed.scss */
+.feed .feed-list {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
+}
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.feed .feed-list:before, .feed .feed-list:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.feed .feed-list:after {
+  clear: both;
+}
+/* line 132, ../../sass/app/feed.scss */
+.feed .feed-list:first-child {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+/* line 137, ../../sass/app/feed.scss */
+.feed .feed-list > .content {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+}
+@media only screen and (min-width: 48em) {
+  /* line 137, ../../sass/app/feed.scss */
+  .feed .feed-list > .content {
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+  }
+}
+
+/* line 151, ../../sass/app/feed.scss */
+.feed-extra {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+}
+@media only screen and (min-width: 48em) {
+  /* line 151, ../../sass/app/feed.scss */
+  .feed-extra {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    width: 58.33333%;
+    float: left;
+  }
+}
+/* line 158, ../../sass/app/feed.scss */
+.feed-extra .gallery-more {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
+}
+/* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.feed-extra .gallery-more:before, .feed-extra .gallery-more:after {
+  content: " ";
+  display: table;
+}
+/* line 185, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
+.feed-extra .gallery-more:after {
+  clear: both;
+}
+/* line 27, ../../sass/components.scss */
+.feed-extra .gallery-more > .content {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+  margin-top: 10px;
+  text-align: center;
+}
+
+/* line 164, ../../sass/app/feed.scss */
+.feed li,
+.groups li {
+  cursor: pointer;
+}
+/* line 167, ../../sass/app/feed.scss */
+.feed li:hover,
+.groups li:hover {
+  color: green;
 }
