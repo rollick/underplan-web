@@ -129,3 +129,23 @@ Template.shortForm.events({
     return false;
   }
 });
+
+///////////////////////////////////////////////////////////////////////////////
+// Short Content
+
+Template.shortContent.basicLocation = function () {
+  var location = "";
+  if (_.isString(this.country) && this.country.length) {
+    if (Session.get("feedFilter").country) {
+      location = this.city;
+    } else {
+      location = [this.city, this.country].join(", ");
+    }
+  }
+
+  if (location.length) {
+    return "- " + location;
+  } else {
+    return "";
+  }
+}
