@@ -335,7 +335,8 @@ this.trackEvent = function(eventName, properties) {
         mixpanel.name_tag(userEmail(user));
         mixpanel.people.set({
           "$name": user.profile.name,
-          "$created": (new Date(user.createdAt)).toUTCString()
+          "$created": (new Date(user.createdAt)).toUTCString(),
+          "$email": userEmail(user)
         });        
       }
     }
