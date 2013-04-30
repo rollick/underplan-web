@@ -1046,7 +1046,7 @@ blockquote p {
   margin-bottom: 0;
   max-width: none;
   *zoom: 1;
-  padding: 0.74em 0;
+  padding: 0.66em 0;
 }
 /* line 184, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.2/scss/foundation/_foundation-global.scss */
 .comment:before, .comment:after {
@@ -1072,14 +1072,14 @@ blockquote p {
 /* line 66, ../../sass/components.scss */
 .comment .top-section .picture {
   float: left;
-  width: 3.3em !important;
-  height: 3.5em !important;
+  width: 2.9em !important;
+  height: 3.1em !important;
 }
 @media only screen and (min-width: 48em) {
   /* line 66, ../../sass/components.scss */
   .comment .top-section .picture {
-    height: 3.7em !important;
-    width: 3.7em !important;
+    height: 3.3em !important;
+    width: 3.3em !important;
   }
 }
 /* line 76, ../../sass/components.scss */
@@ -1094,43 +1094,44 @@ blockquote p {
   /* line 76, ../../sass/components.scss */
   .comment .top-section .picture img {
     margin-top: 8px;
-    margin-left: 6px;
+    margin-left: 0px;
   }
 }
 /* line 86, ../../sass/components.scss */
 .comment .top-section .details {
-  height: 3.3em !important;
+  height: 2.9em !important;
+  margin-left: 3.5em;
 }
 @media only screen and (min-width: 48em) {
   /* line 86, ../../sass/components.scss */
   .comment .top-section .details {
     padding-top: 0.5em;
-    height: 3.7em !important;
+    height: 3.3em !important;
   }
 }
-/* line 94, ../../sass/components.scss */
+/* line 95, ../../sass/components.scss */
 .comment .top-section .details .owner {
   line-height: 1em;
 }
-/* line 98, ../../sass/components.scss */
+/* line 99, ../../sass/components.scss */
 .comment .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
-/* line 110, ../../sass/components.scss */
+/* line 111, ../../sass/components.scss */
 .comment .top-section .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
-/* line 115, ../../sass/components.scss */
+/* line 116, ../../sass/components.scss */
 .comment .top-section .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
 }
-/* line 124, ../../sass/components.scss */
+/* line 125, ../../sass/components.scss */
 .comment .content {
   position: relative;
   padding-left: 0.9375em;
@@ -1139,7 +1140,7 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 124, ../../sass/components.scss */
+  /* line 125, ../../sass/components.scss */
   .comment .content {
     position: relative;
     padding-left: 0.9375em;
@@ -1147,10 +1148,10 @@ blockquote p {
     width: 83.33333%;
     margin-left: 16.66667%;
     float: left;
-    margin-left: 3.7em !important;
+    margin-left: 3.5em !important;
   }
 }
-/* line 133, ../../sass/components.scss */
+/* line 134, ../../sass/components.scss */
 .comment .content p:last-of-type {
   margin-bottom: 0em;
 }
@@ -1180,17 +1181,17 @@ blockquote p {
 }
 /* line 17, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .top-section .details {
-  padding-left: 3.3em;
+  margin-left: 3.3em;
 }
-/* line 22, ../../sass/app/comment.scss */
+/* line 20, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .top-section .details #comment {
   height: 5em;
 }
-/* line 26, ../../sass/app/comment.scss */
+/* line 24, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .top-section .details .button {
   display: inline-block;
 }
-/* line 34, ../../sass/app/comment.scss */
+/* line 32, ../../sass/app/comment.scss */
 .comment-form .user-comment {
   width: auto;
   margin-left: -0.9375em;
@@ -1246,8 +1247,12 @@ blockquote p {
   /* line 76, ../../sass/components.scss */
   .comment-form .user-comment .top-section .picture img {
     margin-top: 8px;
-    margin-left: 6px;
+    margin-left: 0px;
   }
+}
+/* line 86, ../../sass/components.scss */
+.comment-form .user-comment .top-section .details {
+  margin-left: 3.5em;
 }
 @media only screen and (min-width: 48em) {
   /* line 86, ../../sass/components.scss */
@@ -1255,29 +1260,29 @@ blockquote p {
     padding-top: 0.5em;
   }
 }
-/* line 94, ../../sass/components.scss */
+/* line 95, ../../sass/components.scss */
 .comment-form .user-comment .top-section .details .owner {
   line-height: 1em;
 }
-/* line 98, ../../sass/components.scss */
+/* line 99, ../../sass/components.scss */
 .comment-form .user-comment .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
 }
-/* line 110, ../../sass/components.scss */
+/* line 111, ../../sass/components.scss */
 .comment-form .user-comment .top-section .details a.remove {
   margin-left: 4px;
   color: #c60f13;
   font-size: 0.9em;
 }
-/* line 115, ../../sass/components.scss */
+/* line 116, ../../sass/components.scss */
 .comment-form .user-comment .top-section .details a.remove:before {
   content: "x";
   padding-right: 3px;
   font-weight: bold;
 }
-/* line 124, ../../sass/components.scss */
+/* line 125, ../../sass/components.scss */
 .comment-form .user-comment .content {
   position: relative;
   padding-left: 0.9375em;
@@ -1286,7 +1291,7 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 124, ../../sass/components.scss */
+  /* line 125, ../../sass/components.scss */
   .comment-form .user-comment .content {
     position: relative;
     padding-left: 0.9375em;
@@ -1294,31 +1299,31 @@ blockquote p {
     width: 83.33333%;
     margin-left: 16.66667%;
     float: left;
-    margin-left: 3.3em !important;
+    margin-left: 3.5em !important;
   }
 }
-/* line 133, ../../sass/components.scss */
+/* line 134, ../../sass/components.scss */
 .comment-form .user-comment .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 37, ../../sass/app/comment.scss */
+/* line 35, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section {
   margin-bottom: 0em;
 }
-/* line 40, ../../sass/app/comment.scss */
+/* line 38, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .picture {
   display: none;
 }
-/* line 44, ../../sass/app/comment.scss */
+/* line 42, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details {
-  padding-left: 0em;
+  margin-left: 0em;
 }
-/* line 47, ../../sass/app/comment.scss */
+/* line 45, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details .button {
   display: none;
   margin-bottom: 0em;
 }
-/* line 52, ../../sass/app/comment.scss */
+/* line 50, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details #comment {
   font-size: 0.9em;
   border: 1px solid #dddddd;

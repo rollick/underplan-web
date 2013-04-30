@@ -78,13 +78,14 @@
 
         @media only screen and (min-width: 48em) {
           margin-top: 8px;
-          margin-left: 6px;
+          margin-left: 0px;
         }
       }
     }
 
     .details {
       @if $fixed-details { height: $picture-width - 0.4em !important; }
+      margin-left: $picture-width + 0.2em;
 
       @media only screen and (min-width: 48em) {
         padding-top: 0.5em;
@@ -127,7 +128,7 @@
     @media only screen and (min-width: 48em) {
       @include grid-column(10, false, false, 2);
 
-      margin-left: $picture-width !important;
+      margin-left: $picture-width + 0.2em !important;
     }
 
     p:last-of-type {

@@ -1,7 +1,7 @@
 @import "../components";
 
 .comment {
-  @include entry-with-profile(3.7em);
+  @include entry-with-profile(3.3em);
 }
 
 .comment-form {
@@ -15,9 +15,7 @@
         }
 
         .details {
-          padding-left: 3.3em;
-
-
+          margin-left: 3.3em;
 
           #comment {
             height: 5em;
@@ -42,7 +40,7 @@
       }
   
       .details {
-        padding-left: 0em;
+        margin-left: 0em;
         
         .button {
           display: none;
