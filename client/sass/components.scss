@@ -24,6 +24,9 @@
 @mixin more-button() {
   @include grid-row(nest);
 
+  margin-left: 0em;
+  margin-right: 0em;
+
   & > .content {
     @include grid-column(12);
     
@@ -34,9 +37,12 @@
 
 @mixin standard-bar-background($color: green, $clear: false, $shadow: true) {
   background-color: $color;
-  @include background-image(linear-gradient(top, rgba(255,255,255,.3), rgba(255,255,255,0)));
-  @if $shadow { @include box-shadow(rgba(0,0,0,.3) 0 2px 3px); }
   @if $clear { clear: both; }
+}
+
+@mixin standard-panel-color() {
+  background-color: #f7f7f7;
+  border: 1px solid #f3f3f3;
 }
 
 @mixin standard-bar() {

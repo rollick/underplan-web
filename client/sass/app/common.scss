@@ -1,6 +1,4 @@
-@import "../settings";
 @import "../components";
-@import "compass/css3/box-shadow";
 @import "compass/css3/transform";
 
 .ribbon-wrapper {
@@ -8,8 +6,8 @@
   height: 88px;
   overflow: hidden;
   position: absolute;
-  top: -5px;
-  right: -5px;
+  top: -1px;
+  right: -1px;
 
   .ribbon {
     @include rotate(45deg);
@@ -31,7 +29,7 @@
 
     &:before, &:after {
       content: "";
-      border-top: 3px solid #6e8900;
+      // border-top: 3px solid #6e8900;
       border-left: 3px solid transparent;
       border-right: 3px solid transparent;
       position:absolute;

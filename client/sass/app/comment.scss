@@ -2,6 +2,13 @@
 
 .comment {
   @include entry-with-profile(3.3em);
+
+  border-bottom: 1px solid $secondary-color;
+  padding: 0.85em 0 0.4em 0;
+
+  &:last-of-type {
+    border-bottom: none;
+  }
 }
 
 .comment-form {

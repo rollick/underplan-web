@@ -1044,14 +1044,6 @@ blockquote p {
 /* line 6, ../sass/sections.scss */
 .section-container .section, .section-container section {
   background-color: green;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0.3)), color-stop(100%, rgba(255, 255, 255, 0)));
-  background-image: -webkit-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-  background-image: -moz-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-  background-image: -o-linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-  background-image: linear-gradient(top, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
-  -webkit-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
-  -moz-box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
-  box-shadow: rgba(0, 0, 0, 0.3) 0 2px 3px;
   clear: both;
   font-size: 0.9em;
   margin-left: 0px;

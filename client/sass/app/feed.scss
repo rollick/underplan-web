@@ -20,12 +20,13 @@
 
       &.active a {
         @include standard-bar-background();
- 
+        @include border-radius(3px);
+
         font-weight: normal;
       }
 
       a {
-        padding: 2px 8px !important;
+        padding: 4px 8px !important;
         vertical-align: bottom;
         -webkit-border-radius: 12px;
         border-radius: 12px;

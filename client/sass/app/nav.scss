@@ -1,7 +1,7 @@
-@import "../_settings";
 @import "../components";
 
 .nav {
+
   .logo {
     float: left;
     width: 45px;
@@ -92,7 +92,7 @@
 }
 
 .columns.no-side-padding {
-  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
+  // box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
   background-color: rgb(0, 151, 0);
 }
 

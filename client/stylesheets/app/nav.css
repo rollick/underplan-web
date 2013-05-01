@@ -1128,7 +1128,6 @@ blockquote p {
 
 /* line 94, ../../sass/app/nav.scss */
 .columns.no-side-padding {
-  box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
   background-color: #009700;
 }
 

@@ -73,40 +73,35 @@
   border-radius: 3px;
   box-shadow: none;
   font-weight: normal;
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(0, 0, 0, 0)), color-stop(100%, rgba(0, 0, 0, 0.2)));
-  background-image: -webkit-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
-  background-image: -moz-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
-  background-image: -o-linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
-  background-image: linear-gradient(top, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2));
 }
 
-/* line 83, ../sass/general.scss */
+/* line 81, ../sass/general.scss */
 .clearing-assembled {
   padding-bottom: 10px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 83, ../sass/general.scss */
+  /* line 81, ../sass/general.scss */
   .clearing-assembled {
     padding-bottom: 0px !important;
   }
 }
-/* line 90, ../sass/general.scss */
+/* line 88, ../sass/general.scss */
 .clearing-assembled .clearing-caption {
   background-color: rgba(17, 17, 17, 0.6);
   padding-bottom: 30px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 90, ../sass/general.scss */
+  /* line 88, ../sass/general.scss */
   .clearing-assembled .clearing-caption {
     padding-bottom: 10px !important;
   }
 }
 
-/* line 100, ../sass/general.scss */
+/* line 98, ../sass/general.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 103, ../sass/general.scss */
+/* line 101, ../sass/general.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -114,35 +109,35 @@
   padding-top: 1px;
 }
 
-/* line 111, ../sass/general.scss */
+/* line 109, ../sass/general.scss */
 blockquote {
   margin: 10px 10px 0px 10px;
 }
-/* line 114, ../sass/general.scss */
+/* line 112, ../sass/general.scss */
 blockquote.disabled {
   opacity: 0.6;
 }
-/* line 118, ../sass/general.scss */
+/* line 116, ../sass/general.scss */
 blockquote p:last-of-type {
   margin-bottom: 10px;
 }
-/* line 122, ../sass/general.scss */
+/* line 120, ../sass/general.scss */
 blockquote cite {
   padding-bottom: 10px;
 }
 
-/* line 127, ../sass/general.scss */
+/* line 125, ../sass/general.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 132, ../sass/general.scss */
+/* line 130, ../sass/general.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 136, ../sass/general.scss */
+/* line 134, ../sass/general.scss */
 .carousel {
   margin: 0 6px;
 }
