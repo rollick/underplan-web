@@ -2,7 +2,7 @@
 @import "foundation/components/sub-nav";
 
 .country-filter {
-  // margin-top: 5px !important;
+  margin-top: 0.5em !important;
 
   & > .columns {
     min-height: 20px; 
@@ -20,7 +20,7 @@
 
       &.active a {
         @include standard-bar-background();
-        @include border-radius(3px);
+        @include standard-corners();
 
         font-weight: normal;
       }
@@ -36,62 +36,69 @@
 }
 
 .feed-header {
-  height: 50px;
+  @include grid-row(nest);
 
-  ul {
-    margin-bottom: 0em;
+  margin-top: 0.6em;
+  margin-bottom: 0.6em;
 
-    @media only screen {
-      // margin-top: 1.8em;
-    }
+  .inner {
+    @include grid-column(12);
 
-    @media only screen and (min-width: 48em) {
-      margin-top: 0em;
+    ul {
       margin-bottom: 0em;
-    }
-  }
 
-  h4, h5 {
-    width: 100%;
-  }
-
-  h4 {
-    margin-bottom: 0px;
-
-    &.show-for-small {
-      font-size: 1.5em;
-      text-transform: uppercase;
-      display: inline-block;
-      zoom: 1;
-      letter-spacing: 1px;
-
-      &.wide {
-        letter-spacing: 2px;
+      @media only screen {
+        // margin-top: 1.8em;
       }
 
-      &.wider {
-        letter-spacing: 1px;
+      @media only screen and (min-width: 48em) {
+        margin-top: 0em;
+        margin-bottom: 0em;
       }
     }
-  }
 
-  h5 {
-    &.show-for-small {
-      color: #888;
-      display: inline-block;
-      font-size: 1em;
-      zoom: 1;
+    h4, h5 {
+      width: 100%;
+    }
 
-      &.wide {
-        letter-spacing: 2px;
-      }
+    h4 {
+      margin-bottom: 0px;
 
-      &.wider {
-        letter-spacing: 3px;
-      }
-
-      .sub-header {
+      &.show-for-small {
+        font-size: 1.5em;
+        text-transform: uppercase;
+        display: inline-block;
+        zoom: 1;
         letter-spacing: 1px;
+
+        &.wide {
+          letter-spacing: 2px;
+        }
+
+        &.wider {
+          letter-spacing: 1px;
+        }
+      }
+    }
+
+    h5 {
+      &.show-for-small {
+        color: #888;
+        display: inline-block;
+        font-size: 1em;
+        zoom: 1;
+
+        &.wide {
+          letter-spacing: 2px;
+        }
+
+        &.wider {
+          letter-spacing: 3px;
+        }
+
+        .sub-header {
+          letter-spacing: 1px;
+        }
       }
     }
   }

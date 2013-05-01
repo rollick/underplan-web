@@ -97,10 +97,10 @@ Template.comment.events({
     return false;
   },
   'mouseenter .comment': function (event, template) {
-    $(template.find(".info .remove")).show();
+    $(template.find(".remove")).show();
   },
   'mouseleave .comment': function (event, template) {
-    $(template.find(".info .remove")).hide();
+    $(template.find(".remove")).hide();
   } 
 
 });

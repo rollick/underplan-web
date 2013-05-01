@@ -1037,14 +1037,18 @@ blockquote p {
   background-image: url("/images/down.svg");
 }
 
-/* line 5, ../../sass/app/nav.scss */
+/* line 3, ../../sass/app/nav.scss */
+.nav {
+  background-color: #009700;
+}
+/* line 6, ../../sass/app/nav.scss */
 .nav .logo {
   float: left;
   width: 45px;
   height: 45px;
   background-color: green;
 }
-/* line 11, ../../sass/app/nav.scss */
+/* line 12, ../../sass/app/nav.scss */
 .nav .logo a {
   font-size: 1.8em;
   color: white !important;
@@ -1052,61 +1056,62 @@ blockquote p {
   padding: 7px 12px;
 }
 
-/* line 21, ../../sass/app/nav.scss */
+/* line 22, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 25, ../../sass/app/nav.scss */
+/* line 26, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 30, ../../sass/app/nav.scss */
+/* line 31, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
+  overflow: inherit;
 }
-/* line 33, ../../sass/app/nav.scss */
+/* line 35, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
   font-size: 1.3em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 39, ../../sass/app/nav.scss */
+  /* line 41, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 45, ../../sass/app/nav.scss */
+/* line 47, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: rgba(255, 255, 255, 0.3);
 }
 @media only screen and (min-width: 48em) {
-  /* line 45, ../../sass/app/nav.scss */
+  /* line 47, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
   }
 }
-/* line 55, ../../sass/app/nav.scss */
+/* line 57, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 62, ../../sass/app/nav.scss */
+  /* line 64, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 68, ../../sass/app/nav.scss */
+/* line 70, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 72, ../../sass/app/nav.scss */
+/* line 74, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 28px;
   padding: 2px;
@@ -1115,23 +1120,23 @@ blockquote p {
   margin-top: -4px;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 81, ../../sass/app/nav.scss */
+  /* line 83, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 85, ../../sass/app/nav.scss */
+  /* line 87, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
 
-/* line 94, ../../sass/app/nav.scss */
+/* line 96, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 99, ../../sass/app/nav.scss */
+/* line 101, ../../sass/app/nav.scss */
 li.text {
   color: #c4c4c4;
   padding: 10px;
@@ -1139,23 +1144,23 @@ li.text {
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 99, ../../sass/app/nav.scss */
+  /* line 101, ../../sass/app/nav.scss */
   li.text {
     color: #919191;
     background-color: #111111;
   }
 }
 
-/* line 112, ../../sass/app/nav.scss */
+/* line 114, ../../sass/app/nav.scss */
 li.login-services {
   height: 40px;
 }
-/* line 115, ../../sass/app/nav.scss */
+/* line 117, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 120, ../../sass/app/nav.scss */
+/* line 122, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -1163,7 +1168,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 128, ../../sass/app/nav.scss */
+/* line 130, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

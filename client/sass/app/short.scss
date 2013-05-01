@@ -87,7 +87,7 @@ $entry-bottom-margin: 0.9em;
 }
 
 .feed-item {
-  margin-bottom: 1.2em;
+  margin-bottom: 2em;
 
   .short,
   .feed-story {
@@ -127,7 +127,7 @@ $entry-bottom-margin: 0.9em;
   .short-actions {
     @include grid-row(nest);
     @include standard-bar();
-    @include border-radius(3px);
+    @include standard-corners();
 
     margin: 0 !important;
     cursor: default;
