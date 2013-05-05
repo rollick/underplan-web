@@ -2,7 +2,7 @@
 @import "foundation/components/sub-nav";
 
 .country-filter {
-  margin-top: 0.5em !important;
+  margin-top: 0.2em !important;
 
   & > .columns {
     min-height: 20px; 
@@ -38,8 +38,8 @@
 .feed-header {
   @include grid-row(nest);
 
-  margin-top: 0.6em;
-  margin-bottom: 0.6em;
+  margin-top: 0.2em;
+  margin-bottom: 0.2em;
 
   .inner {
     @include grid-column(12);

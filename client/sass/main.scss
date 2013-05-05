@@ -44,6 +44,8 @@
 // @import "foundation/components/dropdown";
 
 @import "components";
+@import "compass/css3/border-radius";
+@import "compass/css3/images";
 
 * {
   margin: 0;
@@ -54,7 +56,7 @@ html, body {
 }
 
 body {
-  // background-color: rgb(240, 240, 240);
+  background-color: #f0f0f0;
 }
 
 hr {
@@ -184,10 +186,6 @@ footer a {
     margin-top: 10px;
 }
 
-@import "settings";
-@import "compass/css3/border-radius";
-@import "compass/css3/images";
-
 .no-side-padding {
     padding-left: 0px !important;
     padding-right: 0px !important;
@@ -233,6 +231,10 @@ footer a {
 .clearing-thumbs img {
   // height: 90px;
   // width: 90px;
+}
+
+[data-clearing] li {
+  margin-right: 0em;
 }
 
 .tooltip {
@@ -289,22 +291,6 @@ footer a {
     font-weight: bold !important;
     padding-left: 1px;
     padding-top: 1px
-  }
-}
-
-blockquote {
-  margin: 10px 10px 0px 10px;
-
-  &.disabled {
-    opacity: 0.6;
-  }
-
-  p:last-of-type {
-    margin-bottom: 10px;
-  }
-
-  cite {
-    padding-bottom: 10px;
   }
 }
 
