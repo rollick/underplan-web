@@ -1204,7 +1204,7 @@ blockquote p {
     float: none !important;
   }
 }
-/* line 9, ../../sass/components.scss */
+/* line 9, ../../sass/_components.scss */
 .up-down:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
@@ -1214,15 +1214,15 @@ blockquote p {
   height: 24px;
   content: "\00a0\00a0";
 }
-/* line 19, ../../sass/components.scss */
+/* line 19, ../../sass/_components.scss */
 .up-down.open:before {
   background-image: url("/images/down.svg");
 }
 
 /* line 4, ../../sass/app/common.scss */
 .ribbon-wrapper {
-  width: 85px;
-  height: 88px;
+  width: 40px;
+  height: 40px;
   overflow: hidden;
   position: absolute;
   top: -1px;
@@ -1230,24 +1230,19 @@ blockquote p {
 }
 /* line 12, ../../sass/app/common.scss */
 .ribbon-wrapper .ribbon {
-  -webkit-transform: rotate(45deg);
-  -moz-transform: rotate(45deg);
-  -ms-transform: rotate(45deg);
-  -o-transform: rotate(45deg);
-  transform: rotate(45deg);
   background-color: #1f4100;
-  font-size: 0.8em;
+  background-color: #1f4100;
+  font-size: 1.2em;
   font-weight: bold;
   font-family: sans-serif;
   color: #f3f3f3;
   text-align: center;
   position: relative;
-  padding: 7px 0;
-  left: 6px;
-  top: 14px;
-  width: 104px;
+  padding: 11px;
+  height: 40px;
+  width: 40px;
 }
-/* line 30, ../../sass/app/common.scss */
+/* line 26, ../../sass/app/common.scss */
 .ribbon-wrapper .ribbon:before, .ribbon-wrapper .ribbon:after {
   content: "";
   border-left: 3px solid transparent;
@@ -1255,50 +1250,50 @@ blockquote p {
   position: absolute;
   bottom: -3px;
 }
-/* line 39, ../../sass/app/common.scss */
+/* line 35, ../../sass/app/common.scss */
 .ribbon-wrapper .ribbon:before {
   left: 0;
 }
-/* line 43, ../../sass/app/common.scss */
+/* line 39, ../../sass/app/common.scss */
 .ribbon-wrapper .ribbon:after {
   right: 0;
 }
 
-/* line 53, ../../sass/app/common.scss */
+/* line 49, ../../sass/app/common.scss */
 .alert-box.large {
   font-size: 1.2em;
 }
-/* line 56, ../../sass/app/common.scss */
+/* line 52, ../../sass/app/common.scss */
 .alert-box.clear {
   background-color: #fff;
   border-color: #f9f9f9;
   color: inherit;
 }
 
-/* line 63, ../../sass/app/common.scss */
+/* line 59, ../../sass/app/common.scss */
 .action {
   margin-top: -5px !important;
 }
-/* line 66, ../../sass/app/common.scss */
+/* line 62, ../../sass/app/common.scss */
 .action ul {
   list-style: none;
   display: inline;
   width: auto;
   float: right;
 }
-/* line 72, ../../sass/app/common.scss */
+/* line 68, ../../sass/app/common.scss */
 .action ul li {
   float: left;
   padding-left: 5px;
 }
-/* line 77, ../../sass/app/common.scss */
+/* line 73, ../../sass/app/common.scss */
 .action ul > .separator {
   width: 2px;
   height: 24px;
   margin: 8px 1px 0 1px;
   border-right: 1px solid green;
 }
-/* line 89, ../../sass/app/common.scss */
+/* line 85, ../../sass/app/common.scss */
 .action a {
   font-size: 0.95em;
   height: 34px;
@@ -1306,23 +1301,23 @@ blockquote p {
   padding: 0;
   color: green;
 }
-/* line 96, ../../sass/app/common.scss */
+/* line 92, ../../sass/app/common.scss */
 .action a.disabled {
   opacity: 0.3;
 }
-/* line 110, ../../sass/app/common.scss */
+/* line 106, ../../sass/app/common.scss */
 .action a.new-short {
   text-indent: -35px;
 }
-/* line 114, ../../sass/app/common.scss */
+/* line 110, ../../sass/app/common.scss */
 .action.new-comment {
   float: right;
 }
-/* line 117, ../../sass/app/common.scss */
+/* line 113, ../../sass/app/common.scss */
 .action.new-comment a {
   text-indent: -73px;
 }
-/* line 124, ../../sass/app/common.scss */
+/* line 120, ../../sass/app/common.scss */
 .action.new-comment span:before,
 .action a.new-short:before,
 .action a.new-story:before {
@@ -1335,36 +1330,36 @@ blockquote p {
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 135, ../../sass/app/common.scss */
+  /* line 131, ../../sass/app/common.scss */
   .action a {
     font-size: 0.9em;
   }
 
-  /* line 139, ../../sass/app/common.scss */
+  /* line 135, ../../sass/app/common.scss */
   .action {
     margin-top: 4px !important;
   }
 
-  /* line 143, ../../sass/app/common.scss */
+  /* line 139, ../../sass/app/common.scss */
   .action.new-short a {
     text-indent: -28px;
   }
 
-  /* line 147, ../../sass/app/common.scss */
+  /* line 143, ../../sass/app/common.scss */
   .action.new-comment a {
     text-indent: -65px;
   }
 }
-/* line 152, ../../sass/app/common.scss */
+/* line 148, ../../sass/app/common.scss */
 .activity {
   margin-bottom: 10px;
 }
-/* line 155, ../../sass/app/common.scss */
+/* line 151, ../../sass/app/common.scss */
 .activity .action {
   margin-top: -25px !important;
   height: 30px;
 }
-/* line 159, ../../sass/app/common.scss */
+/* line 155, ../../sass/app/common.scss */
 .activity blockquote {
   margin-bottom: 0px;
 }

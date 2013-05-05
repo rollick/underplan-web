@@ -40,6 +40,8 @@ $entry-bottom-margin: 0.9em;
           textarea {
             height: 40px;
             min-height: 0px !important;
+            margin-bottom: 0px;
+            padding: emCalc(13px);
           }
         }
 
@@ -87,13 +89,21 @@ $entry-bottom-margin: 0.9em;
 }
 
 .feed-item {
-  margin-bottom: 1.2em;
+  $story-radius: 4px;
+
+  margin-bottom: 2em;
+
+  .ribbon-wrapper {
+    .ribbon {
+      border-top-right-radius: $story-radius;
+    }
+  }
 
   .short,
   .feed-story {
     @include entry-with-profile(3.3em);
-    @include border-top-left-radius(4px);
-    @include border-top-right-radius(4px);
+    @include border-top-left-radius($story-radius);
+    @include border-top-right-radius($story-radius);
     @include standard-panel-color();
 
     border-bottom: none;
@@ -105,7 +115,6 @@ $entry-bottom-margin: 0.9em;
     z-index: 90;
 
     padding-bottom: 0px;
-    margin: 0.5em 0.5em 0 0.5em;
 
     .content {
       padding-bottom: 0.5em;
@@ -127,7 +136,7 @@ $entry-bottom-margin: 0.9em;
   .short-actions {
     @include grid-row(nest);
     @include standard-bar();
-    @include border-radius(3px);
+    @include standard-corners();
 
     margin: 0 !important;
     cursor: default;
@@ -187,7 +196,7 @@ $entry-bottom-margin: 0.9em;
 
     height: 0px;
     overflow: hidden;
-    margin: 0 0.5em 0.5em 0.5em;
+    margin: 0 0em 0.5em 0em;
 
     .comment {
 
@@ -196,12 +205,13 @@ $entry-bottom-margin: 0.9em;
     .inner {
       @include grid-column(12);
 
-      @include border-bottom-left-radius(4px);
-      @include border-bottom-right-radius(4px);
+      @include border-bottom-left-radius($story-radius);
+      @include border-bottom-right-radius($story-radius);
 
       background-color: #f7f7f7;
       border: 1px solid #f3f3f3;
       border-top: none;
+      padding: 0em;
       padding-bottom: 0.5em;
     }
   }
