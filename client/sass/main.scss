@@ -1,3 +1,48 @@
+// Global Foundation Settings
+@import "settings";
+
+// Comment out this import if you are customizing you imports below
+@import "foundation";
+
+// Import specific parts of Foundation by commenting the import "foundation"
+// and uncommenting what you want below. You must uncomment the following if customizing
+
+// @import "foundation/components/global"; // *always required
+// @import "foundation/components/grid";
+// @import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+// @import "foundation/components/type";
+// @import "foundation/components/buttons";
+// @import "foundation/components/forms"; // *requires components/buttons
+// @import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "foundation/components/section";
+// @import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+// @import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+// @import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+// @import "foundation/components/tables";
+// @import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
 @import "components";
 
 * {
@@ -20,11 +65,11 @@ h1, h2, h3, h4, h5 {
   font-weight: normal;
 
   .sub-header {
-    font-size: 0.75em;
+    // font-size: 0.75em;
 
     &:before {
       content: " - ";
-      line-spacing: 1px;
+      // line-spacing: 1px;
     }
   }
 }
@@ -137,4 +182,141 @@ footer.dashboard {
 footer p,
 footer a {
     margin-top: 10px;
+}
+
+@import "settings";
+@import "compass/css3/border-radius";
+@import "compass/css3/images";
+
+.no-side-padding {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+}
+
+.bordered {
+    border: 1px solid rgb(231, 228, 228);
+    padding: 2px;
+}
+
+.normal {
+    padding-bottom: 15px;
+    background: #fff; 
+    background: rgba(255, 255, 255, 1); 
+    box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
+}
+
+.input-subtext {
+    margin-top: -10px;
+    font-style: italic;
+    margin-bottom: 10px;
+    padding: 0px;
+    color: #9f9f9f;
+    font-size: 0.8em;
+    min-height: 1px;
+}
+
+.actions {
+  display: block;
+  line-height: 32px;
+  padding-top: 18px;
+  
+  a {
+    float: right;
+  }
+
+  i:hover {
+    color: green;
+    cursor: pointer;
+  }
+}
+
+.clearing-thumbs img {
+  // height: 90px;
+  // width: 90px;
+}
+
+.tooltip {
+  font-size: 0.8em;
+  font-weight: normal;
+}
+
+///////////////////////////////////////////////////////////////////////////////
+// Foundation Overrides
+
+.alert-box {
+  margin-top: 8px;
+  text-align: center;
+  font-weight: normal !important;
+  
+  a.close {
+    position: relative;
+    padding: 10px;
+    color: white;
+  }
+
+  &.secondary {
+  }
+}
+
+.button {
+  @include border-radius(3px);
+  box-shadow: none;
+  font-weight: normal;
+}
+
+.clearing-assembled {
+  padding-bottom: 10px !important;
+
+  @media only screen and (min-width: 48em) {
+    padding-bottom: 0px !important;
+  }
+  
+  .clearing-caption {
+    background-color: rgba(17, 17, 17, 0.6);
+    padding-bottom: 30px !important;
+
+    @media only screen and (min-width: 48em) {
+      padding-bottom: 10px !important;
+    }
+  }
+}
+
+.custom.checkbox {
+  border-color: black !important;
+
+  &.checked::before {
+    color: rgb(0, 0, 0) !important;
+    font-weight: bold !important;
+    padding-left: 1px;
+    padding-top: 1px
+  }
+}
+
+blockquote {
+  margin: 10px 10px 0px 10px;
+
+  &.disabled {
+    opacity: 0.6;
+  }
+
+  p:last-of-type {
+    margin-bottom: 10px;
+  }
+
+  cite {
+    padding-bottom: 10px;
+  }
+}
+
+form fieldset legend {
+  margin-bottom: 10px;
+  font-weight: normal;
+}
+
+ul.dropdown h5 a {
+  color: white;
+}
+
+.carousel {
+  margin: 0 6px;
 }

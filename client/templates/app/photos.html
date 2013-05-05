@@ -1,10 +1,10 @@
 <template name="picasaGallery">
   {{#if photos}}
-    <ul class="clearing-thumbs small-block-grid-{{gridSmall}} large-block-grid-{{gridLarge}}" data-clearing>
+    <ul class="small-block-grid-{{gridSmall}} large-block-grid-{{gridLarge}}" data-clearing>
       {{#each photos}}
-        <li style="padding: 4px;">
+        <li>
           <a href="{{url}}">
-            <img itemprop="image" class="bordered" data-caption="{{caption}}" src="{{thumbUrl}}" />
+            <img class="th" itemprop="image" data-caption="{{caption}}" src="{{thumbUrl}}" />
           </a>
         </li>
       {{/each}}

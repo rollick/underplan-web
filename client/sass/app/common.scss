@@ -2,30 +2,26 @@
 @import "compass/css3/transform";
 
 .ribbon-wrapper {
-  width: 85px;
-  height: 88px;
+  width: 40px;
+  height: 40px;
   overflow: hidden;
   position: absolute;
   top: -1px;
   right: -1px;
 
   .ribbon {
-    @include rotate(45deg);
     @include standard-bar-background($notice-color);
 
-    font-size: 0.8em;
+    background-color: #1f4100;
+    font-size: 1.2em;
     font-weight: bold;
     font-family: sans-serif;
     color: #f3f3f3;
-    text-align: center;    
+    text-align: center;
     position: relative;
-    padding: 7px 0;
-    left: 6px;
-    top: 14px;
-    width: 104px;
-    // background-color: #A00000;
-    // background-image: linear-gradient(rgba(255,255,255,0.3), rgba(255,255,255,0));
-    // @include box-shadow(rgba(0,0,0,.3) 0 0 3px);
+    padding: 11px;
+    height: 40px;
+    width: 40px;
 
     &:before, &:after {
       content: "";
