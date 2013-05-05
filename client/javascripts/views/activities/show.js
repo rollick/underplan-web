@@ -144,7 +144,7 @@ Template.currentActivity.rendered = function() {
     
     // FIXME: The code here shouldn't ned to know about DOM elements.
     if(parseInt($("body").css("width").match(/\d+/g)) > 767)
-      dimensions = "1000x450";
+      dimensions = "300x240";
 
     imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:green|label::location|:lat,:lng&sensor=false";
     imageUrl = imageUrl.replace(/:dimensions/, dimensions).

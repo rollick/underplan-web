@@ -31,11 +31,14 @@
         </div>
         <div class="row">
           {{#if hasMap}}
-          <div class="small-12 large-12 columns">
+          <div class="small-12 large-12 columns show-for-small">
             <div class="activity-map"></div>
           </div>
           {{/if}}
           <div class="activity small-12 large-12 columns">
+            {{#if hasMap}}
+              <div class="activity-map hide-for-small"></div>
+            {{/if}}
             <div class="text">
               {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
               {{#markdown}}{{text}}{{/markdown}}
