@@ -1318,9 +1318,14 @@ blockquote p {
   -ms-border-radius: 0px;
   -o-border-radius: 0px;
   border-radius: 0px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
+  border-radius: 4px;
   font-weight: normal;
 }
-/* line 28, ../../sass/app/feed.scss */
+/* line 29, ../../sass/app/feed.scss */
 .country-filter dl dt a {
   padding: 4px 8px !important;
   vertical-align: bottom;
@@ -1328,7 +1333,7 @@ blockquote p {
   border-radius: 12px;
 }
 
-/* line 38, ../../sass/app/feed.scss */
+/* line 39, ../../sass/app/feed.scss */
 .feed-header {
   width: auto;
   margin-left: -0.9375em;
@@ -1349,7 +1354,7 @@ blockquote p {
 .feed-header:after {
   clear: both;
 }
-/* line 44, ../../sass/app/feed.scss */
+/* line 45, ../../sass/app/feed.scss */
 .feed-header .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1357,26 +1362,26 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 47, ../../sass/app/feed.scss */
+/* line 48, ../../sass/app/feed.scss */
 .feed-header .inner ul {
   margin-bottom: 0em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 47, ../../sass/app/feed.scss */
+  /* line 48, ../../sass/app/feed.scss */
   .feed-header .inner ul {
     margin-top: 0em;
     margin-bottom: 0em;
   }
 }
-/* line 60, ../../sass/app/feed.scss */
+/* line 61, ../../sass/app/feed.scss */
 .feed-header .inner h4, .feed-header .inner h5 {
   width: 100%;
 }
-/* line 64, ../../sass/app/feed.scss */
+/* line 65, ../../sass/app/feed.scss */
 .feed-header .inner h4 {
   margin-bottom: 0px;
 }
-/* line 67, ../../sass/app/feed.scss */
+/* line 68, ../../sass/app/feed.scss */
 .feed-header .inner h4.show-for-small {
   font-size: 1.5em;
   text-transform: uppercase;
@@ -1384,35 +1389,35 @@ blockquote p {
   zoom: 1;
   letter-spacing: 1px;
 }
-/* line 74, ../../sass/app/feed.scss */
+/* line 75, ../../sass/app/feed.scss */
 .feed-header .inner h4.show-for-small.wide {
   letter-spacing: 2px;
 }
-/* line 78, ../../sass/app/feed.scss */
+/* line 79, ../../sass/app/feed.scss */
 .feed-header .inner h4.show-for-small.wider {
   letter-spacing: 1px;
 }
-/* line 85, ../../sass/app/feed.scss */
+/* line 86, ../../sass/app/feed.scss */
 .feed-header .inner h5.show-for-small {
   color: #888;
   display: inline-block;
   font-size: 1em;
   zoom: 1;
 }
-/* line 91, ../../sass/app/feed.scss */
+/* line 92, ../../sass/app/feed.scss */
 .feed-header .inner h5.show-for-small.wide {
   letter-spacing: 2px;
 }
-/* line 95, ../../sass/app/feed.scss */
+/* line 96, ../../sass/app/feed.scss */
 .feed-header .inner h5.show-for-small.wider {
   letter-spacing: 3px;
 }
-/* line 99, ../../sass/app/feed.scss */
+/* line 100, ../../sass/app/feed.scss */
 .feed-header .inner h5.show-for-small .sub-header {
   letter-spacing: 1px;
 }
 
-/* line 107, ../../sass/app/feed.scss */
+/* line 108, ../../sass/app/feed.scss */
 .feed {
   position: relative;
   padding-left: 0.9375em;
@@ -1421,7 +1426,7 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 107, ../../sass/app/feed.scss */
+  /* line 108, ../../sass/app/feed.scss */
   .feed {
     position: relative;
     padding-left: 0.9375em;
@@ -1430,14 +1435,14 @@ blockquote p {
     float: left;
   }
 }
-/* line 115, ../../sass/app/feed.scss */
+/* line 116, ../../sass/app/feed.scss */
 .feed li p {
   display: inline;
   position: relative;
   top: -4px;
   margin-left: 8px;
 }
-/* line 122, ../../sass/app/feed.scss */
+/* line 123, ../../sass/app/feed.scss */
 .feed li i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;
@@ -1447,7 +1452,7 @@ blockquote p {
   overflow: hidden;
   line-height: 1.5;
 }
-/* line 133, ../../sass/app/feed.scss */
+/* line 134, ../../sass/app/feed.scss */
 .feed .feed-more {
   width: auto;
   margin-left: -0.9375em;
@@ -1478,7 +1483,7 @@ blockquote p {
   margin-top: 10px;
   text-align: center;
 }
-/* line 137, ../../sass/app/feed.scss */
+/* line 138, ../../sass/app/feed.scss */
 .feed .feed-list {
   width: auto;
   margin-left: -0.9375em;
@@ -1497,12 +1502,12 @@ blockquote p {
 .feed .feed-list:after {
   clear: both;
 }
-/* line 140, ../../sass/app/feed.scss */
+/* line 141, ../../sass/app/feed.scss */
 .feed .feed-list:first-child {
   padding-left: 0px;
   padding-right: 0px;
 }
-/* line 145, ../../sass/app/feed.scss */
+/* line 146, ../../sass/app/feed.scss */
 .feed .feed-list > .content {
   position: relative;
   padding-left: 0.9375em;
@@ -1513,14 +1518,14 @@ blockquote p {
   padding-right: 0.4em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 145, ../../sass/app/feed.scss */
+  /* line 146, ../../sass/app/feed.scss */
   .feed .feed-list > .content {
     padding-left: 0.9em;
     padding-right: 0.9em;
   }
 }
 
-/* line 159, ../../sass/app/feed.scss */
+/* line 160, ../../sass/app/feed.scss */
 .feed-extra {
   position: relative;
   padding-left: 0.9375em;
@@ -1529,7 +1534,7 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 159, ../../sass/app/feed.scss */
+  /* line 160, ../../sass/app/feed.scss */
   .feed-extra {
     position: relative;
     padding-left: 0.9375em;
@@ -1538,7 +1543,7 @@ blockquote p {
     float: left;
   }
 }
-/* line 166, ../../sass/app/feed.scss */
+/* line 167, ../../sass/app/feed.scss */
 .feed-extra .gallery-more {
   width: auto;
   margin-left: -0.9375em;
@@ -1570,12 +1575,12 @@ blockquote p {
   text-align: center;
 }
 
-/* line 172, ../../sass/app/feed.scss */
+/* line 173, ../../sass/app/feed.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 175, ../../sass/app/feed.scss */
+/* line 176, ../../sass/app/feed.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;

@@ -21,6 +21,7 @@
       &.active a {
         @include standard-bar-background();
         @include standard-corners();
+        @include border-radius(4px);
 
         font-weight: normal;
       }

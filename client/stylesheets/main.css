@@ -7351,31 +7351,37 @@ footer a {
   cursor: pointer;
 }
 
-/* line 236, ../sass/main.scss */
+/* line 237, ../sass/main.scss */
+.carousel .th {
+  border: none;
+  padding: 2px;
+}
+
+/* line 243, ../sass/main.scss */
 [data-clearing] li {
   margin-right: 0em;
 }
 
-/* line 240, ../sass/main.scss */
+/* line 247, ../sass/main.scss */
 .tooltip {
   font-size: 0.8em;
   font-weight: normal;
 }
 
-/* line 248, ../sass/main.scss */
+/* line 255, ../sass/main.scss */
 .alert-box {
   margin-top: 8px;
   text-align: center;
   font-weight: normal !important;
 }
-/* line 253, ../sass/main.scss */
+/* line 260, ../sass/main.scss */
 .alert-box a.close {
   position: relative;
   padding: 10px;
   color: white;
 }
 
-/* line 263, ../sass/main.scss */
+/* line 270, ../sass/main.scss */
 .button {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -7386,33 +7392,33 @@ footer a {
   font-weight: normal;
 }
 
-/* line 269, ../sass/main.scss */
+/* line 276, ../sass/main.scss */
 .clearing-assembled {
   padding-bottom: 10px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 269, ../sass/main.scss */
+  /* line 276, ../sass/main.scss */
   .clearing-assembled {
     padding-bottom: 0px !important;
   }
 }
-/* line 276, ../sass/main.scss */
+/* line 283, ../sass/main.scss */
 .clearing-assembled .clearing-caption {
   background-color: rgba(17, 17, 17, 0.6);
   padding-bottom: 30px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 276, ../sass/main.scss */
+  /* line 283, ../sass/main.scss */
   .clearing-assembled .clearing-caption {
     padding-bottom: 10px !important;
   }
 }
 
-/* line 286, ../sass/main.scss */
+/* line 293, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 289, ../sass/main.scss */
+/* line 296, ../sass/main.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -7420,18 +7426,18 @@ footer a {
   padding-top: 1px;
 }
 
-/* line 297, ../sass/main.scss */
+/* line 304, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 302, ../sass/main.scss */
+/* line 309, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 306, ../sass/main.scss */
+/* line 313, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }

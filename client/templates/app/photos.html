@@ -1,6 +1,6 @@
 <template name="picasaGallery">
   {{#if photos}}
-    <ul class="small-block-grid-{{gridSmall}} large-block-grid-{{gridLarge}}" data-clearing>
+    <ul class="clearing-thumbs small-block-grid-{{gridSmall}} large-block-grid-{{gridLarge}}" data-clearing>
       {{#each photos}}
         <li>
           <a href="{{url}}">
