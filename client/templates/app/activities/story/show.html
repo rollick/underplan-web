@@ -18,19 +18,19 @@
 <template name="currentActivity">
   {{#if activity}}
     {{#with activity}}
-      <div class="activity" itemscope itemtype="http://schema.org/BlogPosting">
-        <div class="row header">
-          <div class="small-10 large-10 columns">
+      <div class="activity story" itemscope itemtype="http://schema.org/BlogPosting">
+        <div class="inner">
+          <div class="title">
             <h2 itemprop="name">{{title}}</h2>
           </div>
-          <div class="actions small-2 large-2 columns">
+          <div class="actions">
             {{#if canEdit}}
               <a href="#" class="small button edit">Edit</a>
             {{/if}}
           </div>
         </div>
-        <div class="row">
-          <div class="activity small-12 large-12 columns">
+        <div class="content">
+          <div class="inner">
             {{#if hasPhotos}}
               <div class="activity-highlight">
                 {{gallery}}
@@ -59,7 +59,7 @@
 
         <hr>
 
-        <div class="row activity-controls">
+        <div class="activity-controls">
           <div class="previous small-7 large-6 columns">
             {{#if previousActivity}}
               {{#with previousActivity}}
