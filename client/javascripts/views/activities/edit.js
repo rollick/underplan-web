@@ -38,7 +38,6 @@ Template.storyEditor.events({
       return false;
     }
     
-    // debugger
     if(event.keyCode === 40 || event.keyCode === 38)
       return false;
     

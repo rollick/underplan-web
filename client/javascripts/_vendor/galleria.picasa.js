@@ -128,14 +128,16 @@ Galleria.Picasa.prototype = {
 
         var self = this;
 
-        params = $.extend({
-            'kind': 'photo',
-            'access': 'public',
-            'max-results': this.options.max,
-            'thumbsize': this._getSizes().join(','),
-            'alt': 'json-in-script',
-            'callback': '?'
-        }, params );
+        params = $.extend(params, {
+                'kind': 'photo',
+                'access': 'public',
+                'max-results': this.options.max,
+                'thumbsize': this._getSizes().join(','),
+                'alt': 'json-in-script',
+                'callback': '?'
+            });
+
+        console.log("Picasa params: " + JSON.stringify(params));
 
         $.each(params, function( key, value ) {
             url += '&' + key + '=' + value;
@@ -164,6 +166,8 @@ Galleria.Picasa.prototype = {
             timeout: 10000
         });
 
+
+        console.log("Fetching Picasa url: " + url);
         $.getJSON( url, function( result ) {
             data = result;
         });

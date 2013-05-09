@@ -299,6 +299,9 @@ Template.feedMap.rendered = function () {
 
 Template.feedGallery.events({
   "click .gallery-more a": function () {
+    if ($(".gallery-more a").hasClass("disabled"))
+      return false;
+
     Session.set("galleryLimit", Session.get("galleryLimit") + galleryLimitSkip);
     return false;
   },
@@ -310,7 +313,6 @@ Template.feedGallery.helpers({
     var params = {};
     var offset = Session.get("galleryLimit") - galleryLimitSkip;
 
-
     if (_.isString(group.picasaKey) && group.picasaKey.length)
       params.authkey = group.picasaKey;
 
@@ -318,25 +320,26 @@ Template.feedGallery.helpers({
       params["start-index"] = offset;
 
     var self = this;
-
     $(".gallery-more a").addClass("disabled");
+
+    // NOTE: this needs work. shouldn't always assume skip limit is max loaded
     picasa.setOptions({
-      max: Session.get("galleryLimit")
-    }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {        
+      max: galleryLimitSkip
+    }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {   
+        console.log("Found " + data.length + " images for gallery.");
         // Create initial gallery
         if (offset > 0) {
           Galleria.get(0).push( data ); 
+          console.log("Appending images to existing gallery.");
         } else { // Append data to existing gallery
           Galleria.run('.recent-photos', {
               dataSource: data,
-              showInfo: true,
-              complete: function () {
-                debugger
-              }
+              showInfo: true
           });
+          console.log("Creating new gallery.");
         }
 
-        $(".gallery-more a.disabled").removeClass("disabled");
+        $(".gallery-more a").removeClass("disabled");
     });      
 
 

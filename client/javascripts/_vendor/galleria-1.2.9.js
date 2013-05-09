@@ -6039,6 +6039,7 @@ Galleria.Picture.prototype = {
 
             },
             error: function() {
+
                 Galleria.raise('Could not scale image: '+self.image.src);
             },
             timeout: 1000

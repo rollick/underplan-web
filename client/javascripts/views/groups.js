@@ -62,7 +62,6 @@ Template.groupEditor.events({
     return false;
   },
   'click .update': function (event, template) {
-    debugger
     var groupId = template.find(".id").value;
     var values = getGroupValues(template);
 
