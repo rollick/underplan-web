@@ -19,9 +19,14 @@
   .activity-highlight {
     float: right;
     padding: 0;
-    padding-bottom: 5px;
-    width: 320px;
-    height: 240px;
+    margin-bottom: 5px;
+    width: 100%;
+    height: 200px;
+
+    @media only screen and (min-width: 48em) {
+      height: 240px;
+      width: 320px;
+    }
 
     .alert-box {
       height: 100%;
