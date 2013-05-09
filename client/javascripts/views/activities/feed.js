@@ -326,17 +326,14 @@ Template.feedGallery.helpers({
     picasa.setOptions({
       max: galleryLimitSkip
     }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {   
-        console.log("Found " + data.length + " images for gallery.");
         // Create initial gallery
         if (offset > 0) {
           Galleria.get(0).push( data ); 
-          console.log("Appending images to existing gallery.");
         } else { // Append data to existing gallery
           Galleria.run('.recent-photos', {
               dataSource: data,
               showInfo: true
           });
-          console.log("Creating new gallery.");
         }
 
         $(".gallery-more a").removeClass("disabled");
