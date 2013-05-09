@@ -1921,7 +1921,17 @@ blockquote p {
     float: left;
   }
 }
-/* line 404, ../../sass/app/feed.scss */
+/* line 405, ../../sass/app/feed.scss */
+.feed-extra .gallery .recent-photos {
+  height: 240px;
+}
+@media only screen and (min-width: 48em) {
+  /* line 405, ../../sass/app/feed.scss */
+  .feed-extra .gallery .recent-photos {
+    height: 400px;
+  }
+}
+/* line 414, ../../sass/app/feed.scss */
 .feed-extra .gallery-more {
   width: auto;
   margin-left: -0.9375em;
@@ -1953,12 +1963,12 @@ blockquote p {
   text-align: center;
 }
 
-/* line 410, ../../sass/app/feed.scss */
+/* line 420, ../../sass/app/feed.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 413, ../../sass/app/feed.scss */
+/* line 423, ../../sass/app/feed.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;

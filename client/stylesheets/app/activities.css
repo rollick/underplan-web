@@ -1234,29 +1234,42 @@ blockquote p {
 .activity .activity-map.hide-for-small {
   padding: 10px;
 }
+/* line 19, ../../sass/app/activities.scss */
+.activity .activity-highlight {
+  float: right;
+  padding: 0;
+  padding-bottom: 5px;
+  width: 320px;
+  height: 240px;
+}
+/* line 26, ../../sass/app/activities.scss */
+.activity .activity-highlight .alert-box {
+  height: 100%;
+  vertical-align: middle;
+}
 
-/* line 21, ../../sass/app/activities.scss */
+/* line 34, ../../sass/app/activities.scss */
 .pac-container:after {
   content: "";
 }
-/* line 25, ../../sass/app/activities.scss */
+/* line 38, ../../sass/app/activities.scss */
 .pac-container .pac-item {
   font-size: 0.8em;
   padding: 4px;
 }
 
-/* line 31, ../../sass/app/activities.scss */
+/* line 44, ../../sass/app/activities.scss */
 .share-links {
   float: right;
   width: 125px;
   height: 20px;
   margin-bottom: 10px;
 }
-/* line 37, ../../sass/app/activities.scss */
+/* line 50, ../../sass/app/activities.scss */
 .share-links > div {
   float: right;
 }
-/* line 41, ../../sass/app/activities.scss */
+/* line 54, ../../sass/app/activities.scss */
 .share-links .fb-share {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1276,7 +1289,7 @@ blockquote p {
   height: 20px;
   padding: 2px 5px 2px 2px;
 }
-/* line 53, ../../sass/app/activities.scss */
+/* line 66, ../../sass/app/activities.scss */
 .share-links .fb-share:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));
   background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
@@ -1284,12 +1297,12 @@ blockquote p {
   background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
   background-image: linear-gradient(top, #ffffff, #f2f2f2);
 }
-/* line 57, ../../sass/app/activities.scss */
+/* line 70, ../../sass/app/activities.scss */
 .share-links .fb-share i {
   color: #3B5998;
   font-size: 0.9em;
 }
-/* line 62, ../../sass/app/activities.scss */
+/* line 75, ../../sass/app/activities.scss */
 .share-links .fb-share i p {
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
   font-size: 0.75em;
@@ -1302,39 +1315,39 @@ blockquote p {
   margin-top: -17px;
 }
 
-/* line 77, ../../sass/app/activities.scss */
+/* line 90, ../../sass/app/activities.scss */
 .activity-controls {
   margin-bottom: 10px;
 }
-/* line 80, ../../sass/app/activities.scss */
+/* line 93, ../../sass/app/activities.scss */
 .activity-controls a {
   height: 24px;
   font-size: 0.9em;
 }
-/* line 84, ../../sass/app/activities.scss */
+/* line 97, ../../sass/app/activities.scss */
 .activity-controls a:before, .activity-controls a:after {
   background-size: 14px 14px;
   background-repeat: no-repeat;
   content: "\00a0\00a0\00a0\00a0";
 }
-/* line 93, ../../sass/app/activities.scss */
+/* line 106, ../../sass/app/activities.scss */
 .activity-controls .previous a:before {
   padding-right: 4px;
   background-position: 0px 3px;
   background-image: url("/images/left_green.svg");
 }
-/* line 101, ../../sass/app/activities.scss */
+/* line 114, ../../sass/app/activities.scss */
 .activity-controls .next {
   text-align: right;
 }
-/* line 105, ../../sass/app/activities.scss */
+/* line 118, ../../sass/app/activities.scss */
 .activity-controls .next a:after {
   padding-left: 5px;
   background-position: 5px;
   background-image: url("/images/right_green.svg");
 }
 
-/* line 114, ../../sass/app/activities.scss */
+/* line 127, ../../sass/app/activities.scss */
 .activities-map {
   min-width: 120px;
   min-height: 120px;
@@ -1343,45 +1356,45 @@ blockquote p {
   margin-bottom: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 114, ../../sass/app/activities.scss */
+  /* line 127, ../../sass/app/activities.scss */
   .activities-map {
     padding: 5px;
     padding-left: 10px;
     height: 400px;
   }
 }
-/* line 127, ../../sass/app/activities.scss */
+/* line 140, ../../sass/app/activities.scss */
 .activities-map img {
   max-width: inherit;
 }
 
-/* line 133, ../../sass/app/activities.scss */
+/* line 146, ../../sass/app/activities.scss */
 .map-info {
   width: 300px;
 }
-/* line 137, ../../sass/app/activities.scss */
+/* line 150, ../../sass/app/activities.scss */
 .map-info blockquote {
   border-left: none !important;
   margin: 0px !important;
   padding: 8px;
   font-size: 0.9em;
 }
-/* line 143, ../../sass/app/activities.scss */
+/* line 156, ../../sass/app/activities.scss */
 .map-info blockquote p:last-of-type {
   margin-bottom: 10px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 133, ../../sass/app/activities.scss */
+  /* line 146, ../../sass/app/activities.scss */
   .map-info {
     width: 400px;
   }
-  /* line 151, ../../sass/app/activities.scss */
+  /* line 164, ../../sass/app/activities.scss */
   .map-info blockquote {
     font-size: 1em;
   }
 }
 
-/* line 157, ../../sass/app/activities.scss */
+/* line 170, ../../sass/app/activities.scss */
 span.text-length {
   margin-left: 5px;
   line-height: 28px;

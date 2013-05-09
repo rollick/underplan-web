@@ -30,14 +30,11 @@
           </div>
         </div>
         <div class="row">
-          {{#if hasMap}}
-          <div class="small-12 large-12 columns show-for-small">
-            <div class="activity-map"></div>
-          </div>
-          {{/if}}
           <div class="activity small-12 large-12 columns">
-            {{#if hasMap}}
-              <div class="activity-map hide-for-small"></div>
+            {{#if hasPhotos}}
+              <div class="activity-highlight">
+                {{gallery}}
+              </div>
             {{/if}}
             <div class="text">
               {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
@@ -47,15 +44,6 @@
             <div itemprop="description" style="display: none">{{textPreview}}</div>
           </div>
         </div>
-        {{#if hasPhotos}}
-          <div class="row">
-            <div class="small-12 large-12 columns">
-              <div class="activity-photos" style="min-height: 80px">
-                {{gallery}}
-              </div>
-            </div>
-          </div>
-        {{/if}}
         {{#if published}}
           <div class="share-links">
             <div class="g-plus" data-action="share" data-annotation="none"></div>

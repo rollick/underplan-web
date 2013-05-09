@@ -6,7 +6,7 @@ Template.currentActivity.helpers({
     var group = Groups.findOne(Session.get("groupId"));
     var activity = Activities.findOne(Session.get("activityId"));
     var params = {};
-    var element = ".activity-photos";
+    var element = ".activity-highlight";
 
     if (_.isString(group.picasaKey) && group.picasaKey.length)
       params.authkey = group.picasaKey
@@ -161,41 +161,41 @@ Template.currentActivity.facebookShareUrl = function () {
   return "#";
 }
 
-Template.currentActivity.rendered = function() {
-  var group = getCurrentGroup();
-  var activity = getCurrentActivity();
+Template.currentActivity.created = function() {
+  // var group = getCurrentGroup();
+  // var activity = getCurrentActivity();
 
-  ///////////////////////
-  // Google Map
-  if(activity && currentActivityHasMap) {
-    var dimensions = "600x240";
-    var zoom = activity.mapZoom || defaultMapZoom;
-    var apiKey = appSettings().mapsApiKey;
+  // ///////////////////////
+  // // Google Map
+  // if(activity && currentActivityHasMap) {
+  //   var dimensions = "600x240";
+  //   var zoom = activity.mapZoom || defaultMapZoom;
+  //   var apiKey = appSettings().mapsApiKey;
     
-    // FIXME: The code here shouldn't ned to know about DOM elements.
-    if(parseInt($("body").css("width").match(/\d+/g)) > 767)
-      dimensions = "300x240";
+  //   // FIXME: The code here shouldn't ned to know about DOM elements.
+  //   if(parseInt($("body").css("width").match(/\d+/g)) > 767)
+  //     dimensions = "300x240";
 
-    imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:green|label::location|:lat,:lng&sensor=false";
-    imageUrl = imageUrl.replace(/:dimensions/, dimensions).
-                        replace(/:lat/g, activity.lat).
-                        replace(/:lng/g, activity.lng).
-                        replace(/:zoom/, zoom).
-                        replace(/:location/, activity.location);
+  //   imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:green|label::location|:lat,:lng&sensor=false";
+  //   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
+  //                       replace(/:lat/g, activity.lat).
+  //                       replace(/:lng/g, activity.lng).
+  //                       replace(/:zoom/, zoom).
+  //                       replace(/:location/, activity.location);
 
-    // imageUrl without possible apiKey                        
-    Session.set("activityMapUrl", imageUrl);
+  //   // imageUrl without possible apiKey                        
+  //   Session.set("activityMapUrl", imageUrl);
 
-    if(apiKey != "")
-      imageUrl = imageUrl + "&key=" + apiKey;
+  //   if(apiKey != "")
+  //     imageUrl = imageUrl + "&key=" + apiKey;
 
-    mapUrl = "http://maps.google.com/maps?t=h&q=loc::lat,:lng&z=:zoom";
-    mapUrl = mapUrl.replace(/:zoom/, zoom).
-                    replace(/:lat/g, activity.lat).
-                    replace(/:lng/g, activity.lng);
+  //   mapUrl = "http://maps.google.com/maps?t=h&q=loc::lat,:lng&z=:zoom";
+  //   mapUrl = mapUrl.replace(/:zoom/, zoom).
+  //                   replace(/:lat/g, activity.lat).
+  //                   replace(/:lng/g, activity.lng);
 
-    $(".activity-map").html('<a target="_blank" href="' + mapUrl + '" class="th"><img src="' + imageUrl + '"></a>');
-  }
+  //   $(".activity-map").html('<a target="_blank" href="' + mapUrl + '" class="th"><img src="' + imageUrl + '"></a>');
+  // }
 
   ///////////////////////
   // Picasa Image (WIP)

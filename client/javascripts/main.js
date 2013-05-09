@@ -49,7 +49,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.1.2");
+  Session.set("appVersion", "v1.1.3");
 
   // Routing
   Backbone.history.start({ pushState: true });
@@ -65,11 +65,12 @@ Meteor.startup(function () {
 // Templates
 
 this.feedLimitSkip   = 5;
-this.galleryLimitSkip = 24;
+this.galleryLimitSkip = 40;
 this.defaultMapZoom  = 12;
 this.shortMaxLength  = 250;
 Galleria.configure({
-  _animate: false
+  _animate: false,
+  imageCrop: false
 });
 this.picasa = new Galleria.Picasa();
 
