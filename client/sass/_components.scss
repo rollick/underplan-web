@@ -35,7 +35,7 @@
   }
 }
 
-@mixin standard-bar-background($color: green, $clear: false, $shadow: true) {
+@mixin standard-bar-background($color: $primary-color, $clear: false, $shadow: true) {
   background-color: $color;
   @if $clear { clear: both; }
 }
@@ -50,7 +50,7 @@
 }
 
 @mixin standard-bar() {
-  @include standard-bar-background(green, true);
+  @include standard-bar-background($primary-color, true);
   
   font-size: 0.9em;
   margin-left: 0px;
@@ -62,14 +62,16 @@
 
 @mixin entry-with-profile($picture-width: 4em, $fixed-details: true) {
   @include grid-row(nest);
+  $top-section-height: 2.8em;
+  $top-section-margin: 0.5em;
 
   padding: $picture-width*0.2 0;
-  margin: 0.5em 0 0 0;
+  margin: $top-section-margin 0 0 0;
 
   .top-section {
     @include grid-column(12);
 
-    @if $fixed-details { height: 2.8em !important; }
+    @if $fixed-details { height: $top-section-height !important; }
     font-size: 1em;
     color: black;
     margin-bottom: 0.2em;
@@ -118,19 +120,40 @@
           // }
         // }
       }
+    }    
+  }
 
-      a.remove {
-        margin-left: 4px;
-        color: $alert-color;
-        font-size: 0.9em;
+  .actions {
+    height: $top-section-height !important;
+    margin-top: -$picture-width*0.2;
+    font-size: 1em;
+    color: black;
+    z-index: 102;
+    position: absolute;
+    right: emCalc(-1px);
+    display: none;
+
+    @media only screen and (min-width: 48em) {
+     // margin-right: $picture-width;
+    }
+
+    a.action {
+      width: 2em;
+      height: 2em;
+      font-weight: bold;
+      display: inline-block;
+
+      &.remove {
+        padding-left: 0.7em;
+        padding-top: 0.5em;
+        background-color: $warning-color;
 
         &:before {
-          content: "x";
-          padding-right: 3px;
-          font-weight: bold;
+          content: "X";
+          color: lighten($warning-color, 50%);
         }
       }
-    }    
+    }
   }
 
   .content {

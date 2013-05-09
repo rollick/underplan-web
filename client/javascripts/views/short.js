@@ -133,6 +133,30 @@ Template.shortForm.events({
 ///////////////////////////////////////////////////////////////////////////////
 // Short Content
 
+Template.shortContent.events({
+  'click .remove': function (event, template) {
+    $(template.find(".activity")).addClass("disabled");
+
+    Meteor.call('removeActivity', this._id, function (error) {
+      if (error) {
+        Session.set("createError", [error.error, error.reason].join(": "));
+      }
+    });
+
+    return false;
+  },
+  'mouseenter': function (event, template) {
+    $(template.find(".actions")).show();
+  },
+  'mouseleave': function (event, template) {
+    $(template.find(".actions")).hide();
+  },
+});
+
+Template.shortContent.canRemove = function () {
+  return canUserRemoveActivity(Meteor.userId(), this._id);
+};
+
 Template.shortContent.basicLocation = function () {
   var location = "";
   if (_.isString(this.country) && this.country.length) {

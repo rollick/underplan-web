@@ -84,6 +84,7 @@ Template.activityFeed.events({
 Template.activityFeed.created = function() {
   var filter = Session.get("feedFilter");
   Session.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
+  Session.set("galleryLimit", galleryLimitSkip);
 };
 
 Template.activityFeed.loading = function () {
@@ -159,16 +160,28 @@ Template.feedList.moreActivities = function() {
 // Template.short.preserve([".short.entry.expanded"]);
 
 Template.feedItem.events({
-  'click .feed-story a.title': function (event, template) {
+  'click .remove': function (event, template) {
+    $(template.find(".comment")).addClass("disabled");
+    Comments.remove(this._id);
+
+    return false;
+  },
+  'mouseenter .comment': function (event, template) {
+    $(template.find(".remove")).show();
+  },
+  'mouseleave .comment': function (event, template) {
+    $(template.find(".remove")).hide();
+  },
+  'click .activity a.title': function (event, template) {
     Router.setActivity(this);
     return false;
   },
-  'click .short-actions a.comments': function (event, template) {
+  'click .item-actions a.comments': function (event, template) {
     $(event.target).closest(".feed-item").toggleClass("expanded");
 
     return false;
   },
-  'click .short-actions .new-comment a': function (event, template) {
+  'click .item-actions .new-comment a': function (event, template) {
     if (!!$(event.target).closest("a").hasClass("disabled")) {
       return false;
     }
@@ -210,6 +223,30 @@ var toggleComments = function(template) {
 
 ///////////////////////////////////////////////////////////////////////////////
 // Story Feed Content
+
+Template.storyFeedContent.events({
+  'click .remove': function (event, template) {
+    $(template.find(".activity")).addClass("disabled");
+    
+    Meteor.call('removeActivity', this._id, function (error) {
+      if (error) {
+        Session.set("createError", [error.error, error.reason].join(": "));
+      }
+    });
+
+    return false;
+  },
+  'mouseenter .activity': function (event, template) {
+    $(template.find(".actions")).show();
+  },
+  'mouseleave .activity': function (event, template) {
+    $(template.find(".actions")).hide();
+  },
+});
+
+Template.storyFeedContent.canRemove = function () {
+  return canUserRemoveActivity(Meteor.userId(), this._id);
+};
 
 Template.storyFeedContent.textPreview = function () {
   var text = this.text;
@@ -270,36 +307,38 @@ Template.feedGallery.events({
 Template.feedGallery.helpers({
   gallery: function () {
     var group = Groups.findOne(Session.get("groupId"));
-    var max = Session.get("galleryLimit");
+    var params = {};
+    var offset = Session.get("galleryLimit") - galleryLimitSkip;
 
-    if (! max < 0)
-      return new Handlebars.SafeString("<p class=\"alert-box alert\">Gallery Error</p>");
-    
-    var options = {gridSmall: 4, gridLarge: 6, element: ".recent-photos"};
-    
-    // TODO:  refactor this into it's own function for use in story view and possibly 
-    //        the landing page
-    if(group && group.picasaUsername.length && group.picasaAlbum.length) {
-      $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, null, function(images) {
-        var photos = []
-        var index = 0;
 
-        $.each(images, function(i, element) {
-          if(index >= max)
-            return false;
+    if (_.isString(group.picasaKey) && group.picasaKey.length)
+      params.authkey = group.picasaKey;
 
-          photos.push({
-            url: element.versions[0].url, 
-            thumbUrl: element.thumbs[0].url,
-            caption: element.title
+    if (Session.get("galleryLimit") > galleryLimitSkip)
+      params["start-index"] = offset;
+
+    var self = this;
+
+    $(".gallery-more a").addClass("disabled");
+    picasa.setOptions({
+      max: Session.get("galleryLimit")
+    }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {        
+        // Create initial gallery
+        if (offset > 0) {
+          Galleria.get(0).push( data ); 
+        } else { // Append data to existing gallery
+          Galleria.run('.recent-photos', {
+              dataSource: data,
+              showInfo: true,
+              complete: function () {
+                debugger
+              }
           });
+        }
 
-          index += 1;
-        });
-        
-        renderPicasaPhotos(photos, options);
-      });
-    }
+        $(".gallery-more a.disabled").removeClass("disabled");
+    });      
+
 
     return new Handlebars.SafeString("<p class=\"alert-box secondary\">Loading photos...</p>");
   }

@@ -82,7 +82,7 @@ Template.commentList.comments = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Comment
 
-Template.comment.canDelete = function () {
+Template.comment.canRemove = function () {
   var userId = Meteor.userId();
   var groupId = Activities.findOne(this.activityId).group;
 
@@ -97,10 +97,10 @@ Template.comment.events({
     return false;
   },
   'mouseenter .comment': function (event, template) {
-    $(template.find(".remove")).show();
+    $(template.find(".actions")).show();
   },
   'mouseleave .comment': function (event, template) {
-    $(template.find(".remove")).hide();
+    $(template.find(".actions")).hide();
   } 
 
 });

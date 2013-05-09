@@ -1,9 +1,35 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Activity view
 
+Template.currentActivity.helpers({
+  gallery: function () {
+    var group = Groups.findOne(Session.get("groupId"));
+    var activity = Activities.findOne(Session.get("activityId"));
+    var params = {};
+    var element = ".activity-photos";
+
+    if (_.isString(group.picasaKey) && group.picasaKey.length)
+      params.authkey = group.picasaKey
+
+    if (_.isString(activity.picasaTags) && activity.picasaTags.length)
+      params.tag = activity.picasaTags;
+
+    var picasa = new Galleria.Picasa();
+    picasa.setOptions({max: 99}); // Note: Hope there isn't more in this story...
+    picasa.useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
+        Galleria.run(element, {
+            dataSource: data,
+            showInfo: true
+        });
+    });
+
+    return new Handlebars.SafeString("<p class=\"alert-box secondary\">Loading photos...</p>");
+  }
+});
+
 Template.currentActivity.events({
   'click .edit': function () {
-    Router.setEditActivity(getCurrentGroup(), this);
+    Router.setEditActivity(Session.get("groupId"), this);
     return false;
   },
   'click .new-comment a': function (event, template) {
@@ -20,33 +46,37 @@ Template.currentActivity.events({
 });
 
 Template.currentActivity.nextActivity = function () {
+  var activity = Activities.findOne(Session.get("activityId"));
+
   return Activities.find({
     $and: [
-      {group: getCurrentGroupId()},
-      {"_id": {"$not": getCurrentActivityId()}}, 
+      {group: Session.get("groupId")},
+      {"_id": {"$not": Session.get("activityId")}}, 
       {type: "story"}, 
-      {created: {"$gte": getCurrentActivity().created}}
+      {created: {"$gte": activity.created}}
     ]
   }, {sort: {created: 1, _id: 1}}).fetch()[0];
 };
 
 Template.currentActivity.previousActivity = function () {
+  var activity = Activities.findOne(Session.get("activityId"));
+
   return Activities.find({
     $and: [
-      {group: getCurrentGroupId()},
-      {"_id": {"$not": getCurrentActivityId()}}, 
+      {group: Session.get("groupId")},
+      {"_id": {"$not": Session.get("activityId")}}, 
       {type: "story"}, 
-      {created: {"$lte": getCurrentActivity().created}}
+      {created: {"$lte": activity.created}}
     ]
   }, {sort: {created: -1, _id: -1}}).fetch()[0];
 };
 
 Template.currentActivity.group = function () {
-  return getCurrentGroup();
+  return Groups.findOne(Session.get("groupId"));
 };
 
 Template.currentActivity.activity = function () {
-  return Activities.findOne(getCurrentActivityId());
+  return Activities.findOne(Session.get("activityId"));
 };
 
 Template.currentActivity.hasPhotos = function () {
@@ -62,7 +92,7 @@ Template.currentActivity.anyActivities = function () {
 };
 
 Template.currentActivity.textPreview = function () {
-  var text = getCurrentActivity().text;
+  var text = Activities.findOne(Session.get("activityId")).text;
   var limit = 240;
 
   var preview = text.substring(0, limit);
@@ -73,7 +103,7 @@ Template.currentActivity.textPreview = function () {
 };
 
 Template.currentActivity.anyComments = function () {
-  var activity = getCurrentActivity();
+  var activity = Activities.findOne(Session.get("activityId"));
 
   return Comments.find({activityId: activity._id}).count() > 0;
 };
@@ -169,31 +199,31 @@ Template.currentActivity.rendered = function() {
 
   ///////////////////////
   // Picasa Image (WIP)
-  var options = {gridLarge: 10, gridSmall: 4, element: ".activity-photos"};
+  // var options = {gridLarge: 10, gridSmall: 4, element: ".activity-photos"};
 
-  if(group && group.picasaUsername.length && currentActivityHasPhotos()) {
-    $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, activity.picasaTags, function(images) {
-      var photos = []
-      var index = 0;
+  // if(group && group.picasaUsername.length && currentActivityHasPhotos()) {
+  //   $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, activity.picasaTags, function(images) {
+  //     var photos = []
+  //     var index = 0;
 
-      $.each(images, function(i, element) {
-        var version = element.versions[0];
-        if (!index) {
-          Session.set("activityImageUrl", version.url);
-        }
+  //     $.each(images, function(i, element) {
+  //       var version = element.versions[0];
+  //       if (!index) {
+  //         Session.set("activityImageUrl", version.url);
+  //       }
 
-        photos.push({
-          url: version.url, 
-          thumbUrl: element.thumbs[0].url,
-          caption: element.title
-        });
+  //       photos.push({
+  //         url: version.url, 
+  //         thumbUrl: element.thumbs[0].url,
+  //         caption: element.title
+  //       });
 
-        index += 1;
-      });
+  //       index += 1;
+  //     });
 
-      renderPicasaPhotos(photos, options);
-    });
-  }
+  //     renderPicasaPhotos(photos, options);
+  //   });
+  // }
 
   ///////////////////////
   // Share this on Google+

@@ -7,6 +7,7 @@ http_path = "/"
 css_dir = "stylesheets"
 sass_dir = "sass"
 add_import_path "sass/app"
+add_import_path "sass/fonticons"
 images_dir = "images"
 javascripts_dir = "javascripts"
 

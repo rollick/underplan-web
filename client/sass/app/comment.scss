@@ -4,11 +4,8 @@
   @include entry-with-profile(3.3em);
 
   border-bottom: 1px solid $secondary-color;
-  padding: 0.85em 0 0.4em 0;
-
-  // input:focus {
-  //   box-shadow: none;
-  // }
+  padding-bottom: 0.8em;
+  margin: 0;
 
   &:last-of-type {
     border-bottom: none;
@@ -47,7 +44,7 @@
   .user-comment {
     @include entry-with-profile(3.3em, false);
 
-    padding: 0.5em 0 0 0 !important;
+    padding: 0em;
 
     .top-section {
       margin-bottom: 0em;

@@ -1,0 +1,261 @@
+/* Galleria Folio Theme 2012-08-07 | http://galleria.io/license/ | (c) Aino */
+/* line 14, ../../sass/_vendor/galleria.folio.scss */
+#galleria-loader {
+  height: 1px !important;
+}
+
+/* line 16, ../../sass/_vendor/galleria.folio.scss */
+.galleria-container {
+  position: relative;
+  font-family: arial,sans-serif;
+  background: #fff;
+}
+
+/* line 21, ../../sass/_vendor/galleria.folio.scss */
+.galleria-container img {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -o-user-select: none;
+}
+
+/* line 26, ../../sass/_vendor/galleria.folio.scss */
+.galleria-stage {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  top: 0;
+  left: -10000px;
+  position: absolute;
+}
+
+/* line 35, ../../sass/_vendor/galleria.folio.scss */
+.galleria-thumbnails .galleria-image {
+  width: 70px;
+  /* netAction */
+  height: 120px;
+  margin: 1px 0 0 1px;
+  /* netAction */
+  border: 1px solid #dbdbdb;
+  position: absolute !important;
+  top: 0;
+  left: 0;
+  cursor: pointer;
+  /* opera */
+  cursor: url("/images/galleria/cursor-zoom.png"), -moz-zoom-in;
+  /* chrome, FF */
+  cursor: pointer\9;
+  /* IE */
+  background: #eeeeee url("/images/galleria/miniloader.gif") no-repeat 50% 50%;
+}
+@media only screen and (min-width: 48em) {
+  /* line 35, ../../sass/_vendor/galleria.folio.scss */
+  .galleria-thumbnails .galleria-image {
+    width: 98px;
+    /* netAction */
+    margin: 0 12px 12px 0;
+    /* netAction */
+    border: 4px solid #dbdbdb;
+  }
+}
+
+/* line 55, ../../sass/_vendor/galleria.folio.scss */
+.galleria-loader {
+  width: 64px;
+  height: 64px;
+  display: none;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -16px;
+  margin-top: -16px;
+  background: black url("/images/galleria/loader.gif") no-repeat 50% 50%;
+  z-index: 3;
+  opacity: .5;
+  filter: alpha(opacity=50);
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+
+/* line 73, ../../sass/_vendor/galleria.folio.scss */
+.galleria-info {
+  display: none;
+  background: #000;
+  color: #fff;
+  padding: 8px 0;
+  z-index: 3;
+  position: absolute;
+  bottom: 10px;
+  background: rgba(0, 0, 0, 0.7);
+  font-size: 12px;
+  line-height: 16px;
+  max-width: 50%;
+}
+
+/* line 87, ../../sass/_vendor/galleria.folio.scss */
+.galleria-info-text {
+  padding: 0 12px;
+}
+
+/* line 91, ../../sass/_vendor/galleria.folio.scss */
+.galleria-info-description {
+  color: #bbb;
+}
+
+/* line 95, ../../sass/_vendor/galleria.folio.scss */
+:root * > .galleria-info-description {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* line 99, ../../sass/_vendor/galleria.folio.scss */
+.galleria-plus {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: url("/images/galleria/bg.png");
+  color: #fff;
+  line-height: 1.2;
+  font-size: 11px;
+  display: none;
+}
+
+/* line 111, ../../sass/_vendor/galleria.folio.scss */
+.galleria-plus span {
+  position: absolute;
+  bottom: 5px;
+  left: 5px;
+  background: #000;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 1px 5px;
+  max-width: 160px;
+}
+
+/* line 121, ../../sass/_vendor/galleria.folio.scss */
+.galleria-close {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 0;
+  right: 0;
+  background: url("/images/galleria/close.png") no-repeat 0 0;
+  z-index: 100;
+  cursor: pointer;
+}
+
+/* line 132, ../../sass/_vendor/galleria.folio.scss */
+.galleria-close:hover {
+  background-position: 0 -50px;
+}
+
+/* line 136, ../../sass/_vendor/galleria.folio.scss */
+.galleria-image-nav {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+/* line 144, ../../sass/_vendor/galleria.folio.scss */
+.galleria-image-nav-left,
+.galleria-image-nav-right {
+  width: 50%;
+  height: 100%;
+  background: url("/images/galleria/left.png") no-repeat 0 50%;
+  position: absolute;
+  left: 0;
+  z-index: 3;
+  cursor: pointer;
+}
+
+/* line 153, ../../sass/_vendor/galleria.folio.scss */
+.galleria-image-nav-right {
+  left: auto;
+  right: 0;
+  background: url("/images/galleria/right.png") no-repeat 100% 50%;
+}
+
+/* line 159, ../../sass/_vendor/galleria.folio.scss */
+.galleria-image-nav-left:hover {
+  background-image: url("/images/galleria/left-hover.png");
+}
+
+/* line 160, ../../sass/_vendor/galleria.folio.scss */
+.galleria-image-nav-right:hover {
+  background-image: url("/images/galleria/right-hover.png");
+}
+
+/* line 162, ../../sass/_vendor/galleria.folio.scss */
+.galleria-image-nav-left.cur {
+  cursor: url("/images/galleria/left-cursor.png"), pointer;
+  background: none !important;
+}
+
+/* line 163, ../../sass/_vendor/galleria.folio.scss */
+.galleria-image-nav-right.cur {
+  cursor: url(right-cursor.png), pointer;
+  background: none !important;
+}
+
+/* line 165, ../../sass/_vendor/galleria.folio.scss */
+.galleria-container.iframe .galleria-image-nav {
+  height: 100px;
+  top: 50%;
+  margin-top: -50px;
+}
+
+/* line 167, ../../sass/_vendor/galleria.folio.scss */
+.galleria-container.iframe.touch .galleria-images iframe {
+  margin-top: 40px;
+}
+
+/* line 168, ../../sass/_vendor/galleria.folio.scss */
+.galleria-container.iframe.touch .galleria-info {
+  bottom: 40px;
+}
+
+/* line 171, ../../sass/_vendor/galleria.folio.scss */
+.galleria-container.iframe .galleria-image-nav-left,
+.galleria-container.iframe .galleria-image-nav-left.cur {
+  cursor: pointer;
+  background: url("/images/galleria/left.png") no-repeat 0 50% !important;
+  width: 100px;
+}
+
+/* line 173, ../../sass/_vendor/galleria.folio.scss */
+.galleria-container.iframe .galleria-image-nav-right,
+.galleria-container.iframe .galleria-image-nav-right.cur {
+  cursor: pointer;
+  background: url("/images/galleria/right.png") no-repeat 100% 50% !important;
+  width: 100px;
+}
+
+/* line 176, ../../sass/_vendor/galleria.folio.scss */
+.galleria-container.iframe .galleria-image-nav-left:hover,
+.galleria-container.iframe .galleria-image-nav-left.cur:hover {
+  background-image: url("/images/galleria/left-hover.png") !important;
+}
+
+/* line 178, ../../sass/_vendor/galleria.folio.scss */
+.galleria-container.iframe .galleria-image-nav-right:hover,
+.galleria-container.iframe .galleria-image-nav-right.cur:hover {
+  background-image: url("/images/galleria/right-hover.png") !important;
+}
+
+/* line 180, ../../sass/_vendor/galleria.folio.scss */
+.galleria-preloader {
+  height: 4px;
+  width: 180px;
+  background: #eee;
+  position: absolute;
+  top: 0;
+}
+
+/* line 181, ../../sass/_vendor/galleria.folio.scss */
+.galleria-loaded {
+  height: 4px;
+  width: 0%;
+  background: #444;
+}

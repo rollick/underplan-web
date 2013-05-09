@@ -1,13 +1,9 @@
 <template name="commentList">
-  <div class="row">
-    <div class="small-12 large-12 columns">
-      {{#if anyComments}}
-        {{#each comments}}
-          {{> comment this}}
-        {{/each}}
-      {{/if}}
-    </div>
-  </div>
+  {{#if anyComments}}
+    {{#each comments}}
+      {{> comment this}}
+    {{/each}}
+  {{/if}}
 </template>
 
 <template name="comment">
@@ -17,17 +13,15 @@
         <img src="{{profilePicture owner}}">
       </div>
       <div class="details">
-        <div class="owner">
-          {{userName owner}}
-          {{#if canDelete}}
-            <a href="#" class="remove" style="display: none;">remove</a>
-          {{/if}}
-        </div>
-        <div class="date">
-          {{date created}}
-        </div>
+        <div class="owner">{{userName owner}}</div>
+        <div class="date">{{date created}}</div>
       </div>
     </div>
+    {{#if canRemove}}
+      <div class="actions">
+        <a href="#" class="remove action"></a>
+      </div>
+    {{/if}}
     <div class="content">
       {{#markdown}}{{comment}}{{/markdown}}
     </div>

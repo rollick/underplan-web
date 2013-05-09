@@ -1,22 +1,20 @@
 <template name="shortContent">
-  <div class="short" id="{{_id}}">
-    <div class="top-section">
-      <div class="picture">
-        <img src="{{profilePicture owner}}">
-      </div>
-      <div class="details">
-        <div class="owner">
-          {{userName owner}}
-        </div>
-        <div class="date">{{date created}} {{basicLocation}}</div>
-        {{#if canDelete}}
-          <a href="#" class="remove" style="display: none;">remove</a>
-        {{/if}}
-      </div>
+  <div class="top-section">
+    <div class="picture">
+      <img src="{{profilePicture owner}}">
     </div>
-    <div class="content">
-      {{#markdown}}{{text}}{{/markdown}}
+    <div class="details">
+      <div class="owner">{{userName owner}}</div>
+      <div class="date">{{date created}} {{basicLocation}}</div>
     </div>
+  </div>
+  {{#if canRemove}}
+    <div class="actions">
+      <a href="#" class="remove action"></a>
+    </div>
+  {{/if}}
+  <div class="content">
+    {{#markdown}}{{text}}{{/markdown}}
   </div>
 </template>
 

@@ -49,7 +49,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.0");
+  Session.set("appVersion", "v1.1");
 
   // Routing
   Backbone.history.start({ pushState: true });
@@ -65,9 +65,13 @@ Meteor.startup(function () {
 // Templates
 
 this.feedLimitSkip   = 5;
-this.galleryLimitSkip = 24;
+this.galleryLimitSkip = 12;
 this.defaultMapZoom  = 12;
 this.shortMaxLength  = 250;
+Galleria.configure({
+  _animate: false
+});
+this.picasa = new Galleria.Picasa();
 
 this.appTemplates = function () {
   return {

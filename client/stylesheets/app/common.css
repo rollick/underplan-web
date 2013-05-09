@@ -1271,95 +1271,15 @@ blockquote p {
 }
 
 /* line 59, ../../sass/app/common.scss */
-.action {
-  margin-top: -5px !important;
-}
-/* line 62, ../../sass/app/common.scss */
-.action ul {
-  list-style: none;
-  display: inline;
-  width: auto;
-  float: right;
-}
-/* line 68, ../../sass/app/common.scss */
-.action ul li {
-  float: left;
-  padding-left: 5px;
-}
-/* line 73, ../../sass/app/common.scss */
-.action ul > .separator {
-  width: 2px;
-  height: 24px;
-  margin: 8px 1px 0 1px;
-  border-right: 1px solid green;
-}
-/* line 85, ../../sass/app/common.scss */
-.action a {
-  font-size: 0.95em;
-  height: 34px;
-  line-height: 33px;
-  padding: 0;
-  color: green;
-}
-/* line 92, ../../sass/app/common.scss */
-.action a.disabled {
-  opacity: 0.3;
-}
-/* line 106, ../../sass/app/common.scss */
-.action a.new-short {
-  text-indent: -35px;
-}
-/* line 110, ../../sass/app/common.scss */
-.action.new-comment {
-  float: right;
-}
-/* line 113, ../../sass/app/common.scss */
-.action.new-comment a {
-  text-indent: -73px;
-}
-/* line 120, ../../sass/app/common.scss */
-.action.new-comment span:before,
-.action a.new-short:before,
-.action a.new-story:before {
-  content: "+";
-  font-size: 1.6em;
-  font-weight: bold;
-  padding-right: 1px;
-  top: 3px;
-  position: relative;
-}
-
-@media only screen and (min-width: 48em) {
-  /* line 131, ../../sass/app/common.scss */
-  .action a {
-    font-size: 0.9em;
-  }
-
-  /* line 135, ../../sass/app/common.scss */
-  .action {
-    margin-top: 4px !important;
-  }
-
-  /* line 139, ../../sass/app/common.scss */
-  .action.new-short a {
-    text-indent: -28px;
-  }
-
-  /* line 143, ../../sass/app/common.scss */
-  .action.new-comment a {
-    text-indent: -65px;
-  }
-}
-/* line 148, ../../sass/app/common.scss */
 .activity {
   margin-bottom: 10px;
 }
-/* line 151, ../../sass/app/common.scss */
+/* line 62, ../../sass/app/common.scss */
 .activity .action {
   margin-top: -25px !important;
   height: 30px;
 }
-/* line 155, ../../sass/app/common.scss */
+/* line 66, ../../sass/app/common.scss */
 .activity blockquote {
   margin-bottom: 0px;
 }

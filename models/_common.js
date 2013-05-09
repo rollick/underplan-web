@@ -1,5 +1,5 @@
 if(Meteor.isServer) {
-  groupMemberEmails = function (groupId) {
+  this.groupMemberEmails = function (groupId) {
     var group = Groups.findOne(groupId);
 
     if(!group)
@@ -19,7 +19,7 @@ if(Meteor.isServer) {
   };
 
   // Find all users in the system who are following this group
-  groupFollowerEmails = function(groupId) {
+  this.groupFollowerEmails = function(groupId) {
     var emails = [];
     Meteor.users.find({}).forEach( function (user) {
       if (user.profile && user.profile.followedGroups) {
@@ -34,7 +34,17 @@ if(Meteor.isServer) {
   };
 }
 
-userBelongsToGroup = function(userId, groupId) {
+/////////////////////////////////////
+// Server and Client Methods
+
+this.canUserRemoveActivity = function (userId, activityId) {
+  var activity = Activities.findOne(activityId);
+  var groupId = activity.group;
+
+  return (isGroupAdmin(userId, groupId) || isSystemAdmin(userId) || activity.owner === userId);
+};
+
+this.userBelongsToGroup = function(userId, groupId) {
   group = Groups.findOne(groupId);
   if (!group) {
     return false;
@@ -45,11 +55,11 @@ userBelongsToGroup = function(userId, groupId) {
   }
 };
 
-createLinkSlug = function (str) {
+this.createLinkSlug = function (str) {
   return str.replace(/!|'|"|,/g, "").replace(/\s/g, "-").toLowerCase();
 }
 
-displayName = function (user) {
+this.displayName = function (user) {
   if (user.profile && user.profile.name)
     return user.profile.name;
   
@@ -61,7 +71,7 @@ displayName = function (user) {
   }
 };
 
-isGroupAdmin = function (userId, groupId) {
+this.isGroupAdmin = function (userId, groupId) {
   var group = Groups.findOne({_id: groupId});
 
   if(!!group && group.owner === userId) {
@@ -71,7 +81,7 @@ isGroupAdmin = function (userId, groupId) {
   }
 };
 
-isSystemAdmin = function (userId) {
+this.isSystemAdmin = function (userId) {
   var user = Meteor.users.findOne({_id: userId});
 
   if(!!user && user.admin) {
@@ -81,7 +91,7 @@ isSystemAdmin = function (userId) {
   }
 };
 
-userEmail = function (user) {
+this.userEmail = function (user) {
   if(!user)
     return null;
 
@@ -92,7 +102,7 @@ userEmail = function (user) {
   return null;
 };
 
-userPicture = function (user, width) {
+this.userPicture = function (user, width) {
   if(!user)
     return null;
 
