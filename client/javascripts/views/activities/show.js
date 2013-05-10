@@ -14,7 +14,6 @@ Template.currentActivity.helpers({
     if (_.isString(activity.picasaTags) && activity.picasaTags.length)
       params.tag = activity.picasaTags;
 
-    var picasa = new Galleria.Picasa();
     picasa.setOptions({max: 99}); // Note: Hope there isn't more in this story...
     picasa.useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
         Galleria.run(element, {
@@ -162,69 +161,6 @@ Template.currentActivity.facebookShareUrl = function () {
 }
 
 Template.currentActivity.created = function() {
-  // var group = getCurrentGroup();
-  // var activity = getCurrentActivity();
-
-  // ///////////////////////
-  // // Google Map
-  // if(activity && currentActivityHasMap) {
-  //   var dimensions = "600x240";
-  //   var zoom = activity.mapZoom || defaultMapZoom;
-  //   var apiKey = appSettings().mapsApiKey;
-    
-  //   // FIXME: The code here shouldn't ned to know about DOM elements.
-  //   if(parseInt($("body").css("width").match(/\d+/g)) > 767)
-  //     dimensions = "300x240";
-
-  //   imageUrl = "http://maps.googleapis.com/maps/api/staticmap?center=:lat,:lng&zoom=:zoom&size=:dimensions&maptype=roadmap&markers=color:green|label::location|:lat,:lng&sensor=false";
-  //   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
-  //                       replace(/:lat/g, activity.lat).
-  //                       replace(/:lng/g, activity.lng).
-  //                       replace(/:zoom/, zoom).
-  //                       replace(/:location/, activity.location);
-
-  //   // imageUrl without possible apiKey                        
-  //   Session.set("activityMapUrl", imageUrl);
-
-  //   if(apiKey != "")
-  //     imageUrl = imageUrl + "&key=" + apiKey;
-
-  //   mapUrl = "http://maps.google.com/maps?t=h&q=loc::lat,:lng&z=:zoom";
-  //   mapUrl = mapUrl.replace(/:zoom/, zoom).
-  //                   replace(/:lat/g, activity.lat).
-  //                   replace(/:lng/g, activity.lng);
-
-  //   $(".activity-map").html('<a target="_blank" href="' + mapUrl + '" class="th"><img src="' + imageUrl + '"></a>');
-  // }
-
-  ///////////////////////
-  // Picasa Image (WIP)
-  // var options = {gridLarge: 10, gridSmall: 4, element: ".activity-photos"};
-
-  // if(group && group.picasaUsername.length && currentActivityHasPhotos()) {
-  //   $.picasa.images(group.picasaUsername, group.picasaAlbum, group.picasaKey, activity.picasaTags, function(images) {
-  //     var photos = []
-  //     var index = 0;
-
-  //     $.each(images, function(i, element) {
-  //       var version = element.versions[0];
-  //       if (!index) {
-  //         Session.set("activityImageUrl", version.url);
-  //       }
-
-  //       photos.push({
-  //         url: version.url, 
-  //         thumbUrl: element.thumbs[0].url,
-  //         caption: element.title
-  //       });
-
-  //       index += 1;
-  //     });
-
-  //     renderPicasaPhotos(photos, options);
-  //   });
-  // }
-
   ///////////////////////
   // Share this on Google+
   window.___gcfg = {lang: 'en-GB'};
@@ -235,3 +171,10 @@ Template.currentActivity.created = function() {
     var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
   })();
 };
+
+
+Template.currentActivity.destroyed = function () {
+  var gallery = Galleria.get(0);
+  if (_.isObject(gallery))
+    gallery.destroy();
+}

@@ -394,11 +394,83 @@
   }
 }
 
+@keyframes nodeInserted {  
+    from {  
+        clip: rect(1px, auto, auto, auto);  
+    }
+    to {  
+        clip: rect(0px, auto, auto, auto);
+    }  
+}
+
+@-moz-keyframes nodeInserted {  
+    from {  
+        clip: rect(1px, auto, auto, auto);  
+    }
+    to {  
+        clip: rect(0px, auto, auto, auto);
+    }  
+}
+
+@-webkit-keyframes nodeInserted {  
+    from {  
+        clip: rect(1px, auto, auto, auto);  
+    }
+    to {  
+        clip: rect(0px, auto, auto, auto);
+    }  
+}
+
+@-ms-keyframes nodeInserted {  
+    from {  
+        clip: rect(1px, auto, auto, auto);  
+    }
+    to {  
+        clip: rect(0px, auto, auto, auto);
+    }  
+}
+
+@-o-keyframes nodeInserted {  
+    from {  
+        clip: rect(1px, auto, auto, auto);  
+    }
+    to {  
+        clip: rect(0px, auto, auto, auto);
+    }  
+} 
+
 .feed-extra {
   @include grid-column(12);
 
   @media only screen and (min-width: 48em) {
     @include grid-column(7);
+  }
+
+  .map {
+    @include grid-row(nest);
+
+    animation-duration: 0.001s;
+    -o-animation-duration: 0.001s;
+    -ms-animation-duration: 0.001s;
+    -moz-animation-duration: 0.001s;
+    -webkit-animation-duration: 0.001s;
+    animation-name: nodeInserted;
+    -o-animation-name: nodeInserted;
+    -ms-animation-name: nodeInserted;        
+    -moz-animation-name: nodeInserted;
+    -webkit-animation-name: nodeInserted;
+
+    margin-bottom: 1em;
+
+    & > .inner {
+      @include grid-column(12);
+
+      height: 240px;
+
+      @media only screen and (min-width: 48em) {
+        height: 400px;
+      }
+    }
   }
 
   .gallery {

@@ -1903,7 +1903,67 @@ blockquote p {
   height: 100%;
 }
 
-/* line 397, ../../sass/app/feed.scss */
+@keyframes nodeInserted {
+  /* line 398, ../../sass/app/feed.scss */
+  from {
+    clip: rect(1px, auto, auto, auto);
+  }
+
+  /* line 401, ../../sass/app/feed.scss */
+  to {
+    clip: rect(0px, auto, auto, auto);
+  }
+}
+
+@-moz-keyframes nodeInserted {
+  /* line 407, ../../sass/app/feed.scss */
+  from {
+    clip: rect(1px, auto, auto, auto);
+  }
+
+  /* line 410, ../../sass/app/feed.scss */
+  to {
+    clip: rect(0px, auto, auto, auto);
+  }
+}
+
+@-webkit-keyframes nodeInserted {
+  /* line 416, ../../sass/app/feed.scss */
+  from {
+    clip: rect(1px, auto, auto, auto);
+  }
+
+  /* line 419, ../../sass/app/feed.scss */
+  to {
+    clip: rect(0px, auto, auto, auto);
+  }
+}
+
+@-ms-keyframes nodeInserted {
+  /* line 425, ../../sass/app/feed.scss */
+  from {
+    clip: rect(1px, auto, auto, auto);
+  }
+
+  /* line 428, ../../sass/app/feed.scss */
+  to {
+    clip: rect(0px, auto, auto, auto);
+  }
+}
+
+@-o-keyframes nodeInserted {
+  /* line 434, ../../sass/app/feed.scss */
+  from {
+    clip: rect(1px, auto, auto, auto);
+  }
+
+  /* line 437, ../../sass/app/feed.scss */
+  to {
+    clip: rect(0px, auto, auto, auto);
+  }
+}
+
+/* line 442, ../../sass/app/feed.scss */
 .feed-extra {
   position: relative;
   padding-left: 0.9375em;
@@ -1912,7 +1972,7 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 397, ../../sass/app/feed.scss */
+  /* line 442, ../../sass/app/feed.scss */
   .feed-extra {
     position: relative;
     padding-left: 0.9375em;
@@ -1921,17 +1981,62 @@ blockquote p {
     float: left;
   }
 }
-/* line 405, ../../sass/app/feed.scss */
+/* line 449, ../../sass/app/feed.scss */
+.feed-extra .map {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
+  animation-duration: 0.001s;
+  -o-animation-duration: 0.001s;
+  -ms-animation-duration: 0.001s;
+  -moz-animation-duration: 0.001s;
+  -webkit-animation-duration: 0.001s;
+  animation-name: nodeInserted;
+  -o-animation-name: nodeInserted;
+  -ms-animation-name: nodeInserted;
+  -moz-animation-name: nodeInserted;
+  -webkit-animation-name: nodeInserted;
+  margin-bottom: 1em;
+}
+/* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.feed-extra .map:before, .feed-extra .map:after {
+  content: " ";
+  display: table;
+}
+/* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.feed-extra .map:after {
+  clear: both;
+}
+/* line 465, ../../sass/app/feed.scss */
+.feed-extra .map > .inner {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+  height: 240px;
+}
+@media only screen and (min-width: 48em) {
+  /* line 465, ../../sass/app/feed.scss */
+  .feed-extra .map > .inner {
+    height: 400px;
+  }
+}
+/* line 477, ../../sass/app/feed.scss */
 .feed-extra .gallery .recent-photos {
   height: 240px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 405, ../../sass/app/feed.scss */
+  /* line 477, ../../sass/app/feed.scss */
   .feed-extra .gallery .recent-photos {
     height: 400px;
   }
 }
-/* line 414, ../../sass/app/feed.scss */
+/* line 486, ../../sass/app/feed.scss */
 .feed-extra .gallery-more {
   width: auto;
   margin-left: -0.9375em;
@@ -1963,12 +2068,12 @@ blockquote p {
   text-align: center;
 }
 
-/* line 420, ../../sass/app/feed.scss */
+/* line 492, ../../sass/app/feed.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 423, ../../sass/app/feed.scss */
+/* line 495, ../../sass/app/feed.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;

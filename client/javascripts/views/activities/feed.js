@@ -6,13 +6,6 @@ var dashboardMap = null;
 var dashboardMapBounds = null;
 
 Template.activityFeed.helpers({
-  activitiesMap: function () {
-    var recentActivities = [];
-    if(!!Session.get("feedFilter").group) {
-      recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
-    }
-    generateActivitesMap(group, ".activities-map:visible", recentActivities);
-  },
   feedTitle: function() {
     text = "All Activities";
     if (!Template.feedList.feedLimitReached()) {
@@ -278,21 +271,28 @@ Template.feedItemActions.countText = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Map
 
-Template.feedMap.rendered = function () {
-  var group = Groups.findOne(Session.get("groupId"));
-  var recentActivities = [];
+Template.feedMap.helpers({
+  map: function () {
+    if(!!Session.get("feedFilter").group) {
+      var group = Groups.findOne(Session.get("feedFilter").group);
+      var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
 
-  if(!!Session.get("feedFilter").group) {
-    recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
-  }
-
-  generateActivitesMap(group, ".activities-map:visible", recentActivities);
+      // Create an event to be triggered when map element is in the DOM
+      // See hack here: http://jsfiddle.net/Zzw2M/33/light/
+      event = function(event){
+        if (event.animationName == 'nodeInserted') {
+          generateActivitesMap(group, "#activities-map", recentActivities);
+        }
+      } 
+      document.addEventListener('animationstart', event, false);
+      document.addEventListener('MSAnimationStart', event, false);
+      document.addEventListener('webkitAnimationStart', event, false);
   
-  // google.maps.event.addListener(map, 'tilesloaded', _.bind(function() {
-  //   generateActivitesMap(group, ".activities-map:visible");
-  //   google.maps.event.clearListeners(map, 'tilesloaded');
-  // }, this));
-};
+      return new Handlebars.SafeString("<p class=\"alert-box secondary\">Loading map...</p>");
+    }
+    
+  },
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Gallery
@@ -366,6 +366,12 @@ Template.feedGallery.picasaGalleryUrl = function () {
 
   return "https://picasaweb.google.com/" + picasaPath;
 };
+
+Template.feedGallery.destroyed = function () {
+  var gallery = Galleria.get(0);
+  if (_.isObject(gallery))
+    gallery.destroy();
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Common Functions
