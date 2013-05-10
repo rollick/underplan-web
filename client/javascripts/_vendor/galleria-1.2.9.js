@@ -3714,7 +3714,8 @@ Galleria.prototype = {
 
     push : function() {
         var self = this,
-            args = Utils.array( arguments );
+            args = Utils.array( arguments[0] ),
+            callback = arguments[1];
 
         if ( args.length == 1 && args[0].constructor == Array ) {
             args = args[0];
@@ -3723,6 +3724,10 @@ Galleria.prototype = {
         window.setTimeout(function() {
             protoArray.push.apply( self._data, args );
             self._parseData()._createThumbnails( args );
+
+            if (typeof callback === 'function') {
+                callback.call( self );
+            }
         },2);
         return self;
     },

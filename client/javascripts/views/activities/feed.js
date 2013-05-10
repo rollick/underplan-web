@@ -311,34 +311,43 @@ Template.feedGallery.helpers({
   gallery: function () {
     var group = Groups.findOne(Session.get("groupId"));
     var params = {};
-    var offset = Session.get("galleryLimit") - galleryLimitSkip;
+    // NOTE: this needs work. shouldn't always assume skip limit is max loaded
+    var limit = galleryLimitSkip;
+    var offset = Session.get("galleryLimit") - limit;
 
     if (_.isString(group.picasaKey) && group.picasaKey.length)
       params.authkey = group.picasaKey;
 
-    if (Session.get("galleryLimit") > galleryLimitSkip)
+    if (Session.get("galleryLimit") > limit)
       params["start-index"] = offset;
 
     var self = this;
     $(".gallery-more a").addClass("disabled");
 
-    // NOTE: this needs work. shouldn't always assume skip limit is max loaded
     picasa.setOptions({
-      max: galleryLimitSkip
-    }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {   
-        // Create initial gallery
-        if (offset > 0) {
-          Galleria.get(0).push( data ); 
-        } else { // Append data to existing gallery
-          Galleria.run('.recent-photos', {
-              dataSource: data,
-              showInfo: true
-          });
-        }
+      max: limit
+    }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
+      // Create initial gallery
+      if (offset > 0) {
+        var gallery = Galleria.get(0);
+        var currentLength = gallery.getDataLength();
 
+        var t = gallery.push(data, function () {
+          this.show(this.getDataLength() - limit);
+        });
+      } else { // Append data to existing gallery
+        Galleria.run('.recent-photos', {
+            dataSource: data,
+            showInfo: true
+        });
+      }
+      
+      if (data.length < limit) {
+        $(".gallery-more a").hide();
+      } else {
         $(".gallery-more a").removeClass("disabled");
+      }
     });      
-
 
     return new Handlebars.SafeString("<p class=\"alert-box secondary\">Loading photos...</p>");
   }
