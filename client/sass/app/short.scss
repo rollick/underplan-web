@@ -53,6 +53,18 @@ $entry-bottom-margin: 0.9em;
         }
       }
 
+      .location-section {
+        .location-fields {
+          display: none;
+        }
+
+        .show-advanced-location {
+          &:before {
+            content: "- ";
+          }
+        }
+      }
+
       &.expanded {
         .location-section, 
         .action-section {

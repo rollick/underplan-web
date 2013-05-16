@@ -30,14 +30,21 @@
     </div>
     <div class="location-section">
       <div class="small-12 large-12 columns">
-        <label>Location</label>
+        <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
         <input type="text" id="location" value="" placeholder="Enter a location...">
         <div class="location-coords input-subtext"></div>
-        <input type="hidden" id="lat" value="">
-        <input type="hidden" id="lng" value="">
-        <input type="hidden" id="city" value="">
-        <input type="hidden" id="country" value="">
-        <input type="hidden" id="region" value="">
+
+        <fieldset class="location-fields">
+          <legend>Location Fields (Advanced)</legend>
+          <input type="hidden" id="lat" value="">
+          <input type="hidden" id="lng" value="">
+          <label>City</label>
+          <input type="text" id="city" value="">
+          <label>Region</label>
+          <input type="text" id="region" value="">
+          <label>Country</label>
+          <input type="text" id="country" value="">
+        </div>
       </div>
     </div>
     <div class="action-section">
