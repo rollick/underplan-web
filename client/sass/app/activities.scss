@@ -2,7 +2,7 @@
 
 .activity {
 
-  &.story {
+  &.story-full {
 
     & > .inner {
       @include grid-row(nest);
@@ -83,6 +83,12 @@
       content: "";
     }
 
+  }
+
+  .story-comments {
+    .comment .top-section {
+      // padding: 0em;
+    }
   }
   
   .share-links {

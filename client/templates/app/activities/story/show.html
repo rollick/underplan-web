@@ -18,7 +18,7 @@
 <template name="currentActivity">
   {{#if activity}}
     {{#with activity}}
-      <div class="activity story" itemscope itemtype="http://schema.org/BlogPosting">
+      <div class="activity story-full" itemscope itemtype="http://schema.org/BlogPosting">
         <div class="inner">
           <div class="title">
             <h2 itemprop="name">{{title}}</h2>
@@ -84,7 +84,7 @@
         <h4>Comments</h4>
       </div>
     </div>
-    <div class="row">
+    <div class="row story-comments">
       <div class="small-12 large-12 columns">
         {{#if anyComments}}
           {{> commentList activity}}

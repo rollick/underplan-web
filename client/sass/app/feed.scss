@@ -184,15 +184,15 @@
 
     padding-bottom: 0px;
 
-    &.story {
-      .actions {
-        margin-top: -0.2em;
-        right: 3.3em;
-      }
+    .actions {
+      margin-top: 0.1em;
     }
 
-    .actions {
-      margin-top: -0.2em;
+    &.story {
+      .actions {
+        // margin-top: 0.1em;
+        right: 3.3em;
+      }
     }
 
     .content {
@@ -441,6 +441,9 @@
 
 .feed-extra {
   @include grid-column(12);
+
+  padding: 0.3em;
+  padding-top: 0em;
 
   @media only screen and (min-width: 48em) {
     @include grid-column(7);

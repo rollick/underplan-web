@@ -1321,12 +1321,20 @@ blockquote p {
 .short-form .form-content form .action-section .button {
   margin-bottom: 0em;
 }
-/* line 58, ../../sass/app/short.scss */
+/* line 57, ../../sass/app/short.scss */
+.short-form .form-content form .location-section .location-fields {
+  display: none;
+}
+/* line 62, ../../sass/app/short.scss */
+.short-form .form-content form .location-section .show-advanced-location:before {
+  content: "- ";
+}
+/* line 70, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .location-section,
 .short-form .form-content form.expanded .action-section {
   display: inherit;
 }
-/* line 63, ../../sass/app/short.scss */
+/* line 75, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .input-field {
   position: relative;
   padding-left: 0.9375em;
@@ -1334,12 +1342,12 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 66, ../../sass/app/short.scss */
+/* line 78, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .input-field textarea {
   margin-bottom: 0.8em;
   height: 80px;
 }
-/* line 72, ../../sass/app/short.scss */
+/* line 84, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .add-story {
   display: none;
 }

@@ -64,8 +64,9 @@
   @include grid-row(nest);
   $top-section-height: 2.8em;
   $top-section-margin: 0.5em;
+  $top-section-padding: 0.3em;
 
-  padding: $picture-width*0.2 0;
+  padding: $top-section-padding 0;
   margin: $top-section-margin 0 0 0;
 
   .top-section {
@@ -125,7 +126,7 @@
 
   .actions {
     height: $top-section-height !important;
-    margin-top: -$picture-width*0.2;
+    margin-top: -$top-section-padding;
     font-size: 1em;
     color: black;
     z-index: 102;
