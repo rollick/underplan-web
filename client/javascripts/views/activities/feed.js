@@ -327,21 +327,24 @@ Template.feedGallery.helpers({
     picasa.setOptions({
       max: limit
     }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
-      // Create initial gallery
-      if (offset > 0) {
+
+      if (offset > 0) { // Append data to existing gallery
         var gallery = Galleria.get(0);
         var currentLength = gallery.getDataLength();
 
         var t = gallery.push(data, function () {
-          this.show(this.getDataLength() - limit);
+          // Skip to the first of the images just fetched
+          this.show(this.getDataLength() - data.length);
         });
-      } else { // Append data to existing gallery
+
+      } else { // Create initial gallery
         Galleria.run('.recent-photos', {
             dataSource: data,
             showInfo: true
         });
       }
       
+      // Hide the more button if no more pics to fetch
       if (data.length < limit) {
         $(".gallery-more a").hide();
       } else {
