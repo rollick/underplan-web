@@ -21,6 +21,67 @@
   }
 }
 
+@mixin keyframe($name) {
+  @keyframes $name {  
+    from { clip: rect(1px, auto, auto, auto); }
+    to { clip: rect(0px, auto, auto, auto); }
+  }
+
+  @-moz-keyframes $name {  
+    from { clip: rect(1px, auto, auto, auto); }
+    to { clip: rect(0px, auto, auto, auto); }
+  }
+
+  @-webkit-keyframes $name {  
+    from { clip: rect(1px, auto, auto, auto); }
+    to { clip: rect(0px, auto, auto, auto); }  
+  }
+
+  @-ms-keyframes $name {  
+    from { clip: rect(1px, auto, auto, auto); }
+    to { clip: rect(0px, auto, auto, auto); }  
+  }
+
+  @-o-keyframes $name {  
+    from { clip: rect(1px, auto, auto, auto); }
+    to { clip: rect(0px, auto, auto, auto); }  
+  } 
+}
+
+@mixin animation($name) {
+  animation-duration: 0.001s;
+  -o-animation-duration: 0.001s;
+  -ms-animation-duration: 0.001s;
+  -moz-animation-duration: 0.001s;
+  -webkit-animation-duration: 0.001s;
+
+  animation-name: $name;
+  -o-animation-name: $name;
+  -ms-animation-name: $name;        
+  -moz-animation-name: $name;
+  -webkit-animation-name: $name;
+}
+
+@mixin multi-column($columns-large: 2, $columns-small: 1, $column-gap: 0.5em) {
+  display: block;
+
+  -moz-column-count: $columns-small;
+  -moz-column-gap: $column-gap;
+  -webkit-column-count: $columns-small;
+  -webkit-column-gap: $column-gap;
+  column-count: $columns-small;
+  column-gap: $column-gap;
+
+  @media only screen and (min-width: 48em) {  
+    -moz-column-count: $columns-large;
+    -moz-column-gap: $column-gap;
+    -webkit-column-count: $columns-large;
+    -webkit-column-gap: $column-gap;
+    column-count: $columns-large;
+    column-gap: $column-gap;
+  }
+}
+
 @mixin more-button() {
   @include grid-row(nest);
 
@@ -41,8 +102,8 @@
 }
 
 @mixin standard-panel-color() {
-  background-color: #f7f7f7;
-  border: 1px solid #f3f3f3;
+  background-color: #FFF;
+  border: 1px solid rgb(218, 218, 218);
 }
 
 @mixin standard-corners() {
@@ -62,9 +123,9 @@
 
 @mixin entry-with-profile($picture-width: 4em, $fixed-details: true) {
   @include grid-row(nest);
-  $top-section-height: 2.8em;
   $top-section-margin: 0.5em;
   $top-section-padding: 0.3em;
+  $top-section-height: $picture-width;
 
   padding: $top-section-padding 0;
   margin: $top-section-margin 0 0 0;
@@ -82,29 +143,30 @@
       width: $picture-width - 0.4em !important;
       height: $picture-width - 0.2em !important;
 
-      @media only screen and (min-width: 48em) {
-        height: $picture-width !important;
-        width: $picture-width !important;
-      }
+      // @media only screen and (min-width: 48em) {
+      //   height: $picture-width !important;
+      //   width: $picture-width !important;
+      // }
 
       img {
         @include border-radius(4px);
-
-        @media only screen and (min-width: 48em) {
           margin-top: 8px;
-          margin-left: 0px;
-        }
+
+        // @media only screen and (min-width: 48em) {
+        //   margin-left: 0px;
+        // }
       }
     }
 
     .details {
-      @if $fixed-details { height: $picture-width - 0.4em !important; }
+      @if $fixed-details { height: $picture-width !important; }
+    
       margin-left: $picture-width + 0.2em;
+      padding-top: 0.78em;
 
-      @media only screen and (min-width: 48em) {
-        padding-top: 0.5em;
-        @if $fixed-details { height: $picture-width !important; }
-      }
+      // @media only screen and (min-width: 48em) {
+      //   @if $fixed-details { height: $picture-width !important; }
+      // }
 
       .owner {
         line-height: 1em;
@@ -114,6 +176,9 @@
         font-size: 0.9em;
         color: #999999;
         line-height: 1.7em;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
 
         // @media only screen and (min-width: 48em) {
           // &:before {
@@ -160,11 +225,11 @@
   .content {
     @include grid-column(12);
 
-    @media only screen and (min-width: 48em) {
-      @include grid-column(10, false, false, 2);
+    // @media only screen and (min-width: 48em) {
+    //   @include grid-column(10, false, false, 2);
 
-      margin-left: $picture-width + 0.2em !important;
-    }
+    //   margin-left: $picture-width + 0.2em !important;
+    // }
 
     p:last-of-type {
       margin-bottom: 0em;

@@ -3,6 +3,7 @@
 
 .country-filter {
   margin-top: 0.2em !important;
+  background-color: #f5f5f5;
 
   & > .columns {
     min-height: 20px; 
@@ -17,20 +18,27 @@
     dt {
       margin-bottom: 3px;
       margin-left: 0px;
+      margin-right: 16px;
+      padding: 0 0 3px 0;
 
-      &.active a {
-        @include standard-bar-background();
-        @include standard-corners();
-        @include border-radius(4px);
+      &.active { 
+        border-bottom: 2px solid green;
 
-        font-weight: normal;
+        a {
+          @include border-radius(0em);
+
+          background: inherit;
+          font-weight: normal;
+          color: #999;
+        }
+
       }
 
       a {
-        padding: 4px 8px !important;
+        @include border-radius(0em);
+
+        padding: 6px 0px !important;
         vertical-align: bottom;
-        -webkit-border-radius: 12px;
-        border-radius: 12px;
       }      
     }
   }
@@ -109,7 +117,7 @@
   @include grid-column(12);
 
   @media only screen and (min-width: 48em) {
-    @include grid-column(5);
+    @include grid-column(9);
   }
 
   li { 
@@ -131,10 +139,6 @@
     }
   }
 
-  .feed-more {
-    @include more-button();
-  }
-
   .feed-list {
     @include grid-row(nest);
 
@@ -145,7 +149,12 @@
 
     & > .content {
       @include grid-column(12);
+      // @include multi-column();
 
+      display: block;
+      height: 100%;
+      min-height: 100%;
+      border: 1px solid red;
       padding-left: 0.4em;
       padding-right: 0.4em;
 
@@ -155,12 +164,20 @@
       }
     }
   }
+
+  .feed-more {
+    @include more-button();
+  }
 }
 
 .feed-item {
   $story-radius: 4px;
 
-  margin-bottom: 2em;
+  margin-top: 0em;
+  position: absolute;
+
+  &:first-of-type {
+  }
 
   .ribbon-wrapper {
     .ribbon {
@@ -175,13 +192,8 @@
     @include standard-panel-color();
 
     border-bottom: none;
-
-    // -webkit-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
-    // -moz-box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
-    // box-shadow: 0px 0px 8px rgba(0,0,0,0.3);
     position: relative;
     z-index: 90;
-
     padding-bottom: 0px;
 
     .actions {
@@ -197,6 +209,7 @@
 
     .content {
       padding-bottom: 0.5em;
+      padding-top: 0.5em;
 
       a.more {
         line-height: 2.2em;
@@ -359,8 +372,8 @@
     @include grid-row(nest);
 
     height: 0px;
+    margin: 0em;
     overflow: hidden;
-    margin: 0 0em 0.5em 0em;
 
     .comment {
 
@@ -369,13 +382,26 @@
     .inner {
       @include grid-column(12);
 
-      @include border-bottom-left-radius($story-radius);
-      @include border-bottom-right-radius($story-radius);
-
-      background-color: #f7f7f7;
+      background-color: #FFF;
       border: 1px solid #f3f3f3;
       border-top: none;
       padding: 0em;
+    }
+  }
+
+  .feed-comment-form {
+    @include grid-row(nest);
+    
+    overflow: hidden;
+    height: 0px;
+    margin: 0em;
+    background-color: #FFF;
+
+    .inner {
+      @include grid-column(12);
+      @include border-bottom-left-radius($story-radius);
+      @include border-bottom-right-radius($story-radius);
+
       padding-bottom: 0.5em;
     }
   }
@@ -388,56 +414,20 @@
         }
       }
     }
+
     .short-comments {
+      height: 100%;
+      max-height: 450px;
+      overflow-y: scroll;
+    }
+
+    .feed-comment-form {
       height: 100%;
     }
   }
 }
 
-@keyframes nodeInserted {  
-    from {  
-        clip: rect(1px, auto, auto, auto);  
-    }
-    to {  
-        clip: rect(0px, auto, auto, auto);
-    }  
-}
-
-@-moz-keyframes nodeInserted {  
-    from {  
-        clip: rect(1px, auto, auto, auto);  
-    }
-    to {  
-        clip: rect(0px, auto, auto, auto);
-    }  
-}
-
-@-webkit-keyframes nodeInserted {  
-    from {  
-        clip: rect(1px, auto, auto, auto);  
-    }
-    to {  
-        clip: rect(0px, auto, auto, auto);
-    }  
-}
-
-@-ms-keyframes nodeInserted {  
-    from {  
-        clip: rect(1px, auto, auto, auto);  
-    }
-    to {  
-        clip: rect(0px, auto, auto, auto);
-    }  
-}
-
-@-o-keyframes nodeInserted {  
-    from {  
-        clip: rect(1px, auto, auto, auto);  
-    }
-    to {  
-        clip: rect(0px, auto, auto, auto);
-    }  
-} 
+@include keyframe(nodeInserted);
 
 .feed-extra {
   @include grid-column(12);
@@ -446,42 +436,32 @@
   padding-top: 0em;
 
   @media only screen and (min-width: 48em) {
-    @include grid-column(7);
+    @include grid-column(3);
   }
 
   .map {
     @include grid-row(nest);
-
-    animation-duration: 0.001s;
-    -o-animation-duration: 0.001s;
-    -ms-animation-duration: 0.001s;
-    -moz-animation-duration: 0.001s;
-    -webkit-animation-duration: 0.001s;
-    animation-name: nodeInserted;
-    -o-animation-name: nodeInserted;
-    -ms-animation-name: nodeInserted;        
-    -moz-animation-name: nodeInserted;
-    -webkit-animation-name: nodeInserted;
+    @include animation(nodeInserted);
 
     margin-bottom: 1em;
 
     & > .inner {
       @include grid-column(12);
 
-      height: 240px;
+      height: $map-height-small;
 
       @media only screen and (min-width: 48em) {
-        height: 400px;
+        height: $map-height-large;
       }
     }
   }
 
   .gallery {
     .recent-photos {
-      height: 240px;
+      height: $photo-feed-height-small;
 
       @media only screen and (min-width: 48em) {
-        height: 400px;
+        height: $photo-feed-height-large;
       }
     }
   }

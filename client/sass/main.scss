@@ -44,8 +44,7 @@
 // @import "foundation/components/dropdown";
 
 @import "components";
-@import "compass/css3/border-radius";
-@import "compass/css3/images";
+@import "compass";
 
 * {
   margin: 0;
@@ -56,7 +55,7 @@ html, body {
 }
 
 body {
-  background-color: #f0f0f0;
+  background-color: rgb(229, 229, 229);
 }
 
 hr {
@@ -104,6 +103,7 @@ h2, a {
   margin: 20px auto -50px; /* the bottom margin is the negative value of the footer's height */
   margin-top: 0px;
   box-shadow: none;
+  background-color: rgb(229, 229, 229);
 
   &.normal {
     padding-top: 5px;

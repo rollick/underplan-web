@@ -74,14 +74,27 @@ Template.activityFeed.events({
 //   Session.setDefault("feedFilter", {});
 // };
 
+Template.activityFeed.loading = function () {
+  return _.isNull(activitiesSubscription) || !activitiesSubscription.ready();
+};
+
 Template.activityFeed.created = function() {
   var filter = Session.get("feedFilter");
   Session.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
   Session.set("galleryLimit", galleryLimitSkip);
 };
 
-Template.activityFeed.loading = function () {
-  return _.isNull(activitiesSubscription) || !activitiesSubscription.ready();
+Template.activityFeed.rendered = function () {
+    // Create an event to be triggered when map element is in the DOM
+  // See hack here: http://jsfiddle.net/Zzw2M/33/light/
+  event = function(event){
+    if (event.animationName == 'feedInserted') {
+      setupBlocks('.feed-item', 5);
+    }
+  } 
+  document.addEventListener('animationstart', event, false);
+  document.addEventListener('MSAnimationStart', event, false);
+  document.addEventListener('webkitAnimationStart', event, false);
 };
 
 Template.activityFeed.destroyed = function () {

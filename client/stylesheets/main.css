@@ -7179,58 +7179,58 @@ blockquote p {
   background-image: url("/images/down.svg");
 }
 
-/* line 50, ../sass/main.scss */
+/* line 49, ../sass/main.scss */
 * {
   margin: 0;
 }
 
-/* line 54, ../sass/main.scss */
+/* line 53, ../sass/main.scss */
 html, body {
   height: 100%;
 }
 
-/* line 58, ../sass/main.scss */
+/* line 57, ../sass/main.scss */
 body {
-  background-color: #f0f0f0;
+  background-color: #e5e5e5;
 }
 
-/* line 62, ../sass/main.scss */
+/* line 61, ../sass/main.scss */
 hr {
   margin: 10px 0;
 }
 
-/* line 66, ../sass/main.scss */
+/* line 65, ../sass/main.scss */
 h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
-/* line 72, ../sass/main.scss */
+/* line 71, ../sass/main.scss */
 h1 .sub-header:before, h2 .sub-header:before, h3 .sub-header:before, h4 .sub-header:before, h5 .sub-header:before {
   content: " - ";
 }
 
-/* line 79, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 h2 {
   margin-bottom: 0.2em;
 }
 
-/* line 83, ../sass/main.scss */
+/* line 82, ../sass/main.scss */
 span.warning {
   color: #c60f13;
 }
 
-/* line 88, ../sass/main.scss */
+/* line 87, ../sass/main.scss */
 h2 span.warning, a span.warning {
   font-size: 0.7em;
 }
 
-/* line 93, ../sass/main.scss */
+/* line 92, ../sass/main.scss */
 .push {
   height: 40px;
   margin: 0px;
   padding: 0px;
 }
 
-/* line 99, ../sass/main.scss */
+/* line 98, ../sass/main.scss */
 .row.main-content {
   padding: 0px;
   min-height: 100%;
@@ -7240,6 +7240,7 @@ h2 span.warning, a span.warning {
   /* the bottom margin is the negative value of the footer's height */
   margin-top: 0px;
   box-shadow: none;
+  background-color: #e5e5e5;
 }
 /* line 108, ../sass/main.scss */
 .row.main-content.normal {

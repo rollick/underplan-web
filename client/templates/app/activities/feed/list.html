@@ -5,16 +5,16 @@
         {{#each recentActivities}}
           {{> feedItem this}}
         {{/each}}
-        {{#unless feedLimitReached}}
-          <div class="feed-more">
-            <div class="content">
-              <a href="#" class="small secondary button">Load More</a>
-            </div>
-          </div>
-        {{/unless}}
       {{else}}
         <p>No activities yet :-(</p>
       {{/if}}
     </div>
   </div>
+  {{#unless feedLimitReached}}
+    <div class="feed-more">
+      <div class="content">
+        <a href="#" class="small secondary button">Load More</a>
+      </div>
+    </div>
+  {{/unless}}
 </template>

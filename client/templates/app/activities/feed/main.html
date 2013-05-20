@@ -11,6 +11,14 @@
       </div>
     </div>
     <div class="row no-side-padding">
+      <div class="feed-extra">
+        <div class="map">
+          <div class="inner">
+            {{> feedMap}}
+          </div>
+        </div>
+        {{> feedGallery}}
+      </div>
       <div class="feed">
         {{#if userBelongsToGroup}}
           <div class="short-form">
@@ -20,14 +28,6 @@
           </div>
         {{/if}}
         {{> feedList}}
-      </div>
-      <div class="feed-extra">
-        <div class="map">
-          <div class="inner">
-            {{> feedMap}}
-          </div>
-        </div>
-        {{> feedGallery}}
       </div>
     </div>
   {{/if}}
