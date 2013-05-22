@@ -120,6 +120,18 @@ Meteor.methods({
   }
 });
 
+this.groupCountries = function (groupId) {
+    var countries = [];
+
+  Activities.find({group: groupId}).forEach( function(activity) {
+    if(typeof activity.country === "string" && activity.country.length) {
+      countries.push(activity.country);
+    }
+  });
+
+  return _.uniq(countries).sort();
+}
+
 var checkGroupCreate = function(userId, options) {
   if (! userId)
     throw new Meteor.Error(403, "You must be logged in");

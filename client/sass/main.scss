@@ -253,7 +253,7 @@ footer a {
 }
 
 .button {
-  @include border-radius(3px);
+  @include border-radius($standard-border-size);
   box-shadow: none;
   font-weight: normal;
 }

@@ -34,3 +34,9 @@
     </section>
   </nav>
 </template>
+
+<template name="subNav">
+  {{#if showCountryFilter}}
+    {{countryFilter countries}}
+  {{/if}}
+</template>

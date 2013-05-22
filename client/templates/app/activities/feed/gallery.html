@@ -1,10 +1,9 @@
 <template name="feedGallery">
   {{#if group.picasaUsername}}
-    <div class="row gallery">
-      <div class="small-12 large-12 columns">
+    <div class="gallery">
+      <div class="inner">
         {{#constant}}
-<!--           <h5>Recent Group Photos <span class="sub-header"><a target="blank" href="{{picasaGalleryUrl}}">Show All</a></span></h5>
- -->          <div class="recent-photos">
+          <div class="recent-photos">
             {{gallery}}
           </div>
         {{/constant}}

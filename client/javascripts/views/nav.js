@@ -1,9 +1,5 @@
-// Template.mainNav.rendered = function () {
-//   // Init plugins
-//   $(document).foundation("topbar", function (response) {
-//     console.log(response.errors);
-//   });
-// };
+///////////////////////////////////////////////////////////////////////////////
+// Main Nav
 
 Template.mainNav.appVersion = function () {
   return Session.get("appVersion");
@@ -16,6 +12,35 @@ Template.mainNav.group = function () {
 Template.mainNav.events({
   'click .home': function () {
     Router.setGroup(getCurrentGroup());
+    return false;
+  }
+});
+
+///////////////////////////////////////////////////////////////////////////////
+// Sub Nav
+
+Template.subNav.showCountryFilter = function () {
+  return groupCountries(Session.get("groupId")).length > 1;
+};
+
+Template.subNav.countries = function () {
+  return groupCountries(Session.get("groupId"));
+};
+
+Template.subNav.events({
+  "click .country-filter a": function (event, template) {
+    var filterElem = $(template.find(".country-filter"));
+    var selected = event.target.text;
+    var filter = {group: Session.get("groupId")}; 
+    var targetElem = $(event.target);
+
+    // set filter
+    if(! targetElem.hasClass("all")) {
+      $.extend(filter, {country: targetElem.text()});
+    }
+    Session.set("feedFilter", filter);
+    Session.set("feedLimit", feedLimitSkip);
+
     return false;
   }
 });

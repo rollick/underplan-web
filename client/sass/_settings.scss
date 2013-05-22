@@ -11,20 +11,25 @@ $em-base: 16px !default;
   @return $pxWidth / $em-base * 1em;
 }
 
-//// Various global styles
+//// Underplan Standard Variables
 
-$topbar-bg: #111;
-$label-font-color: lighten(#000, 30%);
-$body-font-family: 'Open Sans', Arial, sans-serif;
-$primary-color: #008000;
-$notice-color: #1F4100;
-$warning-color: #E84C3D;
+$standard-border-size:     2px;
+$standard-panel-bg:        darken(#fff, 2%);
+$standard-border-color:    darken($standard-panel-bg, 10%);
+$photo-feed-height-large:  200px;
+$photo-feed-height-small:  140px;
+$map-height-large:         200px;
+$map-height-small:         140px;
 
-$header-font-family: 'Open Sans', Arial, sans-serif;
-$base-line-height: 150% !default;
-
-
-$photo-feed-height-large: 200px;
-$photo-feed-height-small: 140px;
-$map-height-large: 200px;
-$map-height-small: 140px;
+//// Foundation Global
+$header-font-family:       'Open Sans', Arial, sans-serif;
+$base-line-height:         150% !default;
+$topbar-bg:                #111;
+$label-font-color:         lighten(#000, 30%);
+$body-font-family:         'Open Sans', Arial, sans-serif;
+$primary-color:            #008000;
+$notice-color:             #1F4100;
+$warning-color:            #E84C3D;
+$panel-bg:                 $standard-panel-bg;
+$panel-border-color:       $standard-border-color;                  
+$global-radius:            $standard-border-size;

@@ -10,8 +10,16 @@ $entry-bottom-margin: 0.9em;
   .form-content {
     @include grid-column(12);
 
+    padding-left: 0.4em;
+    padding-right: 0.4em;
+
+    @media only screen and (min-width: 48em) {
+      padding-left: 0.9em;
+      padding-right: 0.9em;
+    }
+
     form {
-      @include border-radius(4px);
+      @include border-radius($standard-border-size);
       @include standard-panel-color();
 
       padding: 10px;

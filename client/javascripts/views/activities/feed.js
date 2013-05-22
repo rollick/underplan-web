@@ -50,21 +50,6 @@ Template.activityFeed.events({
   "click a.feed-all": function () {
     Session.set("feedLimit", Template.activityFeed.activityCount() + 1);
     return false;
-  },
-  "click .country-filter a": function (event, template) {
-    var filterElem = $(template.find(".country-filter"));
-    var selected = event.target.text;
-    var filter = {group: Session.get("groupId")}; 
-    var targetElem = $(event.target);
-
-    // set filter
-    if(! targetElem.hasClass("all")) {
-      $.extend(filter, {country: targetElem.text()});
-    }
-    Session.set("feedFilter", filter);
-    Session.set("feedLimit", feedLimitSkip);
-
-    return false;
   }
 });
 
@@ -101,22 +86,6 @@ Template.activityFeed.destroyed = function () {
   // console.log("Destroyed Activity Feed Template");
   // Session.set("feedLimit", null);
   // Session.set("feedFilter", null);
-};
-
-Template.activityFeed.countries = function () {
-  var countries = [];
-
-  Activities.find({group: Session.get("groupId")}).forEach( function(activity) {
-    if(typeof activity.country === "string" && activity.country.length) {
-      countries.push(activity.country);
-    }
-  });
-
-  return _.uniq(countries).sort();
-};
-
-Template.activityFeed.showCountryFilter = function () {
-  return Template.activityFeed.countries().length > 1;
 };
 
 Template.activityFeed.userBelongsToGroup = function () {

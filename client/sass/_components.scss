@@ -102,12 +102,12 @@
 }
 
 @mixin standard-panel-color() {
-  background-color: #FFF;
-  border: 1px solid rgb(218, 218, 218);
+  background-color: $standard-panel-bg;
+  border: 1px solid $standard-border-color;
 }
 
 @mixin standard-corners() {
-  @include border-radius(0px);
+  @include border-radius($standard-border-size);
 }
 
 @mixin standard-bar() {
@@ -149,7 +149,7 @@
       // }
 
       img {
-        @include border-radius(4px);
+        @include border-radius($standard-border-size);
           margin-top: 8px;
 
         // @media only screen and (min-width: 48em) {
