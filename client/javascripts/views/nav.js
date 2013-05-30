@@ -41,6 +41,7 @@ Template.subNav.events({
     Session.set("feedFilter", filter);
     Session.set("feedLimit", feedLimitSkip);
 
+    Router.setGroup(getCurrentGroup());
     return false;
   }
 });

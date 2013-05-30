@@ -138,7 +138,7 @@ Template.shortForm.events({
 
 Template.shortContent.events({
   'click .remove': function (event, template) {
-    $(template.find(".activity")).addClass("disabled");
+    $(template.firstNode).closest(".activity").addClass("disabled");
 
     Meteor.call('removeActivity', this._id, function (error) {
       if (error) {

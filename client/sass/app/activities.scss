@@ -1,8 +1,10 @@
 @import "../components";
+@import "foundation/components/panels";
 
 .activity {
 
   &.story-full {
+    @include panel();
 
     & > .inner {
       @include grid-row(nest);

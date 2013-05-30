@@ -22,7 +22,7 @@ Template.currentActivity.helpers({
         });
     });
 
-    return new Handlebars.SafeString("<p class=\"alert-box secondary\">Loading photos...</p>");
+    return new Handlebars.SafeString("<p class=\"alert-box\">Loading photos...</p>");
   }
 });
 

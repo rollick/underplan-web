@@ -27,6 +27,38 @@
     margin: 0em;
   }
 
+  .user-comment {
+    @include entry-with-profile(3.3em, false);
+
+    padding: 0em;
+
+    .top-section {
+      margin-bottom: 0em;
+
+      .picture {
+        display: none;
+      }
+  
+      .details {
+        padding-top: 0.5em;
+        margin-left: 0em;
+        
+        .button {
+          display: none;
+          margin-bottom: 0em;
+        }
+
+        #comment {
+          font-size: 0.9em;
+          border: 1px solid #dddddd;
+          height: 2.5em;
+          margin-bottom: 0.3em;
+          min-height: 0em;
+        }        
+      }
+    }
+  }
+
   &.expanded {
     .user-comment {
       .top-section {
@@ -45,37 +77,6 @@
             display: inline-block;
           }
         }
-      }
-    }
-  }
-
-  .user-comment {
-    @include entry-with-profile(3.3em, false);
-
-    padding: 0em;
-
-    .top-section {
-      margin-bottom: 0em;
-
-      .picture {
-        display: none;
-      }
-  
-      .details {
-        margin-left: 0em;
-        
-        .button {
-          display: none;
-          margin-bottom: 0em;
-        }
-
-        #comment {
-          font-size: 0.9em;
-          border: 1px solid #dddddd;
-          height: 2.5em;
-          margin-bottom: 0.3em;
-          min-height: 0em;
-        }        
       }
     }
   }

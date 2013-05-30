@@ -13,7 +13,8 @@ $em-base: 16px !default;
 
 //// Underplan Standard Variables
 
-$standard-border-size:     2px;
+$standard-border-size:     1px;
+$standard-corner-radius:   2px;
 $standard-panel-bg:        darken(#fff, 2%);
 $standard-border-color:    darken($standard-panel-bg, 10%);
 $photo-feed-height-large:  200px;
@@ -32,4 +33,4 @@ $notice-color:             #1F4100;
 $warning-color:            #E84C3D;
 $panel-bg:                 $standard-panel-bg;
 $panel-border-color:       $standard-border-color;                  
-$global-radius:            $standard-border-size;
+$global-radius:            $standard-corner-radius;

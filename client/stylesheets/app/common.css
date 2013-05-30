@@ -1221,28 +1221,21 @@ blockquote p {
 
 /* line 4, ../../sass/app/common.scss */
 .ribbon-wrapper {
-  width: 40px;
-  height: 40px;
   overflow: hidden;
   position: absolute;
-  top: -1px;
-  right: -1px;
+  top: 0px;
+  right: 0px;
 }
 /* line 12, ../../sass/app/common.scss */
 .ribbon-wrapper .ribbon {
   background-color: #1f4100;
   background-color: #1f4100;
-  font-size: 1.2em;
-  font-weight: bold;
-  font-family: sans-serif;
   color: #f3f3f3;
   text-align: center;
   position: relative;
-  padding: 11px;
-  height: 40px;
-  width: 40px;
+  padding: 8px;
 }
-/* line 26, ../../sass/app/common.scss */
+/* line 24, ../../sass/app/common.scss */
 .ribbon-wrapper .ribbon:before, .ribbon-wrapper .ribbon:after {
   content: "";
   border-left: 3px solid transparent;
@@ -1250,36 +1243,22 @@ blockquote p {
   position: absolute;
   bottom: -3px;
 }
-/* line 35, ../../sass/app/common.scss */
+/* line 33, ../../sass/app/common.scss */
 .ribbon-wrapper .ribbon:before {
   left: 0;
 }
-/* line 39, ../../sass/app/common.scss */
+/* line 37, ../../sass/app/common.scss */
 .ribbon-wrapper .ribbon:after {
   right: 0;
 }
 
-/* line 49, ../../sass/app/common.scss */
+/* line 44, ../../sass/app/common.scss */
 .alert-box.large {
   font-size: 1.2em;
 }
-/* line 52, ../../sass/app/common.scss */
+/* line 47, ../../sass/app/common.scss */
 .alert-box.clear {
   background-color: #fff;
   border-color: #f9f9f9;
   color: inherit;
-}
-
-/* line 59, ../../sass/app/common.scss */
-.activity {
-  margin-bottom: 10px;
-}
-/* line 62, ../../sass/app/common.scss */
-.activity .action {
-  margin-top: -25px !important;
-  height: 30px;
-}
-/* line 66, ../../sass/app/common.scss */
-.activity blockquote {
-  margin-bottom: 0px;
 }

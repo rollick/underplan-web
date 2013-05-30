@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Activity comment
 
-var saveComment = function (template) {
+var saveComment = function (template, success) {
   var btns = $(template.find(".save.button, .cancel.button"));
   if(btns.hasClass("disabled")) {
     return false;
@@ -20,6 +20,8 @@ var saveComment = function (template) {
       if (error) {
         Session.set("createError", [error.error, error.reason].join(": "));
         template.find("#comment").value = comment;        
+      } else {
+        if (_.isFunction(success)) { success.call(commentId); }
       }
     });
   } else {
@@ -39,15 +41,21 @@ Template.commentForm.events({
   'focus #comment': function (event, template) {
     $(template.find(".comment-form")).addClass("expanded");
 
+    if(!_.isNull(feedPackery))
+      feedPackery.layout();
+
     return false;
   },
   'click .cancel': function (event, template) {
     $(template.find(".comment-form")).removeClass("expanded");
 
+    if(!_.isNull(feedPackery))
+      feedPackery.layout();
+
     return false;
   },
   'click .save': function (event, template) {
-    return saveComment(template);
+    return saveComment(template, function () {repackFeed();});
   },
   'keyup #comment': function (event, template) {
     var comment = template.find("#comment").value,

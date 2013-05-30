@@ -1244,7 +1244,7 @@ blockquote p {
 .comment:after {
   clear: both;
 }
-/* line 133, ../../sass/_components.scss */
+/* line 143, ../../sass/_components.scss */
 .comment .top-section {
   position: relative;
   padding-left: 0.9375em;
@@ -1254,34 +1254,35 @@ blockquote p {
   height: 3.3em !important;
   font-size: 1em;
   color: black;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.5em;
+  padding: 0.3em 0.5em;
 }
-/* line 141, ../../sass/_components.scss */
+/* line 152, ../../sass/_components.scss */
 .comment .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
-/* line 151, ../../sass/_components.scss */
+/* line 162, ../../sass/_components.scss */
 .comment .top-section .picture img {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
   margin-top: 8px;
 }
-/* line 161, ../../sass/_components.scss */
+/* line 172, ../../sass/_components.scss */
 .comment .top-section .details {
   height: 3.3em !important;
   margin-left: 3.5em;
   padding-top: 0.78em;
 }
-/* line 171, ../../sass/_components.scss */
+/* line 182, ../../sass/_components.scss */
 .comment .top-section .details .owner {
   line-height: 1em;
 }
-/* line 175, ../../sass/_components.scss */
+/* line 186, ../../sass/_components.scss */
 .comment .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
@@ -1290,7 +1291,7 @@ blockquote p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 192, ../../sass/_components.scss */
+/* line 203, ../../sass/_components.scss */
 .comment .actions {
   height: 3.3em !important;
   margin-top: -0.3em;
@@ -1301,33 +1302,34 @@ blockquote p {
   right: -0.0625em;
   display: none;
 }
-/* line 206, ../../sass/_components.scss */
+/* line 217, ../../sass/_components.scss */
 .comment .actions a.action {
   width: 2em;
   height: 2em;
   font-weight: bold;
   display: inline-block;
 }
-/* line 212, ../../sass/_components.scss */
+/* line 223, ../../sass/_components.scss */
 .comment .actions a.action.remove {
   padding-left: 0.7em;
   padding-top: 0.5em;
   background-color: #e84c3d;
 }
-/* line 217, ../../sass/_components.scss */
+/* line 228, ../../sass/_components.scss */
 .comment .actions a.action.remove:before {
   content: "X";
   color: white;
 }
-/* line 225, ../../sass/_components.scss */
+/* line 236, ../../sass/_components.scss */
 .comment .content {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
   width: 100%;
   float: left;
+  padding: 0.5em;
 }
-/* line 234, ../../sass/_components.scss */
+/* line 241, ../../sass/_components.scss */
 .comment .content p:last-of-type {
   margin-bottom: 0em;
 }
@@ -1368,23 +1370,7 @@ blockquote p {
 .comment-form form {
   margin: 0em;
 }
-/* line 33, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .picture {
-  display: inherit;
-}
-/* line 37, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .details {
-  margin-left: 3.3em;
-}
-/* line 40, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .details #comment {
-  height: 5em;
-}
-/* line 44, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .details .button {
-  display: inline-block;
-}
-/* line 52, ../../sass/app/comment.scss */
+/* line 30, ../../sass/app/comment.scss */
 .comment-form .user-comment {
   width: auto;
   margin-left: -0.9375em;
@@ -1406,7 +1392,7 @@ blockquote p {
 .comment-form .user-comment:after {
   clear: both;
 }
-/* line 133, ../../sass/_components.scss */
+/* line 143, ../../sass/_components.scss */
 .comment-form .user-comment .top-section {
   position: relative;
   padding-left: 0.9375em;
@@ -1415,33 +1401,34 @@ blockquote p {
   float: left;
   font-size: 1em;
   color: black;
-  margin-bottom: 0.2em;
+  margin-bottom: 0.5em;
+  padding: 0.3em 0.5em;
 }
-/* line 141, ../../sass/_components.scss */
+/* line 152, ../../sass/_components.scss */
 .comment-form .user-comment .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
-/* line 151, ../../sass/_components.scss */
+/* line 162, ../../sass/_components.scss */
 .comment-form .user-comment .top-section .picture img {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
   margin-top: 8px;
 }
-/* line 161, ../../sass/_components.scss */
+/* line 172, ../../sass/_components.scss */
 .comment-form .user-comment .top-section .details {
   margin-left: 3.5em;
   padding-top: 0.78em;
 }
-/* line 171, ../../sass/_components.scss */
+/* line 182, ../../sass/_components.scss */
 .comment-form .user-comment .top-section .details .owner {
   line-height: 1em;
 }
-/* line 175, ../../sass/_components.scss */
+/* line 186, ../../sass/_components.scss */
 .comment-form .user-comment .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
@@ -1450,7 +1437,7 @@ blockquote p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 192, ../../sass/_components.scss */
+/* line 203, ../../sass/_components.scss */
 .comment-form .user-comment .actions {
   height: 3.3em !important;
   margin-top: -0.3em;
@@ -1461,58 +1448,76 @@ blockquote p {
   right: -0.0625em;
   display: none;
 }
-/* line 206, ../../sass/_components.scss */
+/* line 217, ../../sass/_components.scss */
 .comment-form .user-comment .actions a.action {
   width: 2em;
   height: 2em;
   font-weight: bold;
   display: inline-block;
 }
-/* line 212, ../../sass/_components.scss */
+/* line 223, ../../sass/_components.scss */
 .comment-form .user-comment .actions a.action.remove {
   padding-left: 0.7em;
   padding-top: 0.5em;
   background-color: #e84c3d;
 }
-/* line 217, ../../sass/_components.scss */
+/* line 228, ../../sass/_components.scss */
 .comment-form .user-comment .actions a.action.remove:before {
   content: "X";
   color: white;
 }
-/* line 225, ../../sass/_components.scss */
+/* line 236, ../../sass/_components.scss */
 .comment-form .user-comment .content {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
   width: 100%;
   float: left;
+  padding: 0.5em;
 }
-/* line 234, ../../sass/_components.scss */
+/* line 241, ../../sass/_components.scss */
 .comment-form .user-comment .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 57, ../../sass/app/comment.scss */
+/* line 35, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section {
   margin-bottom: 0em;
 }
-/* line 60, ../../sass/app/comment.scss */
+/* line 38, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .picture {
   display: none;
 }
-/* line 64, ../../sass/app/comment.scss */
+/* line 42, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details {
+  padding-top: 0.5em;
   margin-left: 0em;
 }
-/* line 67, ../../sass/app/comment.scss */
+/* line 46, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details .button {
   display: none;
   margin-bottom: 0em;
 }
-/* line 72, ../../sass/app/comment.scss */
+/* line 51, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details #comment {
   font-size: 0.9em;
   border: 1px solid #dddddd;
   height: 2.5em;
   margin-bottom: 0.3em;
   min-height: 0em;
+}
+/* line 65, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .top-section .picture {
+  display: inherit;
+}
+/* line 69, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .top-section .details {
+  margin-left: 3.3em;
+}
+/* line 72, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .top-section .details #comment {
+  height: 5em;
+}
+/* line 76, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .top-section .details .button {
+  display: inline-block;
 }

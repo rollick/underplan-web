@@ -7195,42 +7195,47 @@ body {
 }
 
 /* line 61, ../sass/main.scss */
+.row {
+  max-width: 960px;
+}
+
+/* line 63, ../sass/main.scss */
 hr {
   margin: 10px 0;
 }
 
-/* line 65, ../sass/main.scss */
+/* line 67, ../sass/main.scss */
 h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
-/* line 71, ../sass/main.scss */
+/* line 73, ../sass/main.scss */
 h1 .sub-header:before, h2 .sub-header:before, h3 .sub-header:before, h4 .sub-header:before, h5 .sub-header:before {
   content: " - ";
 }
 
-/* line 78, ../sass/main.scss */
+/* line 80, ../sass/main.scss */
 h2 {
   margin-bottom: 0.2em;
 }
 
-/* line 82, ../sass/main.scss */
+/* line 84, ../sass/main.scss */
 span.warning {
   color: #c60f13;
 }
 
-/* line 87, ../sass/main.scss */
+/* line 89, ../sass/main.scss */
 h2 span.warning, a span.warning {
   font-size: 0.7em;
 }
 
-/* line 92, ../sass/main.scss */
+/* line 94, ../sass/main.scss */
 .push {
   height: 40px;
   margin: 0px;
   padding: 0px;
 }
 
-/* line 98, ../sass/main.scss */
+/* line 100, ../sass/main.scss */
 .row.main-content {
   padding: 0px;
   min-height: 100%;
@@ -7242,24 +7247,23 @@ h2 span.warning, a span.warning {
   box-shadow: none;
   background-color: #e5e5e5;
 }
-/* line 108, ../sass/main.scss */
+/* line 110, ../sass/main.scss */
 .row.main-content.normal {
-  padding-top: 5px;
   margin-top: 0px;
 }
-/* line 121, ../sass/main.scss */
+/* line 123, ../sass/main.scss */
 .row.main-content.dashboard {
   background: url("/images/sun3.jpg") 0 0 no-repeat;
   background-color: black;
 }
 
-/* line 137, ../sass/main.scss */
+/* line 139, ../sass/main.scss */
 footer {
   height: 40px;
   margin: 0px;
   padding: 0px;
 }
-/* line 142, ../sass/main.scss */
+/* line 144, ../sass/main.scss */
 footer .info {
   margin: 5px 0px;
   padding: 10px !important;
@@ -7277,7 +7281,7 @@ footer .info {
   *display: inline;
   _height: 5px;
 }
-/* line 162, ../sass/main.scss */
+/* line 164, ../sass/main.scss */
 footer .info > div {
   width: 100%;
   position: absolute;
@@ -7286,38 +7290,38 @@ footer .info > div {
   margin-bottom: 5px;
 }
 
-/* line 172, ../sass/main.scss */
+/* line 174, ../sass/main.scss */
 footer.dashboard {
   font-color: white;
 }
-/* line 175, ../sass/main.scss */
+/* line 177, ../sass/main.scss */
 footer.dashboard .row:first-of-type {
   border-top: 2px solid #2b2b2b;
 }
-/* line 179, ../sass/main.scss */
+/* line 181, ../sass/main.scss */
 footer.dashboard p {
   color: #fff;
 }
 
-/* line 185, ../sass/main.scss */
+/* line 187, ../sass/main.scss */
 footer p,
 footer a {
   margin-top: 10px;
 }
 
-/* line 189, ../sass/main.scss */
+/* line 191, ../sass/main.scss */
 .no-side-padding {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
 
-/* line 194, ../sass/main.scss */
+/* line 196, ../sass/main.scss */
 .bordered {
   border: 1px solid #e7e4e4;
   padding: 2px;
 }
 
-/* line 199, ../sass/main.scss */
+/* line 201, ../sass/main.scss */
 .normal {
   padding-bottom: 15px;
   background: #fff;
@@ -7325,7 +7329,7 @@ footer a {
   box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
 }
 
-/* line 206, ../sass/main.scss */
+/* line 208, ../sass/main.scss */
 .input-subtext {
   margin-top: -10px;
   font-style: italic;
@@ -7336,74 +7340,74 @@ footer a {
   min-height: 1px;
 }
 
-/* line 222, ../sass/main.scss */
+/* line 224, ../sass/main.scss */
 .carousel .th {
   border: none;
   padding: 2px;
 }
 
-/* line 228, ../sass/main.scss */
+/* line 230, ../sass/main.scss */
 [data-clearing] li {
   margin-right: 0em;
 }
 
-/* line 232, ../sass/main.scss */
+/* line 234, ../sass/main.scss */
 .tooltip {
   font-size: 0.8em;
   font-weight: normal;
 }
 
-/* line 240, ../sass/main.scss */
+/* line 242, ../sass/main.scss */
 .alert-box {
   margin-top: 8px;
   text-align: center;
   font-weight: normal !important;
 }
-/* line 245, ../sass/main.scss */
+/* line 247, ../sass/main.scss */
 .alert-box a.close {
   position: relative;
   padding: 10px;
   color: white;
 }
 
-/* line 255, ../sass/main.scss */
+/* line 257, ../sass/main.scss */
 .button {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 1px;
+  -moz-border-radius: 1px;
+  -ms-border-radius: 1px;
+  -o-border-radius: 1px;
+  border-radius: 1px;
   box-shadow: none;
   font-weight: normal;
 }
 
-/* line 261, ../sass/main.scss */
+/* line 263, ../sass/main.scss */
 .clearing-assembled {
   padding-bottom: 10px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 261, ../sass/main.scss */
+  /* line 263, ../sass/main.scss */
   .clearing-assembled {
     padding-bottom: 0px !important;
   }
 }
-/* line 268, ../sass/main.scss */
+/* line 270, ../sass/main.scss */
 .clearing-assembled .clearing-caption {
   background-color: rgba(17, 17, 17, 0.6);
   padding-bottom: 30px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 268, ../sass/main.scss */
+  /* line 270, ../sass/main.scss */
   .clearing-assembled .clearing-caption {
     padding-bottom: 10px !important;
   }
 }
 
-/* line 278, ../sass/main.scss */
+/* line 280, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 281, ../sass/main.scss */
+/* line 283, ../sass/main.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -7411,18 +7415,18 @@ footer a {
   padding-top: 1px;
 }
 
-/* line 289, ../sass/main.scss */
+/* line 291, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 294, ../sass/main.scss */
+/* line 296, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 298, ../sass/main.scss */
+/* line 300, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }

@@ -96,6 +96,16 @@
   }
 }
 
+@mixin standard-padding() {
+  padding-left: 0.4em;
+  padding-right: 0.4em;
+
+  @media only screen and (min-width: 48em) {
+    padding-left: 0.9em;
+    padding-right: 0.9em;
+  }
+}
+
 @mixin standard-bar-background($color: $primary-color, $clear: false, $shadow: true) {
   background-color: $color;
   @if $clear { clear: both; }
@@ -103,10 +113,10 @@
 
 @mixin standard-panel-color() {
   background-color: $standard-panel-bg;
-  border: 1px solid $standard-border-color;
+  // border: 1px solid $standard-border-color;
 }
 
-@mixin standard-corners() {
+@mixin standard-corners($position: "all") {
   @include border-radius($standard-border-size);
 }
 
@@ -136,7 +146,8 @@
     @if $fixed-details { height: $top-section-height !important; }
     font-size: 1em;
     color: black;
-    margin-bottom: 0.2em;
+    margin-bottom: 0.5em;
+    padding: 0.3em 0.5em;
 
     .picture {
       float: left;
@@ -225,11 +236,7 @@
   .content {
     @include grid-column(12);
 
-    // @media only screen and (min-width: 48em) {
-    //   @include grid-column(10, false, false, 2);
-
-    //   margin-left: $picture-width + 0.2em !important;
-    // }
+    padding: 0.5em;
 
     p:last-of-type {
       margin-bottom: 0em;

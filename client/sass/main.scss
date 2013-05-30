@@ -58,6 +58,8 @@ body {
   background-color: rgb(229, 229, 229);
 }
 
+.row { max-width: 960px; }
+
 hr {
   margin: 10px 0;
 }
@@ -106,7 +108,7 @@ h2, a {
   background-color: rgb(229, 229, 229);
 
   &.normal {
-    padding-top: 5px;
+    // padding-top: 5px;
     margin-top: 0px;
   }
 

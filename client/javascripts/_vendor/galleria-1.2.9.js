@@ -5669,7 +5669,7 @@ Galleria.Picture.prototype = {
     */
 
     preload: function( src ) {
-        $( new Image() ).load((function(src, cache) {
+        $( document.createElement('img') ).load((function(src, cache) {
             return function() {
                 cache[ src ] = src;
             };
@@ -5723,7 +5723,7 @@ Galleria.Picture.prototype = {
             return this.container;
         }
 
-        this.image = new Image();
+        this.image = document.createElement('img');
 
         // IE8 opacity inherit bug
         if ( Galleria.IE8 ) {
@@ -5793,7 +5793,7 @@ Galleria.Picture.prototype = {
                                 } else {
                                     // last resort, this should never happen but just in case it does...
                                     if ( !resort ) {
-                                        $(new Image()).load( onload ).attr( 'src', img.src );
+                                        $(document.createElement('img')).load( onload ).attr( 'src', img.src );
                                         resort = true;
                                     } else {
                                         Galleria.raise('Could not extract width/height from image: ' + img.src +

@@ -64,10 +64,12 @@ Meteor.startup(function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Templates
 
+this.feedPackery = null;
 this.feedLimitSkip   = 5;
 this.galleryLimitSkip = 40;
 this.defaultMapZoom  = 12;
 this.shortMaxLength  = 250;
+
 Galleria.configure({
   _animate: false,
   imageCrop: false
@@ -86,6 +88,11 @@ this.appTemplates = function () {
     loginForm: "showLoginForm",
     mainSettings: "showMainSettings"
   };
+};
+
+this.repackFeed = function () {
+  if(!_.isNull(feedPackery))
+    feedPackery.layout();
 };
 
 this.showTemplate = function (templateName, callback) {

@@ -2,26 +2,24 @@
 @import "compass/css3/transform";
 
 .ribbon-wrapper {
-  width: 40px;
-  height: 40px;
+  // width: 40px;
+  // height: 40px;
   overflow: hidden;
   position: absolute;
-  top: -1px;
-  right: -1px;
+  top: 0px;
+  right: 0px;
 
   .ribbon {
     @include standard-bar-background($notice-color);
 
     background-color: #1f4100;
-    font-size: 1.2em;
-    font-weight: bold;
-    font-family: sans-serif;
+    // font-size: 1.2em;
     color: #f3f3f3;
     text-align: center;
     position: relative;
-    padding: 11px;
-    height: 40px;
-    width: 40px;
+    padding: 8px;
+    // height: 40px;
+    // width: 40px;
 
     &:before, &:after {
       content: "";
@@ -42,9 +40,6 @@
   }
 }
 
-
-
-
 .alert-box {
   &.large {
     font-size: 1.2em;
@@ -53,17 +48,5 @@
     background-color: #fff;
     border-color: #f9f9f9;
     color: inherit;
-  }
-}
-
-.activity {
-  margin-bottom: 10px;
-  
-  .action {
-    margin-top: -25px !important;
-    height: 30px;
-  }
-  blockquote {
-    margin-bottom: 0px;
   }
 }

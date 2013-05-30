@@ -70,11 +70,12 @@ Template.activityFeed.created = function() {
 };
 
 Template.activityFeed.rendered = function () {
-    // Create an event to be triggered when map element is in the DOM
+  // Create an event to be triggered when map element is in the DOM
   // See hack here: http://jsfiddle.net/Zzw2M/33/light/
   event = function(event){
     if (event.animationName == 'feedInserted') {
-      setupBlocks('.feed-item', 5);
+      var container = document.querySelector('.feed-list');
+      window.feedPackery = new Packery(container, {itemSelector: '.feed-item', gutter: 15});
     }
   } 
   document.addEventListener('animationstart', event, false);
@@ -153,6 +154,7 @@ Template.feedItem.events({
   },
   'click .item-actions a.comments': function (event, template) {
     $(event.target).closest(".feed-item").toggleClass("expanded");
+    repackFeed();
 
     return false;
   },
@@ -164,7 +166,9 @@ Template.feedItem.events({
     var self = this;
     $(event.target).closest(".feed-item").addClass("expanded");
     $("#" + self._id + " #comment").focus();
-    
+
+    repackFeed();
+
     return false;
   }
 });
@@ -200,17 +204,6 @@ var toggleComments = function(template) {
 // Story Feed Content
 
 Template.storyFeedContent.events({
-  'click .remove': function (event, template) {
-    $(template.find(".activity")).addClass("disabled");
-    
-    Meteor.call('removeActivity', this._id, function (error) {
-      if (error) {
-        Session.set("createError", [error.error, error.reason].join(": "));
-      }
-    });
-
-    return false;
-  },
   'mouseenter .activity': function (event, template) {
     $(template.find(".actions")).show();
   },
@@ -251,6 +244,15 @@ Template.feedItemActions.countText = function () {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
+// Feed Item Comments
+
+Template.feedItemComments.events({
+  "click .short-comments .inner": function () {
+    debugger
+  },
+});
+
+///////////////////////////////////////////////////////////////////////////////
 // Feed Map
 
 Template.feedMap.helpers({
@@ -262,7 +264,7 @@ Template.feedMap.helpers({
       // Create an event to be triggered when map element is in the DOM
       // See hack here: http://jsfiddle.net/Zzw2M/33/light/
       event = function(event){
-        if (event.animationName == 'nodeInserted') {
+        if (event.animationName == 'mapInserted') {
           generateActivitesMap(group, "#activities-map", recentActivities);
         }
       } 
@@ -270,7 +272,7 @@ Template.feedMap.helpers({
       document.addEventListener('MSAnimationStart', event, false);
       document.addEventListener('webkitAnimationStart', event, false);
   
-      return new Handlebars.SafeString("<p class=\"alert-box secondary\">Loading map...</p>");
+      return new Handlebars.SafeString("<p class=\"alert-box\">Loading map...</p>");
     }
     
   },
@@ -334,7 +336,7 @@ Template.feedGallery.helpers({
       }
     });      
 
-    return new Handlebars.SafeString("<p class=\"alert-box secondary\">Loading photos...</p>");
+    return new Handlebars.SafeString("<p class=\"alert-box\">Loading photos...</p>");
   }
 });
 
@@ -353,9 +355,8 @@ Template.feedGallery.picasaGalleryUrl = function () {
 };
 
 Template.feedGallery.destroyed = function () {
-  var gallery = Galleria.get(0);
-  if (_.isObject(gallery))
-    gallery.destroy();
+  if (Galleria.length)
+    Galleria.get(0).destroy();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -425,7 +426,7 @@ var generateActivitesMap = function(group, elementSelector, activities) {
     var lat = parseFloat(activity.lat);
     var lng = parseFloat(activity.lng);
 
-    if(!isNaN(lat) && !isNaN(lng)) {
+    // if(!isNaN(lat) && !isNaN(lng)) {
       var text = "";
       if(activity.type == "short")
         text = activity.text;
@@ -441,7 +442,7 @@ var generateActivitesMap = function(group, elementSelector, activities) {
         }
       );
       index+=1;
-    }
+    // }
   });
 
   dashboardMap = new google.maps.Map(element, {

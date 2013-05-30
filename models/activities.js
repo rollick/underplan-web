@@ -13,16 +13,13 @@ Activities = new Meteor.Collection("activities")
 
 Activities.allow({
   insert: function (userId, activity) {
-    return false; // no cowboy inserts -- use createActivity method
+    return false; // use createActivity method
   },
   update: function (userId, activity, fields, modifier) {
     return canUpdateActivity(userId, activity, fields);
   },
   remove: function (userId, activity) {
-    return false; // TODO: need to add logic for removing associated comments etc before removing the activity
-
-    // deny if not the owner
-    return activity.owner !== userId;
+    return false; // use removeActivity method
   }
 });
 
@@ -114,6 +111,24 @@ Meteor.methods({
 
     return activity;
   },
+
+  removeActivity: function (activityId) {
+    var activity = Activities.findOne({_id: activityId});
+    var groupId = activity.group;
+
+    // deny if not the owner, a system admin or the group admin
+    if (isGroupAdmin(this.userId, groupId) || isSystemAdmin(this.userId) || activity.owner === this.userId) {
+      var result = Activities.remove({_id: activity._id});
+
+      // remove associated comments
+      var comments = Comments.find({activityId: activity._id});
+      if (comments.count() > 0) {
+        Comments.remove({activityId: activity._id});
+      }
+    } else {
+      throw new Meteor.Error(403, "You don't have permission to remove this activity");
+    }
+  }
 });
 
 var activityType = function (activity) {
@@ -148,6 +163,16 @@ var checkCreateActivity = function(userId, options) {
   if (! userBelongsToGroup(userId, group._id))
     throw new Meteor.Error(403, "You must be a member of " + group.name);
 }
+
+/////////////////////////////////////
+// Server and Client Methods
+
+this.canUserRemoveActivity = function (userId, activityId) {
+  var activity = Activities.findOne(activityId);
+  var groupId = activity.group;
+
+  return (isGroupAdmin(userId, groupId) || isSystemAdmin(userId) || activity.owner === userId);
+};
 
 if(Meteor.isClient) {
   // Just a stub for the client. See isServer section for actual code.
