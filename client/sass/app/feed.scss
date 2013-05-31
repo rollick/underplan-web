@@ -80,6 +80,8 @@
     @include grid-column(9);
   }
 
+  z-index: 10;
+
   li { 
     p {
       display: inline;
@@ -114,6 +116,10 @@
       margin-right: 0.5em;
     }
 
+    &.faded {
+      opacity: 0;
+    }
+
     & > .content {
       @include grid-column(12);
 
@@ -143,9 +149,10 @@
 
   margin: 0em;
   padding-bottom: 1em;
+  // display: none;
 
   @media only screen and (min-width: 48em) {
-    padding-bottom: 1em;
+    padding-bottom: 0em;
     width: 48%;
 
     &:last-of-type {
@@ -154,7 +161,6 @@
       @include animation(feedInserted);
     }
   }
-
 
   .ribbon-wrapper {
     .ribbon {
@@ -395,7 +401,10 @@
         @include border-bottom-right-radius($story-radius);
 
         padding: 0em;
-        padding-bottom: 0.4em;
+
+        .comment-form {
+          padding-bottom: 0.4em;
+        }
       }
     }
   }

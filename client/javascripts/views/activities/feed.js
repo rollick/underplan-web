@@ -72,18 +72,14 @@ Template.activityFeed.created = function() {
 Template.activityFeed.rendered = function () {
   // Create an event to be triggered when map element is in the DOM
   // See hack here: http://jsfiddle.net/Zzw2M/33/light/
-  event = function(event){
-    if (event.animationName == 'feedInserted') {
-      var container = document.querySelector('.feed-list');
-      window.feedPackery = new Packery(container, {itemSelector: '.feed-item', gutter: 15});
-    }
-  } 
-  document.addEventListener('animationstart', event, false);
-  document.addEventListener('MSAnimationStart', event, false);
-  document.addEventListener('webkitAnimationStart', event, false);
+  setupFeedInserted();
 };
 
 Template.activityFeed.destroyed = function () {
+  document.removeEventListener('animationstart', feedInsertedEvent);
+  document.removeEventListener('MSAnimationStart', feedInsertedEvent);
+  document.removeEventListener('webkitAnimationStart', feedInsertedEvent);
+
   // console.log("Destroyed Activity Feed Template");
   // Session.set("feedLimit", null);
   // Session.set("feedFilter", null);
@@ -99,6 +95,30 @@ Template.activityFeed.activityCount = function () {
 
 Template.activityFeed.totalActivities = function () {
   return Activities.find(Session.get("feedFilter")).count();
+}
+
+var feedInsertedEvent = null;
+
+this.setupFeedInserted = function () {
+  feedInsertedEvent = function(event){
+    if (event.animationName == 'feedInserted') {
+      var container = document.querySelector('.feed-list');
+      var options = {
+        itemSelector: '.feed-item', 
+        isInitLayout: false, 
+        gutter: 15
+      };
+      feedPackery = new Packery(container, options);
+      feedPackery.on( 'layoutComplete', function( packery ) {
+        $(".feed-list").removeClass("faded");
+      });
+
+      feedPackery.layout();
+    }
+  } 
+  document.addEventListener('animationstart', feedInsertedEvent, false);
+  document.addEventListener('MSAnimationStart', feedInsertedEvent, false);
+  document.addEventListener('webkitAnimationStart', feedInsertedEvent, false);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
