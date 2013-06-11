@@ -1219,7 +1219,76 @@ blockquote p {
   background-image: url("/images/down.svg");
 }
 
-/* line 5, ../../sass/app/short.scss */
+/* Panels */
+/* line 62, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e0e0e0;
+  margin-bottom: 1.25em;
+  padding: 1.25em;
+  background: #fafafa;
+}
+/* line 43, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p {
+  color: #333333;
+}
+/* line 47, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel > :first-child {
+  margin-top: 0;
+}
+/* line 48, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel > :last-child {
+  margin-bottom: 0;
+}
+/* line 51, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6 {
+  line-height: 1;
+  margin-bottom: 0.625em;
+}
+/* line 53, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel h1.subheader, .panel h2.subheader, .panel h3.subheader, .panel h4.subheader, .panel h5.subheader, .panel h6.subheader {
+  line-height: 1.4;
+}
+/* line 64, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #004d00;
+  margin-bottom: 1.25em;
+  padding: 1.25em;
+  background: green;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+/* line 44, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout h1, .panel.callout h2, .panel.callout h3, .panel.callout h4, .panel.callout h5, .panel.callout h6, .panel.callout p {
+  color: white;
+}
+/* line 47, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout > :first-child {
+  margin-top: 0;
+}
+/* line 48, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout > :last-child {
+  margin-bottom: 0;
+}
+/* line 51, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout h1, .panel.callout h2, .panel.callout h3, .panel.callout h4, .panel.callout h5, .panel.callout h6 {
+  line-height: 1;
+  margin-bottom: 0.625em;
+}
+/* line 53, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout h1.subheader, .panel.callout h2.subheader, .panel.callout h3.subheader, .panel.callout h4.subheader, .panel.callout h5.subheader, .panel.callout h6.subheader {
+  line-height: 1.4;
+}
+/* line 69, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.radius {
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+}
+
+/* line 6, ../../sass/app/short.scss */
 .short-form {
   width: auto;
   margin-left: -0.9375em;
@@ -1228,8 +1297,9 @@ blockquote p {
   margin-bottom: 0;
   max-width: none;
   *zoom: 1;
-  margin: 0em;
-  margin-bottom: 0.9em;
+  margin-bottom: 0.4em;
+  margin-left: 0em;
+  margin-right: 0em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
 .short-form:before, .short-form:after {
@@ -1240,25 +1310,55 @@ blockquote p {
 .short-form:after {
   clear: both;
 }
-/* line 12, ../../sass/app/short.scss */
+@media only screen and (min-width: 48em) {
+  /* line 6, ../../sass/app/short.scss */
+  .short-form {
+    margin-left: 0.9375em;
+    margin-right: 0.9375em;
+  }
+}
+/* line 18, ../../sass/app/short.scss */
 .short-form .form-content {
   position: relative;
   padding-left: 0;
   padding-right: 0;
   width: 100%;
   float: left;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e0e0e0;
+  margin-bottom: 1.25em;
+  padding: 1.25em;
+  background: #fafafa;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
-/* line 15, ../../sass/app/short.scss */
+/* line 43, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.short-form .form-content h1, .short-form .form-content h2, .short-form .form-content h3, .short-form .form-content h4, .short-form .form-content h5, .short-form .form-content h6, .short-form .form-content p {
+  color: #333333;
+}
+/* line 47, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.short-form .form-content > :first-child {
+  margin-top: 0;
+}
+/* line 48, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.short-form .form-content > :last-child {
+  margin-bottom: 0;
+}
+/* line 51, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.short-form .form-content h1, .short-form .form-content h2, .short-form .form-content h3, .short-form .form-content h4, .short-form .form-content h5, .short-form .form-content h6 {
+  line-height: 1;
+  margin-bottom: 0.625em;
+}
+/* line 53, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.short-form .form-content h1.subheader, .short-form .form-content h2.subheader, .short-form .form-content h3.subheader, .short-form .form-content h4.subheader, .short-form .form-content h5.subheader, .short-form .form-content h6.subheader {
+  line-height: 1.4;
+}
+/* line 24, ../../sass/app/short.scss */
 .short-form .form-content form {
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  -ms-border-radius: 1px;
-  -o-border-radius: 1px;
-  border-radius: 1px;
-  background-color: #fafafa;
   padding: 10px;
 }
-/* line 23, ../../sass/app/short.scss */
+/* line 30, ../../sass/app/short.scss */
 .short-form .form-content form .text-section,
 .short-form .form-content form .location-section,
 .short-form .form-content form .action-section {
@@ -1285,7 +1385,7 @@ blockquote p {
 .short-form .form-content form .action-section:after {
   clear: both;
 }
-/* line 29, ../../sass/app/short.scss */
+/* line 36, ../../sass/app/short.scss */
 .short-form .form-content form .text-section .input-field {
   position: relative;
   padding-left: 0.9375em;
@@ -1293,14 +1393,14 @@ blockquote p {
   width: 66.66667%;
   float: left;
 }
-/* line 32, ../../sass/app/short.scss */
+/* line 39, ../../sass/app/short.scss */
 .short-form .form-content form .text-section .input-field textarea {
   height: 40px;
   min-height: 0px !important;
   margin-bottom: 0px;
   padding: 0.7em;
 }
-/* line 40, ../../sass/app/short.scss */
+/* line 47, ../../sass/app/short.scss */
 .short-form .form-content form .text-section .add-story {
   position: relative;
   padding-left: 0.9375em;
@@ -1311,30 +1411,30 @@ blockquote p {
   padding-left: 0px !important;
   margin-top: 0.8em;
 }
-/* line 50, ../../sass/app/short.scss */
+/* line 57, ../../sass/app/short.scss */
 .short-form .form-content form .location-section,
 .short-form .form-content form .action-section {
   display: none;
 }
-/* line 53, ../../sass/app/short.scss */
+/* line 60, ../../sass/app/short.scss */
 .short-form .form-content form .location-section .button,
 .short-form .form-content form .action-section .button {
   margin-bottom: 0em;
 }
-/* line 59, ../../sass/app/short.scss */
+/* line 66, ../../sass/app/short.scss */
 .short-form .form-content form .location-section .location-fields {
   display: none;
 }
-/* line 64, ../../sass/app/short.scss */
+/* line 71, ../../sass/app/short.scss */
 .short-form .form-content form .location-section .show-advanced-location:before {
   content: "- ";
 }
-/* line 72, ../../sass/app/short.scss */
+/* line 79, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .location-section,
 .short-form .form-content form.expanded .action-section {
   display: inherit;
 }
-/* line 77, ../../sass/app/short.scss */
+/* line 84, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .input-field {
   position: relative;
   padding-left: 0.9375em;
@@ -1342,12 +1442,12 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 80, ../../sass/app/short.scss */
+/* line 87, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .input-field textarea {
   margin-bottom: 0.8em;
   height: 80px;
 }
-/* line 86, ../../sass/app/short.scss */
+/* line 93, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .add-story {
   display: none;
 }

@@ -1,20 +1,27 @@
 @import "../components";
+@import "foundation/components/panels";
 
 $entry-bottom-margin: 0.9em;
 
 .short-form {
   @include grid-row(nest);
 
-  margin: 0em;
-  margin-bottom: $entry-bottom-margin;
-  // border: 1px solid blue;
+  margin-bottom: 0.4em;
+  margin-left: 0em;
+  margin-right: 0em;
+
+  @media only screen and (min-width: 48em) {
+    margin-left: emCalc(15px);
+    margin-right: emCalc(15px);
+  }
 
   .form-content {
     @include grid-column(12, $collapse: true);
+    // @include border-radius($standard-border-size);
+    @include panel();
+    @include radius();
 
     form {
-      @include border-radius($standard-border-size);
-      @include standard-panel-color();
 
       padding: 10px;
 

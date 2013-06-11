@@ -1205,7 +1205,7 @@ blockquote p {
   }
 }
 /* line 9, ../sass/_components.scss */
-.up-down:before, .section-container .section .title a:before, .section-container section .title a:before {
+.up-down:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
   background-size: 12px 12px;
@@ -1215,65 +1215,6 @@ blockquote p {
   content: "\00a0\00a0";
 }
 /* line 19, ../sass/_components.scss */
-.up-down.open:before, .section-container .section .title a.open:before, .section-container section .title a.open:before, .section-container .section.active .title a:before, .section-container section.active .title a:before {
+.up-down.open:before {
   background-image: url("/images/down.svg");
-}
-
-/* line 3, ../sass/sections.scss */
-.section-container {
-  border: none !important;
-}
-/* line 6, ../sass/sections.scss */
-.section-container .section, .section-container section {
-  background-color: green;
-  clear: both;
-  font-size: 0.9em;
-  margin-left: 0px;
-  margin-right: 0px;
-  margin-top: 0;
-  cursor: pointer;
-  border-top: none;
-}
-/* line 11, ../sass/sections.scss */
-.section-container .section .title, .section-container section .title {
-  padding-left: 5px;
-  margin-bottom: 5px;
-  background-color: green;
-}
-/* line 16, ../sass/sections.scss */
-.section-container .section .title:hover, .section-container section .title:hover {
-  background-color: green;
-}
-/* line 20, ../sass/sections.scss */
-.section-container .section .title a, .section-container section .title a {
-  color: white;
-  padding: 5px;
-  display: inline;
-  line-height: 33px;
-}
-/* line 32, ../sass/sections.scss */
-.section-container .section.active, .section-container section.active {
-  padding-top: 0px !important;
-}
-/* line 35, ../sass/sections.scss */
-.section-container .section.active .title, .section-container section.active .title {
-  background-color: green;
-  margin-bottom: 0px;
-}
-/* line 47, ../sass/sections.scss */
-.section-container .section a.button, .section-container section a.button {
-  padding-bottom: 8px !important;
-}
-/* line 51, ../sass/sections.scss */
-.section-container .section .content, .section-container section .content {
-  padding: 5px;
-  padding-top: 15px;
-}
-/* line 55, ../sass/sections.scss */
-.section-container .section .content ul.disc, .section-container section .content ul.disc {
-  margin-left: 20px;
-}
-/* line 60, ../sass/sections.scss */
-.section-container .section .content:last-of-type, .section-container section .content:last-of-type {
-  padding-bottom: 10px;
 }

@@ -17,10 +17,10 @@
   @include grid-row(nest);
 
   margin: 0em;
+  padding-bottom: 0px;
 
-  .inner {
+  & > .inner {
     @include grid-column(12);
-
   }
 
   form {

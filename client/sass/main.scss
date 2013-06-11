@@ -300,3 +300,67 @@ ul.dropdown h5 a {
 .carousel {
   margin: 0 6px;
 }
+
+.section-container {
+  border: none !important;
+
+  .section, section {
+    @include standard-bar();
+
+    border-top: none;
+
+    .title {
+      padding-left: 5px;
+      margin-bottom: 5px;
+      background-color: lighten($topbar-bg, 45%);
+      
+      &:hover {
+        background-color: lighten($topbar-bg, 25%);
+      }
+
+      a {
+        color: white;
+        padding: 0px;
+        display: inline;
+        line-height: 33px;
+
+        &:before {
+          @extend .up-down:before;
+        }
+      }
+    }
+
+    &.active {
+      padding-top: 0px !important;
+
+      .title {
+        background-color: lighten($topbar-bg, 25%);
+        margin-bottom: 0px;
+
+        a {
+          &:before {
+            @extend .up-down.open:before;
+          }
+        }
+      }
+    }
+
+    a.button {
+      padding-bottom: 8px;
+    }
+
+    .content {
+      padding: 5px;
+      padding-top: 15px;
+
+      ul.disc {
+        margin-left: 20px;
+      }
+    }
+
+    .content:last-of-type {
+      padding-bottom: 10px;
+    }
+
+  }
+}

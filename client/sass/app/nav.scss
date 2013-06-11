@@ -21,14 +21,18 @@
 
 .secondary-nav {
   padding-top: 0em;
-  background-color: rgb(58, 58, 58);
+  background-color: lighten($topbar-bg, 15%);
 
 
   .country-filter {
+    @include grid-row();
+
     overflow:hidden;
     width:100%;
 
-    & > .columns {
+    & > .inner {
+      @include grid-column(12);
+
       min-height: 20px; 
       margin: 5px 0px 0px 0px !important;
     }
@@ -45,6 +49,10 @@
         margin: 0 0 0 16px;
         padding: 0 0 5px 0;
         opacity: 0.7;
+
+        &:first-of-type {
+          margin-left: 0px;
+        }
 
         &:hover {
           opacity: 1;

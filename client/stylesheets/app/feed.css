@@ -1206,7 +1206,7 @@ blockquote p {
   }
 }
 /* line 9, ../../sass/_components.scss */
-.up-down:before, .feed-item .inner .item-actions a.comments:before {
+.up-down:before, .feed-item > .inner .item-actions a.comments:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
   background-size: 12px 12px;
@@ -1216,7 +1216,7 @@ blockquote p {
   content: "\00a0\00a0";
 }
 /* line 19, ../../sass/_components.scss */
-.up-down.open:before, .feed-item .inner .item-actions a.open.comments:before, .feed-item.expanded .item-actions a.comments:before {
+.up-down.open:before, .feed-item > .inner .item-actions a.open.comments:before, .feed-item.expanded .item-actions a.comments:before {
   background-image: url("/images/down.svg");
 }
 
@@ -1370,65 +1370,66 @@ blockquote p {
   clear: both;
 }
 /* line 11, ../../sass/app/feed.scss */
-.feed-header .inner {
+.feed-header > .inner {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
   width: 100%;
   float: left;
+  padding: 0em;
 }
-/* line 14, ../../sass/app/feed.scss */
-.feed-header .inner ul {
+/* line 16, ../../sass/app/feed.scss */
+.feed-header > .inner ul {
   margin-bottom: 0em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 14, ../../sass/app/feed.scss */
-  .feed-header .inner ul {
+  /* line 16, ../../sass/app/feed.scss */
+  .feed-header > .inner ul {
     margin-top: 0em;
     margin-bottom: 0em;
   }
 }
-/* line 27, ../../sass/app/feed.scss */
-.feed-header .inner h4, .feed-header .inner h5 {
+/* line 29, ../../sass/app/feed.scss */
+.feed-header > .inner h4, .feed-header > .inner h5 {
   width: 100%;
 }
-/* line 31, ../../sass/app/feed.scss */
-.feed-header .inner h4 {
+/* line 33, ../../sass/app/feed.scss */
+.feed-header > .inner h4 {
   margin-bottom: 0px;
 }
-/* line 34, ../../sass/app/feed.scss */
-.feed-header .inner h4.show-for-small {
+/* line 36, ../../sass/app/feed.scss */
+.feed-header > .inner h4.show-for-small {
   font-size: 1.5em;
   text-transform: uppercase;
   display: inline-block;
   zoom: 1;
   letter-spacing: 1px;
 }
-/* line 41, ../../sass/app/feed.scss */
-.feed-header .inner h4.show-for-small.wide {
+/* line 43, ../../sass/app/feed.scss */
+.feed-header > .inner h4.show-for-small.wide {
   letter-spacing: 2px;
 }
-/* line 45, ../../sass/app/feed.scss */
-.feed-header .inner h4.show-for-small.wider {
+/* line 47, ../../sass/app/feed.scss */
+.feed-header > .inner h4.show-for-small.wider {
   letter-spacing: 1px;
 }
-/* line 52, ../../sass/app/feed.scss */
-.feed-header .inner h5.show-for-small {
+/* line 54, ../../sass/app/feed.scss */
+.feed-header > .inner h5.show-for-small {
   color: #888;
   display: inline-block;
   font-size: 1em;
   zoom: 1;
 }
-/* line 58, ../../sass/app/feed.scss */
-.feed-header .inner h5.show-for-small.wide {
+/* line 60, ../../sass/app/feed.scss */
+.feed-header > .inner h5.show-for-small.wide {
   letter-spacing: 2px;
 }
-/* line 62, ../../sass/app/feed.scss */
-.feed-header .inner h5.show-for-small.wider {
+/* line 64, ../../sass/app/feed.scss */
+.feed-header > .inner h5.show-for-small.wider {
   letter-spacing: 3px;
 }
-/* line 66, ../../sass/app/feed.scss */
-.feed-header .inner h5.show-for-small .sub-header {
+/* line 68, ../../sass/app/feed.scss */
+.feed-header > .inner h5.show-for-small .sub-header {
   letter-spacing: 1px;
 }
 
@@ -1492,7 +1493,7 @@ blockquote p {
   }
 }
 
-/* line 76, ../../sass/app/feed.scss */
+/* line 78, ../../sass/app/feed.scss */
 .feed {
   position: relative;
   padding-left: 0;
@@ -1502,23 +1503,24 @@ blockquote p {
   z-index: 10;
 }
 @media only screen and (min-width: 48em) {
-  /* line 76, ../../sass/app/feed.scss */
+  /* line 78, ../../sass/app/feed.scss */
   .feed {
     position: relative;
     padding-left: 0.9375em;
     padding-right: 0.9375em;
     width: 75%;
     float: left;
+    padding-left: 0em;
   }
 }
-/* line 86, ../../sass/app/feed.scss */
+/* line 90, ../../sass/app/feed.scss */
 .feed li p {
   display: inline;
   position: relative;
   top: -4px;
   margin-left: 8px;
 }
-/* line 93, ../../sass/app/feed.scss */
+/* line 97, ../../sass/app/feed.scss */
 .feed li i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;
@@ -1528,7 +1530,7 @@ blockquote p {
   overflow: hidden;
   line-height: 1.5;
 }
-/* line 104, ../../sass/app/feed.scss */
+/* line 108, ../../sass/app/feed.scss */
 .feed .feed-list {
   width: auto;
   margin-left: -0.9375em;
@@ -1550,17 +1552,17 @@ blockquote p {
   clear: both;
 }
 @media only screen and (min-width: 48em) {
-  /* line 104, ../../sass/app/feed.scss */
+  /* line 108, ../../sass/app/feed.scss */
   .feed .feed-list {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
+    margin-left: 0.9375em;
+    margin-right: 0.9375em;
+  }
+  /* line 118, ../../sass/app/feed.scss */
+  .feed .feed-list.faded {
+    opacity: 0;
   }
 }
-/* line 119, ../../sass/app/feed.scss */
-.feed .feed-list.faded {
-  opacity: 0;
-}
-/* line 123, ../../sass/app/feed.scss */
+/* line 124, ../../sass/app/feed.scss */
 .feed .feed-list > .content {
   position: relative;
   padding-left: 0.9375em;
@@ -1570,17 +1572,17 @@ blockquote p {
   display: block;
   height: 100%;
   min-height: 100%;
-  padding: 0.25em;
   position: relative;
+  padding: 0.25em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 123, ../../sass/app/feed.scss */
+  /* line 124, ../../sass/app/feed.scss */
   .feed .feed-list > .content {
-    padding-left: 0.9em;
-    padding-right: 0.9em;
+    padding-left: 0em;
+    padding-right: 0em;
   }
 }
-/* line 141, ../../sass/app/feed.scss */
+/* line 142, ../../sass/app/feed.scss */
 .feed .feed-more {
   width: auto;
   margin-left: -0.9375em;
@@ -1612,7 +1614,7 @@ blockquote p {
   text-align: center;
 }
 
-/* line 146, ../../sass/app/feed.scss */
+/* line 147, ../../sass/app/feed.scss */
 .feed-item {
   width: auto;
   margin-left: -0.9375em;
@@ -1622,7 +1624,7 @@ blockquote p {
   max-width: none;
   *zoom: 1;
   margin: 0em;
-  padding-bottom: 1em;
+  padding-bottom: 0.5em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
 .feed-item:before, .feed-item:after {
@@ -1634,12 +1636,7 @@ blockquote p {
   clear: both;
 }
 @media only screen and (min-width: 48em) {
-  /* line 146, ../../sass/app/feed.scss */
-  .feed-item {
-    padding-bottom: 0em;
-    width: 48%;
-  }
-  /* line 158, ../../sass/app/feed.scss */
+  /* line 160, ../../sass/app/feed.scss */
   .feed-item:last-of-type {
     animation-duration: 0.001s;
     -o-animation-duration: 0.001s;
@@ -1653,20 +1650,50 @@ blockquote p {
     -webkit-animation-name: feedInserted;
   }
 }
-/* line 166, ../../sass/app/feed.scss */
+/* line 168, ../../sass/app/feed.scss */
 .feed-item .ribbon-wrapper .ribbon {
   border-top-right-radius: 1px;
 }
-/* line 171, ../../sass/app/feed.scss */
-.feed-item .inner {
+/* line 173, ../../sass/app/feed.scss */
+.feed-item > .inner {
   position: relative;
   padding-left: 0;
   padding-right: 0;
   width: 100%;
   float: left;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e0e0e0;
+  margin-bottom: 1.25em;
+  padding: 1.25em;
+  background: #fafafa;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  padding: 0em;
 }
-/* line 174, ../../sass/app/feed.scss */
-.feed-item .inner .activity {
+/* line 43, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.feed-item > .inner h1, .feed-item > .inner h2, .feed-item > .inner h3, .feed-item > .inner h4, .feed-item > .inner h5, .feed-item > .inner h6, .feed-item > .inner p {
+  color: #333333;
+}
+/* line 47, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.feed-item > .inner > :first-child {
+  margin-top: 0;
+}
+/* line 48, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.feed-item > .inner > :last-child {
+  margin-bottom: 0;
+}
+/* line 51, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.feed-item > .inner h1, .feed-item > .inner h2, .feed-item > .inner h3, .feed-item > .inner h4, .feed-item > .inner h5, .feed-item > .inner h6 {
+  line-height: 1;
+  margin-bottom: 0.625em;
+}
+/* line 53, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.feed-item > .inner h1.subheader, .feed-item > .inner h2.subheader, .feed-item > .inner h3.subheader, .feed-item > .inner h4.subheader, .feed-item > .inner h5.subheader, .feed-item > .inner h6.subheader {
+  line-height: 1.4;
+}
+/* line 184, ../../sass/app/feed.scss */
+.feed-item > .inner .activity {
   width: auto;
   margin-left: -0.9375em;
   margin-right: -0.9375em;
@@ -1689,25 +1716,25 @@ blockquote p {
   margin: 0em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
-.feed-item .inner .activity:before, .feed-item .inner .activity:after {
+.feed-item > .inner .activity:before, .feed-item > .inner .activity:after {
   content: " ";
   display: table;
 }
 /* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
-.feed-item .inner .activity:after {
+.feed-item > .inner .activity:after {
   clear: both;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
-.feed-item .inner .activity:before, .feed-item .inner .activity:after {
+.feed-item > .inner .activity:before, .feed-item > .inner .activity:after {
   content: " ";
   display: table;
 }
 /* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
-.feed-item .inner .activity:after {
+.feed-item > .inner .activity:after {
   clear: both;
 }
 /* line 143, ../../sass/_components.scss */
-.feed-item .inner .activity .top-section {
+.feed-item > .inner .activity .top-section {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -1720,13 +1747,13 @@ blockquote p {
   padding: 0.3em 0.5em;
 }
 /* line 152, ../../sass/_components.scss */
-.feed-item .inner .activity .top-section .picture {
+.feed-item > .inner .activity .top-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 /* line 162, ../../sass/_components.scss */
-.feed-item .inner .activity .top-section .picture img {
+.feed-item > .inner .activity .top-section .picture img {
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   -ms-border-radius: 1px;
@@ -1735,17 +1762,17 @@ blockquote p {
   margin-top: 8px;
 }
 /* line 172, ../../sass/_components.scss */
-.feed-item .inner .activity .top-section .details {
+.feed-item > .inner .activity .top-section .details {
   height: 3.3em !important;
   margin-left: 3.5em;
   padding-top: 0.78em;
 }
 /* line 182, ../../sass/_components.scss */
-.feed-item .inner .activity .top-section .details .owner {
+.feed-item > .inner .activity .top-section .details .owner {
   line-height: 1em;
 }
 /* line 186, ../../sass/_components.scss */
-.feed-item .inner .activity .top-section .details .date {
+.feed-item > .inner .activity .top-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
@@ -1754,7 +1781,7 @@ blockquote p {
   text-overflow: ellipsis;
 }
 /* line 203, ../../sass/_components.scss */
-.feed-item .inner .activity .actions {
+.feed-item > .inner .activity .actions {
   height: 3.3em !important;
   margin-top: -0.3em;
   font-size: 1em;
@@ -1765,25 +1792,25 @@ blockquote p {
   display: none;
 }
 /* line 217, ../../sass/_components.scss */
-.feed-item .inner .activity .actions a.action {
+.feed-item > .inner .activity .actions a.action {
   width: 2em;
   height: 2em;
   font-weight: bold;
   display: inline-block;
 }
 /* line 223, ../../sass/_components.scss */
-.feed-item .inner .activity .actions a.action.remove {
+.feed-item > .inner .activity .actions a.action.remove {
   padding-left: 0.7em;
   padding-top: 0.5em;
   background-color: #e84c3d;
 }
 /* line 228, ../../sass/_components.scss */
-.feed-item .inner .activity .actions a.action.remove:before {
+.feed-item > .inner .activity .actions a.action.remove:before {
   content: "X";
   color: white;
 }
 /* line 236, ../../sass/_components.scss */
-.feed-item .inner .activity .content {
+.feed-item > .inner .activity .content {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -1792,11 +1819,11 @@ blockquote p {
   padding: 0.5em;
 }
 /* line 241, ../../sass/_components.scss */
-.feed-item .inner .activity .content p:last-of-type {
+.feed-item > .inner .activity .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 185, ../../sass/app/feed.scss */
-.feed-item .inner .activity > .content {
+/* line 195, ../../sass/app/feed.scss */
+.feed-item > .inner .activity > .content {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -1804,29 +1831,29 @@ blockquote p {
   float: left;
   padding: 0em 0.5em;
 }
-/* line 190, ../../sass/app/feed.scss */
-.feed-item .inner .activity > .content a.more {
+/* line 200, ../../sass/app/feed.scss */
+.feed-item > .inner .activity > .content a.more {
   line-height: 2.2em;
 }
-/* line 193, ../../sass/app/feed.scss */
-.feed-item .inner .activity > .content a.more:after {
+/* line 203, ../../sass/app/feed.scss */
+.feed-item > .inner .activity > .content a.more:after {
   content: "\00a0→";
 }
-/* line 200, ../../sass/app/feed.scss */
-.feed-item .inner .activity.story .ribbon-wrapper {
+/* line 210, ../../sass/app/feed.scss */
+.feed-item > .inner .activity.story .ribbon-wrapper {
   border-right: 4px solid #d82a1a;
   margin-right: -4px;
 }
-/* line 205, ../../sass/app/feed.scss */
-.feed-item .inner .activity.story .actions {
+/* line 215, ../../sass/app/feed.scss */
+.feed-item > .inner .activity.story .actions {
   right: 3.3em;
 }
-/* line 210, ../../sass/app/feed.scss */
-.feed-item .inner .activity .actions {
+/* line 220, ../../sass/app/feed.scss */
+.feed-item > .inner .activity .actions {
   margin-top: 0em;
 }
-/* line 216, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions {
+/* line 226, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions {
   width: auto;
   margin-left: -0.9375em;
   margin-right: -0.9375em;
@@ -1847,100 +1874,100 @@ blockquote p {
   font-size: 0.8em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
-.feed-item .inner .item-actions:before, .feed-item .inner .item-actions:after {
+.feed-item > .inner .item-actions:before, .feed-item > .inner .item-actions:after {
   content: " ";
   display: table;
 }
 /* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
-.feed-item .inner .item-actions:after {
+.feed-item > .inner .item-actions:after {
   clear: both;
 }
-/* line 226, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .show-comments {
+/* line 236, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .show-comments {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
   width: 58.33333%;
   float: left;
 }
-/* line 230, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .main-actions {
+/* line 240, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .main-actions {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
   width: 41.66667%;
   float: left;
 }
-/* line 234, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .show-comments, .feed-item .inner .item-actions .main-actions {
+/* line 244, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .show-comments, .feed-item > .inner .item-actions .main-actions {
   line-height: 33px;
 }
-/* line 238, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions a.comments {
+/* line 248, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions a.comments {
   font-size: 1em;
   color: white !important;
 }
-/* line 242, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions a.comments:before {
+/* line 252, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions a.comments:before {
   background-position: 0em 0.2em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 242, ../../sass/app/feed.scss */
-  .feed-item .inner .item-actions a.comments:before {
+  /* line 252, ../../sass/app/feed.scss */
+  .feed-item > .inner .item-actions a.comments:before {
     background-position: 0em 0.3em;
   }
 }
-/* line 253, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action {
+/* line 263, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action {
   margin-top: -5px !important;
 }
-/* line 256, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action ul {
+/* line 266, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action ul {
   list-style: none;
   display: inline;
   width: auto;
   float: right;
 }
-/* line 262, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action ul li {
+/* line 272, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action ul li {
   float: left;
   padding-left: 5px;
 }
-/* line 267, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action ul > .separator {
+/* line 277, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action ul > .separator {
   width: 2px;
   height: 24px;
   margin: 8px 1px 0 1px;
   border-right: 1px solid green;
 }
-/* line 278, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action a {
+/* line 288, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action a {
   font-size: 0.95em;
   height: 34px;
   line-height: 33px;
   padding: 0;
   color: green;
 }
-/* line 285, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action a.disabled {
+/* line 295, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action a.disabled {
   opacity: 0.3;
 }
-/* line 299, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action a.new-short {
+/* line 309, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action a.new-short {
   text-indent: -35px;
 }
-/* line 303, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action.new-comment {
+/* line 313, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action.new-comment {
   float: right;
 }
-/* line 306, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action.new-comment a {
+/* line 316, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action.new-comment a {
   text-indent: -73px;
 }
-/* line 313, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action.new-comment span:before,
-.feed-item .inner .item-actions .action a.new-short:before,
-.feed-item .inner .item-actions .action a.new-story:before {
+/* line 323, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action.new-comment span:before,
+.feed-item > .inner .item-actions .action a.new-short:before,
+.feed-item > .inner .item-actions .action a.new-story:before {
   content: "+";
   font-size: 1.6em;
   font-weight: bold;
@@ -1949,48 +1976,48 @@ blockquote p {
   position: relative;
 }
 @media only screen and (min-width: 48em) {
-  /* line 324, ../../sass/app/feed.scss */
-  .feed-item .inner .item-actions .action a {
+  /* line 334, ../../sass/app/feed.scss */
+  .feed-item > .inner .item-actions .action a {
     font-size: 0.9em;
   }
-  /* line 328, ../../sass/app/feed.scss */
-  .feed-item .inner .item-actions .action {
+  /* line 338, ../../sass/app/feed.scss */
+  .feed-item > .inner .item-actions .action {
     margin-top: 4px !important;
   }
-  /* line 332, ../../sass/app/feed.scss */
-  .feed-item .inner .item-actions .action.new-short a {
+  /* line 342, ../../sass/app/feed.scss */
+  .feed-item > .inner .item-actions .action.new-short a {
     text-indent: -28px;
   }
-  /* line 336, ../../sass/app/feed.scss */
-  .feed-item .inner .item-actions .action.new-comment a {
+  /* line 346, ../../sass/app/feed.scss */
+  .feed-item > .inner .item-actions .action.new-comment a {
     text-indent: -65px;
   }
 }
-/* line 342, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action.new-comment {
+/* line 352, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action.new-comment {
   height: 30px;
   margin-top: -3px !important;
 }
-/* line 346, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action.new-comment a {
+/* line 356, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action.new-comment a {
   text-indent: -50px;
 }
-/* line 349, ../../sass/app/feed.scss */
-.feed-item .inner .item-actions .action.new-comment a span {
+/* line 359, ../../sass/app/feed.scss */
+.feed-item > .inner .item-actions .action.new-comment a span {
   color: white;
 }
 @media only screen and (min-width: 48em) {
-  /* line 216, ../../sass/app/feed.scss */
-  .feed-item .inner .item-actions {
+  /* line 226, ../../sass/app/feed.scss */
+  .feed-item > .inner .item-actions {
     font-size: 0.9em;
   }
-  /* line 362, ../../sass/app/feed.scss */
-  .feed-item .inner .item-actions .action.new-comment a {
+  /* line 372, ../../sass/app/feed.scss */
+  .feed-item > .inner .item-actions .action.new-comment a {
     text-indent: -60px;
   }
 }
-/* line 369, ../../sass/app/feed.scss */
-.feed-item .inner .short-comments {
+/* line 379, ../../sass/app/feed.scss */
+.feed-item > .inner .short-comments {
   width: auto;
   margin-left: -0.9375em;
   margin-right: -0.9375em;
@@ -2003,16 +2030,16 @@ blockquote p {
   overflow: hidden;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
-.feed-item .inner .short-comments:before, .feed-item .inner .short-comments:after {
+.feed-item > .inner .short-comments:before, .feed-item > .inner .short-comments:after {
   content: " ";
   display: table;
 }
 /* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
-.feed-item .inner .short-comments:after {
+.feed-item > .inner .short-comments:after {
   clear: both;
 }
-/* line 380, ../../sass/app/feed.scss */
-.feed-item .inner .short-comments .inner {
+/* line 390, ../../sass/app/feed.scss */
+.feed-item > .inner .short-comments > .inner {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -2023,8 +2050,8 @@ blockquote p {
   border-top: none;
   padding: 0em;
 }
-/* line 390, ../../sass/app/feed.scss */
-.feed-item .inner .feed-comment-form {
+/* line 400, ../../sass/app/feed.scss */
+.feed-item > .inner .feed-comment-form {
   width: auto;
   margin-left: -0.9375em;
   margin-right: -0.9375em;
@@ -2038,16 +2065,16 @@ blockquote p {
   background-color: #FFF;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
-.feed-item .inner .feed-comment-form:before, .feed-item .inner .feed-comment-form:after {
+.feed-item > .inner .feed-comment-form:before, .feed-item > .inner .feed-comment-form:after {
   content: " ";
   display: table;
 }
 /* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
-.feed-item .inner .feed-comment-form:after {
+.feed-item > .inner .feed-comment-form:after {
   clear: both;
 }
-/* line 398, ../../sass/app/feed.scss */
-.feed-item .inner .feed-comment-form .inner {
+/* line 408, ../../sass/app/feed.scss */
+.feed-item > .inner .feed-comment-form > .inner {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -2061,17 +2088,17 @@ blockquote p {
   border-bottom-right-radius: 1px;
   padding: 0em;
 }
-/* line 405, ../../sass/app/feed.scss */
-.feed-item .inner .feed-comment-form .inner .comment-form {
+/* line 415, ../../sass/app/feed.scss */
+.feed-item > .inner .feed-comment-form > .inner .comment-form {
   padding-bottom: 0.4em;
 }
-/* line 421, ../../sass/app/feed.scss */
+/* line 431, ../../sass/app/feed.scss */
 .feed-item.expanded .short-comments {
   height: 100%;
   max-height: 450px;
   overflow-y: scroll;
 }
-/* line 427, ../../sass/app/feed.scss */
+/* line 437, ../../sass/app/feed.scss */
 .feed-item.expanded .feed-comment-form {
   height: 100%;
 }
@@ -2136,7 +2163,7 @@ blockquote p {
   }
 }
 
-/* line 435, ../../sass/app/feed.scss */
+/* line 445, ../../sass/app/feed.scss */
 .feed-extra {
   position: relative;
   padding-left: 0;
@@ -2153,6 +2180,7 @@ blockquote p {
   border-radius: 2px;
   padding: 0em;
   padding-top: 1em;
+  display: none;
 }
 /* line 43, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
 .feed-extra h1, .feed-extra h2, .feed-extra h3, .feed-extra h4, .feed-extra h5, .feed-extra h6, .feed-extra p {
@@ -2176,16 +2204,17 @@ blockquote p {
   line-height: 1.4;
 }
 @media only screen and (min-width: 48em) {
-  /* line 435, ../../sass/app/feed.scss */
+  /* line 445, ../../sass/app/feed.scss */
   .feed-extra {
     position: relative;
     padding-left: 0;
     padding-right: 0;
     width: 25%;
     float: left;
+    display: inherit;
   }
 }
-/* line 447, ../../sass/app/feed.scss */
+/* line 460, ../../sass/app/feed.scss */
 .feed-extra .alert-box {
   background-color: #e9e9e9;
   border-color: #d0d0d0;
@@ -2193,7 +2222,7 @@ blockquote p {
   border-left: none;
   border-right: none;
 }
-/* line 454, ../../sass/app/feed.scss */
+/* line 467, ../../sass/app/feed.scss */
 .feed-extra .map {
   width: auto;
   margin-left: -0.9375em;
@@ -2223,7 +2252,7 @@ blockquote p {
 .feed-extra .map:after {
   clear: both;
 }
-/* line 460, ../../sass/app/feed.scss */
+/* line 473, ../../sass/app/feed.scss */
 .feed-extra .map > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -2235,12 +2264,12 @@ blockquote p {
   margin-bottom: 1em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 460, ../../sass/app/feed.scss */
+  /* line 473, ../../sass/app/feed.scss */
   .feed-extra .map > .inner {
     height: 200px;
   }
 }
-/* line 473, ../../sass/app/feed.scss */
+/* line 486, ../../sass/app/feed.scss */
 .feed-extra .gallery {
   width: auto;
   margin-left: -0.9375em;
@@ -2260,7 +2289,7 @@ blockquote p {
 .feed-extra .gallery:after {
   clear: both;
 }
-/* line 478, ../../sass/app/feed.scss */
+/* line 491, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -2269,17 +2298,17 @@ blockquote p {
   float: left;
   padding: 0;
 }
-/* line 483, ../../sass/app/feed.scss */
+/* line 496, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .recent-photos {
   height: 140px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 483, ../../sass/app/feed.scss */
+  /* line 496, ../../sass/app/feed.scss */
   .feed-extra .gallery > .inner .recent-photos {
     height: 200px;
   }
 }
-/* line 494, ../../sass/app/feed.scss */
+/* line 507, ../../sass/app/feed.scss */
 .feed-extra .gallery-more {
   width: auto;
   margin-left: -0.9375em;
@@ -2311,12 +2340,12 @@ blockquote p {
   text-align: center;
 }
 
-/* line 500, ../../sass/app/feed.scss */
+/* line 513, ../../sass/app/feed.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 503, ../../sass/app/feed.scss */
+/* line 516, ../../sass/app/feed.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;

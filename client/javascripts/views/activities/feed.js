@@ -102,18 +102,20 @@ var feedInsertedEvent = null;
 this.setupFeedInserted = function () {
   feedInsertedEvent = function(event){
     if (event.animationName == 'feedInserted') {
-      var container = document.querySelector('.feed-list');
-      var options = {
-        itemSelector: '.feed-item', 
-        isInitLayout: false, 
-        gutter: 15
-      };
-      feedPackery = new Packery(container, options);
-      feedPackery.on( 'layoutComplete', function( packery ) {
-        $(".feed-list").removeClass("faded");
-      });
+      $(".feed-list").removeClass("faded");
+      
+      // var container = document.querySelector('.feed-list');
+      // var options = {
+      //   itemSelector: '.feed-item', 
+      //   isInitLayout: false, 
+      //   gutter: 0
+      // };
+      // feedPackery = new Packery(container, options);
+      // feedPackery.on( 'layoutComplete', function( packery ) {
+      //   $(".feed-list").removeClass("faded");
+      // });
 
-      feedPackery.layout();
+      // feedPackery.layout();
     }
   } 
   document.addEventListener('animationstart', feedInsertedEvent, false);
