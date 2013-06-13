@@ -9,10 +9,12 @@ $entry-bottom-margin: 0.9em;
   margin-bottom: 0.4em;
   margin-left: 0em;
   margin-right: 0em;
+  padding: 0.25em;
 
   @media only screen and (min-width: 48em) {
-    margin-left: emCalc(15px);
-    margin-right: emCalc(15px);
+    padding: 0em;
+    margin-left: $standard-margin;
+    margin-right: $standard-margin;
   }
 
   .form-content {
@@ -21,8 +23,10 @@ $entry-bottom-margin: 0.9em;
     @include panel();
     @include radius();
 
-    form {
+    margin-bottom: 0em;
+    padding: $standard-padding;
 
+    form {
       padding: 10px;
 
       .text-section, 

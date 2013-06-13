@@ -11,8 +11,6 @@
   & > .inner {
     @include grid-column(12);
 
-    padding: 0em;
-
     ul {
       margin-bottom: 0em;
 
@@ -150,12 +148,12 @@
   $story-radius: 1px;
 
   margin: 0em;
-  padding-bottom: 0.5em;
-  // display: none;
+  padding-bottom: 1em;
 
   @media only screen and (min-width: 48em) {
     // padding-bottom: 0em;
-    // width: 50%;
+    padding: 0em 0.5em 1em 0.5em;
+    width: 50%;
 
     &:last-of-type {
       // feedInserted is used as event for Packery
@@ -176,9 +174,10 @@
     @include radius();
 
     padding: 0em;
+    margin-bottom: 0em;
 
     @media only screen and (min-width: 48em) {
-      // padding: 0.5em;
+      margin-bottom: 0em;
     }
     
     .activity {
@@ -441,6 +440,7 @@
 }
 
 @include keyframe(mapInserted);
+@include keyframe(galleryInserted);
 
 .feed-extra {
   @include grid-column(12, $collapse: true);
@@ -454,7 +454,7 @@
   @media only screen and (min-width: 48em) {
     @include grid-column(3, $collapse: true);
 
-    display: inherit;
+    display: block;
   }
 
   .alert-box {
@@ -485,6 +485,7 @@
 
   .gallery {
     @include grid-row(nest);
+    @include animation(galleryInserted);
 
     margin: 0 !important;
 

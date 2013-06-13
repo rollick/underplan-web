@@ -8,14 +8,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="feed-extra">
-        <div class="map">
-          <div class="inner">
-            {{> feedMap}}
+      {{#if showExtras}}
+        <div class="feed-extra">
+          <div class="map">
+            <div class="inner">
+              {{> feedMap}}
+            </div>
           </div>
+          {{> feedGallery}}
         </div>
-        {{> feedGallery}}
-      </div>
+      {{/if}}
       <div class="feed">
         {{#if userBelongsToGroup}}
           <div class="short-form">

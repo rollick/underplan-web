@@ -53,14 +53,14 @@ Template.activityFeed.events({
   }
 });
 
-// Template.activityFeed.created = function () {
-//   console.log("Created Activity Feed Template");
-//   Session.setDefault("feedLimit", feedLimitSkip);
-//   Session.setDefault("feedFilter", {});
-// };
-
 Template.activityFeed.loading = function () {
   return _.isNull(activitiesSubscription) || !activitiesSubscription.ready();
+};
+
+Template.activityFeed.showExtras = function () {
+  // FIXME: this needs to be dynamic (maybe) based on the screen size
+  //        also, the value of 767 shouldn't be hard coded - get it from the css??
+  return parseInt($("body").css("width").match(/\d+/g)) > 767
 };
 
 Template.activityFeed.created = function() {
@@ -102,20 +102,18 @@ var feedInsertedEvent = null;
 this.setupFeedInserted = function () {
   feedInsertedEvent = function(event){
     if (event.animationName == 'feedInserted') {
-      $(".feed-list").removeClass("faded");
-      
-      // var container = document.querySelector('.feed-list');
-      // var options = {
-      //   itemSelector: '.feed-item', 
-      //   isInitLayout: false, 
-      //   gutter: 0
-      // };
-      // feedPackery = new Packery(container, options);
-      // feedPackery.on( 'layoutComplete', function( packery ) {
-      //   $(".feed-list").removeClass("faded");
-      // });
+      var container = document.querySelector('.feed-list');
+      var options = {
+        itemSelector: '.feed-item', 
+        isInitLayout: false, 
+        gutter: 0
+      };
+      feedPackery = new Packery(container, options);
+      feedPackery.on( 'layoutComplete', function( packery ) {
+        $(".feed-list").removeClass("faded");
+      });
 
-      // feedPackery.layout();
+      feedPackery.layout();
     }
   } 
   document.addEventListener('animationstart', feedInsertedEvent, false);
