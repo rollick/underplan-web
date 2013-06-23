@@ -167,7 +167,7 @@ $thumb-width: 80px;
 .galleria-thumb-nav-right {
     cursor: pointer;
     display: none;
-    background-position: -495px 5px;
+    background-position: -495px 15px;
     position: absolute;
     left: 0;
     top: 0;
@@ -178,7 +178,7 @@ $thumb-width: 80px;
     filter: alpha(opacity=80);
 }
 .galleria-thumb-nav-right {
-    background-position: -578px 5px;
+    background-position: -578px 15px;
     border-right: none;
     right: 0;
     left: auto;

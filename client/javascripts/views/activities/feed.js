@@ -310,6 +310,9 @@ Template.feedGallery.events({
     Session.set("galleryLimit", Session.get("galleryLimit") + galleryLimitSkip);
     return false;
   },
+  "click .galleria-map": function () {
+    $(".gallery").css("z-index", -1);
+  }
 })
 
 Template.feedGallery.helpers({
@@ -356,28 +359,42 @@ Template.feedGallery.helpers({
         Galleria.run('.recent-photos', {
           dataSource: data,
           extend: function(s) {
-            // var gallery = this; 
-            // gallery.attachKeyboard({
-            //   left: gallery.prev,
-            //   right: gallery.next,
-            // });
+            // create an element 'galleria-map'
+            this.addElement('map');
+            // add to default 'galleria-container' 
+            this.appendChild('container', 'map');
+
+            if (! Galleria.TOUCH ) {
+              this.addIdleState( this.get('map'), { right: -80 });
+            }
+
+            var gallery = this; 
+            gallery.attachKeyboard({
+              left: gallery.prev,
+              right: gallery.next,
+            });
             
-            // $('.galleria-image').click(function(event) {
-            //   if (! $(event.target).closest(".galleria-container").hasClass("fullscreen")) {
-            //     event.preventDefault();
-            //     gallery.toggleFullscreen(); // toggles the fullscreen
+            $('.galleria-image').click(function(event) {
+              var galleria = $(event.target).closest(".galleria-container");
+              var container = $(event.target).closest(".gallery");
 
-            //     // gallery.defineTooltip("fullscreen", s._locale.exit_fullscreen);
-            //     gallery.addIdleState(gallery.$("bar"), {
-            //       bottom: -31
-            //     })
-            //   }
-            // });
+              if (galleria.hasClass("fullscreen")) {
+                event.preventDefault();
+                gallery.toggleFullscreen(); // toggles the fullscreen
 
-            // $("#fullscreen").click(function() {
-            //   event.preventDefault();
-            //   gallery.enterFullscreen(); 
-            // });
+                // gallery.defineTooltip("fullscreen", s._locale.exit_fullscreen);
+                gallery.addIdleState(gallery.$("bar"), {
+                  bottom: -31
+                })
+              } else if (! container.hasClass("visible")) {
+                container.addClass("visible");
+              }
+            });
+
+            $("#fullscreen").click(function() {
+              event.preventDefault();
+              gallery.enterFullscreen(); 
+            });
           }
         });
       }

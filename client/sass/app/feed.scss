@@ -107,18 +107,13 @@
   .feed-list {
     @include grid-row(nest);
 
-    // margin-left: 0em;
-    // margin-right: 0em;
+    margin-top: $standard-margin;
 
     @media only screen and (min-width: 48em) {
-      // margin-left: emCalc(15px);
-      // margin-right: emCalc(15px);
-
       &.faded {
         opacity: 0.5;
       }
     }
-
 
     & > .content {
       @include grid-column(12, $collapse: true);
@@ -437,7 +432,10 @@
 
   z-index: 0;
   // padding: 0em;
-  padding-top: 0em;
+  padding: 0em;
+  padding-bottom: 4em;
+  // margin-left: $standard-margin;
+  // margin-right: $standard-margin;
   border-top: none;
   border-bottom: none;
   display: none;
@@ -459,11 +457,12 @@
     @include grid-row(nest);
     @include animation(mapInserted);
 
-    z-index: 2;
-    // margin: 0 !important;
+    width: 100%;
+    z-index: 1;
+    margin: 0;
 
     & > .inner {
-      @include grid-column(12);
+      @include grid-column(12, $collapse: true);
 
       padding: 0;
       height: $map-height-small;
@@ -480,16 +479,20 @@
     @include animation(galleryInserted);
 
     // margin: 0 !important;
+    position: absolute;
+    top: 0;
+    margin: 0;
+    z-index: -1;
+    width: 100%;
+
+    &.visible {
+      z-index: 1;
+    }
 
     & > .inner {
-      @include grid-column(12);
+      @include grid-column(12, $collapse: true);
 
-      padding: 0;
-
-    // z-index: 3;
-    // position: absolute;
-    // top: 0px;
-    // left: 0px;      
+      // padding: 0;
 
       .recent-photos {
         height: $photo-feed-height-small;
@@ -498,12 +501,32 @@
           height: $photo-feed-height-large;
         }
       }
-    }
 
+      .galleria-map {
+        width: 50%;
+        top: 15px;
+        right: 15px;
+        z-index: 2;
+        position: absolute;
+        text-align: right;
+        color: gray;
+        font-style: italic;
+
+        &:before {
+          content: "See Map";
+        }
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
   }
 
   .gallery-more {
     @include more-button();
+
+    display: none;
   }
 }
 
