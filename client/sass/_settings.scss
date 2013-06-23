@@ -19,10 +19,12 @@ $standard-panel-bg:         darken(#fff, 2%);
 $standard-border-color:     darken($standard-panel-bg, 10%);
 $standard-padding:          0.5em;
 $standard-margin:           emCalc(15px);
-$photo-feed-height-large:   200px;
+$photo-feed-height-large:   400px;
 $photo-feed-height-small:   140px;
-$map-height-large:          200px;
+$map-height-large:          320px;
 $map-height-small:          140px;
+$feed-extra-columns-large:  12;
+$feed-columns-large:        12;
 
 //// Foundation Global
 $header-font-family:        'Open Sans', Arial, sans-serif;

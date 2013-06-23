@@ -71,7 +71,6 @@ this.defaultMapZoom  = 12;
 this.shortMaxLength  = 250;
 
 Galleria.configure({
-  _animate: false,
   imageCrop: false
 });
 this.picasa = new Galleria.Picasa();

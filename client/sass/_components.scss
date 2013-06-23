@@ -121,8 +121,9 @@
 }
 
 @mixin standard-bar() {
-  @include standard-bar-background($primary-color, true);
+  // @include standard-bar-background($primary-color, true);
   
+  border-top: 2px solid $primary-color;
   font-size: 0.9em;
   margin-left: 0px;
   margin-right: 0px;

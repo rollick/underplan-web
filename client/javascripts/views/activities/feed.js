@@ -102,18 +102,19 @@ var feedInsertedEvent = null;
 this.setupFeedInserted = function () {
   feedInsertedEvent = function(event){
     if (event.animationName == 'feedInserted') {
-      var container = document.querySelector('.feed-list');
-      var options = {
-        itemSelector: '.feed-item', 
-        isInitLayout: false, 
-        gutter: 0
-      };
-      feedPackery = new Packery(container, options);
-      feedPackery.on( 'layoutComplete', function( packery ) {
-        $(".feed-list").removeClass("faded");
-      });
+      // var container = document.querySelector('.feed-list');
+      // var options = {
+      //   itemSelector: '.feed-item', 
+      //   isInitLayout: false, 
+      //   gutter: 0
+      // };
+      // feedPackery = new Packery(container, options);
+      // feedPackery.on( 'layoutComplete', function( packery ) {
+      //   $(".feed-list").removeClass("faded");
+      // });
 
-      feedPackery.layout();
+      // feedPackery.layout();
+      $(".feed-list").removeClass("faded");
     }
   } 
   document.addEventListener('animationstart', feedInsertedEvent, false);
@@ -342,9 +343,42 @@ Template.feedGallery.helpers({
         });
 
       } else { // Create initial gallery
+        // Galleria.ready(function() {
+        //   var gallery = this; // galleria is ready and the gallery is assigned
+        //   $('.galleria-image').click(function(event) {
+        //     if (! $(event.target).closest(".galleria-container").hasClass("fullscreen")) {
+        //       event.preventDefault();
+        //       gallery.toggleFullscreen(); // toggles the fullscreen
+        //     }
+        //   });
+        // });
+
         Galleria.run('.recent-photos', {
-            dataSource: data,
-            showInfo: true
+          dataSource: data,
+          extend: function(s) {
+            // var gallery = this; 
+            // gallery.attachKeyboard({
+            //   left: gallery.prev,
+            //   right: gallery.next,
+            // });
+            
+            // $('.galleria-image').click(function(event) {
+            //   if (! $(event.target).closest(".galleria-container").hasClass("fullscreen")) {
+            //     event.preventDefault();
+            //     gallery.toggleFullscreen(); // toggles the fullscreen
+
+            //     // gallery.defineTooltip("fullscreen", s._locale.exit_fullscreen);
+            //     gallery.addIdleState(gallery.$("bar"), {
+            //       bottom: -31
+            //     })
+            //   }
+            // });
+
+            // $("#fullscreen").click(function() {
+            //   event.preventDefault();
+            //   gallery.enterFullscreen(); 
+            // });
+          }
         });
       }
       

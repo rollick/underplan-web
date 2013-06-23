@@ -6,16 +6,11 @@ $entry-bottom-margin: 0.9em;
 .short-form {
   @include grid-row(nest);
 
-  margin-bottom: 0.4em;
-  margin-left: 0em;
-  margin-right: 0em;
-  padding: 0.25em;
-
-  @media only screen and (min-width: 48em) {
-    padding: 0em;
-    margin-left: $standard-margin;
-    margin-right: $standard-margin;
-  }
+  // @media only screen and (min-width: 48em) {
+  //   padding: 0em;
+  //   margin-left: $standard-margin;
+  //   margin-right: $standard-margin;
+  // }
 
   .form-content {
     @include grid-column(12, $collapse: true);

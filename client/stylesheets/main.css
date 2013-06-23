@@ -7437,8 +7437,7 @@ ul.dropdown h5 a {
 }
 /* line 307, ../sass/main.scss */
 .section-container .section, .section-container section {
-  background-color: green;
-  clear: both;
+  border-top: 2px solid green;
   font-size: 0.9em;
   margin-left: 0px;
   margin-right: 0px;
