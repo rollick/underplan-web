@@ -2388,7 +2388,7 @@ blockquote p {
 }
 /* line 515, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map:before {
-  content: "See Map";
+  content: "Show Map";
 }
 /* line 519, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map:hover {

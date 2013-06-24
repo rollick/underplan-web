@@ -15,7 +15,9 @@
               {{> feedMap}}
             </div>
           </div>
-          {{> feedGallery}}
+          {{#isolate}}
+            {{> feedGallery}}
+          {{/isolate}}
         </div>
       {{/if}}
       <div class="feed">

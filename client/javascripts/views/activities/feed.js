@@ -311,7 +311,7 @@ Template.feedGallery.events({
     return false;
   },
   "click .galleria-map": function () {
-    $(".gallery").css("z-index", -1);
+    $(".gallery").removeClass("visible");
   }
 })
 
@@ -358,6 +358,7 @@ Template.feedGallery.helpers({
 
         Galleria.run('.recent-photos', {
           dataSource: data,
+          _toggleInfo: false,
           extend: function(s) {
             // create an element 'galleria-map'
             this.addElement('map');
