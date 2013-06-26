@@ -5,19 +5,16 @@
 @import "foundation/components/type";
 @import "foundation/components/grid";
 
-.up-down {
+@mixin up-down($height: 24px, $expanded: false) {
   &:before {
-    background-image: url('/images/right.svg');
+    @if $expanded { background-image: url('/images/down.svg') }
+    @else         { background-image: url('/images/right.svg') }
     background-repeat: no-repeat;
-    background-size: 12px 12px;
-    background-position: 0px 3px;
-    padding-left: 12px;
-    height: 24px;
+    background-size: $height/2 $height/2;
+    background-position: 0px ($height/2)/4 - 1;
+    padding-left: $height/2;
+    height: $height;
     content: "\00a0\00a0";
-  }
-
-  &.open:before {
-    background-image: url("/images/down.svg");
   }
 }
 

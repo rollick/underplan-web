@@ -2,6 +2,7 @@
 // Activity comment
 
 var saveComment = function (template, success) {
+  Session.set("createError", null);
   var btns = $(template.find(".save.button, .cancel.button"));
   if(btns.hasClass("disabled")) {
     return false;

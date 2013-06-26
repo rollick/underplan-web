@@ -22,6 +22,8 @@ Template.shortForm.events({
   'click .show-advanced-location': function (event, template) {
     var fields = template.find(".location-fields");
     $(fields).toggle();
+
+    return false;
   },
   'click .cancel': function (event, template) {
     clearForm(template);

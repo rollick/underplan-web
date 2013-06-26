@@ -8,6 +8,10 @@
   // padding-bottom: 0.8em;
   margin: 0;
 
+  &.faded {
+    border: red solid 1px;
+  }
+
   &:last-of-type {
     border-bottom: none;
   }

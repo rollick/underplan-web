@@ -129,7 +129,7 @@ Template.feedList.events({
   "click .feed-more a": function () {
     Session.set("feedLimit", Session.get("feedLimit") + feedLimitSkip);
     return false;
-  },
+  }
 })
 
 Template.feedList.anyActivities = function () {
@@ -267,10 +267,34 @@ Template.feedItemActions.countText = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Item Comments
 
+commentsScrollOk = true;
+setInterval(function () {
+    commentsScrollOk = true;
+}, 33);
+
 Template.feedItemComments.events({
-  "click .short-comments .inner": function () {
-    debugger
-  },
+  "scroll .short-comments .inner": function (event, template) {
+    if (commentsScrollOk === true) {
+      commentsScrollOk = false;
+
+      var commentsView    = $(template.find(".short-comments > .inner")),
+          commentsNotice  = $(template.find(".comments-notice .inner")),
+          viewportHeight  = commentsView.outerHeight(),
+          hiddenComments  = [];
+      
+      commentsView.find(".comment").each( function(index, comment) {
+        if ($(comment).position().top > viewportHeight - 60) {
+          hiddenComments.push(comment);
+        }
+      });
+
+      if(hiddenComments.length > 0) {
+        commentsNotice.text(hiddenComments.length + " more comments");
+      } else {
+        commentsNotice.text("");
+      }
+    }
+  }
 });
 
 ///////////////////////////////////////////////////////////////////////////////
