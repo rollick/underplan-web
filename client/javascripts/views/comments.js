@@ -3,11 +3,11 @@
 
 var saveComment = function (template, success) {
   Session.set("createError", null);
-  var btns = $(template.find(".save.button, .cancel.button"));
-  if(btns.hasClass("disabled")) {
+  var submit = $(template.find(".save.button"));
+  if(submit.hasClass("disabled")) {
     return false;
   } else {
-    btns.addClass("disabled");
+    submit.addClass("disabled");
   }
 
   var comment = template.find("form #comment").value;
@@ -20,7 +20,7 @@ var saveComment = function (template, success) {
     Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
       if (error) {
         Session.set("createError", [error.error, error.reason].join(": "));
-        template.find("#comment").value = comment;        
+        template.find("#comment").value = comment; 
       } else {
         if (_.isFunction(success)) { success.call(commentId); }
       }
@@ -29,7 +29,7 @@ var saveComment = function (template, success) {
     Session.set("createError",
                 "It needs a comment");
   }
-  btns.removeClass("disabled");
+  submit.removeClass("disabled");
 
   return false;
 };
