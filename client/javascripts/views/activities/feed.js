@@ -60,7 +60,7 @@ Template.activityFeed.loading = function () {
 Template.activityFeed.showExtras = function () {
   // FIXME: this needs to be dynamic (maybe) based on the screen size
   //        also, the value of 767 shouldn't be hard coded - get it from the css??
-  return parseInt($("body").css("width").match(/\d+/g)) > 767
+  return true //parseInt($("body").css("width").match(/\d+/g)) > 767
 };
 
 Template.activityFeed.created = function() {
@@ -174,8 +174,14 @@ Template.feedItem.events({
     return false;
   },
   'click .item-actions a.comments': function (event, template) {
-    $(event.target).closest(".feed-item").toggleClass("expanded");
-    repackFeed();
+    var item = $(event.target).closest(".feed-item");
+    item.toggleClass("expanded");
+    
+    if (item.hasClass("expanded")) {
+      setFeedCommentsNotice(template);
+    } else {
+      hideFeedCommentsNotice(item);
+    }
 
     return false;
   },
@@ -185,10 +191,13 @@ Template.feedItem.events({
     }
 
     var self = this;
-    $(event.target).closest(".feed-item").addClass("expanded");
-    $("#" + self._id + " #comment").focus();
+    var item = $(event.target).closest(".feed-item");
+    item.addClass("expanded");
 
-    repackFeed();
+    if (item.hasClass("expanded"))
+      setFeedCommentsNotice(template);
+
+    $("#" + self._id + " #comment").focus();
 
     return false;
   }
@@ -270,32 +279,52 @@ Template.feedItemActions.countText = function () {
 commentsScrollOk = true;
 setInterval(function () {
     commentsScrollOk = true;
-}, 33);
+}, 100);
 
 Template.feedItemComments.events({
   "scroll .short-comments .inner": function (event, template) {
+    console.log("Scroll feed called");
     if (commentsScrollOk === true) {
       commentsScrollOk = false;
 
-      var commentsView    = $(template.find(".short-comments > .inner")),
-          commentsNotice  = $(template.find(".comments-notice .inner")),
-          viewportHeight  = commentsView.outerHeight(),
-          hiddenComments  = [];
-      
-      commentsView.find(".comment").each( function(index, comment) {
-        if ($(comment).position().top > viewportHeight - 60) {
-          hiddenComments.push(comment);
-        }
-      });
-
-      if(hiddenComments.length > 0) {
-        commentsNotice.text(hiddenComments.length + " more comments");
-      } else {
-        commentsNotice.text("");
-      }
+      setFeedCommentsNotice(template);
     }
   }
 });
+
+Template.feedItemComments.rendered = function () {
+  setFeedCommentsNotice(this);
+};
+
+setFeedCommentsNotice = function (item) {
+  item.find(".comments-notice .inner").hide();
+};
+
+setFeedCommentsNotice = function (template) {
+  var commentsView    = $(template.find(".short-comments > .inner")),
+      commentsNotice  = $(template.find(".comments-notice > .inner")),
+      viewportHeight  = commentsView.outerHeight(),
+      hiddenComments  = [];
+  
+  commentsView.find(".comment").each( function(index, comment) {
+    if ($(comment).position().top > viewportHeight - 60) {
+      hiddenComments.push(comment);
+    }
+  });
+
+  if(hiddenComments.length > 0) {
+    var commentText = hiddenComments.length > 1 ? "comments" : "comment";
+    commentsNotice.text(hiddenComments.length + " " + commentText + " below");
+
+    // FIXME: We shouldn't assume the parent is a .feed-item. Maybe the parent
+    //        should be set when this class is created and it should be set on
+    //        here as a property, eg delegate.
+    if ($(template.firstNode).closest(".feed-item").hasClass("expanded"))
+      commentsNotice.show();
+  } else {
+    commentsNotice.text("").hide();
+  }
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Map
@@ -380,7 +409,7 @@ Template.feedGallery.helpers({
         //   });
         // });
 
-        Galleria.run('.recent-photos', {
+        var test = Galleria.run('.recent-photos', {
           dataSource: data,
           _toggleInfo: false,
           extend: function(s) {

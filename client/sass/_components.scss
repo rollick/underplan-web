@@ -11,7 +11,7 @@
     @else         { background-image: url('/images/right.svg') }
     background-repeat: no-repeat;
     background-size: $height/2 $height/2;
-    background-position: 0px ($height/2)/4 - 1;
+    background-position: 0px ($height/2)/4;
     padding-left: $height/2;
     height: $height;
     content: "\00a0\00a0";
@@ -205,7 +205,7 @@
     color: black;
     z-index: 102;
     position: absolute;
-    right: emCalc(-1px);
+    right: 0em;
     display: none;
 
     @media only screen and (min-width: 48em) {

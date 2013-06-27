@@ -18,8 +18,8 @@
     {{> subNav}}
   </div>
 
-  <div class="row main-content {{#if showGroupList}}dashboard{{else}}normal{{/if}}" role="content">
-    <div class="small-12 large-12 columns">
+  <div class="main-content {{#if showGroupList}}dashboard{{else}}normal{{/if}}" role="content">
+    <div class="inner">
       {{#if showInviteList}}
         {{> groupInviteList}}
       {{/if}}
@@ -59,15 +59,15 @@
       {{#if showLoginForm}}
         {{> loginForm}}
       {{/if}}
-      <div class="push"></div>
     </div>
+    <div class="push"></div>
   </div>
 
-  <footer>
+  <div class="footer">
     <div class="info">
-      <div>Underplan {{appVersion}} © 2013</div>
+      <p>Underplan {{appVersion}} © 2013</p>
     </div>
-  </footer>
+  </div>
 
   <!-- Scripts -->
   {{loadScripts}}

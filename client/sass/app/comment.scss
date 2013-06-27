@@ -1,4 +1,5 @@
 @import "../components";
+@import "foundation/components/panels";
 
 .comment {
   @include entry-with-profile(3.3em);

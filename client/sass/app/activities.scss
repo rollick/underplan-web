@@ -3,7 +3,7 @@
 
 .activity {
 
-  &.story-full {
+  .story-full {
     @include panel();
 
     & > .inner {
@@ -88,8 +88,29 @@
   }
 
   .story-comments {
-    .comment .top-section {
-      // padding: 0em;
+    @include grid-row(nested);
+
+    & > .inner {
+      @include grid-column(12, $collapse: true);
+
+      .comment {
+        padding: $standard-padding;
+      }
+    }
+
+  }
+  
+  .comment-form {
+    @include grid-row(nested);
+
+
+    & > .inner {
+      @include grid-column(12, $collapse: true);
+
+      padding: emCalc(15px);
+      padding-top: 0em;
+      border-color: #e0e0e0;
+      background: #fafafa;
     }
   }
   

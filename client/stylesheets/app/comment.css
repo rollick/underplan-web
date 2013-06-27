@@ -1204,7 +1204,76 @@ blockquote p {
     float: none !important;
   }
 }
-/* line 3, ../../sass/app/comment.scss */
+/* Panels */
+/* line 62, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #e0e0e0;
+  margin-bottom: 1.25em;
+  padding: 1.25em;
+  background: #fafafa;
+}
+/* line 43, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p {
+  color: #333333;
+}
+/* line 47, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel > :first-child {
+  margin-top: 0;
+}
+/* line 48, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel > :last-child {
+  margin-bottom: 0;
+}
+/* line 51, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6 {
+  line-height: 1;
+  margin-bottom: 0.625em;
+}
+/* line 53, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel h1.subheader, .panel h2.subheader, .panel h3.subheader, .panel h4.subheader, .panel h5.subheader, .panel h6.subheader {
+  line-height: 1.4;
+}
+/* line 64, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout {
+  border-style: solid;
+  border-width: 1px;
+  border-color: #004d00;
+  margin-bottom: 1.25em;
+  padding: 1.25em;
+  background: green;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5) inset;
+}
+/* line 44, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout h1, .panel.callout h2, .panel.callout h3, .panel.callout h4, .panel.callout h5, .panel.callout h6, .panel.callout p {
+  color: white;
+}
+/* line 47, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout > :first-child {
+  margin-top: 0;
+}
+/* line 48, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout > :last-child {
+  margin-bottom: 0;
+}
+/* line 51, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout h1, .panel.callout h2, .panel.callout h3, .panel.callout h4, .panel.callout h5, .panel.callout h6 {
+  line-height: 1;
+  margin-bottom: 0.625em;
+}
+/* line 53, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.callout h1.subheader, .panel.callout h2.subheader, .panel.callout h3.subheader, .panel.callout h4.subheader, .panel.callout h5.subheader, .panel.callout h6.subheader {
+  line-height: 1.4;
+}
+/* line 69, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
+.panel.radius {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+}
+
+/* line 4, ../../sass/app/comment.scss */
 .comment {
   width: auto;
   margin-left: -0.9375em;
@@ -1283,7 +1352,7 @@ blockquote p {
   color: black;
   z-index: 102;
   position: absolute;
-  right: -0.0625em;
+  right: 0em;
   display: none;
 }
 /* line 215, ../../sass/_components.scss */
@@ -1317,16 +1386,16 @@ blockquote p {
 .comment .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 11, ../../sass/app/comment.scss */
+/* line 12, ../../sass/app/comment.scss */
 .comment.faded {
   border: red solid 1px;
 }
-/* line 15, ../../sass/app/comment.scss */
+/* line 16, ../../sass/app/comment.scss */
 .comment:last-of-type {
   border-bottom: none;
 }
 
-/* line 20, ../../sass/app/comment.scss */
+/* line 21, ../../sass/app/comment.scss */
 .comment-form {
   width: auto;
   margin-left: -0.9375em;
@@ -1347,7 +1416,7 @@ blockquote p {
 .comment-form:after {
   clear: both;
 }
-/* line 26, ../../sass/app/comment.scss */
+/* line 27, ../../sass/app/comment.scss */
 .comment-form > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1355,11 +1424,11 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 30, ../../sass/app/comment.scss */
+/* line 31, ../../sass/app/comment.scss */
 .comment-form form {
   margin: 0em;
 }
-/* line 34, ../../sass/app/comment.scss */
+/* line 35, ../../sass/app/comment.scss */
 .comment-form .user-comment {
   width: auto;
   margin-left: -0.9375em;
@@ -1434,7 +1503,7 @@ blockquote p {
   color: black;
   z-index: 102;
   position: absolute;
-  right: -0.0625em;
+  right: 0em;
   display: none;
 }
 /* line 215, ../../sass/_components.scss */
@@ -1468,25 +1537,25 @@ blockquote p {
 .comment-form .user-comment .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 39, ../../sass/app/comment.scss */
+/* line 40, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section {
   margin-bottom: 0em;
 }
-/* line 42, ../../sass/app/comment.scss */
+/* line 43, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .picture {
   display: none;
 }
-/* line 46, ../../sass/app/comment.scss */
+/* line 47, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details {
   padding-top: 0.5em;
   margin-left: 0em;
 }
-/* line 50, ../../sass/app/comment.scss */
+/* line 51, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details .button {
   display: none;
   margin-bottom: 0em;
 }
-/* line 55, ../../sass/app/comment.scss */
+/* line 56, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details #comment {
   font-size: 0.9em;
   border: 1px solid #dddddd;
@@ -1494,19 +1563,19 @@ blockquote p {
   margin-bottom: 0.3em;
   min-height: 0em;
 }
-/* line 69, ../../sass/app/comment.scss */
+/* line 70, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .top-section .picture {
   display: inherit;
 }
-/* line 73, ../../sass/app/comment.scss */
+/* line 74, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .top-section .details {
   margin-left: 3.3em;
 }
-/* line 76, ../../sass/app/comment.scss */
+/* line 77, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .top-section .details #comment {
   height: 5em;
 }
-/* line 80, ../../sass/app/comment.scss */
+/* line 81, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .top-section .details .button {
   display: inline-block;
 }
