@@ -10,26 +10,27 @@ var saveComment = function (template, success) {
     submit.addClass("disabled");
   }
 
-  var comment = template.find("form #comment").value;
+  var comment = template.find("form #comment");
+  var commentText = comment.value;
   var activityId = template.find("form #activity-id").value;
   
   // Clear input here and then re-set if save fails
-  template.find("#comment").value = "";
+  comment.value = "";
 
-  if (activityId && Meteor.userId() && comment.length) {
-    Meteor.call('createComment', {comment: comment, activityId: activityId}, function (error, commentId) {
+  if (activityId && Meteor.userId() && commentText.length) {
+    Meteor.call('createComment', {comment: commentText, activityId: activityId}, function (error, commentId) {
       if (error) {
         Session.set("createError", [error.error, error.reason].join(": "));
-        template.find("#comment").value = comment; 
+        comment.value = commentText;
       } else {
         if (_.isFunction(success)) { success.call(commentId); }
+        comment.focus();
       }
     });
   } else {
     Session.set("createError",
                 "It needs a comment");
   }
-  submit.removeClass("disabled");
 
   return false;
 };

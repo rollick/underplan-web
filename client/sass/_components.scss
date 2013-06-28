@@ -234,7 +234,7 @@
   .content {
     @include grid-column(12);
 
-    padding: 0.5em;
+    padding: 1em 0.5em;
 
     p:last-of-type {
       margin-bottom: 0em;

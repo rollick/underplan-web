@@ -1380,7 +1380,7 @@ blockquote p {
   padding-right: 0.9375em;
   width: 100%;
   float: left;
-  padding: 0.5em;
+  padding: 1em 0.5em;
 }
 /* line 239, ../../sass/_components.scss */
 .comment .content p:last-of-type {
@@ -1531,7 +1531,7 @@ blockquote p {
   padding-right: 0.9375em;
   width: 100%;
   float: left;
-  padding: 0.5em;
+  padding: 1em 0.5em;
 }
 /* line 239, ../../sass/_components.scss */
 .comment-form .user-comment .content p:last-of-type {
@@ -1547,7 +1547,6 @@ blockquote p {
 }
 /* line 47, ../../sass/app/comment.scss */
 .comment-form .user-comment .top-section .details {
-  padding-top: 0.5em;
   margin-left: 0em;
 }
 /* line 51, ../../sass/app/comment.scss */
@@ -1560,7 +1559,6 @@ blockquote p {
   font-size: 0.9em;
   border: 1px solid #dddddd;
   height: 2.5em;
-  margin-bottom: 0.3em;
   min-height: 0em;
 }
 /* line 70, ../../sass/app/comment.scss */

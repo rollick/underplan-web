@@ -1787,7 +1787,7 @@ blockquote p {
   padding-right: 0.9375em;
   width: 100%;
   float: left;
-  padding: 0.5em;
+  padding: 1em 0.5em;
 }
 /* line 239, ../../sass/_components.scss */
 .feed-item > .inner .activity .content p:last-of-type {
