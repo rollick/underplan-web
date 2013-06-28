@@ -283,7 +283,6 @@ setInterval(function () {
 
 Template.feedItemComments.events({
   "scroll .short-comments .inner": function (event, template) {
-    console.log("Scroll feed called");
     if (commentsScrollOk === true) {
       commentsScrollOk = false;
 
@@ -296,7 +295,7 @@ Template.feedItemComments.rendered = function () {
   setFeedCommentsNotice(this);
 };
 
-setFeedCommentsNotice = function (item) {
+hideFeedCommentsNotice = function (item) {
   item.find(".comments-notice .inner").hide();
 };
 
