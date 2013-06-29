@@ -279,7 +279,7 @@ Template.feedItemActions.countText = function () {
 commentsScrollOk = true;
 setInterval(function () {
     commentsScrollOk = true;
-}, 100);
+}, 50);
 
 Template.feedItemComments.events({
   "scroll .short-comments .inner": function (event, template) {

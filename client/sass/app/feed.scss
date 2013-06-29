@@ -158,7 +158,6 @@
     }
   }
 
-
   .ribbon-wrapper {
     margin-top: $standard-margin;
 
@@ -366,9 +365,6 @@
 
       margin: 0em;
 
-      .comment {
-
-      }
 
       & > .inner {
         @include grid-column(12);
@@ -379,6 +375,12 @@
         border: 1px solid #f3f3f3;
         border-top: none;
         padding: 0em;
+        
+        .comment {
+          &:last-of-type {  
+            border-bottom: 2px solid $warning-color;
+          }
+        }
       }
     }
 
@@ -499,6 +501,15 @@
 
       @media only screen and (min-width: 48em) {
         height: $map-height-large;
+      }
+
+      .alert-box {
+        margin-top: 8px;
+        line-height: $map-height-small;
+
+        @media only screen and (min-width: 48em) {
+          line-height: $map-height-large;
+        }
       }
     }
   }

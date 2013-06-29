@@ -55,50 +55,52 @@
 </template>
 
 <template name="groupEditor">
-  {{#unless group}}<h2>New Group</h2>{{/unless}}
-  {{#if error}}
-    <div class="alert-box alert">{{error}}</div>
-  {{/if}}
-  <form class="group-form">
-    {{#if group}}
-      {{#with group}}
-        <input type="hidden" class="id" value="{{_id}}">
+  <div class="group-editor">
+    {{#unless group}}<h2>New Group</h2>{{/unless}}
+    {{#if error}}
+      <div class="alert-box alert">{{error}}</div>
+    {{/if}}
+    <form class="group-form">
+      {{#if group}}
+        {{#with group}}
+          <input type="hidden" class="id" value="{{_id}}">
+          <label>Name</label>
+          <input type="text" class="name" value="{{name}}">
+          <label>Description</label>
+          <textarea type="text" class="description" rows="2">{{description}}</textarea><br />
+          <fieldset>
+            <legend>Picasa Photo Settings</legend>
+            <label>Username</label>
+            <input type="text" class="picasa-username" value="{{picasaUsername}}" placeholder="e.g. 106541547848938827222">
+            <label>Album Name</label>
+            <input type="text" class="picasa-album" value="{{picasaAlbum}}" placeholder="e.g. SouthEastAsia2013">
+            <label>Album Auth Key</label>
+            <input type="text" class="picasa-key" value="{{picasaKey}}" placeholder="e.g. Gv1sRgclOVrNKD38z_cA">
+          </fieldset>
+          <hr />
+          <a href="#" class="small button secondary cancel-edit">Cancel</a>
+          <a href="#" class="small button success update">Update group</a>
+        {{/with}}
+      {{else}}
         <label>Name</label>
-        <input type="text" class="name" value="{{name}}">
+        <input type="text" class="name">
         <label>Description</label>
-        <textarea type="text" class="description" rows="2">{{description}}</textarea><br />
+        <textarea type="text" class="description" rows="2"></textarea><br />
         <fieldset>
           <legend>Picasa Photo Settings</legend>
           <label>Username</label>
-          <input type="text" class="picasa-username" value="{{picasaUsername}}" placeholder="e.g. 106541547848938827222">
+          <input type="text" class="picasa-username" placeholder="e.g. 106541547848938827222">
           <label>Album Name</label>
-          <input type="text" class="picasa-album" value="{{picasaAlbum}}" placeholder="e.g. SouthEastAsia2013">
+          <input type="text" class="picasa-album" placeholder="e.g. SouthEastAsia2013">
           <label>Album Auth Key</label>
-          <input type="text" class="picasa-key" value="{{picasaKey}}" placeholder="e.g. Gv1sRgclOVrNKD38z_cA">
+          <input type="text" class="picasa-key" placeholder="e.g. Gv1sRgclOVrNKD38z_cA">
         </fieldset>
         <hr />
-        <a href="#" class="small button secondary cancel-edit">Cancel</a>
-        <a href="#" class="small button success update">Update group</a>
-      {{/with}}
-    {{else}}
-      <label>Name</label>
-      <input type="text" class="name">
-      <label>Description</label>
-      <textarea type="text" class="description" rows="2"></textarea><br />
-      <fieldset>
-        <legend>Picasa Photo Settings</legend>
-        <label>Username</label>
-        <input type="text" class="picasa-username" placeholder="e.g. 106541547848938827222">
-        <label>Album Name</label>
-        <input type="text" class="picasa-album" placeholder="e.g. SouthEastAsia2013">
-        <label>Album Auth Key</label>
-        <input type="text" class="picasa-key" placeholder="e.g. Gv1sRgclOVrNKD38z_cA">
-      </fieldset>
-      <hr />
-      <a href="#" class="small button secondary cancel-new">Cancel</a>
-      <a href="#" class="small button success save">Add group</a>
-    {{/if}}
-  </form>
+        <a href="#" class="small button secondary cancel-new">Cancel</a>
+        <a href="#" class="small button success save">Add group</a>
+      {{/if}}
+    </form>
+  </div>
 </template>
 
 <template name="groupInviteList">
