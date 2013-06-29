@@ -398,17 +398,7 @@ Template.feedGallery.helpers({
         });
 
       } else { // Create initial gallery
-        // Galleria.ready(function() {
-        //   var gallery = this; // galleria is ready and the gallery is assigned
-        //   $('.galleria-image').click(function(event) {
-        //     if (! $(event.target).closest(".galleria-container").hasClass("fullscreen")) {
-        //       event.preventDefault();
-        //       gallery.toggleFullscreen(); // toggles the fullscreen
-        //     }
-        //   });
-        // });
-
-        var test = Galleria.run('.recent-photos', {
+        feedGallery = Galleria.run('.recent-photos', {
           dataSource: data,
           _toggleInfo: false,
           extend: function(s) {

@@ -49,7 +49,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.2.4");
+  Session.set("appVersion", "v1.2.5");
 
   // Routing
   Backbone.history.start({ pushState: true });
@@ -74,6 +74,7 @@ Galleria.configure({
   imageCrop: false
 });
 this.picasa = new Galleria.Picasa();
+this.feedGallery = null;
 
 this.appTemplates = function () {
   return {
