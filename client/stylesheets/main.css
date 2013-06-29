@@ -7254,12 +7254,12 @@ h2 span.warning, a span.warning {
   height: 100%;
   margin-top: 0px;
   background-color: #e5e5e5;
-  overflow: visible;
 }
-/* line 115, ../sass/main.scss */
+/* line 114, ../sass/main.scss */
 .main-content.normal {
   background-color: transparent;
   margin-top: 0px;
+  overflow: visible;
 }
 /* line 120, ../sass/main.scss */
 .main-content.dashboard {
