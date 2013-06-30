@@ -26,6 +26,8 @@
 
   & > .inner {
     @include grid-column(12);
+
+    padding-bottom: emCalc(10px);
   }
 
   form {
@@ -42,14 +44,23 @@
 
       .picture {
         display: none;
+
+        img {
+          margin-top: 0em;
+        }
       }
   
       .details {
-        // padding-top: 0.5em;
+        padding-top: 0em;
         margin-left: 0em;
         
         .button {
           display: none;
+          margin-bottom: 0em;
+          margin-top: 0.5em;
+        }
+
+        textarea {
           margin-bottom: 0em;
         }
 

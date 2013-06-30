@@ -7257,13 +7257,13 @@ h2 span.warning, a span.warning {
 }
 /* line 114, ../sass/main.scss */
 .main-content.normal {
-  background-color: transparent;
+  background-color: white;
   margin-top: 0px;
   overflow: visible;
 }
 /* line 120, ../sass/main.scss */
 .main-content.dashboard {
-  background: url("/images/sun3.jpg") 0 0 no-repeat;
+  background: url("/images/dash_bg_2.jpg") 0 0 no-repeat;
   background-color: black;
 }
 /* line 125, ../sass/main.scss */

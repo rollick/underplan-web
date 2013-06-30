@@ -6,6 +6,8 @@
   .story-full {
     @include panel();
 
+    padding: emCalc(15px);
+
     & > .inner {
       @include grid-row(nest);
 
@@ -107,8 +109,7 @@
     & > .inner {
       @include grid-column(12, $collapse: true);
 
-      padding: emCalc(15px);
-      padding-top: 0em;
+      padding: 0em emCalc(15px) emCalc(10px) emCalc(15px);
       border-color: #e0e0e0;
       background: #fafafa;
     }

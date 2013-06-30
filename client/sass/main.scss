@@ -112,13 +112,13 @@ h2, a {
   // box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
 
   &.normal {
-    background-color: transparent;
+    background-color: white;
     margin-top: 0px;
     overflow: visible;
   }
 
   &.dashboard {
-    background: url("/images/sun3.jpg") 0 0 no-repeat;
+    background: url("/images/dash_bg_2.jpg") 0 0 no-repeat;
     background-color: black;
   }
 

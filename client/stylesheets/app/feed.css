@@ -2101,10 +2101,6 @@ blockquote p {
   border-bottom-right-radius: 1px;
   padding: 0em;
 }
-/* line 430, ../../sass/app/feed.scss */
-.feed-item > .inner .feed-comment-form > .inner .comment-form {
-  padding-bottom: 0.4em;
-}
 /* line 9, ../../sass/_components.scss */
 .feed-item.expanded .item-actions a.comments:before {
   background-image: url("/images/down.svg");
@@ -2115,17 +2111,17 @@ blockquote p {
   height: 24px;
   content: "\00a0\00a0";
 }
-/* line 444, ../../sass/app/feed.scss */
+/* line 443, ../../sass/app/feed.scss */
 .feed-item.expanded .comments-notice .inner {
   display: inherit;
 }
-/* line 448, ../../sass/app/feed.scss */
+/* line 447, ../../sass/app/feed.scss */
 .feed-item.expanded .short-comments .inner {
   height: 100%;
   max-height: 450px;
   overflow-y: scroll;
 }
-/* line 454, ../../sass/app/feed.scss */
+/* line 453, ../../sass/app/feed.scss */
 .feed-item.expanded .feed-comment-form {
   height: 100%;
 }
@@ -2250,7 +2246,7 @@ blockquote p {
   }
 }
 
-/* line 463, ../../sass/app/feed.scss */
+/* line 462, ../../sass/app/feed.scss */
 .feed-extra {
   position: relative;
   padding-left: 0;
@@ -2266,7 +2262,7 @@ blockquote p {
   margin-bottom: 0.9375em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 463, ../../sass/app/feed.scss */
+  /* line 462, ../../sass/app/feed.scss */
   .feed-extra {
     position: relative;
     padding-left: 0;
@@ -2275,7 +2271,7 @@ blockquote p {
     float: left;
   }
 }
-/* line 479, ../../sass/app/feed.scss */
+/* line 478, ../../sass/app/feed.scss */
 .feed-extra .alert-box {
   background-color: #e9e9e9;
   border-color: #d0d0d0;
@@ -2283,7 +2279,7 @@ blockquote p {
   border-left: none;
   border-right: none;
 }
-/* line 486, ../../sass/app/feed.scss */
+/* line 485, ../../sass/app/feed.scss */
 .feed-extra .map {
   width: auto;
   margin-left: -0.9375em;
@@ -2317,7 +2313,7 @@ blockquote p {
 .feed-extra .map:after {
   clear: both;
 }
-/* line 495, ../../sass/app/feed.scss */
+/* line 494, ../../sass/app/feed.scss */
 .feed-extra .map > .inner {
   position: relative;
   padding-left: 0;
@@ -2329,23 +2325,23 @@ blockquote p {
   margin-bottom: 1em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 495, ../../sass/app/feed.scss */
+  /* line 494, ../../sass/app/feed.scss */
   .feed-extra .map > .inner {
     height: 320px;
   }
 }
-/* line 506, ../../sass/app/feed.scss */
+/* line 505, ../../sass/app/feed.scss */
 .feed-extra .map > .inner .alert-box {
   margin-top: 8px;
   line-height: 180px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 506, ../../sass/app/feed.scss */
+  /* line 505, ../../sass/app/feed.scss */
   .feed-extra .map > .inner .alert-box {
     line-height: 320px;
   }
 }
-/* line 517, ../../sass/app/feed.scss */
+/* line 516, ../../sass/app/feed.scss */
 .feed-extra .gallery {
   width: auto;
   margin-left: -0.9375em;
@@ -2379,11 +2375,11 @@ blockquote p {
 .feed-extra .gallery:after {
   clear: both;
 }
-/* line 528, ../../sass/app/feed.scss */
+/* line 527, ../../sass/app/feed.scss */
 .feed-extra .gallery.visible {
   z-index: 1;
 }
-/* line 532, ../../sass/app/feed.scss */
+/* line 531, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner {
   position: relative;
   padding-left: 0;
@@ -2391,17 +2387,17 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 537, ../../sass/app/feed.scss */
+/* line 536, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .recent-photos {
   height: 260px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 537, ../../sass/app/feed.scss */
+  /* line 536, ../../sass/app/feed.scss */
   .feed-extra .gallery > .inner .recent-photos {
     height: 400px;
   }
 }
-/* line 545, ../../sass/app/feed.scss */
+/* line 544, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map {
   width: 50%;
   top: 15px;
@@ -2412,15 +2408,15 @@ blockquote p {
   color: gray;
   font-style: italic;
 }
-/* line 555, ../../sass/app/feed.scss */
+/* line 554, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map:before {
   content: "Show Map";
 }
-/* line 559, ../../sass/app/feed.scss */
+/* line 558, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map:hover {
   cursor: pointer;
 }
-/* line 566, ../../sass/app/feed.scss */
+/* line 565, ../../sass/app/feed.scss */
 .feed-extra .gallery-more {
   width: auto;
   margin-left: -0.9375em;
@@ -2453,12 +2449,12 @@ blockquote p {
   text-align: center;
 }
 
-/* line 574, ../../sass/app/feed.scss */
+/* line 573, ../../sass/app/feed.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 577, ../../sass/app/feed.scss */
+/* line 576, ../../sass/app/feed.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;

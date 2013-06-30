@@ -22,7 +22,7 @@
       </div>
       <div class="row">
         <div class="small-12 large-12 columns">
-          <a href="/new" class="large round button new-group">Create your Group</a>
+          <a href="/new" class="large round button new-group">Create your Journey</a>
         </div>
       </div>
       <div class="row">
@@ -45,7 +45,7 @@
             {{/each}}
           {{else}}
           <div class="small-3 large-3 columns">
-            <p>Loading groups...</p>
+            <p>Loading Journies...</p>
           {{/if}}
           </div>
         </div>
@@ -56,7 +56,7 @@
 
 <template name="groupEditor">
   <div class="group-editor">
-    {{#unless group}}<h2>New Group</h2>{{/unless}}
+    {{#unless group}}<h2>New Journey</h2>{{/unless}}
     {{#if error}}
       <div class="alert-box alert">{{error}}</div>
     {{/if}}
@@ -67,7 +67,7 @@
           <label>Name</label>
           <input type="text" class="name" value="{{name}}">
           <label>Description</label>
-          <textarea type="text" class="description" rows="2">{{description}}</textarea><br />
+          <textarea type="text" class="description" rows="2">{{description}}</textarea>
           <fieldset>
             <legend>Picasa Photo Settings</legend>
             <label>Username</label>
@@ -77,15 +77,14 @@
             <label>Album Auth Key</label>
             <input type="text" class="picasa-key" value="{{picasaKey}}" placeholder="e.g. Gv1sRgclOVrNKD38z_cA">
           </fieldset>
-          <hr />
           <a href="#" class="small button secondary cancel-edit">Cancel</a>
-          <a href="#" class="small button success update">Update group</a>
+          <a href="#" class="small button success update">Update journey</a>
         {{/with}}
       {{else}}
         <label>Name</label>
         <input type="text" class="name">
         <label>Description</label>
-        <textarea type="text" class="description" rows="2"></textarea><br />
+        <textarea type="text" class="description" rows="2"></textarea>
         <fieldset>
           <legend>Picasa Photo Settings</legend>
           <label>Username</label>
@@ -95,9 +94,8 @@
           <label>Album Auth Key</label>
           <input type="text" class="picasa-key" placeholder="e.g. Gv1sRgclOVrNKD38z_cA">
         </fieldset>
-        <hr />
         <a href="#" class="small button secondary cancel-new">Cancel</a>
-        <a href="#" class="small button success save">Add group</a>
+        <a href="#" class="small button success save">Create journey</a>
       {{/if}}
     </form>
   </div>
