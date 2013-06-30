@@ -1790,6 +1790,11 @@ blockquote p {
   padding: 1em 0.5em;
 }
 /* line 239, ../../sass/_components.scss */
+.feed-item > .inner .activity .content h5 {
+  line-height: 1.4em;
+  margin-bottom: 0.5em;
+}
+/* line 244, ../../sass/_components.scss */
 .feed-item > .inner .activity .content p:last-of-type {
   margin-bottom: 0em;
 }

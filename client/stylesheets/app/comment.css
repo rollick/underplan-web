@@ -1383,6 +1383,11 @@ blockquote p {
   padding: 1em 0.5em;
 }
 /* line 239, ../../sass/_components.scss */
+.comment .content h5 {
+  line-height: 1.4em;
+  margin-bottom: 0.5em;
+}
+/* line 244, ../../sass/_components.scss */
 .comment .content p:last-of-type {
   margin-bottom: 0em;
 }
@@ -1534,6 +1539,11 @@ blockquote p {
   padding: 1em 0.5em;
 }
 /* line 239, ../../sass/_components.scss */
+.comment-form .user-comment .content h5 {
+  line-height: 1.4em;
+  margin-bottom: 0.5em;
+}
+/* line 244, ../../sass/_components.scss */
 .comment-form .user-comment .content p:last-of-type {
   margin-bottom: 0em;
 }
