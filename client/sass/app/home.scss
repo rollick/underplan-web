@@ -1,3 +1,5 @@
+@import "../components";
+
 #homepage {
   .columns {
     text-align: center;
@@ -40,6 +42,17 @@
       p {
         font-size: 0.9em;
         color: white;
+      }
+    }
+
+    .actions {
+      @include grid-row(nest);
+
+      margin-top: 110px;
+      text-align: center;
+
+      & > .inner {
+        @include grid-column(12);
       }
     }
   }
