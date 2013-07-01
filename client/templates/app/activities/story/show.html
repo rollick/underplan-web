@@ -64,14 +64,14 @@
             <div class="previous small-7 large-6 columns">
               {{#if previousActivity}}
                 {{#with previousActivity}}
-                  <a href="/{{group.slug}}/{{slug}}">Previous Story</a>
+                  <a href="/{{group.slug}}/{{slug}}">Previous<span class="hide-for-small"> Story</span></a>
                 {{/with}}
               {{/if}}
             </div>
             <div class="next small-5 large-6 columns">
               {{#if nextActivity}}
                 {{#with nextActivity}}
-                  <a href="/{{group.slug}}/{{slug}}">Next Story</a>
+                  <a href="/{{group.slug}}/{{slug}}">Next<span class="hide-for-small">  Story</span></a>
                 {{/with}}
               {{/if}}
             </div>

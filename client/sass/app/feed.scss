@@ -160,10 +160,6 @@
 
   .ribbon-wrapper {
     margin-top: $standard-margin;
-
-    .ribbon {
-      border-top-right-radius: $story-radius;
-    }
   }
 
   & > .inner {
@@ -177,8 +173,6 @@
       @include grid-row(nest);
       @include entry-with-profile(3.3em);
       @include standard-panel-color();
-      // @include border-top-left-radius($standard-corner-radius);
-      // @include border-top-right-radius($standard-corner-radius);
 
       z-index: 90;
       padding: 0em;
@@ -218,8 +212,6 @@
     .item-actions {
       @include grid-row(nest);
       @include standard-bar();
-      // @include standard-panel-color();
-      // @include standard-corners();
 
       margin: 0 !important;
       cursor: default;
@@ -279,15 +271,6 @@
           &.disabled {
             opacity: 0.3;
           }
-
-          // span {
-          //   position: absolute;
-          //   right: 0;
-          //   display: block;
-          //   width: 14px;
-          //   height: 0;
-          //   margin-right: 15px;
-          // }
         }
 
         a.new-short {
@@ -339,12 +322,7 @@
 
           a {
             text-indent: -50px;
-
-            span {
-              // color: white;
-            }
-          }
-          
+          } 
         }
       }
 
