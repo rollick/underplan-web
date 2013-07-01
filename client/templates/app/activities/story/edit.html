@@ -1,18 +1,52 @@
 <template name="storyEditor">
-  <h2>{{#if activity}}Edit{{else}}New{{/if}} Story</h2>
-  {{#if error}}
-    <div class="alert-box alert">{{error}}</div>
-  {{/if}}
-  <form class="custom">
-    {{#if activity}}
-      {{#with activity}}
-        <input type="hidden" id="_id" value="{{_id}}">
+  <div class="story-editor">
+    <h2>{{#if activity}}Edit{{else}}New{{/if}} Story</h2>
+    {{#if error}}
+      <div class="alert-box alert">{{error}}</div>
+    {{/if}}
+    <form class="custom">
+      {{#if activity}}
+        {{#with activity}}
+          <input type="hidden" id="_id" value="{{_id}}">
+          <label>Title</label>
+          <input type="text" id="title" value="{{title}}" placeholder="Start with a title...">
+          <label>Story</label>
+          <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something...">{{text}}</textarea><br />
+          <label>Location</label>
+          <input type="text" id="location" value="{{location}}" placeholder="Enter a location...">
+          <div id="location-coords" class="input-subtext"></div>
+          <input type="hidden" id="lat" value="{{lat}}">
+          <input type="hidden" id="lng" value="{{lng}}">
+          <input type="hidden" id="city" value="{{city}}">
+          <input type="hidden" id="region" value="{{region}}">
+          <input type="hidden" id="country" value="{{country}}">
+          <label>Map Zoom</label>
+          <input type="text" id="map-zoom" value="{{mapZoom}}" placeholder="0 (world) to 21+ (buildings)">
+          <label>Link Slug</label>
+          <input type="text" id="slug" value="{{slug}}">
+          <label>Picasa Tag</label>
+          <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
+          <label for="published">
+            <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
+            <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published
+          </label><br />
+          <label>Published Date</label>
+          {{datePicker created}}
+          <hr />
+          <label for="notify">
+            <input type="checkbox" class="notify" id="notify" style="display: none;">
+            <span class="custom checkbox"></span> Notify Followers
+          </label><br />
+          <a href="#" class="small button success update">Create</a>
+          <a href="#" class="small secondary back">Cancel</a>
+        {{/with}}
+      {{else}}
         <label>Title</label>
-        <input type="text" id="title" value="{{title}}" placeholder="Start with a title...">
+        <input type="text" id="title" placeholder="Start with a title...">
         <label>Story</label>
-        <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something...">{{text}}</textarea><br />
+        <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something..."></textarea><br />
         <label>Location</label>
-        <input type="text" id="location" value="{{location}}" placeholder="Enter a location...">
+        <input type="text" id="location" placeholder="Enter a location...">
         <div id="location-coords" class="input-subtext"></div>
         <input type="hidden" id="lat" value="{{lat}}">
         <input type="hidden" id="lng" value="{{lng}}">
@@ -20,55 +54,21 @@
         <input type="hidden" id="region" value="{{region}}">
         <input type="hidden" id="country" value="{{country}}">
         <label>Map Zoom</label>
-        <input type="text" id="map-zoom" value="{{mapZoom}}" placeholder="0 (world) to 21+ (buildings)">
+        <input type="text" id="map-zoom" value="{{defaultMapZoom}}" placeholder="0 (world) to 21+ (buildings)">
         <label>Link Slug</label>
-        <input type="text" id="slug" value="{{slug}}">
-        <label>Picasa Tag</label>
+        <input type="text" id="slug">
+        <label>Picasa Tags</label>
         <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
         <label for="published">
           <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
           <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published
         </label><br />
         <label>Published Date</label>
-        {{datePicker created}}
+        {{datePicker}}
         <hr />
-        <a href="#" class="small button secondary back">Cancel</a>
-        <span>
-          <a href="#" class="small button success update">Save story</a>
-          <label for="notify">
-            <input type="checkbox" class="notify" id="notify" style="display: none;">
-            <span class="custom checkbox"></span> Notify Followers
-          </label>
-        </span>
-      {{/with}}
-    {{else}}
-      <label>Title</label>
-      <input type="text" id="title" placeholder="Start with a title...">
-      <label>Story</label>
-      <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something..."></textarea><br />
-      <label>Location</label>
-      <input type="text" id="location" placeholder="Enter a location...">
-      <div id="location-coords" class="input-subtext"></div>
-      <input type="hidden" id="lat" value="{{lat}}">
-      <input type="hidden" id="lng" value="{{lng}}">
-      <input type="hidden" id="city" value="{{city}}">
-      <input type="hidden" id="region" value="{{region}}">
-      <input type="hidden" id="country" value="{{country}}">
-      <label>Map Zoom</label>
-      <input type="text" id="map-zoom" value="{{defaultMapZoom}}" placeholder="0 (world) to 21+ (buildings)">
-      <label>Link Slug</label>
-      <input type="text" id="slug">
-      <label>Picasa Tags</label>
-      <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
-      <label for="published">
-        <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
-        <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published
-      </label><br />
-      <label>Published Date</label>
-      {{datePicker}}
-      <hr />
-      <a href="#" class="small button secondary cancel">Cancel</a>
-      <a href="#" class="small button success save">Add story</a>
-    {{/if}}
-  </form>
+        <a href="#" class="small button success save">Add story</a>
+        <a href="#" class="small secondary cancel">Cancel</a>
+      {{/if}}
+    </form>
+  </div>
 </template>

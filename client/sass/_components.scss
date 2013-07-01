@@ -93,6 +93,11 @@
   }
 }
 
+@mixin standard-form-panel() {
+  padding: emCalc(15px);
+  background-color: $standard-panel-bg;
+}
+
 @mixin standard-padding() {
   padding-left: 0.4em;
   padding-right: 0.4em;

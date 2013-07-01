@@ -28,7 +28,11 @@
   }
   
   .groups { 
-    margin-top: 30px;
+    margin-top: 10px;
+
+    @media only screen and (min-width: 48em) {
+      margin-top: 30px;
+    }
 
     .panel {
       border: 1px solid rgb(51, 50, 50);
@@ -48,8 +52,12 @@
     .actions {
       @include grid-row(nest);
 
-      margin-top: 110px;
+      margin-top: 45px;
       text-align: center;
+
+      @media only screen and (min-width: 48em) {
+        margin-top: 110px;
+      }
 
       & > .inner {
         @include grid-column(12);

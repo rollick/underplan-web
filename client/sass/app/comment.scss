@@ -54,7 +54,8 @@
         padding-top: 0em;
         margin-left: 0em;
         
-        .button {
+        & > .button,
+        & > a {
           display: none;
           margin-bottom: 0em;
           margin-top: 0.5em;
@@ -89,7 +90,8 @@
             height: 5em;
           }
 
-          .button {
+          & > .button,
+          & > a {
             display: inline-block;
           }
         }

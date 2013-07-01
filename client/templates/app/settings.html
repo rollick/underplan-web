@@ -9,36 +9,38 @@
       <label>Email</label>
       <input type="text" id="email" value="{{profile.email}}">
       <hr />
-      <a href="#" class="small secondary button cancel">Cancel</a>
-      <a href="#" class="small button success save">Save</a>
+      <a href="#" class="small button success save">Update</a>
+      <a href="#" class="small secondary cancel">Cancel</a>
     {{/with}}
   </form>
 </template>
 
 <template name="mainSettings">
-  <h2>Settings</h2>
-  {{#if isGroupAdmin}}
-    <div class="section-container" data-section data-options="deep_linking: true">
-      <section class="section">
-        <p class="title"><a href="#user">User Preferences</a></p>
-        <div class="content" data-slug="user">
-          {{> userSettings}}
-        </div>
-      </section>
-      <section class="section">
-        <p class="title"><a href="#group">Group Settings</a></p>
-        <div class="content" data-slug="group">
-          {{> groupEditor}}
-        </div>
-      </section>
-      <section class="section">
-        <p class="title"><a href="#membership">Group Membership</a></p>
-        <div class="content" data-slug="membership">
-          {{> groupInviteList}}
-        </div>
-      </section>
-    </div>
-  {{else}}
-    {{> userSettings}}
-  {{/if}}
+  <div class="settings-editor">
+    <h2>Settings</h2>
+    {{#if isGroupAdmin}}
+      <div class="section-container" data-section data-options="deep_linking: true">
+        <section class="section">
+          <p class="title"><a href="#user">User Preferences</a></p>
+          <div class="content" data-slug="user">
+            {{> userSettings}}
+          </div>
+        </section>
+        <section class="section">
+          <p class="title"><a href="#group">Group Settings</a></p>
+          <div class="content" data-slug="group">
+            {{> groupEditor}}
+          </div>
+        </section>
+        <section class="section">
+          <p class="title"><a href="#membership">Group Membership</a></p>
+          <div class="content" data-slug="membership">
+            {{> groupInviteList}}
+          </div>
+        </section>
+      </div>
+    {{else}}
+      {{> userSettings}}
+    {{/if}}
+  </div>
 </template>

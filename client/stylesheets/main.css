@@ -7257,7 +7257,7 @@ h2 span.warning, a span.warning {
 }
 /* line 114, ../sass/main.scss */
 .main-content.normal {
-  background-color: white;
+  background-color: transparent;
   margin-top: 0px;
   overflow: visible;
 }
@@ -7347,19 +7347,25 @@ h2 span.warning, a span.warning {
 }
 
 /* line 210, ../sass/main.scss */
+a.small.secondary {
+  font-size: 0.8em;
+  padding: 0.5em;
+}
+
+/* line 215, ../sass/main.scss */
 .alert-box {
   margin-top: 8px;
   text-align: center;
   font-weight: normal !important;
 }
-/* line 215, ../sass/main.scss */
+/* line 220, ../sass/main.scss */
 .alert-box a.close {
   position: relative;
   padding: 10px;
   color: white;
 }
 
-/* line 225, ../sass/main.scss */
+/* line 230, ../sass/main.scss */
 .button {
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
@@ -7370,33 +7376,33 @@ h2 span.warning, a span.warning {
   font-weight: normal;
 }
 
-/* line 231, ../sass/main.scss */
+/* line 236, ../sass/main.scss */
 .clearing-assembled {
   padding-bottom: 10px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 231, ../sass/main.scss */
+  /* line 236, ../sass/main.scss */
   .clearing-assembled {
     padding-bottom: 0px !important;
   }
 }
-/* line 238, ../sass/main.scss */
+/* line 243, ../sass/main.scss */
 .clearing-assembled .clearing-caption {
   background-color: rgba(17, 17, 17, 0.6);
   padding-bottom: 30px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 238, ../sass/main.scss */
+  /* line 243, ../sass/main.scss */
   .clearing-assembled .clearing-caption {
     padding-bottom: 10px !important;
   }
 }
 
-/* line 248, ../sass/main.scss */
+/* line 253, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 251, ../sass/main.scss */
+/* line 256, ../sass/main.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -7404,27 +7410,27 @@ h2 span.warning, a span.warning {
   padding-top: 1px;
 }
 
-/* line 259, ../sass/main.scss */
+/* line 264, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 264, ../sass/main.scss */
+/* line 269, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 268, ../sass/main.scss */
+/* line 273, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }
 
-/* line 272, ../sass/main.scss */
+/* line 277, ../sass/main.scss */
 .section-container {
   border: none !important;
 }
-/* line 275, ../sass/main.scss */
+/* line 280, ../sass/main.scss */
 .section-container .section, .section-container section {
   border-top: 2px solid green;
   font-size: 0.9em;
@@ -7434,25 +7440,20 @@ ul.dropdown h5 a {
   cursor: pointer;
   border-top: none;
 }
-/* line 280, ../sass/main.scss */
+/* line 285, ../sass/main.scss */
 .section-container .section .title, .section-container section .title {
   padding-left: 5px;
   margin-bottom: 5px;
-  background-color: #848484;
-}
-/* line 285, ../sass/main.scss */
-.section-container .section .title:hover, .section-container section .title:hover {
-  background-color: #515151;
 }
 /* line 289, ../sass/main.scss */
-.section-container .section .title a, .section-container section .title a {
-  color: white;
+.section-container .section .title > a, .section-container section .title > a {
+  color: green;
   padding: 0px;
   display: inline;
   line-height: 33px;
 }
 /* line 9, ../sass/_components.scss */
-.section-container .section .title a:before, .section-container section .title a:before {
+.section-container .section .title > a:before, .section-container section .title > a:before {
   background-image: url("/images/right.svg");
   background-repeat: no-repeat;
   background-size: 12px 12px;
@@ -7467,11 +7468,10 @@ ul.dropdown h5 a {
 }
 /* line 302, ../sass/main.scss */
 .section-container .section.active .title, .section-container section.active .title {
-  background-color: #515151;
   margin-bottom: 0px;
 }
 /* line 9, ../sass/_components.scss */
-.section-container .section.active .title a:before, .section-container section.active .title a:before {
+.section-container .section.active .title > a:before, .section-container section.active .title > a:before {
   background-image: url("/images/down.svg");
   background-repeat: no-repeat;
   background-size: 12px 12px;
@@ -7481,19 +7481,11 @@ ul.dropdown h5 a {
   content: "\00a0\00a0";
 }
 /* line 312, ../sass/main.scss */
-.section-container .section a.button, .section-container section a.button {
-  padding-bottom: 8px;
-}
-/* line 316, ../sass/main.scss */
-.section-container .section .content, .section-container section .content {
+.section-container .section > .content, .section-container section > .content {
   padding: 5px;
   padding-top: 15px;
 }
-/* line 320, ../sass/main.scss */
-.section-container .section .content ul.disc, .section-container section .content ul.disc {
+/* line 316, ../sass/main.scss */
+.section-container .section > .content ul.disc, .section-container section > .content ul.disc {
   margin-left: 20px;
-}
-/* line 325, ../sass/main.scss */
-.section-container .section .content:last-of-type, .section-container section .content:last-of-type {
-  padding-bottom: 10px;
 }

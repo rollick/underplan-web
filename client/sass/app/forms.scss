@@ -1,0 +1,13 @@
+@import "../components";
+
+.group-editor,
+.story-editor,
+.settings-editor {
+  @include standard-form-panel();
+
+  padding-top: 5px;
+
+  .description {
+    height: 80px;
+  }
+}
