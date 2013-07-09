@@ -408,7 +408,8 @@ Template.feedGallery.helpers({
             this.appendChild('container', 'map');
 
             if (! Galleria.TOUCH ) {
-              this.addIdleState( this.get('map'), { right: -80 });
+              this.addIdleState( this.get('map'), { opacity: 0 });
+              this.addIdleState( this.get('info'), { opacity: 0 });
             }
 
             var gallery = this; 
@@ -564,7 +565,7 @@ var generateActivitesMap = function(group, elementSelector, activities) {
   });
 
   dashboardMapBounds = new google.maps.LatLngBounds();
-  var infowindow = new google.maps.InfoWindow();
+  // var infowindow = new google.maps.InfoBox();
 
   var marker, i;
 
@@ -577,6 +578,25 @@ var generateActivitesMap = function(group, elementSelector, activities) {
       icon: icons[locations[i].type]
     });
 
+    var boxOptions = {
+      disableAutoPan: false
+      ,maxWidth: 0
+      ,pixelOffset: new google.maps.Size(-140, 0)
+      ,zIndex: null
+      ,boxStyle: { 
+        background: "url('/images/tipbox.gif') no-repeat"
+        // ,opacity: 0.75
+       }
+      // ,closeBoxMargin: "10px 2px 2px 2px"
+      ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
+      ,infoBoxClearance: new google.maps.Size(1, 1)
+      ,isHidden: false
+      ,pane: "floatPane"
+      ,enableEventPropagation: false
+    };
+
+    var ib = new InfoBox(boxOptions);
+
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
       return function() {
         var location = locations[i];
@@ -585,11 +605,14 @@ var generateActivitesMap = function(group, elementSelector, activities) {
         if(location.type === "story") {
           Router.setActivity(activity);
         } else {
-          var html = Template.shortContent(activity);
-          html = "<div class=\"map-info feed-item\">" + html + "</div>";
+          var html = Template.mapActivityContent(activity);
+          html = "<div class=\"map-info\">" + html + "</div>";
 
-          infowindow.setContent(html);
-          infowindow.open(dashboardMap, marker);
+          ib.setContent(html);
+          ib.open(dashboardMap, marker);
+
+          // infowindow.setContent(html);
+          // infowindow.open(dashboardMap, marker);
         }
       }
     })(marker, i));

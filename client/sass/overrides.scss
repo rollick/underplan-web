@@ -1,0 +1,32 @@
+.galleria-stage {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+.galleria-thumbnails-container {
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: #000;
+}
+
+.galleria-info {
+  position: absolute;
+  bottom: 80px;
+  left: 0px;
+  top: auto;
+  width: 100%;
+  padding: 0px;
+  z-index: 1;
+  
+  .galleria-info-text {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 0.5em;
+    text-align: center;
+  }
+
+  .galleria-info-title {
+    margin-bottom: 0em;
+  }
+}

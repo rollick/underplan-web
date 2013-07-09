@@ -108,7 +108,7 @@
     @include grid-row(nest);
 
     margin: 0em;
-    margin-top: $standard-margin;
+    margin-bottom: $standard-margin;
 
     @media only screen and (min-width: 48em) {
       // margin: $standard-margin;
@@ -120,7 +120,12 @@
 
     & > .content {
       @include grid-column(12, $collapse: true);
+
     }
+  }
+
+  .feed-item {
+    @include item-by-user();
   }
 
   .feed-more {
@@ -128,309 +133,6 @@
 
     padding: 0em;
     margin-bottom: 0em;
-  }
-}
-
-.feed-item {
-  @include grid-row(nest);
-  @include radius();
-  @include panel();
-
-  $story-radius: 1px;
-  margin: 0 $ribbon-wrapper-strip;
-  padding: $standard-corner-radius;
-  position: relative;
-  margin-bottom: $standard-margin;
-
-  @media only screen and (min-width: 48em) {
-    // padding-bottom: 0em;
-    // padding: 0em 0.5em 1em 0.5em;
-    // width: 100%;
-    margin: 0em;
-    margin-bottom: $standard-margin;
-
-    &:last-of-type {
-      // feedInserted is used as event for Packery
-      // => only used for wider screen sizes hence media query
-      @include animation(feedInserted);
-
-      margin-bottom: 0em;
-    }
-  }
-
-  .ribbon-wrapper {
-    margin-top: $standard-margin;
-  }
-
-  & > .inner {
-    @include grid-column(12, $collapse: true);
-  
-    // box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
-    // padding: .5em;
-    margin-bottom: 0em;
-
-    .activity {
-      @include grid-row(nest);
-      @include entry-with-profile(3.3em);
-      @include standard-panel-color();
-
-      z-index: 90;
-      padding: 0em;
-      margin: 0em;
-
-      & > .content {
-        @include grid-column(12);
-        
-        padding: 0em 0.5em;
-
-        a.more {
-          line-height: 2.2em;
-
-          &:after {
-            content: "\00a0→";
-          }
-        }
-      }
-
-      &.story {
-        .ribbon-wrapper {
-          border-right: $ribbon-wrapper-strip solid darken($warning-color, 10%);
-          margin-right: -$ribbon-wrapper-strip;
-        }
-
-        .actions {
-          right: 3.3em;
-        }
-      }
-
-      .actions {
-        margin-top: 0em;
-      }
-
-    }
-
-    .item-actions {
-      @include grid-row(nest);
-      @include standard-bar();
-
-      margin: 0 !important;
-      cursor: default;
-      // color: white;
-      font-size: 0.8em;
-
-      .show-comments {
-        @include grid-column(7);
-      }
-
-      .main-actions {
-        @include grid-column(5);      
-      }
-
-      .show-comments, .main-actions {
-        line-height: 33px;
-      }
-
-      a.comments {
-        @include up-down(24px);
-
-        font-size: 1em;
-      }
-
-      .action {
-        margin-top: -5px !important;
-
-        ul {
-          list-style: none;
-          display: inline;
-          width: auto;
-          float: right;
-
-          li {
-            float: left;
-            padding-left: 5px;
-          }
-
-          & > .separator {
-            width: 2px;
-            height: 24px;
-            margin: 8px 1px 0 1px;
-            border-right: 1px solid $primary-color;
-
-            &:before {
-            }
-          }
-        }
-
-        a {
-          font-size: 0.95em;
-          height: 34px;
-          line-height: 33px;
-          padding: 0;
-          color: $primary-color;
-
-          &.disabled {
-            opacity: 0.3;
-          }
-        }
-
-        a.new-short {
-          text-indent: -35px;
-        }
-
-        &.new-comment {
-          float: right;
-
-          a {
-            text-indent: -73px;
-          }
-        }
-        
-        &.new-comment span:before,
-        a.new-short:before,
-        a.new-story:before {
-          content: "+";
-          font-size: 1.6em;
-          font-weight: bold;
-          padding-right: 1px;
-          top: 3px;
-          position: relative;
-        }
-      }
-
-      @media only screen and (min-width: 48em) {
-        .action a {
-          font-size: 0.9em;
-        }
-        
-        .action {
-          margin-top: 4px !important;
-        }
-
-        .action.new-short a {
-          text-indent: -28px;
-        }
-
-        .action.new-comment a {
-          text-indent: -65px;
-        }
-      }
-
-      .action {
-        &.new-comment {
-          height: 30px;
-          margin-top: -3px !important;
-
-          a {
-            text-indent: -50px;
-          } 
-        }
-      }
-
-      @media only screen and (min-width: 48em) {
-        font-size: 0.9em;
-
-        .action {
-
-          &.new-comment a {
-            text-indent: -60px;
-          }
-        }
-      }
-    }
-
-    .short-comments {
-      @include grid-row(nest);
-
-      margin: 0em;
-
-
-      & > .inner {
-        @include grid-column(12);
-
-        overflow: hidden;
-        height: 0px;
-        background-color: #FFF;
-        border: 1px solid #f3f3f3;
-        border-top: none;
-        padding: 0em;
-        
-        .comment {
-          &:last-of-type {  
-            border-bottom: 2px solid $warning-color;
-          }
-        }
-      }
-    }
-
-    .comments-notice {
-      $comment-notice-height: emCalc(30px);
-      $comment-notice-margin-top: emCalc(27px);
-      $comment-notice-font-size: 0.9em;
-
-      @include grid-row(nest);
-
-      position: absolute;
-      width: 100%;
-      padding: 0em;
-      margin-left: emCalc(0px);
-      margin-right: emCalc(0px);
-      margin-top: -$comment-notice-margin-top;
-
-      .inner {
-        @include grid-column(12);
-        // @include up-down(24px, true);
-
-        display: none;
-        font-size: $comment-notice-font-size;
-        line-height: $comment-notice-height;
-        height: $comment-notice-height;
-        background-color: rgba(0, 0, 0, 0.6);
-        text-align: center;
-        color: white;
-      }
-    }
-
-    .feed-comment-form {
-      @include grid-row(nest);
-      
-      overflow: hidden;
-      height: 0px;
-      margin: 0em;
-      background-color: #FFF;
-
-      & > .inner {
-        @include grid-column(12);
-        @include border-bottom-left-radius($story-radius);
-        @include border-bottom-right-radius($story-radius);
-
-        padding: 0em;
-
-        .comment-form {
-        }
-      }
-    }
-  }
-
-  &.expanded {
-    .item-actions {
-      a.comments {
-        @include up-down(24px, $expanded: true);
-      }
-    }
-
-    .comments-notice .inner {
-      display: inherit;
-    }
-
-    .short-comments .inner {
-      height: 100%;
-      max-height: 450px;
-      overflow-y: scroll;
-    }
-
-    .feed-comment-form {
-      height: 100%;
-    }
   }
 }
 
@@ -446,11 +148,11 @@
   padding: 0em;
   padding-bottom: 4em;
   border-top: none;
-  margin-bottom: $standard-margin;
 
   @media only screen and (min-width: 48em) {
     @include grid-column($feed-extra-columns-large, $collapse: true);
     
+    margin-bottom: $standard-margin;
   }
 
   .alert-box {
@@ -486,6 +188,16 @@
 
         @media only screen and (min-width: 48em) {
           line-height: $map-height-large - 20px;
+        }
+      }
+
+      .infoBox {
+        & > img {
+          z-index: 2
+        }
+
+        .map-info .inner {
+          margin-top: emCalc(-15px);
         }
       }
     }
@@ -530,7 +242,7 @@
         font-style: italic;
 
         &:before {
-          content: "Show Map";
+          content: "Back to Map";
         }
 
         &:hover {

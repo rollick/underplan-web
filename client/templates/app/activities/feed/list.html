@@ -1,14 +1,12 @@
 <template name="feedList">
   <div class="feed-list faded">
-    <div class="content">
-      {{#if anyActivities}}
-        {{#each recentActivities}}
-          {{> feedItem this}}
-        {{/each}}
-      {{else}}
-        <p>No activities yet :-(</p>
-      {{/if}}
-    </div>
+    {{#if anyActivities}}
+      {{#each recentActivities}}
+        {{> feedItem this}}
+      {{/each}}
+    {{else}}
+      <p>No activities yet :-(</p>
+    {{/if}}
   </div>
   {{#unless feedLimitReached}}
     <div class="feed-more">

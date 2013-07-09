@@ -1,0 +1,35 @@
+/* line 1, ../sass/overrides.scss */
+.galleria-stage {
+  top: 0px;
+  left: 0px;
+  right: 0px;
+}
+
+/* line 7, ../sass/overrides.scss */
+.galleria-thumbnails-container {
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  background-color: #000;
+}
+
+/* line 14, ../sass/overrides.scss */
+.galleria-info {
+  position: absolute;
+  bottom: 80px;
+  left: 0px;
+  top: auto;
+  width: 100%;
+  padding: 0px;
+  z-index: 1;
+}
+/* line 23, ../sass/overrides.scss */
+.galleria-info .galleria-info-text {
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.5em;
+  text-align: center;
+}
+/* line 29, ../sass/overrides.scss */
+.galleria-info .galleria-info-title {
+  margin-bottom: 0em;
+}
