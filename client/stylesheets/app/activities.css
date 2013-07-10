@@ -2167,8 +2167,9 @@ blockquote p {
   height: 100%;
   max-height: 450px;
   overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
 }
-/* line 552, ../../sass/_components.scss */
+/* line 553, ../../sass/_components.scss */
 .map-info.expanded .feed-comment-form {
   height: 100%;
 }
