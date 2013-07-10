@@ -334,20 +334,25 @@ Template.feedMap.helpers({
       var group = Groups.findOne(Session.get("feedFilter").group);
       var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
 
-      // Create an event to be triggered when map element is in the DOM
-      // See hack here: http://jsfiddle.net/Zzw2M/33/light/
-      event = function(event){
-        if (event.animationName == 'mapInserted') {
-          generateActivitesMap(group, "#activities-map", recentActivities);
-        }
-      } 
-      document.addEventListener('animationstart', event, false);
-      document.addEventListener('MSAnimationStart', event, false);
-      document.addEventListener('webkitAnimationStart', event, false);
-  
-      return new Handlebars.SafeString("<p class=\"alert-box\">Loading map...</p>");
+      // If map element not present then create an event to be 
+      // triggered when map element is in the DOM.
+      if ($(".feed-extra .map").length != 0) {
+        generateActivitesMap(group, "#activities-map", recentActivities);
+      } else {
+        // See hack here: http://jsfiddle.net/Zzw2M/33/light/
+        event = function(event){
+          if (event.animationName == 'mapInserted') {
+            generateActivitesMap(group, "#activities-map", recentActivities);
+          }
+        } 
+        document.addEventListener('animationstart', event, false);
+        document.addEventListener('MSAnimationStart', event, false);
+        document.addEventListener('webkitAnimationStart', event, false);
+
+        return new Handlebars.SafeString("<p class=\"alert-box\">Loading map...</p>");
+      }
+
     }
-    
   },
 });
 
@@ -559,6 +564,7 @@ var generateActivitesMap = function(group, elementSelector, activities) {
       index+=1;
     // }
   });
+
 
   dashboardMap = new google.maps.Map(element, {
     mapTypeId: google.maps.MapTypeId.ROADMAP
