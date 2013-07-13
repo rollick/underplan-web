@@ -288,6 +288,11 @@ Template.feedItemComments.events({
 
       setFeedCommentsNotice(template);
     }
+  },
+  "click .comments-notice > .inner": function (event, template) {
+    var list = template.find(".short-comments .inner");
+
+    list.scrollTop = list.scrollHeight;
   }
 });
 
@@ -313,7 +318,7 @@ setFeedCommentsNotice = function (template) {
 
   if(hiddenComments.length > 0) {
     var commentText = hiddenComments.length > 1 ? "comments" : "comment";
-    commentsNotice.text(hiddenComments.length + " " + commentText + " below");
+    commentsNotice.text(hiddenComments.length + " " + commentText);
 
     // FIXME: We shouldn't assume the parent is a .feed-item. Maybe the parent
     //        should be set when this class is created and it should be set on

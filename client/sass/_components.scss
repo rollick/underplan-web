@@ -5,17 +5,45 @@
 @import "foundation/components/type";
 @import "foundation/components/grid";
 
-@mixin up-down($height: 24px, $expanded: false) {
-  &:before {
-    @if $expanded { background-image: url('/images/down.svg') }
-    @else         { background-image: url('/images/right.svg') }
-    background-repeat: no-repeat;
-    background-size: $height/2 + 2 $height/2 + 2;
-    background-position: 0px ($height/2)/4;
-    padding-left: $height/3;
-    height: $height;
-    content: "\00a0\00a0";
+@mixin up-down($height: 24px, $expanded: false, $arrow-color: false, $side: 'before') {
+  $size:      $height/2 + 2 $height/2 + 2;
+  $content:   '\00a0\00a0';
+  $position:  0px ($height/2)/4;
+  $direction: 'right';
+
+  @if $expanded { $direction: 'down' }
+
+  @if $side == 'before' {
+    &:before {
+      @include svg-arrow($direction: $direction, $color: $arrow-color);
+
+      background-repeat: no-repeat;
+      background-size: $size;
+      background-position: $position;
+      padding-left: $height/3;
+      content: $content;
+      height: $height;
+    }
   }
+  @else {
+    &:after {
+      @include svg-arrow($direction: $direction, $color: $arrow-color);
+
+      background-repeat: no-repeat;
+      background-size: $size;
+      background-position: $position;
+      padding-right: $height/3;
+      content: $content;
+      height: $height;
+    }
+  }
+}
+
+@mixin svg-arrow($direction: 'down', $color: false) {
+  @if $color { $color: '_' + $color; }
+  @else { $color: '' }
+
+  background-image: url('/images/' + $direction + $color + '.svg');
 }
 
 @mixin keyframe($name) {
@@ -344,7 +372,7 @@
       }
 
       .main-actions {
-        @include grid-column(5);      
+        @include grid-column(5);     
       }
 
       .show-comments, .main-actions {
@@ -540,7 +568,11 @@
     }
 
     .comments-notice .inner {
+      @include up-down(24px, $expanded: true, $arrow-color: 'white');
+      @include up-down(24px, $expanded: true, $arrow-color: 'white', $side: 'right');
+
       display: inherit;
+      cursor: pointer;
     }
 
     .short-comments .inner {
