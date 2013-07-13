@@ -10,9 +10,9 @@
     @if $expanded { background-image: url('/images/down.svg') }
     @else         { background-image: url('/images/right.svg') }
     background-repeat: no-repeat;
-    background-size: $height/2 $height/2;
+    background-size: $height/2 + 2 $height/2 + 2;
     background-position: 0px ($height/2)/4;
-    padding-left: $height/2;
+    padding-left: $height/3;
     height: $height;
     content: "\00a0\00a0";
   }

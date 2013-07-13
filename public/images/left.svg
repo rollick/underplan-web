@@ -1,7 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg xmlns="http://www.w3.org/2000/svg" 
-     width="17" 
-     height="17"
-     style="background: transparent;">
-  <path transform="scale(0.03)" d="M 556,2 L 2,280 L 556,556" fill="#008000"/>
-</svg>
+<?xml version="1.0" ?><svg clip-rule="evenodd" fill-rule="evenodd" image-rendering="optimizeQuality" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 5000 5000" xmlns="http://www.w3.org/2000/svg"><defs><style type="text/css"><![CDATA[
+    .str0 {stroke:#434242;stroke-width:100}
+    .fil0 {fill:url(#id0)}
+   ]]></style><linearGradient gradientUnits="userSpaceOnUse" id="id0" x1="1064.71" x2="3935.29" y1="3935.29" y2="1064.71"><stop offset="0" stop-color="#008000"/><stop offset="1" stop-color="#008000"/></linearGradient></defs><path class="fil0 str0" d="M1489 2253c-136 136-136 358 0 494l1450 1450c78 78 205 78 283 0l318-318c97-97 97-256 0-354l-1025-1025 1025-1025c97-98 97-257 0-354l-318-318c-78-78-205-78-283 0l-1450 1450z" id="Layer_x0020_1"/></svg>
