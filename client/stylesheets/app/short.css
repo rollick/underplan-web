@@ -1284,6 +1284,7 @@ blockquote p {
   *zoom: 1;
   margin: 0.25em;
   margin-top: 0.9375em;
+  margin-bottom: 0.9375em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
 .short-form:before, .short-form:after {
@@ -1297,10 +1298,10 @@ blockquote p {
 @media only screen and (min-width: 48em) {
   /* line 6, ../../sass/app/short.scss */
   .short-form {
-    margin: 0em;
+    margin: 0em 0em 0.9375em 0em;
   }
 }
-/* line 16, ../../sass/app/short.scss */
+/* line 17, ../../sass/app/short.scss */
 .short-form .form-content {
   position: relative;
   padding-left: 0;
@@ -1339,11 +1340,11 @@ blockquote p {
 .short-form .form-content h1.subheader, .short-form .form-content h2.subheader, .short-form .form-content h3.subheader, .short-form .form-content h4.subheader, .short-form .form-content h5.subheader, .short-form .form-content h6.subheader {
   line-height: 1.4;
 }
-/* line 24, ../../sass/app/short.scss */
+/* line 25, ../../sass/app/short.scss */
 .short-form .form-content form {
   padding: 10px;
 }
-/* line 29, ../../sass/app/short.scss */
+/* line 30, ../../sass/app/short.scss */
 .short-form .form-content form .text-section,
 .short-form .form-content form .location-section,
 .short-form .form-content form .action-section {
@@ -1370,7 +1371,7 @@ blockquote p {
 .short-form .form-content form .action-section:after {
   clear: both;
 }
-/* line 35, ../../sass/app/short.scss */
+/* line 36, ../../sass/app/short.scss */
 .short-form .form-content form .text-section .input-field {
   position: relative;
   padding-left: 0.9375em;
@@ -1378,14 +1379,14 @@ blockquote p {
   width: 66.66667%;
   float: left;
 }
-/* line 38, ../../sass/app/short.scss */
+/* line 39, ../../sass/app/short.scss */
 .short-form .form-content form .text-section .input-field textarea {
   height: 40px;
   min-height: 0px !important;
   margin-bottom: 0px;
   padding: 0.7em;
 }
-/* line 46, ../../sass/app/short.scss */
+/* line 47, ../../sass/app/short.scss */
 .short-form .form-content form .text-section .add-story {
   position: relative;
   padding-left: 0.9375em;
@@ -1396,30 +1397,30 @@ blockquote p {
   padding-left: 0px !important;
   margin-top: 0.8em;
 }
-/* line 56, ../../sass/app/short.scss */
+/* line 57, ../../sass/app/short.scss */
 .short-form .form-content form .location-section,
 .short-form .form-content form .action-section {
   display: none;
 }
-/* line 59, ../../sass/app/short.scss */
+/* line 60, ../../sass/app/short.scss */
 .short-form .form-content form .location-section .button,
 .short-form .form-content form .action-section .button {
   margin-bottom: 0em;
 }
-/* line 65, ../../sass/app/short.scss */
+/* line 66, ../../sass/app/short.scss */
 .short-form .form-content form .location-section .location-fields {
   display: none;
 }
-/* line 70, ../../sass/app/short.scss */
+/* line 71, ../../sass/app/short.scss */
 .short-form .form-content form .location-section .show-advanced-location:before {
   content: "- ";
 }
-/* line 78, ../../sass/app/short.scss */
+/* line 79, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .location-section,
 .short-form .form-content form.expanded .action-section {
   display: inherit;
 }
-/* line 83, ../../sass/app/short.scss */
+/* line 84, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .input-field {
   position: relative;
   padding-left: 0.9375em;
@@ -1427,12 +1428,12 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 86, ../../sass/app/short.scss */
+/* line 87, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .input-field textarea {
   margin-bottom: 0.8em;
   height: 80px;
 }
-/* line 92, ../../sass/app/short.scss */
+/* line 93, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .add-story {
   display: none;
 }

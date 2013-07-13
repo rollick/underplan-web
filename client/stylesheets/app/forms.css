@@ -1218,3 +1218,9 @@ blockquote p {
 .settings-editor .description {
   height: 80px;
 }
+/* line 14, ../../sass/app/forms.scss */
+.group-editor .button,
+.story-editor .button,
+.settings-editor .button {
+  margin-bottom: 0em;
+}

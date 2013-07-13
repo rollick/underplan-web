@@ -8,9 +8,10 @@ $entry-bottom-margin: 0.9em;
     
   margin: $ribbon-wrapper-strip;
   margin-top: $standard-margin;
+  margin-bottom: $standard-margin;
 
   @media only screen and (min-width: 48em) {
-    margin: 0em;
+    margin: 0em 0em $standard-margin 0em;
   }
   
   .form-content {
