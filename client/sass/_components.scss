@@ -504,6 +504,8 @@
         padding: 0em;
         
         .comment {
+          padding: 0.5em;
+
           &:last-of-type {  
             border-bottom: 2px solid $warning-color;
           }
@@ -555,6 +557,11 @@
         padding: 0em;
 
         .comment-form {
+
+          & > .inner {
+            padding-left: $standard-padding;
+            padding-right: $standard-padding;
+          }
         }
       }
     }

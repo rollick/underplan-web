@@ -15,3 +15,11 @@
     margin-bottom: 0em;
   }
 }
+
+.section-container {
+  .group-editor,
+  .story-editor,
+  .settings-editor {
+    background-color: transparent;
+  }
+}

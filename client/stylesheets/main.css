@@ -7483,9 +7483,14 @@ ul.dropdown h5 a {
 /* line 312, ../sass/main.scss */
 .section-container .section > .content, .section-container section > .content {
   padding: 5px;
-  padding-top: 15px;
 }
-/* line 316, ../sass/main.scss */
+@media only screen and (min-width: 48em) {
+  /* line 312, ../sass/main.scss */
+  .section-container .section > .content, .section-container section > .content {
+    padding: 15px;
+  }
+}
+/* line 319, ../sass/main.scss */
 .section-container .section > .content ul.disc, .section-container section > .content ul.disc {
   margin-left: 20px;
 }

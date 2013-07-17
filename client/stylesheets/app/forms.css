@@ -1224,3 +1224,10 @@ blockquote p {
 .settings-editor .button {
   margin-bottom: 0em;
 }
+
+/* line 22, ../../sass/app/forms.scss */
+.section-container .group-editor,
+.section-container .story-editor,
+.section-container .settings-editor {
+  background-color: transparent;
+}

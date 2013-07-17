@@ -169,7 +169,7 @@
   .activity-controls {
     @include grid-row(nest);
 
-    margin-bottom: 10px;
+    margin: 0 $standard-margin;
 
     a {
       height: 24px;
@@ -187,7 +187,7 @@
         &:before {
           padding-right: 4px;
           background-position: 0px 3px;
-          background-image: url("/images/left_green.svg");
+          background-image: url("/images/left.svg");
         }
       }
     }
@@ -199,7 +199,7 @@
         &:after {
           padding-left: 5px;
           background-position: 5px;
-          background-image: url('/images/right_green.svg');
+          background-image: url('/images/right.svg');
         }
       }
     }

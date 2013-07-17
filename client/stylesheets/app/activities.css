@@ -1565,7 +1565,7 @@ blockquote p {
   margin-bottom: 0;
   max-width: none;
   *zoom: 1;
-  margin-bottom: 10px;
+  margin: 0 0.9375em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
 .activity .activity-controls:before, .activity .activity-controls:after {
@@ -1591,7 +1591,7 @@ blockquote p {
 .activity .activity-controls .previous a:before {
   padding-right: 4px;
   background-position: 0px 3px;
-  background-image: url("/images/left_green.svg");
+  background-image: url("/images/left.svg");
 }
 /* line 195, ../../sass/app/activities.scss */
 .activity .activity-controls .next {
@@ -1601,7 +1601,7 @@ blockquote p {
 .activity .activity-controls .next a:after {
   padding-left: 5px;
   background-position: 5px;
-  background-image: url("/images/right_green.svg");
+  background-image: url("/images/right.svg");
 }
 /* line 208, ../../sass/app/activities.scss */
 .activity .activities-map {
@@ -2066,11 +2066,15 @@ blockquote p {
   border-top: none;
   padding: 0em;
 }
-/* line 507, ../../sass/_components.scss */
+/* line 506, ../../sass/_components.scss */
+.map-info > .inner .short-comments > .inner .comment {
+  padding: 0.5em;
+}
+/* line 509, ../../sass/_components.scss */
 .map-info > .inner .short-comments > .inner .comment:last-of-type {
   border-bottom: 2px solid #e84c3d;
 }
-/* line 514, ../../sass/_components.scss */
+/* line 516, ../../sass/_components.scss */
 .map-info > .inner .comments-notice {
   width: auto;
   margin-left: -0.9375em;
@@ -2095,7 +2099,7 @@ blockquote p {
 .map-info > .inner .comments-notice:after {
   clear: both;
 }
-/* line 528, ../../sass/_components.scss */
+/* line 530, ../../sass/_components.scss */
 .map-info > .inner .comments-notice .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -2110,7 +2114,7 @@ blockquote p {
   text-align: center;
   color: white;
 }
-/* line 542, ../../sass/_components.scss */
+/* line 544, ../../sass/_components.scss */
 .map-info > .inner .feed-comment-form {
   width: auto;
   margin-left: -0.9375em;
@@ -2133,7 +2137,7 @@ blockquote p {
 .map-info > .inner .feed-comment-form:after {
   clear: both;
 }
-/* line 550, ../../sass/_components.scss */
+/* line 552, ../../sass/_components.scss */
 .map-info > .inner .feed-comment-form > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -2148,6 +2152,11 @@ blockquote p {
   border-bottom-right-radius: 1px;
   padding: 0em;
 }
+/* line 561, ../../sass/_components.scss */
+.map-info > .inner .feed-comment-form > .inner .comment-form > .inner {
+  padding-left: 0.5em;
+  padding-right: 0.5em;
+}
 /* line 17, ../../sass/_components.scss */
 .map-info.expanded .item-actions a.comments:before {
   background-image: url("/images/down.svg");
@@ -2158,7 +2167,7 @@ blockquote p {
   content: "\00a0\00a0";
   height: 24px;
 }
-/* line 570, ../../sass/_components.scss */
+/* line 577, ../../sass/_components.scss */
 .map-info.expanded .comments-notice .inner {
   display: inherit;
   cursor: pointer;
@@ -2183,14 +2192,14 @@ blockquote p {
   content: "\00a0\00a0";
   height: 24px;
 }
-/* line 578, ../../sass/_components.scss */
+/* line 585, ../../sass/_components.scss */
 .map-info.expanded .short-comments .inner {
   height: 100%;
   max-height: 450px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
 }
-/* line 585, ../../sass/_components.scss */
+/* line 592, ../../sass/_components.scss */
 .map-info.expanded .feed-comment-form {
   height: 100%;
 }
