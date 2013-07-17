@@ -337,7 +337,7 @@ Template.feedMap.helpers({
   map: function () {
     if(!!Session.get("feedFilter").group) {
       var group = Groups.findOne(Session.get("feedFilter").group);
-      var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
+      var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}});
 
       // If map element not present then create an event to be 
       // triggered when map element is in the DOM.
