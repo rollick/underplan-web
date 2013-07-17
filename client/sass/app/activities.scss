@@ -8,7 +8,7 @@
 
     padding: emCalc(15px);
 
-    & > .inner {
+    & > .header {
       @include grid-row(nest);
 
       .title {
@@ -34,14 +34,24 @@
           float: right;
         }
       }
+    }
 
-      .content {
-        @include grid-row(nest);
+    & > .content {
+      @include grid-row(nest);
 
-        & > .inner {
-          @include grid-column(12);
+      & > .inner {
+        @include grid-column(12);
 
-          margin: 0em;
+        margin: 0em;
+
+        .text {
+          &.intro p {
+            font-style: italic;
+          }
+
+          ul {
+            margin-left: 20px;
+          }
         }
       }
     }
@@ -72,6 +82,11 @@
         margin-left: 1em;      
         height: 240px;
         width: 320px;
+
+        &.large {
+          height: 420px;
+          width: 100%;          
+        }
       }
 
       .alert-box {
@@ -169,7 +184,7 @@
   .activity-controls {
     @include grid-row(nest);
 
-    margin: 0 $standard-margin;
+    margin-top: $standard-margin;
 
     a {
       height: 24px;

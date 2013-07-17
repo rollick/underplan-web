@@ -86,6 +86,18 @@ Template.currentActivity.hasMap = function () {
   return currentActivityHasMap();
 };
 
+// If the story has a short description and photos to show then return true
+// Used to alter layout in template for photo-centered view
+Template.currentActivity.photoShow = function () {
+  var activity = this;
+
+  if (activity.text.length < shortMaxLength && !_.isEmpty(activity.picasaTags)) {
+    return true;
+  }
+
+  return false;
+};
+
 Template.currentActivity.anyActivities = function () {
   return Activities.find().count() > 0;
 };

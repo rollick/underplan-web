@@ -10,7 +10,7 @@
     <div>
       <small class="attribution muted">&copy;
         <a href="http://www.openstreetmap.org/?lat=37.78212&lon=-122.40146&zoom=15&layers=M"
-           target="_blank">OpenStreetMap</a> contributors</small>
+           target="_blank">OpenSxtreetMap</a> contributors</small>
     </div>
   </div>
 </template>
@@ -20,7 +20,7 @@
     <div class="activity">
       {{#with activity}}
         <div class="story-full" itemscope itemtype="http://schema.org/BlogPosting">
-          <div class="inner">
+          <div class="header">
             <div class="title">
               <h2 itemprop="name">{{title}}</h2>
             </div>
@@ -32,15 +32,27 @@
           </div>
           <div class="content">
             <div class="inner">
-              {{#if hasPhotos}}
-                <div class="activity-highlight">
-                  {{gallery}}
+              {{#if photoShow}}
+                <div class="text intro">
+                  {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
+                  {{#markdown}}{{text}}{{/markdown}}
                 </div>
-              {{/if}}
-              <div class="text">
-                {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
-                {{#markdown}}{{text}}{{/markdown}}
-              </div>
+                {{#if hasPhotos}}
+                  <div class="activity-highlight large">
+                    {{gallery}}
+                  </div>
+                {{/if}}
+              {{else}}
+                {{#if hasPhotos}}
+                  <div class="activity-highlight">
+                    {{gallery}}
+                  </div>
+                {{/if}}
+                <div class="text">
+                  {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
+                  {{#markdown}}{{text}}{{/markdown}}
+                </div> 
+              {{/if}}             
               <cite>{{creatorName}} - {{date created}}</cite>
               <div itemprop="description" style="display: none">{{textPreview}}</div>
             </div>
