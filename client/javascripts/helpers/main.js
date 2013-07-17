@@ -63,21 +63,7 @@ Handlebars.registerHelper('ifCond', function(value) {
 });
 
 Handlebars.registerHelper('date', function(dateValue) {
-  moment.lang('en', {
-    calendar : {
-      lastDay : '[Yesterday at] LT',
-      sameDay : '[Today at] LT',
-      nextDay : '[Tomorrow at] LT',
-      lastWeek : 'D MMMM',
-      nextWeek : 'dddd [at] LT',
-      sameElse : 'D MMMM YYYY'
-    }
-  });
-
-  if(dateValue) {
-    return Handlebars._escape(moment(dateValue).calendar());
-  }
-  return '';
+  return formattedDate(dateValue);
 });
 
 Handlebars.registerHelper('simpleDate', function(date) {

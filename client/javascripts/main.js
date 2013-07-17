@@ -49,7 +49,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3b12");
+  Session.set("appVersion", "v1.3b13");
 
   // Routing
   Backbone.history.start({ pushState: true });
@@ -336,6 +336,24 @@ this.logRenders = function () {
       oldRender && oldRender.apply(this, arguments);
     };
   });
+};
+
+this.formattedDate = function (dateValue) {
+  moment.lang('en', {
+    calendar : {
+      lastDay : '[Yesterday at] LT',
+      sameDay : '[Today at] LT',
+      nextDay : '[Tomorrow at] LT',
+      lastWeek : 'D MMMM',
+      nextWeek : 'dddd [at] LT',
+      sameElse : 'D MMMM YYYY'
+    }
+  });
+
+  if(dateValue) {
+    return Handlebars._escape(moment(dateValue).calendar());
+  }
+  return '';
 };
 
 this.trackEvent = function(eventName, properties) {

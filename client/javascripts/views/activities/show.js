@@ -70,6 +70,11 @@ Template.currentActivity.previousActivity = function () {
   }, {sort: {created: -1, _id: -1}}).fetch()[0];
 };
 
+Template.currentActivity.dateCreated = function () {
+  debugger
+  return formattedDate(this.created);
+};
+
 Template.currentActivity.group = function () {
   return Groups.findOne(Session.get("groupId"));
 };
