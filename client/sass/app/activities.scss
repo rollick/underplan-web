@@ -184,6 +184,7 @@
   .activity-controls {
     @include grid-row(nest);
 
+    clear: both;
     margin-top: $standard-margin;
 
     a {
