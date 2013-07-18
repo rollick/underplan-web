@@ -71,7 +71,6 @@ Template.currentActivity.previousActivity = function () {
 };
 
 Template.currentActivity.dateCreated = function () {
-  debugger
   return formattedDate(this.created);
 };
 
