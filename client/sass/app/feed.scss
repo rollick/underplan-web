@@ -126,6 +126,10 @@
 
   .feed-item {
     @include item-by-user();
+
+    &:first-of-type {
+      margin-top: $standard-margin;
+    }
   }
 
   .feed-more {
@@ -152,7 +156,7 @@
   @media only screen and (min-width: 48em) {
     @include grid-column($feed-extra-columns-large, $collapse: true);
     
-    margin-bottom: $standard-margin;
+    border: 1px solid transparent;
   }
 
   .alert-box {
