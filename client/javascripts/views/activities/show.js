@@ -8,7 +8,13 @@ Template.currentActivity.helpers({
     var element = ".activity-highlight";
 
     if (_.isObject(group.trovebox)) {
-      trovebox.albumSearch(group.trovebox, function(data) {
+      var params = $.extend({}, group.trovebox);
+
+      // Need to change field name for tags to something like photoTags
+      if (_.isString(activity.picasaTags) && activity.picasaTags.length)
+        params.tags = activity.picasaTags;
+
+      trovebox.albumSearch(params, function(data) {
         Galleria.run(element, {
           dataSource: data,
           showInfo: true
