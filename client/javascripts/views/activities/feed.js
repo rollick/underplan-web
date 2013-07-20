@@ -401,12 +401,11 @@ var processFeedPhotos = function (data, offset, galleryContainer) {
 
           if (galleria.hasClass("fullscreen")) {
             event.preventDefault();
-            gallery.toggleFullscreen(); // toggles the fullscreen
 
             // gallery.defineTooltip("fullscreen", s._locale.exit_fullscreen);
             gallery.addIdleState(gallery.$("bar"), {
               bottom: -31
-            })
+            });
           } else if (! container.hasClass("visible")) {
             container.addClass("visible");
           }
