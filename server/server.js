@@ -96,7 +96,8 @@ Meteor.publish("feedStories", function (groupId) {
       created: 1,
       type: 1,
       city: 1,
-      country: 1
+      country: 1,
+      published: 1
     }
   };
 
@@ -120,7 +121,8 @@ Meteor.publish("feedShorties", function (groupId) {
       created: 1,
       type: 1,
       city: 1,
-      country: 1
+      country: 1,
+      published: 1
     }
   };
 
