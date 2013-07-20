@@ -1235,12 +1235,12 @@ blockquote p {
 }
 /* line 30, ../../sass/app/home.scss */
 .dashboard .groups {
-  margin-top: 10px;
+  margin-top: 5px;
 }
 @media only screen and (min-width: 48em) {
   /* line 30, ../../sass/app/home.scss */
   .dashboard .groups {
-    margin-top: 30px;
+    margin-top: 20px;
   }
 }
 /* line 37, ../../sass/app/home.scss */
