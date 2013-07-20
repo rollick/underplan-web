@@ -37,7 +37,7 @@
       if (typeof params.domain != 'string')
         Galleria.raise( 'No trovebox domain provided' );
       
-      var url = 'http://' + params.domain + '/photos/album-' + params.album + '/token-' + params.albumKey + '/list.json?';
+      var url = 'https://' + params.domain + '/photos/album-' + params.album + '/token-' + params.albumKey + '/list.json?';
 
       var scope = this;
 
