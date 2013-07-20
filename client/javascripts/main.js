@@ -7,15 +7,6 @@ var self = this;
 self.commentsSubscription = self.activitiesSubscription = null;
 
 Deps.autorun(function () {
-  if (Session.get("activitySlug")) {
-    var activity = Activities.findOne({slug: Session.get("activitySlug")});
-
-    if (activity) { // activity hasn't loaded!
-      Session.set("activityId", activity._id);
-    }
-  } else {
-    Session.set("activityId", null);
-  }
 
   if (Session.get("groupSlug")) {
     var group = Groups.findOne({slug: Session.get("groupSlug")});
@@ -33,19 +24,24 @@ Deps.autorun(function () {
       filter.group = Session.get("groupId");
       Session.set("feedFilter", filter);
     }
+
+    self.commentsSubscription = Meteor.subscribe("comments", Session.get("groupId"));
+    self.feedStoriesSubscription = Meteor.subscribe("feedStories", Session.get("groupId"));
+    self.feedShortiesSubscription = Meteor.subscribe("feedShorties", Session.get("groupId"));
   }
 
-  self.commentsSubscription = Meteor.subscribe("comments", Session.get("groupId"));
-  self.activitiesSubscription = Meteor.subscribe("activities", Session.get("groupId"));
+  if (Session.get("activitySlug")) {
+    var activity = Activities.findOne({slug: Session.get("activitySlug")});
 
-  // if (! Session.get("groupName")) {  
-  //   Session.set("groupName", "A Trip");
-  // }
-  // if (! Session.get("selectedActivity")) {  
-  //   var activity = Activities.findOne();
-  //   if (activity)
-  //     Session.set("selectedActivity", activity._id);
-  // }
+    if (activity) { // activity hasn't loaded!
+      Session.set("activityId", activity._id);
+    }
+    
+    self.activitySubscription = Meteor.subscribe("activityShow", Session.get("activityId"));
+    self.commentsSubscription = Meteor.subscribe("activityComments", Session.get("activityId"));
+  } else {
+    Session.set("activityId", null);
+  }
 });
 
 Meteor.startup(function () {

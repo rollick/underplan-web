@@ -114,6 +114,9 @@ Template.currentActivity.hasMap = function () {
 Template.currentActivity.photoShow = function () {
   var activity = this;
 
+  if (!activity.text)
+    return false;
+
   if (activity.text.length < shortMaxLength && !_.isEmpty(activity.picasaTags)) {
     return true;
   }
@@ -127,6 +130,10 @@ Template.currentActivity.anyActivities = function () {
 
 Template.currentActivity.textPreview = function () {
   var text = Activities.findOne(Session.get("activityId")).text;
+
+  if (!text)
+    return "";
+
   var limit = 240;
 
   var preview = text.substring(0, limit);

@@ -54,7 +54,8 @@ Template.activityFeed.events({
 });
 
 Template.activityFeed.loading = function () {
-  return _.isNull(activitiesSubscription) || !activitiesSubscription.ready();
+  return _.isNull(feedStoriesSubscription) || !feedStoriesSubscription.ready() || 
+         _.isNull(feedShortiesSubscription) || !feedShortiesSubscription.ready();
 };
 
 Template.activityFeed.showExtras = function () {
@@ -248,6 +249,9 @@ Template.storyFeedContent.canRemove = function () {
 
 Template.storyFeedContent.textPreview = function () {
   var text = this.text;
+  if (!text)
+    return "";
+
   var limit = 180;
 
   var preview = text.substring(0, limit);
