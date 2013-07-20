@@ -70,18 +70,22 @@
             </div>
           {{/if}}
           <div class="activity-controls">
-            <div class="previous small-7 large-6 columns">
+            <div class="previous">
               {{#if previousActivity}}
                 {{#with previousActivity}}
                   <a href="/{{group.slug}}/{{slug}}">Previous<span class="hide-for-small"> Story</span></a>
                 {{/with}}
+              {{else}}
+               |
               {{/if}}
             </div>
-            <div class="next small-5 large-6 columns">
+            <div class="next">
               {{#if nextActivity}}
                 {{#with nextActivity}}
                   <a href="/{{group.slug}}/{{slug}}">Next<span class="hide-for-small">  Story</span></a>
                 {{/with}}
+              {{else}}
+               |
               {{/if}}
             </div>
           </div>

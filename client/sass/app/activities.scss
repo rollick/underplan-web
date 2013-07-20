@@ -184,8 +184,8 @@
   .activity-controls {
     @include grid-row(nest);
 
-    clear: both;
     margin-top: $standard-margin;
+    clear: both;
 
     a {
       height: 24px;
@@ -199,6 +199,14 @@
     }
 
     .previous {
+      @include grid-column(7, $collapse: true);
+
+      @media only screen and (min-width: 48em) {
+        @include grid-column(6, $collapse: true);      
+      }
+
+      padding-left: 0.8em !important;
+
       a {
         &:before {
           padding-right: 4px;
@@ -209,6 +217,13 @@
     }
 
     .next {
+      @include grid-column(5, $collapse: true);
+
+      @media only screen and (min-width: 48em) {
+        @include grid-column(6, $collapse: true);      
+      }
+      
+      padding-right: 0.8em !important;
       text-align: right;
 
       a {
