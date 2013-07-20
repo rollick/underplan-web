@@ -5,24 +5,37 @@ Template.currentActivity.helpers({
   gallery: function () {
     var group = Groups.findOne(Session.get("groupId"));
     var activity = Activities.findOne(Session.get("activityId"));
-    var params = {};
     var element = ".activity-highlight";
 
-    if (_.isString(group.picasaKey) && group.picasaKey.length)
-      params.authkey = group.picasaKey
-
-    if (_.isString(activity.picasaTags) && activity.picasaTags.length)
-      params.tag = activity.picasaTags;
-
-    picasa.setOptions({max: 99}); // Note: Hope there isn't more in this story...
-    picasa.useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
+    if (_.isObject(group.trovebox)) {
+      trovebox.albumSearch(group.trovebox, function(data) {
         Galleria.run(element, {
-            dataSource: data,
-            showInfo: true
+          dataSource: data,
+          showInfo: true
         });
-    });
+      });            
+      
+    } else if (group.picasaUsername) {
+      var params = {};
 
-    return new Handlebars.SafeString("<p class=\"alert-box\">Loading photos...</p>");
+      if (_.isString(group.picasaKey) && group.picasaKey.length)
+        params.authkey = group.picasaKey
+
+      if (_.isString(activity.picasaTags) && activity.picasaTags.length)
+        params.tag = activity.picasaTags;
+
+      // Note: Hope there isn't more in this story...
+      picasa.setOptions({
+        max: 99
+      }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
+        Galleria.run(element, {
+          dataSource: data,
+          showInfo: true
+        });
+      });
+    }
+
+    return new Handlebars.SafeString("<p class=\"alert-box clear\">Loading photos...</p>");
   }
 });
 

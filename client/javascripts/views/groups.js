@@ -100,6 +100,12 @@ var getGroupValues = function(template) {
   values.picasaAlbum =      template.find(".picasa-album").value;
   values.picasaKey   =      template.find(".picasa-key").value;
 
+  values.trovebox = {
+    domain:   template.find(".trovebox-domain").value,
+    album:    template.find(".trovebox-album").value,
+    albumKey: template.find(".trovebox-albumKey").value
+  }
+
   return values;
 }
 

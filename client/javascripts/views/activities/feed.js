@@ -364,6 +364,63 @@ Template.feedMap.helpers({
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Gallery
 
+var processFeedPhotos = function (data, offset, galleryContainer) {
+  if (offset > 0) { // Append data to existing gallery
+    var gallery = Galleria.get(0);
+    var currentLength = gallery.getDataLength();
+
+    var t = gallery.push(data, function () {
+      // Skip to the first of the images just fetched
+      this.show(this.getDataLength() - data.length);
+    });
+
+  } else { // Create initial gallery
+    feedGallery = Galleria.run(galleryContainer, {
+      dataSource: data,
+      _toggleInfo: false,
+      extend: function(s) {
+        // create an element 'galleria-map'
+        this.addElement('map');
+        // add to default 'galleria-container' 
+        this.appendChild('container', 'map');
+
+        if (! Galleria.TOUCH ) {
+          this.addIdleState( this.get('map'), { opacity: 0 });
+          this.addIdleState( this.get('info'), { opacity: 0 });
+        }
+
+        var gallery = this; 
+        gallery.attachKeyboard({
+          left: gallery.prev,
+          right: gallery.next,
+        });
+        
+        $('.galleria-image').click(function(event) {
+          var galleria = $(event.target).closest(".galleria-container");
+          var container = $(event.target).closest(".gallery");
+
+          if (galleria.hasClass("fullscreen")) {
+            event.preventDefault();
+            gallery.toggleFullscreen(); // toggles the fullscreen
+
+            // gallery.defineTooltip("fullscreen", s._locale.exit_fullscreen);
+            gallery.addIdleState(gallery.$("bar"), {
+              bottom: -31
+            })
+          } else if (! container.hasClass("visible")) {
+            container.addClass("visible");
+          }
+        });
+
+        $("#fullscreen").click(function() {
+          event.preventDefault();
+          gallery.enterFullscreen(); 
+        });
+      }
+    });
+  }
+};
+
 Template.feedGallery.events({
   "click .gallery-more a": function () {
     if ($(".gallery-more a").hasClass("disabled"))
@@ -380,86 +437,32 @@ Template.feedGallery.events({
 Template.feedGallery.helpers({
   gallery: function () {
     var group = Groups.findOne(Session.get("groupId"));
-    var params = {};
     // NOTE: this needs work. shouldn't always assume skip limit is max loaded
     var limit = galleryLimitSkip;
     var offset = Session.get("galleryLimit") - limit;
 
-    if (_.isString(group.picasaKey) && group.picasaKey.length)
-      params.authkey = group.picasaKey;
-
-    if (Session.get("galleryLimit") > limit)
-      params["start-index"] = offset;
-
     var self = this;
     $(".gallery-more a").addClass("disabled");
 
-    picasa.setOptions({
-      max: limit
-    }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
+    if (_.isObject(group.trovebox)) {
+      trovebox.albumSearch(group.trovebox, function(data) {
+        processFeedPhotos(data, offset, ".recent-photos");
+      });            
+    } else if (group.picasaUsername) {
+      var params = {};
 
-      if (offset > 0) { // Append data to existing gallery
-        var gallery = Galleria.get(0);
-        var currentLength = gallery.getDataLength();
+      if (_.isString(group.picasaKey) && group.picasaKey.length)
+        params.authkey = group.picasaKey;
 
-        var t = gallery.push(data, function () {
-          // Skip to the first of the images just fetched
-          this.show(this.getDataLength() - data.length);
-        });
+      if (Session.get("galleryLimit") > limit)
+        params["start-index"] = offset;
 
-      } else { // Create initial gallery
-        feedGallery = Galleria.run('.recent-photos', {
-          dataSource: data,
-          _toggleInfo: false,
-          extend: function(s) {
-            // create an element 'galleria-map'
-            this.addElement('map');
-            // add to default 'galleria-container' 
-            this.appendChild('container', 'map');
-
-            if (! Galleria.TOUCH ) {
-              this.addIdleState( this.get('map'), { opacity: 0 });
-              this.addIdleState( this.get('info'), { opacity: 0 });
-            }
-
-            var gallery = this; 
-            gallery.attachKeyboard({
-              left: gallery.prev,
-              right: gallery.next,
-            });
-            
-            $('.galleria-image').click(function(event) {
-              var galleria = $(event.target).closest(".galleria-container");
-              var container = $(event.target).closest(".gallery");
-
-              if (galleria.hasClass("fullscreen")) {
-                event.preventDefault();
-                gallery.toggleFullscreen(); // toggles the fullscreen
-
-                // gallery.defineTooltip("fullscreen", s._locale.exit_fullscreen);
-                gallery.addIdleState(gallery.$("bar"), {
-                  bottom: -31
-                })
-              } else if (! container.hasClass("visible")) {
-                container.addClass("visible");
-              }
-            });
-
-            $("#fullscreen").click(function() {
-              event.preventDefault();
-              gallery.enterFullscreen(); 
-            });
-          }
-        });
-      }
-      
-      // Hide the more button if no more pics to fetch
-      if (data.length < limit) {
-        $(".gallery-more a").hide();
-      } else {
-        $(".gallery-more a").removeClass("disabled");
-      }
-    });      
+      picasa.setOptions({
+        max: limit
+      }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
+        processFeedPhotos(data, offset, ".recent-photos");
+      });
+    } 
 
     return new Handlebars.SafeString("<p class=\"alert-box\">Loading photos...</p>");
   }
