@@ -2299,6 +2299,7 @@ blockquote p {
     width: 100%;
     float: left;
     border: 1px solid transparent;
+    border-top: none;
   }
 }
 /* line 163, ../../sass/app/feed.scss */

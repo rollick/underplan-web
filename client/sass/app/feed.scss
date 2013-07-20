@@ -151,14 +151,14 @@
   z-index: 0;
   padding: 0em;
   padding-bottom: 4em;
+  border-top: none;
 
   @media only screen and (min-width: 48em) {
     @include grid-column($feed-extra-columns-large, $collapse: true);
     
     border: 1px solid transparent;
+    border-top: none;
   }
-
-  border-top: none;
 
   .alert-box {
     @include alert-style($secondary-color);
