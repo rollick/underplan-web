@@ -26,7 +26,22 @@
     margin-left: 0px;
     margin-right: 0px;
   }
-  
+
+  blockquote {
+    border-left: none;
+    margin-bottom: 25px;
+    
+    p {
+      font-size: 1.5em;
+      color: gray;
+    }
+
+    cite {
+      font-size: 0.8em;
+      color: lighten(gray, 30%);
+    }
+  }
+
   .groups { 
     margin-top: 5px;
 
@@ -34,18 +49,28 @@
       margin-top: 20px;
     }
 
-    .panel {
-      border: 1px solid rgb(51, 50, 50);
-      background-color: rgba(48, 48, 48, 0.53) !important;
-      cursor: pointer;
-      
-      a {
-        font-size: 1.1em;
+    .group {
+      @include grid-column(12);
+
+      @media only screen and (min-width: 48em) {
+        @include grid-column(4);
       }
 
-      p {
-        font-size: 0.9em;
-        color: white;
+      .panel {
+        border: 1px solid rgb(51, 50, 50);
+        background-color: rgba(48, 48, 48, 0.53) !important;
+        cursor: pointer;
+        height: 150px;
+        text-align: center;
+        
+        a {
+          font-size: 1.1em;
+        }
+
+        p {
+          font-size: 0.9em;
+          color: white;
+        }
       }
     }
 
@@ -62,21 +87,6 @@
       & > .inner {
         @include grid-column(12);
       }
-    }
-  }
-
-  blockquote {
-    border-left: none;
-    margin-bottom: 25px;
-    
-    p {
-      font-size: 1.5em;
-      color: gray;
-    }
-
-    cite {
-      font-size: 0.8em;
-      color: lighten(gray, 30%);
     }
   }
 }

@@ -1234,31 +1234,66 @@ blockquote p {
   margin-right: 0px;
 }
 /* line 30, ../../sass/app/home.scss */
+.dashboard blockquote {
+  border-left: none;
+  margin-bottom: 25px;
+}
+/* line 34, ../../sass/app/home.scss */
+.dashboard blockquote p {
+  font-size: 1.5em;
+  color: gray;
+}
+/* line 39, ../../sass/app/home.scss */
+.dashboard blockquote cite {
+  font-size: 0.8em;
+  color: #cccccc;
+}
+/* line 45, ../../sass/app/home.scss */
 .dashboard .groups {
   margin-top: 5px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 30, ../../sass/app/home.scss */
+  /* line 45, ../../sass/app/home.scss */
   .dashboard .groups {
     margin-top: 20px;
   }
 }
-/* line 37, ../../sass/app/home.scss */
-.dashboard .groups .panel {
+/* line 52, ../../sass/app/home.scss */
+.dashboard .groups .group {
+  position: relative;
+  padding-left: 0.9375em;
+  padding-right: 0.9375em;
+  width: 100%;
+  float: left;
+}
+@media only screen and (min-width: 48em) {
+  /* line 52, ../../sass/app/home.scss */
+  .dashboard .groups .group {
+    position: relative;
+    padding-left: 0.9375em;
+    padding-right: 0.9375em;
+    width: 33.33333%;
+    float: left;
+  }
+}
+/* line 59, ../../sass/app/home.scss */
+.dashboard .groups .group .panel {
   border: 1px solid #333232;
   background-color: rgba(48, 48, 48, 0.53) !important;
   cursor: pointer;
+  height: 150px;
+  text-align: center;
 }
-/* line 42, ../../sass/app/home.scss */
-.dashboard .groups .panel a {
+/* line 66, ../../sass/app/home.scss */
+.dashboard .groups .group .panel a {
   font-size: 1.1em;
 }
-/* line 46, ../../sass/app/home.scss */
-.dashboard .groups .panel p {
+/* line 70, ../../sass/app/home.scss */
+.dashboard .groups .group .panel p {
   font-size: 0.9em;
   color: white;
 }
-/* line 52, ../../sass/app/home.scss */
+/* line 77, ../../sass/app/home.scss */
 .dashboard .groups .actions {
   width: auto;
   margin-left: -0.9375em;
@@ -1280,31 +1315,16 @@ blockquote p {
   clear: both;
 }
 @media only screen and (min-width: 48em) {
-  /* line 52, ../../sass/app/home.scss */
+  /* line 77, ../../sass/app/home.scss */
   .dashboard .groups .actions {
     margin-top: 110px;
   }
 }
-/* line 62, ../../sass/app/home.scss */
+/* line 87, ../../sass/app/home.scss */
 .dashboard .groups .actions > .inner {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
   width: 100%;
   float: left;
-}
-/* line 68, ../../sass/app/home.scss */
-.dashboard blockquote {
-  border-left: none;
-  margin-bottom: 25px;
-}
-/* line 72, ../../sass/app/home.scss */
-.dashboard blockquote p {
-  font-size: 1.5em;
-  color: gray;
-}
-/* line 77, ../../sass/app/home.scss */
-.dashboard blockquote cite {
-  font-size: 0.8em;
-  color: #cccccc;
 }
