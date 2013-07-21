@@ -158,6 +158,29 @@ Template.shortContent.events({
   },
 });
 
+Template.shortContent.helpers({
+  photo: function () {
+
+    var group = Groups.findOne(Session.get("groupId"));
+    if (_.isObject(group.trovebox)) {
+      var params = $.extend({tags: "underplan-" + this._id}, group.trovebox),
+          search = new Galleria.Trovebox,
+          self = this;
+
+      search.albumSearch(params, function(data, params) { 
+        if (data.length) {
+          // get the id for the feed item associated with this photo tag
+          // and insert the img into the item
+          var html = "<img src='" + data[0].image + "'/>",
+              elementId = "#" + params.tags.match(/underplan\-(.*)/)[1];
+
+          $(html).appendTo(elementId + " .activity .photo");
+        }
+      });
+    }
+  }
+});
+
 Template.shortContent.canRemove = function () {
   return canUserRemoveActivity(Meteor.userId(), this._id);
 };

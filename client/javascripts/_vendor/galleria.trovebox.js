@@ -79,98 +79,9 @@
           });
         }
 
-        callback.call( this, gallery );
+        callback.call( this, gallery, params );
       })
     },
-  };
-
-  /**
-      Galleria modifications
-      We fake-extend the load prototype to make Picasa integration as simple as possible
-  */
-
-
-  // save the old prototype in a local variable
-
-  var load = Galleria.prototype.load;
-
-
-  // fake-extend the load prototype using the trovebox data
-
-  Galleria.prototype.load = function() {
-
-    // pass if no data is provided or trovebox option not found
-    if ( arguments.length || typeof this._options.trovebox !== 'string' ) {
-      load.apply( this, Galleria.utils.array( arguments ) );
-      return;
-    }
-
-    // define some local vars
-    var self = this,
-        args = Galleria.utils.array( arguments ),
-        trovebox = this._options.trovebox.split(':'),
-        p,
-        opts = $.extend({}, self._options.troveboxOptions),
-        loader = typeof opts.loader !== 'undefined' ?
-            opts.loader : $('<div>').css({
-                width: 48,
-                height: 48,
-                opacity: 0.7,
-                background:'#000 url('+PATH+'loader.gif) no-repeat 50% 50%'
-            });
-
-    if ( trovebox.length ) {
-
-      // validate the method
-      if ( typeof Galleria.Trovebox.prototype[ trovebox[0] ] !== 'function' ) {
-        Galleria.raise( trovebox[0] + ' method not found in Trovebox plugin' );
-        return load.apply( this, args );
-      }
-
-      // validate the argument
-      if ( !trovebox[1] ) {
-        Galleria.raise( 'No trovebox argument found' );
-        return load.apply( this, args );
-      }
-
-      // apply the preloader
-      window.setTimeout(function() {
-        self.$( 'target' ).append( loader );
-      },100);
-
-      // create the instance
-      p = new Galleria.Trovebox();
-
-      // apply Flickr options
-      if ( typeof self._options.troveboxOptions === 'object' ) {
-        p.setOptions( self._options.troveboxOptions );
-      }
-
-      // call the trovebox method and trigger the DATA event
-      var arg = [];
-      if ( trovebox[0] == 'useralbum' ) {
-        arg = trovebox[1].split('/');
-        if (arg.length != 2) {
-          Galleria.raise( 'Picasa useralbum not correctly formatted (should be [user]/[album])');
-          return;
-        }
-      } else {
-        arg.push( trovebox[1] );
-      }
-
-      arg.push(function(data) {
-        self._data = data;
-        loader.remove();
-        self.trigger( Galleria.DATA );
-        p.options.complete.call(p, data);
-      });
-
-      p[ trovebox[0] ].apply( p, arg );
-
-    } else {
-      // if trovebox array not found, pass
-      load.apply( this, args );
-    }
   };
 
 }( jQuery ) );

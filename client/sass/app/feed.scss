@@ -130,6 +130,15 @@
     &:first-of-type {
       margin-top: $standard-margin;
     }
+
+    .photo {
+      margin-left: -0.5em;
+      margin-right: -0.5em;
+
+      img {
+        width: 100%
+      }
+    }
   }
 
   .feed-more {
