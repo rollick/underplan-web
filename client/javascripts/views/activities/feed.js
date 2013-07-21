@@ -448,8 +448,18 @@ Template.feedGallery.helpers({
     $(".gallery-more a").addClass("disabled");
 
     if (_.isObject(group.trovebox)) {
-      trovebox.albumSearch(group.trovebox, function(data) {
-        processFeedPhotos(data, offset, ".recent-photos");
+      var params = $.extend({}, group.trovebox);
+
+      if (Session.get("feedFilter").country)
+        params.tags = Session.get("feedFilter").country;
+
+      trovebox.albumSearch(params, function(data) {
+        if (_.isEmpty(data)) {
+          $(".feed-extra").addClass("no-photos");
+        } else {
+          $(".feed-extra").removeClass("no-photos");
+          processFeedPhotos(data, offset, ".recent-photos");
+        }
       });            
     } else if (group.picasaUsername) {
       var params = {};
