@@ -164,6 +164,12 @@ Template.shortContent.events({
 
 Template.shortContent.helpers({
   photo: function () {
+    // if activity already has photo
+    if (this.photo) {
+      appendShortPhoto(this);
+      return;
+    }
+
     var group = Groups.findOne(Session.get("groupId"));
     if (_.isObject(group.trovebox)) {
       var params = $.extend({tags: "underplan-" + this._id}, group.trovebox),
@@ -174,15 +180,21 @@ Template.shortContent.helpers({
         if (data.length) {
           // get the id for the feed item associated with this photo tag
           // and insert the img into the item
-          var html = "<img src='" + data[0].image + "'/>",
-              elementId = "#" + params.tags.match(/underplan\-(.*)/)[1];
+          var elementId = params.tags.match(/underplan\-(.*)/)[1],
+              activity = Activities.findOne(elementId);
 
-          $(elementId + " .activity .photo").html(html);
+          activity.photo = data[0].image;
+          appendShortPhoto(activity);
         }
       });
     }
   }
 });
+
+var appendShortPhoto = function (activity) {
+  var html = "<img src='" + activity.photo + "'/>";
+  $("#" + activity._id + " .activity .photo").html(html);
+}
 
 Template.shortContent.canRemove = function () {
   return canUserRemoveActivity(Meteor.userId(), this._id);
