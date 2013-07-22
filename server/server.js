@@ -190,11 +190,16 @@ Meteor.publish("feedComments", function (groupId, limit) {
   if (_.isNull(groupId))
     return [];
 
-  var conditions = {};
+  var activityConds = getActivityConditons(groupId, this.userId);
 
-  if (_.isString(groupId)) {
-    conditions.groupId = groupId;
-  }
+  var activityOptions = {fields: {_id: 1}};
+  if (limit)
+    activityOptions.limit = limit;
 
-  return Comments.find(conditions);
+  var activityIds = [];
+  Activities.find(activityConds, activityOptions).forEach( function (activity) { 
+    activityIds.push(activity._id);
+  });
+
+  return Comments.find({activityId: {$in: activityIds}});
 });
