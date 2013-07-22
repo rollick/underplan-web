@@ -2052,11 +2052,17 @@ cite:before {
 /* line 511, ../../sass/_components.scss */
 .map-info.expanded .short-comments .inner {
   height: 100%;
-  max-height: 450px;
   overflow-y: scroll;
   -webkit-overflow-scrolling: touch;
+  max-height: 250px;
 }
-/* line 518, ../../sass/_components.scss */
+@media only screen and (min-width: 48em) {
+  /* line 511, ../../sass/_components.scss */
+  .map-info.expanded .short-comments .inner {
+    max-height: 450px;
+  }
+}
+/* line 522, ../../sass/_components.scss */
 .map-info.expanded .feed-comment-form {
   height: 100%;
 }
