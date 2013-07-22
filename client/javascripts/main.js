@@ -25,9 +25,9 @@ Deps.autorun(function () {
       Session.set("feedFilter", filter);
     }
 
-    self.commentsSubscription = Meteor.subscribe("comments", Session.get("groupId"));
-    self.feedStoriesSubscription = Meteor.subscribe("feedStories", Session.get("groupId"));
-    self.feedShortiesSubscription = Meteor.subscribe("feedShorties", Session.get("groupId"));
+    self.feedMapSubscription = Meteor.subscribe("basicActivityData", Session.get("groupId"));
+    self.commentsSubscription = Meteor.subscribe("feedComments", Session.get("groupId"), Session.get("feedLimit"));
+    self.feedListSubscription = Meteor.subscribe("feedActivities", Session.get("groupId"), Session.get("feedLimit"));
   }
 
   if (Session.get("activitySlug")) {
@@ -38,12 +38,14 @@ Deps.autorun(function () {
     }
   }
 
-  self.activitySubscription = Meteor.subscribe("activityShow", Session.get("activityId"));
-  self.commentsSubscription = Meteor.subscribe("activityComments", Session.get("activityId"));
+  if (Session.get("activityId")) {
+    self.activitySubscription = Meteor.subscribe("activityShow", Session.get("activityId"));
+    self.commentsSubscription = Meteor.subscribe("activityComments", Session.get("activityId"));
+  }
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3b28");
+  Session.set("appVersion", "v1.3b29");
 
   // Routing
   Backbone.history.start({ pushState: true });

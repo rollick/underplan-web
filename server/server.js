@@ -79,35 +79,32 @@ Meteor.publish(null, function () {
                     );
 });
 
-// Activities with limited fields included
-Meteor.publish("feedStories", function (groupId) {
+// All group activity data for generating feed map and country filter
+Meteor.publish("basicActivityData", function (groupId) {
   var activityConds = getActivityConditons(groupId, this.userId);
-  activityConds.type = 'story';
 
   var activityFields = { 
     fields: {
       _id: 1,
       group: 1,
-      lat: 1,
-      lng: 1,
-      title: 1,
-      slug: 1,
-      owner: 1,
-      created: 1,
-      type: 1,
       city: 1,
       country: 1,
-      published: 1
+      slug: 1,
+      lat: 1,
+      lng: 1,
+      type: 1
     }
   };
 
   return Activities.find(activityConds, activityFields);
 });
 
-// Activities with limited fields included
-Meteor.publish("feedShorties", function (groupId) {
+// Feed activities with only the necessary fields included and
+// limited by the feed items count
+Meteor.publish("feedActivities", function (groupId, limit) {
+  console.log("Publishing " + limit + " activities for " + groupId);
+
   var activityConds = getActivityConditons(groupId, this.userId);
-  activityConds.type = 'short';
 
   var activityFields = { 
     fields: {
@@ -125,6 +122,9 @@ Meteor.publish("feedShorties", function (groupId) {
       published: 1
     }
   };
+
+  if (limit)
+    activityFields.limit = limit;
 
   return Activities.find(activityConds, activityFields);
 });
@@ -185,7 +185,7 @@ Meteor.publish("activityComments", function (activityId) {
   return Comments.find(conditions);
 });
 
-Meteor.publish("comments", function (groupId) {
+Meteor.publish("feedComments", function (groupId, limit) {
   // don't return any comments without a groupId
   if (_.isNull(groupId))
     return [];

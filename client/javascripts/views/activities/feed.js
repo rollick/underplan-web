@@ -54,8 +54,8 @@ Template.activityFeed.events({
 });
 
 Template.activityFeed.loading = function () {
-  return _.isNull(feedStoriesSubscription) || !feedStoriesSubscription.ready() || 
-         _.isNull(feedShortiesSubscription) || !feedShortiesSubscription.ready();
+  return _.isUndefined(feedListSubscription) || !feedListSubscription.ready() || 
+         _.isUndefined(feedMapSubscription) || !feedMapSubscription.ready();
 };
 
 Template.activityFeed.showExtras = function () {
