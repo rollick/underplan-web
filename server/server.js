@@ -101,10 +101,13 @@ Meteor.publish("basicActivityData", function (groupId) {
 
 // Feed activities with only the necessary fields included and
 // limited by the feed items count
-Meteor.publish("feedActivities", function (groupId, limit) {
-  console.log("Publishing " + limit + " activities for " + groupId);
+Meteor.publish("feedActivities", function (options) {
+  console.log("Publishing " + options.limit + " activities for " + options.groupId);
 
-  var activityConds = getActivityConditons(groupId, this.userId);
+  var activityConds = getActivityConditons(options.groupId, this.userId);
+
+  if (options.country)
+    activityConds.$and.push( {country: options.country} );
 
   var activityFields = { 
     fields: {
@@ -123,10 +126,31 @@ Meteor.publish("feedActivities", function (groupId, limit) {
     }
   };
 
-  if (limit)
-    activityFields.limit = limit;
+  if (options.limit)
+    activityFields.limit = options.limit;
 
   return Activities.find(activityConds, activityFields);
+});
+
+Meteor.publish("feedComments", function (options) {
+  // don't return any comments without a groupId
+  if (_.isNull(options.groupId))
+    return [];
+
+  var activityConds = getActivityConditons(options.groupId, this.userId);
+  if (options.country)
+    activityConds.$and.push( {country: options.country} );
+
+  var activityOptions = {fields: {_id: 1}};
+  if (options.limit)
+    activityOptions.limit = options.limit;
+
+  var activityIds = [];
+  Activities.find(activityConds, activityOptions).forEach( function (activity) { 
+    activityIds.push(activity._id);
+  });
+
+  return Comments.find({activityId: {$in: activityIds}});
 });
 
 // Activities with all fields included
@@ -183,23 +207,4 @@ Meteor.publish("activityComments", function (activityId) {
   }
 
   return Comments.find(conditions);
-});
-
-Meteor.publish("feedComments", function (groupId, limit) {
-  // don't return any comments without a groupId
-  if (_.isNull(groupId))
-    return [];
-
-  var activityConds = getActivityConditons(groupId, this.userId);
-
-  var activityOptions = {fields: {_id: 1}};
-  if (limit)
-    activityOptions.limit = limit;
-
-  var activityIds = [];
-  Activities.find(activityConds, activityOptions).forEach( function (activity) { 
-    activityIds.push(activity._id);
-  });
-
-  return Comments.find({activityId: {$in: activityIds}});
 });

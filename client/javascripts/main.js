@@ -18,18 +18,6 @@ Deps.autorun(function () {
     Session.set("groupId", null);
   }
 
-  if (Session.get("groupId")) {
-    var filter = Session.get("feedFilter") || {};
-    if (filter.group !== Session.get("groupId")) {
-      filter.group = Session.get("groupId");
-      Session.set("feedFilter", filter);
-    }
-
-    self.feedMapSubscription = Meteor.subscribe("basicActivityData", Session.get("groupId"));
-    self.commentsSubscription = Meteor.subscribe("feedComments", Session.get("groupId"), Session.get("feedLimit"));
-    self.feedListSubscription = Meteor.subscribe("feedActivities", Session.get("groupId"), Session.get("feedLimit"));
-  }
-
   if (Session.get("activitySlug")) {
     var activity = Activities.findOne({ slug: Session.get("activitySlug") });
 
@@ -41,6 +29,25 @@ Deps.autorun(function () {
   if (Session.get("activityId")) {
     self.activitySubscription = Meteor.subscribe("activityShow", Session.get("activityId"));
     self.commentsSubscription = Meteor.subscribe("activityComments", Session.get("activityId"));
+  }
+
+  if (Session.get("groupId")) {
+    var filter = Session.get("feedFilter") || {};
+    if (filter.group !== Session.get("groupId")) {
+      filter.group = Session.get("groupId");
+      Session.set("feedFilter", filter);
+    }
+
+    self.feedMapSubscription = Meteor.subscribe("basicActivityData", Session.get("groupId"));
+
+    // Pass some options to the subscription to restrict the amount of data returned
+    var options = {
+      groupId: Session.get("groupId"),
+      limit: Session.get("feedLimit"),
+      country: Session.get("feedFilter").country
+    }
+    self.commentsSubscription = Meteor.subscribe("feedComments", options);
+    self.feedListSubscription = Meteor.subscribe("feedActivities", options);
   }
 });
 
@@ -79,7 +86,7 @@ this.appTemplates = function () {
     currentActivity:  "showActivity",
     storyEditor:      "showStoryEditor",
     groupEditor:      "showGroupEditor",
-    activityMap:      "showActivityMap",
+    activityFeed:     "showActivityFeed",
     mainHome:         "showGroupList",
     userSettings:     "showUserSettings",
     loginForm:        "showLoginForm",
@@ -109,17 +116,6 @@ this.showTemplate = function (templateName, callback) {
   }
 };
 
-// var initTemplateChecks = function() {
-//   var conditions = appTemplates();
-
-//   _.each(_.keys(conditions), function(key) {
-//     var value = conditions[key];
-//     Template.page[value] = function () {
-//       return Session.get(value);
-//     };
-//   });
-// };
-
 Template.page.showGroupList = function () {
   return Session.get("showGroupList");
 };
@@ -128,8 +124,8 @@ Template.page.showGroupEditor = function () {
   return Session.get("showGroupEditor");
 };
 
-Template.page.showActivityMap = function () {
-  return Session.get("showActivityMap");
+Template.page.showActivityFeed = function () {
+  return Session.get("showActivityFeed");
 };
 
 Template.page.showStoryEditor = function () {
