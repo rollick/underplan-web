@@ -19,28 +19,43 @@
   h4, .or {
     color: white;
   }
+
   h4 {
     margin-bottom: 40px;
   }
+
   .normal {
     margin-left: 0px;
     margin-right: 0px;
   }
 
-  blockquote {
-    border-left: none;
-    margin-bottom: 25px;
-    
-    p {
-      font-size: 1.5em;
-      color: gray;
-    }
+  .main-quote {
+    @include grid-row(nest);
 
-    cite {
-      font-size: 0.8em;
-      color: lighten(gray, 30%);
+    & > .inner {
+      @include grid-column(12, $collapse: true);
+
+      blockquote {
+        border-left: none;
+        // margin-bottom: 25px;
+        text-align: center;
+        padding: 1em;
+        padding-top: 0em;
+        
+        p {
+          font-size: 1.5em;
+          color: gray;
+          margin-bottom: $standard-margin;
+        }
+
+        cite {
+          font-size: 0.8em;
+          color: lighten(gray, 30%);
+        }
+      }
     }
   }
+
 
   .groups { 
     margin-top: 5px;

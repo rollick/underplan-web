@@ -1224,41 +1224,71 @@ blockquote p {
 .dashboard h4, .dashboard .or {
   color: white;
 }
-/* line 22, ../../sass/app/home.scss */
+/* line 23, ../../sass/app/home.scss */
 .dashboard h4 {
   margin-bottom: 40px;
 }
-/* line 25, ../../sass/app/home.scss */
+/* line 27, ../../sass/app/home.scss */
 .dashboard .normal {
   margin-left: 0px;
   margin-right: 0px;
 }
-/* line 30, ../../sass/app/home.scss */
-.dashboard blockquote {
-  border-left: none;
-  margin-bottom: 25px;
+/* line 32, ../../sass/app/home.scss */
+.dashboard .main-quote {
+  width: auto;
+  margin-left: -0.9375em;
+  margin-right: -0.9375em;
+  margin-top: 0;
+  margin-bottom: 0;
+  max-width: none;
+  *zoom: 1;
 }
-/* line 34, ../../sass/app/home.scss */
-.dashboard blockquote p {
+/* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.dashboard .main-quote:before, .dashboard .main-quote:after {
+  content: " ";
+  display: table;
+}
+/* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.dashboard .main-quote:after {
+  clear: both;
+}
+/* line 35, ../../sass/app/home.scss */
+.dashboard .main-quote > .inner {
+  position: relative;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
+  float: left;
+}
+/* line 38, ../../sass/app/home.scss */
+.dashboard .main-quote > .inner blockquote {
+  border-left: none;
+  text-align: center;
+  padding: 1em;
+  padding-top: 0em;
+}
+/* line 45, ../../sass/app/home.scss */
+.dashboard .main-quote > .inner blockquote p {
   font-size: 1.5em;
   color: gray;
+  margin-bottom: 0.9375em;
 }
-/* line 39, ../../sass/app/home.scss */
-.dashboard blockquote cite {
+/* line 51, ../../sass/app/home.scss */
+.dashboard .main-quote > .inner blockquote cite {
   font-size: 0.8em;
   color: #cccccc;
 }
-/* line 45, ../../sass/app/home.scss */
+/* line 60, ../../sass/app/home.scss */
 .dashboard .groups {
   margin-top: 5px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 45, ../../sass/app/home.scss */
+  /* line 60, ../../sass/app/home.scss */
   .dashboard .groups {
     margin-top: 20px;
   }
 }
-/* line 52, ../../sass/app/home.scss */
+/* line 67, ../../sass/app/home.scss */
 .dashboard .groups .group {
   position: relative;
   padding-left: 0.9375em;
@@ -1267,7 +1297,7 @@ blockquote p {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 52, ../../sass/app/home.scss */
+  /* line 67, ../../sass/app/home.scss */
   .dashboard .groups .group {
     position: relative;
     padding-left: 0.9375em;
@@ -1276,7 +1306,7 @@ blockquote p {
     float: left;
   }
 }
-/* line 59, ../../sass/app/home.scss */
+/* line 74, ../../sass/app/home.scss */
 .dashboard .groups .group .panel {
   border: 1px solid #333232;
   background-color: rgba(48, 48, 48, 0.53) !important;
@@ -1284,16 +1314,16 @@ blockquote p {
   height: 175px;
   text-align: center;
 }
-/* line 66, ../../sass/app/home.scss */
+/* line 81, ../../sass/app/home.scss */
 .dashboard .groups .group .panel a {
   font-size: 1.1em;
 }
-/* line 70, ../../sass/app/home.scss */
+/* line 85, ../../sass/app/home.scss */
 .dashboard .groups .group .panel p {
   font-size: 0.9em;
   color: white;
 }
-/* line 77, ../../sass/app/home.scss */
+/* line 92, ../../sass/app/home.scss */
 .dashboard .groups .actions {
   width: auto;
   margin-left: -0.9375em;
@@ -1315,12 +1345,12 @@ blockquote p {
   clear: both;
 }
 @media only screen and (min-width: 48em) {
-  /* line 77, ../../sass/app/home.scss */
+  /* line 92, ../../sass/app/home.scss */
   .dashboard .groups .actions {
     margin-top: 110px;
   }
 }
-/* line 87, ../../sass/app/home.scss */
+/* line 102, ../../sass/app/home.scss */
 .dashboard .groups .actions > .inner {
   position: relative;
   padding-left: 0.9375em;
