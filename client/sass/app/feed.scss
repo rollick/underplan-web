@@ -104,6 +104,12 @@
     }
   }
 
+  .feed-item {
+    &:first-of-type {
+      margin-top: $standard-margin;
+    }
+  }
+
   .feed-list {
     @include grid-row(nest);
 
@@ -124,28 +130,24 @@
     }
   }
 
-  .feed-item {
-    @include item-by-user();
-
-    &:first-of-type {
-      margin-top: $standard-margin;
-    }
-
-    .photo {
-      margin-left: -0.5em;
-      margin-right: -0.5em;
-
-      img {
-        width: 100%
-      }
-    }
-  }
-
   .feed-more {
     @include more-button();
 
     padding: 0em;
     margin-bottom: 0em;
+  }
+}
+
+.feed-item {
+  @include item-by-user();
+
+  .photo {
+    margin-left: -0.5em;
+    margin-right: -0.5em;
+
+    img {
+      width: 100%
+    }
   }
 }
 

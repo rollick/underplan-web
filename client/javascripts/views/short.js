@@ -1,3 +1,7 @@
+Template.permaShorty.activity = function () {
+  return Activities.findOne(Session.get("activityId"));
+};
+
 ///////////////////////////////////////////////////////////////////////////////
 // Short Form
 
@@ -160,7 +164,6 @@ Template.shortContent.events({
 
 Template.shortContent.helpers({
   photo: function () {
-
     var group = Groups.findOne(Session.get("groupId"));
     if (_.isObject(group.trovebox)) {
       var params = $.extend({tags: "underplan-" + this._id}, group.trovebox),
@@ -174,7 +177,7 @@ Template.shortContent.helpers({
           var html = "<img src='" + data[0].image + "'/>",
               elementId = "#" + params.tags.match(/underplan\-(.*)/)[1];
 
-          $(html).appendTo(elementId + " .activity .photo");
+          $(elementId + " .activity .photo").html(html);
         }
       });
     }

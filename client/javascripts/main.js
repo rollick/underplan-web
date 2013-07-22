@@ -31,17 +31,15 @@ Deps.autorun(function () {
   }
 
   if (Session.get("activitySlug")) {
-    var activity = Activities.findOne({slug: Session.get("activitySlug")});
+    var activity = Activities.findOne({ slug: Session.get("activitySlug") });
 
     if (activity) { // activity hasn't loaded!
       Session.set("activityId", activity._id);
     }
-    
-    self.activitySubscription = Meteor.subscribe("activityShow", Session.get("activityId"));
-    self.commentsSubscription = Meteor.subscribe("activityComments", Session.get("activityId"));
-  } else {
-    Session.set("activityId", null);
   }
+
+  self.activitySubscription = Meteor.subscribe("activityShow", Session.get("activityId"));
+  self.commentsSubscription = Meteor.subscribe("activityComments", Session.get("activityId"));
 });
 
 Meteor.startup(function () {
@@ -75,15 +73,16 @@ this.feedGallery = null;
 
 this.appTemplates = function () {
   return {
-    groupInviteList: "showInviteList",
-    currentActivity: "showActivity",
-    storyEditor: "showStoryEditor",
-    groupEditor: "showGroupEditor",
-    activityMap: "showActivityMap",
-    mainHome: "showGroupList",
-    userSettings: "showUserSettings",
-    loginForm: "showLoginForm",
-    mainSettings: "showMainSettings"
+    groupInviteList:  "showInviteList",
+    currentActivity:  "showActivity",
+    storyEditor:      "showStoryEditor",
+    groupEditor:      "showGroupEditor",
+    activityMap:      "showActivityMap",
+    mainHome:         "showGroupList",
+    userSettings:     "showUserSettings",
+    loginForm:        "showLoginForm",
+    mainSettings:     "showMainSettings",
+    permaShorty:      "showPermaShorty"
   };
 };
 
@@ -137,6 +136,10 @@ Template.page.showStoryEditor = function () {
 
 Template.page.showActivity = function () {
   return Session.get("showActivity");
+};
+
+Template.page.showPermaShorty = function () {
+  return Session.get("showPermaShorty");
 };
 
 Template.page.showGroupList = function () {

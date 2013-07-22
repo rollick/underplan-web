@@ -8,6 +8,7 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug/settings":            "groupSettings",
     ":groupSlug/new":                 "newActivity",
     ":groupSlug/membership":          "groupMembership",
+    ":groupSlug/pl/:activityId":      "permaActivity",
     ":groupSlug/:activitySlug":       "activity",
     ":groupSlug/:activitySlug/edit":  "editActivity",
   },
@@ -21,6 +22,7 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug/settings":            "Group Settings Loaded",
     ":groupSlug/new":                 "New Group Loaded",
     ":groupSlug/membership":          "Group Membership Loaded",
+    ":groupSlug/pl/:activityId":      "Activity (Permalink) Loaded",
     ":groupSlug/:activitySlug":       "Story Loaded",
     ":groupSlug/:activitySlug/edit":  "Story Editor Loaded",
   },
@@ -105,8 +107,20 @@ var AppRouter = Backbone.Router.extend({
 
     Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", slugParts[0]);
+    Session.set("activityId", null);
     Session.set("activityImageUrl", null);
     showTemplate("currentActivity");
+    this.jumpToTop();
+  },
+
+  permaActivity: function(groupSlug, activityId) {
+    var slugParts = activityId.split("?");
+
+    Session.set("groupSlug", groupSlug);
+    Session.set("activityId", slugParts[0]);
+    Session.set("activitySlug", null);
+    Session.set("activityImageUrl", null);
+    showTemplate("permaShorty");
     this.jumpToTop();
   },
 
@@ -166,6 +180,15 @@ var AppRouter = Backbone.Router.extend({
     var groupSlug = Groups.findOne(activity.group).slug;
 
     this.navigate(groupSlug + "/" + activity.slug, true);
+  },
+
+  setPermaActivity: function(activity) {
+    if(typeof activity == "string") {
+      activity = Activities.findOne({_id: activity});
+    }
+    var groupSlug = Groups.findOne(activity.group).slug;
+
+    this.navigate(groupSlug + "/pl/" + activity._id, true);
   },
 
   setNewActivity: function (group) {

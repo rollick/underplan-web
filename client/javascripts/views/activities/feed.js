@@ -620,14 +620,12 @@ var generateActivitesMap = function(group, elementSelector, activities) {
         if(location.type === "story") {
           Router.setActivity(activity);
         } else {
-          var html = Template.mapActivityContent(activity);
-          html = "<div class=\"map-info\">" + html + "</div>";
+          Router.setPermaActivity(activity);
+          // var html = Template.mapActivityContent(activity);
+          // html = "<div class=\"map-info\">" + html + "</div>";
 
-          ib.setContent(html);
-          ib.open(dashboardMap, marker);
-
-          // infowindow.setContent(html);
-          // infowindow.open(dashboardMap, marker);
+          // ib.setContent(html);
+          // ib.open(dashboardMap, marker);
         }
       }
     })(marker, i));

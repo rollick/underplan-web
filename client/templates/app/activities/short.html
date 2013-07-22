@@ -8,6 +8,12 @@
   </div>
 </template>
 
+<template name="permaShorty">
+  {{#with activity}}
+    {{> feedItem this}}
+  {{/with}}
+</template>
+
 <template name="shortContent">
   <div class="top-section">
     <div class="picture">
@@ -15,7 +21,7 @@
     </div>
     <div class="details">
       <div class="owner">{{userName owner}}</div>
-      <div class="date">{{date created}} {{basicLocation}}</div>
+      <div class="date">{{date created}} {{basicLocation}} {{#if canRemove}}- {{_id}}{{/if}}</div>
     </div>
   </div>
   {{#if canRemove}}

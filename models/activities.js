@@ -35,6 +35,7 @@ Meteor.methods({
 
   notifyActivityCreated: function(activityId) {
     var activity = Activities.findOne(activityId);
+
     if(!!activity && this.userId === activity.owner) {
       notifyActivityEvent(this.userId, activity, "created");
     }
@@ -80,8 +81,10 @@ Meteor.methods({
     // run check before saving. check will throw exceptions on invalid data
     checkCreateActivity(this.userId, options);
 
+    var activityId;
+
     if(Meteor.isServer) {
-      var activity = Activities.insert({
+      activityId = Activities.insert({
         owner:      this.userId,
         group:      options.groupId,
         lat:        options.lat,
@@ -103,13 +106,15 @@ Meteor.methods({
         published:  !! options.published
       });
 
+      options._id = activityId;
+      
       // Notify group members and followers about new activity
       notifyActivityEvent(this.userId, options, "created");
     }
 
     trackCreateActivity({"Group ID": options.groupId});
 
-    return activity;
+    return activityId;
   },
 
   removeActivity: function (activityId) {
@@ -209,10 +214,14 @@ if(Meteor.isServer) {
 
       var text  =  "Hey, " + displayName(owner) + " just " + action + " a " + activity.type;
       if(activity.type == "story") {
+        var url = Meteor.absoluteUrl() + [group.slug, activity.slug].join("/");
+
         text += " titled '" + activity.title + "'. ";
-        text += "Check it out here: " + Meteor.absoluteUrl() + [group.slug, activity.slug].join("/") + "\n\n"
+        text += "Check it out here: " + url + "\n\n"
       } else if(activity.type == "short") {
-        text += " for the group '" + group.name + "': " + Meteor.absoluteUrl() + group.slug + "\n\n"
+        var url = Meteor.absoluteUrl() + [group.slug, "pl", activity._id].join("/");
+
+        text += " for the group '" + group.name + "': " + url + "\n\n"
         text += "They wrote:\n\n" + activity.text + "\n\n";
       }
 
