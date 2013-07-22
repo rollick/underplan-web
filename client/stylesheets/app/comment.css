@@ -1308,7 +1308,7 @@ blockquote p {
   font-size: 1em;
   color: black;
   margin-bottom: 0.5em;
-  padding: 0.3em 0.5em;
+  padding: 0.5em;
 }
 /* line 179, ../../sass/_components.scss */
 .comment .info-section .picture {
@@ -1466,7 +1466,7 @@ blockquote p {
   font-size: 1em;
   color: black;
   margin-bottom: 0.5em;
-  padding: 0.3em 0.5em;
+  padding: 0.5em;
 }
 /* line 179, ../../sass/_components.scss */
 .comment-form .user-comment .info-section .picture {

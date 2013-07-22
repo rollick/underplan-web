@@ -174,7 +174,7 @@
     font-size: 1em;
     color: black;
     margin-bottom: 0.5em;
-    padding: 0.3em 0.5em;
+    padding: 0.5em;
 
     .picture {
       float: left;
@@ -333,7 +333,7 @@
       margin: 0 !important;
       cursor: default;
       font-size: 0.8em;
-      line-height: emCalc(45px);
+      line-height: 3em;
 
       .show-comments {
         @include grid-column(7);
