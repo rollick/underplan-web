@@ -143,7 +143,6 @@
 
 @mixin standard-panel-color() {
   background-color: $standard-panel-bg;
-  // border: 1px solid $standard-border-color;
 }
 
 @mixin standard-corners($position: "all") {
@@ -151,14 +150,11 @@
 }
 
 @mixin standard-bar() {
-  // @include standard-bar-background($primary-color, true);
-  
   border-top: 2px solid $primary-color;
   font-size: 0.9em;
   margin-left: 0px;
   margin-right: 0px;
   margin-top: 0;
-  // box-shadow: 0px 0px 10px #CCC, 0px 0px 10px #CCC;
   cursor: pointer;
 }
 
@@ -185,18 +181,10 @@
       width: $picture-width - 0.4em !important;
       height: $picture-width - 0.2em !important;
 
-      // @media only screen and (min-width: 48em) {
-      //   height: $picture-width !important;
-      //   width: $picture-width !important;
-      // }
-
       img {
         @include border-radius($standard-border-size);
-          margin-top: 8px;
-
-        // @media only screen and (min-width: 48em) {
-        //   margin-left: 0px;
-        // }
+          
+        margin-top: 8px;
       }
     }
 
@@ -205,10 +193,6 @@
     
       margin-left: $picture-width + 0.2em;
       padding-top: 0.78em;
-
-      // @media only screen and (min-width: 48em) {
-      //   @if $fixed-details { height: $picture-width !important; }
-      // }
 
       .owner {
         line-height: 1em;
@@ -221,12 +205,6 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-
-        // @media only screen and (min-width: 48em) {
-          // &:before {
-          //   content: " - ";
-          // }
-        // }
       }
     }    
   }
@@ -240,10 +218,6 @@
     position: absolute;
     right: 0em;
     display: none;
-
-    @media only screen and (min-width: 48em) {
-     // margin-right: $picture-width;
-    }
 
     a.action {
       width: 2em;
@@ -291,9 +265,6 @@
   margin-bottom: $standard-margin;
 
   @media only screen and (min-width: 48em) {
-    // padding-bottom: 0em;
-    // padding: 0em 0.5em 1em 0.5em;
-    // width: 100%;
     margin: 0em;
     margin-bottom: $standard-margin;
 
@@ -313,8 +284,6 @@
   & > .inner {
     @include grid-column(12, $collapse: true);
   
-    // box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5); 
-    // padding: .5em;
     margin-bottom: 0em;
 
     .activity {
@@ -363,8 +332,8 @@
 
       margin: 0 !important;
       cursor: default;
-      // color: white;
       font-size: 0.8em;
+      line-height: emCalc(45px);
 
       .show-comments {
         @include grid-column(7);
@@ -374,10 +343,6 @@
         @include grid-column(5);     
       }
 
-      .show-comments, .main-actions {
-        line-height: 33px;
-      }
-
       a.comments {
         @include up-down(24px);
 
@@ -385,8 +350,8 @@
       }
 
       .action {
-        margin-top: -5px !important;
-
+        margin-top: -3px;
+        
         ul {
           list-style: none;
           display: inline;
@@ -412,7 +377,6 @@
         a {
           font-size: 0.95em;
           height: 34px;
-          line-height: 33px;
           padding: 0;
           color: $primary-color;
 
@@ -441,17 +405,6 @@
       @media only screen and (min-width: 48em) {
         .action a {
           font-size: 0.9em;
-        }
-        
-        .action {
-          margin-top: 4px !important;
-        }
-      }
-
-      .action {
-        &.new-comment {
-          height: 30px;
-          margin-top: -3px !important;
         }
       }
 
