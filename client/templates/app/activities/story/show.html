@@ -17,6 +17,91 @@
 
 <template name="currentActivity">
   {{#if activity}}
+    {{#with activity}}
+    <div class="feed-item" id="{{_id}}">
+      <div class="inner">
+        <div class="activity story">
+          <div class="content">
+            {{> storyContent this}}
+          </div>
+        </div>
+        <div class="activity-controls">
+          <div class="previous">
+            {{#if previousActivity}}
+              {{#with previousActivity}}
+                <a href="/{{group.slug}}/{{slug}}">Previous<span class="hide-for-small"> Story</span></a>
+              {{/with}}
+            {{else}}
+             <span style="color: transparent">...</span>
+            {{/if}}
+          </div>
+          <div class="next">
+            {{#if nextActivity}}
+              {{#with nextActivity}}
+                <a href="/{{group.slug}}/{{slug}}">Next<span class="hide-for-small">  Story</span></a>
+              {{/with}}
+            {{else}}
+             <span style="color: transparent">...</span>
+            {{/if}}
+          </div>
+        </div>
+        {{> feedItemActions}}
+        {{> feedItemComments}}
+      </div>
+    </div>
+    {{/with}}
+  {{/if}}
+</template>
+
+<template name="storyContent">
+    <div class="ribbon-wrapper">
+      <div class="ribbon">Story</div>
+    </div>
+    {{#if canRemove}}
+      <div class="actions">
+        <a href="#" class="remove action"></a>
+      </div>
+    {{/if}}
+    <div class="header">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="content">
+      {{#if photoShow}}
+        <div class="text intro">
+          {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
+          {{#markdown}}{{text}}{{/markdown}}
+        </div>
+        {{#if hasPhotos}}
+          <div class="activity-highlight large">
+            {{gallery}}
+          </div>
+        {{/if}}
+      {{else}}
+        {{#if hasPhotos}}
+          <div class="activity-highlight">
+            {{gallery}}
+          </div>
+        {{/if}}
+        <div class="text">
+          {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
+          {{#markdown}}{{text}}{{/markdown}}
+        </div> 
+      {{/if}}             
+      <div itemprop="description" style="display: none">{{textPreview}}</div>
+    </div>
+    <div class="info-section">
+      <div class="picture">
+        <img src="{{profilePicture owner}}">
+      </div>
+      <div class="details">
+        <div class="owner">{{userName owner}}</div>
+        <div class="date">{{dateCreated}}</div>
+      </div>
+    </div>
+</template>
+
+<template name="currentActivityOld">
+  {{#if activity}}
     <div class="activity">
       {{#with activity}}
         <div class="story-full" itemscope itemtype="http://schema.org/BlogPosting">
@@ -69,26 +154,6 @@
               </div>
             </div>
           {{/if}}
-          <div class="activity-controls">
-            <div class="previous">
-              {{#if previousActivity}}
-                {{#with previousActivity}}
-                  <a href="/{{group.slug}}/{{slug}}">Previous<span class="hide-for-small"> Story</span></a>
-                {{/with}}
-              {{else}}
-               |
-              {{/if}}
-            </div>
-            <div class="next">
-              {{#if nextActivity}}
-                {{#with nextActivity}}
-                  <a href="/{{group.slug}}/{{slug}}">Next<span class="hide-for-small">  Story</span></a>
-                {{/with}}
-              {{else}}
-               |
-              {{/if}}
-            </div>
-          </div>
         </div>
       {{/with}}
 

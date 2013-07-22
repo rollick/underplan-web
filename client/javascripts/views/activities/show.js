@@ -1,7 +1,130 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Activity view
 
-Template.currentActivity.helpers({
+Template.currentActivity.events({
+  'click .edit': function () {
+    Router.setEditActivity(Session.get("groupId"), this);
+    return false;
+  },
+  'click a.comments': function (event, template) {
+    var item = $(event.target).closest(".feed-item");
+    item.toggleClass("expanded");
+    
+    if (item.hasClass("expanded")) {
+      setFeedCommentsNotice(template);
+    } else {
+      hideFeedCommentsNotice(item);
+    }
+
+    return false;
+  },
+  'click .new-comment a': function (event, template) {
+    if (!!$(event.target).closest("a").hasClass("disabled")) {
+      return false;
+    }
+
+    var self = this;
+    var item = $(event.target).closest(".feed-item");
+    item.addClass("expanded");
+
+    if (item.hasClass("expanded"))
+      setFeedCommentsNotice(template);
+
+    $("#" + self._id + " #comment").focus();
+
+    return false;
+  },
+  'click .activity-controls a': function (event, template) {
+    Router.setActivity(this);
+    return false;
+  }
+});
+
+Template.currentActivity.nextActivity = function () {
+  var activity = Activities.findOne(Session.get("activityId"));
+
+  return Activities.find({
+    $and: [
+      {group: Session.get("groupId")},
+      {"_id": {"$not": Session.get("activityId")}}, 
+      {type: "story"}, 
+      {created: {"$gte": activity.created}}
+    ]
+  }, {sort: {created: 1, _id: 1}}).fetch()[0];
+};
+
+Template.currentActivity.previousActivity = function () {
+  var activity = Activities.findOne(Session.get("activityId"));
+
+  return Activities.find({
+    $and: [
+      {group: Session.get("groupId")},
+      {"_id": {"$not": Session.get("activityId")}}, 
+      {type: "story"}, 
+      {created: {"$lte": activity.created}}
+    ]
+  }, {sort: {created: -1, _id: -1}}).fetch()[0];
+};
+
+Template.currentActivity.group = function () {
+  return Groups.findOne(Session.get("groupId"));
+};
+
+Template.currentActivity.activity = function () {
+  return Activities.findOne(Session.get("activityId"));
+};
+
+Template.currentActivity.hasMap = function () {
+  return currentActivityHasMap();
+};
+
+Template.currentActivity.anyActivities = function () {
+  return Activities.find().count() > 0;
+};
+
+Template.currentActivity.textPreview = function () {
+  var text = Activities.findOne(Session.get("activityId")).text;
+
+  if (!text)
+    return "";
+
+  var limit = 240;
+
+  var preview = text.substring(0, limit);
+  if(text.length > limit)
+    preview += "...";
+
+  return preview;
+};
+
+Template.currentActivity.anyComments = function () {
+  var activity = Activities.findOne(Session.get("activityId"));
+
+  return Comments.find({activityId: activity._id}).count() > 0;
+};
+
+Template.currentActivity.creatorName = function () {
+  var owner = Meteor.users.findOne(this.owner);
+  if(!owner)
+    return "";
+
+  if(owner._id === Meteor.userId())
+    return "me";
+
+  return displayName(owner);
+};
+
+Template.currentActivity.canEdit = function () {
+  return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Story Content
+
+// If the story has a short description and photos to show then return true
+// Used to alter layout in template for photo-centered view
+
+Template.storyContent.helpers({
   gallery: function () {
     var group = Groups.findOne(Session.get("groupId"));
     var activity = Activities.findOne(Session.get("activityId"));
@@ -45,130 +168,11 @@ Template.currentActivity.helpers({
   }
 });
 
-Template.currentActivity.events({
-  'click .edit': function () {
-    Router.setEditActivity(Session.get("groupId"), this);
-    return false;
-  },
-  'click .new-comment a': function (event, template) {
-    Session.set("createError", null);
-    
-    $(event.target).closest("a").toggleClass("disabled");
-    $(".comment-form.row").toggle();
-    return false;
-  },
-  'click .activity-controls a': function (event, template) {
-    Router.setActivity(this);
-    return false;
-  }
-});
-
-Template.currentActivity.nextActivity = function () {
-  var activity = Activities.findOne(Session.get("activityId"));
-
-  return Activities.find({
-    $and: [
-      {group: Session.get("groupId")},
-      {"_id": {"$not": Session.get("activityId")}}, 
-      {type: "story"}, 
-      {created: {"$gte": activity.created}}
-    ]
-  }, {sort: {created: 1, _id: 1}}).fetch()[0];
-};
-
-Template.currentActivity.previousActivity = function () {
-  var activity = Activities.findOne(Session.get("activityId"));
-
-  return Activities.find({
-    $and: [
-      {group: Session.get("groupId")},
-      {"_id": {"$not": Session.get("activityId")}}, 
-      {type: "story"}, 
-      {created: {"$lte": activity.created}}
-    ]
-  }, {sort: {created: -1, _id: -1}}).fetch()[0];
-};
-
-Template.currentActivity.dateCreated = function () {
-  return formattedDate(this.created);
-};
-
-Template.currentActivity.group = function () {
-  return Groups.findOne(Session.get("groupId"));
-};
-
-Template.currentActivity.activity = function () {
-  return Activities.findOne(Session.get("activityId"));
-};
-
-Template.currentActivity.hasPhotos = function () {
-  return currentActivityHasPhotos();
-};
-
-Template.currentActivity.hasMap = function () {
-  return currentActivityHasMap();
-};
-
-// If the story has a short description and photos to show then return true
-// Used to alter layout in template for photo-centered view
-Template.currentActivity.photoShow = function () {
-  var activity = this;
-
-  if (!activity.text)
-    return false;
-
-  if (activity.text.length < shortMaxLength && !_.isEmpty(activity.picasaTags)) {
-    return true;
-  }
-
-  return false;
-};
-
-Template.currentActivity.anyActivities = function () {
-  return Activities.find().count() > 0;
-};
-
-Template.currentActivity.textPreview = function () {
-  var text = Activities.findOne(Session.get("activityId")).text;
-
-  if (!text)
-    return "";
-
-  var limit = 240;
-
-  var preview = text.substring(0, limit);
-  if(text.length > limit)
-    preview += "...";
-
-  return preview;
-};
-
-Template.currentActivity.anyComments = function () {
-  var activity = Activities.findOne(Session.get("activityId"));
-
-  return Comments.find({activityId: activity._id}).count() > 0;
-};
-
-Template.currentActivity.creatorName = function () {
-  var owner = Meteor.users.findOne(this.owner);
-  if(!owner)
-    return "";
-
-  if(owner._id === Meteor.userId())
-    return "me";
-
-  return displayName(owner);
-};
-
-Template.currentActivity.canRemove = function () {
+Template.storyContent.canRemove = function () {
   return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
 };
 
-Template.currentActivity.canEdit = function () {
-  return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
-};
-
-Template.currentActivity.facebookShareUrl = function () {
+Template.storyContent.facebookShareUrl = function () {
   if(Session.get("groupId") && Session.get("activityId")) {
     var activity = Activities.findOne(Session.get("activityId"));
     var group = Groups.findOne(Session.get("groupId"));
@@ -202,7 +206,7 @@ Template.currentActivity.facebookShareUrl = function () {
   return "#";
 }
 
-Template.currentActivity.created = function() {
+Template.storyContent.created = function() {
   ///////////////////////
   // Share this on Google+
   window.___gcfg = {lang: 'en-GB'};
@@ -214,9 +218,29 @@ Template.currentActivity.created = function() {
   })();
 };
 
-
-Template.currentActivity.destroyed = function () {
+Template.storyContent.destroyed = function () {
   var gallery = Galleria.get(0);
   if (_.isObject(gallery))
     gallery.destroy();
 }
+
+Template.storyContent.hasPhotos = function () {
+  return currentActivityHasPhotos();
+};
+
+Template.storyContent.dateCreated = function () {
+  return formattedDate(this.created);
+};
+
+Template.storyContent.photoShow = function () {
+  var activity = this;
+
+  if (!activity.text)
+    return false;
+
+  if (activity.text.length < shortMaxLength && !_.isEmpty(activity.picasaTags)) {
+    return true;
+  }
+
+  return false;
+};

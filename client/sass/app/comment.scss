@@ -39,7 +39,7 @@
 
     padding: 0em;
 
-    .top-section {
+    .info-section {
       margin-bottom: 0em;
 
       .picture {
@@ -78,7 +78,7 @@
 
   &.expanded {
     .user-comment {
-      .top-section {
+      .info-section {
         .picture {
           display: inherit;
         }

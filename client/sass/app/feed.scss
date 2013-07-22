@@ -156,19 +156,13 @@
 
 .feed-extra {
   @include grid-column(12, $collapse: true);
-  // @include panel();
-  @include radius();
 
   z-index: 0;
   padding: 0em;
   padding-bottom: 5em;
-  border-top: none;
 
   @media only screen and (min-width: 48em) {
     @include grid-column($feed-extra-columns-large, $collapse: true);
-    
-    border: 1px solid transparent;
-    border-top: none;
   }
 
   &.no-photos {

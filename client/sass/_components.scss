@@ -164,17 +164,17 @@
 
 @mixin entry-with-profile($picture-width: 4em, $fixed-details: true) {
   @include grid-row(nest);
-  $top-section-margin: 0.5em;
-  $top-section-padding: 0.3em;
-  $top-section-height: $picture-width;
+  $info-section-margin: 0.5em;
+  $info-section-padding: 0.3em;
+  $info-section-height: $picture-width;
 
-  padding: $top-section-padding 0;
-  margin: $top-section-margin 0 0 0;
+  padding: $info-section-padding 0;
+  margin: $info-section-margin 0 0 0;
 
-  .top-section {
+  .info-section {
     @include grid-column(12);
 
-    @if $fixed-details { height: $top-section-height !important; }
+    @if $fixed-details { height: $info-section-height !important; }
     font-size: 1em;
     color: black;
     margin-bottom: 0.5em;
@@ -232,8 +232,8 @@
   }
 
   .actions {
-    height: $top-section-height !important;
-    margin-top: -$top-section-padding;
+    height: $info-section-height !important;
+    margin-top: -$info-section-padding;
     font-size: 1em;
     color: black;
     z-index: 102;
@@ -282,7 +282,6 @@
 
 @mixin item-by-user() {
   @include grid-row(nest);
-  @include radius();
   @include panel();
 
   $story-radius: 1px;
@@ -422,16 +421,9 @@
           }
         }
 
-        a.new-short {
-          text-indent: -35px;
-        }
-
         &.new-comment {
           float: right;
-
-          a {
-            text-indent: -73px;
-          }
+          margin-right: 5px;
         }
         
         &.new-comment span:before,
@@ -454,36 +446,17 @@
         .action {
           margin-top: 4px !important;
         }
-
-        .action.new-short a {
-          text-indent: -28px;
-        }
-
-        .action.new-comment a {
-          text-indent: -65px;
-        }
       }
 
       .action {
         &.new-comment {
           height: 30px;
           margin-top: -3px !important;
-
-          a {
-            text-indent: -50px;
-          } 
         }
       }
 
       @media only screen and (min-width: 48em) {
         font-size: 0.9em;
-
-        .action {
-
-          &.new-comment a {
-            text-indent: -60px;
-          }
-        }
       }
     }
 

@@ -1298,7 +1298,7 @@ blockquote p {
   clear: both;
 }
 /* line 174, ../../sass/_components.scss */
-.comment .top-section {
+.comment .info-section {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -1311,13 +1311,13 @@ blockquote p {
   padding: 0.3em 0.5em;
 }
 /* line 183, ../../sass/_components.scss */
-.comment .top-section .picture {
+.comment .info-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 /* line 193, ../../sass/_components.scss */
-.comment .top-section .picture img {
+.comment .info-section .picture img {
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   -ms-border-radius: 1px;
@@ -1326,17 +1326,17 @@ blockquote p {
   margin-top: 8px;
 }
 /* line 203, ../../sass/_components.scss */
-.comment .top-section .details {
+.comment .info-section .details {
   height: 3.3em !important;
   margin-left: 3.5em;
   padding-top: 0.78em;
 }
 /* line 213, ../../sass/_components.scss */
-.comment .top-section .details .owner {
+.comment .info-section .details .owner {
   line-height: 1em;
 }
 /* line 217, ../../sass/_components.scss */
-.comment .top-section .details .date {
+.comment .info-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
@@ -1457,7 +1457,7 @@ blockquote p {
   clear: both;
 }
 /* line 174, ../../sass/_components.scss */
-.comment-form .user-comment .top-section {
+.comment-form .user-comment .info-section {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
@@ -1469,13 +1469,13 @@ blockquote p {
   padding: 0.3em 0.5em;
 }
 /* line 183, ../../sass/_components.scss */
-.comment-form .user-comment .top-section .picture {
+.comment-form .user-comment .info-section .picture {
   float: left;
   width: 2.9em !important;
   height: 3.1em !important;
 }
 /* line 193, ../../sass/_components.scss */
-.comment-form .user-comment .top-section .picture img {
+.comment-form .user-comment .info-section .picture img {
   -webkit-border-radius: 1px;
   -moz-border-radius: 1px;
   -ms-border-radius: 1px;
@@ -1484,16 +1484,16 @@ blockquote p {
   margin-top: 8px;
 }
 /* line 203, ../../sass/_components.scss */
-.comment-form .user-comment .top-section .details {
+.comment-form .user-comment .info-section .details {
   margin-left: 3.5em;
   padding-top: 0.78em;
 }
 /* line 213, ../../sass/_components.scss */
-.comment-form .user-comment .top-section .details .owner {
+.comment-form .user-comment .info-section .details .owner {
   line-height: 1em;
 }
 /* line 217, ../../sass/_components.scss */
-.comment-form .user-comment .top-section .details .date {
+.comment-form .user-comment .info-section .details .date {
   font-size: 0.9em;
   color: #999999;
   line-height: 1.7em;
@@ -1549,52 +1549,52 @@ blockquote p {
   margin-bottom: 0em;
 }
 /* line 42, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section {
+.comment-form .user-comment .info-section {
   margin-bottom: 0em;
 }
 /* line 45, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .picture {
+.comment-form .user-comment .info-section .picture {
   display: none;
 }
 /* line 48, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .picture img {
+.comment-form .user-comment .info-section .picture img {
   margin-top: 0em;
 }
 /* line 53, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .details {
+.comment-form .user-comment .info-section .details {
   padding-top: 0em;
   margin-left: 0em;
 }
 /* line 58, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .details > .button, .comment-form .user-comment .top-section .details > a {
+.comment-form .user-comment .info-section .details > .button, .comment-form .user-comment .info-section .details > a {
   display: none;
   margin-bottom: 0em;
   margin-top: 0.5em;
 }
 /* line 64, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .details textarea {
+.comment-form .user-comment .info-section .details textarea {
   margin-bottom: 0em;
 }
 /* line 68, ../../sass/app/comment.scss */
-.comment-form .user-comment .top-section .details #comment {
+.comment-form .user-comment .info-section .details #comment {
   font-size: 0.9em;
   border: 1px solid #dddddd;
   height: 2.5em;
   min-height: 0em;
 }
 /* line 82, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .picture {
+.comment-form.expanded .user-comment .info-section .picture {
   display: inherit;
 }
 /* line 86, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .details {
+.comment-form.expanded .user-comment .info-section .details {
   margin-left: 3.3em;
 }
 /* line 89, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .details #comment {
+.comment-form.expanded .user-comment .info-section .details #comment {
   height: 5em;
 }
 /* line 94, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .top-section .details > .button, .comment-form.expanded .user-comment .top-section .details > a {
+.comment-form.expanded .user-comment .info-section .details > .button, .comment-form.expanded .user-comment .info-section .details > a {
   display: inline-block;
 }
