@@ -27,7 +27,7 @@
   .country-filter {
     @include grid-row();
 
-    overflow:hidden;
+    overflow-x: scroll;
     width:100%;
 
     & > .inner {
@@ -40,9 +40,8 @@
     dl {
       @include sub-nav();
       
-      position:relative;
-      overflow:hidden;
-      width:500%;
+      position: relative;
+      width: $row-width;
       margin-bottom: 0 !important;
 
       dt {
