@@ -98,6 +98,7 @@ var AppRouter = Backbone.Router.extend({
   newActivity: function(groupSlug) {
     Session.set("groupSlug", groupSlug);
     Session.set("activitySlug", null);
+    Session.set("activityId", null);
     showTemplate("storyEditor");
     this.jumpToTop();
   },
