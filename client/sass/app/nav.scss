@@ -41,7 +41,7 @@
       @include sub-nav();
       
       position: relative;
-      width: $row-width;
+      width: $row-width - emCalc(10px);
       margin-bottom: 0 !important;
 
       dt {
