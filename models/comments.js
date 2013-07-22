@@ -96,10 +96,14 @@ if(Meteor.isServer) {
     if(allEmails.length > 0) {
       var text  =  "Hey, " + displayName(commentor) + " just commented on a " + activity.type; 
       if(activity.type == "story") {
+        var url = Meteor.absoluteUrl() + [group.slug, activity.slug].join("/");
+
         text += " titled '" + activity.title + "'. ";
-        text += "Check it out here: " + Meteor.absoluteUrl() + [group.slug, activity.slug].join("/") + "\n\n"
+        text += "Check it out here: " + url + "\n\n"
       } else if(activity.type == "short") {
-        text += " for the group '" + group.name + "': " + Meteor.absoluteUrl() + group.slug + "\n\n"
+        var url = Meteor.absoluteUrl() + [group.slug, "pl", activity._id].join("/");
+
+        text += " for the group '" + group.name + "': " + url + "\n\n"
       }
 
       text += "They said:\n\n" + options.comment + "\n\n";
