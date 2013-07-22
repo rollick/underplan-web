@@ -67,7 +67,7 @@ var AppRouter = Backbone.Router.extend({
       this.setGroupDefaults(groupSlug);
     }
 
-    showTemplate("activityMap");
+    showTemplate("activityFeed");
     this.jumpToTop();
   },
 

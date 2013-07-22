@@ -1303,73 +1303,86 @@ blockquote p {
 .activity.story .content .text ul {
   margin-left: 20px;
 }
+/* line 32, ../../sass/app/activities.scss */
+.activity.story .content .galleria-thumbnails-container {
+  height: 0px;
+}
+/* line 36, ../../sass/app/activities.scss */
+.activity.story .content .galleria-thumbnails {
+  display: none;
+  height: 0px;
+}
+/* line 41, ../../sass/app/activities.scss */
+.activity.story .content .galleria-stage {
+  top: 10px;
+  bottom: 10px;
+}
 
-/* line 34, ../../sass/app/activities.scss */
+/* line 49, ../../sass/app/activities.scss */
 cite:before {
   content: "\2014 \0020";
   color: gray;
 }
 
-/* line 39, ../../sass/app/activities.scss */
+/* line 54, ../../sass/app/activities.scss */
 .activity-map {
   float: right;
   padding: 0;
   padding-bottom: 5px;
 }
-/* line 44, ../../sass/app/activities.scss */
+/* line 59, ../../sass/app/activities.scss */
 .activity-map.hide-for-small {
   padding: 10px;
 }
 
-/* line 49, ../../sass/app/activities.scss */
+/* line 64, ../../sass/app/activities.scss */
 .activity-highlight {
   float: right;
   padding: 0;
   width: 100%;
   height: 200px;
-  margin-bottom: 1em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 49, ../../sass/app/activities.scss */
+  /* line 64, ../../sass/app/activities.scss */
   .activity-highlight {
     margin-left: 1em;
     height: 240px;
     width: 320px;
   }
-  /* line 61, ../../sass/app/activities.scss */
+  /* line 75, ../../sass/app/activities.scss */
   .activity-highlight.large {
     height: 420px;
     width: 100%;
   }
 }
-/* line 67, ../../sass/app/activities.scss */
+/* line 81, ../../sass/app/activities.scss */
 .activity-highlight .alert-box {
   height: 100%;
   vertical-align: middle;
 }
 
-/* line 75, ../../sass/app/activities.scss */
+/* line 89, ../../sass/app/activities.scss */
 .pac-container:after {
   content: "";
 }
 
-/* line 80, ../../sass/app/activities.scss */
+/* line 94, ../../sass/app/activities.scss */
 .share-links {
   float: right;
   width: 125px;
   height: 20px;
   margin-bottom: 10px;
 }
-/* line 86, ../../sass/app/activities.scss */
+/* line 100, ../../sass/app/activities.scss */
 .share-links > div {
   float: right;
 }
-/* line 90, ../../sass/app/activities.scss */
+/* line 104, ../../sass/app/activities.scss */
 .share-links .pac-item {
   font-size: 0.8em;
   padding: 4px;
 }
-/* line 95, ../../sass/app/activities.scss */
+/* line 109, ../../sass/app/activities.scss */
 .share-links .fb-share {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1389,7 +1402,7 @@ cite:before {
   height: 20px;
   padding: 2px 5px 2px 2px;
 }
-/* line 107, ../../sass/app/activities.scss */
+/* line 121, ../../sass/app/activities.scss */
 .share-links .fb-share:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));
   background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
@@ -1397,12 +1410,12 @@ cite:before {
   background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
   background-image: linear-gradient(top, #ffffff, #f2f2f2);
 }
-/* line 111, ../../sass/app/activities.scss */
+/* line 125, ../../sass/app/activities.scss */
 .share-links .fb-share i {
   color: #3B5998;
   font-size: 0.9em;
 }
-/* line 116, ../../sass/app/activities.scss */
+/* line 130, ../../sass/app/activities.scss */
 .share-links .fb-share i p {
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
   font-size: 0.75em;
@@ -1415,7 +1428,7 @@ cite:before {
   margin-top: -17px;
 }
 
-/* line 131, ../../sass/app/activities.scss */
+/* line 145, ../../sass/app/activities.scss */
 .activities-map {
   min-width: 120px;
   min-height: 120px;
@@ -1424,19 +1437,19 @@ cite:before {
   margin-bottom: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 131, ../../sass/app/activities.scss */
+  /* line 145, ../../sass/app/activities.scss */
   .activities-map {
     padding: 5px;
     padding-left: 10px;
     height: 400px;
   }
 }
-/* line 144, ../../sass/app/activities.scss */
+/* line 158, ../../sass/app/activities.scss */
 .activities-map img {
   max-width: inherit;
 }
 
-/* line 149, ../../sass/app/activities.scss */
+/* line 163, ../../sass/app/activities.scss */
 .activity-controls {
   width: auto;
   margin-left: -0.9375em;
@@ -1458,18 +1471,18 @@ cite:before {
 .activity-controls:after {
   clear: both;
 }
-/* line 156, ../../sass/app/activities.scss */
+/* line 170, ../../sass/app/activities.scss */
 .activity-controls a {
   height: 24px;
   font-size: 0.9em;
 }
-/* line 160, ../../sass/app/activities.scss */
+/* line 174, ../../sass/app/activities.scss */
 .activity-controls a:before, .activity-controls a:after {
   background-size: 14px 14px;
   background-repeat: no-repeat;
   content: "\00a0\00a0\00a0\00a0";
 }
-/* line 167, ../../sass/app/activities.scss */
+/* line 181, ../../sass/app/activities.scss */
 .activity-controls .previous {
   position: relative;
   padding-left: 0.9375em;
@@ -1478,7 +1491,7 @@ cite:before {
   float: left;
 }
 @media only screen and (min-width: 48em) {
-  /* line 167, ../../sass/app/activities.scss */
+  /* line 181, ../../sass/app/activities.scss */
   .activity-controls .previous {
     position: relative;
     padding-left: 0.9375em;
@@ -1487,13 +1500,13 @@ cite:before {
     float: left;
   }
 }
-/* line 177, ../../sass/app/activities.scss */
+/* line 191, ../../sass/app/activities.scss */
 .activity-controls .previous a:before {
   padding-right: 4px;
   background-position: 0px 3px;
   background-image: url("/images/left.svg");
 }
-/* line 185, ../../sass/app/activities.scss */
+/* line 199, ../../sass/app/activities.scss */
 .activity-controls .next {
   position: relative;
   padding-left: 0.9375em;
@@ -1503,7 +1516,7 @@ cite:before {
   text-align: right;
 }
 @media only screen and (min-width: 48em) {
-  /* line 185, ../../sass/app/activities.scss */
+  /* line 199, ../../sass/app/activities.scss */
   .activity-controls .next {
     position: relative;
     padding-left: 0.9375em;
@@ -1512,14 +1525,14 @@ cite:before {
     float: left;
   }
 }
-/* line 196, ../../sass/app/activities.scss */
+/* line 210, ../../sass/app/activities.scss */
 .activity-controls .next a:after {
   padding-left: 5px;
   background-position: 5px;
   background-image: url("/images/right.svg");
 }
 
-/* line 205, ../../sass/app/activities.scss */
+/* line 219, ../../sass/app/activities.scss */
 .map-info {
   width: auto;
   margin-left: -0.9375em;
@@ -1570,12 +1583,12 @@ cite:before {
   line-height: 1.4;
 }
 @media only screen and (min-width: 48em) {
-  /* line 205, ../../sass/app/activities.scss */
+  /* line 219, ../../sass/app/activities.scss */
   .map-info {
     margin: 0em;
     margin-bottom: 0.9375em;
   }
-  /* line 271, ../../sass/_components.scss */
+  /* line 267, ../../sass/_components.scss */
   .map-info:last-of-type {
     animation-duration: 0.001s;
     -o-animation-duration: 0.001s;
@@ -1590,11 +1603,11 @@ cite:before {
     margin-bottom: 0em;
   }
 }
-/* line 280, ../../sass/_components.scss */
+/* line 276, ../../sass/_components.scss */
 .map-info .ribbon-wrapper {
   margin-top: 0.9375em;
 }
-/* line 284, ../../sass/_components.scss */
+/* line 280, ../../sass/_components.scss */
 .map-info > .inner {
   position: relative;
   padding-left: 0;
@@ -1603,7 +1616,7 @@ cite:before {
   float: left;
   margin-bottom: 0em;
 }
-/* line 289, ../../sass/_components.scss */
+/* line 285, ../../sass/_components.scss */
 .map-info > .inner .activity {
   width: auto;
   margin-left: -0.9375em;
@@ -1734,11 +1747,7 @@ cite:before {
   line-height: 1.4em;
   margin-bottom: 0.5em;
 }
-/* line 251, ../../sass/_components.scss */
-.map-info > .inner .activity .content p:last-of-type {
-  margin-bottom: 0em;
-}
-/* line 298, ../../sass/_components.scss */
+/* line 294, ../../sass/_components.scss */
 .map-info > .inner .activity > .content {
   position: relative;
   padding-left: 0.9375em;
@@ -1747,28 +1756,28 @@ cite:before {
   float: left;
   padding: 0em 0.5em;
 }
-/* line 303, ../../sass/_components.scss */
+/* line 299, ../../sass/_components.scss */
 .map-info > .inner .activity > .content a.more {
   line-height: 2.2em;
 }
-/* line 306, ../../sass/_components.scss */
+/* line 302, ../../sass/_components.scss */
 .map-info > .inner .activity > .content a.more:after {
   content: "\00a0→";
 }
-/* line 313, ../../sass/_components.scss */
+/* line 309, ../../sass/_components.scss */
 .map-info > .inner .activity.story .ribbon-wrapper {
   border-right: 0.25em solid #d82a1a;
   margin-right: -0.25em;
 }
-/* line 318, ../../sass/_components.scss */
+/* line 314, ../../sass/_components.scss */
 .map-info > .inner .activity.story .actions {
   right: 3.3em;
 }
-/* line 323, ../../sass/_components.scss */
+/* line 319, ../../sass/_components.scss */
 .map-info > .inner .activity .actions {
   margin-top: 0em;
 }
-/* line 329, ../../sass/_components.scss */
+/* line 325, ../../sass/_components.scss */
 .map-info > .inner .item-actions {
   width: auto;
   margin-left: -0.9375em;
@@ -1797,7 +1806,7 @@ cite:before {
 .map-info > .inner .item-actions:after {
   clear: both;
 }
-/* line 338, ../../sass/_components.scss */
+/* line 334, ../../sass/_components.scss */
 .map-info > .inner .item-actions .show-comments {
   position: relative;
   padding-left: 0.9375em;
@@ -1805,7 +1814,7 @@ cite:before {
   width: 58.33333%;
   float: left;
 }
-/* line 342, ../../sass/_components.scss */
+/* line 338, ../../sass/_components.scss */
 .map-info > .inner .item-actions .main-actions {
   position: relative;
   padding-left: 0.9375em;
@@ -1813,7 +1822,7 @@ cite:before {
   width: 41.66667%;
   float: left;
 }
-/* line 346, ../../sass/_components.scss */
+/* line 342, ../../sass/_components.scss */
 .map-info > .inner .item-actions a.comments {
   font-size: 1em;
 }
@@ -1827,46 +1836,46 @@ cite:before {
   content: "\00a0\00a0";
   height: 24px;
 }
-/* line 352, ../../sass/_components.scss */
+/* line 348, ../../sass/_components.scss */
 .map-info > .inner .item-actions .action {
   margin-top: -3px;
 }
-/* line 355, ../../sass/_components.scss */
+/* line 351, ../../sass/_components.scss */
 .map-info > .inner .item-actions .action ul {
   list-style: none;
   display: inline;
   width: auto;
   float: right;
 }
-/* line 361, ../../sass/_components.scss */
+/* line 357, ../../sass/_components.scss */
 .map-info > .inner .item-actions .action ul li {
   float: left;
   padding-left: 5px;
 }
-/* line 366, ../../sass/_components.scss */
+/* line 362, ../../sass/_components.scss */
 .map-info > .inner .item-actions .action ul > .separator {
   width: 2px;
   height: 24px;
   margin: 8px 1px 0 1px;
   border-right: 1px solid green;
 }
-/* line 377, ../../sass/_components.scss */
+/* line 373, ../../sass/_components.scss */
 .map-info > .inner .item-actions .action a {
   font-size: 0.95em;
   height: 34px;
   padding: 0;
   color: green;
 }
-/* line 383, ../../sass/_components.scss */
+/* line 379, ../../sass/_components.scss */
 .map-info > .inner .item-actions .action a.disabled {
   opacity: 0.3;
 }
-/* line 388, ../../sass/_components.scss */
+/* line 384, ../../sass/_components.scss */
 .map-info > .inner .item-actions .action.new-comment {
   float: right;
   margin-right: 5px;
 }
-/* line 395, ../../sass/_components.scss */
+/* line 391, ../../sass/_components.scss */
 .map-info > .inner .item-actions .action.new-comment span:before,
 .map-info > .inner .item-actions .action a.new-short:before,
 .map-info > .inner .item-actions .action a.new-story:before {
@@ -1878,18 +1887,18 @@ cite:before {
   position: relative;
 }
 @media only screen and (min-width: 48em) {
-  /* line 406, ../../sass/_components.scss */
+  /* line 402, ../../sass/_components.scss */
   .map-info > .inner .item-actions .action a {
     font-size: 0.9em;
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 329, ../../sass/_components.scss */
+  /* line 325, ../../sass/_components.scss */
   .map-info > .inner .item-actions {
     font-size: 0.9em;
   }
 }
-/* line 416, ../../sass/_components.scss */
+/* line 412, ../../sass/_components.scss */
 .map-info > .inner .short-comments {
   width: auto;
   margin-left: -0.9375em;
@@ -1909,7 +1918,7 @@ cite:before {
 .map-info > .inner .short-comments:after {
   clear: both;
 }
-/* line 422, ../../sass/_components.scss */
+/* line 418, ../../sass/_components.scss */
 .map-info > .inner .short-comments > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1923,15 +1932,15 @@ cite:before {
   border-top: none;
   padding: 0em;
 }
-/* line 432, ../../sass/_components.scss */
+/* line 428, ../../sass/_components.scss */
 .map-info > .inner .short-comments > .inner .comment {
   padding: 0.5em;
 }
-/* line 435, ../../sass/_components.scss */
+/* line 431, ../../sass/_components.scss */
 .map-info > .inner .short-comments > .inner .comment:last-of-type {
   border-bottom: 2px solid #e84c3d;
 }
-/* line 442, ../../sass/_components.scss */
+/* line 438, ../../sass/_components.scss */
 .map-info > .inner .comments-notice {
   width: auto;
   margin-left: -0.9375em;
@@ -1956,7 +1965,7 @@ cite:before {
 .map-info > .inner .comments-notice:after {
   clear: both;
 }
-/* line 456, ../../sass/_components.scss */
+/* line 452, ../../sass/_components.scss */
 .map-info > .inner .comments-notice .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1971,7 +1980,7 @@ cite:before {
   text-align: center;
   color: white;
 }
-/* line 470, ../../sass/_components.scss */
+/* line 466, ../../sass/_components.scss */
 .map-info > .inner .feed-comment-form {
   width: auto;
   margin-left: -0.9375em;
@@ -1994,7 +2003,7 @@ cite:before {
 .map-info > .inner .feed-comment-form:after {
   clear: both;
 }
-/* line 478, ../../sass/_components.scss */
+/* line 474, ../../sass/_components.scss */
 .map-info > .inner .feed-comment-form > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -2009,7 +2018,7 @@ cite:before {
   border-bottom-right-radius: 1px;
   padding: 0em;
 }
-/* line 487, ../../sass/_components.scss */
+/* line 483, ../../sass/_components.scss */
 .map-info > .inner .feed-comment-form > .inner .comment-form > .inner {
   padding-left: 0.5em;
   padding-right: 0.5em;
@@ -2024,7 +2033,7 @@ cite:before {
   content: "\00a0\00a0";
   height: 24px;
 }
-/* line 503, ../../sass/_components.scss */
+/* line 499, ../../sass/_components.scss */
 .map-info.expanded .comments-notice .inner {
   display: inherit;
   cursor: pointer;
@@ -2049,7 +2058,7 @@ cite:before {
   content: "\00a0\00a0";
   height: 24px;
 }
-/* line 511, ../../sass/_components.scss */
+/* line 507, ../../sass/_components.scss */
 .map-info.expanded .short-comments .inner {
   height: 100%;
   overflow-y: scroll;
@@ -2057,17 +2066,17 @@ cite:before {
   max-height: 250px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 511, ../../sass/_components.scss */
+  /* line 507, ../../sass/_components.scss */
   .map-info.expanded .short-comments .inner {
     max-height: 450px;
   }
 }
-/* line 522, ../../sass/_components.scss */
+/* line 518, ../../sass/_components.scss */
 .map-info.expanded .feed-comment-form {
   height: 100%;
 }
 @media only screen and (min-width: 48em) {
-  /* line 205, ../../sass/app/activities.scss */
+  /* line 219, ../../sass/app/activities.scss */
   .map-info {
     width: 400px;
   }

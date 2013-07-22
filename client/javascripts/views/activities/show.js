@@ -140,7 +140,11 @@ Template.storyContent.helpers({
       trovebox.albumSearch(params, function(data) {
         Galleria.run(element, {
           dataSource: data,
-          showInfo: true
+          showInfo: true,
+          thumbnails: false,
+          extend: function(options) {
+            // this.$('thumbnails').hide();
+          }
         });
       });            
       

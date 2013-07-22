@@ -1387,10 +1387,6 @@ blockquote p {
   line-height: 1.4em;
   margin-bottom: 0.5em;
 }
-/* line 251, ../../sass/_components.scss */
-.comment .content p:last-of-type {
-  margin-bottom: 0em;
-}
 /* line 12, ../../sass/app/comment.scss */
 .comment.faded {
   border: red solid 1px;
@@ -1543,10 +1539,6 @@ blockquote p {
 .comment-form .user-comment .content h5 {
   line-height: 1.4em;
   margin-bottom: 0.5em;
-}
-/* line 251, ../../sass/_components.scss */
-.comment-form .user-comment .content p:last-of-type {
-  margin-bottom: 0em;
 }
 /* line 42, ../../sass/app/comment.scss */
 .comment-form .user-comment .info-section {
