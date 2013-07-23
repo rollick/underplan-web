@@ -3,13 +3,11 @@
     <div class="feed-item" id="{{_id}}">
       <div class="inner">
         <div class="activity {{#if typeIs "story"}}story{{/if}}">
-          <div class="content">
-            {{#if typeIs "story"}}
-              {{> storyFeedContent}}
-            {{else}}
-              {{> shortContent}}
-            {{/if}}
-          </div>
+          {{#if typeIs "story"}}
+            {{> storyFeedContent}}
+          {{else}}
+            {{> shortContent}}
+          {{/if}}
         </div>
         {{> feedItemActions}}
         {{> feedItemComments}}
@@ -48,9 +46,5 @@
   <div class="comments-notice">
     <div class="inner"></div>
   </div>
-  <div class="feed-comment-form">
-    <div class="inner">
-      {{> commentForm this}}
-    </div>
-  </div>
+  {{> commentForm this}}
 </template>

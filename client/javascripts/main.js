@@ -52,7 +52,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3b32");
+  Session.set("appVersion", "v1.3b33");
 
   // Routing
   Backbone.history.start({ pushState: true });

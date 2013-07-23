@@ -164,8 +164,8 @@
   $info-section-padding: 0.3em;
   $info-section-height: $picture-width;
 
-  padding: $info-section-padding 0;
-  margin: $info-section-margin 0 0 0;
+  // padding: $info-section-padding 0;
+  margin: $info-section-margin;
 
   .info-section {
     @include grid-column(12);
@@ -173,8 +173,8 @@
     @if $fixed-details { height: $info-section-height !important; }
     font-size: 1em;
     color: black;
-    margin-bottom: 0.5em;
     padding: 0.5em;
+    padding-top: 0em;
 
     .picture {
       float: left;
@@ -241,7 +241,7 @@
   .content {
     @include grid-column(12);
 
-    padding: 1em .5em .5em .5em;;
+    padding: $standard-padding;
 
     h5 {
       line-height: 1.4em;
@@ -287,25 +287,16 @@
     margin-bottom: 0em;
 
     .activity {
-      @include grid-row(nest);
       @include entry-with-profile(3.3em);
       @include standard-panel-color();
 
       z-index: 90;
-      padding: 0em;
-      margin: 0em;
 
-      & > .content {
-        @include grid-column(12);
-        
-        padding: 0em 0.5em;
+      .content a.more {
+        line-height: 2.2em;
 
-        a.more {
-          line-height: 2.2em;
-
-          &:after {
-            content: "\00a0→";
-          }
+        &:after {
+          content: "\00a0→";
         }
       }
 
@@ -467,29 +458,11 @@
       }
     }
 
-    .feed-comment-form {
-      @include grid-row(nest);
-      
+    .comment-form {
       overflow: hidden;
       height: 0px;
       margin: 0em;
       background-color: #FFF;
-
-      & > .inner {
-        @include grid-column(12);
-        @include border-bottom-left-radius($story-radius);
-        @include border-bottom-right-radius($story-radius);
-
-        padding: 0em;
-
-        .comment-form {
-
-          & > .inner {
-            padding-left: $standard-padding;
-            padding-right: $standard-padding;
-          }
-        }
-      }
     }
   }
 
@@ -519,7 +492,7 @@
       }
     }
 
-    .feed-comment-form {
+    .comment-form {
       height: 100%;
     }
   }

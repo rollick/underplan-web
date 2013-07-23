@@ -25,56 +25,56 @@
   padding-bottom: 0px;
 
   & > .inner {
-    @include grid-column(12);
+    @include grid-column(12, $collapse: true);
 
-    padding-bottom: emCalc(10px);
-  }
+    form {
+      margin: 0em;
+    }
 
-  form {
-    margin: 0em;
-  }
+    .user-comment {
+      @include entry-with-profile(3.3em, false);
 
-  .user-comment {
-    @include entry-with-profile(3.3em, false);
+      margin: 0.5em;
+      padding-top: 0.5em;
 
-    padding: 0em;
+      .info-section {
+        margin-bottom: 0em;
 
-    .info-section {
-      margin-bottom: 0em;
-
-      .picture {
-        display: none;
-
-        img {
-          margin-top: 0em;
-        }
-      }
-  
-      .details {
-        padding-top: 0em;
-        margin-left: 0em;
-        
-        & > .button,
-        & > a {
+        .picture {
           display: none;
-          margin-bottom: 0em;
-          margin-top: 0.5em;
-        }
 
-        textarea {
-          margin-bottom: 0em;
+          img {
+            margin-top: 0em;
+          }
         }
+    
+        .details {
+          padding-top: 0em;
+          margin-left: 0em;
+          
+          & > .button,
+          & > a {
+            display: none;
+            margin-bottom: 0em;
+            margin-top: 0.5em;
+          }
 
-        #comment {
-          font-size: 0.9em;
-          border: 1px solid #dddddd;
-          height: 2.5em;
-          // margin-bottom: 0.3em;
-          min-height: 0em;
-        }        
+          textarea {
+            margin-bottom: 0em;
+          }
+
+          #comment {
+            font-size: 0.9em;
+            border: 1px solid #dddddd;
+            height: 2.5em;
+            // margin-bottom: 0.3em;
+            min-height: 0em;
+          }        
+        }
       }
     }
   }
+
 
   &.expanded {
     .user-comment {
