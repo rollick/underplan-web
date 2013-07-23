@@ -2341,26 +2341,35 @@ blockquote p {
     height: 320px;
   }
 }
-/* line 203, ../../sass/app/feed.scss */
+/* line 204, ../../sass/app/feed.scss */
+.feed-extra .map > .inner #activities-map img {
+  max-width: none;
+}
+/* line 208, ../../sass/app/feed.scss */
+.feed-extra .map > .inner #activities-map label {
+  width: auto;
+  display: inline;
+}
+/* line 214, ../../sass/app/feed.scss */
 .feed-extra .map > .inner .alert-box {
   margin-top: 0em;
   line-height: 160px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 203, ../../sass/app/feed.scss */
+  /* line 214, ../../sass/app/feed.scss */
   .feed-extra .map > .inner .alert-box {
     line-height: 300px;
   }
 }
-/* line 213, ../../sass/app/feed.scss */
+/* line 224, ../../sass/app/feed.scss */
 .feed-extra .map > .inner .infoBox > img {
   z-index: 2;
 }
-/* line 217, ../../sass/app/feed.scss */
+/* line 228, ../../sass/app/feed.scss */
 .feed-extra .map > .inner .infoBox .map-info .inner {
   margin-top: -0.9375em;
 }
-/* line 224, ../../sass/app/feed.scss */
+/* line 235, ../../sass/app/feed.scss */
 .feed-extra .gallery {
   width: auto;
   margin-left: -0.9375em;
@@ -2394,11 +2403,11 @@ blockquote p {
 .feed-extra .gallery:after {
   clear: both;
 }
-/* line 235, ../../sass/app/feed.scss */
+/* line 246, ../../sass/app/feed.scss */
 .feed-extra .gallery.visible {
   z-index: 1;
 }
-/* line 239, ../../sass/app/feed.scss */
+/* line 250, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner {
   position: relative;
   padding-left: 0;
@@ -2406,17 +2415,17 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 244, ../../sass/app/feed.scss */
+/* line 255, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .recent-photos {
   height: 260px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 244, ../../sass/app/feed.scss */
+  /* line 255, ../../sass/app/feed.scss */
   .feed-extra .gallery > .inner .recent-photos {
     height: 400px;
   }
 }
-/* line 252, ../../sass/app/feed.scss */
+/* line 263, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map {
   width: 50%;
   top: 15px;
@@ -2427,15 +2436,15 @@ blockquote p {
   color: gray;
   font-style: italic;
 }
-/* line 262, ../../sass/app/feed.scss */
+/* line 273, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map:before {
   content: "Back to Map";
 }
-/* line 266, ../../sass/app/feed.scss */
+/* line 277, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map:hover {
   cursor: pointer;
 }
-/* line 273, ../../sass/app/feed.scss */
+/* line 284, ../../sass/app/feed.scss */
 .feed-extra .gallery-more {
   width: auto;
   margin-left: -0.9375em;
@@ -2468,12 +2477,12 @@ blockquote p {
   text-align: center;
 }
 
-/* line 281, ../../sass/app/feed.scss */
+/* line 292, ../../sass/app/feed.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 284, ../../sass/app/feed.scss */
+/* line 295, ../../sass/app/feed.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;

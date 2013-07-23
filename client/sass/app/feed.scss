@@ -200,6 +200,17 @@
         height: $map-height-large;
       }
 
+      #activities-map {
+        img { 
+          max-width: none;
+        }
+        
+        label { 
+          width: auto; 
+          display: inline; 
+        }
+      }
+
       .alert-box {
         margin-top: 0em;
         line-height: $map-height-small - 20px;
