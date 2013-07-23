@@ -241,11 +241,15 @@
   .content {
     @include grid-column(12);
 
-    padding: 1em 0.5em;
+    padding: 1em .5em .5em .5em;;
 
     h5 {
       line-height: 1.4em;
       margin-bottom: 0.5em;
+    }
+
+    p:last-of-type {
+      margin-bottom: 0em;
     }
   }
 }

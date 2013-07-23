@@ -1380,12 +1380,16 @@ blockquote p {
   padding-right: 0.9375em;
   width: 100%;
   float: left;
-  padding: 1em 0.5em;
+  padding: 1em .5em .5em .5em;
 }
 /* line 246, ../../sass/_components.scss */
 .comment .content h5 {
   line-height: 1.4em;
   margin-bottom: 0.5em;
+}
+/* line 251, ../../sass/_components.scss */
+.comment .content p:last-of-type {
+  margin-bottom: 0em;
 }
 /* line 12, ../../sass/app/comment.scss */
 .comment.faded {
@@ -1533,12 +1537,16 @@ blockquote p {
   padding-right: 0.9375em;
   width: 100%;
   float: left;
-  padding: 1em 0.5em;
+  padding: 1em .5em .5em .5em;
 }
 /* line 246, ../../sass/_components.scss */
 .comment-form .user-comment .content h5 {
   line-height: 1.4em;
   margin-bottom: 0.5em;
+}
+/* line 251, ../../sass/_components.scss */
+.comment-form .user-comment .content p:last-of-type {
+  margin-bottom: 0em;
 }
 /* line 42, ../../sass/app/comment.scss */
 .comment-form .user-comment .info-section {
