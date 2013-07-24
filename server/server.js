@@ -109,7 +109,7 @@ Meteor.publish("feedActivities", function (options) {
   if (options.country)
     activityConds.$and.push( {country: options.country} );
 
-  var activityFields = { 
+  var activityOptions = { 
     fields: {
       _id: 1,
       group: 1,
@@ -123,13 +123,14 @@ Meteor.publish("feedActivities", function (options) {
       city: 1,
       country: 1,
       published: 1
-    }
+    }, 
+    sort: {created: -1}
   };
 
   if (options.limit)
-    activityFields.limit = options.limit;
+    activityOptions.limit = options.limit;
 
-  return Activities.find(activityConds, activityFields);
+  return Activities.find(activityConds, activityOptions);
 });
 
 Meteor.publish("feedComments", function (options) {
@@ -162,6 +163,8 @@ Meteor.publish("activities", function (groupId) {
 });
 
 Meteor.publish("groups", function () {
+  console.log("Publishing groups");
+
   var conditions = {};
   var settings = Meteor.settings;
   var user = Meteor.users.findOne(this.userId);
@@ -179,7 +182,7 @@ Meteor.publish("groups", function () {
     conditions = approvedConditions
   }
 
-  return Groups.find(conditions);
+  return Groups.find(conditions, {sort: {created: -1}});
 });
 
 // Activities with all fields included
