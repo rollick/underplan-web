@@ -1,5 +1,9 @@
 // Underplan -- server
 
+isDev = function () {
+  return !!process.env["ROOT_URL"].match(/localhost/);
+}
+
 var getActivityConditons = function (groupId, userId) {
   // don't return any activities without a groupId
   if (_.isNull(groupId))
@@ -102,7 +106,8 @@ Meteor.publish("basicActivityData", function (groupId) {
 // Feed activities with only the necessary fields included and
 // limited by the feed items count
 Meteor.publish("feedActivities", function (options) {
-  console.log("Publishing " + options.limit + " activities for " + options.groupId);
+  if (isDev)
+    console.log("Publishing " + options.limit + " activities for " + options.groupId);
 
   var activityConds = getActivityConditons(options.groupId, this.userId);
 
@@ -163,7 +168,8 @@ Meteor.publish("activities", function (groupId) {
 });
 
 Meteor.publish("groups", function () {
-  console.log("Publishing groups");
+  if (isDev)
+    console.log("Publishing groups");
 
   var conditions = {};
   var settings = Meteor.settings;
@@ -187,6 +193,9 @@ Meteor.publish("groups", function () {
 
 // Activities with all fields included
 Meteor.publish("activityShow", function (activityId) {
+  if (isDev)
+    console.log("Publishing activity: " + activityId);
+
   if (!activityId)
     return null;
 
@@ -199,15 +208,12 @@ Meteor.publish("activityShow", function (activityId) {
 });
 
 Meteor.publish("activityComments", function (activityId) {
+  if (isDev)
+    console.log("Publishing feed comments: " + JSON.stringify(activityId));
+
   // don't return any comments without an activityId
-  if (_.isNull(activityId))
+  if (_.isNull(activityId) || !_.isString(activityId))
     return [];
 
-  var conditions = {};
-
-  if (_.isString(activityId)) {
-    conditions.activityId = activityId;
-  }
-
-  return Comments.find(conditions);
+  return Comments.find({activityId: activityId});
 });
