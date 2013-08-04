@@ -54,9 +54,8 @@ Template.activityFeed.events({
 });
 
 Template.activityFeed.loading = function () {
-  // FIXME: add some logic here using feedMapSubscription
-  //        and the ready() method.
-  return Session.get("feedReady");
+  return (typeof(feedListSubscription) == 'object' && !feedListSubscription.ready()) && 
+         (typeof(feedMapSubscription) == 'object' && !feedMapSubscription.ready());
 };
 
 Template.activityFeed.showExtras = function () {
