@@ -192,7 +192,12 @@ Template.shortContent.helpers({
 });
 
 var appendShortPhoto = function (activity) {
-  var html = "<img src='" + activity.photo + "'/>";
+  var html = "";
+
+  html += "<div class=\"photo\" style=\"background-image: url(" + activity.photo + ")\">";
+  html +=   "<img src='" + activity.photo + "'/>";
+  html += "</div>";
+  
   $("#" + activity._id + " .activity .photo").html(html);
 }
 
