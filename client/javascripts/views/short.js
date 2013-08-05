@@ -198,7 +198,10 @@ var appendShortPhoto = function (activity) {
   html +=   "<img src='" + activity.photo + "'/>";
   html += "</div>";
   
-  $("#" + activity._id + " .activity").append(html);
+  var existingPhoto = $("#" + activity._id + " .activity .photo");
+  if (!existingPhoto.length) {
+    $("#" + activity._id + " .activity").append(html);
+  }
 }
 
 Template.shortContent.canRemove = function () {

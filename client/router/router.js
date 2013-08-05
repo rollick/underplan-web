@@ -201,7 +201,7 @@ var AppRouter = Backbone.Router.extend({
     Session.set("feedFilter", {});
     Session.set("feedLimit", feedLimitSkip);
     Session.set("galleryLimit", galleryLimitSkip);
-    Session.get("activityCommentStatus", {});
+    Session.set("expandedActivities", []);
   },
 
   jumpToTop: function() {

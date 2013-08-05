@@ -181,11 +181,11 @@ Template.feedItem.typeIs = function (what) {
 };
 
 Template.feedItem.lastCommented = function () {
-  return Session.get("lastUpdatedActivityId") == this._id;
+  return Session.equals("lastUpdatedActivityId", this._id);
 }
 
 Template.feedItem.lastUpdated = function () {
-  return this._id == Session.get("lastUpdatedActivity");
+  return Session.equals("lastUpdatedActivity", this._id);
 }
 
 // override this method to specify a different short
@@ -194,7 +194,6 @@ Template.feedItem.activity = function() {
 };
 
 Template.feedItem.expandClass = function () {
-  var activityCommentStatus = Session.get("activityCommentStatus") || {};
   var status = activityCommentStatus[this._id];
 
   if (status == "open") {
@@ -209,22 +208,24 @@ var toggleComments = function(template, expand, focus) {
   focus = focus || false;
 
   var item = $(template.find(".feed-item"));
-  var activityCommentStatus = Session.get("activityCommentStatus") || {};
+  var id = item.attr("id");
+  var activityIds = Session.get("expandedActivities") || [];
 
   if (item.hasClass("expanded") && !expand) {
     item.removeClass("expanded");
     hideFeedCommentsNotice(item);
-    activityCommentStatus[item.attr("id")] = "closed";
+    activityCommentStatus[id] = "closed";
+    
   } else {
     item.addClass("expanded");
     setFeedCommentsNotice(template);
-    activityCommentStatus[item.attr("id")] = "open";
+    activityCommentStatus[id] = "open";
+    activityIds.push(id);
+    Session.set("expandedActivities", activityIds);
 
     if (focus)
       item.find("#comment").focus();
   }
-
-  Session.set("activityCommentStatus", activityCommentStatus);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

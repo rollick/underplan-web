@@ -139,6 +139,9 @@ Meteor.publish("feedActivities", function (options) {
 });
 
 Meteor.publish("feedCommentCounts", function (options) {
+  if (isDev)
+    console.log("Publishing comments counts");
+
   // don't return any comments without a groupId
   if (_.isNull(options.groupId))
     return [];
@@ -147,7 +150,7 @@ Meteor.publish("feedCommentCounts", function (options) {
   if (options.country)
     activityConds.$and.push( {country: options.country} );
 
-  var activityOptions = {fields: {_id: 1}};
+  var activityOptions = {fields: {_id: 1}, sort: {created: -1}};
   if (options.limit)
     activityOptions.limit = options.limit;
 
@@ -155,7 +158,7 @@ Meteor.publish("feedCommentCounts", function (options) {
   Activities.find(activityConds, activityOptions).forEach( function (activity) { 
     activityIds.push(activity._id);
   });
-
+  
   // only return the comment _id for use in counts
   return Comments.find({activityId: {$in: activityIds}}, {fields: {activityId: 1}});
 });
@@ -174,7 +177,7 @@ Meteor.publish("openFeedComments", function (options) {
   if (options.activityIds)
     activityConds["_id"] = {$in: options.activityIds};
 
-  var activityOptions = {fields: {_id: 1}};
+  var activityOptions = {fields: {_id: 1}, sort: {created: -1}};
   if (options.limit)
     activityOptions.limit = options.limit;
 

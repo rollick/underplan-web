@@ -5,6 +5,7 @@ Meteor.subscribe("directory");
 
 var self = this;
 self.commentsSubscription = self.activitiesSubscription = null;
+self.activityCommentStatus = {};
 
 Deps.autorun(function () {
 
@@ -27,11 +28,15 @@ Deps.autorun(function () {
   }
 
   if (Session.get("activityId")) {
+    console.log("Subscribe to activity");
+
     self.activitySubscription = Meteor.subscribe("activityShow", Session.get("activityId"));
     self.commentsSubscription = Meteor.subscribe("activityComments", Session.get("activityId"));
   }
 
   if (Session.get("groupId")) {
+    console.log("Subscribe to group data");
+    
     var filter = Session.get("feedFilter") || {};
     if (filter.group !== Session.get("groupId")) {
       filter.group = Session.get("groupId");
@@ -50,10 +55,12 @@ Deps.autorun(function () {
     self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
   }
 
-  if (Session.get("activityCommentStatus")) {
+  if (Session.get("expandedActivities")) {
     var options = {
       groupId: Session.get("groupId"),
-      activityIds: Object.keys(Session.get("activityCommentStatus"))
+      activityIds: Session.get("expandedActivities"),
+      limit: Session.get("feedLimit"),
+      country: Session.get("feedFilter").country
     };
 
     if (options.activityIds.length)
@@ -62,7 +69,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3b35");
+  Session.set("appVersion", "v1.3b36");
 
   // Routing
   Backbone.history.start({ pushState: true });
