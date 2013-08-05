@@ -482,7 +482,7 @@ Template.feedGallery.group = function () {
 };
 
 Template.feedGallery.picasaGalleryUrl = function () {
-  var group = getCurrentGroup();
+  var group = Groups.findOne({_id: Session.get("groupId")});
   var picasaPath = [group.picasaUsername, group.picasaAlbum].join("/");
 
   if(group.picasaKey)
@@ -491,10 +491,19 @@ Template.feedGallery.picasaGalleryUrl = function () {
   return "https://picasaweb.google.com/" + picasaPath;
 };
 
+Template.feedGallery.hasGallery = function () {
+  var group = Groups.findOne({_id: Session.get("groupId")});
+  if (!group) {
+    return false
+  } else {
+    return !!group.picasaUsername || _.isObject(group.trovebox)
+  }
+};
+
 Template.feedGallery.destroyed = function () {
   if (Galleria.length)
     Galleria.get(0).destroy();
-}
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Common Functions
