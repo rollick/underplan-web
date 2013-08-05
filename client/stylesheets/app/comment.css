@@ -1379,7 +1379,7 @@ blockquote p {
   padding-right: 0.9375em;
   width: 100%;
   float: left;
-  padding: 0.5em;
+  padding: 1em 0.5em;
 }
 /* line 246, ../../sass/_components.scss */
 .comment .content h5 {
@@ -1535,7 +1535,7 @@ blockquote p {
   padding-right: 0.9375em;
   width: 100%;
   float: left;
-  padding: 0.5em;
+  padding: 1em 0.5em;
 }
 /* line 246, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .content h5 {

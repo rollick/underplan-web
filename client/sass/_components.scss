@@ -43,7 +43,7 @@
   @if $color { $color: '_' + $color; }
   @else { $color: '' }
 
-  background-image: url('/images/' + $direction + $color + '.svg');
+  background-image: url('/images/' + $direction + $color + '.png');
 }
 
 @mixin keyframe($name) {
@@ -241,7 +241,7 @@
   .content {
     @include grid-column(12);
 
-    padding: $standard-padding;
+    padding: $standard-padding*2 $standard-padding;
 
     h5 {
       line-height: 1.4em;
@@ -291,6 +291,7 @@
       @include standard-panel-color();
 
       z-index: 90;
+      margin-bottom: 0em;
 
       .content a.more {
         line-height: 2.2em;
