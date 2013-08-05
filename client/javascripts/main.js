@@ -46,13 +46,23 @@ Deps.autorun(function () {
       limit: Session.get("feedLimit"),
       country: Session.get("feedFilter").country
     }
-    self.commentsSubscription = Meteor.subscribe("feedComments", options);
     self.feedListSubscription = Meteor.subscribe("feedActivities", options);
+    self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
+  }
+
+  if (Session.get("activityCommentStatus")) {
+    var options = {
+      groupId: Session.get("groupId"),
+      activityIds: Object.keys(Session.get("activityCommentStatus"))
+    };
+
+    if (options.activityIds.length)
+      self.commentsSubscription = Meteor.subscribe("openFeedComments", options);
   }
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3b33");
+  Session.set("appVersion", "v1.3b34");
 
   // Routing
   Backbone.history.start({ pushState: true });

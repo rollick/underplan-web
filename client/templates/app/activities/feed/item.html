@@ -1,6 +1,6 @@
 <template name="feedItem">
   {{#with this}}
-    <div class="feed-item" id="{{_id}}">
+    <div class="feed-item {{expandClass}}" id="{{_id}}">
       <div class="inner">
         <div class="activity {{#if typeIs "story"}}story{{/if}}">
           {{#if typeIs "story"}}

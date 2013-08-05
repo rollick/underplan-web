@@ -138,7 +138,7 @@ Meteor.publish("feedActivities", function (options) {
   return Activities.find(activityConds, activityOptions);
 });
 
-Meteor.publish("feedComments", function (options) {
+Meteor.publish("feedCommentCounts", function (options) {
   // don't return any comments without a groupId
   if (_.isNull(options.groupId))
     return [];
@@ -146,6 +146,33 @@ Meteor.publish("feedComments", function (options) {
   var activityConds = getActivityConditons(options.groupId, this.userId);
   if (options.country)
     activityConds.$and.push( {country: options.country} );
+
+  var activityOptions = {fields: {_id: 1}};
+  if (options.limit)
+    activityOptions.limit = options.limit;
+
+  var activityIds = [];
+  Activities.find(activityConds, activityOptions).forEach( function (activity) { 
+    activityIds.push(activity._id);
+  });
+
+  // only return the comment _id for use in counts
+  return Comments.find({activityId: {$in: activityIds}}, {fields: {activityId: 1}});
+});
+
+// Options requires a groupId and an optional list of 
+// activity ids
+Meteor.publish("openFeedComments", function (options) {
+  // don't return any comments without a groupId
+  if (_.isNull(options.groupId))
+    return [];
+
+  var activityConds = getActivityConditons(options.groupId, this.userId);
+  if (options.country)
+    activityConds.$and.push( {country: options.country} );
+
+  if (options.activityIds)
+    activityConds["_id"] = {$in: options.activityIds};
 
   var activityOptions = {fields: {_id: 1}};
   if (options.limit)

@@ -163,15 +163,7 @@ Template.feedItem.events({
     return false;
   },
   'click .item-actions a.comments': function (event, template) {
-    var item = $(event.target).closest(".feed-item");
-    item.toggleClass("expanded");
-    
-    if (item.hasClass("expanded")) {
-      setFeedCommentsNotice(template);
-    } else {
-      hideFeedCommentsNotice(item);
-    }
-
+    toggleComments(template);
     return false;
   },
   'click .item-actions .new-comment a': function (event, template) {
@@ -179,15 +171,7 @@ Template.feedItem.events({
       return false;
     }
 
-    var self = this;
-    var item = $(event.target).closest(".feed-item");
-    item.addClass("expanded");
-
-    if (item.hasClass("expanded"))
-      setFeedCommentsNotice(template);
-
-    $("#" + self._id + " #comment").focus();
-
+    toggleComments(template, true, true);
     return false;
   }
 });
@@ -209,14 +193,38 @@ Template.feedItem.activity = function() {
   return this;
 };
 
-var toggleComments = function(template) {
-  var link = template.find("a.comments");
-  var actions = template.find(".short-comments");
+Template.feedItem.expandClass = function () {
+  var activityCommentStatus = Session.get("activityCommentStatus") || {};
+  var status = activityCommentStatus[this._id];
 
-  if(link.hasClass("open")) {
-    $(actions).toggle();
-    $(link).toggleClass("open");
-  } else {}
+  if (status == "open") {
+    return "expanded";
+  } else {
+    return "";
+  }
+};
+
+var toggleComments = function(template, expand, focus) {
+  expand = expand || false;
+  focus = focus || false;
+
+  var item = $(template.find(".feed-item"));
+  var activityCommentStatus = Session.get("activityCommentStatus") || {};
+
+  if (item.hasClass("expanded") && !expand) {
+    item.removeClass("expanded");
+    hideFeedCommentsNotice(item);
+    activityCommentStatus[item.attr("id")] = "closed";
+  } else {
+    item.addClass("expanded");
+    setFeedCommentsNotice(template);
+    activityCommentStatus[item.attr("id")] = "open";
+
+    if (focus)
+      item.find("#comment").focus();
+  }
+
+  Session.set("activityCommentStatus", activityCommentStatus);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
