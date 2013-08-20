@@ -43,21 +43,15 @@ Template.commentForm.events({
   'focus #comment': function (event, template) {
     $(template.find(".comment-form")).addClass("expanded");
 
-    if(!_.isNull(feedPackery))
-      feedPackery.layout();
-
     return false;
   },
   'click .cancel': function (event, template) {
     $(template.find(".comment-form")).removeClass("expanded");
 
-    if(!_.isNull(feedPackery))
-      feedPackery.layout();
-
     return false;
   },
   'click .save': function (event, template) {
-    return saveComment(template, function () {repackFeed();});
+    return saveComment(template);
   },
   'keyup #comment': function (event, template) {
     var comment = template.find("#comment").value,

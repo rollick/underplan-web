@@ -142,6 +142,7 @@ Template.storyContent.helpers({
           dataSource: data,
           showInfo: true,
           thumbnails: false,
+          debug: isDev(),
           extend: function(options) {
             // this.$('thumbnails').hide();
           }
@@ -163,6 +164,7 @@ Template.storyContent.helpers({
       }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
         Galleria.run(element, {
           dataSource: data,
+          debug: isDev(),
           showInfo: true
         });
       });
@@ -223,9 +225,8 @@ Template.storyContent.created = function() {
 };
 
 Template.storyContent.destroyed = function () {
-  var gallery = Galleria.get(0);
-  if (_.isObject(gallery))
-    gallery.destroy();
+  if (Galleria.length)
+    Galleria.get(0).destroy();
 }
 
 Template.storyContent.hasPhotos = function () {

@@ -366,7 +366,7 @@ Template.feedMap.helpers({
 // Feed Gallery
 
 var processFeedPhotos = function (data, offset, galleryContainer) {
-  if (offset > 0) { // Append data to existing gallery
+  if (offset > 0 && Galleria.length) { // Append data to existing gallery
     var gallery = Galleria.get(0);
     var currentLength = gallery.getDataLength();
 
@@ -379,6 +379,7 @@ var processFeedPhotos = function (data, offset, galleryContainer) {
     feedGallery = Galleria.run(galleryContainer, {
       dataSource: data,
       _toggleInfo: false,
+      debug: isDev(),
       extend: function(s) {
         // create an element 'galleria-map'
         this.addElement('map');

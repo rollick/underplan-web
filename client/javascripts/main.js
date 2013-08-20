@@ -1,7 +1,13 @@
 // Underplan -- client
+
+this.isDev = function () {
+  return !!Meteor.absoluteUrl().match(/localhost|127\.0\.0\.1/);
+};
+
 // Meteor.subscribe("activities");
 Meteor.subscribe("groups");
 Meteor.subscribe("directory");
+Meteor.subscribe("userDetails");
 
 var self = this;
 self.commentsSubscription = self.activitiesSubscription = null;
@@ -71,11 +77,11 @@ Deps.autorun(function () {
 Meteor.startup(function () {
   Session.set("appVersion", "v1.3b37");
 
-  // Routing
-  Backbone.history.start({ pushState: true });
-
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
+
+  // Routing
+  Backbone.history.start({ pushState: true });
 
   // Foundation js loader
   $(document).foundation();
@@ -84,14 +90,14 @@ Meteor.startup(function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Templates
 
-this.feedPackery = null;
 this.feedLimitSkip   = 5;
 this.galleryLimitSkip = 40;
 this.defaultMapZoom  = 12;
 this.shortMaxLength  = 250;
 
 Galleria.configure({
-  imageCrop: false
+  imageCrop: false,
+  debug: isDev()
 });
 this.picasa = new Galleria.Picasa();
 this.trovebox = new Galleria.Trovebox();
@@ -110,11 +116,6 @@ this.appTemplates = function () {
     mainSettings:     "showMainSettings",
     permaShorty:      "showPermaShorty"
   };
-};
-
-this.repackFeed = function () {
-  if(!_.isNull(feedPackery))
-    feedPackery.layout();
 };
 
 this.showTemplate = function (templateName, callback) {
