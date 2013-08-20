@@ -4,6 +4,11 @@ isDev = function () {
   return !!process.env["ROOT_URL"].match(/localhost/);
 }
 
+logIfDev = function (message) {
+  if (isDev)
+    console.log("Underplan: " + message);
+}
+
 var getActivityConditons = function (groupId, userId) {
   // don't return any activities without a groupId
   if (_.isNull(groupId))
@@ -51,6 +56,8 @@ var getActivityConditons = function (groupId, userId) {
 }
 
 Meteor.publish("directory", function () {
+  logIfDev("Publishing 'directory'");
+
   return Meteor.users.find({}, {
     fields: {
       "createdAt": 1, 
@@ -69,7 +76,9 @@ Meteor.publish("directory", function () {
   });
 });
 
-Meteor.publish(null, function () {
+Meteor.publish("userDetails", function () {
+  logIfDev("Publishing 'userDetails'");
+
   // If logged in, autopublish the current user's settings
   // to the client (which isn't published by default).
   return this.userId &&
@@ -85,6 +94,10 @@ Meteor.publish(null, function () {
 
 // All group activity data for generating feed map and country filter
 Meteor.publish("basicActivityData", function (groupId) {
+  check(groupId, String);
+
+  logIfDev("Publishing 'basicActivityData': " + groupId);
+
   var activityConds = getActivityConditons(groupId, this.userId);
 
   var activityFields = { 
@@ -106,8 +119,11 @@ Meteor.publish("basicActivityData", function (groupId) {
 // Feed activities with only the necessary fields included and
 // limited by the feed items count
 Meteor.publish("feedActivities", function (options) {
-  if (isDev)
-    console.log("Publishing " + options.limit + " activities for " + options.groupId);
+  check(options, Object);
+  check(options["limit"], Match.Integer);
+  check(options["groupId"], String);
+
+  logIfDev("Publishing 'feedActivities': " + JSON.stringify(options));
 
   var activityConds = getActivityConditons(options.groupId, this.userId);
 
@@ -139,8 +155,10 @@ Meteor.publish("feedActivities", function (options) {
 });
 
 Meteor.publish("feedCommentCounts", function (options) {
-  if (isDev)
-    console.log("Publishing comments counts");
+  check(options, Object);
+  check(options["groupId"], String);
+
+  logIfDev("Publishing 'feedCommentCounts': " + JSON.stringify(options));
 
   // don't return any comments without a groupId
   if (_.isNull(options.groupId))
@@ -166,9 +184,10 @@ Meteor.publish("feedCommentCounts", function (options) {
 // Options requires a groupId and an optional list of 
 // activity ids
 Meteor.publish("openFeedComments", function (options) {
-  // don't return any comments without a groupId
-  if (_.isNull(options.groupId))
-    return [];
+  check(options, Object);
+  check(options["groupId"], String);
+
+  logIfDev("Publishing 'openFeedComments': " + JSON.stringify(options));
 
   var activityConds = getActivityConditons(options.groupId, this.userId);
   if (options.country)
@@ -191,6 +210,9 @@ Meteor.publish("openFeedComments", function (options) {
 
 // Activities with all fields included
 Meteor.publish("activities", function (groupId) {
+  check(groupId, String);
+  logIfDev("Publishing 'activities': " + groupId);
+
   var activityConds = getActivityConditons(groupId, this.userId);
   var activities = Activities.find(activityConds);
   
@@ -198,8 +220,7 @@ Meteor.publish("activities", function (groupId) {
 });
 
 Meteor.publish("groups", function () {
-  if (isDev)
-    console.log("Publishing groups");
+  logIfDev("Publishing 'groups'");
 
   var conditions = {};
   var settings = Meteor.settings;
@@ -223,8 +244,9 @@ Meteor.publish("groups", function () {
 
 // Activities with all fields included
 Meteor.publish("activityShow", function (activityId) {
-  if (isDev)
-    console.log("Publishing activity: " + activityId);
+  check(activityId, String);
+
+  logIfDev("Publishing 'activityShow': " + activityId);
 
   if (!activityId)
     return null;
@@ -238,12 +260,25 @@ Meteor.publish("activityShow", function (activityId) {
 });
 
 Meteor.publish("activityComments", function (activityId) {
-  if (isDev)
-    console.log("Publishing feed comments: " + JSON.stringify(activityId));
+  check(activityId, String);
+
+  logIfDev("Publishing 'activityComments': " + activityId);
 
   // don't return any comments without an activityId
   if (_.isNull(activityId) || !_.isString(activityId))
     return [];
 
   return Comments.find({activityId: activityId});
+});
+
+Meteor.publish("activityCommentsCount", function (activityId) {
+  check(activityId, String);
+
+  logIfDev("Publishing 'activityCommentsCount': " + activityId);
+
+  // don't return any comments without an activityId
+  if (_.isNull(activityId) || !_.isString(activityId))
+    return [];
+
+  return Comments.find({activityId: activityId}, {fields: {_id: 1}});
 });
