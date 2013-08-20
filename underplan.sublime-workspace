@@ -7,15 +7,57 @@
 	},
 	"buffers":
 	[
+		{
+			"contents": "Searching 250 files for \"debugger\"\n\n/Users/mgallop/Dev/underplan/client/javascripts/views/activities/feed.js:\n  168    },\n  169    'click .item-actions .new-comment a': function (event, template) {\n  170:     debugger\n  171      if (!!$(event.target).closest(\"a\").hasClass(\"disabled\")) {\n  172        return false;\n\n/Users/mgallop/Dev/underplan/client/router/router.js:\n   57  \n   58    main: function() {\n   59:     debugger\n   60      resetGroup();\n   61      showTemplate(\"mainHome\");\n\n2 matches across 2 files\n",
+			"settings":
+			{
+				"buffer_size": 514,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "client/router/router.js",
+			"settings":
+			{
+				"buffer_size": 5912,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/migrations.js",
+			"settings":
+			{
+				"buffer_size": 154,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/Users/mgallop/Library/Application Support/Sublime Text 2/Packages/JSLint/JSLint.sublime-build",
+			"settings":
+			{
+				"buffer_size": 704,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "server/server.js",
+			"settings":
+			{
+				"buffer_size": 7753,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 0.0,
+		"height": 392.0,
 		"selected_items":
 		[
 		],
-		"width": 0.0
+		"width": 449.0
 	},
 	"console":
 	{
@@ -32,6 +74,7 @@
 	},
 	"file_history":
 	[
+		"/Users/mgallop/Dev/underplan/client/javascripts/views/activities/feed.js"
 	],
 	"find":
 	{
@@ -39,9 +82,11 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
+			"/Users/mgallop/Dev/underplan/client",
+			"/Users/mgallop/Dev/underplan/"
 		]
 	},
 	"find_state":
@@ -49,6 +94,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"debugger"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -66,8 +112,166 @@
 	"groups":
 	[
 		{
+			"selected": 4,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"settings":
+					{
+						"buffer_size": 514,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										209,
+										217
+									],
+									[
+										417,
+										425
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								424,
+								424
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"output_tag": 1,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "client/router/router.js",
+					"settings":
+					{
+						"buffer_size": 5912,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2040,
+								2040
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 764.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "server/migrations.js",
+					"settings":
+					{
+						"buffer_size": 154,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/Users/mgallop/Library/Application Support/Sublime Text 2/Packages/JSLint/JSLint.sublime-build",
+					"settings":
+					{
+						"buffer_size": 704,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								399,
+								399
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "server/server.js",
+					"settings":
+					{
+						"buffer_size": 7753,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								102,
+								102
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -102,6 +306,10 @@
 		]
 	},
 	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 118.0
+	},
 	"replace":
 	{
 		"height": 0.0
@@ -127,6 +335,6 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 150.0,
+	"side_bar_width": 210.0,
 	"status_bar_visible": true
 }

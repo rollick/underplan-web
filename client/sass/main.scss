@@ -44,7 +44,6 @@
 // @import "foundation/components/dropdown";
 
 @import "components";
-@import "compass";
 @import "compass/layout/sticky-footer";
 
 @include sticky-footer($footer-height, ".main-content", ".push", ".footer");
@@ -287,7 +286,7 @@ ul.dropdown h5 a {
       margin-bottom: 5px;
 
       & > a {
-        @include up-down(24px);
+        @include arrow(24px);
 
         color: $primary-color;
         padding: 0px;
@@ -304,7 +303,7 @@ ul.dropdown h5 a {
         margin-bottom: 0px;
 
         & > a {
-          @include up-down(24px, $expanded: true);
+          @include arrow(24px, $direction: 'down');
         }
       }
     }

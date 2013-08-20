@@ -5,17 +5,14 @@
 @import "foundation/components/type";
 @import "foundation/components/grid";
 
-@mixin up-down($height: 24px, $expanded: false, $arrow-color: false, $side: 'before') {
+@mixin arrow($height: 24px, $arrow-color: false, $side: 'before', $direction: 'right') {
   $size:      $height/2 + 2 $height/2 + 2;
   $content:   '\00a0\00a0';
   $position:  0px ($height/2)/4;
-  $direction: 'right';
-
-  @if $expanded { $direction: 'down' }
 
   @if $side == 'before' {
     &:before {
-      @include svg-arrow($direction: $direction, $color: $arrow-color);
+      @include png-arrow($direction: $direction, $color: $arrow-color);
 
       background-repeat: no-repeat;
       background-size: $size;
@@ -27,7 +24,7 @@
   }
   @else {
     &:after {
-      @include svg-arrow($direction: $direction, $color: $arrow-color);
+      @include png-arrow($direction: $direction, $color: $arrow-color);
 
       background-repeat: no-repeat;
       background-size: $size;
@@ -39,7 +36,11 @@
   }
 }
 
-@mixin svg-arrow($direction: 'down', $color: false) {
+@mixin standard-item() {
+  @include item-by-user();
+}
+
+@mixin png-arrow($direction: 'down', $color: false) {
   @if $color { $color: '_' + $color; }
   @else { $color: '' }
 
@@ -269,8 +270,6 @@
     margin-bottom: $standard-margin;
 
     &:last-of-type {
-      // feedInserted is used as event for Packery
-      // => only used for wider screen sizes hence media query
       @include animation(feedInserted);
 
       margin-bottom: 0em;
@@ -336,7 +335,7 @@
       }
 
       a.comments {
-        @include up-down(24px);
+        @include arrow(24px);
 
         font-size: 1em;
       }
@@ -447,7 +446,6 @@
 
       .inner {
         @include grid-column(12);
-        // @include up-down(24px, true);
 
         display: none;
         font-size: $comment-notice-font-size;
@@ -470,13 +468,13 @@
   &.expanded {
     .item-actions {
       a.comments {
-        @include up-down(24px, $expanded: true);
+        @include arrow(24px, $direction: 'down');
       }
     }
 
     .comments-notice .inner {
-      @include up-down(24px, $expanded: true, $arrow-color: 'white');
-      @include up-down(24px, $expanded: true, $arrow-color: 'white', $side: 'right');
+      @include arrow(24px, $direction: 'down', $arrow-color: 'white');
+      @include arrow(24px, $direction: 'down', $arrow-color: 'white', $side: 'right');
 
       display: inherit;
       cursor: pointer;
@@ -496,37 +494,5 @@
     .comment-form {
       height: 100%;
     }
-  }
-}
-
-@mixin arrow($size: 10px) {
-  margin: 5px;
-  height: 0;
-  width: 0;    
-  display: inline-block;
-  zoom: 1;
-
-  &.right {
-      border-left: $size solid white;
-      border-top: $size solid transparent;
-      border-bottom: $size solid transparent;    
-  }
-
-  &.left {
-      border-right: $size solid white;
-      border-top: $size solid transparent;
-      border-bottom: $size solid transparent;    
-  }
-
-  &.down {
-      border-top: $size solid white;
-      border-left: $size solid transparent;
-      border-right: $size solid transparent;    
-  }
-
-  &.up {
-      border-bottom: $size solid white;
-      border-left: $size solid transparent;
-      border-right: $size solid transparent;    
   }
 }

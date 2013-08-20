@@ -1,47 +1,58 @@
 @import "../components";
 @import "foundation/components/panels";
 
-.activity.story {
-  .header {
-    @include grid-column(12);
+.story-item {
+  @include standard-item();
 
-    padding: 1em 0.5em;
+  .activity.story {
 
-    h2 {
-      margin-bottom: 0em;
-    }
-  }
+    & > .content {
+      padding: 0.5em;
+      padding-top: 0em;
+    
+      .header {
+        @include grid-column(12);
 
-  .info-section {
-    margin-bottom: 1em !important;
-  }
+        padding: 0.5em;
+        padding-top: 0em;
 
-  .content {
-    margin: 0em;
-
-    .text {
-      &.intro p {
-        font-style: italic;
+        h2 {
+          margin-bottom: 0em;
+        }
       }
 
-      ul {
-        margin-left: 20px;
+      .info-section {
+        margin-bottom: 1em !important;
       }
-    }
 
-    .galleria-thumbnails-container {
-      height: 0px;
-    }
+      & > .content {
+        margin: 0em;
 
-    .galleria-thumbnails {
-      display: none;
-      height: 0px;
-    }
+        .text {
+          &.intro p {
+            font-style: italic;
+          }
 
-    .galleria-stage {
-      top: 10px;
-      bottom: 10px;
-      // height: 400px;
+          ul {
+            margin-left: 20px;
+          }
+        }
+
+        .galleria-thumbnails-container {
+          height: 0px;
+        }
+
+        .galleria-thumbnails {
+          display: none;
+          height: 0px;
+        }
+
+        .galleria-stage {
+          top: 10px;
+          bottom: 10px;
+          // height: 400px;
+        }
+      }
     }
   }
 }
