@@ -25,6 +25,8 @@ Activities.allow({
 
 Meteor.methods({
   notifyActivityUpdated: function(activityId) {
+    check(activityId, String);
+
     var activity = Activities.findOne(activityId);
 
     // only notify if the activity owner updates, eg not if it is the group admin
@@ -34,6 +36,8 @@ Meteor.methods({
   },
 
   notifyActivityCreated: function(activityId) {
+    check(activityId, String);
+
     var activity = Activities.findOne(activityId);
 
     if(!!activity && this.userId === activity.owner) {
@@ -43,7 +47,7 @@ Meteor.methods({
 
   // options should include: title, description, x, y, public
   createActivity: function (options) {
-    options = options || {};
+    check(options, Object);
 
     // If the title is empty / undefined then this is a short post
     if ( typeof options.title === "undefined" || ( typeof options.title === "string" && !options.title.length ) ) {
@@ -118,6 +122,8 @@ Meteor.methods({
   },
 
   removeActivity: function (activityId) {
+    check(activityId, String);
+    
     var activity = Activities.findOne({_id: activityId});
     var groupId = activity.group;
 

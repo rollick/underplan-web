@@ -26,7 +26,7 @@ Groups.allow({
 Meteor.methods({
   // options should include: name
   createGroup: function (options) {
-    options = options || {};
+    check(options, Object);
 
     if ( typeof options.created === "undefined" )
       options.created = new Date();
@@ -62,6 +62,9 @@ Meteor.methods({
   },
 
   invite: function (groupId, userId) {
+    check(groupId, String);
+    check(userId, String);
+
     var group = Groups.findOne(groupId);
     if (! group || group.owner !== this.userId)
       throw new Meteor.Error(404, "No such group");
@@ -86,6 +89,9 @@ Meteor.methods({
   },
 
   rsvp: function (groupId, rsvp) {
+    check(groupId, String);
+    check(rsvp, String);
+
     if (! this.userId)
       throw new Meteor.Error(403, "You must be logged in");
     if (! _.contains(['yes', 'no'], rsvp))

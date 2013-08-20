@@ -26,13 +26,18 @@ Comments.allow({
 Meteor.methods({
   // options should include: activityId, comment
   createComment: function (options) {
-    options = options || {};
-
     if ( typeof options.created === "undefined" )
       options.created = new Date()
 
     if ( typeof options.groupId === "undefined" )
       options.groupId = Activities.findOne({_id: options.activityId}).group;
+
+    check(options, {
+      comment: String,
+      activityId: String,
+      groupId: String,
+      created: Match.Any
+    });
 
     // run check before saving. check will throw exceptions on invalid data
     checkCreateComment(this.userId, options);
