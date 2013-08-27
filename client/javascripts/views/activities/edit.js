@@ -103,16 +103,10 @@ Template.storyEditor.events({
     var values = getStoryValues(template);
 
     if (values.title.length && values.text.length) {
-      Activities.update(activityId, {$set: values}, false, function (error) {
+      Meteor.call('updateActivity', {notify: notify, activityId: activityId, values: values}, function (error) {
         if (error) {
           Session.set("createError", error);
         } else {
-          if (notify) {
-            // FIXME: The notify call should be server side.
-            //        Need a custom update method as used in create 
-            Meteor.call('notifyActivityUpdated', activityId);
-          }
-
           Router.setActivity(Activities.findOne(activityId));
         }
       });

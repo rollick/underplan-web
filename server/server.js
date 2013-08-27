@@ -140,6 +140,7 @@ Meteor.publish("feedActivities", function (options) {
       text: 1,
       owner: 1,
       created: 1,
+      updated: 1,
       type: 1,
       city: 1,
       country: 1,
@@ -252,8 +253,10 @@ Meteor.publish("activityShow", function (activityId) {
     return null;
 
   var activity = Activities.findOne(activityId);
+
   var activityConds = getActivityConditons(activity.group, this.userId);
   activityConds._id = activityId;
+  
   activity = Activities.find(activityConds);
   
   return activity;

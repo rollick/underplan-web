@@ -16,7 +16,7 @@ Activities.allow({
     return false; // use createActivity method
   },
   update: function (userId, activity, fields, modifier) {
-    return canUpdateActivity(userId, activity, fields);
+    return false; // use updateActivity method
   },
   remove: function (userId, activity) {
     return false; // use removeActivity method
@@ -24,17 +24,6 @@ Activities.allow({
 });
 
 Meteor.methods({
-  notifyActivityUpdated: function(activityId) {
-    check(activityId, String);
-
-    var activity = Activities.findOne(activityId);
-
-    // only notify if the activity owner updates, eg not if it is the group admin
-    if(!!activity && this.userId === activity.owner) {
-      notifyActivityEvent(this.userId, activity, "updated");
-    }
-  },
-
   notifyActivityCreated: function(activityId) {
     check(activityId, String);
 
@@ -43,6 +32,27 @@ Meteor.methods({
     if(!!activity && this.userId === activity.owner) {
       notifyActivityEvent(this.userId, activity, "created");
     }
+  },
+
+  updateActivity: function (options) {
+    check(options, Object);
+    check(options["activityId"], String);
+    check(options["values"], Object);
+
+    options["values"].updated = new Date();
+    checkUpdateActivity(this.userId, options["activityId"], options["values"]);
+
+    if(Meteor.isServer) {
+      Activities.update(options["activityId"], {$set: options["values"]}, {multi: false});
+      
+      var activity = Activities.findOne(options["activityId"]);
+
+      // Notify group members and followers about updated activity
+      if(options["notify"] && this.userId === activity.owner) {
+        notifyActivityEvent(this.userId, activity, "updated");
+      }
+    }
+
   },
 
   // options should include: title, description, x, y, public
@@ -79,6 +89,9 @@ Meteor.methods({
     if ( typeof options.created === "undefined" )
       options.created = new Date();
 
+    if ( typeof options.updated === "undefined" )
+      options.updated = new Date();
+
     if ( typeof options.mapZoom === "undefined" )
       options.mapZoom = 12;
 
@@ -103,6 +116,7 @@ Meteor.methods({
         picasaTags: options.picasaTags,
         tags:       [],
         created:    options.created,
+        updated:    options.updated,
         mapZoom:    options.mapZoom,
         location:   options.location,
         slug:       options.slug,
@@ -154,27 +168,6 @@ var activityType = function (activity) {
   }
 };
 
-var checkCreateActivity = function(userId, options) {
-  if (! userId)
-    throw new Meteor.Error(403, "You must be logged in");
-
-  if (options.type == "story" && Activities.find({slug: options.slug, group: options.groupId}).count() > 0)
-    throw new Meteor.Error(403, "Slug is already taken.");
-
-  if (typeof options.title === "string" && options.title.length > 100)
-    throw new Meteor.Error(413, "Title too long");
-
-  if (typeof options.text === "string" && options.text.length > 10000)
-    throw new Meteor.Error(413, "Text too long");
-
-  if (! options.groupId)
-    throw new Meteor.Error(403, "Activity must belong to a group");
-  
-  var group =  Groups.findOne(options.groupId);
-  if (! userBelongsToGroup(userId, group._id))
-    throw new Meteor.Error(403, "You must be a member of " + group.name);
-}
-
 /////////////////////////////////////
 // Server and Client Methods
 
@@ -185,19 +178,96 @@ this.canUserRemoveActivity = function (userId, activityId) {
   return (isGroupAdmin(userId, groupId) || isSystemAdmin(userId) || activity.owner === userId);
 };
 
+////////////////////////////////////
+// Client Methods
 if(Meteor.isClient) {
   // Just a stub for the client. See isServer section for actual code.
   var notifyActivityEvent = function(userId, activity, action) {
     return true;
-  }
+  };
+
+  var trackUpdateActivity = function(properties) {
+    trackEvent("Activity Updated", properties);
+  };
 
   var trackCreateActivity = function(properties) {
     trackEvent("Activity Created", properties);
   };
 }
 
+////////////////////////////////////
+// Server Methods
 if(Meteor.isServer) {
-  var trackCreateActivity = function () {
+  var checkCreateActivity = function(userId, options) {
+    if (! userId)
+      throw new Meteor.Error(403, "You must be logged in");
+
+    if (options.type == "story" && Activities.find({slug: options.slug, group: options.groupId}).count() > 0)
+      throw new Meteor.Error(403, "Slug is already taken.");
+
+    if (typeof options.title === "string" && options.title.length > 100)
+      throw new Meteor.Error(413, "Title too long");
+
+    if (typeof options.text === "string" && options.text.length > 10000)
+      throw new Meteor.Error(413, "Text too long");
+
+    if (! options.groupId)
+      throw new Meteor.Error(403, "Activity must belong to a group");
+    
+    var group =  Groups.findOne(options.groupId);
+    if (! userBelongsToGroup(userId, group._id))
+      throw new Meteor.Error(403, "You must be a member of " + group.name);
+  }
+
+  var checkUpdateActivity = function(userId, activityId, fields) {
+    var activity = Activities.findOne(activityId);
+
+    if (!activity)
+      throw new Meteor.Error(404, "Activity could not be found");
+
+    var admin = isGroupAdmin(userId, activity.group);
+
+    if (userId !== activity.owner && !admin)
+      throw new Meteor.Error(403, "You must be the activity owner");
+
+    // TODO: need to check if the user can move the activity
+    if (activity.groupId !== fields.groupId && !admin)
+      throw new Meteor.Error(403, "You don't have permission to move this activity");
+
+    var allowed = [
+      "title", 
+      "text", 
+      "groupId",
+      "type", 
+      "location", 
+      "lat", 
+      "lng", 
+      "city",
+      "region",
+      "country",
+      "mapZoom", 
+      "picasaTags", 
+      "published", 
+      "slug", 
+      "url", 
+      "urlType", 
+      "created",
+      "updated"
+    ];
+
+    // Admin can also change ownership
+    if (admin)
+      allowed.push("owner");
+
+    if (_.difference(_.keys(fields), allowed).length)
+      throw new Meteor.Error(403, "You don't have permission to edit this activity");
+  };
+
+  var trackCreateActivity = function(properties) {
+    // TODO: do some server side logging here!
+  };
+
+  var trackUpdateActivity = function(properties) {
     // TODO: do some server side logging here!
   };
 
@@ -211,7 +281,9 @@ if(Meteor.isServer) {
       followerEmails = groupFollowerEmails(activity.groupId);
     }
     
-    var allEmails = _.union(groupMemberEmails(activity.group), followerEmails);
+    // Gather the group member emails and followers but remove 
+    // the owners email as he/she doesn't need to be notified
+    var allEmails = _.without(_.union(groupMemberEmails(activity.group), followerEmails), userEmail(owner));
 
     if(allEmails.length > 0) {
       // TODO: replace this with a handlebars template!
@@ -241,42 +313,6 @@ if(Meteor.isServer) {
         text: text
       });
     }
-  };
-
-  var canUpdateActivity = function(userId, activity, fields) {
-    var admin = isGroupAdmin(userId, activity.group);
-
-    if (userId !== activity.owner && !admin)
-      return false; // not the owner or the group admin
-
-    var allowed = [
-      "title", 
-      "text", 
-      "groupId", 
-      "type", 
-      "location", 
-      "lat", 
-      "lng", 
-      "city",
-      "region",
-      "country",
-      "mapZoom", 
-      "picasaTags", 
-      "published", 
-      "slug", 
-      "url", 
-      "urlType", 
-      "created"
-    ];
-
-    // Admin can also change ownership
-    if (admin)
-      allowed.push("owner");
-
-    if (_.difference(fields, allowed).length)
-      return false; // tried to write to forbidden field
-
-    return true;
   };
 
   var groupMemberEmails = function (groupId) {
