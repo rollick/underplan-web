@@ -61,7 +61,11 @@
 	},
 	"console":
 	{
-		"height": 0.0
+		"height": 0.0,
+		"history":
+		[
+			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
+		]
 	},
 	"distraction_free":
 	{
@@ -117,6 +121,7 @@
 			[
 				{
 					"buffer": 0,
+					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 514,
@@ -166,6 +171,7 @@
 				{
 					"buffer": 1,
 					"file": "client/router/router.js",
+					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 5912,
@@ -194,6 +200,7 @@
 				{
 					"buffer": 2,
 					"file": "server/migrations.js",
+					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 154,
@@ -220,6 +227,7 @@
 				{
 					"buffer": 3,
 					"file": "/Users/mgallop/Library/Application Support/Sublime Text 2/Packages/JSLint/JSLint.sublime-build",
+					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 704,
@@ -247,6 +255,7 @@
 				{
 					"buffer": 4,
 					"file": "server/server.js",
+					"semi_transient": false,
 					"settings":
 					{
 						"buffer_size": 7753,
@@ -310,6 +319,7 @@
 	{
 		"height": 118.0
 	},
+	"project": "underplan.sublime-project",
 	"replace":
 	{
 		"height": 0.0
@@ -331,10 +341,24 @@
 		],
 		"width": 0.0
 	},
+	"select_symbol":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"settings":
+	{
+	},
 	"show_minimap": true,
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
 	"side_bar_width": 210.0,
-	"status_bar_visible": true
+	"status_bar_visible": true,
+	"template_settings":
+	{
+	}
 }
