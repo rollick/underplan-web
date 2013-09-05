@@ -1398,8 +1398,21 @@ blockquote p {
 .comment:last-of-type {
   border-bottom: none;
 }
+/* line 20, ../../sass/app/comment.scss */
+.comment .alert-box {
+  text-align: center;
+  font-weight: normal !important;
+  height: 3.3em;
+  margin: 0.5em;
+}
+/* line 26, ../../sass/app/comment.scss */
+.comment .alert-box.loading {
+  background-color: transparent;
+  border: none;
+  color: inherit;
+}
 
-/* line 21, ../../sass/app/comment.scss */
+/* line 34, ../../sass/app/comment.scss */
 .comment-form {
   width: auto;
   margin-left: -0.9375em;
@@ -1420,7 +1433,7 @@ blockquote p {
 .comment-form:after {
   clear: both;
 }
-/* line 27, ../../sass/app/comment.scss */
+/* line 40, ../../sass/app/comment.scss */
 .comment-form > .inner {
   position: relative;
   padding-left: 0;
@@ -1428,11 +1441,11 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 30, ../../sass/app/comment.scss */
+/* line 43, ../../sass/app/comment.scss */
 .comment-form > .inner form {
   margin: 0em;
 }
-/* line 34, ../../sass/app/comment.scss */
+/* line 47, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment {
   width: auto;
   margin-left: -0.9375em;
@@ -1546,53 +1559,53 @@ blockquote p {
 .comment-form > .inner .user-comment .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 40, ../../sass/app/comment.scss */
+/* line 53, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section {
   margin-bottom: 0em;
 }
-/* line 43, ../../sass/app/comment.scss */
+/* line 56, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .picture {
   display: none;
 }
-/* line 46, ../../sass/app/comment.scss */
+/* line 59, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .picture img {
   margin-top: 0em;
 }
-/* line 51, ../../sass/app/comment.scss */
+/* line 64, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .details {
   padding-top: 0em;
   margin-left: 0em;
 }
-/* line 56, ../../sass/app/comment.scss */
+/* line 69, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .details > .button, .comment-form > .inner .user-comment .info-section .details > a {
   display: none;
   margin-bottom: 0em;
   margin-top: 0.5em;
 }
-/* line 62, ../../sass/app/comment.scss */
+/* line 75, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .details textarea {
   margin-bottom: 0em;
 }
-/* line 66, ../../sass/app/comment.scss */
+/* line 79, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .details #comment {
   font-size: 0.9em;
   border: 1px solid #dddddd;
   height: 2.5em;
   min-height: 0em;
 }
-/* line 82, ../../sass/app/comment.scss */
+/* line 95, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .info-section .picture {
   display: inherit;
 }
-/* line 86, ../../sass/app/comment.scss */
+/* line 99, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .info-section .details {
   margin-left: 3.3em;
 }
-/* line 89, ../../sass/app/comment.scss */
+/* line 102, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .info-section .details #comment {
   height: 5em;
 }
-/* line 94, ../../sass/app/comment.scss */
+/* line 107, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .info-section .details > .button, .comment-form.expanded .user-comment .info-section .details > a {
   display: inline-block;
 }

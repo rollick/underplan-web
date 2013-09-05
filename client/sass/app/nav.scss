@@ -22,13 +22,13 @@
 .secondary-nav {
   padding-top: 0em;
   background-color: lighten($topbar-bg, 15%);
+  max-height: emCalc(36px);
 
   .country-filter {
     @include grid-row();
 
     overflow-x: scroll;
     width:100%;
-    height: emCalc(36px);
 
     & > .inner {
       @include grid-column(12);

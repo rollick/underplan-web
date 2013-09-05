@@ -91,7 +91,13 @@ Template.comment.canRemove = function () {
   var groupId = Activities.findOne(this.activityId).group;
 
   return (isGroupAdmin(userId, groupId) || isSystemAdmin(userId) || this.owner === userId);
-}
+};
+
+// The subscription for comments initially doesn't return the owner
+// so we can use that below to check whether the full data has loaded
+Template.comment.loaded = function() {
+  return !!Comments.findOne(this._id).owner;
+};
 
 Template.comment.events({
   'click .remove': function (event, template) {

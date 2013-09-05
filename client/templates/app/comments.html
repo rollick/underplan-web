@@ -8,23 +8,27 @@
 
 <template name="comment">
   <div class="comment" id="{{_id}}">
-    <div class="info-section">
-      <div class="picture">
-        <img src="{{profilePicture owner}}">
+    {{#if loaded}}
+      <div class="info-section">
+        <div class="picture">
+          <img src="{{profilePicture owner}}">
+        </div>
+        <div class="details">
+          <div class="owner">{{userName owner}}</div>
+          <div class="date">{{date created}}</div>
+        </div>
       </div>
-      <div class="details">
-        <div class="owner">{{userName owner}}</div>
-        <div class="date">{{date created}}</div>
+      {{#if canRemove}}
+        <div class="actions">
+          <a href="#" class="remove action"></a>
+        </div>
+      {{/if}}
+      <div class="content">
+        {{#markdown}}{{comment}}{{/markdown}}
       </div>
-    </div>
-    {{#if canRemove}}
-      <div class="actions">
-        <a href="#" class="remove action"></a>
-      </div>
+    {{else}}
+      <div class="alert-box loading">Loading...</div>
     {{/if}}
-    <div class="content">
-      {{#markdown}}{{comment}}{{/markdown}}
-    </div>
   </div>
 </template>
 

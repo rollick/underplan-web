@@ -16,6 +16,19 @@
   &:last-of-type {
     border-bottom: none;
   }
+
+  .alert-box {
+    text-align: center;
+    font-weight: normal !important;
+    height: 3.3em;
+    margin: emCalc(8px);
+
+    &.loading {
+      background-color: transparent;
+      border: none;
+      color: inherit;
+    }
+  }
 }
 
 .comment-form {
