@@ -256,7 +256,7 @@ Meteor.publish("activityShow", function (activityId) {
 
   var activityConds = getActivityConditons(activity.group, this.userId);
   activityConds._id = activityId;
-  
+
   activity = Activities.find(activityConds);
   
   return activity;
@@ -283,5 +283,5 @@ Meteor.publish("activityCommentsCount", function (activityId) {
   if (_.isNull(activityId) || !_.isString(activityId))
     return [];
 
-  return Comments.find({activityId: activityId}, {fields: {_id: 1}});
+  return Comments.find({activityId: activityId}, {fields: {_id: 1, activityId: 1}});
 });
