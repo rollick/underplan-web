@@ -1,7 +1,7 @@
 // Underplan -- client
 
 this.isDev = function () {
-  return !!Meteor.absoluteUrl().match(/localhost|127\.0\.0\.1/);
+  return Meteor.settings.public.env == "dev";
 };
 
 // Meteor.subscribe("activities");
