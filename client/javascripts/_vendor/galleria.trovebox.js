@@ -6,6 +6,21 @@
   // The script path
   var PATH = Galleria.utils.getScriptPath();
 
+  /**
+
+      @class
+      @constructor
+
+      @example var trovebox = new Galleria.Trovebox();
+
+      @author https://github.com/rollick
+
+      @requires jQuery
+      @requires Galleria
+
+      @returns Instance
+  */
+
   Galleria.Trovebox = function( domain, album, albumKey ) {
     this.domain     = domain;
     this.album      = album || null;
