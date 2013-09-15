@@ -252,12 +252,34 @@ Meteor.publish("activityShow", function (activityId) {
   if (!activityId)
     return null;
 
-  var activity = Activities.findOne(activityId);
+  var activity = Activities.findOne(activityId, {fields: {group: 1}});
 
   var activityConds = getActivityConditons(activity.group, this.userId);
   activityConds._id = activityId;
 
-  activity = Activities.find(activityConds);
+  var activityOptions = { 
+    fields: {
+      _id: 1,
+      group: 1,
+      lat: 1,
+      lng: 1,
+      title: 1,
+      text: 1,
+      owner: 1,
+      created: 1,
+      updated: 1,
+      picasaTags: 1,
+      type: 1,
+      city: 1,
+      region: 1,
+      country: 1,
+      published: 1,
+      mapZoom: 1,
+      slug: 1
+    }
+  };
+
+  activity = Activities.find(activityConds, activityOptions);
   
   return activity;
 });
