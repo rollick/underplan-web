@@ -144,7 +144,8 @@ Meteor.publish("feedActivities", function (options) {
       type: 1,
       city: 1,
       country: 1,
-      published: 1
+      published: 1,
+      picasaTags: 1
     }, 
     sort: {created: -1}
   };
