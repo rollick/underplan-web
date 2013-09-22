@@ -104,6 +104,8 @@ Meteor.publish("basicActivityData", function (groupId) {
     fields: {
       _id: 1,
       group: 1,
+      owner: 1,
+      title: 1,
       city: 1,
       country: 1,
       slug: 1,
