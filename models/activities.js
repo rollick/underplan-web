@@ -130,7 +130,8 @@ Meteor.methods({
       notifyActivityEvent(this.userId, options, "created");
     }
 
-    trackCreateActivity({"Group ID": options.groupId});
+    var groupName = Groups.findOne(options.groupId, {$fields: {name: 1}});
+    trackCreateActivity({"Group ID": options.groupId, "Group Name": groupName});
 
     return activityId;
   },
@@ -181,6 +182,17 @@ this.canUserRemoveActivity = function (userId, activityId) {
 ////////////////////////////////////
 // Client Methods
 if(Meteor.isClient) {
+  var checkCreateActivity = function(userId, options) {
+    if (options.type == "story" && Activities.find({slug: options.slug, group: options.groupId}).count() > 0)
+      throw new Meteor.Error(403, "Slug is already taken.");
+
+    if (typeof options.title === "string" && options.title.length > 100)
+      throw new Meteor.Error(413, "Title too long");
+
+    if (typeof options.text === "string" && options.text.length > 10000)
+      throw new Meteor.Error(413, "Text too long");
+  }
+
   // Just a stub for the client. See isServer section for actual code.
   var notifyActivityEvent = function(userId, activity, action) {
     return true;

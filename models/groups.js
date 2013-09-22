@@ -43,7 +43,7 @@ Meteor.methods({
 
     checkGroupCreate(this.userId, options);
 
-    return Groups.insert({
+    var groupId = Groups.insert({
       owner:            this.userId,
       name:             options.name,
       description:      options.description,
@@ -58,7 +58,9 @@ Meteor.methods({
       approved:         options.approved
     });
 
-    trackCreateGroup();
+    trackCreateGroup(groupId);
+
+    return groupId;
   },
 
   invite: function (groupId, userId) {
@@ -154,8 +156,11 @@ var checkGroupCreate = function(userId, options) {
 };
 
 if (Meteor.isClient) {
-  var trackCreateGroup = function () {
-    trackEvent("Group Created", {});
+  var trackCreateGroup = function (groupId) {
+    check(groupId, String);
+
+    var groupName = Groups.findOne(groupId, {$fields: {name: 1}}).name;
+    trackEvent("Group Created", {"Group ID": groupId, "Group Name": groupName});
   };  
 }
 

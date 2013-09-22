@@ -75,7 +75,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3b46");
+  Session.set("appVersion", "v1.3b47");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -240,8 +240,9 @@ this.followGroup = function (groupId, state) {
   Meteor.users.update({_id: Meteor.userId()}, {$set: {"profile.followedGroups": currentFollows}});
 
   // Track for the change
+  var groupName = Groups.findOne(groupId, {$fields: {name: 1}}).name;
   var eventName = state ? "Group Followed" : "Group Unfollowed";
-  trackEvent(eventName, {"Group ID": groupId});
+  trackEvent(eventName, {"Group ID": groupId, "Group Name": groupName});
 };
 
 this.followCurrentGroup = function (state) {

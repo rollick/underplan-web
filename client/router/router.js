@@ -22,7 +22,7 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug/settings":            "Group Settings Loaded",
     ":groupSlug/new":                 "New Group Loaded",
     ":groupSlug/membership":          "Group Membership Loaded",
-    ":groupSlug/pl/:activityId":      "Activity (Permalink) Loaded",
+    ":groupSlug/pl/:activityId":      "Activity Loaded",
     ":groupSlug/:activitySlug":       "Story Loaded",
     ":groupSlug/:activitySlug/edit":  "Story Editor Loaded",
   },
