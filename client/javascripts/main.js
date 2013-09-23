@@ -75,7 +75,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3b47");
+  Session.set("appVersion", "v1.3b48");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);

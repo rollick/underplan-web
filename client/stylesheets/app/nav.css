@@ -1256,19 +1256,24 @@ blockquote p {
 }
 /* line 13, ../../sass/app/nav.scss */
 .nav .logo a {
-  font-size: 1.8em;
   color: white !important;
   display: block;
-  padding: 7px 12px;
+  padding: 0px 12px;
+  font-size: 2.4em;
+  font-family: 'Lily Script One', cursive;
+}
+/* line 20, ../../sass/app/nav.scss */
+.nav .logo a:before {
+  content: "u";
 }
 
-/* line 22, ../../sass/app/nav.scss */
+/* line 27, ../../sass/app/nav.scss */
 .secondary-nav {
   padding-top: 0em;
   background-color: #373737;
   max-height: 2.25em;
 }
-/* line 27, ../../sass/app/nav.scss */
+/* line 32, ../../sass/app/nav.scss */
 .secondary-nav .country-filter {
   width: 100%;
   margin-left: auto;
@@ -1289,7 +1294,7 @@ blockquote p {
 .secondary-nav .country-filter:after {
   clear: both;
 }
-/* line 33, ../../sass/app/nav.scss */
+/* line 38, ../../sass/app/nav.scss */
 .secondary-nav .country-filter > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1299,7 +1304,7 @@ blockquote p {
   min-height: 20px;
   margin: 5px 0px 0px 0px !important;
 }
-/* line 40, ../../sass/app/nav.scss */
+/* line 45, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl {
   display: block;
   width: auto;
@@ -1339,22 +1344,22 @@ blockquote p {
   cursor: default;
   color: white;
 }
-/* line 47, ../../sass/app/nav.scss */
+/* line 52, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt {
   margin: 0 0 0 16px;
   padding: 0 0 5px 0;
   opacity: 0.7;
 }
-/* line 52, ../../sass/app/nav.scss */
+/* line 57, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt:first-of-type {
   margin-left: 0px;
 }
-/* line 56, ../../sass/app/nav.scss */
+/* line 61, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt:hover {
   opacity: 1;
   border-bottom: 4px solid green;
 }
-/* line 61, ../../sass/app/nav.scss */
+/* line 66, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt a {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
@@ -1365,12 +1370,12 @@ blockquote p {
   vertical-align: bottom;
   color: white;
 }
-/* line 69, ../../sass/app/nav.scss */
+/* line 74, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt.active {
   border-bottom: 4px solid green;
   opacity: 1;
 }
-/* line 73, ../../sass/app/nav.scss */
+/* line 78, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt.active a {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
@@ -1380,67 +1385,67 @@ blockquote p {
   background: inherit;
   font-weight: normal;
 }
-/* line 79, ../../sass/app/nav.scss */
+/* line 84, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt.active a:hover {
   cursor: pointer;
 }
 
-/* line 91, ../../sass/app/nav.scss */
+/* line 96, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 95, ../../sass/app/nav.scss */
+/* line 100, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 100, ../../sass/app/nav.scss */
+/* line 105, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
   overflow: inherit;
 }
-/* line 104, ../../sass/app/nav.scss */
+/* line 109, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
   font-size: 1.3em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 110, ../../sass/app/nav.scss */
+  /* line 115, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 116, ../../sass/app/nav.scss */
+/* line 121, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: rgba(255, 255, 255, 0.3);
 }
 @media only screen and (min-width: 48em) {
-  /* line 116, ../../sass/app/nav.scss */
+  /* line 121, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
   }
 }
-/* line 126, ../../sass/app/nav.scss */
+/* line 131, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 133, ../../sass/app/nav.scss */
+  /* line 138, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 139, ../../sass/app/nav.scss */
+/* line 144, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 143, ../../sass/app/nav.scss */
+/* line 148, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 28px;
   padding: 2px;
@@ -1449,23 +1454,23 @@ blockquote p {
   margin-top: -4px;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 152, ../../sass/app/nav.scss */
+  /* line 157, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 156, ../../sass/app/nav.scss */
+  /* line 161, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
 
-/* line 165, ../../sass/app/nav.scss */
+/* line 170, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 170, ../../sass/app/nav.scss */
+/* line 175, ../../sass/app/nav.scss */
 li.text {
   color: #c4c4c4;
   padding: 10px;
@@ -1473,23 +1478,23 @@ li.text {
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 170, ../../sass/app/nav.scss */
+  /* line 175, ../../sass/app/nav.scss */
   li.text {
     color: #919191;
     background-color: #111111;
   }
 }
 
-/* line 183, ../../sass/app/nav.scss */
+/* line 188, ../../sass/app/nav.scss */
 li.login-services {
   height: 40px;
 }
-/* line 186, ../../sass/app/nav.scss */
+/* line 191, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 191, ../../sass/app/nav.scss */
+/* line 196, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -1497,7 +1502,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 199, ../../sass/app/nav.scss */
+/* line 204, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

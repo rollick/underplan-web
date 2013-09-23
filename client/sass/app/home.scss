@@ -6,7 +6,7 @@
   }
     
   .or {
-    padding: 10px 0px 40px 0px;
+    padding: 10px 0px 20px 0px;
     font-size: 1.2em;
     font-weight: bold;
   }
@@ -32,10 +32,28 @@
   .main-quote {
     @include grid-row(nest);
 
+    margin-left: 0em;
+    margin-right: 0em;
+
     & > .inner {
       @include grid-column(12, $collapse: true);
 
+      h1 {
+        margin-top: 0em;
+        margin-bottom: 0em;
+        font-weight: normal;
+        font-family: 'Lily Script One', cursive;
+        color: $notice-color;
+        text-align: center;
+        font-size: 3.8em;
+
+        @media only screen and (min-width: 48em) {
+          font-size: 4.8em;
+        }
+      }
+
       blockquote {
+        display: none;
         border-left: none;
         // margin-bottom: 25px;
         text-align: center;
@@ -92,6 +110,8 @@
     .actions {
       @include grid-row(nest);
 
+      margin-left: 0em;
+      margin-right: 0em;
       margin-top: 45px;
       text-align: center;
 
@@ -101,6 +121,14 @@
 
       & > .inner {
         @include grid-column(12);
+
+        .button.large {
+          font-size: 1em;
+
+          @media only screen and (min-width: 48em) {
+            font-size: 1.25em;
+          }         
+        }
       }
     }
   }
