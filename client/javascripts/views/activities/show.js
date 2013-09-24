@@ -19,7 +19,6 @@ Template.currentActivity.events({
     return false;
   },
   'click .new-comment a': function (event, template) {
-    debugger;
     if (!!$(event.target).closest("a").hasClass("disabled")) {
       return false;
     }
