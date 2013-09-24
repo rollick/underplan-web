@@ -45,12 +45,15 @@
         <span>Or, <a href="#" class="new-story">a Story</a></span>
       </div>
     </div>
+
     <div class="location-section">
       <div class="small-12 large-12 columns">
+        <label>Photo Tags</label>
+        <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
+        
         <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
         <input type="text" id="location" value="" placeholder="Enter a location...">
         <div class="location-coords input-subtext"></div>
-
         <fieldset class="location-fields">
           <legend>Location Fields (Advanced)</legend>
           <input type="hidden" id="lat" value="">
@@ -62,6 +65,7 @@
           <label>Country</label>
           <input type="text" id="country" value="">
         </div>
+
       </div>
     </div>
     <div class="action-section">

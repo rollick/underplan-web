@@ -19,6 +19,7 @@ var clearForm = function(template) {
   clearHiddenLocationFields(template);
   template.find("#text").value = "";
   template.find("#location").value = "";
+  template.find("#picasa-tags").value = "";
   template.find(".location-coords").innerHTML = "";
 };
 
@@ -105,13 +106,14 @@ Template.shortForm.events({
       return false;
 
     var values = {};
-    values.text     = template.find("#text").value;
-    values.lat      = template.find("#lat").value;
-    values.lng      = template.find("#lng").value;
-    values.city     = template.find("#city").value;
-    values.country  = template.find("#country").value;
-    values.region   = template.find("#region").value;
-    values.groupId  = getCurrentGroupId();
+    values.text       = template.find("#text").value;
+    values.lat        = template.find("#lat").value;
+    values.lng        = template.find("#lng").value;
+    values.city       = template.find("#city").value;
+    values.country    = template.find("#country").value;
+    values.region     = template.find("#region").value;
+    values.picasaTags = template.find("#picasa-tags").value;
+    values.groupId    = getCurrentGroupId();
 
     if (values.groupId && values.text.length) {
       Meteor.call('createActivity', values, function (error, activityId) {
@@ -121,6 +123,7 @@ Template.shortForm.events({
           $(template.find("form")).removeClass("expanded");
 
           template.find("#text").value = 
+          template.find("#picasa-tags").value =
           template.find("#lat").value = 
           template.find("#lng").value = 
           template.find("#location").value =

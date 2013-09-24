@@ -19,12 +19,13 @@ Template.currentActivity.events({
     return false;
   },
   'click .new-comment a': function (event, template) {
+    debugger;
     if (!!$(event.target).closest("a").hasClass("disabled")) {
       return false;
     }
 
     var self = this;
-    var item = $(event.target).closest(".feed-item");
+    var item = $(event.target).closest(".story-item");
     item.addClass("expanded");
 
     if (item.hasClass("expanded"))

@@ -39,7 +39,7 @@
       @include grid-column(12, $collapse: true);
 
       h1 {
-        margin-top: 0em;
+        margin-top: 0.5em;
         margin-bottom: 0em;
         font-weight: normal;
         font-family: 'Lily Script One', cursive;
@@ -48,6 +48,7 @@
         font-size: 3.8em;
 
         @media only screen and (min-width: 48em) {
+          margin-top: 0em;
           font-size: 4.8em;
         }
       }
