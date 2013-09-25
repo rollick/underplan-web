@@ -23,7 +23,7 @@
       }
 
       .info-section {
-        margin-bottom: 1em !important;
+        margin-bottom: emCalc(15px) !important;
       }
 
       & > .content {
@@ -166,7 +166,6 @@ cite:before {
 
   margin: 0em;
   clear: both;
-  line-height: 33px;
 
   a {
     height: 24px;
@@ -179,15 +178,17 @@ cite:before {
     }
   }
 
-  .previous {
-    @include grid-column(7);
+  .previous, .next {
+    @include grid-column(5);
 
     @media only screen and (min-width: 48em) {
       @include grid-column(6);      
     }
 
-    // padding-left: 0.5em;
+    margin-bottom: emCalc(15px);
+  }
 
+  .previous {
     a {
       &:before {
         padding-right: 4px;
@@ -197,14 +198,7 @@ cite:before {
     }
   }
 
-  .next {
-    @include grid-column(5);
-
-    @media only screen and (min-width: 48em) {
-      @include grid-column(6);      
-    }
-    
-    // padding-right: 0.5em !important;
+  .next {    
     text-align: right;
 
     a {

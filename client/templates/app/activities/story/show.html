@@ -26,24 +26,24 @@
           </div>
         </div>
         <div class="activity-controls">
-          <div class="previous">
-            {{#if previousActivity}}
+          {{#if previousActivity}}
+            <div class="previous">
               {{#with previousActivity}}
                 <a href="/{{group.slug}}/{{slug}}">Previous<span class="hide-for-small"> Story</span></a>
               {{/with}}
-            {{else}}
-             <span style="color: transparent">...</span>
-            {{/if}}
-          </div>
-          <div class="next">
-            {{#if nextActivity}}
+            </div>
+          {{else}}
+            <div class="previous"><span style="color: transparent">...</span></div>
+          {{/if}}
+          {{#if nextActivity}}
+            <div class="next">
               {{#with nextActivity}}
                 <a href="/{{group.slug}}/{{slug}}">Next<span class="hide-for-small">  Story</span></a>
               {{/with}}
-            {{else}}
-             <span style="color: transparent">...</span>
-            {{/if}}
-          </div>
+            </div>
+          {{else}}
+             <div class="next"><span style="color: transparent">...</span></div>
+          {{/if}}
         </div>
         {{> feedItemActions}}
         {{> feedItemComments}}

@@ -267,6 +267,7 @@ Meteor.publish("activityShow", function (activityId) {
       lat: 1,
       lng: 1,
       title: 1,
+      location: 1,
       text: 1,
       owner: 1,
       created: 1,
