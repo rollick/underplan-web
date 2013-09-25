@@ -4,12 +4,6 @@
   .columns {
     text-align: center;
   }
-    
-  .or {
-    padding: 10px 0px 20px 0px;
-    font-size: 1.2em;
-    font-weight: bold;
-  }
 }
 
 .dashboard {
@@ -83,27 +77,53 @@
       margin-top: 20px;
     }
 
-    .group {
-      @include grid-column(12);
+    .more {
+      @include grid-row(nest);
 
-      @media only screen and (min-width: 48em) {
-        @include grid-column(4);
+      margin-left: 0em;
+      margin-right: 0em;
+
+      .inner {
+        @include grid-column(12);
+
+        .or {
+          margin-bottom: 1em;
+          text-align: center;
+          padding: 10px 0px 20px 0px;
+          font-size: 1.2em;
+          font-weight: bold;
+        }
       }
+    }
 
-      .panel {
-        border: 1px solid rgb(51, 50, 50);
-        background-color: rgba(48, 48, 48, 0.53) !important;
-        cursor: pointer;
-        height: 175px;
-        text-align: center;
-        
-        a {
-          font-size: 1.1em;
+    .list {
+      @include grid-row(nest);
+      
+      margin-left: 0em;
+      margin-right: 0em;
+
+      .group {
+        @include grid-column(12);
+
+        @media only screen and (min-width: 48em) {
+          @include grid-column(4);
         }
 
-        p {
-          font-size: 0.9em;
-          color: white;
+        .panel {
+          border: 1px solid rgb(51, 50, 50);
+          background-color: rgba(48, 48, 48, 0.53) !important;
+          cursor: pointer;
+          height: 175px;
+          text-align: center;
+          
+          a {
+            font-size: 1.1em;
+          }
+
+          p {
+            font-size: 0.9em;
+            color: white;
+          }
         }
       }
     }

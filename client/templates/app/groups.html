@@ -26,11 +26,13 @@
           <a href="/new" class="large round button new-group">Create your journey</a>
         </div>
       </div>
-      <div class="row">
-        <div class="small-12 large-12 columns">
+      <div class="more">
+        <div class="inner">
           <div class="or">Or, explore:</div>
         </div>
-        {{#if groups}}
+      </div>
+      {{#if groups}}
+        <div class="list">
           {{#each groups}}
             <div class="group">
               {{#with this}}
@@ -43,13 +45,15 @@
                 </div>
               {{/with}}
             </div>
-            {{/each}}
-          {{else}}
-          <div class="small-3 large-3 columns">
+          {{/each}}
+        </div>
+      {{else}}
+        <div class="row">
+          <div class="small-12 large-12 columns">
             <p>Loading Journies...</p>
-          {{/if}}
           </div>
         </div>
+      {{/if}}
       </div>
     </div>
   </header>
