@@ -7,7 +7,7 @@ Template.currentActivity.events({
     return false;
   },
   'click a.comments': function (event, template) {
-    var item = $(event.target).closest(".feed-item");
+    var item = $(event.target).closest(".story-item");
     item.toggleClass("expanded");
     
     if (item.hasClass("expanded")) {
