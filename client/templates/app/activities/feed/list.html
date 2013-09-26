@@ -4,8 +4,6 @@
       {{#each recentActivities}}
         {{> feedItem this}}
       {{/each}}
-    {{else}}
-      <p>No activities yet :-(</p>
     {{/if}}
   </div>
   {{#unless feedLimitReached}}
