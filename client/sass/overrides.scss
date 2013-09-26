@@ -11,6 +11,11 @@
   background-color: #000;
 }
 
+.galleria-container {
+  height: inherit; 
+  width: inherit; 
+}
+
 .galleria-info {
   position: absolute;
   bottom: 80px;

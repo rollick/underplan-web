@@ -137,6 +137,8 @@ Template.storyContent.helpers({
       if (_.isString(activity.picasaTags) && activity.picasaTags.length)
         params.tags = activity.picasaTags;
 
+      params.max = 999;
+
       trovebox.albumSearch(params, function(data) {
         Galleria.run(element, {
           dataSource: data,
@@ -160,7 +162,7 @@ Template.storyContent.helpers({
 
       // Note: Hope there isn't more in this story...
       picasa.setOptions({
-        max: 99
+        max: 999
       }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
         Galleria.run(element, {
           dataSource: data,

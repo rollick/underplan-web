@@ -14,6 +14,12 @@
 }
 
 /* line 14, ../sass/overrides.scss */
+.galleria-container {
+  height: inherit;
+  width: inherit;
+}
+
+/* line 19, ../sass/overrides.scss */
 .galleria-info {
   position: absolute;
   bottom: 80px;
@@ -23,13 +29,13 @@
   padding: 0px;
   z-index: 1;
 }
-/* line 23, ../sass/overrides.scss */
+/* line 28, ../sass/overrides.scss */
 .galleria-info .galleria-info-text {
   background-color: rgba(0, 0, 0, 0.2);
   padding: 0.5em;
   text-align: center;
 }
-/* line 29, ../sass/overrides.scss */
+/* line 34, ../sass/overrides.scss */
 .galleria-info .galleria-info-title {
   margin-bottom: 0em;
 }
