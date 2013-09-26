@@ -97,7 +97,7 @@ this.shortMaxLength  = 250;
 
 Galleria.configure({
   imageCrop: false,
-  debug: isDev()
+  debug: false
 });
 this.picasa = new Galleria.Picasa();
 this.trovebox = new Galleria.Trovebox();

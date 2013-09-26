@@ -44,14 +44,16 @@ Template.groupItem.events({
 
     var text = $(event.target).siblings('.text');
     text.hide().toggleClass('follow', followed).animate({
-      width: 'show'
+      width: ['show', 'swing'],
+      opacity: [1.0, 'linear']
     }, 200, function () {
       var self = this;
       setTimeout(
         function() 
         {
           $(self).animate({
-            width: 'hide'
+            width: ['hide', 'swing'],
+            opacity: [0, 'linear']
           }, 500);
         }, 2000);
     });
