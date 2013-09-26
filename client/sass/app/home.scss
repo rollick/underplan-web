@@ -115,6 +115,8 @@
           cursor: pointer;
           height: 175px;
           text-align: center;
+          padding: emCalc(10px);
+          padding-top: emCalc(20px);
           
           a {
             font-size: 1.1em;
