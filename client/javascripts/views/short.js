@@ -174,8 +174,8 @@ Template.shortContent.helpers({
     }
 
     var group = Groups.findOne(Session.get("groupId"));
-    if (_.isObject(group.trovebox)) {
-      var params = $.extend({tags: "underplan-" + this._id}, group.trovebox),
+    if (this.picasaTags && _.isObject(group.trovebox)) {
+      var params = $.extend({tags: this.picasaTags, max: 1}, group.trovebox),
           search = new Galleria.Trovebox,
           self = this;
 
@@ -183,8 +183,7 @@ Template.shortContent.helpers({
         if (data.length) {
           // get the id for the feed item associated with this photo tag
           // and insert the img into the item
-          var elementId = params.tags.match(/underplan\-(.*)/)[1],
-              activity = Activities.findOne(elementId);
+          var activity = Activities.findOne(self._id);
 
           activity.photo = data[0].image;
           appendShortPhoto(activity);
