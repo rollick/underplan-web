@@ -124,6 +124,52 @@
             font-size: 0.9em;
             color: white;
           }
+
+          .follow-group {
+            $followed-color: rgba(255, 255, 0, 0.7);
+
+            // width: 100%;
+            text-align: right;
+            top: 5px;
+            right: 20px;
+            position: absolute;
+
+            .text {
+              line-height: 18px;
+              font-size: 0.9em;
+              color: rgba(255, 255, 255, 0.3);
+              float: right;
+              display: none;
+              overflow: hidden;
+              padding-right: 5px;
+
+              &:before{
+                content: 'Bye, bye';
+                white-space: nowrap;
+              }
+
+              &.follow:before {
+                content: 'Following';
+                color: $followed-color;
+              }
+            }
+
+            a {
+              font-size: 1em;
+              float: right;
+
+              &:before {
+                color: rgba(255, 255, 255, 0.3);
+                line-height: 18px;
+                background-position: 4px 4px;
+                background-size: 28px;
+              }
+
+              &.followed:before {
+                color: $followed-color;
+              }
+            }
+          }
         }
       }
     }

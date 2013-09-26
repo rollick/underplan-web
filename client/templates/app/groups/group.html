@@ -1,0 +1,19 @@
+<template name="groupItem">
+  <div class="group">
+    {{#with this}}
+      <div class="panel radius">
+        {{#if userCanFollow}}
+          <div class="follow-group"> 
+            <a href="#" class="{{#if followingGroup}}followed{{/if}} foundicon-general-star"></a>
+            {{#constant}}<div class="text"></div>{{/constant}}
+          </div>
+        {{/if}}
+        <h5>
+          <a href="/{{slug}}" class="foundicon-flag"> {{name}}</a>
+        </h5>
+        <p>started {{date created}}</p>
+        {{#if description}}<p>{{description}}</p>{{/if}}
+      </div>
+    {{/with}}
+  </div>
+</template>

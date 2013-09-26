@@ -1395,7 +1395,50 @@ blockquote p {
   font-size: 0.9em;
   color: white;
 }
-/* line 131, ../../sass/app/home.scss */
+/* line 128, ../../sass/app/home.scss */
+.dashboard .groups .list .group .panel .follow-group {
+  text-align: right;
+  top: 5px;
+  right: 20px;
+  position: absolute;
+}
+/* line 137, ../../sass/app/home.scss */
+.dashboard .groups .list .group .panel .follow-group .text {
+  line-height: 18px;
+  font-size: 0.9em;
+  color: rgba(255, 255, 255, 0.3);
+  float: right;
+  display: none;
+  overflow: hidden;
+  padding-right: 5px;
+}
+/* line 146, ../../sass/app/home.scss */
+.dashboard .groups .list .group .panel .follow-group .text:before {
+  content: 'Bye, bye';
+  white-space: nowrap;
+}
+/* line 151, ../../sass/app/home.scss */
+.dashboard .groups .list .group .panel .follow-group .text.follow:before {
+  content: 'Following';
+  color: rgba(255, 255, 0, 0.7);
+}
+/* line 157, ../../sass/app/home.scss */
+.dashboard .groups .list .group .panel .follow-group a {
+  font-size: 1em;
+  float: right;
+}
+/* line 161, ../../sass/app/home.scss */
+.dashboard .groups .list .group .panel .follow-group a:before {
+  color: rgba(255, 255, 255, 0.3);
+  line-height: 18px;
+  background-position: 4px 4px;
+  background-size: 28px;
+}
+/* line 168, ../../sass/app/home.scss */
+.dashboard .groups .list .group .panel .follow-group a.followed:before {
+  color: rgba(255, 255, 0, 0.7);
+}
+/* line 177, ../../sass/app/home.scss */
 .dashboard .groups .actions {
   width: auto;
   margin-left: -0.9375em;
@@ -1419,12 +1462,12 @@ blockquote p {
   clear: both;
 }
 @media only screen and (min-width: 48em) {
-  /* line 131, ../../sass/app/home.scss */
+  /* line 177, ../../sass/app/home.scss */
   .dashboard .groups .actions {
     margin-top: 110px;
   }
 }
-/* line 143, ../../sass/app/home.scss */
+/* line 189, ../../sass/app/home.scss */
 .dashboard .groups .actions > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1432,12 +1475,12 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 146, ../../sass/app/home.scss */
+/* line 192, ../../sass/app/home.scss */
 .dashboard .groups .actions > .inner .button.large {
   font-size: 1em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 146, ../../sass/app/home.scss */
+  /* line 192, ../../sass/app/home.scss */
   .dashboard .groups .actions > .inner .button.large {
     font-size: 1.25em;
   }

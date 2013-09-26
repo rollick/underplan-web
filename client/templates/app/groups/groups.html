@@ -34,17 +34,7 @@
       {{#if groups}}
         <div class="list">
           {{#each groups}}
-            <div class="group">
-              {{#with this}}
-                <div class="panel radius">
-                  <h5>
-                    <a href="/{{slug}}" class="foundicon-flag"> {{name}}</a>
-                  </h5>
-                  <p>started {{date created}}</p>
-                  {{#if description}}<p>{{description}}</p>{{/if}}
-                </div>
-              {{/with}}
-            </div>
+            {{> groupItem this}}
           {{/each}}
         </div>
       {{else}}

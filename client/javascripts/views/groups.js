@@ -34,6 +34,46 @@ Template.mainHome.message = function () {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
+// Groups List Item
+
+Template.groupItem.events({
+  "click .follow-group a": function (event, template) {
+    var followed = ! $(event.target).hasClass("followed");
+
+    followGroup(this._id, followed);
+
+    var text = $(event.target).siblings('.text');
+    text.hide().toggleClass('follow', followed).animate({
+      width: 'show'
+    }, 200, function () {
+      var self = this;
+      setTimeout(
+        function() 
+        {
+          $(self).animate({
+            width: 'hide'
+          }, 500);
+        }, 2000);
+    });
+    return false;
+  }
+});
+
+Template.groupItem.userCanFollow = function () {
+  // can follow if logged in but not a group member
+  return !!Meteor.user() && !currentUserBelongsToCurrentGroup()
+};
+
+Template.groupItem.followingGroup = function () {
+  return isFollowingGroup(Meteor.userId(), this._id);
+};
+
+// override this method to specify a different short
+Template.groupItem.group = function() {
+  return this;
+};
+
+///////////////////////////////////////////////////////////////////////////////
 // Groups Editor
 
 Template.groupEditor.events({

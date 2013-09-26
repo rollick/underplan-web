@@ -24,6 +24,40 @@ Groups.allow({
 });
 
 Meteor.methods({
+  groupInfo: function (groupId) {
+    check(groupId, String);
+
+    var groupConds = {
+      $and: [
+        {"_id": groupId},
+        {$or: [
+          {"approved": {$exists: false}}, 
+          {"approved": true},
+          {"owner": this.userId},
+          {"invited": this.userId}
+        ]}
+      ]
+    };
+
+    var group = Groups.findOne(groupConds);
+    var doc = {};
+
+    if (group) {
+      var activities = Activities.find({group: group._id}, {
+        fields: {_id: 1, created: 1},
+        sort:   {created: -1}
+      }).fetch();
+
+      doc.activitiesCount = activities.length;
+      if (doc.activitiesCount) {
+        doc.lastActivityCreated = activities[0].created;
+        doc.lastActivityId = activities[0]._id;
+      }
+    }
+
+    return doc;
+  },
+
   // options should include: name
   createGroup: function (options) {
     check(options, Object);
