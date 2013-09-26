@@ -39,12 +39,19 @@
   Galleria.Trovebox.prototype = {
     constructor: Galleria.Trovebox,
 
-    albumSearch: function( options, callback ) {
-      if ( typeof options.album != 'string' ) {
+    albumSearch: function( params, callback ) {
+      if ( typeof params.album != 'string' ) {
         Galleria.raise( 'No trovebox album provided' );
       }
+      
+      this.setOptions( params );
 
-      return this._search( options, callback );
+      return this._search( this.options, callback );
+    },
+
+    setOptions: function( params ) {
+      $.extend(this.options, params);
+      return this;
     },
 
     _call: function( params, callback ) {
@@ -57,6 +64,7 @@
       var scope = this;
 
       params = $.extend({
+        pageSize: params.max,
         tags : params.tags || null,
         returnSizes : '72x72,104x104,320x320,640x640,1024x1024,1600x1600',
       }, params );
