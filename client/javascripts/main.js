@@ -307,17 +307,17 @@ this.geoLocation = function (location, inputId, callback) {
 
       var city, region, country;
       for (var i=0; i < place.address_components.length; i++) {
-        if (place.address_components[i].types[0] == "locality") {
+        if (_.indexOf(place.address_components[i].types, "locality")) {
           //this is the object you are looking for
           city = place.address_components[i].long_name;
         }
         
-        if (place.address_components[i].types[0] == "administrative_area_level_1") {
+        if (_.indexOf(place.address_components[i].types, "administrative_area_level_1")) {
           //this is the object you are looking for
           region = place.address_components[i].long_name;
         }
         
-        if (place.address_components[i].types[0] == "country") {
+        if (_.indexOf(place.address_components[i].types, "country")) {
           //this is the object you are looking for
           country = place.address_components[i].long_name;
         }
