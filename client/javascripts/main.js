@@ -75,7 +75,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.9");
+  Session.set("appVersion", "v1.3.10");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -307,17 +307,17 @@ this.geoLocation = function (location, inputId, callback) {
 
       var city, region, country;
       for (var i=0; i < place.address_components.length; i++) {
-        if (_.indexOf(place.address_components[i].types, "locality")) {
+        if (_.indexOf(place.address_components[i].types, "locality") >= 0) {
           //this is the object you are looking for
           city = place.address_components[i].long_name;
         }
         
-        if (_.indexOf(place.address_components[i].types, "administrative_area_level_1")) {
+        if (_.indexOf(place.address_components[i].types, "administrative_area_level_1") >= 0) {
           //this is the object you are looking for
           region = place.address_components[i].long_name;
         }
         
-        if (_.indexOf(place.address_components[i].types, "country")) {
+        if (_.indexOf(place.address_components[i].types, "country") >= 0) {
           //this is the object you are looking for
           country = place.address_components[i].long_name;
         }
