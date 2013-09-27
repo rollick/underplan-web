@@ -11,7 +11,10 @@
         <h5>
           <a href="/{{slug}}" class="foundicon-flag"> {{name}}</a>
         </h5>
-        <p>started {{date created}}</p>
+        <span class="started">
+          <i class="foundicon-general-clock"></i>
+          <p>{{date created}}</p>
+        </span>
         {{#if description}}<p>{{description}}</p>{{/if}}
       </div>
     {{/with}}

@@ -1,7 +1,11 @@
 <template name="activityActions">
   {{#if userCanFollow}}
     <li class="divider show-for-medium-and-up"></li>
-    <li class="follow-group"><a href="#" class="{{#if followingGroup}}followed{{/if}} foundicon-general-star">Follow</a></li>
+    <li class="follow-group">
+      <a href="#" class="{{#if followingGroup}}followed{{/if}} foundicon-general-star">
+        <span>Follow</span>
+      </a>
+    </li>
   {{/if}}
 </template>
 

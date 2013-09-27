@@ -113,10 +113,10 @@
           border: 1px solid rgb(51, 50, 50);
           background-color: rgba(48, 48, 48, 0.53) !important;
           cursor: pointer;
-          height: 175px;
+          height: 165px;
           text-align: center;
           padding: emCalc(10px);
-          padding-top: emCalc(20px);
+          padding-bottom: emCalc(20px);
           
           a {
             font-size: 1.1em;
@@ -127,14 +127,38 @@
             color: white;
           }
 
+          .started {
+            position: absolute;
+            bottom: 10px;
+            left: 22px;
+            color: gray;
+            z-index: 9;
+            width: 120px;
+
+            i, p {
+              line-height: 16px;
+              color: gray;
+            }
+
+            p {
+              font-size: 0.8em;
+            }
+
+            i {
+              font-size: 0.9em;
+              float: left;
+            }
+          }
+
           .follow-group {
             $followed-color: rgba(255, 255, 0, 0.7);
 
             // width: 100%;
             text-align: right;
-            top: 5px;
+            bottom: 25px;
             right: 20px;
             position: absolute;
+            z-index: 10;
 
             .text {
               line-height: 18px;
@@ -151,7 +175,7 @@
               }
 
               &.follow:before {
-                content: 'Following';
+                content: 'Follow';
                 color: $followed-color;
               }
             }

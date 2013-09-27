@@ -44,7 +44,7 @@ Template.groupItem.events({
 
     var text = $(event.target).siblings('.text');
     text.hide().toggleClass('follow', followed).animate({
-      width: ['show', 'swing'],
+      width: ['show', 'galleriaOut'],
       opacity: [1.0, 'linear']
     }, 200, function () {
       var self = this;
@@ -52,7 +52,7 @@ Template.groupItem.events({
         function() 
         {
           $(self).animate({
-            width: ['hide', 'swing'],
+            width: ['hide', 'galleriaIn'],
             opacity: [0, 'linear']
           }, 500);
         }, 2000);

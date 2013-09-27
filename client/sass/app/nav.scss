@@ -112,24 +112,28 @@
     font-size: 1.3em;
   }
 
-  li.follow-group a {
-
-    @media only screen and (min-width: 48em) {
-      padding: 0 15px;
-    }
-
-    &:before {
-      line-height: 18px;
-      padding-right: 4px;
-      color: rgba(255, 255, 255, 0.3);
+  li.follow-group {
+    a {
+      height: 42px;
+      line-height: 20px;
 
       @media only screen and (min-width: 48em) {
-        line-height: 42px;
+        padding: 0 15px;
       }
-    }
 
-    &.followed:before {
-      color: yellow;
+      &:before {
+        line-height: 18px;
+        padding-right: 4px;
+        color: rgba(255, 255, 255, 0.3);
+
+        @media only screen and (min-width: 48em) {
+          line-height: 42px;
+        }
+      }
+
+      &.followed:before {
+        color: yellow;
+      }
     }
   }
 
