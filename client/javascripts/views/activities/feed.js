@@ -611,26 +611,7 @@ var generateActivitesMap = function(group, elementSelector, activities) {
       map: dashboardMap,
       icon: icons[locations[i].type]
     });
-
-    var boxOptions = {
-      disableAutoPan: false
-      ,maxWidth: 0
-      ,pixelOffset: new google.maps.Size(-140, 0)
-      ,zIndex: null
-      ,boxStyle: { 
-        background: "url('/images/tipbox.gif') no-repeat"
-        // ,opacity: 0.75
-       }
-      // ,closeBoxMargin: "10px 2px 2px 2px"
-      ,closeBoxURL: "http://www.google.com/intl/en_us/mapfiles/close.gif"
-      ,infoBoxClearance: new google.maps.Size(1, 1)
-      ,isHidden: false
-      ,pane: "floatPane"
-      ,enableEventPropagation: false
-    };
-
-    var ib = new InfoBox(boxOptions);
-
+    
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
       return function() {
         var location = locations[i];
@@ -640,11 +621,6 @@ var generateActivitesMap = function(group, elementSelector, activities) {
           Router.setActivity(activity);
         } else {
           Router.setPermaActivity(activity);
-          // var html = Template.mapActivityContent(activity);
-          // html = "<div class=\"map-info\">" + html + "</div>";
-
-          // ib.setContent(html);
-          // ib.open(dashboardMap, marker);
         }
       }
     })(marker, i));
