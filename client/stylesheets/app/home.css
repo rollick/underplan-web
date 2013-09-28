@@ -1404,7 +1404,7 @@ blockquote p {
   left: 22px;
   color: gray;
   z-index: 9;
-  width: 120px;
+  width: 150px;
 }
 /* line 138, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .started i, .dashboard .groups .list .group .panel .started p {
@@ -1414,13 +1414,15 @@ blockquote p {
 /* line 143, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .started p {
   font-size: 0.8em;
+  padding-left: 5px;
+  float: left;
 }
-/* line 147, ../../sass/app/home.scss */
+/* line 149, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .started i {
   font-size: 0.9em;
   float: left;
 }
-/* line 153, ../../sass/app/home.scss */
+/* line 155, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group {
   text-align: right;
   bottom: 25px;
@@ -1428,7 +1430,7 @@ blockquote p {
   position: absolute;
   z-index: 10;
 }
-/* line 163, ../../sass/app/home.scss */
+/* line 165, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group .text {
   line-height: 18px;
   font-size: 0.9em;
@@ -1438,33 +1440,33 @@ blockquote p {
   overflow: hidden;
   padding-right: 5px;
 }
-/* line 172, ../../sass/app/home.scss */
+/* line 174, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group .text:before {
   content: 'Bye, bye';
   white-space: nowrap;
 }
-/* line 177, ../../sass/app/home.scss */
+/* line 179, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group .text.follow:before {
   content: 'Follow';
   color: rgba(255, 255, 0, 0.7);
 }
-/* line 183, ../../sass/app/home.scss */
+/* line 185, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group a {
   font-size: 1em;
   float: right;
 }
-/* line 187, ../../sass/app/home.scss */
+/* line 189, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group a:before {
   color: rgba(255, 255, 255, 0.3);
   line-height: 18px;
   background-position: 4px 4px;
   background-size: 28px;
 }
-/* line 194, ../../sass/app/home.scss */
+/* line 196, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group a.followed:before {
   color: rgba(255, 255, 0, 0.7);
 }
-/* line 203, ../../sass/app/home.scss */
+/* line 205, ../../sass/app/home.scss */
 .dashboard .groups .actions {
   width: auto;
   margin-left: -0.9375em;
@@ -1488,12 +1490,12 @@ blockquote p {
   clear: both;
 }
 @media only screen and (min-width: 48em) {
-  /* line 203, ../../sass/app/home.scss */
+  /* line 205, ../../sass/app/home.scss */
   .dashboard .groups .actions {
     margin-top: 110px;
   }
 }
-/* line 215, ../../sass/app/home.scss */
+/* line 217, ../../sass/app/home.scss */
 .dashboard .groups .actions > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1501,12 +1503,12 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 218, ../../sass/app/home.scss */
+/* line 220, ../../sass/app/home.scss */
 .dashboard .groups .actions > .inner .button.large {
   font-size: 1em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 218, ../../sass/app/home.scss */
+  /* line 220, ../../sass/app/home.scss */
   .dashboard .groups .actions > .inner .button.large {
     font-size: 1.25em;
   }
