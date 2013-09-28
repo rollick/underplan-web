@@ -42,7 +42,7 @@
           {{#if slug}}
             <a href="/{{group.slug}}/{{slug}}">Previous<span class="hide-for-small"> Story</span></a>
           {{else}}
-            <a href="/{{group.slug}}">Previous<span class="hide-for-small"> Short</span></a>
+            <a href="/{{group.slug}}/pl/{{_id}}">Previous<span class="hide-for-small"> Short</span></a>
           {{/if}}
         {{/with}}
       </div>
@@ -53,9 +53,9 @@
       <div class="next">
         {{#with nextActivity}}
           {{#if slug}}
-            <a href="/{{group.slug}}/{{slug}}">Previous<span class="hide-for-small">  Story</span></a>
+            <a href="/{{group.slug}}/{{slug}}">Next<span class="hide-for-small">  Story</span></a>
           {{else}}
-            <a href="/{{group.slug}}">Previous<span class="hide-for-small"> Short</span></a>
+            <a href="/{{group.slug}}/pl/{{_id}}">Next<span class="hide-for-small"> Short</span></a>
           {{/if}}
         {{/with}}
       </div>
