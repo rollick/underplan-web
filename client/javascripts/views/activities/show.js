@@ -40,32 +40,6 @@ Template.currentActivity.events({
   }
 });
 
-Template.currentActivity.nextActivity = function () {
-  var activity = Activities.findOne(Session.get("activityId"));
-
-  return Activities.find({
-    $and: [
-      {group: Session.get("groupId")},
-      {"_id": {"$not": Session.get("activityId")}}, 
-      {type: "story"}, 
-      {created: {"$gte": activity.created}}
-    ]
-  }, {sort: {created: 1, _id: 1}}).fetch()[0];
-};
-
-Template.currentActivity.previousActivity = function () {
-  var activity = Activities.findOne(Session.get("activityId"));
-
-  return Activities.find({
-    $and: [
-      {group: Session.get("groupId")},
-      {"_id": {"$not": Session.get("activityId")}}, 
-      {type: "story"}, 
-      {created: {"$lte": activity.created}}
-    ]
-  }, {sort: {created: -1, _id: -1}}).fetch()[0];
-};
-
 Template.currentActivity.group = function () {
   return Groups.findOne(Session.get("groupId"));
 };
@@ -116,6 +90,47 @@ Template.currentActivity.creatorName = function () {
 
 Template.currentActivity.canEdit = function () {
   return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
+};
+
+///////////////////////////////////////////////////////////////////////////////
+// Activity Controls
+
+Template.activityControls.group = function () {
+  return Groups.findOne(this.group);
+};
+
+Template.activityControls.nextActivity = function () {
+  var activity = Activities.findOne(this._id);
+  var country = Session.get("feedFilter").country;
+  var params = {
+    $and: [
+      {group: Session.get("groupId")},
+      {"_id": {"$not": Session.get("activityId")}},
+      {"type": "story"}, 
+      {_id: {"$gte": activity._id}}
+    ]};
+
+  if (country)
+    params['$and'].push({"country": country});
+
+  return Activities.find(params, {sort: {_id: 1}}).fetch()[0];
+};
+
+Template.activityControls.previousActivity = function () {
+  var activity = Activities.findOne(this._id);
+  var country = Session.get("feedFilter").country;
+  var params = {
+    $and: [
+      {group: Session.get("groupId")},
+      {"_id": {"$not": Session.get("activityId")}}, 
+      {"type": "story"}, 
+      {_id: {"$lte": activity._id}}
+    ]};
+
+  if (country)
+    params['$and'].push({"country": country});
+
+  return Activities.find(params, {sort: {_id: -1}}).fetch()[0];
 };
 
 ///////////////////////////////////////////////////////////////////////////////

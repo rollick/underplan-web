@@ -1292,7 +1292,7 @@ blockquote p {
   margin: 0 0.25em;
   padding: 0px;
   position: relative;
-  margin-bottom: 0.9375em;
+  margin-bottom: 0.25em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
 .story-item:before, .story-item:after {
@@ -1760,10 +1760,16 @@ blockquote p {
 }
 /* line 9, ../../sass/app/activities.scss */
 .story-item .activity.story > .content {
-  padding: 0.5em;
-  padding-top: 0em;
+  padding: 0em;
 }
-/* line 13, ../../sass/app/activities.scss */
+@media only screen and (min-width: 48em) {
+  /* line 9, ../../sass/app/activities.scss */
+  .story-item .activity.story > .content {
+    padding: 0.5em;
+    padding-top: 0em;
+  }
+}
+/* line 17, ../../sass/app/activities.scss */
 .story-item .activity.story > .content .header {
   position: relative;
   padding-left: 0.9375em;
@@ -1774,59 +1780,59 @@ blockquote p {
   padding-top: 0em;
   padding-bottom: 0em;
 }
-/* line 20, ../../sass/app/activities.scss */
+/* line 24, ../../sass/app/activities.scss */
 .story-item .activity.story > .content .header h2 {
   margin-bottom: 0em;
 }
-/* line 25, ../../sass/app/activities.scss */
+/* line 29, ../../sass/app/activities.scss */
 .story-item .activity.story > .content .info-section {
   margin-bottom: 0.9375em !important;
 }
-/* line 29, ../../sass/app/activities.scss */
+/* line 33, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content {
   margin: 0em;
 }
-/* line 33, ../../sass/app/activities.scss */
+/* line 37, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content .text.intro p {
   font-style: italic;
 }
-/* line 37, ../../sass/app/activities.scss */
+/* line 41, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content .text ul {
   margin-left: 20px;
 }
-/* line 42, ../../sass/app/activities.scss */
+/* line 46, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content .galleria-thumbnails-container {
   height: 0px;
 }
-/* line 46, ../../sass/app/activities.scss */
+/* line 50, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content .galleria-thumbnails {
   display: none;
   height: 0px;
 }
-/* line 51, ../../sass/app/activities.scss */
+/* line 55, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content .galleria-stage {
   top: 10px;
   bottom: 10px;
 }
 
-/* line 60, ../../sass/app/activities.scss */
+/* line 64, ../../sass/app/activities.scss */
 cite:before {
   content: "\2014 \0020";
   color: gray;
 }
 
-/* line 65, ../../sass/app/activities.scss */
+/* line 69, ../../sass/app/activities.scss */
 .activity-map {
   float: right;
   padding: 0;
   padding-bottom: 5px;
 }
-/* line 70, ../../sass/app/activities.scss */
+/* line 74, ../../sass/app/activities.scss */
 .activity-map.hide-for-small {
   padding: 10px;
 }
 
-/* line 75, ../../sass/app/activities.scss */
+/* line 79, ../../sass/app/activities.scss */
 .activity-highlight {
   float: right;
   padding: 0;
@@ -1834,53 +1840,53 @@ cite:before {
   height: 200px;
   margin-bottom: 0.9em;
 }
-/* line 82, ../../sass/app/activities.scss */
+/* line 86, ../../sass/app/activities.scss */
 .activity-highlight.large {
   margin-top: 0.9em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 75, ../../sass/app/activities.scss */
+  /* line 79, ../../sass/app/activities.scss */
   .activity-highlight {
     margin-left: 1em;
     margin-bottom: 0em;
     height: 240px;
     width: 320px;
   }
-  /* line 92, ../../sass/app/activities.scss */
+  /* line 96, ../../sass/app/activities.scss */
   .activity-highlight.large {
     height: 420px;
     width: 100%;
     margin-top: 0.9em;
   }
 }
-/* line 99, ../../sass/app/activities.scss */
+/* line 103, ../../sass/app/activities.scss */
 .activity-highlight .alert-box {
   height: 100%;
   vertical-align: middle;
 }
 
-/* line 107, ../../sass/app/activities.scss */
+/* line 111, ../../sass/app/activities.scss */
 .pac-container:after {
   content: "";
 }
 
-/* line 112, ../../sass/app/activities.scss */
+/* line 116, ../../sass/app/activities.scss */
 .share-links {
   float: right;
   width: 125px;
   height: 20px;
   margin-bottom: 10px;
 }
-/* line 118, ../../sass/app/activities.scss */
+/* line 122, ../../sass/app/activities.scss */
 .share-links > div {
   float: right;
 }
-/* line 122, ../../sass/app/activities.scss */
+/* line 126, ../../sass/app/activities.scss */
 .share-links .pac-item {
   font-size: 0.8em;
   padding: 4px;
 }
-/* line 127, ../../sass/app/activities.scss */
+/* line 131, ../../sass/app/activities.scss */
 .share-links .fb-share {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1900,7 +1906,7 @@ cite:before {
   height: 20px;
   padding: 2px 5px 2px 2px;
 }
-/* line 139, ../../sass/app/activities.scss */
+/* line 143, ../../sass/app/activities.scss */
 .share-links .fb-share:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));
   background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
@@ -1908,12 +1914,12 @@ cite:before {
   background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
   background-image: linear-gradient(top, #ffffff, #f2f2f2);
 }
-/* line 143, ../../sass/app/activities.scss */
+/* line 147, ../../sass/app/activities.scss */
 .share-links .fb-share i {
   color: #3B5998;
   font-size: 0.9em;
 }
-/* line 148, ../../sass/app/activities.scss */
+/* line 152, ../../sass/app/activities.scss */
 .share-links .fb-share i p {
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
   font-size: 0.75em;
@@ -1926,7 +1932,7 @@ cite:before {
   margin-top: -17px;
 }
 
-/* line 163, ../../sass/app/activities.scss */
+/* line 167, ../../sass/app/activities.scss */
 .activity-controls {
   width: auto;
   margin-left: -0.9375em;
@@ -1947,28 +1953,28 @@ cite:before {
 .activity-controls:after {
   clear: both;
 }
-/* line 169, ../../sass/app/activities.scss */
+/* line 173, ../../sass/app/activities.scss */
 .activity-controls a {
   height: 24px;
   font-size: 0.9em;
 }
-/* line 173, ../../sass/app/activities.scss */
+/* line 177, ../../sass/app/activities.scss */
 .activity-controls a:before, .activity-controls a:after {
   background-size: 14px 14px;
   background-repeat: no-repeat;
   content: "\00a0\00a0\00a0\00a0";
 }
-/* line 180, ../../sass/app/activities.scss */
+/* line 184, ../../sass/app/activities.scss */
 .activity-controls .previous, .activity-controls .next {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
-  width: 41.66667%;
+  width: 50%;
   float: left;
   margin-bottom: 0.9375em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 180, ../../sass/app/activities.scss */
+  /* line 184, ../../sass/app/activities.scss */
   .activity-controls .previous, .activity-controls .next {
     position: relative;
     padding-left: 0.9375em;
@@ -1977,24 +1983,40 @@ cite:before {
     float: left;
   }
 }
-/* line 192, ../../sass/app/activities.scss */
+/* line 193, ../../sass/app/activities.scss */
+.activity-controls .previous.clear, .activity-controls .next.clear {
+  margin-bottom: 0em;
+}
+/* line 196, ../../sass/app/activities.scss */
+.activity-controls .previous.clear:before, .activity-controls .next.clear:before {
+  content: "\00a0";
+}
+/* line 203, ../../sass/app/activities.scss */
+.activity-controls .previous a {
+  margin-left: -6px;
+}
+/* line 206, ../../sass/app/activities.scss */
 .activity-controls .previous a:before {
-  padding-right: 4px;
-  background-position: 0px 3px;
+  padding-left: 0px;
+  background-position: 2px;
   background-image: url("/images/left.png");
 }
-/* line 200, ../../sass/app/activities.scss */
+/* line 214, ../../sass/app/activities.scss */
 .activity-controls .next {
   text-align: right;
 }
-/* line 204, ../../sass/app/activities.scss */
+/* line 217, ../../sass/app/activities.scss */
+.activity-controls .next a {
+  margin-right: -2px;
+}
+/* line 220, ../../sass/app/activities.scss */
 .activity-controls .next a:after {
-  padding-left: 5px;
-  background-position: 5px;
+  padding-left: 0px;
+  background-position: 2px;
   background-image: url("/images/right.png");
 }
 
-/* line 213, ../../sass/app/activities.scss */
+/* line 229, ../../sass/app/activities.scss */
 .map-info {
   width: auto;
   margin-left: -0.9375em;
@@ -2012,7 +2034,7 @@ cite:before {
   margin: 0 0.25em;
   padding: 0px;
   position: relative;
-  margin-bottom: 0.9375em;
+  margin-bottom: 0.25em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
 .map-info:before, .map-info:after {
@@ -2045,7 +2067,7 @@ cite:before {
   line-height: 1.4;
 }
 @media only screen and (min-width: 48em) {
-  /* line 213, ../../sass/app/activities.scss */
+  /* line 229, ../../sass/app/activities.scss */
   .map-info {
     margin: 0em;
     margin-bottom: 0.9375em;
@@ -2479,7 +2501,7 @@ cite:before {
   height: 100%;
 }
 @media only screen and (min-width: 48em) {
-  /* line 213, ../../sass/app/activities.scss */
+  /* line 229, ../../sass/app/activities.scss */
   .map-info {
     width: 400px;
   }

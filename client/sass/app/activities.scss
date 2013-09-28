@@ -7,8 +7,12 @@
   .activity.story {
 
     & > .content {
-      padding: 0.5em;
-      padding-top: 0em;
+      padding: 0em;
+
+      @media only screen and (min-width: 48em) {
+        padding: 0.5em;
+        padding-top: 0em;
+      }
     
       .header {
         @include grid-column(12);
@@ -178,20 +182,30 @@ cite:before {
   }
 
   .previous, .next {
-    @include grid-column(5);
+    @include grid-column(6);
 
     @media only screen and (min-width: 48em) {
       @include grid-column(6);      
     }
 
     margin-bottom: emCalc(15px);
+
+    &.clear {
+      margin-bottom: 0em;
+
+      &:before {
+        content: "\00a0";
+      }
+    }
   }
 
   .previous {
     a {
+      margin-left: -6px;
+
       &:before {
-        padding-right: 4px;
-        background-position: 0px 3px;
+        padding-left: 0px;
+        background-position: 2px;
         background-image: url("/images/left.png");
       }
     }
@@ -201,9 +215,11 @@ cite:before {
     text-align: right;
 
     a {
+      margin-right: -2px;
+
       &:after {
-        padding-left: 5px;
-        background-position: 5px;
+        padding-left: 0px;
+        background-position: 2px;
         background-image: url('/images/right.png');
       }
     }

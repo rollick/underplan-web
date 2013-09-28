@@ -25,32 +25,44 @@
             {{> storyContent this}}
           </div>
         </div>
-        <div class="activity-controls">
-          {{#if previousActivity}}
-            <div class="previous">
-              {{#with previousActivity}}
-                <a href="/{{group.slug}}/{{slug}}">Previous<span class="hide-for-small"> Story</span></a>
-              {{/with}}
-            </div>
-          {{else}}
-            <div class="previous"><span style="color: transparent">...</span></div>
-          {{/if}}
-          {{#if nextActivity}}
-            <div class="next">
-              {{#with nextActivity}}
-                <a href="/{{group.slug}}/{{slug}}">Next<span class="hide-for-small">  Story</span></a>
-              {{/with}}
-            </div>
-          {{else}}
-             <div class="next"><span style="color: transparent">...</span></div>
-          {{/if}}
-        </div>
+        {{> activityControls this}}
         {{> feedItemActions}}
         {{> feedItemComments}}
       </div>
     </div>
     {{/with}}
   {{/if}}
+</template>
+
+<template name="activityControls">
+  <div class="activity-controls">
+    {{#if previousActivity}}
+      <div class="previous">
+        {{#with previousActivity}}
+          {{#if slug}}
+            <a href="/{{group.slug}}/{{slug}}">Previous<span class="hide-for-small"> Story</span></a>
+          {{else}}
+            <a href="/{{group.slug}}">Previous<span class="hide-for-small"> Short</span></a>
+          {{/if}}
+        {{/with}}
+      </div>
+    {{else}}
+      <div class="previous clear"></div>
+    {{/if}}
+    {{#if nextActivity}}
+      <div class="next">
+        {{#with nextActivity}}
+          {{#if slug}}
+            <a href="/{{group.slug}}/{{slug}}">Previous<span class="hide-for-small">  Story</span></a>
+          {{else}}
+            <a href="/{{group.slug}}">Previous<span class="hide-for-small"> Short</span></a>
+          {{/if}}
+        {{/with}}
+      </div>
+    {{else}}
+       <div class="next clear"></div>
+    {{/if}}
+  </div>
 </template>
 
 <template name="storyContent">
