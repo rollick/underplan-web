@@ -603,8 +603,14 @@ var generateActivitesMap = function(group, elementSelector, activities) {
 
   var marker, i;
 
-  for (i = 0; i < locations.length; i++) {  
-    var latLng = new google.maps.LatLng(locations[i].lat, locations[i].lng);
+  for (i = 0; i < locations.length; i++) {
+    var lat = locations[i].lat,
+        lng = locations[i].lng;
+    
+    if (_.isEmpty(lat) || _.isEmpty(lng))
+      continue;
+
+    var latLng = new google.maps.LatLng(lat, lng);
 
     marker = new google.maps.Marker({
       position: latLng,

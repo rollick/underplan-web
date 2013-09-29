@@ -95,6 +95,12 @@ Meteor.methods({
     if ( typeof options.mapZoom === "undefined" )
       options.mapZoom = 12;
 
+    var latLngRegex = /^([+-]?(((\d+(\.)?)|(\d*\.\d+))([eE][+-]?\d+)?))$/;
+    if (! latLngRegex.test(options.lat))
+      options.lat = null;
+    if (! latLngRegex.test(options.lng))
+      options.lng = null;
+
     // run check before saving. check will throw exceptions on invalid data
     checkCreateActivity(this.userId, options);
 
