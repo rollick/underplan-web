@@ -20,7 +20,7 @@ var AppRouter = Backbone.Router.extend({
     "settings":                       "Settings Loaded",
     ":groupSlug":                     "Group Loaded",
     ":groupSlug/settings":            "Group Settings Loaded",
-    ":groupSlug/new":                 "New Group Loaded",
+    ":groupSlug/new":                 "New Activity Loaded",
     ":groupSlug/membership":          "Group Membership Loaded",
     ":groupSlug/pl/:activityId":      "Activity Loaded",
     ":groupSlug/:activitySlug":       "Story Loaded",
@@ -33,9 +33,16 @@ var AppRouter = Backbone.Router.extend({
 
     // Some permission checks:
     // settings only for logged in users
-    if(!!route.match(/setting/) && !Meteor.userId()) {
-      this.setHome();
-      return false;
+    if(!Meteor.userId()) {
+      if(!!route.match(/setting/)) {
+        this.setHome();
+        return false;        
+      } else if(!!route.match(/^new$/)) {
+        Session.set("message",
+                    "You must be logged in to create a group");
+        this.setHome();
+        return false;
+      }
     }
   },
 
