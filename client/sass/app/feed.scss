@@ -190,7 +190,6 @@
 
   .map {
     @include grid-row(nest);
-    @include animation(mapInserted);
     @include radius();
 
     width: 100%;
@@ -209,6 +208,8 @@
       }
 
       #map-canvas {
+        @include animation(mapInserted);
+        
         img { 
           max-width: none;
         }

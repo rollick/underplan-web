@@ -1,9 +1,9 @@
 <template name="feedMap">
-  <div id="map-canvas" style="height: 100%;">
-    {{> mapInner}}
-  </div>
+  {{> map}}
 </template>
 
-<template name="mapInner">
-  
+<template name="map">
+  {{#constant}}
+    <div id="map-canvas" style="height: 100%;"></div>
+  {{/constant}}
 </template>

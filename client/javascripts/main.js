@@ -34,14 +34,16 @@ Deps.autorun(function () {
   }
 
   if (Session.get("activityId")) {
-    console.log("Subscribe to activity");
+    if (isDev)
+      console.log("Subscribe to activity");
 
     self.activitySubscription = Meteor.subscribe("activityShow", Session.get("activityId"));
     self.commentsSubscription = Meteor.subscribe("activityComments", Session.get("activityId"));
   }
 
   if (Session.get("groupId")) {
-    console.log("Subscribe to group data");
+    if (isDev)
+      console.log("Subscribe to group data");
     
     var filter = Session.get("feedFilter") || {};
     if (filter.group !== Session.get("groupId")) {
@@ -76,7 +78,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.17");
+  Session.set("appVersion", "v1.3.20");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -350,7 +352,9 @@ this.logRenders = function () {
     var counter = 0;
 
     template.rendered = function () {
-      console.log(name, "render count: ", ++counter);
+      if (isDev)
+        console.log(name, "render count: ", ++counter);
+      
       oldRender && oldRender.apply(this, arguments);
     };
   });
@@ -392,6 +396,7 @@ this.trackEvent = function(eventName, properties) {
 
     mixpanel.track(eventName, properties);
   } else {
-    console.log("Mixpanel not loaded. Missed an event!");
+    if (isDev)
+      console.log("Mixpanel not loaded. Missed an event!");
   }
 };

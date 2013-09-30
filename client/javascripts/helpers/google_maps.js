@@ -40,7 +40,7 @@ gmaps = {
         position: gLatLng,
         map: this.map,
         title: marker.title,
-        animation: google.maps.Animation.DROP,
+        // animation: google.maps.Animation.DROP,
         icon: mapIconsByType[marker.type]
       });
       this.latLngs.push(gLatLng);
@@ -58,7 +58,8 @@ gmaps = {
               Router.setPermaActivity(activity);
             }
           } else {
-            console.log("Crash! Bang!");
+            if (isDev)
+              console.log("Crash! Bang!");
           }
         }
       })(marker));
@@ -68,9 +69,6 @@ gmaps = {
 
     // calculate and move the bound box based on our markers
     calcBounds: function() {
-      if (!this.map)
-        return;
-
       var bounds = new google.maps.LatLngBounds();
       for (var i = 0, latLngLength = this.latLngs.length; i < latLngLength; i++) {
         bounds.extend(this.latLngs[i]);
@@ -92,11 +90,16 @@ gmaps = {
         // initialize the map
     initialize: function() {
       console.log("[+] Intializing Google Maps...");
+
       var mapOptions = {
         zoom: 12,
         // center: new google.maps.LatLng(53.565, 10.001),
         mapTypeId: google.maps.MapTypeId.ROADMAP
       };
+
+
+      var canvas = document.getElementById('map-canvas');
+      // $(".map").css({"border": "red solid 2px"});
 
       this.map = new google.maps.Map(
         document.getElementById('map-canvas'),
@@ -104,7 +107,6 @@ gmaps = {
       );
 
       // global flag saying we intialized already
-      if (this.map)
-        Session.set('map', true);
+      Session.set('feedMap', true);
     }
 }

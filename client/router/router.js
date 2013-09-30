@@ -204,8 +204,10 @@ var AppRouter = Backbone.Router.extend({
   },
 
   setGroupDefaults: function (groupSlug) {
+    if (isDev)
+      console.log("[+] FeedFilter set here (4)");
+
     Session.set("groupSlug", groupSlug);
-    console.log("[+] FeedFilter set here (4)");
     Session.set("feedFilter", {});
     Session.set("feedLimit", feedLimitSkip);
     Session.set("galleryLimit", galleryLimitSkip);

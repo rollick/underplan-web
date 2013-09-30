@@ -2247,16 +2247,6 @@ blockquote p {
   margin-bottom: 0;
   max-width: none;
   *zoom: 1;
-  animation-duration: 0.001s;
-  -o-animation-duration: 0.001s;
-  -ms-animation-duration: 0.001s;
-  -moz-animation-duration: 0.001s;
-  -webkit-animation-duration: 0.001s;
-  animation-name: mapInserted;
-  -o-animation-name: mapInserted;
-  -ms-animation-name: mapInserted;
-  -moz-animation-name: mapInserted;
-  -webkit-animation-name: mapInserted;
   -webkit-border-radius: 0px;
   border-radius: 0px;
   width: 100%;
@@ -2272,7 +2262,7 @@ blockquote p {
 .feed-extra .map:after {
   clear: both;
 }
-/* line 200, ../../sass/app/feed.scss */
+/* line 199, ../../sass/app/feed.scss */
 .feed-extra .map > .inner {
   position: relative;
   padding-left: 0;
@@ -2283,40 +2273,53 @@ blockquote p {
   height: 260px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 200, ../../sass/app/feed.scss */
+  /* line 199, ../../sass/app/feed.scss */
   .feed-extra .map > .inner {
     height: 320px;
   }
 }
-/* line 212, ../../sass/app/feed.scss */
+/* line 210, ../../sass/app/feed.scss */
+.feed-extra .map > .inner #map-canvas {
+  animation-duration: 0.001s;
+  -o-animation-duration: 0.001s;
+  -ms-animation-duration: 0.001s;
+  -moz-animation-duration: 0.001s;
+  -webkit-animation-duration: 0.001s;
+  animation-name: mapInserted;
+  -o-animation-name: mapInserted;
+  -ms-animation-name: mapInserted;
+  -moz-animation-name: mapInserted;
+  -webkit-animation-name: mapInserted;
+}
+/* line 213, ../../sass/app/feed.scss */
 .feed-extra .map > .inner #map-canvas img {
   max-width: none;
 }
-/* line 216, ../../sass/app/feed.scss */
+/* line 217, ../../sass/app/feed.scss */
 .feed-extra .map > .inner #map-canvas label {
   width: auto;
   display: inline;
 }
-/* line 222, ../../sass/app/feed.scss */
+/* line 223, ../../sass/app/feed.scss */
 .feed-extra .map > .inner .alert-box {
   margin-top: 0em;
   line-height: 240px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 222, ../../sass/app/feed.scss */
+  /* line 223, ../../sass/app/feed.scss */
   .feed-extra .map > .inner .alert-box {
     line-height: 300px;
   }
 }
-/* line 232, ../../sass/app/feed.scss */
+/* line 233, ../../sass/app/feed.scss */
 .feed-extra .map > .inner .infoBox > img {
   z-index: 2;
 }
-/* line 236, ../../sass/app/feed.scss */
+/* line 237, ../../sass/app/feed.scss */
 .feed-extra .map > .inner .infoBox .map-info .inner {
   margin-top: -0.9375em;
 }
-/* line 243, ../../sass/app/feed.scss */
+/* line 244, ../../sass/app/feed.scss */
 .feed-extra .gallery {
   width: auto;
   margin-left: -0.9375em;
@@ -2350,11 +2353,11 @@ blockquote p {
 .feed-extra .gallery:after {
   clear: both;
 }
-/* line 254, ../../sass/app/feed.scss */
+/* line 255, ../../sass/app/feed.scss */
 .feed-extra .gallery.visible {
   z-index: 1;
 }
-/* line 258, ../../sass/app/feed.scss */
+/* line 259, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner {
   position: relative;
   padding-left: 0;
@@ -2362,17 +2365,17 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 263, ../../sass/app/feed.scss */
+/* line 264, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .recent-photos {
   height: 340px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 263, ../../sass/app/feed.scss */
+  /* line 264, ../../sass/app/feed.scss */
   .feed-extra .gallery > .inner .recent-photos {
     height: 400px;
   }
 }
-/* line 271, ../../sass/app/feed.scss */
+/* line 272, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map {
   width: 50%;
   top: 15px;
@@ -2383,15 +2386,15 @@ blockquote p {
   color: gray;
   font-style: italic;
 }
-/* line 281, ../../sass/app/feed.scss */
+/* line 282, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map:before {
   content: "Back to Map";
 }
-/* line 285, ../../sass/app/feed.scss */
+/* line 286, ../../sass/app/feed.scss */
 .feed-extra .gallery > .inner .galleria-map:hover {
   cursor: pointer;
 }
-/* line 292, ../../sass/app/feed.scss */
+/* line 293, ../../sass/app/feed.scss */
 .feed-extra .gallery-more {
   width: auto;
   margin-left: -0.9375em;
@@ -2424,12 +2427,12 @@ blockquote p {
   text-align: center;
 }
 
-/* line 300, ../../sass/app/feed.scss */
+/* line 301, ../../sass/app/feed.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 303, ../../sass/app/feed.scss */
+/* line 304, ../../sass/app/feed.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;

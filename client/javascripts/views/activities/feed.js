@@ -66,7 +66,8 @@ Template.activityFeed.showExtras = function () {
 
 Template.activityFeed.created = function() {
   var filter = Session.get("feedFilter");
-  console.log("[+] FeedFilter set here (1)");
+  if (isDev)
+    console.log("[+] FeedFilter set here (1)");
   Session.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
   Session.set("galleryLimit", galleryLimitSkip);
 };
@@ -335,10 +336,29 @@ setFeedCommentsNotice = function (template) {
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Map
 
-Template.mapInner.rendered = function() {
-  console.log("[+] Inner Map Rendered...");
+Template.feedMap.rendered = function() {
+  // See hack here: http://jsfiddle.net/Zzw2M/33/light/
+  event = function(event){
+    if (event.animationName == 'mapInserted') {
+      setupMap();
+    }
+  } 
+  document.addEventListener('animationstart', event, false);
+  document.addEventListener('MSAnimationStart', event, false);
+  document.addEventListener('webkitAnimationStart', event, false);
+};
 
-  if (! Session.get('map'))
+Template.feedMap.destroyed = function() {
+  if (isDev)
+    console.log("[-] Destroying Google Maps...");
+  Session.set('feedMap', false);
+};
+
+setupMap = function () {
+  if (isDev)
+    console.log("[+] Inner Map Rendered...");
+
+  if (! Session.get('feedMap'))
     gmaps.initialize();
 
   Deps.autorun(function() {
@@ -346,7 +366,9 @@ Template.mapInner.rendered = function() {
     var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}}).fetch();
     gmaps.clearMarkers();
 
-    console.log("[+] Processing Map Data...");
+    if (isDev)
+      console.log("[+] Processing Map Data...");
+    
     _.each(recentActivities, function(activity) {
       if (typeof activity.lat !== 'undefined' &&
           typeof activity.lng !== 'undefined') {
@@ -368,11 +390,6 @@ Template.mapInner.rendered = function() {
       }
     });
   });
-}
-
-Template.mapInner.destroyed = function() {
-  console.log("[-] Destroying Google Maps...");
-  Session.set('map', false);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
