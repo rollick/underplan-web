@@ -565,9 +565,17 @@ var generateActivitesMap = function(group, elementSelector, activities) {
 
   var locations = [];
   var index = 1;
+  var iconUrl = "http://mt.google.com/vt/icon?psize=27&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/%s&ax=43&ay=50&text=•&scale=2"
+
   var icons = {
-    short: "http://maps.google.com/mapfiles/marker.png",
-    story: "http://maps.google.com/mapfiles/marker_green.png"
+    short: {
+      url: iconUrl.replace("%s", "spotlight-waypoint-a.png"),
+      scaledSize: new google.maps.Size(20, 35)
+    },
+    story: {
+      url: iconUrl.replace("%s", "spotlight-waypoint-b.png"),
+      scaledSize: new google.maps.Size(20, 35)
+    }
   }
 
   activities.forEach( function (activity) {
@@ -615,7 +623,9 @@ var generateActivitesMap = function(group, elementSelector, activities) {
     marker = new google.maps.Marker({
       position: latLng,
       map: dashboardMap,
-      icon: icons[locations[i].type]
+      icon: icons[locations[i].type],
+      optimized: false,
+      flat: true
     });
     
     google.maps.event.addListener(marker, 'click', (function(marker, i) {
