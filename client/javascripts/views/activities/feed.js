@@ -335,42 +335,44 @@ setFeedCommentsNotice = function (template) {
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Map
 
-Template.mapInner.rendered = function() {
-  console.log("[+] Inner Map Rendered...");
+Template.feedMap.mapInit = function () {
+  Meteor.defer(function () {
+    console.log("[+] Inner Map Rendered...");
 
-  if (! Session.get('map'))
-    gmaps.initialize();
+    if (! Session.get('map'))
+      gmaps.initialize();
 
-  Deps.autorun(function() {
-    var group = Groups.findOne(Session.get("feedFilter"));
-    var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}}).fetch();
-    gmaps.clearMarkers();
+    Deps.autorun(function() {
+      var group = Groups.findOne(Session.get("feedFilter"));
+      var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}}).fetch();
+      gmaps.clearMarkers();
 
-    console.log("[+] Processing Map Data...");
-    _.each(recentActivities, function(activity) {
-      if (typeof activity.lat !== 'undefined' &&
-          typeof activity.lng !== 'undefined') {
+      console.log("[+] Processing Map Data...");
+      _.each(recentActivities, function(activity) {
+        if (typeof activity.lat !== 'undefined' &&
+            typeof activity.lng !== 'undefined') {
 
-        var objMarker = {
-          id: activity._id,
-          lat: activity.lat,
-          lng: activity.lng,
-          type: activity.type
-          // title: acvtivity.name
-        };
+          var objMarker = {
+            id: activity._id,
+            lat: activity.lat,
+            lng: activity.lng,
+            type: activity.type
+            // title: acvtivity.name
+          };
 
-        // check if marker already exists
-        if (!gmaps.markerExists('id', objMarker.id)) {
-          gmaps.addMarker(objMarker);
+          // check if marker already exists
+          if (!gmaps.markerExists('id', objMarker.id)) {
+            gmaps.addMarker(objMarker);
 
-          gmaps.calcBounds();
+            gmaps.calcBounds();
+          }
         }
-      }
+      });
     });
   });
-}
+};
 
-Template.mapInner.destroyed = function() {
+Template.feedMap.destroyed = function() {
   console.log("[-] Destroying Google Maps...");
   Session.set('map', false);
 }
