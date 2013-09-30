@@ -46,6 +46,7 @@ Deps.autorun(function () {
     var filter = Session.get("feedFilter") || {};
     if (filter.group !== Session.get("groupId")) {
       filter.group = Session.get("groupId");
+      console.log("[+] FeedFilter set here (2)");
       Session.set("feedFilter", filter);
     }
 
@@ -75,7 +76,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.14");
+  Session.set("appVersion", "v1.3.15");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);

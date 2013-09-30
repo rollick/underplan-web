@@ -95,8 +95,11 @@ Meteor.methods({
     if ( typeof options.mapZoom === "undefined" )
       options.mapZoom = 12;
 
+    // If lat or lng is not a float then reset both
     var latLngRegex = /^([+-]?(((\d+(\.)?)|(\d*\.\d+))([eE][+-]?\d+)?))$/;
-    if (! latLngRegex.test(options.lat))
+
+    
+    if (! latLngRegex.test(options.lat) || ! latLngRegex.test(options.lng))
       options.lat = null;
     if (! latLngRegex.test(options.lng))
       options.lng = null;

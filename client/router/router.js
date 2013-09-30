@@ -36,7 +36,7 @@ var AppRouter = Backbone.Router.extend({
     if(!Meteor.userId()) {
       if(!!route.match(/setting/)) {
         this.setHome();
-        return false;        
+        return false;
       } else if(!!route.match(/^new$/)) {
         Session.set("message",
                     "You must be logged in to create a group");
@@ -205,6 +205,7 @@ var AppRouter = Backbone.Router.extend({
 
   setGroupDefaults: function (groupSlug) {
     Session.set("groupSlug", groupSlug);
+    console.log("[+] FeedFilter set here (4)");
     Session.set("feedFilter", {});
     Session.set("feedLimit", feedLimitSkip);
     Session.set("galleryLimit", galleryLimitSkip);

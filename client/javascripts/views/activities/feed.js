@@ -66,6 +66,7 @@ Template.activityFeed.showExtras = function () {
 
 Template.activityFeed.created = function() {
   var filter = Session.get("feedFilter");
+  console.log("[+] FeedFilter set here (1)");
   Session.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
   Session.set("galleryLimit", galleryLimitSkip);
 };
@@ -334,33 +335,45 @@ setFeedCommentsNotice = function (template) {
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Map
 
-Template.feedMap.helpers({
-  map: function () {
-    if(!!Session.get("feedFilter").group) {
-      var group = Groups.findOne(Session.get("feedFilter").group);
-      var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}});
+Template.mapInner.rendered = function() {
+  console.log("[+] Inner Map Rendered...");
 
-      // If map element not present then create an event to be 
-      // triggered when map element is in the DOM.
-      if ($(".feed-extra .map").length != 0) {
-        generateActivitesMap(group, "#activities-map", recentActivities);
-      } else {
-        // See hack here: http://jsfiddle.net/Zzw2M/33/light/
-        event = function(event){
-          if (event.animationName == 'mapInserted') {
-            generateActivitesMap(group, "#activities-map", recentActivities);
-          }
-        } 
-        document.addEventListener('animationstart', event, false);
-        document.addEventListener('MSAnimationStart', event, false);
-        document.addEventListener('webkitAnimationStart', event, false);
+  if (! Session.get('map'))
+    gmaps.initialize();
 
-        return new Handlebars.SafeString("<p class=\"alert-box\">Loading map...</p>");
+  Deps.autorun(function() {
+    var group = Groups.findOne(Session.get("feedFilter"));
+    var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}}).fetch();
+    gmaps.clearMarkers();
+
+    console.log("[+] Processing Map Data...");
+    _.each(recentActivities, function(activity) {
+      if (typeof activity.lat !== 'undefined' &&
+          typeof activity.lng !== 'undefined') {
+
+        var objMarker = {
+          id: activity._id,
+          lat: activity.lat,
+          lng: activity.lng,
+          type: activity.type
+          // title: acvtivity.name
+        };
+
+        // check if marker already exists
+        if (!gmaps.markerExists('id', objMarker.id)) {
+          gmaps.addMarker(objMarker);
+
+          gmaps.calcBounds();
+        }
       }
+    });
+  });
+}
 
-    }
-  },
-});
+Template.mapInner.destroyed = function() {
+  console.log("[-] Destroying Google Maps...");
+  Session.set('map', false);
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Gallery
@@ -538,110 +551,110 @@ var recentActivitiesMap = function() {
   return imageUrl;
 };
 
-var generateActivitesMap = function(group, elementSelector, activities) {
-  // exit if google not defined
-  if (!_.isObject(window.google))
-    return false;
+// var generateActivitesMap = function(group, elementSelector, activities) {
+//   // exit if google not defined
+//   if (!_.isObject(window.google))
+//     return false;
 
-  // load default group if only string passed to function
-  if(typeof group === "string" && typeof elementSelector === "undefined") {
-    group = getCurrentGroup();
-  } else if(typeof elementSelector === "undefined" && typeof elementSelector === "undefined") {
-    console.log("No group or container element defined!");
-    return false;
-  }
+//   // load default group if only string passed to function
+//   if(typeof group === "string" && typeof elementSelector === "undefined") {
+//     group = getCurrentGroup();
+//   } else if(typeof elementSelector === "undefined" && typeof elementSelector === "undefined") {
+//     console.log("No group or container element defined!");
+//     return false;
+//   }
 
-  if(!_.isObject(group)) {
-    console.log("No current group defined!");
-    return false;
-  }
+//   if(!_.isObject(group)) {
+//     console.log("No current group defined!");
+//     return false;
+//   }
 
-  var element = $(elementSelector)[0];
-  if(typeof element === "undefined")
-    return false;
+//   var element = $(elementSelector)[0];
+//   if(typeof element === "undefined")
+//     return false;
 
-  if(typeof activities === "undefined")
-    activities = Activities.find({group: group._id});
+//   if(typeof activities === "undefined")
+//     activities = Activities.find({group: group._id});
 
-  var locations = [];
-  var index = 1;
-  var iconUrl = "http://mt.google.com/vt/icon?psize=27&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/%s&ax=43&ay=50&text=•&scale=2"
+//   var locations = [];
+//   var index = 1;
+//   var iconUrl = "http://mt.google.com/vt/icon?psize=27&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/%s&ax=43&ay=50&text=•&scale=2"
 
-  var icons = {
-    short: {
-      url: iconUrl.replace("%s", "spotlight-waypoint-a.png"),
-      scaledSize: new google.maps.Size(20, 35)
-    },
-    story: {
-      url: iconUrl.replace("%s", "spotlight-waypoint-b.png"),
-      scaledSize: new google.maps.Size(20, 35)
-    }
-  }
+//   var icons = {
+//     short: {
+//       url: iconUrl.replace("%s", "spotlight-waypoint-a.png"),
+//       scaledSize: new google.maps.Size(20, 35)
+//     },
+//     story: {
+//       url: iconUrl.replace("%s", "spotlight-waypoint-b.png"),
+//       scaledSize: new google.maps.Size(20, 35)
+//     }
+//   }
 
-  activities.forEach( function (activity) {
-    var lat = parseFloat(activity.lat);
-    var lng = parseFloat(activity.lng);
+//   activities.forEach( function (activity) {
+//     var lat = parseFloat(activity.lat);
+//     var lng = parseFloat(activity.lng);
 
-    // if(!isNaN(lat) && !isNaN(lng)) {
-      var text = "";
-      if(activity.type == "short")
-        text = activity.text;
+//     // if(!isNaN(lat) && !isNaN(lng)) {
+//       var text = "";
+//       if(activity.type == "short")
+//         text = activity.text;
 
-      locations.push(
-        {
-          lat: activity.lat, 
-          lng: activity.lng, 
-          text: text, 
-          type: activity.type, 
-          activityId: activity._id, 
-          index: index
-        }
-      );
-      index+=1;
-    // }
-  });
+//       locations.push(
+//         {
+//           lat: activity.lat, 
+//           lng: activity.lng, 
+//           text: text, 
+//           type: activity.type, 
+//           activityId: activity._id, 
+//           index: index
+//         }
+//       );
+//       index+=1;
+//     // }
+//   });
 
 
-  dashboardMap = new google.maps.Map(element, {
-    mapTypeId: google.maps.MapTypeId.ROADMAP
-  });
+//   dashboardMap = new google.maps.Map(element, {
+//     mapTypeId: google.maps.MapTypeId.ROADMAP
+//   });
 
-  dashboardMapBounds = new google.maps.LatLngBounds();
-  // var infowindow = new google.maps.InfoBox();
+//   dashboardMapBounds = new google.maps.LatLngBounds();
+//   // var infowindow = new google.maps.InfoBox();
 
-  var marker, i;
+//   var marker, i;
 
-  for (i = 0; i < locations.length; i++) {
-    var lat = locations[i].lat,
-        lng = locations[i].lng;
+//   for (i = 0; i < locations.length; i++) {
+//     var lat = locations[i].lat,
+//         lng = locations[i].lng;
     
-    if (_.isEmpty(lat) || _.isEmpty(lng))
-      continue;
+//     if (_.isEmpty(lat) || _.isEmpty(lng))
+//       continue;
 
-    var latLng = new google.maps.LatLng(lat, lng);
+//     var latLng = new google.maps.LatLng(lat, lng);
 
-    marker = new google.maps.Marker({
-      position: latLng,
-      map: dashboardMap,
-      icon: icons[locations[i].type],
-      optimized: false,
-      flat: true
-    });
+//     marker = new google.maps.Marker({
+//       position: latLng,
+//       map: dashboardMap,
+//       icon: icons[locations[i].type],
+//       optimized: false,
+//       flat: true
+//     });
     
-    google.maps.event.addListener(marker, 'click', (function(marker, i) {
-      return function() {
-        var location = locations[i];
-        var activity = Activities.findOne(location.activityId);
+//     google.maps.event.addListener(marker, 'click', (function(marker, i) {
+//       return function() {
+//         var location = locations[i];
+//         var activity = Activities.findOne(location.activityId);
 
-        if(location.type === "story") {
-          Router.setActivity(activity);
-        } else {
-          Router.setPermaActivity(activity);
-        }
-      }
-    })(marker, i));
+//         if(location.type === "story") {
+//           Router.setActivity(activity);
+//         } else {
+//           Router.setPermaActivity(activity);
+//         }
+//       }
+//     })(marker, i));
 
-    dashboardMapBounds.extend(latLng);
-  }
-  dashboardMap.fitBounds(dashboardMapBounds);
-};
+//     dashboardMapBounds.extend(latLng);
+//   }
+//   dashboardMap.fitBounds(dashboardMapBounds);
+// };

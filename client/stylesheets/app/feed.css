@@ -2289,11 +2289,11 @@ blockquote p {
   }
 }
 /* line 212, ../../sass/app/feed.scss */
-.feed-extra .map > .inner #activities-map img {
+.feed-extra .map > .inner #map-canvas img {
   max-width: none;
 }
 /* line 216, ../../sass/app/feed.scss */
-.feed-extra .map > .inner #activities-map label {
+.feed-extra .map > .inner #map-canvas label {
   width: auto;
   display: inline;
 }
