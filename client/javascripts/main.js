@@ -51,7 +51,7 @@ Deps.autorun(function () {
     var filter = Session.get("feedFilter") || {};
     if (filter.group !== Session.get("groupId")) {
       filter.group = Session.get("groupId");
-      console.log("[+] FeedFilter set here (2)");
+      logIfDev("[+] FeedFilter set here (2)");
       Session.set("feedFilter", filter);
     }
 
@@ -91,6 +91,12 @@ Meteor.startup(function () {
 
   // Foundation js loader
   $(document).foundation();
+
+  Meteor.autorun(function() {
+    var group = Groups.findOne(Session.get('groupId'));
+    if (!!group)
+      document.title = "Underplan: " + group.name;
+  });
 });
 
 ///////////////////////////////////////////////////////////////////////////////
