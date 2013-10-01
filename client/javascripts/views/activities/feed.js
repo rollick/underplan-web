@@ -361,10 +361,6 @@ setupMap = function () {
   if (! Session.get('feedMap'))
     gmaps.initialize();
 
-  Deps.autorun(function() {
-    var group = Groups.findOne(Session.get("feedFilter"));
-    var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}}).fetch();
-    gmaps.clearMarkers();
 
     if (isDev)
       console.log("[+] Processing Map Data...");
@@ -388,8 +384,13 @@ setupMap = function () {
           gmaps.calcBounds();
         }
       }
-    });
+		    });
   });
+};
+
+Template.feedMap.destroyed = function() {
+  console.log("[-] Destroying Google Maps...");
+  Session.set('map', false);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
