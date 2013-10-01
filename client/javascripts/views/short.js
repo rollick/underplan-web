@@ -167,44 +167,9 @@ Template.shortContent.events({
 
 Template.shortContent.helpers({
   photo: function () {
-    // if activity already has photo
-    if (this.photo) {
-      appendShortPhoto(this);
-      return;
-    }
-
-    var group = Groups.findOne(Session.get("groupId"));
-    if (this.picasaTags && _.isObject(group.trovebox)) {
-      var params = $.extend({tags: this.picasaTags, max: 1}, group.trovebox),
-          search = new Galleria.Trovebox,
-          self = this;
-
-      search.albumSearch(params, function(data, params) { 
-        if (data.length) {
-          // get the id for the feed item associated with this photo tag
-          // and insert the img into the item
-          var activity = Activities.findOne(self._id);
-
-          activity.photo = data[0].image;
-          appendShortPhoto(activity);
-        }
-      });
-    }
+    processActivityPhoto(this);
   }
 });
-
-var appendShortPhoto = function (activity) {
-  var html = "";
-
-  html += "<div class=\"photo\" style=\"background-image: url(" + activity.photo + ")\">";
-  html +=   "<img src='" + activity.photo + "'/>";
-  html += "</div>";
-  
-  var existingPhoto = $("#" + activity._id + " .activity .photo");
-  if (!existingPhoto.length) {
-    $("#" + activity._id + " .activity").append(html);
-  }
-}
 
 Template.shortContent.canRemove = function () {
   return canUserRemoveActivity(Meteor.userId(), this._id);

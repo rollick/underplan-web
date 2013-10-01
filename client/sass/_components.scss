@@ -294,6 +294,8 @@
 
       .content a.more {
         line-height: 2.2em;
+        font-style: italic;
+        font-size: 0.9em;
 
         &:after {
           content: "\00a0→";

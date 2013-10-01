@@ -1,4 +1,46 @@
 ///////////////////////////////////////////////////////////////////////////////
+// Common Functions
+
+this.processActivityPhoto = function (activity) {
+  // if activity already has photo
+  if (activity.photo) {
+    appendFeedPhoto(activity);
+    return;
+  }
+
+  var group = Groups.findOne(Session.get("groupId"));
+  if (activity.picasaTags && _.isObject(group.trovebox)) {
+    var params = $.extend({tags: activity.picasaTags, max: 1}, group.trovebox),
+        search = new Galleria.Trovebox,
+        self = activity;
+
+    search.albumSearch(params, function(data, params) { 
+      if (data.length) {
+        // get the id for the feed item associated with this photo tag
+        // and insert the img into the item
+        var activity = Activities.findOne(self._id);
+
+        activity.photo = data[0].image;
+        appendFeedPhoto(activity);
+      }
+    });
+  }
+}
+
+this.appendFeedPhoto = function (activity) {
+  var html = "";
+
+  html += "<div class=\"photo\" style=\"background-image: url(" + activity.photo + ")\">";
+  html +=   "<img src='" + activity.photo + "'/>";
+  html += "</div>";
+  
+  var existingPhoto = $("#" + activity._id + " .activity .photo");
+  if (!existingPhoto.length) {
+    $("#" + activity._id + " .activity").append(html);
+  }
+}
+
+///////////////////////////////////////////////////////////////////////////////
 // Activity feed 
 
 var feedLimitSkip = 5;
@@ -208,6 +250,13 @@ var toggleComments = function(template, expand, focus) {
 
 ///////////////////////////////////////////////////////////////////////////////
 // Story Feed Content
+
+Template.storyFeedContent.helpers({
+  photo: function () {
+    debugger
+    processActivityPhoto(this);
+  },
+});
 
 Template.storyFeedContent.events({
   'mouseenter .activity': function (event, template) {
