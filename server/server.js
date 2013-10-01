@@ -1,12 +1,12 @@
 // Underplan -- server
 
-isDev = function () {
-  return !!process.env["ROOT_URL"].match(/localhost/);
+this.isDev = function () {
+  return Meteor.settings.public.env == "dev";
 }
 
-logIfDev = function (message) {
-  if (isDev)
-    console.log("Underplan: " + message);
+this.logIfDev = function (message) {
+  if(isDev())
+    console.log("[+] Underplan: " + message);
 }
 
 var getActivityConditons = function (groupId, userId) {

@@ -66,8 +66,7 @@ Template.activityFeed.showExtras = function () {
 
 Template.activityFeed.created = function() {
   var filter = Session.get("feedFilter");
-  if (isDev)
-    console.log("[+] FeedFilter set here (1)");
+  logIfDev("[+] FeedFilter set here (1)");
   Session.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
   Session.set("galleryLimit", galleryLimitSkip);
 };
@@ -349,21 +348,22 @@ Template.feedMap.rendered = function() {
 };
 
 Template.feedMap.destroyed = function() {
-  if (isDev)
-    console.log("[-] Destroying Google Maps...");
+  logIfDev("[-] Destroying Google Maps...");
   Session.set('feedMap', false);
 };
 
 setupMap = function () {
-  if (isDev)
-    console.log("[+] Inner Map Rendered...");
+  logIfDev("[+] Inner Map Rendered...");
 
   if (! Session.get('feedMap'))
     gmaps.initialize();
 
+  Deps.autorun(function() {
+    var group = Groups.findOne(Session.get("feedFilter"));
+    var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}}).fetch();
+    gmaps.clearMarkers();
 
-    if (isDev)
-      console.log("[+] Processing Map Data...");
+    logIfDev("[+] Processing Map Data...");
     
     _.each(recentActivities, function(activity) {
       if (typeof activity.lat !== 'undefined' &&
@@ -384,13 +384,8 @@ setupMap = function () {
           gmaps.calcBounds();
         }
       }
-		    });
+    });
   });
-};
-
-Template.feedMap.destroyed = function() {
-  console.log("[-] Destroying Google Maps...");
-  Session.set('map', false);
 }
 
 ///////////////////////////////////////////////////////////////////////////////

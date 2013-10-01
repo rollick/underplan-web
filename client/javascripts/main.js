@@ -2,7 +2,12 @@
 
 this.isDev = function () {
   return Meteor.settings.public.env == "dev";
-};
+}
+
+this.logIfDev = function (message) {
+  if(isDev())
+    console.log("[+] Underplan: " + message);
+}
 
 // Meteor.subscribe("activities");
 Meteor.subscribe("groups");
@@ -34,16 +39,14 @@ Deps.autorun(function () {
   }
 
   if (Session.get("activityId")) {
-    if (isDev)
-      console.log("Subscribe to activity");
+    logIfDev("Subscribe to activity");
 
     self.activitySubscription = Meteor.subscribe("activityShow", Session.get("activityId"));
     self.commentsSubscription = Meteor.subscribe("activityComments", Session.get("activityId"));
   }
 
   if (Session.get("groupId")) {
-    if (isDev)
-      console.log("Subscribe to group data");
+    logIfDev("Subscribe to group data");
     
     var filter = Session.get("feedFilter") || {};
     if (filter.group !== Session.get("groupId")) {
@@ -78,7 +81,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.20");
+  Session.set("appVersion", "v1.3.21");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -352,8 +355,7 @@ this.logRenders = function () {
     var counter = 0;
 
     template.rendered = function () {
-      if (isDev)
-        console.log(name, "render count: ", ++counter);
+      logIfDev(name, "render count: ", ++counter);
       
       oldRender && oldRender.apply(this, arguments);
     };
@@ -396,7 +398,6 @@ this.trackEvent = function(eventName, properties) {
 
     mixpanel.track(eventName, properties);
   } else {
-    if (isDev)
-      console.log("Mixpanel not loaded. Missed an event!");
+    logIfDev("Mixpanel not loaded. Missed an event!");
   }
 };

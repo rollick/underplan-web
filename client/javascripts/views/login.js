@@ -53,8 +53,7 @@ Template.loggedin.events({
   'click .logout': function(event, template) {
     Meteor.logout(function(err){
       if (err) {
-        if (isDev)
-          console.log("Logout error: " + err);
+        logIfDev("Logout error: " + err);
       } else {
         Router.setHome();
       }
