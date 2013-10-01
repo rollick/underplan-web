@@ -253,7 +253,6 @@ var toggleComments = function(template, expand, focus) {
 
 Template.storyFeedContent.helpers({
   photo: function () {
-    debugger
     processActivityPhoto(this);
   },
 });
