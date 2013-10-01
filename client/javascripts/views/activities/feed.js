@@ -327,7 +327,13 @@ setupMap = function () {
   if (! Session.get('feedMap'))
     gmaps.initialize();
 
-  Deps.autorun(function() {
+  Deps.autorun(function(computation) {
+    if (isDev()) {
+      computation.onInvalidate(function() {
+        console.trace();
+      });
+    }
+
     logIfDev("[+] Autorun Map Deps...");
 
     var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}}).fetch();
@@ -364,7 +370,13 @@ setupMap = function () {
 
 var setupGallery = function () {
 
-  Deps.autorun(function() {
+  Deps.autorun(function(computation) {
+    if (isDev()) {
+      computation.onInvalidate(function() {
+        console.trace();
+      });
+    }
+
     logIfDev("Loading Feed Gallery");
 
     var group = Groups.findOne(Session.get("groupId"));
