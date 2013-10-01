@@ -74,17 +74,7 @@ Template.activityFeed.created = function() {
 Template.activityFeed.rendered = function () {
   // Create an event to be triggered when map element is in the DOM
   // See hack here: http://jsfiddle.net/Zzw2M/33/light/
-  setupFeedInserted();
-};
-
-Template.activityFeed.destroyed = function () {
-  document.removeEventListener('animationstart', feedInsertedEvent);
-  document.removeEventListener('MSAnimationStart', feedInsertedEvent);
-  document.removeEventListener('webkitAnimationStart', feedInsertedEvent);
-
-  // console.log("Destroyed Activity Feed Template");
-  // Session.set("feedLimit", null);
-  // Session.set("feedFilter", null);
+  $(".feed-list").removeClass("faded");
 };
 
 Template.activityFeed.userBelongsToGroup = function () {
@@ -97,19 +87,6 @@ Template.activityFeed.activityCount = function () {
 
 Template.activityFeed.totalActivities = function () {
   return Activities.find(Session.get("feedFilter")).count();
-}
-
-var feedInsertedEvent = null;
-
-this.setupFeedInserted = function () {
-  feedInsertedEvent = function(event){
-    if (event.animationName == 'feedInserted') {
-      $(".feed-list").removeClass("faded");
-    }
-  } 
-  document.addEventListener('animationstart', feedInsertedEvent, false);
-  document.addEventListener('MSAnimationStart', feedInsertedEvent, false);
-  document.addEventListener('webkitAnimationStart', feedInsertedEvent, false);
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -336,15 +313,7 @@ setFeedCommentsNotice = function (template) {
 // Feed Map
 
 Template.feedMap.rendered = function() {
-  // See hack here: http://jsfiddle.net/Zzw2M/33/light/
-  event = function(event){
-    if (event.animationName == 'mapInserted') {
-      setupMap();
-    }
-  } 
-  document.addEventListener('animationstart', event, false);
-  document.addEventListener('MSAnimationStart', event, false);
-  document.addEventListener('webkitAnimationStart', event, false);
+  setupMap();
 };
 
 Template.feedMap.destroyed = function() {
@@ -359,37 +328,84 @@ setupMap = function () {
     gmaps.initialize();
 
   Deps.autorun(function() {
-    var group = Groups.findOne(Session.get("feedFilter"));
+    logIfDev("[+] Autorun Map Deps...");
+
     var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}}).fetch();
     gmaps.clearMarkers();
+  
+    if (recentActivities.length > 0) {
+      logIfDev("[+] Processing Map Data...");
 
-    logIfDev("[+] Processing Map Data...");
-    
-    _.each(recentActivities, function(activity) {
-      if (typeof activity.lat !== 'undefined' &&
-          typeof activity.lng !== 'undefined') {
+      _.each(recentActivities, function(activity) {
+        if (typeof activity.lat !== 'undefined' &&
+            typeof activity.lng !== 'undefined') {
 
-        var objMarker = {
-          id: activity._id,
-          lat: activity.lat,
-          lng: activity.lng,
-          type: activity.type
-          // title: acvtivity.name
-        };
+          var objMarker = {
+            id: activity._id,
+            lat: activity.lat,
+            lng: activity.lng,
+            type: activity.type
+            // title: acvtivity.name
+          };
 
-        // check if marker already exists
-        if (!gmaps.markerExists('id', objMarker.id)) {
-          gmaps.addMarker(objMarker);
-
-          gmaps.calcBounds();
+          // check if marker already exists
+          if (!gmaps.markerExists('id', objMarker.id)) {
+            gmaps.addMarker(objMarker);
+          }
         }
-      }
-    });
+      });
+      gmaps.calcBounds();
+    }
   });
 }
 
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Gallery
+
+var setupGallery = function () {
+
+  Deps.autorun(function() {
+    logIfDev("Loading Feed Gallery");
+
+    var group = Groups.findOne(Session.get("groupId"));
+    // NOTE: this needs work. shouldn't always assume skip limit is max loaded
+    var limit = galleryLimitSkip;
+    var offset = Session.get("galleryLimit") - limit;
+
+    var self = this;
+    $(".gallery-more a").addClass("disabled");
+
+    if (_.isObject(group.trovebox)) {
+      var params = $.extend({}, group.trovebox);
+
+      if (Session.get("feedFilter").country)
+        params.tags = Session.get("feedFilter").country;
+
+      trovebox.albumSearch(params, function(data) {
+        if (_.isEmpty(data)) {
+          $(".feed-extra").addClass("no-photos");
+        } else {
+          $(".feed-extra").removeClass("no-photos");
+          processFeedPhotos(data, offset, ".recent-photos");
+        }
+      });            
+    } else if (group.picasaUsername) {
+      var params = {};
+
+      if (_.isString(group.picasaKey) && group.picasaKey.length)
+        params.authkey = group.picasaKey;
+
+      if (Session.get("galleryLimit") > limit)
+        params["start-index"] = offset;
+
+      picasa.setOptions({
+        max: limit
+      }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
+        processFeedPhotos(data, offset, ".recent-photos");
+      });
+    } 
+  });
+};
 
 var processFeedPhotos = function (data, offset, galleryContainer) {
   if (offset > 0 && Galleria.length) { // Append data to existing gallery
@@ -448,6 +464,10 @@ var processFeedPhotos = function (data, offset, galleryContainer) {
   }
 };
 
+Template.feedGallery.rendered = function() {
+  setupGallery();
+};
+
 Template.feedGallery.events({
   "click .gallery-more a": function () {
     if ($(".gallery-more a").hasClass("disabled"))
@@ -463,45 +483,7 @@ Template.feedGallery.events({
 
 Template.feedGallery.helpers({
   gallery: function () {
-    var group = Groups.findOne(Session.get("groupId"));
-    // NOTE: this needs work. shouldn't always assume skip limit is max loaded
-    var limit = galleryLimitSkip;
-    var offset = Session.get("galleryLimit") - limit;
-
-    var self = this;
-    $(".gallery-more a").addClass("disabled");
-
-    if (_.isObject(group.trovebox)) {
-      var params = $.extend({}, group.trovebox);
-
-      if (Session.get("feedFilter").country)
-        params.tags = Session.get("feedFilter").country;
-
-      trovebox.albumSearch(params, function(data) {
-        if (_.isEmpty(data)) {
-          $(".feed-extra").addClass("no-photos");
-        } else {
-          $(".feed-extra").removeClass("no-photos");
-          processFeedPhotos(data, offset, ".recent-photos");
-        }
-      });            
-    } else if (group.picasaUsername) {
-      var params = {};
-
-      if (_.isString(group.picasaKey) && group.picasaKey.length)
-        params.authkey = group.picasaKey;
-
-      if (Session.get("galleryLimit") > limit)
-        params["start-index"] = offset;
-
-      picasa.setOptions({
-        max: limit
-      }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
-        processFeedPhotos(data, offset, ".recent-photos");
-      });
-    } 
-
-    return new Handlebars.SafeString("<p class=\"alert-box\">Loading photos...</p>");
+    return new Handlebars.SafeString("<p class=\"alert-box\"></p>");
   }
 });
 
@@ -524,7 +506,7 @@ Template.feedGallery.hasGallery = function () {
   if (!group) {
     return false
   } else {
-    return !!group.picasaUsername || _.isObject(group.trovebox)
+    return _.isObject(group.trovebox) || !!group.picasaUsername
   }
 };
 
@@ -563,111 +545,3 @@ var recentActivitiesMap = function() {
 
   return imageUrl;
 };
-
-// var generateActivitesMap = function(group, elementSelector, activities) {
-//   // exit if google not defined
-//   if (!_.isObject(window.google))
-//     return false;
-
-//   // load default group if only string passed to function
-//   if(typeof group === "string" && typeof elementSelector === "undefined") {
-//     group = getCurrentGroup();
-//   } else if(typeof elementSelector === "undefined" && typeof elementSelector === "undefined") {
-//     console.log("No group or container element defined!");
-//     return false;
-//   }
-
-//   if(!_.isObject(group)) {
-//     console.log("No current group defined!");
-//     return false;
-//   }
-
-//   var element = $(elementSelector)[0];
-//   if(typeof element === "undefined")
-//     return false;
-
-//   if(typeof activities === "undefined")
-//     activities = Activities.find({group: group._id});
-
-//   var locations = [];
-//   var index = 1;
-//   var iconUrl = "http://mt.google.com/vt/icon?psize=27&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/%s&ax=43&ay=50&text=•&scale=2"
-
-//   var icons = {
-//     short: {
-//       url: iconUrl.replace("%s", "spotlight-waypoint-a.png"),
-//       scaledSize: new google.maps.Size(20, 35)
-//     },
-//     story: {
-//       url: iconUrl.replace("%s", "spotlight-waypoint-b.png"),
-//       scaledSize: new google.maps.Size(20, 35)
-//     }
-//   }
-
-//   activities.forEach( function (activity) {
-//     var lat = parseFloat(activity.lat);
-//     var lng = parseFloat(activity.lng);
-
-//     // if(!isNaN(lat) && !isNaN(lng)) {
-//       var text = "";
-//       if(activity.type == "short")
-//         text = activity.text;
-
-//       locations.push(
-//         {
-//           lat: activity.lat, 
-//           lng: activity.lng, 
-//           text: text, 
-//           type: activity.type, 
-//           activityId: activity._id, 
-//           index: index
-//         }
-//       );
-//       index+=1;
-//     // }
-//   });
-
-
-//   dashboardMap = new google.maps.Map(element, {
-//     mapTypeId: google.maps.MapTypeId.ROADMAP
-//   });
-
-//   dashboardMapBounds = new google.maps.LatLngBounds();
-//   // var infowindow = new google.maps.InfoBox();
-
-//   var marker, i;
-
-//   for (i = 0; i < locations.length; i++) {
-//     var lat = locations[i].lat,
-//         lng = locations[i].lng;
-    
-//     if (_.isEmpty(lat) || _.isEmpty(lng))
-//       continue;
-
-//     var latLng = new google.maps.LatLng(lat, lng);
-
-//     marker = new google.maps.Marker({
-//       position: latLng,
-//       map: dashboardMap,
-//       icon: icons[locations[i].type],
-//       optimized: false,
-//       flat: true
-//     });
-    
-//     google.maps.event.addListener(marker, 'click', (function(marker, i) {
-//       return function() {
-//         var location = locations[i];
-//         var activity = Activities.findOne(location.activityId);
-
-//         if(location.type === "story") {
-//           Router.setActivity(activity);
-//         } else {
-//           Router.setPermaActivity(activity);
-//         }
-//       }
-//     })(marker, i));
-
-//     dashboardMapBounds.extend(latLng);
-//   }
-//   dashboardMap.fitBounds(dashboardMapBounds);
-// };

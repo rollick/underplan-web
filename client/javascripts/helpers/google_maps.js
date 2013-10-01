@@ -89,7 +89,7 @@ gmaps = {
 
         // initialize the map
     initialize: function() {
-      console.log("[+] Intializing Google Maps...");
+      logIfDev("[+] Intializing Google Maps...");
 
       var mapOptions = {
         zoom: 12,
