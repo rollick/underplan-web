@@ -1453,7 +1453,6 @@ blockquote p {
 /* line 185, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group a {
   font-size: 1em;
-  height: 45px !important;
   float: right;
 }
 /* line 190, ../../sass/app/home.scss */
