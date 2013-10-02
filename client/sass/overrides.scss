@@ -16,9 +16,13 @@
   width: inherit; 
 }
 
+.galleria-counter {
+  z-index: 2;
+}
+
 .galleria-info {
   position: absolute;
-  bottom: 80px;
+  bottom: 10px;
   left: 0px;
   top: auto;
   width: 100%;
@@ -26,12 +30,30 @@
   z-index: 1;
   
   .galleria-info-text {
-    background-color: rgba(0, 0, 0, 0.2);
+    background-color: rgba(0, 0, 0, 0.4);
     padding: 0.5em;
     text-align: center;
+    display: block;
+  }
+
+  .galleria-info-link {
+    display: none;
+    position: absolute;
+    right: 5px;
+    bottom: 5px;
+  }
+
+  .galleria-info-close {
+    display: block;
+    position: absolute;
+    right: 10px;
+    top: 12px;
   }
 
   .galleria-info-title {
     margin-bottom: 0em;
+    font-family: inherit;
+    font-size: 1em;
+    font-weight: normal;
   }
 }

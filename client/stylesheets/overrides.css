@@ -20,22 +20,45 @@
 }
 
 /* line 19, ../sass/overrides.scss */
+.galleria-counter {
+  z-index: 2;
+}
+
+/* line 23, ../sass/overrides.scss */
 .galleria-info {
   position: absolute;
-  bottom: 80px;
+  bottom: 10px;
   left: 0px;
   top: auto;
   width: 100%;
   padding: 0px;
   z-index: 1;
 }
-/* line 28, ../sass/overrides.scss */
+/* line 32, ../sass/overrides.scss */
 .galleria-info .galleria-info-text {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: rgba(0, 0, 0, 0.4);
   padding: 0.5em;
   text-align: center;
+  display: block;
 }
-/* line 34, ../sass/overrides.scss */
+/* line 39, ../sass/overrides.scss */
+.galleria-info .galleria-info-link {
+  display: none;
+  position: absolute;
+  right: 5px;
+  bottom: 5px;
+}
+/* line 46, ../sass/overrides.scss */
+.galleria-info .galleria-info-close {
+  display: block;
+  position: absolute;
+  right: 10px;
+  top: 12px;
+}
+/* line 53, ../sass/overrides.scss */
 .galleria-info .galleria-info-title {
   margin-bottom: 0em;
+  font-family: inherit;
+  font-size: 1em;
+  font-weight: normal;
 }
