@@ -1,3 +1,30 @@
+Meteor.methods({
+  loginGoogle: function(googleUser, accessToken) {
+    check(googleUser, Object);
+    check(accessToken, String);
+    
+    var options, serviceData, userId;
+    serviceData = {
+      id: googleUser.id,
+      accessToken: accessToken,
+      email: googleUser.email
+    };
+
+    options = {
+      profile: {
+        name: googleUser.name
+      }
+    };
+    
+    var userId = Accounts.updateOrCreateUserFromExternalService('google', serviceData, options).id;
+    if (userId) {
+      this.setUserId(userId);
+    }
+
+    return {userId: userId};
+  }
+});
+
 var setupAdmins = function () {
   var settings = Meteor.settings;
 

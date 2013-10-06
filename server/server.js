@@ -55,11 +55,8 @@ var getActivityConditons = function (groupId, userId) {
   return activityConds;
 }
 
-Meteor.publish("directory", function () {
-  logIfDev("Publishing 'directory'");
-
-  return Meteor.users.find({}, {
-    fields: {
+var standardUserFields = function () {
+  return {
       "createdAt": 1, 
       "admin": 1,
       // The profile fields below will be published for all 
@@ -72,7 +69,14 @@ Meteor.publish("directory", function () {
       "services.github.id": 1,
       "services.twitter.id": 1,
       "services.facebook.id": 1
-    }
+    };
+}
+
+Meteor.publish("directory", function () {
+  logIfDev("Publishing 'directory'");
+
+  return Meteor.users.find({}, {
+    fields: standardUserFields()
   });
 });
 
@@ -84,10 +88,10 @@ Meteor.publish("userDetails", function () {
   return this.userId &&
     Meteor.users.find(this.userId,
                       {
-                        fields: {
+                        fields: _.extend(standardUserFields(), {
                           "profile.email": 1,
                           "profile.followedGroups": 1,
-                        }
+                        })
                       }
                     );
 });
@@ -119,6 +123,7 @@ Meteor.publish("basicActivityData", function (groupId) {
 });
 
 // Feed activities with only the necessary fields included and
+
 // limited by the feed items count
 Meteor.publish("feedActivities", function (options) {
   check(options, Object);
@@ -126,6 +131,7 @@ Meteor.publish("feedActivities", function (options) {
   check(options["groupId"], String);
 
   logIfDev("Publishing 'feedActivities': " + JSON.stringify(options));
+  logIfDev("Current User Id: " + this.userId);
 
   var activityConds = getActivityConditons(options.groupId, this.userId);
 
