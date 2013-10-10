@@ -98,7 +98,8 @@
             thumb: photo.photo104x104[1] > 3*photo.photo104x104[2] ? photo.path320x320 : photo.path104x104,
             image: photo.path640x640,
             big: photo.pathBase,
-            title: photo.description
+            title: photo.title,
+            description: photo.description
           });
         }
 
