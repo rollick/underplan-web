@@ -1,5 +1,25 @@
 // Underplan -- server
 
+Meteor.startup(function () {
+  // Browser policies:
+  // Script:
+  BrowserPolicy.content.allowInlineScripts();
+  BrowserPolicy.content.allowEval();
+  BrowserPolicy.content.allowScriptOrigin("http://cdn.mxpnl.com");
+  BrowserPolicy.content.allowScriptOrigin("http://maps.google.com");
+  BrowserPolicy.content.allowScriptOrigin("http://maps.gstatic.com");
+  BrowserPolicy.content.allowScriptOrigin("http://maps.googleapis.com");
+  // Style:  
+  BrowserPolicy.content.allowStyleOrigin("http://fonts.googleapis.com");
+  // Image:
+  // BrowserPolicy.content.allowImageOrigin("https://profiles.google.com/");
+  // BrowserPolicy.content.allowImageOrigin("https://lh3.googleusercontent.com");
+  // BrowserPolicy.content.allowImageOrigin("http://maps.googleapis.com");
+  BrowserPolicy.content.allowImageOrigin("*");
+  // Font
+  BrowserPolicy.content.allowFontOrigin("http://themes.googleusercontent.com");
+});
+
 this.isDev = function () {
   return Meteor.settings.public.env == "dev";
 }
