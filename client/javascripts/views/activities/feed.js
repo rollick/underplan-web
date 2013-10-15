@@ -435,7 +435,7 @@ var setupGallery = function () {
     var self = this;
     $(".gallery-more a").addClass("disabled");
 
-    if (_.isObject(group.trovebox)) {
+    if (group && _.isObject(group.trovebox)) {
       var params = $.extend({}, group.trovebox);
 
       if (Session.get("feedFilter").country)
@@ -450,7 +450,7 @@ var setupGallery = function () {
           processFeedPhotos(data.reverse(), offset, ".recent-photos");
         }
       });            
-    } else if (group.picasaUsername) {
+    } else if (group && group.picasaUsername) {
       var params = {};
 
       if (_.isString(group.picasaKey) && group.picasaKey.length)
