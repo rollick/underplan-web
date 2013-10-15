@@ -38,7 +38,7 @@ Template.subNav.events({
     if(! targetElem.hasClass("all")) {
       $.extend(filter, {country: targetElem.text()});
     }
-    logIfDev("[+] FeedFilter set here (3)");
+    logIfDev("FeedFilter set here (3)");
     Session.set("feedFilter", filter);
     Session.set("feedLimit", feedLimitSkip);
 

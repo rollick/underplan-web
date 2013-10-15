@@ -108,7 +108,7 @@ Template.activityFeed.showExtras = function () {
 
 Template.activityFeed.created = function() {
   var filter = Session.get("feedFilter");
-  logIfDev("[+] FeedFilter set here (1)");
+  logIfDev("FeedFilter set here (1)");
   Session.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
   Session.set("galleryLimit", galleryLimitSkip);
 };
@@ -365,12 +365,12 @@ Template.feedMap.rendered = function() {
 };
 
 Template.feedMap.destroyed = function() {
-  logIfDev("[-] Destroying Google Maps...");
+  logIfDev("Destroying Google Maps...");
   Session.set('feedMap', false);
 };
 
 setupMap = function () {
-  logIfDev("[+] Inner Map Rendered...");
+  logIfDev("Inner Map Rendered...");
 
   if (! Session.get('feedMap'))
     gmaps.initialize();
@@ -382,13 +382,13 @@ setupMap = function () {
       });
     }
 
-    logIfDev("[+] Autorun Map Deps...");
+    logIfDev("Autorun Map Deps...");
 
     var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}}).fetch();
     gmaps.clearMarkers();
   
     if (recentActivities.length > 0) {
-      logIfDev("[+] Processing Map Data...");
+      logIfDev("Processing Map Data...");
 
       _.each(recentActivities, function(activity) {
         if (typeof activity.lat !== 'undefined' &&
@@ -425,46 +425,49 @@ var setupGallery = function () {
       });
     }
 
-    logIfDev("Loading Feed Gallery");
+    if (Session.equals("groupId", "")) {
+      logIfDev("Loading Feed Gallery");
 
-    var group = Groups.findOne(Session.get("groupId"));
-    // NOTE: this needs work. shouldn't always assume skip limit is max loaded
-    var limit = galleryLimitSkip;
-    var offset = Session.get("galleryLimit") - limit;
+      var group = Groups.findOne(Session.get("groupId"));
 
-    var self = this;
-    $(".gallery-more a").addClass("disabled");
+      // NOTE: this needs work. shouldn't always assume skip limit is max loaded
+      var limit = galleryLimitSkip;
+      var offset = Session.get("galleryLimit") - limit;
 
-    if (group && _.isObject(group.trovebox)) {
-      var params = $.extend({}, group.trovebox);
+      var self = this;
+      $(".gallery-more a").addClass("disabled");
 
-      if (Session.get("feedFilter").country)
-        params.tags = Session.get("feedFilter").country;
+      if (_.isObject(group.trovebox)) {
+        var params = $.extend({}, group.trovebox);
 
-      troveboxGallery.albumSearch(params, function(data) {
-        if (_.isEmpty(data)) {
-          $(".feed-extra").addClass("no-photos");
-        } else {
-          $(".feed-extra").removeClass("no-photos");
-          // reverse the order to get newest to oldest and then process gallery
+        if (Session.get("feedFilter").country)
+          params.tags = Session.get("feedFilter").country;
+
+        troveboxGallery.albumSearch(params, function(data) {
+          if (_.isEmpty(data)) {
+            $(".feed-extra").addClass("no-photos");
+          } else {
+            $(".feed-extra").removeClass("no-photos");
+            // reverse the order to get newest to oldest and then process gallery
+            processFeedPhotos(data.reverse(), offset, ".recent-photos");
+          }
+        });            
+      } else if (group.picasaUsername) {
+        var params = {};
+
+        if (_.isString(group.picasaKey) && group.picasaKey.length)
+          params.authkey = group.picasaKey;
+
+        if (Session.get("galleryLimit") > limit)
+          params["start-index"] = offset;
+
+        picasaGallery.setOptions({
+          max: limit
+        }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
           processFeedPhotos(data.reverse(), offset, ".recent-photos");
-        }
-      });            
-    } else if (group && group.picasaUsername) {
-      var params = {};
-
-      if (_.isString(group.picasaKey) && group.picasaKey.length)
-        params.authkey = group.picasaKey;
-
-      if (Session.get("galleryLimit") > limit)
-        params["start-index"] = offset;
-
-      picasaGallery.setOptions({
-        max: limit
-      }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
-        processFeedPhotos(data.reverse(), offset, ".recent-photos");
-      });
-    } 
+        });
+      } 
+    }
   });
 };
 
