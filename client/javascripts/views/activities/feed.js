@@ -446,7 +446,8 @@ var setupGallery = function () {
           $(".feed-extra").addClass("no-photos");
         } else {
           $(".feed-extra").removeClass("no-photos");
-          processFeedPhotos(data, offset, ".recent-photos");
+          // reverse the order to get newest to oldest and then process gallery
+          processFeedPhotos(data.reverse(), offset, ".recent-photos");
         }
       });            
     } else if (group.picasaUsername) {
@@ -461,7 +462,7 @@ var setupGallery = function () {
       picasa.setOptions({
         max: limit
       }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
-        processFeedPhotos(data, offset, ".recent-photos");
+        processFeedPhotos(data.reverse(), offset, ".recent-photos");
       });
     } 
   });
