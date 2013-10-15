@@ -81,7 +81,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.37");
+  Session.set("appVersion", "v1.3.38");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -111,8 +111,8 @@ Galleria.configure({
   imageCrop: false,
   debug: isDev()
 });
-this.picasa = new Galleria.Picasa();
-this.trovebox = new Galleria.Trovebox();
+this.picasaGallery = new Galleria.Picasa();
+this.troveboxGallery = new Galleria.Trovebox();
 this.feedGallery = null;
 
 this.appTemplates = function () {

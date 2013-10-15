@@ -441,7 +441,7 @@ var setupGallery = function () {
       if (Session.get("feedFilter").country)
         params.tags = Session.get("feedFilter").country;
 
-      trovebox.albumSearch(params, function(data) {
+      troveboxGallery.albumSearch(params, function(data) {
         if (_.isEmpty(data)) {
           $(".feed-extra").addClass("no-photos");
         } else {
@@ -459,7 +459,7 @@ var setupGallery = function () {
       if (Session.get("galleryLimit") > limit)
         params["start-index"] = offset;
 
-      picasa.setOptions({
+      picasaGallery.setOptions({
         max: limit
       }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
         processFeedPhotos(data.reverse(), offset, ".recent-photos");
