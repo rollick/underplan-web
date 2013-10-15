@@ -5,19 +5,19 @@ Meteor.startup(function () {
   // Script:
   BrowserPolicy.content.allowInlineScripts();
   BrowserPolicy.content.allowEval();
-  BrowserPolicy.content.allowScriptOrigin("http://cdn.mxpnl.com");
-  BrowserPolicy.content.allowScriptOrigin("http://maps.google.com");
-  BrowserPolicy.content.allowScriptOrigin("http://*.gstatic.com");
-  BrowserPolicy.content.allowScriptOrigin("http://*.googleapis.com");
+  BrowserPolicy.content.allowScriptOrigin("cdn.mxpnl.com");
+  BrowserPolicy.content.allowScriptOrigin("*.google.com");
+  BrowserPolicy.content.allowScriptOrigin("*.gstatic.com");
+  BrowserPolicy.content.allowScriptOrigin("*.googleapis.com");
   // Style:  
-  BrowserPolicy.content.allowStyleOrigin("http://fonts.googleapis.com");
+  BrowserPolicy.content.allowStyleOrigin("fonts.googleapis.com");
   // Image:
   // BrowserPolicy.content.allowImageOrigin("https://profiles.google.com/");
   // BrowserPolicy.content.allowImageOrigin("https://lh3.googleusercontent.com");
   // BrowserPolicy.content.allowImageOrigin("http://maps.googleapis.com");
   BrowserPolicy.content.allowImageOrigin("*");
   // Font
-  BrowserPolicy.content.allowFontOrigin("http://themes.googleusercontent.com");
+  BrowserPolicy.content.allowFontOrigin("themes.googleusercontent.com");
 });
 
 this.isDev = function () {
