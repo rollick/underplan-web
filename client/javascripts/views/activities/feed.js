@@ -425,7 +425,7 @@ var setupGallery = function () {
       });
     }
 
-    if (Session.equals("groupId", "")) {
+    if (Session.get("groupId")) {
       logIfDev("Loading Feed Gallery");
 
       var group = Groups.findOne(Session.get("groupId"));
@@ -566,7 +566,8 @@ Template.feedGallery.picasaGalleryUrl = function () {
 };
 
 Template.feedGallery.hasGallery = function () {
-  var group = Groups.findOne({_id: Session.get("groupId")});
+  var group = Groups.findOne(Session.get("groupId"));
+
   if (!group) {
     return false
   } else {
