@@ -6,7 +6,7 @@ this.isDev = function () {
 
 this.logIfDev = function (message) {
   if(isDev())
-    console.log("[+] Underplan: " + message);
+    console.log("Underplan: " + message);
 }
 
 // Meteor.subscribe("activities");
@@ -51,7 +51,7 @@ Deps.autorun(function () {
     var filter = Session.get("feedFilter") || {};
     if (filter.group !== Session.get("groupId")) {
       filter.group = Session.get("groupId");
-      logIfDev("[+] FeedFilter set here (2)");
+      logIfDev("FeedFilter set here");
       Session.set("feedFilter", filter);
     }
 
@@ -81,7 +81,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.41");
+  Session.set("appVersion", "v1.3.42");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);

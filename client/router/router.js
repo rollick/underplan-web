@@ -204,7 +204,7 @@ var AppRouter = Backbone.Router.extend({
   },
 
   setGroupDefaults: function (groupSlug) {
-    logIfDev("[+] FeedFilter set here (4)");
+    logIfDev("FeedFilter set here (4)");
 
     Session.set("groupSlug", groupSlug);
     Session.set("feedFilter", {});
