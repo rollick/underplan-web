@@ -1415,7 +1415,7 @@ blockquote p {
 }
 /* line 116, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
-  height: 42px;
+  height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
