@@ -5,34 +5,40 @@
   @include standard-item();
 
   .activity.story {
+    margin: 0em;
 
     & > .content {
       padding: 0em;
 
-      @media only screen and (min-width: 48em) {
-        padding: 0.5em;
-        padding-top: 0em;
-      }
+      // @media only screen and (min-width: 48em) {
+      //   padding: 0.5em;
+      //   padding-top: 0em;
+      // }
     
       .header {
         @include grid-column(12);
 
-        padding: 0.5em;
-        padding-top: 0em;
-        padding-bottom: 0em;
+        background-color: lighten($topbar-bg, 30%);
+        padding: 1em;
+        margin-top: 8px;
 
         h2 {
           margin-bottom: 0em;
           line-height: 1.2em;
-          font-size: emCalc(40px);
+          font-size: 2.5em;
+          margin-top: 0em;
+          color: lighten($topbar-bg, 60%);
+        }
+
+        .info-section .details {
+          .owner, .date {
+            color: lighten($topbar-bg, 60%);
+          }
         }
       }
 
-      .info-section {
-        margin-bottom: emCalc(15px) !important;
-      }
-
       & > .content {
+        padding: 1em;
         margin: 0em;
 
         .text {

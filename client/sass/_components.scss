@@ -171,16 +171,14 @@
   .info-section {
     @include grid-column(12);
 
-    @if $fixed-details { height: $info-section-height !important; }
+    @if $fixed-details { height: $info-section-height; }
     font-size: 1em;
     color: black;
-    padding: 0.5em;
-    padding-top: 0em;
 
     .picture {
       float: left;
-      width: $picture-width - 0.4em !important;
-      height: $picture-width - 0.2em !important;
+      width: $picture-width - 0.4em;
+      height: $picture-width - 0.2em;
 
       img {
         @include border-radius($standard-border-size);
@@ -190,7 +188,7 @@
     }
 
     .details {
-      @if $fixed-details { height: $picture-width !important; }
+      @if $fixed-details { height: $picture-width; }
     
       margin-left: $picture-width + 0.2em;
       padding-top: 0.78em;
@@ -207,7 +205,34 @@
         overflow: hidden;
         text-overflow: ellipsis;
       }
-    }    
+    }
+
+    &.small {
+      padding: 0.5em 0em;
+      margin-bottom: 0em;
+
+      .picture {
+        width: 1.9em;
+        height: 1.9em;
+      }
+
+      .details {
+        margin-left: 2.4em;
+
+        .owner {
+          line-height: 1.4em;
+        }
+
+        .date, .owner {
+          float: left;
+        }
+
+        .date:before {
+          content: "-";
+          padding: 0.2em;
+        }
+      }
+    }
   }
 
   .actions {
@@ -286,13 +311,14 @@
     margin-bottom: 0em;
 
     .activity {
+
       @include entry-with-profile(3.3em);
       @include standard-panel-color();
 
       z-index: 90;
       margin-bottom: 0em;
 
-      .content a.more {
+      &.content a.more {
         line-height: 2.2em;
         font-style: italic;
         font-size: 0.9em;
