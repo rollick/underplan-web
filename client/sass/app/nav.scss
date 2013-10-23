@@ -32,6 +32,7 @@
   .country-filter {
     @include grid-row();
 
+    font-family: $header-font-family;
     overflow-x: scroll;
     width:100%;
 
@@ -92,9 +93,13 @@
   }
 }
 
-.top-bar-section ul li > a,
-.top-bar .toggle-topbar.menu-icon a span {
-  font-weight: normal !important;
+.top-bar-section {
+  font-family: $header-font-family;
+
+  ul li > a,
+  .top-bar .toggle-topbar.menu-icon a span {
+    font-weight: normal !important;
+  }
 }
 
 .title-area h1 {

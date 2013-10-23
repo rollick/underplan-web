@@ -6,6 +6,7 @@
 
   .activity.story {
     margin: 0em;
+    margin-top: -1px;
 
     & > .content {
       padding: 0em;
@@ -20,14 +21,14 @@
 
         background-color: lighten($topbar-bg, 30%);
         padding: 1em;
-        margin-top: 8px;
 
         h2 {
           margin-bottom: 0em;
           line-height: 1.2em;
-          font-size: 2.5em;
+          font-size: 2.8em;
+          font-weight: 100;
           margin-top: 0em;
-          color: lighten($topbar-bg, 60%);
+          color: lighten($topbar-bg, 75%);
         }
 
         .info-section .details {

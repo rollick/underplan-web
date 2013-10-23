@@ -174,6 +174,8 @@
     @if $fixed-details { height: $info-section-height; }
     font-size: 1em;
     color: black;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
 
     .picture {
       float: left;
@@ -218,6 +220,7 @@
 
       .details {
         margin-left: 2.4em;
+        font-family: $header-font-family;
 
         .owner {
           line-height: 1.4em;
@@ -229,7 +232,7 @@
 
         .date:before {
           content: "-";
-          padding: 0.2em;
+          padding: 0.3em;
         }
       }
     }
