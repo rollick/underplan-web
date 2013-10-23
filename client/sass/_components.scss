@@ -318,7 +318,7 @@
       z-index: 90;
       margin-bottom: 0em;
 
-      &.content a.more {
+      & > .content a.more {
         line-height: 2.2em;
         font-style: italic;
         font-size: 0.9em;

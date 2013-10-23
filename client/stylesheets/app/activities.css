@@ -1501,13 +1501,13 @@ blockquote p {
   margin-bottom: 0em;
 }
 /* line 321, ../../sass/_components.scss */
-.story-item > .inner .activity.content a.more {
+.story-item > .inner .activity > .content a.more {
   line-height: 2.2em;
   font-style: italic;
   font-size: 0.9em;
 }
 /* line 326, ../../sass/_components.scss */
-.story-item > .inner .activity.content a.more:after {
+.story-item > .inner .activity > .content a.more:after {
   content: "\00a0→";
 }
 /* line 332, ../../sass/_components.scss */
@@ -2272,13 +2272,13 @@ cite:before {
   margin-bottom: 0em;
 }
 /* line 321, ../../sass/_components.scss */
-.map-info > .inner .activity.content a.more {
+.map-info > .inner .activity > .content a.more {
   line-height: 2.2em;
   font-style: italic;
   font-size: 0.9em;
 }
 /* line 326, ../../sass/_components.scss */
-.map-info > .inner .activity.content a.more:after {
+.map-info > .inner .activity > .content a.more:after {
   content: "\00a0→";
 }
 /* line 332, ../../sass/_components.scss */
