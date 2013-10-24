@@ -1317,11 +1317,11 @@ blockquote p {
 }
 /* line 185, ../../sass/_components.scss */
 .comment .info-section .picture img {
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  -ms-border-radius: 1px;
-  -o-border-radius: 1px;
-  border-radius: 1px;
+  -webkit-border-radius: 1.55em;
+  -moz-border-radius: 1.55em;
+  -ms-border-radius: 1.55em;
+  -o-border-radius: 1.55em;
+  border-radius: 1.55em;
   margin-top: 8px;
 }
 /* line 192, ../../sass/_components.scss */
@@ -1517,11 +1517,11 @@ blockquote p {
 }
 /* line 185, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .info-section .picture img {
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  -ms-border-radius: 1px;
-  -o-border-radius: 1px;
-  border-radius: 1px;
+  -webkit-border-radius: 1.55em;
+  -moz-border-radius: 1.55em;
+  -ms-border-radius: 1.55em;
+  -o-border-radius: 1.55em;
+  border-radius: 1.55em;
   margin-top: 8px;
 }
 /* line 192, ../../sass/_components.scss */

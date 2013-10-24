@@ -183,7 +183,7 @@
       height: $picture-width - 0.2em;
 
       img {
-        @include border-radius($standard-border-size);
+        @include border-radius(($picture-width - 0.2em)/2);
           
         margin-top: 8px;
       }
