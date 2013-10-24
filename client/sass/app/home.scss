@@ -113,10 +113,14 @@
           border: 1px solid rgb(51, 50, 50);
           background-color: rgba(48, 48, 48, 0.53) !important;
           cursor: pointer;
-          height: 165px;
           text-align: center;
           padding: emCalc(10px);
           padding-bottom: emCalc(20px);
+          height: 125px;
+
+          @media only screen and (min-width: 48em) {
+            height: 165px;
+          }
           
           a {
             font-size: 1.1em;

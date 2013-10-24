@@ -178,7 +178,7 @@ a img {
 /* line 158, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_type.scss */
 p {
   font-family: inherit;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 1em;
   line-height: 1.6;
   margin-bottom: 1.25em;
@@ -1383,22 +1383,28 @@ blockquote p {
   border: 1px solid #333232;
   background-color: rgba(48, 48, 48, 0.53) !important;
   cursor: pointer;
-  height: 165px;
   text-align: center;
   padding: 0.625em;
   padding-bottom: 1.25em;
+  height: 125px;
 }
-/* line 121, ../../sass/app/home.scss */
+@media only screen and (min-width: 48em) {
+  /* line 112, ../../sass/app/home.scss */
+  .dashboard .groups .list .group .panel {
+    height: 165px;
+  }
+}
+/* line 125, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel a {
   font-size: 1.1em;
   line-height: 1.4em;
 }
-/* line 126, ../../sass/app/home.scss */
+/* line 130, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel p {
   font-size: 0.9em;
   color: white;
 }
-/* line 131, ../../sass/app/home.scss */
+/* line 135, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .started {
   position: absolute;
   bottom: 10px;
@@ -1407,23 +1413,23 @@ blockquote p {
   z-index: 9;
   width: 150px;
 }
-/* line 139, ../../sass/app/home.scss */
+/* line 143, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .started i, .dashboard .groups .list .group .panel .started p {
   line-height: 16px;
   color: gray;
 }
-/* line 144, ../../sass/app/home.scss */
+/* line 148, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .started p {
   font-size: 0.8em;
   padding-left: 5px;
   float: left;
 }
-/* line 150, ../../sass/app/home.scss */
+/* line 154, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .started i {
   font-size: 0.9em;
   float: left;
 }
-/* line 156, ../../sass/app/home.scss */
+/* line 160, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group {
   text-align: right;
   bottom: 25px;
@@ -1431,7 +1437,7 @@ blockquote p {
   position: absolute;
   z-index: 10;
 }
-/* line 166, ../../sass/app/home.scss */
+/* line 170, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group .text {
   line-height: 18px;
   font-size: 0.9em;
@@ -1441,33 +1447,33 @@ blockquote p {
   overflow: hidden;
   padding-right: 5px;
 }
-/* line 175, ../../sass/app/home.scss */
+/* line 179, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group .text:before {
   content: 'Bye, bye';
   white-space: nowrap;
 }
-/* line 180, ../../sass/app/home.scss */
+/* line 184, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group .text.follow:before {
   content: 'Follow';
   color: rgba(255, 255, 0, 0.7);
 }
-/* line 186, ../../sass/app/home.scss */
+/* line 190, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group a {
   font-size: 1em;
   float: right;
 }
-/* line 191, ../../sass/app/home.scss */
+/* line 195, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group a:before {
   color: rgba(255, 255, 255, 0.3);
   line-height: 18px;
   background-position: 4px 4px;
   background-size: 28px;
 }
-/* line 198, ../../sass/app/home.scss */
+/* line 202, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group a.followed:before {
   color: rgba(255, 255, 0, 0.7);
 }
-/* line 207, ../../sass/app/home.scss */
+/* line 211, ../../sass/app/home.scss */
 .dashboard .groups .actions {
   width: auto;
   margin-left: -0.9375em;
@@ -1491,12 +1497,12 @@ blockquote p {
   clear: both;
 }
 @media only screen and (min-width: 48em) {
-  /* line 207, ../../sass/app/home.scss */
+  /* line 211, ../../sass/app/home.scss */
   .dashboard .groups .actions {
     margin-top: 110px;
   }
 }
-/* line 219, ../../sass/app/home.scss */
+/* line 223, ../../sass/app/home.scss */
 .dashboard .groups .actions > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1504,12 +1510,12 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 222, ../../sass/app/home.scss */
+/* line 226, ../../sass/app/home.scss */
 .dashboard .groups .actions > .inner .button.large {
   font-size: 1em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 222, ../../sass/app/home.scss */
+  /* line 226, ../../sass/app/home.scss */
   .dashboard .groups .actions > .inner .button.large {
     font-size: 1.25em;
   }
