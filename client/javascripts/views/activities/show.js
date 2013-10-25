@@ -88,10 +88,6 @@ Template.currentActivity.creatorName = function () {
   return displayName(owner);
 };
 
-Template.currentActivity.canEdit = function () {
-  return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
-};
-
 ///////////////////////////////////////////////////////////////////////////////
 // Activity Controls
 
@@ -140,6 +136,22 @@ Template.activityControls.previousActivity = function () {
 // Used to alter layout in template for photo-centered view
 
 Template.storyContent.helpers({
+  wikiContent: function () {
+    var domain = "http://www.dbpedialite.org";
+    var activity = Activities.findOne(Session.get("activityId"));
+
+    $.ajax({
+      url: domain + "/things/" + activity.wikipediaId + ".jsonld",
+      type: 'get',
+      dataType: 'json',
+      success: function( data, response ) {
+        var link = $("<cite />").html($("<a />").html("Wikipedia").attr("target", "_blank").attr("href", data["@graph"][0]["@id"]));
+        $(".wiki").html(data["@graph"][1]["rdfs:comment"]).append(link);
+      }
+    });
+
+    return new Handlebars.SafeString("<blockquote class=\"wiki\">Loading wiki...</blockquote>");
+  },
   gallery: function () {
     var group = Groups.findOne(Session.get("groupId"));
     var activity = Activities.findOne(Session.get("activityId"));
@@ -190,6 +202,10 @@ Template.storyContent.helpers({
     return new Handlebars.SafeString("<p class=\"alert-box clear\">Loading photos...</p>");
   }
 });
+
+Template.storyContent.canEdit = function () {
+  return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
+};
 
 Template.storyContent.canRemove = function () {
   return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
@@ -252,6 +268,12 @@ Template.storyContent.hasPhotos = function () {
 
 Template.storyContent.dateCreated = function () {
   return formattedDate(this.created);
+};
+
+Template.storyContent.hasWiki = function () {
+  var activity = this;
+
+  return _.isString(activity.wikipediaId) && activity.wikipediaId.length > 0
 };
 
 Template.storyContent.photoShow = function () {

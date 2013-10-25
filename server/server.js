@@ -299,6 +299,8 @@ Meteor.publish("activityShow", function (activityId) {
       created: 1,
       updated: 1,
       picasaTags: 1,
+      wikipediaSearch: 1,
+      wikipediaId: 1,
       type: 1,
       city: 1,
       region: 1,

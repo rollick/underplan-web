@@ -34,6 +34,7 @@ $row-width:                 emCalc(720px);
 $header-font-family:        'Raleway', sans-serif;
 $base-line-height:          150% !default;
 $topbar-bg:                 #111;
+$secondary-navbar-bg:		lighten($topbar-bg, 15%);
 $label-font-color:          lighten(#000, 30%);
 $body-font-family:          'Open Sans', Arial, sans-serif;
 $body-font-weight: 			300;

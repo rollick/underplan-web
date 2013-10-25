@@ -250,6 +250,10 @@
     right: 0em;
     display: none;
 
+    &.show {
+      display: block;
+    }
+
     a.action {
       width: 2em;
       height: 2em;
@@ -263,7 +267,19 @@
 
         &:before {
           content: "X";
-          color: lighten($warning-color, 50%);
+          color: lighten($warning-color, 25%);
+        }
+      }
+
+      &.edit {
+        padding-left: 0.7em;
+        padding-top: 0.5em;
+        background-color: $secondary-navbar-bg;
+
+        &:before {
+          content: "Edit";
+          font-weight: normal;
+          color: lighten($secondary-navbar-bg, 50%);
         }
       }
     }

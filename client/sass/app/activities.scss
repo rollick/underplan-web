@@ -8,6 +8,20 @@
     margin: 0em;
     margin-top: -1px;
 
+    .actions {
+      right: -1em !important;
+
+      .action.edit {
+        width: 3.3em !important;        
+      }
+    }
+
+    .alert-box {
+      margin-bottom: 0em;
+      border-width: 0px;
+      margin-top: 0em;
+    }
+
     & > .content {
       padding: 0em;
 
@@ -118,7 +132,24 @@ cite:before {
 // For google+ share link
 .pac-container {
   &:after {
-    content: "";
+    content: none !important;;
+  }
+
+  .pac-item {
+    text-decoration: none;
+    display: block;
+    padding: 2px .4em;
+    line-height: 1.5;
+    min-height: 0; /* support: IE7 */
+    font-weight: normal;
+
+    &:hover {
+      border: 1px solid #999999;
+      background: #dadada;
+      font-weight: normal;
+      color: #212121;
+      margin: -1px;
+    }
   }
 }
   
@@ -130,11 +161,6 @@ cite:before {
 
   & > div {
     float: right;
-  }
-
-  .pac-item {
-    font-size: 0.8em;
-    padding: 4px;
   }
 
   .fb-share {

@@ -153,14 +153,16 @@ var getStoryValues = function(template) {
   //     values.created = created;
   // }
 
-  values.title =        template.find("#title").value;
-  values.text =         template.find("#text").value;
-  values.location =     template.find("#location").value;
-  values.published =    template.find("#published").checked;
-  values.slug =         template.find("#slug").value;
-  values.picasaTags =   template.find("#picasa-tags").value;
-  values.mapZoom =      template.find("#map-zoom").value;
-  values.groupId =      getCurrentGroupId();
+  values.title =            template.find("#title").value;
+  values.text =             template.find("#text").value;
+  values.location =         template.find("#location").value;
+  values.published =        template.find("#published").checked;
+  values.slug =             template.find("#slug").value;
+  values.picasaTags =       template.find("#picasa-tags").value;
+  values.mapZoom =          template.find("#map-zoom").value;
+  values.wikipediaSearch =  template.find("#wikipedia-search").value;
+  values.wikipediaId =      template.find("#wikipedia-id").value;
+  values.groupId =          getCurrentGroupId();
 
   return values;
 }
@@ -168,3 +170,28 @@ var getStoryValues = function(template) {
 Template.storyEditor.error = function () {
   return Session.get("createError");
 };
+
+Template.storyEditor.rendered = function () {
+  var domain = "http://www.dbpedialite.org";
+
+  $("#wikipedia-search").autocomplete({
+    source: domain + "/search.json",
+    select: function(event, ui) {
+      $.ajax({
+        url: domain + "/titles/" + ui["item"]["label"],
+        type: 'get',
+        complete: function( data, response ) {
+          var path = data.responseText.match(/http.*things\/(\d+)/);
+          if (_.isArray(path) && path.length > 1) {
+            $("#wikipedia-id").val(path[1]);
+
+            var link = $("<a />").attr("href", path[0]).
+                                  attr("target", "_blank").
+                                  html(path[0]);
+            $("#wikipedia-url").html(link);
+          }
+        }
+      });
+    }
+  });
+}

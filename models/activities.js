@@ -110,27 +110,31 @@ Meteor.methods({
     var activityId;
 
     if(Meteor.isServer) {
+      console.log(JSON.stringify(options));
+
       activityId = Activities.insert({
-        owner:      this.userId,
-        group:      options.groupId,
-        lat:        options.lat,
-        lng:        options.lng,
-        city:       options.city,
-        region:     options.region,
-        country:    options.country,
-        title:      options.title,
-        text:       options.text,
-        url:        options.url,
-        urlType:    options.urlType,
-        picasaTags: options.picasaTags,
-        tags:       [],
-        created:    options.created,
-        updated:    options.updated,
-        mapZoom:    options.mapZoom,
-        location:   options.location,
-        slug:       options.slug,
-        type:       options.type,
-        published:  !! options.published
+        owner:            this.userId,
+        group:            options.groupId,
+        lat:              options.lat,
+        lng:              options.lng,
+        city:             options.city,
+        region:           options.region,
+        country:          options.country,
+        title:            options.title,
+        text:             options.text,
+        url:              options.url,
+        urlType:          options.urlType,
+        picasaTags:       options.picasaTags,
+        wikipediaSearch:  options.wikipediaSearch,
+        wikipediaId:      options.wikipediaId,
+        tags:             [],
+        created:          options.created,
+        updated:          options.updated,
+        mapZoom:          options.mapZoom,
+        location:         options.location,
+        slug:             options.slug,
+        type:             options.type,
+        published:        !! options.published
       });
 
       options._id = activityId;
@@ -269,6 +273,8 @@ if(Meteor.isServer) {
       "mapZoom", 
       "picasaTags", 
       "published", 
+      "wikipediaSearch",
+      "wikipediaId",
       "slug", 
       "url", 
       "urlType", 

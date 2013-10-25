@@ -66,116 +66,48 @@
 </template>
 
 <template name="storyContent">
-    {{#if canRemove}}
-      <div class="actions">
-        <a href="#" class="remove action"></a>
-      </div>
-    {{/if}}
-    <div class="header">
-      <h2>{{title}}</h2>
-      <div class="info-section small">
-        <div class="picture">
-          <img src="{{profilePicture owner}}">
+  {{#unless published}}<span class="alert-box alert">Unpublished<br /></span>{{/unless}}
+  <div class="header">
+    <h2>{{title}}</h2>
+    <div class="info-section small">
+      {{#if canEdit}}
+        <div class="show actions">
+          <a href="{{slug}}/edit" class="edit action"></a>
         </div>
-        <div class="details">
-          <div class="owner">{{userName owner}}</div>
-          <div class="date">{{dateCreated}}</div>
-        </div>
-      </div>
-    </div>
-    <div class="content">
-      {{#if photoShow}}
-        <div class="text intro">
-          {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
-          {{#markdown}}{{text}}{{/markdown}}
-        </div>
-        {{#if hasPhotos}}
-          <div class="activity-highlight large">
-            {{gallery}}
-          </div>
-        {{/if}}
-      {{else}}
-        {{#if hasPhotos}}
-          <div class="activity-highlight">
-            {{gallery}}
-          </div>
-        {{/if}}
-        <div class="text">
-          {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
-          {{#markdown}}{{text}}{{/markdown}}
-        </div> 
-      {{/if}}             
-      <div itemprop="description" style="display: none">{{textPreview}}</div>
-    </div>
-</template>
-
-<template name="currentActivityOld">
-  {{#if activity}}
-    <div class="activity">
-      {{#with activity}}
-        <div class="story-full" itemscope itemtype="http://schema.org/BlogPosting">
-          <div class="header">
-            <div class="title">
-              <h2 itemprop="name">{{title}}</h2>
-            </div>
-            <div class="actions">
-              {{#if canEdit}}
-                <a href="#" class="small button edit">Edit</a>
-              {{/if}}
-            </div>
-          </div>
-          <div class="content">
-            <div class="inner">
-              {{#if photoShow}}
-                <div class="text intro">
-                  {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
-                  {{#markdown}}{{text}}{{/markdown}}
-                </div>
-                {{#if hasPhotos}}
-                  <div class="activity-highlight large">
-                    {{gallery}}
-                  </div>
-                {{/if}}
-              {{else}}
-                {{#if hasPhotos}}
-                  <div class="activity-highlight">
-                    {{gallery}}
-                  </div>
-                {{/if}}
-                <div class="text">
-                  {{#unless published}}<span class="warning">Unpublished<br /></span>{{/unless}}
-                  {{#markdown}}{{text}}{{/markdown}}
-                </div> 
-              {{/if}}             
-              <cite>{{creatorName}} - {{dateCreated}}</cite>
-              <div itemprop="description" style="display: none">{{textPreview}}</div>
-            </div>
-          </div>
-          {{#if published}}
-            <div class="share-links">
-              <div class="g-plus" data-action="share" data-annotation="none"></div>
-              <div class="fb-share">
-                <a href="{{facebookShareUrl}}" target="_blank">
-                  <i class="foundicon-social-facebook">
-                    <p>Share</p>
-                  </i>
-                </a>
-              </div>
-            </div>
-          {{/if}}
-        </div>
-      {{/with}}
-
-      <div class="story-comments">
-        <div class="inner">
-          {{#if anyComments}}
-            {{> commentList activity}}
-          {{/if}}
-        </div>
-      </div>
-      {{#if currentUser}}
-        {{> commentForm activity}}
       {{/if}}
-    <div>
-  {{/if}}
+      <div class="picture">
+        <img src="{{profilePicture owner}}">
+      </div>
+      <div class="details">
+        <div class="owner">{{userName owner}}</div>
+        <div class="date">{{dateCreated}}</div>
+      </div>
+    </div>
+  </div>
+  <div class="content">
+    {{#if hasWiki}}
+      {{wikiContent}}
+    {{/if}}
+
+    {{#if photoShow}}
+      <div class="text intro">
+        {{#markdown}}{{text}}{{/markdown}}
+      </div>
+      {{#if hasPhotos}}
+        <div class="activity-highlight large">
+          {{gallery}}
+        </div>
+      {{/if}}
+    {{else}}
+      {{#if hasPhotos}}
+        <div class="activity-highlight">
+          {{gallery}}
+        </div>
+      {{/if}}
+      <div class="text">
+        {{#markdown}}{{text}}{{/markdown}}
+      </div> 
+    {{/if}}             
+    <div itemprop="description" style="display: none">{{textPreview}}</div>
+  </div>
 </template>
