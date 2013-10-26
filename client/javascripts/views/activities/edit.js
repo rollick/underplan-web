@@ -24,6 +24,17 @@ Template.storyEditor.events({
     if(event.which === 13)
       event.preventDefault();
   },
+  'keyup #wikipedia-search': function (event, template) {
+    var searchElem = $(template.find("#wikipedia-search"))
+    var search = searchElem.val();
+
+    if (search.length === 0) {
+      template.find("#wikipedia-id").value = "";
+      template.find("#wikipedia-url").innerHTML = "";
+
+      return true;
+    }
+  },
   'keyup #location': function (event, template) {
     var locationElem = $(template.find("#location"))
     var location = locationElem.val();
@@ -80,18 +91,15 @@ Template.storyEditor.events({
     }
 
     var values = getStoryValues(template);
-    if (values.groupId && values.title.length && values.text.length) {
-      Meteor.call('createActivity', values, function (error, activityId) {
-        if (error) {
-          Session.set("createError", error);
-        } else {
-          Router.setActivity(activityId);
-        }
-      });
-    } else {
-      Session.set("createError",
-                  "It needs a title and a story");
-    }
+    // the 
+    Meteor.call('createActivity', values, function (error, activityId) {
+      if (error) {
+        Session.set("createError", error.reason);
+      } else {
+        Router.setActivity(activityId);
+      }
+    });
+
     btns.removeClass("disabled");
     $(document).scrollTop(0);
 
@@ -102,18 +110,13 @@ Template.storyEditor.events({
     var notify = template.find("#notify").checked;
     var values = getStoryValues(template);
 
-    if (values.title.length && values.text.length) {
-      Meteor.call('updateActivity', {notify: notify, activityId: activityId, values: values}, function (error) {
-        if (error) {
-          Session.set("createError", error);
-        } else {
-          Router.setActivity(Activities.findOne(activityId));
-        }
-      });
-    } else {
-      Session.set("createError",
-                  "It needs a title and a story");
-    }
+    Meteor.call('updateActivity', {notify: notify, activityId: activityId, values: values}, function (error) {
+      if (error) {
+        Session.set("createError", error.reason);
+      } else {
+        Router.setActivity(Activities.findOne(activityId));
+      }
+    });
     $(document).scrollTop(0);
 
     return false;
@@ -121,7 +124,7 @@ Template.storyEditor.events({
 });
 
 var getStoryValues = function(template) {
-  values = {};
+  values = {type: "story"};
 
   // Latitude and Longitude
   var lat = template.find("#lat").value;
@@ -177,17 +180,23 @@ Template.storyEditor.rendered = function () {
   $("#wikipedia-search").autocomplete({
     source: domain + "/search.json",
     select: function(event, ui) {
+      // do a jsonp request to work around cross-site scripting issue
       $.ajax({
-        url: domain + "/titles/" + ui["item"]["label"],
-        type: 'get',
-        complete: function( data, response ) {
-          var path = data.responseText.match(/http.*things\/(\d+)/);
-          if (_.isArray(path) && path.length > 1) {
-            $("#wikipedia-id").val(path[1]);
+        url: "http://en.wikipedia.org/w/api.php",
+        data: {action: "query", format: "json", titles: ui["item"]["label"]},
+        type: "get",
+        dataType : "jsonp",
+        success: function( data, response ) {
+          var pageIds = Object.keys(data.query.pages);
 
-            var link = $("<a />").attr("href", path[0]).
+          if (_.isArray(pageIds) && pageIds.length) {
+            $("#wikipedia-id").val(pageIds[0]);
+
+            var pageUrl = "http://en.wikipedia.org/wiki?curid=" + pageIds[0];
+            var link = $("<a />").attr("href", pageUrl).
                                   attr("target", "_blank").
-                                  html(path[0]);
+                                  html(pageUrl);
+
             $("#wikipedia-url").html(link);
           }
         }

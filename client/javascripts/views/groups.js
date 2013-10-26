@@ -112,7 +112,7 @@ Template.groupEditor.events({
       Router.setGroup(Groups.findOne(groupId));
     } else {
       Session.set("createError",
-                  "It needs a title and a story");
+                  "It needs a name and a description");
     }
     return false;
   },

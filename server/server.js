@@ -6,9 +6,15 @@ Meteor.startup(function () {
   BrowserPolicy.content.allowInlineScripts();
   BrowserPolicy.content.allowEval();
   BrowserPolicy.content.allowScriptOrigin("cdn.mxpnl.com");
-  BrowserPolicy.content.allowScriptOrigin("*.google.com");
   BrowserPolicy.content.allowScriptOrigin("*.gstatic.com");
-  BrowserPolicy.content.allowScriptOrigin("*.googleapis.com");
+  BrowserPolicy.content.allowScriptOrigin("http://maps.google.com");
+  BrowserPolicy.content.allowScriptOrigin("https://apis.google.com");
+  BrowserPolicy.content.allowScriptOrigin("http://apis.google.com");
+  BrowserPolicy.content.allowScriptOrigin("https://maps.googleapis.com");
+  BrowserPolicy.content.allowScriptOrigin("http://maps.googleapis.com");
+  BrowserPolicy.content.allowScriptOrigin("http://www.dbpedialite.org");
+  BrowserPolicy.content.allowScriptOrigin("http://en.wikipedia.org");
+
   // Style:  
   BrowserPolicy.content.allowStyleOrigin("fonts.googleapis.com");
   // Image:

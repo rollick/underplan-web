@@ -118,7 +118,7 @@ Template.shortForm.events({
     if (values.groupId && values.text.length) {
       Meteor.call('createActivity', values, function (error, activityId) {
         if (error) {
-          Session.set("createError", error);
+          Session.set("createError", error.reason);
         } else {
           $(template.find("form")).removeClass("expanded");
 

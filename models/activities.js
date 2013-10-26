@@ -60,7 +60,10 @@ Meteor.methods({
     check(options, Object);
 
     // If the title is empty / undefined then this is a short post
-    if ( typeof options.title === "undefined" || ( typeof options.title === "string" && !options.title.length ) ) {
+    if (_.isEmpty(options.type)) {
+
+    }
+    if ( options.type == "short" || _.isEmpty(options.title) ) {
       options.type = "short";
       options.published = true;
     } else {
@@ -170,18 +173,6 @@ Meteor.methods({
   }
 });
 
-var activityType = function (activity) {
-  if (typeof activity.urlType === "string" && activity.urlType.length) {
-    return activity.urlType;
-  } else if ( typeof activity.title === "string" && activity.title.length && typeof activity.text === "string" && activity.text.length ) {
-    return "story";
-  } else if ( typeof activity.lat === "float" && typeof activity.lng === "float" && typeof activity.description === "undefined" ) {
-    return "location";
-  } else {
-    return "undefined";
-  }
-};
-
 /////////////////////////////////////
 // Server and Client Methods
 
@@ -194,16 +185,38 @@ this.canUserRemoveActivity = function (userId, activityId) {
 
 ////////////////////////////////////
 // Client Methods
+var activityBasicCheck = function (activity) {
+  if (activity.type == "story" && _.isEmpty(activity.title))
+    throw new Meteor.Error(403, "Story needs a title");
+
+  if (! activity.groupId && !activity.group)
+    throw new Meteor.Error(403, "Activity must belong to a group");
+
+  if (typeof activity.title === "string" && activity.title.length > 100)
+    throw new Meteor.Error(413, "Title too long");
+
+  if (typeof activity.text === "string" && activity.text.length > 10000)
+    throw new Meteor.Error(413, "Text too long");
+
+  if (_.isEmpty(activity.text) && _.isEmpty(activity.wikipediaId))
+    throw new Meteor.Error(413, "Story or Wikipedia page required");
+}
+
 if(Meteor.isClient) {
+  var checkUpdateActivity = function(userId, activityId, fields) {
+    var activity = Activities.findOne(activityId);
+
+    if (!activity)
+      throw new Meteor.Error(404, "Activity could not be found");
+
+    activityBasicCheck(fields);
+  };
+
   var checkCreateActivity = function(userId, options) {
     if (options.type == "story" && Activities.find({slug: options.slug, group: options.groupId}).count() > 0)
       throw new Meteor.Error(403, "Slug is already taken.");
 
-    if (typeof options.title === "string" && options.title.length > 100)
-      throw new Meteor.Error(413, "Title too long");
-
-    if (typeof options.text === "string" && options.text.length > 10000)
-      throw new Meteor.Error(413, "Text too long");
+    activityBasicCheck(options);
   }
 
   // Just a stub for the client. See isServer section for actual code.
@@ -230,18 +243,14 @@ if(Meteor.isServer) {
     if (options.type == "story" && Activities.find({slug: options.slug, group: options.groupId}).count() > 0)
       throw new Meteor.Error(403, "Slug is already taken.");
 
-    if (typeof options.title === "string" && options.title.length > 100)
-      throw new Meteor.Error(413, "Title too long");
-
-    if (typeof options.text === "string" && options.text.length > 10000)
-      throw new Meteor.Error(413, "Text too long");
-
-    if (! options.groupId)
-      throw new Meteor.Error(403, "Activity must belong to a group");
+    activityBasicCheck(options);
     
     var group =  Groups.findOne(options.groupId);
     if (! userBelongsToGroup(userId, group._id))
       throw new Meteor.Error(403, "You must be a member of " + group.name);
+
+    if (_.isEmpty(options.text) && _.isEmpty(options.wikipediaId))
+      throw new Meteor.Error(413, "It needs a story or Wikipedia page");
   }
 
   var checkUpdateActivity = function(userId, activityId, fields) {
@@ -249,6 +258,8 @@ if(Meteor.isServer) {
 
     if (!activity)
       throw new Meteor.Error(404, "Activity could not be found");
+
+    activityBasicCheck(fields);
 
     var admin = isGroupAdmin(userId, activity.group);
 

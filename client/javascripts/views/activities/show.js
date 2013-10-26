@@ -279,11 +279,15 @@ Template.storyContent.hasWiki = function () {
 Template.storyContent.photoShow = function () {
   var activity = this;
 
-  if (!activity.text)
-    return false;
+  if (!_.isEmpty(activity.picasaTags)) {
+    // show larger gallery if there is no story but there is a 
+    // wikipedia article set
+    if (_.isEmpty(activity.text) && activity.wikipediaId)
+      return true;
 
-  if (activity.text.length < shortMaxLength && !_.isEmpty(activity.picasaTags)) {
-    return true;
+    // Or if there is a story text but it is short
+    if (activity.text.length < shortMaxLength )
+      return true;
   }
 
   return false;
