@@ -20,6 +20,12 @@ Template.storyEditor.defaultMapZoom = function () {
 };
 
 Template.storyEditor.events({
+  'click .show-advanced-location': function (event, template) {
+    var fields = template.find(".location-fields");
+    $(fields).toggle();
+
+    return false;
+  },
   'keydown #location': function (event, template) {
     if(event.which === 13)
       event.preventDefault();
@@ -59,9 +65,9 @@ Template.storyEditor.events({
         if(typeof geo === "object") {
           template.find("#lat").value = geo.lat;
           template.find("#lng").value = geo.lng;
-          template.find("#city").value = geo.city;
-          template.find("#region").value = geo.region;
-          template.find("#country").value = geo.country;
+          template.find("#city").value = geo.city || "";
+          template.find("#region").value = geo.region || "";
+          template.find("#country").value = geo.country || "";
 
           template.find("#location-coords").innerHTML = Math.round(geo.lat*10000)/10000 + ", " + Math.round(geo.lng*10000)/10000 + " (" + geo.address + ")";
         } else {

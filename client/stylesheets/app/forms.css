@@ -1212,20 +1212,32 @@ blockquote p {
   background-color: #fafafa;
   padding-top: 5px;
 }
-/* line 10, ../../sass/app/forms.scss */
+/* line 11, ../../sass/app/forms.scss */
+.group-editor .show-advanced-location:before,
+.story-editor .show-advanced-location:before,
+.settings-editor .show-advanced-location:before {
+  content: "- ";
+}
+/* line 16, ../../sass/app/forms.scss */
+.group-editor .location-fields,
+.story-editor .location-fields,
+.settings-editor .location-fields {
+  display: none;
+}
+/* line 20, ../../sass/app/forms.scss */
 .group-editor .description,
 .story-editor .description,
 .settings-editor .description {
   height: 80px;
 }
-/* line 14, ../../sass/app/forms.scss */
+/* line 24, ../../sass/app/forms.scss */
 .group-editor .button,
 .story-editor .button,
 .settings-editor .button {
   margin-bottom: 0em;
 }
 
-/* line 22, ../../sass/app/forms.scss */
+/* line 32, ../../sass/app/forms.scss */
 .section-container .group-editor,
 .section-container .story-editor,
 .section-container .settings-editor {

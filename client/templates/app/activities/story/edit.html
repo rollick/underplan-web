@@ -12,14 +12,20 @@
           <input type="text" id="title" value="{{title}}" placeholder="Start with a title...">
           <label>Story</label>
           <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something...">{{text}}</textarea><br />
-          <label>Location</label>
-          <input type="text" id="location" value="{{location}}" placeholder="Enter a location...">
-          <div id="location-coords" class="input-subtext"></div>
-          <input type="hidden" id="lat" value="{{lat}}">
-          <input type="hidden" id="lng" value="{{lng}}">
-          <input type="hidden" id="city" value="{{city}}">
-          <input type="hidden" id="region" value="{{region}}">
-          <input type="hidden" id="country" value="{{country}}">
+          <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
+          <input type="text" id="location" value="" placeholder="Enter a location...">
+          <div id="location-coords input-subtext"></div>
+          <fieldset class="location-fields">
+            <legend>Location Fields (Advanced)</legend>
+            <input type="hidden" id="lat" value="">
+            <input type="hidden" id="lng" value="">
+            <label>City</label>
+            <input type="text" id="city" value="">
+            <label>Region</label>
+            <input type="text" id="region" value="">
+            <label>Country</label>
+            <input type="text" id="country" value="">
+          </fieldset>
           <label>Map Zoom</label>
           <input type="text" id="map-zoom" value="{{mapZoom}}" placeholder="0 (world) to 21+ (buildings)">
           <label>Wikipedia Article</label>
@@ -49,14 +55,21 @@
         <input type="text" id="title" placeholder="Start with a title...">
         <label>Story</label>
         <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something..."></textarea><br />
-        <label>Location</label>
-        <input type="text" id="location" placeholder="Enter a location...">
-        <div id="location-coords" class="input-subtext"></div>
-        <input type="hidden" id="lat" value="{{lat}}">
-        <input type="hidden" id="lng" value="{{lng}}">
-        <input type="hidden" id="city" value="{{city}}">
-        <input type="hidden" id="region" value="{{region}}">
-        <input type="hidden" id="country" value="{{country}}">
+        <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
+        <input type="text" id="location" value="" placeholder="Enter a location...">
+        <div id="location-coords input-subtext"></div>
+        <fieldset class="location-fields">
+          <legend>Location Fields (Advanced)</legend>
+          <input type="hidden" id="lat" value="">
+          <input type="hidden" id="lng" value="">
+          <label>City</label>
+          <input type="text" id="city" value="">
+          <label>Region</label>
+          <input type="text" id="region" value="">
+          <label>Country</label>
+          <input type="text" id="country" value="">
+        </fieldset>
+
         <label>Map Zoom</label>
         <input type="text" id="map-zoom" value="{{defaultMapZoom}}" placeholder="0 (world) to 21+ (buildings)">
         <label>Wikipedia Article</label>
