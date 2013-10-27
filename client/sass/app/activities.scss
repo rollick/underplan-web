@@ -10,6 +10,7 @@
 
     .actions {
       right: -1em !important;
+      margin-top: 0.3em;
 
       .action.edit {
         width: 3.3em !important;        
@@ -39,10 +40,14 @@
         h2 {
           margin-bottom: 0em;
           line-height: 1.2em;
-          font-size: 2.8em;
           font-weight: 100;
           margin-top: 0em;
           color: lighten($topbar-bg, 75%);
+          font-size: 2.4em;
+
+          @media only screen and (min-width: 48em) {
+            font-size: 2.8em;
+          }
         }
 
         .info-section .details {
@@ -53,12 +58,20 @@
       }
 
       & > .content {
-        padding: 1em;
         margin: 0em;
+        padding: 0.5em;
+
+        @media only screen and (min-width: 48em) {
+          padding: 1em;
+        }
 
         blockquote {
-          padding-top: 0em;
           margin-bottom: 0em;
+          padding: 0.25em 0.9em 0.25em 0.9em;
+
+          @media only screen and (min-width: 48em) {
+            padding: 0.5em 1em 0.5em 1em;
+          }
         }
 
         .text {

@@ -1,11 +1,16 @@
 /* line 1, ../sass/overrides.scss */
+.galleria-errors {
+  display: none;
+}
+
+/* line 5, ../sass/overrides.scss */
 .galleria-stage {
   top: 0px;
   left: 0px;
   right: 0px;
 }
 
-/* line 7, ../sass/overrides.scss */
+/* line 11, ../sass/overrides.scss */
 .galleria-thumbnails-container {
   bottom: 0px;
   left: 0px;
@@ -13,18 +18,18 @@
   background-color: #000;
 }
 
-/* line 14, ../sass/overrides.scss */
+/* line 18, ../sass/overrides.scss */
 .galleria-container {
   height: inherit;
   width: inherit;
 }
 
-/* line 19, ../sass/overrides.scss */
+/* line 23, ../sass/overrides.scss */
 .galleria-counter {
   z-index: 2;
 }
 
-/* line 23, ../sass/overrides.scss */
+/* line 27, ../sass/overrides.scss */
 .galleria-info {
   position: absolute;
   bottom: 10px;
@@ -34,28 +39,28 @@
   padding: 0px;
   z-index: 1;
 }
-/* line 32, ../sass/overrides.scss */
+/* line 36, ../sass/overrides.scss */
 .galleria-info .galleria-info-text {
   background-color: rgba(0, 0, 0, 0.4);
   padding: 0.5em;
   text-align: center;
   display: block;
 }
-/* line 39, ../sass/overrides.scss */
+/* line 43, ../sass/overrides.scss */
 .galleria-info .galleria-info-link {
   display: none;
   position: absolute;
   right: 5px;
   bottom: 5px;
 }
-/* line 46, ../sass/overrides.scss */
+/* line 50, ../sass/overrides.scss */
 .galleria-info .galleria-info-close {
   display: block;
   position: absolute;
   right: 10px;
   top: 12px;
 }
-/* line 53, ../sass/overrides.scss */
+/* line 57, ../sass/overrides.scss */
 .galleria-info .galleria-info-title {
   margin-bottom: 0em;
   font-family: inherit;
