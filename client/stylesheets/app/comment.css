@@ -1405,20 +1405,22 @@ blockquote p {
 .comment .actions a.action.remove:before {
   content: "X";
   color: #f6b5af;
+  font-weight: 400;
+  padding-left: 1px;
 }
-/* line 274, ../../sass/_components.scss */
+/* line 276, ../../sass/_components.scss */
 .comment .actions a.action.edit {
   padding-left: 0.7em;
   padding-top: 0.5em;
   background-color: #373737;
 }
-/* line 279, ../../sass/_components.scss */
+/* line 281, ../../sass/_components.scss */
 .comment .actions a.action.edit:before {
   content: "Edit";
   font-weight: normal;
   color: #b7b7b7;
 }
-/* line 288, ../../sass/_components.scss */
+/* line 290, ../../sass/_components.scss */
 .comment .content {
   position: relative;
   padding-left: 0.9375em;
@@ -1427,12 +1429,12 @@ blockquote p {
   float: left;
   padding: 1em 0.5em;
 }
-/* line 293, ../../sass/_components.scss */
+/* line 295, ../../sass/_components.scss */
 .comment .content h5 {
   line-height: 1.4em;
   margin-bottom: 0.5em;
 }
-/* line 298, ../../sass/_components.scss */
+/* line 300, ../../sass/_components.scss */
 .comment .content p:last-of-type {
   margin-bottom: 0em;
 }
@@ -1620,20 +1622,22 @@ blockquote p {
 .comment-form > .inner .user-comment .actions a.action.remove:before {
   content: "X";
   color: #f6b5af;
+  font-weight: 400;
+  padding-left: 1px;
 }
-/* line 274, ../../sass/_components.scss */
+/* line 276, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .actions a.action.edit {
   padding-left: 0.7em;
   padding-top: 0.5em;
   background-color: #373737;
 }
-/* line 279, ../../sass/_components.scss */
+/* line 281, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .actions a.action.edit:before {
   content: "Edit";
   font-weight: normal;
   color: #b7b7b7;
 }
-/* line 288, ../../sass/_components.scss */
+/* line 290, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .content {
   position: relative;
   padding-left: 0.9375em;
@@ -1642,12 +1646,12 @@ blockquote p {
   float: left;
   padding: 1em 0.5em;
 }
-/* line 293, ../../sass/_components.scss */
+/* line 295, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .content h5 {
   line-height: 1.4em;
   margin-bottom: 0.5em;
 }
-/* line 298, ../../sass/_components.scss */
+/* line 300, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .content p:last-of-type {
   margin-bottom: 0em;
 }
