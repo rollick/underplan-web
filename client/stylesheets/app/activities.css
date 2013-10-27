@@ -1857,47 +1857,52 @@ blockquote p {
   padding: 1em;
   margin: 0em;
 }
-/* line 60, ../../sass/app/activities.scss */
+/* line 59, ../../sass/app/activities.scss */
+.story-item .activity.story > .content > .content blockquote {
+  padding-top: 0em;
+  margin-bottom: 0em;
+}
+/* line 65, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content .text.intro p {
   font-style: italic;
 }
-/* line 64, ../../sass/app/activities.scss */
+/* line 69, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content .text ul {
   margin-left: 20px;
 }
-/* line 69, ../../sass/app/activities.scss */
+/* line 74, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content .galleria-thumbnails-container {
   height: 0px;
 }
-/* line 73, ../../sass/app/activities.scss */
+/* line 78, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content .galleria-thumbnails {
   display: none;
   height: 0px;
 }
-/* line 78, ../../sass/app/activities.scss */
+/* line 83, ../../sass/app/activities.scss */
 .story-item .activity.story > .content > .content .galleria-stage {
   top: 10px;
   bottom: 10px;
 }
 
-/* line 87, ../../sass/app/activities.scss */
+/* line 92, ../../sass/app/activities.scss */
 cite:before {
   content: "\2014 \0020";
   color: gray;
 }
 
-/* line 92, ../../sass/app/activities.scss */
+/* line 97, ../../sass/app/activities.scss */
 .activity-map {
   float: right;
   padding: 0;
   padding-bottom: 5px;
 }
-/* line 97, ../../sass/app/activities.scss */
+/* line 102, ../../sass/app/activities.scss */
 .activity-map.hide-for-small {
   padding: 10px;
 }
 
-/* line 102, ../../sass/app/activities.scss */
+/* line 107, ../../sass/app/activities.scss */
 .activity-highlight {
   float: right;
   padding: 0;
@@ -1905,36 +1910,36 @@ cite:before {
   height: 200px;
   margin-bottom: 0.9em;
 }
-/* line 109, ../../sass/app/activities.scss */
+/* line 114, ../../sass/app/activities.scss */
 .activity-highlight.large {
   margin-top: 0.9em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 102, ../../sass/app/activities.scss */
+  /* line 107, ../../sass/app/activities.scss */
   .activity-highlight {
     margin-left: 1em;
     margin-bottom: 0em;
     height: 240px;
     width: 320px;
   }
-  /* line 119, ../../sass/app/activities.scss */
+  /* line 124, ../../sass/app/activities.scss */
   .activity-highlight.large {
     height: 420px;
     width: 100%;
     margin-top: 0.9em;
   }
 }
-/* line 126, ../../sass/app/activities.scss */
+/* line 131, ../../sass/app/activities.scss */
 .activity-highlight .alert-box {
   height: 100%;
   vertical-align: middle;
 }
 
-/* line 134, ../../sass/app/activities.scss */
+/* line 139, ../../sass/app/activities.scss */
 .pac-container:after {
   content: none !important;
 }
-/* line 138, ../../sass/app/activities.scss */
+/* line 143, ../../sass/app/activities.scss */
 .pac-container .pac-item {
   text-decoration: none;
   display: block;
@@ -1944,7 +1949,7 @@ cite:before {
   /* support: IE7 */
   font-weight: normal;
 }
-/* line 146, ../../sass/app/activities.scss */
+/* line 151, ../../sass/app/activities.scss */
 .pac-container .pac-item:hover {
   border: 1px solid #999999;
   background: #dadada;
@@ -1953,18 +1958,18 @@ cite:before {
   margin: -1px;
 }
 
-/* line 156, ../../sass/app/activities.scss */
+/* line 161, ../../sass/app/activities.scss */
 .share-links {
   float: right;
   width: 125px;
   height: 20px;
   margin-bottom: 10px;
 }
-/* line 162, ../../sass/app/activities.scss */
+/* line 167, ../../sass/app/activities.scss */
 .share-links > div {
   float: right;
 }
-/* line 166, ../../sass/app/activities.scss */
+/* line 171, ../../sass/app/activities.scss */
 .share-links .fb-share {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1984,7 +1989,7 @@ cite:before {
   height: 20px;
   padding: 2px 5px 2px 2px;
 }
-/* line 178, ../../sass/app/activities.scss */
+/* line 183, ../../sass/app/activities.scss */
 .share-links .fb-share:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));
   background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
@@ -1992,12 +1997,12 @@ cite:before {
   background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
   background-image: linear-gradient(top, #ffffff, #f2f2f2);
 }
-/* line 182, ../../sass/app/activities.scss */
+/* line 187, ../../sass/app/activities.scss */
 .share-links .fb-share i {
   color: #3B5998;
   font-size: 0.9em;
 }
-/* line 187, ../../sass/app/activities.scss */
+/* line 192, ../../sass/app/activities.scss */
 .share-links .fb-share i p {
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
   font-size: 0.75em;
@@ -2010,7 +2015,7 @@ cite:before {
   margin-top: -17px;
 }
 
-/* line 202, ../../sass/app/activities.scss */
+/* line 207, ../../sass/app/activities.scss */
 .activity-controls {
   width: auto;
   margin-left: -0.9375em;
@@ -2031,18 +2036,18 @@ cite:before {
 .activity-controls:after {
   clear: both;
 }
-/* line 208, ../../sass/app/activities.scss */
+/* line 213, ../../sass/app/activities.scss */
 .activity-controls a {
   height: 24px;
   font-size: 0.9em;
 }
-/* line 212, ../../sass/app/activities.scss */
+/* line 217, ../../sass/app/activities.scss */
 .activity-controls a:before, .activity-controls a:after {
   background-size: 14px 14px;
   background-repeat: no-repeat;
   content: "\00a0\00a0\00a0\00a0";
 }
-/* line 219, ../../sass/app/activities.scss */
+/* line 224, ../../sass/app/activities.scss */
 .activity-controls .previous, .activity-controls .next {
   position: relative;
   padding-left: 0.9375em;
@@ -2052,7 +2057,7 @@ cite:before {
   margin-bottom: 0.9375em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 219, ../../sass/app/activities.scss */
+  /* line 224, ../../sass/app/activities.scss */
   .activity-controls .previous, .activity-controls .next {
     position: relative;
     padding-left: 0.9375em;
@@ -2061,40 +2066,40 @@ cite:before {
     float: left;
   }
 }
-/* line 228, ../../sass/app/activities.scss */
+/* line 233, ../../sass/app/activities.scss */
 .activity-controls .previous.clear, .activity-controls .next.clear {
   margin-bottom: 0em;
 }
-/* line 231, ../../sass/app/activities.scss */
+/* line 236, ../../sass/app/activities.scss */
 .activity-controls .previous.clear:before, .activity-controls .next.clear:before {
   content: "\00a0";
 }
-/* line 238, ../../sass/app/activities.scss */
+/* line 243, ../../sass/app/activities.scss */
 .activity-controls .previous a {
   margin-left: -6px;
 }
-/* line 241, ../../sass/app/activities.scss */
+/* line 246, ../../sass/app/activities.scss */
 .activity-controls .previous a:before {
   padding-left: 0px;
   background-position: 2px;
   background-image: url("/images/left.png");
 }
-/* line 249, ../../sass/app/activities.scss */
+/* line 254, ../../sass/app/activities.scss */
 .activity-controls .next {
   text-align: right;
 }
-/* line 252, ../../sass/app/activities.scss */
+/* line 257, ../../sass/app/activities.scss */
 .activity-controls .next a {
   margin-right: -2px;
 }
-/* line 255, ../../sass/app/activities.scss */
+/* line 260, ../../sass/app/activities.scss */
 .activity-controls .next a:after {
   padding-left: 0px;
   background-position: 2px;
   background-image: url("/images/right.png");
 }
 
-/* line 264, ../../sass/app/activities.scss */
+/* line 269, ../../sass/app/activities.scss */
 .map-info {
   width: auto;
   margin-left: -0.9375em;
@@ -2145,7 +2150,7 @@ cite:before {
   line-height: 1.4;
 }
 @media only screen and (min-width: 48em) {
-  /* line 264, ../../sass/app/activities.scss */
+  /* line 269, ../../sass/app/activities.scss */
   .map-info {
     margin: 0em;
     margin-bottom: 0.9375em;
@@ -2627,7 +2632,7 @@ cite:before {
   height: 100%;
 }
 @media only screen and (min-width: 48em) {
-  /* line 264, ../../sass/app/activities.scss */
+  /* line 269, ../../sass/app/activities.scss */
   .map-info {
     width: 400px;
   }

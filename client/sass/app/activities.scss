@@ -56,6 +56,11 @@
         padding: 1em;
         margin: 0em;
 
+        blockquote {
+          padding-top: 0em;
+          margin-bottom: 0em;
+        }
+
         .text {
           &.intro p {
             font-style: italic;
