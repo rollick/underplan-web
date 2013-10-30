@@ -13,18 +13,18 @@
           <label>Story</label>
           <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something...">{{text}}</textarea><br />
           <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
-          <input type="text" id="location" value="" placeholder="Enter a location...">
+          <input type="text" id="location" value="{{location}}" placeholder="Enter a location...">
           <div id="location-coords" class="input-subtext"></div>
           <fieldset class="location-fields">
             <legend>Location Fields (Advanced)</legend>
-            <input type="hidden" id="lat" value="">
-            <input type="hidden" id="lng" value="">
+            <input type="hidden" id="lat" value="{{lat}}">
+            <input type="hidden" id="lng" value="{{lng}}">
             <label>City</label>
-            <input type="text" id="city" value="">
+            <input type="text" id="city" value="{{city}}">
             <label>Region</label>
-            <input type="text" id="region" value="">
+            <input type="text" id="region" value="{{region}}">
             <label>Country</label>
-            <input type="text" id="country" value="">
+            <input type="text" id="country" value="{{country}}">
           </fieldset>
           <label>Map Zoom</label>
           <input type="text" id="map-zoom" value="{{mapZoom}}" placeholder="0 (world) to 21+ (buildings)">
