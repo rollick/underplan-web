@@ -89,6 +89,23 @@ Handlebars.registerHelper('profilePicture', function(userId) {
   return pictureUrl;
 });
 
+Handlebars.registerHelper('basicLocation', function(activity) {
+  var location = "";
+  if (_.isString(activity.country) && activity.country.length) {
+    if (Session.get("feedFilter").country) {
+      location = activity.city || "";
+    } else {
+      location = [activity.city, activity.country].join(", ");
+    }
+  }
+
+  if (location.length) {
+    return location;
+  } else {
+    return "";
+  }
+});
+
 Handlebars.registerHelper('datePicker', function(date) {
   if(typeof date != "object" || typeof date.getMonth != "function") {
     date = new Date();

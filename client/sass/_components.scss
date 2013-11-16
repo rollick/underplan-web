@@ -238,6 +238,48 @@
         }
       }
     }
+
+    &.header {
+      padding: 0.5em 0em !important;
+      margin-bottom: 0em;
+      height: 3.8em;
+
+      .picture {
+        width: 3em;
+        height: 3em;
+      }
+
+      .details {
+        margin-left: 3.5em;
+        font-family: $header-font-family;
+        padding-top: 0.65em;
+        height: 3.3em;
+        color: #aaaaaa;
+
+        .date, .owner {
+          float: left;
+          line-height: 1.4em;
+          font-size: emCalc(16px);
+        }
+
+        .owner {
+          font-weight: 400;
+        }
+
+        .location {
+          clear: left;
+          top: 0em;
+          position: absolute;
+          font-size: 0.9em;
+          top: 3em;
+        }
+
+        .date:before {
+          content: "-";
+          padding: 0.3em;
+        }
+      }
+    }
   }
 
   .actions {

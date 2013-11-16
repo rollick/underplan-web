@@ -1,0 +1,265 @@
+/* line 220, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+*,
+*:before,
+*:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 225, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+html,
+body {
+  font-size: 100%;
+}
+
+/* line 228, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+body {
+  background: white;
+  color: #222222;
+  padding: 0;
+  margin: 0;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  line-height: 1;
+  position: relative;
+}
+
+/* line 241, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+a:focus {
+  outline: none;
+}
+
+/* line 246, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+img,
+object,
+embed {
+  max-width: 100%;
+  height: auto;
+}
+
+/* line 249, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+object,
+embed {
+  height: 100%;
+}
+
+/* line 250, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+img {
+  -ms-interpolation-mode: bicubic;
+}
+
+/* line 256, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+#map_canvas img,
+#map_canvas embed,
+#map_canvas object,
+.map_canvas img,
+.map_canvas embed,
+.map_canvas object {
+  max-width: none !important;
+}
+
+/* line 261, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.left {
+  float: left !important;
+}
+
+/* line 262, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.right {
+  float: right !important;
+}
+
+/* line 263, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.text-left {
+  text-align: left !important;
+}
+
+/* line 264, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.text-right {
+  text-align: right !important;
+}
+
+/* line 265, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.text-center {
+  text-align: center !important;
+}
+
+/* line 266, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.text-justify {
+  text-align: justify !important;
+}
+
+/* line 267, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.hide {
+  display: none;
+}
+
+/* line 273, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 276, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+img {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* line 286, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+textarea {
+  height: auto;
+  min-height: 50px;
+}
+
+/* line 289, ../../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
+select {
+  width: 100%;
+}
+
+/* line 3, ../../../sass/app/common/slider.scss */
+.sequence {
+  margin-bottom: 0px;
+  margin-left: -0.5em;
+  margin-right: -0.5em;
+  height: 200px;
+  position: relative;
+  /* required */
+  clear: both;
+}
+/* line 15, ../../../sass/app/common/slider.scss */
+.sequence .sequence-canvas > li {
+  /* required */
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: 0px;
+}
+/* line 23, ../../../sass/app/common/slider.scss */
+.sequence .sequence-canvas li > * {
+  /* required */
+  top: 0px;
+  position: absolute;
+}
+/* line 29, ../../../sass/app/common/slider.scss */
+.sequence .sequence-next,
+.sequence .sequence-prev {
+  color: white;
+  cursor: pointer;
+  display: none;
+  font-weight: bold;
+  padding: 0px;
+  position: absolute;
+  z-index: 1000;
+  height: 35px;
+  top: 82.5px;
+}
+/* line 41, ../../../sass/app/common/slider.scss */
+.sequence .sequence-prev {
+  left: 1%;
+  content: url("/images/chevron-white-left-large.png");
+}
+/* line 46, ../../../sass/app/common/slider.scss */
+.sequence .sequence-next {
+  right: 1%;
+  content: url("/images/chevron-white-right-large.png");
+}
+/* line 52, ../../../sass/app/common/slider.scss */
+.sequence .sequence-prev img,
+.sequence .sequence-next img {
+  height: 100%;
+  width: auto;
+}
+/* line 58, ../../../sass/app/common/slider.scss */
+.sequence .sequence-next,
+.sequence .sequence-prev {
+  position: absolute;
+  opacity: 0.6;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -ms-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+/* line 69, ../../../sass/app/common/slider.scss */
+.sequence .sequence-next:hover,
+.sequence .sequence-prev:hover {
+  opacity: 1;
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -ms-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+}
+/* line 78, ../../../sass/app/common/slider.scss */
+.sequence .sequence-canvas {
+  /* required */
+  height: 100%;
+  width: 100%;
+  list-style-type: none;
+}
+/* line 92, ../../../sass/app/common/slider.scss */
+.sequence .sequence-canvas > li .photo {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  left: 100%;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-transition-property: "left";
+  -moz-transition-property: "left";
+  -ms-transition-property: "left";
+  -o-transition-property: "left";
+  transition-property: "left";
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -ms-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
+}
+/* line 120, ../../../sass/app/common/slider.scss */
+.sequence .sequence-canvas > li .photo h2.title {
+  width: 100%;
+  height: 40px;
+  font-size: 1.8em;
+  line-height: 40px;
+  background-color: rgba(0, 0, 0, 0.2);
+  padding: 0.3em;
+  color: #f3f3f3;
+  position: absolute;
+  left: 0;
+}
+/* line 132, ../../../sass/app/common/slider.scss */
+.sequence .sequence-canvas > li .photo img {
+  min-height: 100%;
+  min-width: 100%;
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+  filter: alpha(opacity=0);
+  opacity: 0;
+}
+/* line 141, ../../../sass/app/common/slider.scss */
+.sequence .sequence-canvas > li.animate-in .photo {
+  left: 0;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}
+/* line 152, ../../../sass/app/common/slider.scss */
+.sequence .sequence-canvas > li.animate-out .photo {
+  left: -100%;
+  -webkit-transition-duration: 0.3s;
+  -moz-transition-duration: 0.3s;
+  -o-transition-duration: 0.3s;
+  -ms-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+}

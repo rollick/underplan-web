@@ -12,6 +12,7 @@ Meteor.startup(function () {
   BrowserPolicy.content.allowScriptOrigin("http://apis.google.com");
   BrowserPolicy.content.allowScriptOrigin("https://maps.googleapis.com");
   BrowserPolicy.content.allowScriptOrigin("http://maps.googleapis.com");
+  BrowserPolicy.content.allowScriptOrigin("http://mt1.googleapis.com");
   BrowserPolicy.content.allowScriptOrigin("http://www.dbpedialite.org");
   BrowserPolicy.content.allowScriptOrigin("http://en.wikipedia.org");
 

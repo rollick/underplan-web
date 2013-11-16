@@ -69,7 +69,7 @@
   {{#unless published}}<span class="alert-box alert">Unpublished<br /></span>{{/unless}}
   <div class="header">
     <h2>{{title}}</h2>
-    <div class="info-section small">
+    <div class="info-section header">
       {{#if canEdit}}
         <div class="show actions">
           <a href="{{slug}}/edit" class="edit action"></a>
@@ -81,6 +81,7 @@
       <div class="details">
         <div class="owner">{{userName owner}}</div>
         <div class="date">{{dateCreated}}</div>
+        <div class="location">{{basicLocation this}}</div>
       </div>
     </div>
   </div>
