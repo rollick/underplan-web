@@ -45,7 +45,13 @@ sliderOptions = {
   prevButton: true,
   preloader: false,
   showNextButtonOnInit: false,
-  showPrevButtonOnInit: false
+  showPrevButtonOnInit: false,
+  swipeEvents: {
+    left: "prev",
+    right: "next",
+    up: false,
+    down: false
+}
   // autoPlay: true,
   // autoPlayDelay: 3000,
 };
@@ -86,8 +92,8 @@ Template.imageSlider.rendered = function () {
     var gallery = $(slider).sequence(sliderOptions).data("sequence");
     var buttons = $(slider).find(".sequence-prev, .sequence-next");
     
-    // Only show next / prev buttons if > 1 photos
-    if (ReactiveGallerySource.photos[id].length > 1)
+    // Only show next / prev buttons if > 1 photos and no swipe support
+    if (!("ontouchstart" in window) && ReactiveGallerySource.photos[id].length > 1)
       buttons.fadeIn(500); 
     else
       buttons.hide();
