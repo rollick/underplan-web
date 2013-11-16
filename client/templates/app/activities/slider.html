@@ -1,0 +1,17 @@
+<template name="imageSlider">
+  <div id="slider-{{_id}}" class="sequence">
+    <img class="sequence-prev" alt="Previous">
+    <img class="sequence-next" alt="Next">
+    <ul class="sequence-canvas">
+      {{#each photos}}
+        <li>
+          <div class="photo" style="background-image: url({{ image }})">
+<!--             {{#if title}}<h2 class="title">{{title}}</h2>{{/if}}
+            {{#if description}}<h3 class="description">{{description}}</h3>{{/if}} -->
+            <img class="" src="{{ image }}"/>
+          </div>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

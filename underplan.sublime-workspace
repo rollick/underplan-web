@@ -3,41 +3,127 @@
 	{
 		"selected_items":
 		[
+			[
+				"wiki",
+				"wikipediaId"
+			],
+			[
+				"all",
+				"allowScriptOrigin"
+			],
+			[
+				"st",
+				"storyContent"
+			],
+			[
+				"tem",
+				"Template"
+			],
+			[
+				"Br",
+				"BrowserPolicy"
+			],
+			[
+				"if",
+				"logIfDev"
+			],
+			[
+				"filter",
+				"filteredActivitiesCount"
+			],
+			[
+				"recen",
+				"recentActivities"
+			],
+			[
+				"recent",
+				"recentActivitiesCount"
+			],
+			[
+				"log",
+				"logIfDev"
+			],
+			[
+				"is",
+				"isDev"
+			],
+			[
+				"story",
+				"storyIcon"
+			],
+			[
+				"i",
+				"i	Tag"
+			],
+			[
+				"p",
+				"p	Tag"
+			],
+			[
+				"group",
+				"groupName"
+			],
+			[
+				"grou",
+				"groupName"
+			]
 		]
 	},
 	"buffers":
 	[
 		{
-			"contents": "Searching 250 files for \"debugger\"\n\n/Users/mgallop/Dev/underplan/client/javascripts/views/activities/feed.js:\n  168    },\n  169    'click .item-actions .new-comment a': function (event, template) {\n  170:     debugger\n  171      if (!!$(event.target).closest(\"a\").hasClass(\"disabled\")) {\n  172        return false;\n\n/Users/mgallop/Dev/underplan/client/router/router.js:\n   57  \n   58    main: function() {\n   59:     debugger\n   60      resetGroup();\n   61      showTemplate(\"mainHome\");\n\n2 matches across 2 files\n",
+			"file": "client/javascripts/views/activities/show.js",
 			"settings":
 			{
-				"buffer_size": 514,
-				"line_ending": "Unix",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "client/router/router.js",
-			"settings":
-			{
-				"buffer_size": 5912,
+				"buffer_size": 8687,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "server/migrations.js",
+			"file": ".meteor/packages",
 			"settings":
 			{
-				"buffer_size": 154,
+				"buffer_size": 392,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "/Users/mgallop/Library/Application Support/Sublime Text 2/Packages/JSLint/JSLint.sublime-build",
+			"file": ".meteor/local/build/programs/client/app/models/activities.js",
 			"settings":
 			{
-				"buffer_size": 704,
+				"buffer_size": 12005,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/javascripts/views/groups.js",
+			"settings":
+			{
+				"buffer_size": 5827,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/sass/app/nav.scss",
+			"settings":
+			{
+				"buffer_size": 4070,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/stylesheets/_vendor/jquery-ui-1.10.3.custom.css",
+			"settings":
+			{
+				"buffer_size": 19719,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/sass/_settings.scss",
+			"settings":
+			{
+				"buffer_size": 1495,
 				"line_ending": "Unix"
 			}
 		},
@@ -45,7 +131,89 @@
 			"file": "server/server.js",
 			"settings":
 			{
-				"buffer_size": 7753,
+				"buffer_size": 9666,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/javascripts/views/activities/feed.js",
+			"settings":
+			{
+				"buffer_size": 17885,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/javascripts/views/activities/edit.js",
+			"settings":
+			{
+				"buffer_size": 6629,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/templates/app/activities/story/show.html",
+			"settings":
+			{
+				"buffer_size": 3163,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"contents": "Searching 282 files for \".activity\"\n\n~/Dev/underplan_src/client/.sass-cache/137f444010aeeb084e683042de48971149995cc1/activities.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/7f19f7cf6b1f9186c4c08526f098c2fae262d178/activities.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/abe8ffc67b0172f865d790a169b97cf04b78b02a/_components.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/d9fab2c976d1f6484cc75b82ad4c92b2b1997332/_components.scssc:\n    <binary>\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/main.js:\n   17  var self = this;\n   18  self.commentsSubscription = self.activitiesSubscription = null;\n   19: self.activityCommentStatus = {};\n   20  \n   21  Deps.autorun(function () {\n   ..\n   42      logIfDev(\"Subscribe to activity\");\n   43  \n   44:     self.activitySubscription = Meteor.subscribe(\"activityShow\", Session.get(\"activityId\"));\n   45      self.commentsSubscription = Meteor.subscribe(\"activityComments\", Session.get(\"activityId\"));\n   46    }\n   ..\n   76      };\n   77  \n   78:     if (options.activityIds.length)\n   79        self.commentsSubscription = Meteor.subscribe(\"openFeedComments\", options);\n   80    }\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/views/activities/edit.js:\n   12  };\n   13  \n   14: Template.storyEditor.activity = function () {\n   15    return Activities.findOne(getCurrentActivityId());\n   16  };\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/views/activities/feed.js:\n   35    html += \"</div>\";\n   36    \n   37:   var existingPhoto = $(\"#\" + activity._id + \" .activity .photo\");\n   38    if (!existingPhoto.length) {\n   39:     $(\"#\" + activity._id + \" .activity\").append(html);\n   40    }\n   41  }\n   ..\n   48  var dashboardMapBounds = null;\n   49  \n   50: Template.activityFeed.helpers({\n   51    feedTitle: function() {\n   52      text = \"All Activities\";\n   ..\n   81  });\n   82  \n   83: Template.activityFeed.events({\n   84    'click .new-short': function (event, template) {\n   85      $(\".short-form.row\").show().find(\"textarea\").focus();\n   ..\n   91    },\n   92    \"click a.feed-all\": function () {\n   93:     Session.set(\"feedLimit\", Template.activityFeed.activityCount() + 1);\n   94      return false;\n   95    }\n   96  });\n   97  \n   98: Template.activityFeed.loading = function () {\n   99    return (typeof(feedListSubscription) == 'object' && !feedListSubscription.ready()) && \n  100           (typeof(feedMapSubscription) == 'object' && !feedMapSubscription.ready());\n  101  };\n  102  \n  103: Template.activityFeed.showExtras = function () {\n  104    // FIXME: this needs to be dynamic (maybe) based on the screen size\n  105    //        also, the value of 767 shouldn't be hard coded - get it from the css??\n  ...\n  107  };\n  108  \n  109: Template.activityFeed.created = function() {\n  110    var filter = Session.get(\"feedFilter\");\n  111    logIfDev(\"FeedFilter set here (1)\");\n  ...\n  114  };\n  115  \n  116: Template.activityFeed.rendered = function () {\n  117    // Create an event to be triggered when map element is in the DOM\n  118    // See hack here: http://jsfiddle.net/Zzw2M/33/light/\n  ...\n  120  };\n  121  \n  122: Template.activityFeed.userBelongsToGroup = function () {\n  123    return currentUserBelongsToCurrentGroup();\n  124  };\n  125  \n  126: Template.activityFeed.activityCount = function () {\n  127    return Activities.find(Session.get(\"feedFilter\")).count();\n  128  };\n  129  \n  130: Template.activityFeed.totalActivities = function () {\n  131    return Activities.find(Session.get(\"feedFilter\")).count();\n  132  }\n  ...\n  143  \n  144  Template.feedList.anyActivities = function () {\n  145:   return Template.activityFeed.activityCount() > 0;\n  146  };\n  147  \n  ...\n  179      $(template.find(\".remove\")).hide();\n  180    },\n  181:   'click .activity a.title': function (event, template) {\n  182      Router.setActivity(this);\n  183      return false;\n  ...\n  210  \n  211  // override this method to specify a different short\n  212: Template.feedItem.activity = function() {\n  213    return this;\n  214  };\n  ...\n  259  \n  260  Template.storyFeedContent.events({\n  261:   'mouseenter .activity': function (event, template) {\n  262      $(template.find(\".actions\")).show();\n  263    },\n  264:   'mouseleave .activity': function (event, template) {\n  265      $(template.find(\".actions\")).hide();\n  266    },\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/views/activities/show.js:\n   35      return false;\n   36    },\n   37:   'click .activity-controls a': function (event, template) {\n   38      Router.setActivity(this);\n   39      return false;\n   ..\n   45  };\n   46  \n   47: Template.currentActivity.activity = function () {\n   48    return Activities.findOne(Session.get(\"activityId\"));\n   49  };\n   ..\n   92  // Activity Controls\n   93  \n   94: Template.activityControls.group = function () {\n   95    return Groups.findOne(this.group);\n   96  };\n   97  \n   98: Template.activityControls.nextActivity = function () {\n   99    var activity = Activities.findOne(this._id);\n  100    var country = Session.get(\"feedFilter\").country;\n  ...\n  113  };\n  114  \n  115: Template.activityControls.previousActivity = function () {\n  116    var activity = Activities.findOne(this._id);\n  117    var country = Session.get(\"feedFilter\").country;\n  ...\n  156      var group = Groups.findOne(Session.get(\"groupId\"));\n  157      var activity = Activities.findOne(Session.get(\"activityId\"));\n  158:     var element = \".activity-highlight\";\n  159  \n  160      if (_.isObject(group.trovebox)) {\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/views/comments.js:\n   36  };\n   37  \n   38: Template.commentForm.activity = function () {\n   39    return Activities.findOne(getCurrentActivityId());\n   40  };\n   ..\n   89  Template.comment.canRemove = function () {\n   90    var userId = Meteor.userId();\n   91:   var groupId = Activities.findOne(this.activityId).group;\n   92  \n   93    return (isGroupAdmin(userId, groupId) || isSystemAdmin(userId) || this.owner === userId);\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/views/nav.js:\n   51  // Activity actions\n   52  \n   53: Template.activityActions.events({\n   54    \"click .follow-group a\": function (event, template) {\n   55      var followed = $(template.find(\"a\")).hasClass(\"followed\");\n   ..\n   60  });\n   61  \n   62: Template.activityActions.isNewRoute = function () {\n   63    var fragment = Backbone.history.fragment;\n   64    if(!fragment)\n   ..\n   68  };\n   69  \n   70: Template.activityActions.userCanFollow = function () {\n   71    // can follow if logged in but not a group member\n   72    return !!Meteor.user() && !currentUserBelongsToCurrentGroup()\n   73  };\n   74  \n   75: Template.activityActions.followingGroup = function () {\n   76    return isFollowingGroup(Meteor.userId(), Session.get(\"groupId\"));\n   77  };\n   78  \n   79: Template.activityActions.userBelongsToGroup = function () {\n   80    return currentUserBelongsToCurrentGroup();\n   81  };\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/views/short.js:\n    1: Template.permaShorty.activity = function () {\n    2    return Activities.findOne(Session.get(\"activityId\"));\n    3  };\n    .\n  148  Template.shortContent.events({\n  149    'click .remove': function (event, template) {\n  150:     $(template.firstNode).closest(\".activity\").addClass(\"disabled\");\n  151  \n  152      Meteor.call('removeActivity', this._id, function (error) {\n\n/Users/mgallop/Dev/underplan_src/client/sass/_components.scss:\n  332      margin-bottom: 0em;\n  333  \n  334:     .activity {\n  335  \n  336        @include entry-with-profile(3.3em);\n\n/Users/mgallop/Dev/underplan_src/client/sass/app/activities.scss:\n    5    @include standard-item();\n    6  \n    7:   .activity.story {\n    8      margin: 0em;\n    9      margin-top: -1px;\n   ..\n   90  }\n   91  \n   92: .activity-map {\n   93    float: right;\n   94    padding: 0;\n   ..\n  100  }\n  101  \n  102: .activity-highlight {\n  103    float: right;\n  104    padding: 0;\n  ...\n  200  }\n  201  \n  202: .activity-controls {\n  203    @include grid-row(nest);\n  204  \n\n/Users/mgallop/Dev/underplan_src/client/stylesheets/app/activities.css:\n 1360  }\n 1361  /* line 334, ../../sass/_components.scss */\n 1362: .story-item > .inner .activity {\n 1363    width: auto;\n 1364    margin-left: -0.9375em;\n ....\n 1374  }\n 1375  /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */\n 1376: .story-item > .inner .activity:before, .story-item > .inner .activity:after {\n 1377    content: \" \";\n 1378    display: table;\n 1379  }\n 1380  /* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */\n 1381: .story-item > .inner .activity:after {\n 1382    clear: both;\n 1383  }\n 1384  /* line 171, ../../sass/_components.scss */\n 1385: .story-item > .inner .activity .info-section {\n 1386    position: relative;\n 1387    padding-left: 0.9375em;\n ....\n 1396  }\n 1397  /* line 180, ../../sass/_components.scss */\n 1398: .story-item > .inner .activity .info-section .picture {\n 1399    float: left;\n 1400    width: 2.9em;\n ....\n 1402  }\n 1403  /* line 185, ../../sass/_components.scss */\n 1404: .story-item > .inner .activity .info-section .picture img {\n 1405    -webkit-border-radius: 1.55em;\n 1406    -moz-border-radius: 1.55em;\n ....\n 1411  }\n 1412  /* line 192, ../../sass/_components.scss */\n 1413: .story-item > .inner .activity .info-section .details {\n 1414    height: 3.3em;\n 1415    margin-left: 3.5em;\n ....\n 1417  }\n 1418  /* line 198, ../../sass/_components.scss */\n 1419: .story-item > .inner .activity .info-section .details .owner {\n 1420    line-height: 1em;\n 1421  }\n 1422  /* line 202, ../../sass/_components.scss */\n 1423: .story-item > .inner .activity .info-section .details .date {\n 1424    font-size: 0.9em;\n 1425    color: #999999;\n ....\n 1430  }\n 1431  /* line 212, ../../sass/_components.scss */\n 1432: .story-item > .inner .activity .info-section.small {\n 1433    padding: 0.5em 0em;\n 1434    margin-bottom: 0em;\n 1435  }\n 1436  /* line 216, ../../sass/_components.scss */\n 1437: .story-item > .inner .activity .info-section.small .picture {\n 1438    width: 1.9em;\n 1439    height: 1.9em;\n 1440  }\n 1441  /* line 221, ../../sass/_components.scss */\n 1442: .story-item > .inner .activity .info-section.small .details {\n 1443    margin-left: 2.4em;\n 1444    font-family: \"Raleway\", sans-serif;\n 1445  }\n 1446  /* line 225, ../../sass/_components.scss */\n 1447: .story-item > .inner .activity .info-section.small .details .date, .story-item > .inner .activity .info-section.small .details .owner {\n 1448    float: left;\n 1449    line-height: 1.4em;\n ....\n 1451  }\n 1452  /* line 231, ../../sass/_components.scss */\n 1453: .story-item > .inner .activity .info-section.small .details .owner {\n 1454    font-weight: 400;\n 1455  }\n 1456  /* line 235, ../../sass/_components.scss */\n 1457: .story-item > .inner .activity .info-section.small .details .date:before {\n 1458    content: \"-\";\n 1459    padding: 0.3em;\n 1460  }\n 1461  /* line 243, ../../sass/_components.scss */\n 1462: .story-item > .inner .activity .actions {\n 1463    height: 3.3em !important;\n 1464    margin-top: -0.3em;\n ....\n 1471  }\n 1472  /* line 253, ../../sass/_components.scss */\n 1473: .story-item > .inner .activity .actions.show {\n 1474    display: block;\n 1475  }\n 1476  /* line 257, ../../sass/_components.scss */\n 1477: .story-item > .inner .activity .actions a.action {\n 1478    width: 2em;\n 1479    height: 2em;\n ....\n 1482  }\n 1483  /* line 263, ../../sass/_components.scss */\n 1484: .story-item > .inner .activity .actions a.action.remove {\n 1485    padding-left: 0.7em;\n 1486    padding-top: 0.5em;\n ....\n 1488  }\n 1489  /* line 268, ../../sass/_components.scss */\n 1490: .story-item > .inner .activity .actions a.action.remove:before {\n 1491    content: \"X\";\n 1492    color: #f6b5af;\n 1493  }\n 1494  /* line 274, ../../sass/_components.scss */\n 1495: .story-item > .inner .activity .actions a.action.edit {\n 1496    padding-left: 0.7em;\n 1497    padding-top: 0.5em;\n ....\n 1499  }\n 1500  /* line 279, ../../sass/_components.scss */\n 1501: .story-item > .inner .activity .actions a.action.edit:before {\n 1502    content: \"Edit\";\n 1503    font-weight: normal;\n ....\n 1505  }\n 1506  /* line 288, ../../sass/_components.scss */\n 1507: .story-item > .inner .activity .content {\n 1508    position: relative;\n 1509    padding-left: 0.9375em;\n ....\n 1514  }\n 1515  /* line 293, ../../sass/_components.scss */\n 1516: .story-item > .inner .activity .content h5 {\n 1517    line-height: 1.4em;\n 1518    margin-bottom: 0.5em;\n 1519  }\n 1520  /* line 298, ../../sass/_components.scss */\n 1521: .story-item > .inner .activity .content p:last-of-type {\n 1522    margin-bottom: 0em;\n 1523  }\n 1524  /* line 342, ../../sass/_components.scss */\n 1525: .story-item > .inner .activity > .content a.more {\n 1526    line-height: 2.2em;\n 1527    font-style: italic;\n ....\n 1529  }\n 1530  /* line 347, ../../sass/_components.scss */\n 1531: .story-item > .inner .activity > .content a.more:after {\n 1532    content: \"\\00a0→\";\n 1533  }\n 1534  /* line 353, ../../sass/_components.scss */\n 1535: .story-item > .inner .activity.story .ribbon-wrapper {\n 1536    border-right: 0.25em solid #d82a1a;\n 1537    margin-right: -0.25em;\n 1538  }\n 1539  /* line 358, ../../sass/_components.scss */\n 1540: .story-item > .inner .activity.story .actions {\n 1541    right: 3.3em;\n 1542  }\n 1543  /* line 363, ../../sass/_components.scss */\n 1544: .story-item > .inner .activity .actions {\n 1545    margin-top: 0em;\n 1546  }\n ....\n 1808  }\n 1809  /* line 7, ../../sass/app/activities.scss */\n 1810: .story-item .activity.story {\n 1811    margin: 0em;\n 1812    margin-top: -1px;\n 1813  }\n 1814  /* line 11, ../../sass/app/activities.scss */\n 1815: .story-item .activity.story .actions {\n 1816    right: -1em !important;\n 1817  }\n 1818  /* line 14, ../../sass/app/activities.scss */\n 1819: .story-item .activity.story .actions .action.edit {\n 1820    width: 3.3em !important;\n 1821  }\n 1822  /* line 19, ../../sass/app/activities.scss */\n 1823: .story-item .activity.story .alert-box {\n 1824    margin-bottom: 0em;\n 1825    border-width: 0px;\n ....\n 1827  }\n 1828  /* line 25, ../../sass/app/activities.scss */\n 1829: .story-item .activity.story > .content {\n 1830    padding: 0em;\n 1831  }\n 1832  /* line 33, ../../sass/app/activities.scss */\n 1833: .story-item .activity.story > .content .header {\n 1834    position: relative;\n 1835    padding-left: 0.9375em;\n ....\n 1841  }\n 1842  /* line 39, ../../sass/app/activities.scss */\n 1843: .story-item .activity.story > .content .header h2 {\n 1844    margin-bottom: 0em;\n 1845    line-height: 1.2em;\n ....\n 1850  }\n 1851  /* line 49, ../../sass/app/activities.scss */\n 1852: .story-item .activity.story > .content .header .info-section .details .owner, .story-item .activity.story > .content .header .info-section .details .date {\n 1853    color: #aaaaaa;\n 1854  }\n 1855  /* line 55, ../../sass/app/activities.scss */\n 1856: .story-item .activity.story > .content > .content {\n 1857    padding: 1em;\n 1858    margin: 0em;\n 1859  }\n 1860  /* line 60, ../../sass/app/activities.scss */\n 1861: .story-item .activity.story > .content > .content .text.intro p {\n 1862    font-style: italic;\n 1863  }\n 1864  /* line 64, ../../sass/app/activities.scss */\n 1865: .story-item .activity.story > .content > .content .text ul {\n 1866    margin-left: 20px;\n 1867  }\n 1868  /* line 69, ../../sass/app/activities.scss */\n 1869: .story-item .activity.story > .content > .content .galleria-thumbnails-container {\n 1870    height: 0px;\n 1871  }\n 1872  /* line 73, ../../sass/app/activities.scss */\n 1873: .story-item .activity.story > .content > .content .galleria-thumbnails {\n 1874    display: none;\n 1875    height: 0px;\n 1876  }\n 1877  /* line 78, ../../sass/app/activities.scss */\n 1878: .story-item .activity.story > .content > .content .galleria-stage {\n 1879    top: 10px;\n 1880    bottom: 10px;\n ....\n 1888  \n 1889  /* line 92, ../../sass/app/activities.scss */\n 1890: .activity-map {\n 1891    float: right;\n 1892    padding: 0;\n ....\n 1894  }\n 1895  /* line 97, ../../sass/app/activities.scss */\n 1896: .activity-map.hide-for-small {\n 1897    padding: 10px;\n 1898  }\n 1899  \n 1900  /* line 102, ../../sass/app/activities.scss */\n 1901: .activity-highlight {\n 1902    float: right;\n 1903    padding: 0;\n ....\n 1907  }\n 1908  /* line 109, ../../sass/app/activities.scss */\n 1909: .activity-highlight.large {\n 1910    margin-top: 0.9em;\n 1911  }\n 1912  @media only screen and (min-width: 48em) {\n 1913    /* line 102, ../../sass/app/activities.scss */\n 1914:   .activity-highlight {\n 1915      margin-left: 1em;\n 1916      margin-bottom: 0em;\n ....\n 1919    }\n 1920    /* line 119, ../../sass/app/activities.scss */\n 1921:   .activity-highlight.large {\n 1922      height: 420px;\n 1923      width: 100%;\n ....\n 1926  }\n 1927  /* line 126, ../../sass/app/activities.scss */\n 1928: .activity-highlight .alert-box {\n 1929    height: 100%;\n 1930    vertical-align: middle;\n ....\n 2012  \n 2013  /* line 202, ../../sass/app/activities.scss */\n 2014: .activity-controls {\n 2015    width: auto;\n 2016    margin-left: -0.9375em;\n ....\n 2024  }\n 2025  /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */\n 2026: .activity-controls:before, .activity-controls:after {\n 2027    content: \" \";\n 2028    display: table;\n 2029  }\n 2030  /* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */\n 2031: .activity-controls:after {\n 2032    clear: both;\n 2033  }\n 2034  /* line 208, ../../sass/app/activities.scss */\n 2035: .activity-controls a {\n 2036    height: 24px;\n 2037    font-size: 0.9em;\n 2038  }\n 2039  /* line 212, ../../sass/app/activities.scss */\n 2040: .activity-controls a:before, .activity-controls a:after {\n 2041    background-size: 14px 14px;\n 2042    background-repeat: no-repeat;\n ....\n 2044  }\n 2045  /* line 219, ../../sass/app/activities.scss */\n 2046: .activity-controls .previous, .activity-controls .next {\n 2047    position: relative;\n 2048    padding-left: 0.9375em;\n ....\n 2054  @media only screen and (min-width: 48em) {\n 2055    /* line 219, ../../sass/app/activities.scss */\n 2056:   .activity-controls .previous, .activity-controls .next {\n 2057      position: relative;\n 2058      padding-left: 0.9375em;\n ....\n 2063  }\n 2064  /* line 228, ../../sass/app/activities.scss */\n 2065: .activity-controls .previous.clear, .activity-controls .next.clear {\n 2066    margin-bottom: 0em;\n 2067  }\n 2068  /* line 231, ../../sass/app/activities.scss */\n 2069: .activity-controls .previous.clear:before, .activity-controls .next.clear:before {\n 2070    content: \"\\00a0\";\n 2071  }\n 2072  /* line 238, ../../sass/app/activities.scss */\n 2073: .activity-controls .previous a {\n 2074    margin-left: -6px;\n 2075  }\n 2076  /* line 241, ../../sass/app/activities.scss */\n 2077: .activity-controls .previous a:before {\n 2078    padding-left: 0px;\n 2079    background-position: 2px;\n ....\n 2081  }\n 2082  /* line 249, ../../sass/app/activities.scss */\n 2083: .activity-controls .next {\n 2084    text-align: right;\n 2085  }\n 2086  /* line 252, ../../sass/app/activities.scss */\n 2087: .activity-controls .next a {\n 2088    margin-right: -2px;\n 2089  }\n 2090  /* line 255, ../../sass/app/activities.scss */\n 2091: .activity-controls .next a:after {\n 2092    padding-left: 0px;\n 2093    background-position: 2px;\n ....\n 2180  }\n 2181  /* line 334, ../../sass/_components.scss */\n 2182: .map-info > .inner .activity {\n 2183    width: auto;\n 2184    margin-left: -0.9375em;\n ....\n 2194  }\n 2195  /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */\n 2196: .map-info > .inner .activity:before, .map-info > .inner .activity:after {\n 2197    content: \" \";\n 2198    display: table;\n 2199  }\n 2200  /* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */\n 2201: .map-info > .inner .activity:after {\n 2202    clear: both;\n 2203  }\n 2204  /* line 171, ../../sass/_components.scss */\n 2205: .map-info > .inner .activity .info-section {\n 2206    position: relative;\n 2207    padding-left: 0.9375em;\n ....\n 2216  }\n 2217  /* line 180, ../../sass/_components.scss */\n 2218: .map-info > .inner .activity .info-section .picture {\n 2219    float: left;\n 2220    width: 2.9em;\n ....\n 2222  }\n 2223  /* line 185, ../../sass/_components.scss */\n 2224: .map-info > .inner .activity .info-section .picture img {\n 2225    -webkit-border-radius: 1.55em;\n 2226    -moz-border-radius: 1.55em;\n ....\n 2231  }\n 2232  /* line 192, ../../sass/_components.scss */\n 2233: .map-info > .inner .activity .info-section .details {\n 2234    height: 3.3em;\n 2235    margin-left: 3.5em;\n ....\n 2237  }\n 2238  /* line 198, ../../sass/_components.scss */\n 2239: .map-info > .inner .activity .info-section .details .owner {\n 2240    line-height: 1em;\n 2241  }\n 2242  /* line 202, ../../sass/_components.scss */\n 2243: .map-info > .inner .activity .info-section .details .date {\n 2244    font-size: 0.9em;\n 2245    color: #999999;\n ....\n 2250  }\n 2251  /* line 212, ../../sass/_components.scss */\n 2252: .map-info > .inner .activity .info-section.small {\n 2253    padding: 0.5em 0em;\n 2254    margin-bottom: 0em;\n 2255  }\n 2256  /* line 216, ../../sass/_components.scss */\n 2257: .map-info > .inner .activity .info-section.small .picture {\n 2258    width: 1.9em;\n 2259    height: 1.9em;\n 2260  }\n 2261  /* line 221, ../../sass/_components.scss */\n 2262: .map-info > .inner .activity .info-section.small .details {\n 2263    margin-left: 2.4em;\n 2264    font-family: \"Raleway\", sans-serif;\n 2265  }\n 2266  /* line 225, ../../sass/_components.scss */\n 2267: .map-info > .inner .activity .info-section.small .details .date, .map-info > .inner .activity .info-section.small .details .owner {\n 2268    float: left;\n 2269    line-height: 1.4em;\n ....\n 2271  }\n 2272  /* line 231, ../../sass/_components.scss */\n 2273: .map-info > .inner .activity .info-section.small .details .owner {\n 2274    font-weight: 400;\n 2275  }\n 2276  /* line 235, ../../sass/_components.scss */\n 2277: .map-info > .inner .activity .info-section.small .details .date:before {\n 2278    content: \"-\";\n 2279    padding: 0.3em;\n 2280  }\n 2281  /* line 243, ../../sass/_components.scss */\n 2282: .map-info > .inner .activity .actions {\n 2283    height: 3.3em !important;\n 2284    margin-top: -0.3em;\n ....\n 2291  }\n 2292  /* line 253, ../../sass/_components.scss */\n 2293: .map-info > .inner .activity .actions.show {\n 2294    display: block;\n 2295  }\n 2296  /* line 257, ../../sass/_components.scss */\n 2297: .map-info > .inner .activity .actions a.action {\n 2298    width: 2em;\n 2299    height: 2em;\n ....\n 2302  }\n 2303  /* line 263, ../../sass/_components.scss */\n 2304: .map-info > .inner .activity .actions a.action.remove {\n 2305    padding-left: 0.7em;\n 2306    padding-top: 0.5em;\n ....\n 2308  }\n 2309  /* line 268, ../../sass/_components.scss */\n 2310: .map-info > .inner .activity .actions a.action.remove:before {\n 2311    content: \"X\";\n 2312    color: #f6b5af;\n 2313  }\n 2314  /* line 274, ../../sass/_components.scss */\n 2315: .map-info > .inner .activity .actions a.action.edit {\n 2316    padding-left: 0.7em;\n 2317    padding-top: 0.5em;\n ....\n 2319  }\n 2320  /* line 279, ../../sass/_components.scss */\n 2321: .map-info > .inner .activity .actions a.action.edit:before {\n 2322    content: \"Edit\";\n 2323    font-weight: normal;\n ....\n 2325  }\n 2326  /* line 288, ../../sass/_components.scss */\n 2327: .map-info > .inner .activity .content {\n 2328    position: relative;\n 2329    padding-left: 0.9375em;\n ....\n 2334  }\n 2335  /* line 293, ../../sass/_components.scss */\n 2336: .map-info > .inner .activity .content h5 {\n 2337    line-height: 1.4em;\n 2338    margin-bottom: 0.5em;\n 2339  }\n 2340  /* line 298, ../../sass/_components.scss */\n 2341: .map-info > .inner .activity .content p:last-of-type {\n 2342    margin-bottom: 0em;\n 2343  }\n 2344  /* line 342, ../../sass/_components.scss */\n 2345: .map-info > .inner .activity > .content a.more {\n 2346    line-height: 2.2em;\n 2347    font-style: italic;\n ....\n 2349  }\n 2350  /* line 347, ../../sass/_components.scss */\n 2351: .map-info > .inner .activity > .content a.more:after {\n 2352    content: \"\\00a0→\";\n 2353  }\n 2354  /* line 353, ../../sass/_components.scss */\n 2355: .map-info > .inner .activity.story .ribbon-wrapper {\n 2356    border-right: 0.25em solid #d82a1a;\n 2357    margin-right: -0.25em;\n 2358  }\n 2359  /* line 358, ../../sass/_components.scss */\n 2360: .map-info > .inner .activity.story .actions {\n 2361    right: 3.3em;\n 2362  }\n 2363  /* line 363, ../../sass/_components.scss */\n 2364: .map-info > .inner .activity .actions {\n 2365    margin-top: 0em;\n 2366  }\n\n/Users/mgallop/Dev/underplan_src/client/stylesheets/app/feed.css:\n 1568  }\n 1569  /* line 334, ../../sass/_components.scss */\n 1570: .feed-item > .inner .activity {\n 1571    width: auto;\n 1572    margin-left: -0.9375em;\n ....\n 1582  }\n 1583  /* line 101, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */\n 1584: .feed-item > .inner .activity:before, .feed-item > .inner .activity:after {\n 1585    content: \" \";\n 1586    display: table;\n 1587  }\n 1588  /* line 102, ../../../../../.rvm/gems/ruby-1.9.3-p327/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */\n 1589: .feed-item > .inner .activity:after {\n 1590    clear: both;\n 1591  }\n 1592  /* line 171, ../../sass/_components.scss */\n 1593: .feed-item > .inner .activity .info-section {\n 1594    position: relative;\n 1595    padding-left: 0.9375em;\n ....\n 1604  }\n 1605  /* line 180, ../../sass/_components.scss */\n 1606: .feed-item > .inner .activity .info-section .picture {\n 1607    float: left;\n 1608    width: 2.9em;\n ....\n 1610  }\n 1611  /* line 185, ../../sass/_components.scss */\n 1612: .feed-item > .inner .activity .info-section .picture img {\n 1613    -webkit-border-radius: 1.55em;\n 1614    -moz-border-radius: 1.55em;\n ....\n 1619  }\n 1620  /* line 192, ../../sass/_components.scss */\n 1621: .feed-item > .inner .activity .info-section .details {\n 1622    height: 3.3em;\n 1623    margin-left: 3.5em;\n ....\n 1625  }\n 1626  /* line 198, ../../sass/_components.scss */\n 1627: .feed-item > .inner .activity .info-section .details .owner {\n 1628    line-height: 1em;\n 1629  }\n 1630  /* line 202, ../../sass/_components.scss */\n 1631: .feed-item > .inner .activity .info-section .details .date {\n 1632    font-size: 0.9em;\n 1633    color: #999999;\n ....\n 1638  }\n 1639  /* line 212, ../../sass/_components.scss */\n 1640: .feed-item > .inner .activity .info-section.small {\n 1641    padding: 0.5em 0em;\n 1642    margin-bottom: 0em;\n 1643  }\n 1644  /* line 216, ../../sass/_components.scss */\n 1645: .feed-item > .inner .activity .info-section.small .picture {\n 1646    width: 1.9em;\n 1647    height: 1.9em;\n 1648  }\n 1649  /* line 221, ../../sass/_components.scss */\n 1650: .feed-item > .inner .activity .info-section.small .details {\n 1651    margin-left: 2.4em;\n 1652    font-family: \"Raleway\", sans-serif;\n 1653  }\n 1654  /* line 225, ../../sass/_components.scss */\n 1655: .feed-item > .inner .activity .info-section.small .details .date, .feed-item > .inner .activity .info-section.small .details .owner {\n 1656    float: left;\n 1657    line-height: 1.4em;\n ....\n 1659  }\n 1660  /* line 231, ../../sass/_components.scss */\n 1661: .feed-item > .inner .activity .info-section.small .details .owner {\n 1662    font-weight: 400;\n 1663  }\n 1664  /* line 235, ../../sass/_components.scss */\n 1665: .feed-item > .inner .activity .info-section.small .details .date:before {\n 1666    content: \"-\";\n 1667    padding: 0.3em;\n 1668  }\n 1669  /* line 243, ../../sass/_components.scss */\n 1670: .feed-item > .inner .activity .actions {\n 1671    height: 3.3em !important;\n 1672    margin-top: -0.3em;\n ....\n 1679  }\n 1680  /* line 253, ../../sass/_components.scss */\n 1681: .feed-item > .inner .activity .actions.show {\n 1682    display: block;\n 1683  }\n 1684  /* line 257, ../../sass/_components.scss */\n 1685: .feed-item > .inner .activity .actions a.action {\n 1686    width: 2em;\n 1687    height: 2em;\n ....\n 1690  }\n 1691  /* line 263, ../../sass/_components.scss */\n 1692: .feed-item > .inner .activity .actions a.action.remove {\n 1693    padding-left: 0.7em;\n 1694    padding-top: 0.5em;\n ....\n 1696  }\n 1697  /* line 268, ../../sass/_components.scss */\n 1698: .feed-item > .inner .activity .actions a.action.remove:before {\n 1699    content: \"X\";\n 1700    color: #f6b5af;\n 1701  }\n 1702  /* line 274, ../../sass/_components.scss */\n 1703: .feed-item > .inner .activity .actions a.action.edit {\n 1704    padding-left: 0.7em;\n 1705    padding-top: 0.5em;\n ....\n 1707  }\n 1708  /* line 279, ../../sass/_components.scss */\n 1709: .feed-item > .inner .activity .actions a.action.edit:before {\n 1710    content: \"Edit\";\n 1711    font-weight: normal;\n ....\n 1713  }\n 1714  /* line 288, ../../sass/_components.scss */\n 1715: .feed-item > .inner .activity .content {\n 1716    position: relative;\n 1717    padding-left: 0.9375em;\n ....\n 1722  }\n 1723  /* line 293, ../../sass/_components.scss */\n 1724: .feed-item > .inner .activity .content h5 {\n 1725    line-height: 1.4em;\n 1726    margin-bottom: 0.5em;\n 1727  }\n 1728  /* line 298, ../../sass/_components.scss */\n 1729: .feed-item > .inner .activity .content p:last-of-type {\n 1730    margin-bottom: 0em;\n 1731  }\n 1732  /* line 342, ../../sass/_components.scss */\n 1733: .feed-item > .inner .activity > .content a.more {\n 1734    line-height: 2.2em;\n 1735    font-style: italic;\n ....\n 1737  }\n 1738  /* line 347, ../../sass/_components.scss */\n 1739: .feed-item > .inner .activity > .content a.more:after {\n 1740    content: \"\\00a0→\";\n 1741  }\n 1742  /* line 353, ../../sass/_components.scss */\n 1743: .feed-item > .inner .activity.story .ribbon-wrapper {\n 1744    border-right: 0.25em solid #d82a1a;\n 1745    margin-right: -0.25em;\n 1746  }\n 1747  /* line 358, ../../sass/_components.scss */\n 1748: .feed-item > .inner .activity.story .actions {\n 1749    right: 3.3em;\n 1750  }\n 1751  /* line 363, ../../sass/_components.scss */\n 1752: .feed-item > .inner .activity .actions {\n 1753    margin-top: 0em;\n 1754  }\n\n202 matches across 15 files\n\n\nSearching 42 files for \".activity\"\n\n/Users/mgallop/Dev/underplan_src/client/sass/_components.scss:\n  332      margin-bottom: 0em;\n  333  \n  334:     .activity {\n  335  \n  336        @include entry-with-profile(3.3em);\n\n/Users/mgallop/Dev/underplan_src/client/sass/app/activities.scss:\n    5    @include standard-item();\n    6  \n    7:   .activity.story {\n    8      margin: 0em;\n    9      margin-top: -1px;\n   ..\n   90  }\n   91  \n   92: .activity-map {\n   93    float: right;\n   94    padding: 0;\n   ..\n  100  }\n  101  \n  102: .activity-highlight {\n  103    float: right;\n  104    padding: 0;\n  ...\n  200  }\n  201  \n  202: .activity-controls {\n  203    @include grid-row(nest);\n  204  \n\n5 matches across 2 files\n\n\nSearching 282 files for \"throw new Error(type + ': ' + msg);\"\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria/galleria-1.2.9.js:\n 5632          echo( msg );\n 5633          if ( fatal ) {\n 5634:             throw new Error(type + ': ' + msg);\n 5635          }\n 5636  \n\n1 match in 1 file\n\n\nSearching 42 files for \".actions\"\n\n/Users/mgallop/Dev/underplan_src/client/sass/_components.scss:\n  241    }\n  242  \n  243:   .actions {\n  244      height: $info-section-height !important;\n  245      margin-top: -$info-section-padding;\n  ...\n  356          }\n  357  \n  358:         .actions {\n  359            right: 3.3em;\n  360          }\n  361        }\n  362  \n  363:       .actions {\n  364          margin-top: 0em;\n  365        }\n\n/Users/mgallop/Dev/underplan_src/client/sass/app/activities.scss:\n    9      margin-top: -1px;\n   10  \n   11:     .actions {\n   12        right: -1em !important;\n   13  \n\n/Users/mgallop/Dev/underplan_src/client/sass/app/home.scss:\n  209      }\n  210  \n  211:     .actions {\n  212        @include grid-row(nest);\n  213  \n\n5 matches across 3 files\n\n\nSearching 282 files for \"echo = \"\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria/galleria-1.2.9.js:\n 5601          },\n 5602  \n 5603:         echo = function( msg ) {\n 5604  \n 5605              var html = '<div style=\"padding:4px;margin:0 0 2px;background:#' +\n\n1 match in 1 file\n\n\nSearching 282 files for \".galleria\"\n\n~/Dev/underplan_src/client/.sass-cache/137f444010aeeb084e683042de48971149995cc1/activities.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/137f444010aeeb084e683042de48971149995cc1/feed.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/4d5417907c2fa5620b7baefac1fd4d8fd5f4859a/galleria.classic.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/4d5417907c2fa5620b7baefac1fd4d8fd5f4859a/galleria.twelve.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/5e931eaf49285383b5c53b8a1da22e5d25d64796/galleria.classic.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/7f19f7cf6b1f9186c4c08526f098c2fae262d178/activities.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/7f19f7cf6b1f9186c4c08526f098c2fae262d178/feed.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/abe8ffc67b0172f865d790a169b97cf04b78b02a/overrides.scssc:\n    <binary>\n\n~/Dev/underplan_src/client/.sass-cache/d9fab2c976d1f6484cc75b82ad4c92b2b1997332/overrides.scssc:\n    <binary>\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria/galleria-1.2.9.js:\n 1004  */\n 1005  \n 1006: Galleria = window.Galleria = function() {\n 1007  \n 1008      var self = this;\n ....\n 1319              tooltip.initialized = true;\n 1320  \n 1321:             var css = '.galleria-tooltip{padding:3px 8px;max-width:50%;background:#ffe;color:#000;z-index:3;position:absolute;font-size:11px;line-height:1.3;' +\n 1322                        'opacity:0;box-shadow:0 0 2px rgba(0,0,0,.4);-moz-box-shadow:0 0 2px rgba(0,0,0,.4);-webkit-box-shadow:0 0 2px rgba(0,0,0,.4);}';\n 1323  \n ....\n 2055              // create and insert CSS\n 2056              $.each(cssMap, function( key, value ) {\n 2057:                 css += '.galleria-'+prefix+key+'{'+value+'}';\n 2058              });\n 2059  \n 2060:             css += '.galleria-'+prefix+'box.iframe .galleria-'+prefix+'prevholder,'+\n 2061:                    '.galleria-'+prefix+'box.iframe .galleria-'+prefix+'nextholder{'+\n 2062                     'width:100px;height:100px;top:50%;margin-top:-70px}';\n 2063  \n ....\n 3814  \n 3815          @example addIdleState( this.get('image-nav'), { opacity: 0 });\n 3816:         @example addIdleState( '.galleria-image-nav', { top: -200 }, true);\n 3817  \n 3818          @returns Instance\n ....\n 5495  \n 5496      Run Galleria\n 5497:     Alias for $(selector).galleria(options)\n 5498  \n 5499      @param {string} selector A selector of element(s) to intialize galleria to\n ....\n 5509          options = { extend: options };\n 5510      }\n 5511:     $( selector || '#galleria' ).galleria( options );\n 5512      return Galleria;\n 5513  };\n ....\n 6625  \n 6626  // the plugin initializer\n 6627: $.fn.galleria = function( options ) {\n 6628  \n 6629      var selector = this.selector;\n ....\n 6636  \n 6637                  // if found on domReady, go ahead\n 6638:                 $( selector ).galleria( options );\n 6639  \n 6640              } else {\n ....\n 6646                      },\n 6647                      success: function() {\n 6648:                         $( selector ).galleria( options );\n 6649                      },\n 6650                      error: function() {\n\n/Users/mgallop/Dev/underplan_src/client/javascripts/views/activities/feed.js:\n  504          });\n  505          \n  506:         $('.galleria-image').click(function(event) {\n  507:           var galleria = $(event.target).closest(\".galleria-container\");\n  508            var container = $(event.target).closest(\".gallery\");\n  509  \n  ...\n  541      return false;\n  542    },\n  543:   \"click .galleria-map\": function () {\n  544      $(\".gallery\").removeClass(\"visible\");\n  545    }\n\n/Users/mgallop/Dev/underplan_src/client/sass/_vendor/galleria.classic.scss:\n    7  #galleria-loader{height:1px!important}\n    8  \n    9: .galleria-container {\n   10      position: relative;\n   11      overflow: hidden;\n   12      background: #000;\n   13  }\n   14: .galleria-container img {\n   15      -moz-user-select: none;\n   16      -webkit-user-select: none;\n   17      -o-user-select: none;\n   18  }\n   19: .galleria-stage {\n   20      position: absolute;\n   21      top: 10px;\n   ..\n   25      overflow:hidden;\n   26  }\n   27: .galleria-thumbnails-container {\n   28      height: $thumb-height + 10px;\n   29      bottom: 0;\n   ..\n   33      z-index: 2;\n   34  }\n   35: .galleria-carousel .galleria-thumbnails-list {\n   36      margin-left: 30px;\n   37      margin-right: 30px;\n   38  }\n   39: .galleria-thumbnails .galleria-image {\n   40      height: $thumb-height;\n   41      width: $thumb-width;\n   ..\n   46      cursor: pointer;\n   47  }\n   48: .galleria-counter {\n   49      position: absolute;\n   50      bottom: 10px;\n   ..\n   55      z-index: 1;\n   56  }\n   57: .galleria-loader {\n   58      background: #000;\n   59      width: 20px;\n   ..\n   66      background: url(\"#{$imagePath}/classic-loader.gif\") no-repeat 2px 2px;\n   67  }\n   68: .galleria-info {\n   69      width: 50%;\n   70      top: 15px;\n   ..\n   73      position: absolute;\n   74  }\n   75: .galleria-info-text {\n   76      background-color: #000;\n   77      padding: 12px;\n   ..\n   79      /* IE7 */ zoom:1;\n   80  }\n   81: .galleria-info-title {\n   82      font: bold 12px/1.1 arial,sans-serif;\n   83      margin: 0;\n   ..\n   85      margin-bottom: 7px;\n   86  }\n   87: .galleria-info-description {\n   88      font: italic 12px/1.4 georgia,serif;\n   89      margin: 0;\n   90      color: #bbb;\n   91  }\n   92: .galleria-info-close {\n   93      width: 9px;\n   94      height: 9px;\n   ..\n  102      display: none;\n  103  }\n  104: .notouch .galleria-info-close:hover{\n  105      opacity:1;\n  106      filter: alpha(opacity=100);\n  107  }\n  108: .touch .galleria-info-close:active{\n  109      opacity:1;\n  110      filter: alpha(opacity=100);\n  111  }\n  112: .galleria-info-link {\n  113      background-position: -669px -5px;\n  114      opacity: .7;\n  ...\n  120      background-color: #000;\n  121  }\n  122: .notouch .galleria-info-link:hover {\n  123      opacity: 1;\n  124      filter: alpha(opacity=100);\n  125  }\n  126: .touch .galleria-info-link:active {\n  127      opacity: 1;\n  128      filter: alpha(opacity=100);\n  129  }\n  130: .galleria-image-nav {\n  131      position: absolute;\n  132      top: 50%;\n  ...\n  136      left: 0;\n  137  }\n  138: .galleria-image-nav-left,\n  139: .galleria-image-nav-right {\n  140      opacity: .3;\n  141      filter: alpha(opacity=30);\n  ...\n  148      background-position: 0 46px;\n  149  }\n  150: .galleria-image-nav-right {\n  151      left: auto;\n  152      right: 10px;\n  ...\n  154      z-index: 2;\n  155  }\n  156: .notouch .galleria-image-nav-left:hover,\n  157: .notouch .galleria-image-nav-right:hover {\n  158      opacity: 1;\n  159      filter: alpha(opacity=100);\n  160  }\n  161: .touch .galleria-image-nav-left:active,\n  162: .touch .galleria-image-nav-right:active {\n  163      opacity: 1;\n  164      filter: alpha(opacity=100);\n  165  }\n  166: .galleria-thumb-nav-left,\n  167: .galleria-thumb-nav-right {\n  168      cursor: pointer;\n  169      display: none;\n  ...\n  178      filter: alpha(opacity=80);\n  179  }\n  180: .galleria-thumb-nav-right {\n  181      background-position: -578px 15px;\n  182      border-right: none;\n  ...\n  184      left: auto;\n  185  }\n  186: .galleria-thumbnails-container .disabled {\n  187      opacity: .2;\n  188      filter: alpha(opacity=20);\n  189      cursor: default;\n  190  }\n  191: .notouch .galleria-thumb-nav-left:hover,\n  192: .notouch .galleria-thumb-nav-right:hover {\n  193      opacity: 1;\n  194      filter: alpha(opacity=100);\n  195      background-color: #111;\n  196  }\n  197: .touch .galleria-thumb-nav-left:active,\n  198: .touch .galleria-thumb-nav-right:active {\n  199      opacity: 1;\n  200      filter: alpha(opacity=100);\n  201      background-color: #111;\n  202  }\n  203: .notouch .galleria-thumbnails-container .disabled:hover {\n  204      opacity: .2;\n  205      filter: alpha(opacity=20);\n  ...\n  207  }\n  208  \n  209: .galleria-carousel .galleria-thumb-nav-left,\n  210: .galleria-carousel .galleria-thumb-nav-right {\n  211      display: block;\n  212  }\n  213: .galleria-thumb-nav-left,\n  214: .galleria-thumb-nav-right,\n  215: .galleria-info-link,\n  216: .galleria-info-close,\n  217: .galleria-image-nav-left,\n  218: .galleria-image-nav-right {\n  219      background-image: url(\"#{$imagePath}/classic-map.png\");\n  220      background-repeat: no-repeat;\n\n/Users/mgallop/Dev/underplan_src/client/sass/app/activities.scss:\n   85          }\n   86  \n   87:         .galleria-thumbnails-container {\n   88            height: 0px;\n   89          }\n   90  \n   91:         .galleria-thumbnails {\n   92            display: none;\n   93            height: 0px;\n   94          }\n   95  \n   96:         .galleria-stage {\n   97            top: 10px;\n   98            bottom: 10px;\n\n/Users/mgallop/Dev/underplan_src/client/sass/app/feed.scss:\n  272        }\n  273  \n  274:       .galleria-map {\n  275          width: 50%;\n  276          top: 15px;\n\n/Users/mgallop/Dev/underplan_src/client/sass/overrides.scss:\n    1: .galleria-stage {\n    2    top: 0px;\n    3    left: 0px;\n    .\n    5  }\n    6  \n    7: .galleria-thumbnails-container {\n    8    bottom: 0px;\n    9    left: 0px;\n   ..\n   12  }\n   13  \n   14: .galleria-container {\n   15    height: inherit; \n   16    width: inherit; \n   17  }\n   18  \n   19: .galleria-counter {\n   20    z-index: 2;\n   21  }\n   22  \n   23: .galleria-info {\n   24    position: absolute;\n   25    bottom: 10px;\n   ..\n   30    z-index: 1;\n   31    \n   32:   .galleria-info-text {\n   33      background-color: rgba(0, 0, 0, 0.4);\n   34      padding: 0.5em;\n   ..\n   37    }\n   38  \n   39:   .galleria-info-link {\n   40      display: none;\n   41      position: absolute;\n   ..\n   44    }\n   45  \n   46:   .galleria-info-close {\n   47      display: block;\n   48      position: absolute;\n   ..\n   51    }\n   52  \n   53:   .galleria-info-title {\n   54      margin-bottom: 0em;\n   55      font-family: inherit;\n\n/Users/mgallop/Dev/underplan_src/client/stylesheets/_vendor/galleria.classic.css:\n    6  \n    7  /* line 9, ../../sass/_vendor/galleria.classic.scss */\n    8: .galleria-container {\n    9    position: relative;\n   10    overflow: hidden;\n   ..\n   13  \n   14  /* line 14, ../../sass/_vendor/galleria.classic.scss */\n   15: .galleria-container img {\n   16    -moz-user-select: none;\n   17    -webkit-user-select: none;\n   ..\n   20  \n   21  /* line 19, ../../sass/_vendor/galleria.classic.scss */\n   22: .galleria-stage {\n   23    position: absolute;\n   24    top: 10px;\n   ..\n   30  \n   31  /* line 27, ../../sass/_vendor/galleria.classic.scss */\n   32: .galleria-thumbnails-container {\n   33    height: 70px;\n   34    bottom: 0;\n   ..\n   40  \n   41  /* line 35, ../../sass/_vendor/galleria.classic.scss */\n   42: .galleria-carousel .galleria-thumbnails-list {\n   43    margin-left: 30px;\n   44    margin-right: 30px;\n   ..\n   46  \n   47  /* line 39, ../../sass/_vendor/galleria.classic.scss */\n   48: .galleria-thumbnails .galleria-image {\n   49    height: 60px;\n   50    width: 80px;\n   ..\n   57  \n   58  /* line 48, ../../sass/_vendor/galleria.classic.scss */\n   59: .galleria-counter {\n   60    position: absolute;\n   61    bottom: 10px;\n   ..\n   68  \n   69  /* line 57, ../../sass/_vendor/galleria.classic.scss */\n   70: .galleria-loader {\n   71    background: #000;\n   72    width: 20px;\n   ..\n   81  \n   82  /* line 68, ../../sass/_vendor/galleria.classic.scss */\n   83: .galleria-info {\n   84    width: 50%;\n   85    top: 15px;\n   ..\n   90  \n   91  /* line 75, ../../sass/_vendor/galleria.classic.scss */\n   92: .galleria-info-text {\n   93    background-color: #000;\n   94    padding: 12px;\n   ..\n   99  \n  100  /* line 81, ../../sass/_vendor/galleria.classic.scss */\n  101: .galleria-info-title {\n  102    font: bold 12px/1.1 arial,sans-serif;\n  103    margin: 0;\n  ...\n  107  \n  108  /* line 87, ../../sass/_vendor/galleria.classic.scss */\n  109: .galleria-info-description {\n  110    font: italic 12px/1.4 georgia,serif;\n  111    margin: 0;\n  ...\n  114  \n  115  /* line 92, ../../sass/_vendor/galleria.classic.scss */\n  116: .galleria-info-close {\n  117    width: 9px;\n  118    height: 9px;\n  ...\n  128  \n  129  /* line 104, ../../sass/_vendor/galleria.classic.scss */\n  130: .notouch .galleria-info-close:hover {\n  131    opacity: 1;\n  132    filter: alpha(opacity=100);\n  ...\n  134  \n  135  /* line 108, ../../sass/_vendor/galleria.classic.scss */\n  136: .touch .galleria-info-close:active {\n  137    opacity: 1;\n  138    filter: alpha(opacity=100);\n  ...\n  140  \n  141  /* line 112, ../../sass/_vendor/galleria.classic.scss */\n  142: .galleria-info-link {\n  143    background-position: -669px -5px;\n  144    opacity: .7;\n  ...\n  152  \n  153  /* line 122, ../../sass/_vendor/galleria.classic.scss */\n  154: .notouch .galleria-info-link:hover {\n  155    opacity: 1;\n  156    filter: alpha(opacity=100);\n  ...\n  158  \n  159  /* line 126, ../../sass/_vendor/galleria.classic.scss */\n  160: .touch .galleria-info-link:active {\n  161    opacity: 1;\n  162    filter: alpha(opacity=100);\n  ...\n  164  \n  165  /* line 130, ../../sass/_vendor/galleria.classic.scss */\n  166: .galleria-image-nav {\n  167    position: absolute;\n  168    top: 50%;\n  ...\n  174  \n  175  /* line 139, ../../sass/_vendor/galleria.classic.scss */\n  176: .galleria-image-nav-left,\n  177: .galleria-image-nav-right {\n  178    opacity: .3;\n  179    filter: alpha(opacity=30);\n  ...\n  188  \n  189  /* line 150, ../../sass/_vendor/galleria.classic.scss */\n  190: .galleria-image-nav-right {\n  191    left: auto;\n  192    right: 10px;\n  ...\n  196  \n  197  /* line 157, ../../sass/_vendor/galleria.classic.scss */\n  198: .notouch .galleria-image-nav-left:hover,\n  199: .notouch .galleria-image-nav-right:hover {\n  200    opacity: 1;\n  201    filter: alpha(opacity=100);\n  ...\n  203  \n  204  /* line 162, ../../sass/_vendor/galleria.classic.scss */\n  205: .touch .galleria-image-nav-left:active,\n  206: .touch .galleria-image-nav-right:active {\n  207    opacity: 1;\n  208    filter: alpha(opacity=100);\n  ...\n  210  \n  211  /* line 167, ../../sass/_vendor/galleria.classic.scss */\n  212: .galleria-thumb-nav-left,\n  213: .galleria-thumb-nav-right {\n  214    cursor: pointer;\n  215    display: none;\n  ...\n  226  \n  227  /* line 180, ../../sass/_vendor/galleria.classic.scss */\n  228: .galleria-thumb-nav-right {\n  229    background-position: -578px 15px;\n  230    border-right: none;\n  ...\n  234  \n  235  /* line 186, ../../sass/_vendor/galleria.classic.scss */\n  236: .galleria-thumbnails-container .disabled {\n  237    opacity: .2;\n  238    filter: alpha(opacity=20);\n  ...\n  241  \n  242  /* line 192, ../../sass/_vendor/galleria.classic.scss */\n  243: .notouch .galleria-thumb-nav-left:hover,\n  244: .notouch .galleria-thumb-nav-right:hover {\n  245    opacity: 1;\n  246    filter: alpha(opacity=100);\n  ...\n  249  \n  250  /* line 198, ../../sass/_vendor/galleria.classic.scss */\n  251: .touch .galleria-thumb-nav-left:active,\n  252: .touch .galleria-thumb-nav-right:active {\n  253    opacity: 1;\n  254    filter: alpha(opacity=100);\n  ...\n  257  \n  258  /* line 203, ../../sass/_vendor/galleria.classic.scss */\n  259: .notouch .galleria-thumbnails-container .disabled:hover {\n  260    opacity: .2;\n  261    filter: alpha(opacity=20);\n  ...\n  264  \n  265  /* line 210, ../../sass/_vendor/galleria.classic.scss */\n  266: .galleria-carousel .galleria-thumb-nav-left,\n  267: .galleria-carousel .galleria-thumb-nav-right {\n  268    display: block;\n  269  }\n  270  \n  271  /* line 218, ../../sass/_vendor/galleria.classic.scss */\n  272: .galleria-thumb-nav-left,\n  273: .galleria-thumb-nav-right,\n  274: .galleria-info-link,\n  275: .galleria-info-close,\n  276: .galleria-image-nav-left,\n  277: .galleria-image-nav-right {\n  278    background-image: url(\"/images/galleria/classic-map.png\");\n  279    background-repeat: no-repeat;\n\n/Users/mgallop/Dev/underplan_src/client/stylesheets/app/activities.css:\n 1891  }\n 1892  /* line 87, ../../sass/app/activities.scss */\n 1893: .story-item .activity.story > .content > .content .galleria-thumbnails-container {\n 1894    height: 0px;\n 1895  }\n 1896  /* line 91, ../../sass/app/activities.scss */\n 1897: .story-item .activity.story > .content > .content .galleria-thumbnails {\n 1898    display: none;\n 1899    height: 0px;\n 1900  }\n 1901  /* line 96, ../../sass/app/activities.scss */\n 1902: .story-item .activity.story > .content > .content .galleria-stage {\n 1903    top: 10px;\n 1904    bottom: 10px;\n\n/Users/mgallop/Dev/underplan_src/client/stylesheets/app/feed.css:\n 2429  }\n 2430  /* line 274, ../../sass/app/feed.scss */\n 2431: .feed-extra .gallery > .inner .galleria-map {\n 2432    width: 50%;\n 2433    top: 15px;\n ....\n 2440  }\n 2441  /* line 284, ../../sass/app/feed.scss */\n 2442: .feed-extra .gallery > .inner .galleria-map:before {\n 2443    content: \"Back to Map\";\n 2444  }\n 2445  /* line 288, ../../sass/app/feed.scss */\n 2446: .feed-extra .gallery > .inner .galleria-map:hover {\n 2447    cursor: pointer;\n 2448  }\n\n/Users/mgallop/Dev/underplan_src/client/stylesheets/overrides.css:\n    1  /* line 1, ../sass/overrides.scss */\n    2: .galleria-stage {\n    3    top: 0px;\n    4    left: 0px;\n    .\n    7  \n    8  /* line 7, ../sass/overrides.scss */\n    9: .galleria-thumbnails-container {\n   10    bottom: 0px;\n   11    left: 0px;\n   ..\n   15  \n   16  /* line 14, ../sass/overrides.scss */\n   17: .galleria-container {\n   18    height: inherit;\n   19    width: inherit;\n   ..\n   21  \n   22  /* line 19, ../sass/overrides.scss */\n   23: .galleria-counter {\n   24    z-index: 2;\n   25  }\n   26  \n   27  /* line 23, ../sass/overrides.scss */\n   28: .galleria-info {\n   29    position: absolute;\n   30    bottom: 10px;\n   ..\n   36  }\n   37  /* line 32, ../sass/overrides.scss */\n   38: .galleria-info .galleria-info-text {\n   39    background-color: rgba(0, 0, 0, 0.4);\n   40    padding: 0.5em;\n   ..\n   43  }\n   44  /* line 39, ../sass/overrides.scss */\n   45: .galleria-info .galleria-info-link {\n   46    display: none;\n   47    position: absolute;\n   ..\n   50  }\n   51  /* line 46, ../sass/overrides.scss */\n   52: .galleria-info .galleria-info-close {\n   53    display: block;\n   54    position: absolute;\n   ..\n   57  }\n   58  /* line 53, ../sass/overrides.scss */\n   59: .galleria-info .galleria-info-title {\n   60    margin-bottom: 0em;\n   61    font-family: inherit;\n\n552 matches across 19 files\n\n\nSearching 42 files for \".galleria\"\n\n/Users/mgallop/Dev/underplan_src/client/sass/_vendor/galleria.classic.scss:\n    7  #galleria-loader{height:1px!important}\n    8  \n    9: .galleria-container {\n   10      position: relative;\n   11      overflow: hidden;\n   12      background: #000;\n   13  }\n   14: .galleria-container img {\n   15      -moz-user-select: none;\n   16      -webkit-user-select: none;\n   17      -o-user-select: none;\n   18  }\n   19: .galleria-stage {\n   20      position: absolute;\n   21      top: 10px;\n   ..\n   25      overflow:hidden;\n   26  }\n   27: .galleria-thumbnails-container {\n   28      height: $thumb-height + 10px;\n   29      bottom: 0;\n   ..\n   33      z-index: 2;\n   34  }\n   35: .galleria-carousel .galleria-thumbnails-list {\n   36      margin-left: 30px;\n   37      margin-right: 30px;\n   38  }\n   39: .galleria-thumbnails .galleria-image {\n   40      height: $thumb-height;\n   41      width: $thumb-width;\n   ..\n   46      cursor: pointer;\n   47  }\n   48: .galleria-counter {\n   49      position: absolute;\n   50      bottom: 10px;\n   ..\n   55      z-index: 1;\n   56  }\n   57: .galleria-loader {\n   58      background: #000;\n   59      width: 20px;\n   ..\n   66      background: url(\"#{$imagePath}/classic-loader.gif\") no-repeat 2px 2px;\n   67  }\n   68: .galleria-info {\n   69      width: 50%;\n   70      top: 15px;\n   ..\n   73      position: absolute;\n   74  }\n   75: .galleria-info-text {\n   76      background-color: #000;\n   77      padding: 12px;\n   ..\n   79      /* IE7 */ zoom:1;\n   80  }\n   81: .galleria-info-title {\n   82      font: bold 12px/1.1 arial,sans-serif;\n   83      margin: 0;\n   ..\n   85      margin-bottom: 7px;\n   86  }\n   87: .galleria-info-description {\n   88      font: italic 12px/1.4 georgia,serif;\n   89      margin: 0;\n   90      color: #bbb;\n   91  }\n   92: .galleria-info-close {\n   93      width: 9px;\n   94      height: 9px;\n   ..\n  102      display: none;\n  103  }\n  104: .notouch .galleria-info-close:hover{\n  105      opacity:1;\n  106      filter: alpha(opacity=100);\n  107  }\n  108: .touch .galleria-info-close:active{\n  109      opacity:1;\n  110      filter: alpha(opacity=100);\n  111  }\n  112: .galleria-info-link {\n  113      background-position: -669px -5px;\n  114      opacity: .7;\n  ...\n  120      background-color: #000;\n  121  }\n  122: .notouch .galleria-info-link:hover {\n  123      opacity: 1;\n  124      filter: alpha(opacity=100);\n  125  }\n  126: .touch .galleria-info-link:active {\n  127      opacity: 1;\n  128      filter: alpha(opacity=100);\n  129  }\n  130: .galleria-image-nav {\n  131      position: absolute;\n  132      top: 50%;\n  ...\n  136      left: 0;\n  137  }\n  138: .galleria-image-nav-left,\n  139: .galleria-image-nav-right {\n  140      opacity: .3;\n  141      filter: alpha(opacity=30);\n  ...\n  148      background-position: 0 46px;\n  149  }\n  150: .galleria-image-nav-right {\n  151      left: auto;\n  152      right: 10px;\n  ...\n  154      z-index: 2;\n  155  }\n  156: .notouch .galleria-image-nav-left:hover,\n  157: .notouch .galleria-image-nav-right:hover {\n  158      opacity: 1;\n  159      filter: alpha(opacity=100);\n  160  }\n  161: .touch .galleria-image-nav-left:active,\n  162: .touch .galleria-image-nav-right:active {\n  163      opacity: 1;\n  164      filter: alpha(opacity=100);\n  165  }\n  166: .galleria-thumb-nav-left,\n  167: .galleria-thumb-nav-right {\n  168      cursor: pointer;\n  169      display: none;\n  ...\n  178      filter: alpha(opacity=80);\n  179  }\n  180: .galleria-thumb-nav-right {\n  181      background-position: -578px 15px;\n  182      border-right: none;\n  ...\n  184      left: auto;\n  185  }\n  186: .galleria-thumbnails-container .disabled {\n  187      opacity: .2;\n  188      filter: alpha(opacity=20);\n  189      cursor: default;\n  190  }\n  191: .notouch .galleria-thumb-nav-left:hover,\n  192: .notouch .galleria-thumb-nav-right:hover {\n  193      opacity: 1;\n  194      filter: alpha(opacity=100);\n  195      background-color: #111;\n  196  }\n  197: .touch .galleria-thumb-nav-left:active,\n  198: .touch .galleria-thumb-nav-right:active {\n  199      opacity: 1;\n  200      filter: alpha(opacity=100);\n  201      background-color: #111;\n  202  }\n  203: .notouch .galleria-thumbnails-container .disabled:hover {\n  204      opacity: .2;\n  205      filter: alpha(opacity=20);\n  ...\n  207  }\n  208  \n  209: .galleria-carousel .galleria-thumb-nav-left,\n  210: .galleria-carousel .galleria-thumb-nav-right {\n  211      display: block;\n  212  }\n  213: .galleria-thumb-nav-left,\n  214: .galleria-thumb-nav-right,\n  215: .galleria-info-link,\n  216: .galleria-info-close,\n  217: .galleria-image-nav-left,\n  218: .galleria-image-nav-right {\n  219      background-image: url(\"#{$imagePath}/classic-map.png\");\n  220      background-repeat: no-repeat;\n\n/Users/mgallop/Dev/underplan_src/client/sass/app/activities.scss:\n   85          }\n   86  \n   87:         .galleria-thumbnails-container {\n   88            height: 0px;\n   89          }\n   90  \n   91:         .galleria-thumbnails {\n   92            display: none;\n   93            height: 0px;\n   94          }\n   95  \n   96:         .galleria-stage {\n   97            top: 10px;\n   98            bottom: 10px;\n\n/Users/mgallop/Dev/underplan_src/client/sass/app/feed.scss:\n  272        }\n  273  \n  274:       .galleria-map {\n  275          width: 50%;\n  276          top: 15px;\n\n/Users/mgallop/Dev/underplan_src/client/sass/overrides.scss:\n    1: .galleria-stage {\n    2    top: 0px;\n    3    left: 0px;\n    .\n    5  }\n    6  \n    7: .galleria-thumbnails-container {\n    8    bottom: 0px;\n    9    left: 0px;\n   ..\n   12  }\n   13  \n   14: .galleria-container {\n   15    height: inherit; \n   16    width: inherit; \n   17  }\n   18  \n   19: .galleria-counter {\n   20    z-index: 2;\n   21  }\n   22  \n   23: .galleria-info {\n   24    position: absolute;\n   25    bottom: 10px;\n   ..\n   30    z-index: 1;\n   31    \n   32:   .galleria-info-text {\n   33      background-color: rgba(0, 0, 0, 0.4);\n   34      padding: 0.5em;\n   ..\n   37    }\n   38  \n   39:   .galleria-info-link {\n   40      display: none;\n   41      position: absolute;\n   ..\n   44    }\n   45  \n   46:   .galleria-info-close {\n   47      display: block;\n   48      position: absolute;\n   ..\n   51    }\n   52  \n   53:   .galleria-info-title {\n   54      margin-bottom: 0em;\n   55      font-family: inherit;\n\n60 matches across 4 files\n\n\nSearching 42 files for \".name\"\n\n/Users/mgallop/Dev/underplan_src/client/sass/app/nav.scss:\n  120    overflow: inherit;\n  121  \n  122:   .name h1 a {\n  123      font-weight: normal !important;\n  124      padding: 0 5px;\n\n1 match in 1 file\n\n\nSearching 42 files for \".remove:before\"\n\n0 matches across 0 files\n\n\nSearching 42 files for \".remove\"\n\n/Users/mgallop/Dev/underplan_src/client/sass/_components.scss:\n  261        display: inline-block;\n  262  \n  263:       &.remove {\n  264          padding-left: 0.7em;\n  265          padding-top: 0.5em;\n\n1 match in 1 file\n",
+			"settings":
+			{
+				"buffer_size": 57901,
+				"line_ending": "Unix",
+				"name": "Find Results",
+				"scratch": true
+			}
+		},
+		{
+			"file": "client/sass/_components.scss",
+			"settings":
+			{
+				"buffer_size": 11293,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/templates/app/activities/short.html",
+			"settings":
+			{
+				"buffer_size": 2433,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/templates/app/activities/story/edit.html",
+			"settings":
+			{
+				"buffer_size": 4882,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/sass/overrides.scss",
+			"settings":
+			{
+				"buffer_size": 905,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/sass/app/activities.scss",
+			"settings":
+			{
+				"buffer_size": 4994,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "client/javascripts/_vendor/galleria/galleria-1.2.9.js",
+			"settings":
+			{
+				"buffer_size": 206131,
 				"line_ending": "Unix"
 			}
 		}
@@ -53,15 +221,51 @@
 	"build_system": "",
 	"command_palette":
 	{
-		"height": 392.0,
+		"height": 167.0,
 		"selected_items":
 		[
+			[
+				"log",
+				"Git: Log Current File"
+			],
+			[
+				"gitlog",
+				"Git: Log All"
+			],
+			[
+				"git blame",
+				"Git: Blame"
+			],
+			[
+				"ins",
+				"Package Control: Install Package"
+			],
+			[
+				"",
+				"About"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"package",
+				"Package Control: Upgrade/Overwrite All Packages"
+			],
+			[
+				"packa",
+				"Package Control: Remove Package"
+			],
+			[
+				"instl",
+				"Package Control: Install Package"
+			]
 		],
-		"width": 449.0
+		"width": 467.0
 	},
 	"console":
 	{
-		"height": 0.0,
+		"height": 315.0,
 		"history":
 		[
 			"import urllib.request,os; pf = 'Package Control.sublime-package'; ipp = sublime.installed_packages_path(); urllib.request.install_opener( urllib.request.build_opener( urllib.request.ProxyHandler()) ); open(os.path.join(ipp, pf), 'wb').write(urllib.request.urlopen( 'http://sublime.wbond.net/' + pf.replace(' ','%20')).read())"
@@ -78,17 +282,228 @@
 	},
 	"file_history":
 	[
+		"/Users/mgallop/Dev/underplan_src/client/sass/_components.scss",
+		"/Users/mgallop/Dev/underplan_src/models/activities.js",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/activities/story/show.html",
+		"/Users/mgallop/Dev/underplan_src/client/sass/app/activities.scss",
+		"/Users/mgallop/Dev/underplan_src/client/sass/main.scss",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/activities/story/edit.html",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/activities/short.html",
+		"/Users/mgallop/Dev/underplan_src/client/sass/app/forms.scss",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/views/activities/edit.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/main.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/views/short.js",
+		"/Users/mgallop/Dev/underplan_src/client/sass/app/short.scss",
+		"/Users/mgallop/Dev/underplan_src/client/templates/page.html",
+		"/Users/mgallop/Dev/underplan_src/client/stylesheets/_vendor/jquery-ui-1.10.3.custom.css",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/packages/accounts-facebook.js",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/activities/feed/gallery.html",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/client/stylesheets/app/home.css",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/server/packages/accounts-oauth.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/views/comments.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria.trovebox.js",
+		"/Users/mgallop/Dev/underplan_src/client/sass/_vendor/galleria.classic.scss",
+		"/Users/mgallop/Dev/underplan_src/client/sass/overrides.scss",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/activities/feed/story.html",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/views/activities/show.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria/galleria.classic.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria.classic.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/packages",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria/galleria.trovebox.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/views/activities/feed.js",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/activities/feed/main.html",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/packages/accounts-base.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/packages/accounts-google.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/server/packages/browser-policy-content.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/views/nav.js",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/activities/feed/map.html",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/helpers/google_maps.js",
+		"/Users/mgallop/Dev/underplan_src/client/sass/app/home.scss",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/backbone.routefilter.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria/galleria-1.2.9.js",
+		"/Users/mgallop/Dev/underplan_src/client/sass/app/nav.scss",
+		"/Users/mgallop/Dev/underplan_src/client/sass/app/comment.scss",
+		"/Users/mgallop/Dev/underplan_src/client/sass/_settings.scss",
+		"/Users/mgallop/Dev/underplan_src/client/templates/head.html",
+		"/Users/mgallop/Dev/underplan_src/models/comments.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/server/packages/accounts-base.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/server/packages/accounts-password.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/server/app/server/server.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/server/npm/mongo-livedata/main/node_modules/mongodb/lib/mongodb/collection.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/packages/google.js",
+		"/Users/mgallop/Dev/underplan_src/client/sass/app/feed.scss",
+		"/Users/mgallop/Dev/underplan_src/libs/version.js",
+		"/Users/mgallop/Dev/underplan_src/client/router/router.js",
+		"/Users/mgallop/Dev/underplan_src/server/server.js",
+		"/Users/mgallop/Dev/underplan_src/server/accounts.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/client/javascripts/views/activities/feed.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/packages/accounts-oauth.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/server/app/server/accounts.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/packages/livedata.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/packages/facebook.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/packages/oauth.js",
+		"/Users/mgallop/Dev/underplan_src/client/stylesheets/overrides.css",
+		"/Users/mgallop/Dev/underplan_src/client/stylesheets/_vendor/galleria.classic.css",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/client/javascripts/main.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/packages/templating.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/views/login.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/views/activities/feed.js.orig",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/client/router/router.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/client/javascripts/views/nav.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/client/javascripts/views/login.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/client/javascripts/helpers/google_maps.js",
+		"/Users/mgallop/Dev/underplan_src/client/sass/fonticons/foundation_icons_general/general_foundicons_ie7.scss",
+		"/Users/mgallop/Dev/underplan_src/client/sass/fonticons/foundation_icons_accessibility/accessibility_foundicons.scss",
+		"/Users/mgallop/Dev/underplan_src/client/sass/fonticons/foundation_icons_general/general_foundicons.scss",
+		"/Users/mgallop/Dev/underplan_src/client/sass/fonticons/foundation_icons_general_enclosed/general_enclosed_foundicons.scss",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/activities/feed/item.html",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/helpers/main.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/client/javascripts/_vendor/backbone.routefilter.js",
+		"/Users/mgallop/Dev/underplan_src/bump.rb",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/nav.html",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/views/groups.js",
+		"/Users/mgallop/Dev/underplan_src/client/templates/helpers/main.html",
+		"/Users/mgallop/Dev/underplan_src/client/sass/fonticons/foundation_icons_social/social_foundicons.scss",
+		"/Users/mgallop/Dev/underplan_src/client/stylesheets/main.css",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/groups/group.html",
+		"/Users/mgallop/Dev/underplan_src/client/stylesheets/fonticons/foundation_icons_general/general_foundicons.css",
+		"/Users/mgallop/Dev/underplan_src/client/sass/fonticons/foundation_icons_general/_settings.scss",
+		"/Users/mgallop/Dev/underplan_src/client/sass/fonticons/foundation_icons_accessibility/accessibility_foundicons_ie7.scss",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/groups/groups.html",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/activities/feed/list.html",
+		"/Users/mgallop/Dev/underplan_src/models/groups.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/zepto.js",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria-1.3.js",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/groups.html",
+		"/Users/mgallop/Google Drive/Private/Work/mg_cl_onepercent.txt",
+		"/Users/mgallop/Dev/underplan_src/client/templates/app/comments.html",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/client/javascripts/helpers/main.js",
+		"/Users/mgallop/Library/Application Support/Sublime Text 2/Packages/JSLint/JSLint.sublime-build",
+		"/Users/mgallop/Dev/underplan_src/server/migrations.js",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/models/activities.js",
+		"/Users/mgallop/Dev/underplan_src/client/stylesheets/app/nav.css",
+		"/Users/mgallop/Library/Application Support/Sublime Text 3/Packages/HipsterIpsum/README.mdown",
+		"/Users/mgallop/Library/Application Support/Sublime Text 3/Packages/HipsterIpsum/Hipster Ipsum.sublime-settings",
+		"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria.picasa.js",
+		"/Users/mgallop/Dev/underplan_src/client/sass/app/common.scss",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/app/client/stylesheets/app/nav.css",
+		"/Users/mgallop/Dev/underplan_src/.meteor/local/build/programs/client/packages/domutils.js",
 		"/Users/mgallop/Dev/underplan/client/javascripts/views/activities/feed.js"
 	],
 	"find":
 	{
-		"height": 0.0
+		"height": 35.0
 	},
 	"find_in_files":
 	{
 		"height": 93.0,
 		"where_history":
 		[
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/servers",
+			"/Users/mgallop/Dev/underplan_src/server",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/javascripts/",
+			"/Users/mgallop/Dev/underplan_src/client/javascripts/_vendor/galleria",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/.meteor/",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/.meteor",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/javascripts/views",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/.meteor",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/.meteor/",
+			"/Users/mgallop/Dev/underplan_src/.meteor/packages",
+			"/Users/mgallop/Dev/underplan_src/.meteor",
+			"/Users/mgallop/Dev/underplan_src/server",
+			"/Users/mgallop/Dev/underplan_src/.meteor/",
+			"/Users/mgallop/Dev/underplan_src/.meteor",
+			"/Users/mgallop/Dev/underplan_src/server",
+			"/Users/mgallop/Dev/underplan_src/.meteor",
+			"/Users/mgallop/Dev/underplan_src/server",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/.meteor",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/s",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/sass",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/sass",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/server",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/.meteor",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/.meteor",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/templates",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/clients",
+			"/Users/mgallop/Dev/underplan_src/models",
+			"/Users/mgallop/Dev/underplan_src/server",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/client/",
+			"/Users/mgallop/Dev/underplan_src/client/sass",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan_src/models",
+			"/Users/mgallop/Dev/underplan_src/server",
+			"/Users/mgallop/Dev/underplan_src/client",
+			"/Users/mgallop/Dev/underplan_src/models",
+			"/Users/mgallop/Dev/underplan_src/server",
+			"/Users/mgallop/Dev/underplan_src/",
+			"/Users/mgallop/Dev/underplan/",
 			"/Users/mgallop/Dev/underplan/client",
 			"/Users/mgallop/Dev/underplan/"
 		]
@@ -98,7 +513,134 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"debugger"
+			".remove",
+			".remove:before",
+			".name",
+			".galleria",
+			"echo = ",
+			".actions",
+			"echo",
+			"throw new Error(type + ': ' + msg);",
+			"Error:",
+			"Error = ",
+			"Error",
+			".activity",
+			"location-coords",
+			"input-subtext",
+			"location-coords",
+			"geoLocation",
+			"region",
+			"location-coords",
+			"storyeditor",
+			".show-advanced-location",
+			"story-editor",
+			"show-advanced-location",
+			"location-fields",
+			"fieldset",
+			"debugger;",
+			"debugger",
+			"debug",
+			"\";",
+			"getStoryValues",
+			"updateacti",
+			"edit",
+			"story",
+			"if (error)",
+			"error",
+			"title",
+			"story",
+			"update",
+			"checkCreateActivity",
+			"updateActivity",
+			"checkUpdateActivity",
+			"photoShow",
+			"activity-highlight",
+			"clearHiddenLocationFields",
+			"Wikipedia Article",
+			"It needs a title and a story",
+			"text",
+			"activityType",
+			"text",
+			"json",
+			"\"json",
+			".nav",
+			"-item",
+			"pac-item",
+			"autocom",
+			".story",
+			"\"actions",
+			".remove",
+			"\"actions",
+			"currentActivity",
+			"canedit",
+			"\"actions",
+			".activity",
+			"wikiContent",
+			"{{gallery",
+			"helpers",
+			"helper",
+			"datatype",
+			"wikiContent",
+			"hasWiki",
+			"photoShow",
+			"innerHTML",
+			"location",
+			"slug",
+			"\"chora-church\"",
+			"Picasa Tags",
+			"picasata",
+			"dbpedialite",
+			"http",
+			"panoramtech",
+			"ads.panoramtech.net",
+			"entry-with-profile",
+			".picture",
+			".small",
+			"$body-font-family",
+			"echo",
+			"Gallery could not load.",
+			".dashboard",
+			"text-transform: uppercase;",
+			"font-weight: bold;",
+			"toggle-",
+			"menu-icon",
+			".details",
+			".header",
+			"top-bar-section",
+			".country-filter",
+			".activity.st",
+			".info-section",
+			".more",
+			"padding:1em;",
+			".story-item",
+			"margin-left: 2.",
+			"item-by-user",
+			"standard-item",
+			".story-item",
+			"1em 0.5em",
+			".header",
+			".info-section",
+			"bg",
+			"backgr",
+			"emcalc(15px)",
+			"margin-bottom",
+			".header",
+			"emcalc(15px)",
+			"!important",
+			"margin-bottom",
+			".info-section",
+			"entry-with-profile",
+			".info-section",
+			"entry-with",
+			".info-section",
+			"\"header\"",
+			".header",
+			"item-by-user",
+			"standard-item",
+			"story-item",
+			"grid-column",
+			".activity",
+			"standard-small-margin"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -116,73 +658,24 @@
 	"groups":
 	[
 		{
-			"selected": 4,
+			"selected": 14,
 			"sheets":
 			[
 				{
 					"buffer": 0,
+					"file": "client/javascripts/views/activities/show.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 514,
-						"regions":
-						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										209,
-										217
-									],
-									[
-										417,
-										425
-									]
-								],
-								"scope": ""
-							}
-						},
-						"selection":
-						[
-							[
-								424,
-								424
-							]
-						],
-						"settings":
-						{
-							"detect_indentation": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "client/router/router.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 5912,
+						"buffer_size": 8687,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2040,
-								2040
+								8663,
+								8663
 							]
 						],
 						"settings":
@@ -192,18 +685,1965 @@
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 764.0,
+						"translation.y": 4302.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": ".meteor/packages",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 392,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								392,
+								392
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "server/migrations.js",
+					"file": ".meteor/local/build/programs/client/app/models/activities.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 154,
+						"buffer_size": 12005,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								8242,
+								8242
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2985.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "client/javascripts/views/groups.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 5827,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3191,
+								3191
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1624.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "client/sass/app/nav.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4070,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2241,
+								2241
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1796.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "client/stylesheets/_vendor/jquery-ui-1.10.3.custom.css",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 19719,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3758,
+								3744
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1688.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "client/sass/_settings.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 1495,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1020,
+								1020
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 86.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "server/server.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 9666,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1250,
+								1250
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 8,
+					"file": "client/javascripts/views/activities/feed.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 17885,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								257,
+								257
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "client/javascripts/views/activities/edit.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 6629,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2211,
+								2211
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 885.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "client/templates/app/activities/story/show.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 3163,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2598,
+								2545
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1192.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 11,
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 57901,
+						"regions":
+						{
+							"match":
+							{
+								"flags": 112,
+								"regions":
+								[
+									[
+										654,
+										663
+									],
+									[
+										800,
+										809
+									],
+									[
+										1050,
+										1059
+									],
+									[
+										1294,
+										1303
+									],
+									[
+										1560,
+										1569
+									],
+									[
+										1654,
+										1663
+									],
+									[
+										1767,
+										1776
+									],
+									[
+										1900,
+										1909
+									],
+									[
+										2151,
+										2160
+									],
+									[
+										2164,
+										2173
+									],
+									[
+										2257,
+										2266
+									],
+									[
+										2515,
+										2524
+									],
+									[
+										2762,
+										2771
+									],
+									[
+										2933,
+										2942
+									],
+									[
+										3149,
+										3158
+									],
+									[
+										3283,
+										3292
+									],
+									[
+										3296,
+										3305
+									],
+									[
+										3428,
+										3437
+									],
+									[
+										3644,
+										3653
+									],
+									[
+										3657,
+										3666
+									],
+									[
+										3778,
+										3787
+									],
+									[
+										3987,
+										3996
+									],
+									[
+										4121,
+										4130
+									],
+									[
+										4243,
+										4252
+									],
+									[
+										4476,
+										4485
+									],
+									[
+										4645,
+										4654
+									],
+									[
+										4801,
+										4810
+									],
+									[
+										4918,
+										4927
+									],
+									[
+										5116,
+										5125
+									],
+									[
+										5447,
+										5456
+									],
+									[
+										5639,
+										5648
+									],
+									[
+										5876,
+										5885
+									],
+									[
+										6120,
+										6129
+									],
+									[
+										6319,
+										6328
+									],
+									[
+										6476,
+										6485
+									],
+									[
+										6686,
+										6695
+									],
+									[
+										6842,
+										6851
+									],
+									[
+										7052,
+										7061
+									],
+									[
+										7292,
+										7301
+									],
+									[
+										7518,
+										7527
+									],
+									[
+										7706,
+										7715
+									],
+									[
+										7807,
+										7816
+									],
+									[
+										7897,
+										7906
+									],
+									[
+										7993,
+										8002
+									],
+									[
+										8217,
+										8226
+									],
+									[
+										8458,
+										8467
+									],
+									[
+										8497,
+										8506
+									],
+									[
+										8731,
+										8740
+									],
+									[
+										8859,
+										8868
+									],
+									[
+										9041,
+										9050
+									],
+									[
+										9215,
+										9224
+									],
+									[
+										9425,
+										9434
+									],
+									[
+										9607,
+										9616
+									],
+									[
+										9764,
+										9773
+									],
+									[
+										9951,
+										9960
+									],
+									[
+										10129,
+										10138
+									],
+									[
+										10305,
+										10314
+									],
+									[
+										10508,
+										10517
+									],
+									[
+										10575,
+										10584
+									],
+									[
+										10768,
+										10777
+									],
+									[
+										10931,
+										10940
+									],
+									[
+										11121,
+										11130
+									],
+									[
+										11300,
+										11309
+									],
+									[
+										11439,
+										11448
+									],
+									[
+										11606,
+										11615
+									],
+									[
+										11796,
+										11805
+									],
+									[
+										11976,
+										11985
+									],
+									[
+										12164,
+										12173
+									],
+									[
+										12356,
+										12365
+									],
+									[
+										12533,
+										12542
+									],
+									[
+										12705,
+										12714
+									],
+									[
+										12858,
+										12867
+									],
+									[
+										13040,
+										13049
+									],
+									[
+										13192,
+										13201
+									],
+									[
+										13391,
+										13400
+									],
+									[
+										13529,
+										13538
+									],
+									[
+										13671,
+										13680
+									],
+									[
+										13819,
+										13828
+									],
+									[
+										13960,
+										13969
+									],
+									[
+										14115,
+										14124
+									],
+									[
+										14288,
+										14297
+									],
+									[
+										14421,
+										14430
+									],
+									[
+										14607,
+										14616
+									],
+									[
+										14792,
+										14801
+									],
+									[
+										14870,
+										14879
+									],
+									[
+										15042,
+										15051
+									],
+									[
+										15208,
+										15217
+									],
+									[
+										15372,
+										15381
+									],
+									[
+										15530,
+										15539
+									],
+									[
+										15704,
+										15713
+									],
+									[
+										15892,
+										15901
+									],
+									[
+										16065,
+										16074
+									],
+									[
+										16200,
+										16209
+									],
+									[
+										16333,
+										16342
+									],
+									[
+										16475,
+										16484
+									],
+									[
+										16655,
+										16664
+									],
+									[
+										16819,
+										16828
+									],
+									[
+										16973,
+										16982
+									],
+									[
+										17137,
+										17146
+									],
+									[
+										17366,
+										17375
+									],
+									[
+										17393,
+										17402
+									],
+									[
+										17615,
+										17624
+									],
+									[
+										17734,
+										17743
+									],
+									[
+										17877,
+										17886
+									],
+									[
+										17906,
+										17915
+									],
+									[
+										18087,
+										18096
+									],
+									[
+										18117,
+										18126
+									],
+									[
+										18327,
+										18336
+									],
+									[
+										18357,
+										18366
+									],
+									[
+										18526,
+										18535
+									],
+									[
+										18562,
+										18571
+									],
+									[
+										18694,
+										18703
+									],
+									[
+										18737,
+										18746
+									],
+									[
+										18874,
+										18883
+									],
+									[
+										19005,
+										19014
+									],
+									[
+										19184,
+										19193
+									],
+									[
+										19309,
+										19318
+									],
+									[
+										19437,
+										19446
+									],
+									[
+										19627,
+										19636
+									],
+									[
+										19866,
+										19875
+									],
+									[
+										19903,
+										19912
+									],
+									[
+										20135,
+										20144
+									],
+									[
+										20261,
+										20270
+									],
+									[
+										20441,
+										20450
+									],
+									[
+										20613,
+										20622
+									],
+									[
+										20821,
+										20830
+									],
+									[
+										21001,
+										21010
+									],
+									[
+										21156,
+										21165
+									],
+									[
+										21341,
+										21350
+									],
+									[
+										21517,
+										21526
+									],
+									[
+										21691,
+										21700
+									],
+									[
+										21892,
+										21901
+									],
+									[
+										21957,
+										21966
+									],
+									[
+										22148,
+										22157
+									],
+									[
+										22309,
+										22318
+									],
+									[
+										22497,
+										22506
+									],
+									[
+										22674,
+										22683
+									],
+									[
+										22811,
+										22820
+									],
+									[
+										22976,
+										22985
+									],
+									[
+										23164,
+										23173
+									],
+									[
+										23342,
+										23351
+									],
+									[
+										23528,
+										23537
+									],
+									[
+										23718,
+										23727
+									],
+									[
+										23893,
+										23902
+									],
+									[
+										24063,
+										24072
+									],
+									[
+										24214,
+										24223
+									],
+									[
+										24394,
+										24403
+									],
+									[
+										24544,
+										24553
+									],
+									[
+										24741,
+										24750
+									],
+									[
+										24877,
+										24886
+									],
+									[
+										25087,
+										25096
+									],
+									[
+										25327,
+										25336
+									],
+									[
+										25365,
+										25374
+									],
+									[
+										25598,
+										25607
+									],
+									[
+										25725,
+										25734
+									],
+									[
+										25906,
+										25915
+									],
+									[
+										26079,
+										26088
+									],
+									[
+										26288,
+										26297
+									],
+									[
+										26469,
+										26478
+									],
+									[
+										26625,
+										26634
+									],
+									[
+										26811,
+										26820
+									],
+									[
+										26988,
+										26997
+									],
+									[
+										27163,
+										27172
+									],
+									[
+										27365,
+										27374
+									],
+									[
+										27431,
+										27440
+									],
+									[
+										27623,
+										27632
+									],
+									[
+										27785,
+										27794
+									],
+									[
+										27974,
+										27983
+									],
+									[
+										28152,
+										28161
+									],
+									[
+										28290,
+										28299
+									],
+									[
+										28456,
+										28465
+									],
+									[
+										28645,
+										28654
+									],
+									[
+										28824,
+										28833
+									],
+									[
+										29011,
+										29020
+									],
+									[
+										29202,
+										29211
+									],
+									[
+										29378,
+										29387
+									],
+									[
+										29549,
+										29558
+									],
+									[
+										29701,
+										29710
+									],
+									[
+										29882,
+										29891
+									],
+									[
+										30033,
+										30042
+									],
+									[
+										30231,
+										30240
+									],
+									[
+										30368,
+										30377
+									],
+									[
+										30604,
+										30613
+									],
+									[
+										30792,
+										30801
+									],
+									[
+										30893,
+										30902
+									],
+									[
+										30983,
+										30992
+									],
+									[
+										31079,
+										31088
+									],
+									[
+										31398,
+										31433
+									],
+									[
+										31606,
+										31614
+									],
+									[
+										31762,
+										31770
+									],
+									[
+										31857,
+										31865
+									],
+									[
+										32030,
+										32038
+									],
+									[
+										32179,
+										32187
+									],
+									[
+										32428,
+										32435
+									],
+									[
+										33746,
+										33755
+									],
+									[
+										33898,
+										33907
+									],
+									[
+										34343,
+										34352
+									],
+									[
+										34439,
+										34448
+									],
+									[
+										34470,
+										34479
+									],
+									[
+										34531,
+										34540
+									],
+									[
+										34562,
+										34571
+									],
+									[
+										34815,
+										34824
+									],
+									[
+										34970,
+										34979
+									],
+									[
+										35187,
+										35196
+									],
+									[
+										35305,
+										35314
+									],
+									[
+										35495,
+										35504
+									],
+									[
+										35682,
+										35691
+									],
+									[
+										35913,
+										35922
+									],
+									[
+										36012,
+										36021
+									],
+									[
+										36172,
+										36181
+									],
+									[
+										36400,
+										36409
+									],
+									[
+										36527,
+										36536
+									],
+									[
+										36675,
+										36684
+									],
+									[
+										36796,
+										36805
+									],
+									[
+										36937,
+										36946
+									],
+									[
+										36956,
+										36965
+									],
+									[
+										37061,
+										37070
+									],
+									[
+										37082,
+										37091
+									],
+									[
+										37216,
+										37225
+									],
+									[
+										37337,
+										37346
+									],
+									[
+										37513,
+										37522
+									],
+									[
+										37628,
+										37637
+									],
+									[
+										37762,
+										37771
+									],
+									[
+										37909,
+										37918
+									],
+									[
+										38048,
+										38057
+									],
+									[
+										38175,
+										38184
+									],
+									[
+										38287,
+										38296
+									],
+									[
+										38393,
+										38402
+									],
+									[
+										38550,
+										38559
+									],
+									[
+										38663,
+										38672
+									],
+									[
+										38770,
+										38779
+									],
+									[
+										38886,
+										38895
+									],
+									[
+										38919,
+										38928
+									],
+									[
+										39071,
+										39080
+									],
+									[
+										39200,
+										39209
+									],
+									[
+										39248,
+										39257
+									],
+									[
+										39367,
+										39376
+									],
+									[
+										39414,
+										39423
+									],
+									[
+										39527,
+										39536
+									],
+									[
+										39560,
+										39569
+									],
+									[
+										39702,
+										39711
+									],
+									[
+										39851,
+										39860
+									],
+									[
+										40009,
+										40018
+									],
+									[
+										40057,
+										40066
+									],
+									[
+										40211,
+										40220
+									],
+									[
+										40258,
+										40267
+									],
+									[
+										40415,
+										40424
+									],
+									[
+										40556,
+										40565
+									],
+									[
+										40575,
+										40584
+									],
+									[
+										40608,
+										40617
+									],
+									[
+										40627,
+										40636
+									],
+									[
+										40698,
+										40707
+									],
+									[
+										40731,
+										40740
+									],
+									[
+										40765,
+										40774
+									],
+									[
+										40793,
+										40802
+									],
+									[
+										40822,
+										40831
+									],
+									[
+										40855,
+										40864
+									],
+									[
+										41098,
+										41107
+									],
+									[
+										41201,
+										41210
+									],
+									[
+										41326,
+										41335
+									],
+									[
+										41500,
+										41509
+									],
+									[
+										41638,
+										41647
+									],
+									[
+										41725,
+										41734
+									],
+									[
+										41830,
+										41839
+									],
+									[
+										41929,
+										41938
+									],
+									[
+										41994,
+										42003
+									],
+									[
+										42109,
+										42118
+									],
+									[
+										42241,
+										42250
+									],
+									[
+										42354,
+										42363
+									],
+									[
+										42469,
+										42478
+									],
+									[
+										42716,
+										42725
+									],
+									[
+										42878,
+										42887
+									],
+									[
+										43057,
+										43066
+									],
+									[
+										43208,
+										43217
+									],
+									[
+										43368,
+										43377
+									],
+									[
+										43387,
+										43396
+									],
+									[
+										43556,
+										43565
+									],
+									[
+										43577,
+										43586
+									],
+									[
+										43724,
+										43733
+									],
+									[
+										43880,
+										43889
+									],
+									[
+										44032,
+										44041
+									],
+									[
+										44174,
+										44183
+									],
+									[
+										44337,
+										44346
+									],
+									[
+										44511,
+										44520
+									],
+									[
+										44690,
+										44699
+									],
+									[
+										44850,
+										44859
+									],
+									[
+										45029,
+										45038
+									],
+									[
+										45202,
+										45211
+									],
+									[
+										45383,
+										45392
+									],
+									[
+										45561,
+										45570
+									],
+									[
+										45733,
+										45742
+									],
+									[
+										45888,
+										45897
+									],
+									[
+										45921,
+										45930
+									],
+									[
+										46092,
+										46101
+									],
+									[
+										46257,
+										46266
+									],
+									[
+										46305,
+										46314
+									],
+									[
+										46489,
+										46498
+									],
+									[
+										46536,
+										46545
+									],
+									[
+										46714,
+										46723
+									],
+									[
+										46747,
+										46756
+									],
+									[
+										46910,
+										46919
+									],
+									[
+										47095,
+										47104
+									],
+									[
+										47290,
+										47299
+									],
+									[
+										47338,
+										47347
+									],
+									[
+										47522,
+										47531
+									],
+									[
+										47569,
+										47578
+									],
+									[
+										47756,
+										47765
+									],
+									[
+										47948,
+										47957
+									],
+									[
+										47967,
+										47976
+									],
+									[
+										48000,
+										48009
+									],
+									[
+										48019,
+										48028
+									],
+									[
+										48160,
+										48169
+									],
+									[
+										48193,
+										48202
+									],
+									[
+										48227,
+										48236
+									],
+									[
+										48255,
+										48264
+									],
+									[
+										48284,
+										48293
+									],
+									[
+										48317,
+										48326
+									],
+									[
+										48644,
+										48653
+									],
+									[
+										48818,
+										48827
+									],
+									[
+										49006,
+										49015
+									],
+									[
+										49228,
+										49237
+									],
+									[
+										49385,
+										49394
+									],
+									[
+										49535,
+										49544
+									],
+									[
+										49711,
+										49720
+									],
+									[
+										49833,
+										49842
+									],
+									[
+										49974,
+										49983
+									],
+									[
+										50113,
+										50122
+									],
+									[
+										50223,
+										50232
+									],
+									[
+										50359,
+										50368
+									],
+									[
+										50374,
+										50383
+									],
+									[
+										50535,
+										50544
+									],
+									[
+										50550,
+										50559
+									],
+									[
+										50692,
+										50701
+									],
+									[
+										50707,
+										50716
+									],
+									[
+										50851,
+										50860
+									],
+									[
+										50866,
+										50875
+									],
+									[
+										51153,
+										51162
+									],
+									[
+										51280,
+										51289
+									],
+									[
+										51428,
+										51437
+									],
+									[
+										51549,
+										51558
+									],
+									[
+										51690,
+										51699
+									],
+									[
+										51709,
+										51718
+									],
+									[
+										51814,
+										51823
+									],
+									[
+										51835,
+										51844
+									],
+									[
+										51969,
+										51978
+									],
+									[
+										52090,
+										52099
+									],
+									[
+										52266,
+										52275
+									],
+									[
+										52381,
+										52390
+									],
+									[
+										52515,
+										52524
+									],
+									[
+										52662,
+										52671
+									],
+									[
+										52801,
+										52810
+									],
+									[
+										52928,
+										52937
+									],
+									[
+										53040,
+										53049
+									],
+									[
+										53146,
+										53155
+									],
+									[
+										53303,
+										53312
+									],
+									[
+										53416,
+										53425
+									],
+									[
+										53523,
+										53532
+									],
+									[
+										53639,
+										53648
+									],
+									[
+										53672,
+										53681
+									],
+									[
+										53824,
+										53833
+									],
+									[
+										53953,
+										53962
+									],
+									[
+										54001,
+										54010
+									],
+									[
+										54120,
+										54129
+									],
+									[
+										54167,
+										54176
+									],
+									[
+										54280,
+										54289
+									],
+									[
+										54313,
+										54322
+									],
+									[
+										54455,
+										54464
+									],
+									[
+										54604,
+										54613
+									],
+									[
+										54762,
+										54771
+									],
+									[
+										54810,
+										54819
+									],
+									[
+										54964,
+										54973
+									],
+									[
+										55011,
+										55020
+									],
+									[
+										55168,
+										55177
+									],
+									[
+										55309,
+										55318
+									],
+									[
+										55328,
+										55337
+									],
+									[
+										55361,
+										55370
+									],
+									[
+										55380,
+										55389
+									],
+									[
+										55451,
+										55460
+									],
+									[
+										55484,
+										55493
+									],
+									[
+										55518,
+										55527
+									],
+									[
+										55546,
+										55555
+									],
+									[
+										55575,
+										55584
+									],
+									[
+										55608,
+										55617
+									],
+									[
+										55851,
+										55860
+									],
+									[
+										55954,
+										55963
+									],
+									[
+										56079,
+										56088
+									],
+									[
+										56253,
+										56262
+									],
+									[
+										56391,
+										56400
+									],
+									[
+										56478,
+										56487
+									],
+									[
+										56583,
+										56592
+									],
+									[
+										56682,
+										56691
+									],
+									[
+										56747,
+										56756
+									],
+									[
+										56862,
+										56871
+									],
+									[
+										56994,
+										57003
+									],
+									[
+										57107,
+										57116
+									],
+									[
+										57222,
+										57231
+									],
+									[
+										57474,
+										57479
+									],
+									[
+										57801,
+										57808
+									]
+								],
+								"scope": ""
+							}
+						},
+						"selection":
+						[
+							[
+								57803,
+								57803
+							]
+						],
+						"settings":
+						{
+							"detect_indentation": false,
+							"line_numbers": false,
+							"output_tag": 10,
+							"result_base_dir": "",
+							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
+							"result_line_regex": "^ +([0-9]+):",
+							"scroll_past_end": true,
+							"syntax": "Packages/Default/Find Results.hidden-tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 32725.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 12,
+					"file": "client/sass/_components.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 11293,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5867,
+								5867
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 4342.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 13,
+					"file": "client/templates/app/activities/short.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2433,
 						"regions":
 						{
 						},
@@ -216,67 +2656,128 @@
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "/Users/mgallop/Library/Application Support/Sublime Text 2/Packages/JSLint/JSLint.sublime-build",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 704,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								399,
-								399
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "server/server.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 7753,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								102,
-								102
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/HTML/HTML.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 14,
+					"file": "client/templates/app/activities/story/edit.html",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4882,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1121,
+								1121
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 140.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 15,
+					"file": "client/sass/overrides.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 905,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								35,
+								35
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 16,
+					"file": "client/sass/app/activities.scss",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 4994,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								999,
+								999
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 396.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 17,
+					"file": "client/javascripts/_vendor/galleria/galleria-1.2.9.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 206131,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								171706,
+								171706
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 94998.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -290,7 +2791,7 @@
 	},
 	"input":
 	{
-		"height": 0.0
+		"height": 33.0
 	},
 	"layout":
 	{
@@ -330,6 +2831,30 @@
 		"height": 0.0,
 		"selected_items":
 		[
+			[
+				"t/javascripts/main.js",
+				"client/javascripts/main.js"
+			],
+			[
+				"home.scss",
+				"client/sass/app/home.scss"
+			],
+			[
+				"es/feed.js",
+				"client/javascripts/views/activities/feed.js"
+			],
+			[
+				"client/javascripts/views/activities/feed.js",
+				"client/javascripts/views/activities/feed.js"
+			],
+			[
+				"lorem",
+				"Lorem ipsum dolor sit amet, consectetur adipisicin"
+			],
+			[
+				"zepto",
+				"client/javascripts/_vendor/zepto.js"
+			]
 		],
 		"width": 0.0
 	},
@@ -356,7 +2881,7 @@
 	"show_open_files": false,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 210.0,
+	"side_bar_width": 243.0,
 	"status_bar_visible": true,
 	"template_settings":
 	{

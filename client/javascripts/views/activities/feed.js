@@ -1,44 +1,54 @@
 ///////////////////////////////////////////////////////////////////////////////
-// Common Functions
+// Common Stuff
 
-this.processActivityPhoto = function (activity) {
-  // if activity already has photo
-  if (activity.photo) {
-    appendFeedPhoto(activity);
-    return;
+ReactiveGallerySource = {
+  photos: {},
+  states: {},
+  stateDeps: {},
+
+  clearPhotos: function (id) {
+    this.photos[id] = null;
+    this.set(id, '');
+  },
+
+  setPhotos: function (id, photos) {
+    this.photos[id] = photos;
+    this.set(id, 'ready');
+  },
+
+  get: function (id) {
+    this.ensureDep(id);
+    this.stateDeps[id].depend();
+    return this.states[id];
+  },
+
+  set: function (id, state) {
+    this.ensureDep(id);
+    this.states[id] = state;
+    this.stateDeps[id].changed();
+  },
+
+  ensureDep: function (id) {
+    if (!this.stateDeps[id])
+      this.stateDeps[id] = new Deps.Dependency;
   }
+};
 
+processActivityPhotos = function (activity) {
   var group = Groups.findOne(Session.get("groupId"));
+
   if (activity.picasaTags && _.isObject(group.trovebox)) {
-    var params = $.extend({tags: activity.picasaTags, max: 1}, group.trovebox),
+    var params = $.extend({tags: activity.picasaTags, max: 10}, group.trovebox),
         search = new Galleria.Trovebox,
         self = activity;
 
     search.albumSearch(params, function(data, params) { 
       if (data.length) {
-        // get the id for the feed item associated with this photo tag
-        // and insert the img into the item
-        var activity = Activities.findOne(self._id);
-
-        activity.photo = data[0].image;
-        appendFeedPhoto(activity);
+        ReactiveGallerySource.setPhotos(activity._id, data);
       }
     });
   }
-}
-
-this.appendFeedPhoto = function (activity) {
-  var html = "";
-
-  html += "<div class=\"photo\" style=\"background-image: url(" + activity.photo + ")\">";
-  html +=   "<img src='" + activity.photo + "'/>";
-  html += "</div>";
-  
-  var existingPhoto = $("#" + activity._id + " .activity .photo");
-  if (!existingPhoto.length) {
-    $("#" + activity._id + " .activity").append(html);
-  }
-}
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Activity feed 
@@ -251,11 +261,13 @@ var toggleComments = function(template, expand, focus) {
 ///////////////////////////////////////////////////////////////////////////////
 // Story Feed Content
 
-Template.storyFeedContent.helpers({
-  photo: function () {
-    processActivityPhoto(this);
-  },
-});
+// Template.storyFeedContent.helpers({
+//   photo: function () {
+//     processActivityPhoto(this);
+//   },
+// });
+
+Template.storyFeedContent.canRemove
 
 Template.storyFeedContent.events({
   'mouseenter .activity': function (event, template) {
@@ -283,6 +295,44 @@ Template.storyFeedContent.textPreview = function () {
 
   return preview;
 };
+
+///////////////////////////////////////////////////////////////////////////////
+// Feed Item Slider
+
+sliderOptions = {
+  // autoPlay: true,
+  nextButton: true,
+  prevButton: true,
+  autoPlayDelay: 3000,
+};
+
+galleries = {};
+
+Template.imageSlider.photos = function () {
+  if(ReactiveGallerySource.get(this._id) === "ready") {
+    console.log("Loading slider for: " + this._id);
+    return ReactiveGallerySource.photos[this._id];
+  }
+  else
+    return [];
+};
+
+Template.imageSlider.created = function () {
+  processActivityPhotos(this.data);
+};
+
+Template.imageSlider.rendered = function () {
+  var slider = this.find("#slider-" + this.data._id);
+
+  if (slider) {
+    var gallery = $(slider).sequence(sliderOptions).data("sequence");
+    gallery.afterLoaded = function(){
+        $(slider).find(".sequence-prev, .sequence-next").fadeIn(500);
+    }
+
+    galleries[this.data._id] = gallery;
+  }
+}
 
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Item Actions
@@ -372,7 +422,7 @@ Template.feedMap.destroyed = function() {
 setupMap = function () {
   logIfDev("Inner Map Rendered...");
 
-  if (! Session.get('feedMap'))
+  if (Session.equals('feedMap', false))
     gmaps.initialize();
 
   Deps.autorun(function(computation) {

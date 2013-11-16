@@ -175,6 +175,10 @@ Template.shortContent.canRemove = function () {
   return canUserRemoveActivity(Meteor.userId(), this._id);
 };
 
+Template.shortContent.activity = function () {
+  return this;
+};
+
 Template.shortContent.basicLocation = function () {
   var location = "";
   if (_.isString(this.country) && this.country.length) {
