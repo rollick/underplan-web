@@ -2119,11 +2119,11 @@ blockquote p {
   -ms-transition-property: "left";
   -o-transition-property: "left";
   transition-property: "left";
-  -webkit-transition-timing-function: linear;
-  -moz-transition-timing-function: linear;
-  -ms-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  transition-timing-function: linear;
+  -webkit-transition-timing-function: ease-in-out;
+  -moz-transition-timing-function: ease-in-out;
+  -ms-transition-timing-function: ease-in-out;
+  -o-transition-timing-function: ease-in-out;
+  transition-timing-function: ease-in-out;
 }
 /* line 202, ../../sass/app/feed.scss */
 .feed-item .sequence .sequence-canvas > li .photo h2.title {
@@ -2148,20 +2148,20 @@ blockquote p {
 /* line 223, ../../sass/app/feed.scss */
 .feed-item .sequence .sequence-canvas > li.animate-in .photo {
   left: 0;
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  -ms-transition-duration: 1s;
-  transition-duration: 1s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 /* line 234, ../../sass/app/feed.scss */
 .feed-item .sequence .sequence-canvas > li.animate-out .photo {
   left: -100%;
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  -ms-transition-duration: 1s;
-  transition-duration: 1s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  -ms-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 
 /* line 249, ../../sass/app/feed.scss */
