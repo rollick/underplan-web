@@ -46,7 +46,7 @@ sliderOptions = {
   preloader: false,
   showNextButtonOnInit: false,
   showPrevButtonOnInit: false,
-  swipePreventsDefault: true,
+  swipePreventsDefault: false,
   swipeEvents: {
     left: "next",
     right: "prev",
