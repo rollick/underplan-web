@@ -96,7 +96,7 @@ Template.imageSlider.rendered = function () {
 Template.imageSlider.destroyed = function() {
   var id = this.data._id;
 
-  if(_.isFunction(sliders[id].destroy)) {
+  if(sliders[id] && _.isFunction(sliders[id].destroy)) {
     sliders[id].destroy();
     delete sliders[id];
   }
