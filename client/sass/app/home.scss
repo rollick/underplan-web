@@ -162,13 +162,13 @@
 
             // width: 100%;
             text-align: right;
-            bottom: 25px;
+            bottom: 24px;
             right: 20px;
             position: absolute;
             z-index: 10;
 
             .text {
-              line-height: 18px;
+              line-height: 20px;
               font-size: 0.9em;
               color: rgba(255, 255, 255, 0.3);
               float: right;
@@ -188,7 +188,7 @@
             }
 
             a {
-              font-size: 1em;
+              font-size: 0.9em;
               // height: 45px !important;
               float: right;
 

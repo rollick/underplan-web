@@ -1432,14 +1432,14 @@ blockquote p {
 /* line 160, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group {
   text-align: right;
-  bottom: 25px;
+  bottom: 24px;
   right: 20px;
   position: absolute;
   z-index: 10;
 }
 /* line 170, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group .text {
-  line-height: 18px;
+  line-height: 20px;
   font-size: 0.9em;
   color: rgba(255, 255, 255, 0.3);
   float: right;
@@ -1459,7 +1459,7 @@ blockquote p {
 }
 /* line 190, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group a {
-  font-size: 1em;
+  font-size: 0.9em;
   float: right;
 }
 /* line 195, ../../sass/app/home.scss */
