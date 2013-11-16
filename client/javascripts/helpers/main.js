@@ -84,7 +84,7 @@ Handlebars.registerHelper('userName', function(userId) {
 });
 
 Handlebars.registerHelper('profilePicture', function(userId) {
-  var pictureUrl = userPicture(Meteor.users.findOne(userId), 45);
+  var pictureUrl = userPicture(Meteor.users.findOne(userId), 90);
   
   return pictureUrl;
 });

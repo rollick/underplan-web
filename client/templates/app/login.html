@@ -25,7 +25,7 @@
     <li class="hide-for-small divider"></li>
     <li class="hide-for-small has-dropdown settings">
       <a href="#" class="{{#if isSettingsRoute}}active{{/if}}">
-        {{#if profilePicture}}<img src="{{profilePicture}}">{{/if}}
+        <img src="{{profilePicture currentUser}}">
         <span>{{displayName currentUser}}</span>
       </a>
       <ul class="dropdown">
@@ -35,7 +35,7 @@
     </li>
     <li class="show-for-small settings">
       <a href="#" class="{{#if group}}main{{else}}user{{/if}}-settings {{#if isSettingsRoute}}active{{/if}}">
-        {{#if profilePicture}}<img src="{{profilePicture}}">{{/if}}
+        <img src="{{profilePicture currentUser}}">
         <span>{{displayName currentUser}}</span>
       </a>
     </li>
