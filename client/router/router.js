@@ -185,9 +185,14 @@ var AppRouter = Backbone.Router.extend({
     if(typeof activity == "string") {
       activity = Activities.findOne({_id: activity});
     }
-    var groupSlug = Groups.findOne(activity.group).slug;
 
-    this.navigate(groupSlug + "/" + activity.slug, true);
+    // Use permalink if no slug defined, eg a shorty
+    if (!activity.slug)
+      this.setPermaActivity(activity);
+    else {
+      var groupSlug = Groups.findOne(activity.group).slug;
+      this.navigate(groupSlug + "/" + activity.slug, true);
+    }
   },
 
   setPermaActivity: function(activity) {

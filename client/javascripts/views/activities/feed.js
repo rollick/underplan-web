@@ -308,6 +308,18 @@ sliderOptions = {
 
 galleries = {};
 
+Template.imageSlider.events({
+  "click .sequence": function (event, template) {
+    // If the image is clicked then route to activity
+    var target = $(event.target);
+    if (target.hasClass("main")) {
+      var match = target.closest(".sequence").attr("id").match(/^.*-([a-z|0-9]+)/i);
+      if (match)
+        Router.setActivity(match[1]);
+    }
+  }
+});
+
 Template.imageSlider.photos = function () {
   if(ReactiveGallerySource.get(this._id) === "ready") {
     console.log("Loading slider for: " + this._id);
@@ -332,7 +344,16 @@ Template.imageSlider.rendered = function () {
 
     galleries[this.data._id] = gallery;
   }
-}
+};
+
+Template.imageSlider.destroyed = function() {
+  Object.keys(galleries).forEach( function (activityId) {
+    if(_.isFunction(galleries[activityId].destroy)) {
+      galleries[activityId].destroy();
+      delete galleries[activityId];
+    }
+  });
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Item Actions
