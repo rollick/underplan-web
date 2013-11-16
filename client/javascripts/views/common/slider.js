@@ -41,10 +41,13 @@ ReactiveGallerySource = {
 // Image Slider
 
 sliderOptions = {
-  // autoPlay: true,
   nextButton: true,
   prevButton: true,
-  autoPlayDelay: 3000,
+  preloader: false,
+  showNextButtonOnInit: false,
+  showPrevButtonOnInit: false
+  // autoPlay: true,
+  // autoPlayDelay: 3000,
 };
 
 // Store list of sliders so they can be destroyed when the associated 
@@ -64,16 +67,11 @@ Template.imageSlider.events({
 });
 
 Template.imageSlider.photos = function () {
-  if(ReactiveGallerySource.get(this._id) === "ready") {
-    console.log("Loading slider for: " + this._id);
+  if (ReactiveGallerySource.get(this._id) === "ready") {
     return ReactiveGallerySource.photos[this._id];
   }
   else
     return [];
-};
-
-Template.imageSlider.singlePhoto = function () {
-  return ReactiveGallerySource.get(this._id)
 };
 
 Template.imageSlider.created = function () {
@@ -81,13 +79,18 @@ Template.imageSlider.created = function () {
 };
 
 Template.imageSlider.rendered = function () {
-  var slider = this.find("#slider-" + this.data._id);
+  var id = this.data._id;
+  var slider = this.find("#slider-" + id);
 
   if (slider) {
     var gallery = $(slider).sequence(sliderOptions).data("sequence");
-    gallery.afterLoaded = function(){
-        $(slider).find(".sequence-prev, .sequence-next").fadeIn(500);
-    }
+    var buttons = $(slider).find(".sequence-prev, .sequence-next");
+    
+    // Only show next / prev buttons if > 1 photos
+    if (ReactiveGallerySource.photos[id].length > 1)
+      buttons.fadeIn(500); 
+    else
+      buttons.hide();
 
     sliders[this.data._id] = gallery;
   }
