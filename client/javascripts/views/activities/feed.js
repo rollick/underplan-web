@@ -417,7 +417,7 @@ var setupGallery = function () {
       $(".gallery-more a").addClass("disabled");
 
       if (_.isObject(group.trovebox)) {
-        var params = $.extend({}, group.trovebox);
+        var params = $.extend({tags: null}, group.trovebox);
 
         if (Session.get("feedFilter").country)
           params.tags = Session.get("feedFilter").country;
