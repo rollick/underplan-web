@@ -66,9 +66,14 @@ Template.imageSlider.events({
     // If the image is clicked then route to activity
     var target = $(event.target);
     if (target.hasClass("main")) {
-      var match = target.closest(".sequence").attr("id").match(/^.*-([a-z|0-9]+)/i);
-      if (match)
-        Router.setActivity(match[1]);
+      var sequence = target.closest(".sequence");
+      if (screenfull.enabled) {
+        screenfull.toggle(sequence.addClass("fullscreen")[0]);
+      } else {
+        var match = sequence.attr("id").match(/^.*-([a-z|0-9]+)/i);
+        if (match)
+          Router.setActivity(match[1]);
+      }
     }
   }
 });
@@ -95,7 +100,7 @@ Template.imageSlider.rendered = function () {
     
     // Only show next / prev buttons if > 1 photos and no swipe support
     if (!("ontouchstart" in window) && ReactiveGallerySource.photos[id].length > 1)
-      buttons.fadeIn(500); 
+      buttons.fadeIn(500);
     else
       buttons.hide();
 

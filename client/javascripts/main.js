@@ -81,7 +81,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.71");
+  Session.set("appVersion", "v1.3.72");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -91,6 +91,16 @@ Meteor.startup(function () {
 
   // Foundation js loader
   $(document).foundation();
+
+  // set fullscreen class on body for use with slider / gallery code
+  if (screenfull.enabled) {
+    document.addEventListener(screenfull.raw.fullscreenchange, function () {
+      if(screenfull.isFullscreen)
+        $("body").addClass("fullscreen");
+      else
+        $(".fullscreen").removeClass("fullscreen");
+    });
+  }
 
   Meteor.autorun(function() {
     var group = Groups.findOne(Session.get('groupId'));

@@ -117,32 +117,21 @@ select {
   width: 100%;
 }
 
-/* line 3, ../../../sass/app/common/slider.scss */
+/* line 5, ../../../sass/app/common/slider.scss */
 .sequence {
+  background-color: #111111;
   margin-bottom: 0px;
   margin-left: -0.5em;
   margin-right: -0.5em;
-  height: 200px;
   position: relative;
-  /* required */
   clear: both;
 }
-/* line 15, ../../../sass/app/common/slider.scss */
-.sequence .sequence-canvas > li {
-  /* required */
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-  top: 0px;
-}
-/* line 23, ../../../sass/app/common/slider.scss */
+/* line 13, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas li > * {
-  /* required */
   top: 0px;
   position: absolute;
 }
-/* line 29, ../../../sass/app/common/slider.scss */
+/* line 19, ../../../sass/app/common/slider.scss */
 .sequence .sequence-next,
 .sequence .sequence-prev {
   color: white;
@@ -153,36 +142,35 @@ select {
   position: absolute;
   z-index: 1000;
   height: 35px;
-  top: 82.5px;
 }
-/* line 41, ../../../sass/app/common/slider.scss */
+/* line 30, ../../../sass/app/common/slider.scss */
 .sequence .sequence-prev {
   left: 1%;
   content: url("/images/chevron-white-left-large.png");
 }
-/* line 46, ../../../sass/app/common/slider.scss */
+/* line 35, ../../../sass/app/common/slider.scss */
 .sequence .sequence-next {
   right: 1%;
   content: url("/images/chevron-white-right-large.png");
 }
-/* line 52, ../../../sass/app/common/slider.scss */
+/* line 41, ../../../sass/app/common/slider.scss */
 .sequence .sequence-prev img,
 .sequence .sequence-next img {
   height: 100%;
   width: auto;
 }
-/* line 58, ../../../sass/app/common/slider.scss */
+/* line 47, ../../../sass/app/common/slider.scss */
 .sequence .sequence-next,
 .sequence .sequence-prev {
   position: absolute;
-  opacity: 0.6;
+  opacity: 0.5;
   -webkit-transition-duration: 1s;
   -moz-transition-duration: 1s;
   -ms-transition-duration: 1s;
   -o-transition-duration: 1s;
   transition-duration: 1s;
 }
-/* line 69, ../../../sass/app/common/slider.scss */
+/* line 58, ../../../sass/app/common/slider.scss */
 .sequence .sequence-next:hover,
 .sequence .sequence-prev:hover {
   opacity: 1;
@@ -192,23 +180,27 @@ select {
   -o-transition-duration: 1s;
   transition-duration: 1s;
 }
-/* line 78, ../../../sass/app/common/slider.scss */
+/* line 67, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas {
-  /* required */
   height: 100%;
   width: 100%;
   list-style-type: none;
 }
-/* line 92, ../../../sass/app/common/slider.scss */
+/* line 73, ../../../sass/app/common/slider.scss */
+.sequence .sequence-canvas > li {
+  top: 0px;
+  width: 100%;
+  height: 100%;
+}
+/* line 78, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo {
   position: absolute;
+  background-position: center;
+  background-repeat: no-repeat;
+  left: 100%;
   height: 100%;
   width: 100%;
-  overflow: hidden;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  left: 100%;
+  cursor: pointer;
   -webkit-transition-duration: 0.3s;
   -moz-transition-duration: 0.3s;
   -ms-transition-duration: 0.3s;
@@ -225,7 +217,7 @@ select {
   -o-transition-timing-function: ease-in-out;
   transition-timing-function: ease-in-out;
 }
-/* line 120, ../../../sass/app/common/slider.scss */
+/* line 103, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo h2.title {
   width: 100%;
   height: 40px;
@@ -237,7 +229,7 @@ select {
   position: absolute;
   left: 0;
 }
-/* line 132, ../../../sass/app/common/slider.scss */
+/* line 115, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo img {
   min-height: 100%;
   min-width: 100%;
@@ -245,7 +237,7 @@ select {
   filter: alpha(opacity=0);
   opacity: 0;
 }
-/* line 141, ../../../sass/app/common/slider.scss */
+/* line 124, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-in .photo {
   left: 0;
   -webkit-transition-duration: 0.3s;
@@ -254,7 +246,7 @@ select {
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
 }
-/* line 152, ../../../sass/app/common/slider.scss */
+/* line 134, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-out .photo {
   left: -100%;
   -webkit-transition-duration: 0.3s;
@@ -262,4 +254,60 @@ select {
   -o-transition-duration: 0.3s;
   -ms-transition-duration: 0.3s;
   transition-duration: 0.3s;
+}
+
+/* line 146, ../../../sass/app/common/slider.scss */
+.activity-highlight .sequence {
+  height: 240px;
+}
+/* line 150, ../../../sass/app/common/slider.scss */
+.activity-highlight .sequence .sequence-next,
+.activity-highlight .sequence .sequence-prev {
+  top: 102.5px;
+}
+
+/* line 155, ../../../sass/app/common/slider.scss */
+.activity-highlight.large .sequence {
+  height: 420px;
+}
+/* line 159, ../../../sass/app/common/slider.scss */
+.activity-highlight.large .sequence .sequence-next,
+.activity-highlight.large .sequence .sequence-prev {
+  top: 192.5px;
+}
+
+/* line 165, ../../../sass/app/common/slider.scss */
+.activity-highlight .sequence li .photo {
+  background-size: contain;
+}
+
+/* line 170, ../../../sass/app/common/slider.scss */
+.feed-item .sequence {
+  height: 200px;
+}
+/* line 174, ../../../sass/app/common/slider.scss */
+.feed-item .sequence .sequence-next,
+.feed-item .sequence .sequence-prev {
+  top: 82.5px;
+}
+/* line 178, ../../../sass/app/common/slider.scss */
+.feed-item .sequence li .photo {
+  background-size: cover;
+}
+
+/* line 183, ../../../sass/app/common/slider.scss */
+.sequence.fullscreen {
+  height: 100%;
+  width: 100%;
+}
+/* line 188, ../../../sass/app/common/slider.scss */
+.sequence.fullscreen .sequence-next,
+.sequence.fullscreen .sequence-prev {
+  top: 50%;
+  opacity: 0.2;
+  height: 70px;
+}
+/* line 194, ../../../sass/app/common/slider.scss */
+.sequence.fullscreen li .photo {
+  background-size: contain;
 }

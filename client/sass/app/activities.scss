@@ -121,8 +121,9 @@ cite:before {
   float: right;
   padding: 0;
   width: 100%;
-  height: 200px;
+  height: $slider-height-small;
   margin-bottom: 0.9em;
+  overflow: hidden;
 
   &.large {
     margin-top: 0.9em;          
@@ -131,11 +132,11 @@ cite:before {
   @media only screen and (min-width: 48em) {
     margin-left: 1em;      
     margin-bottom: 0em;
-    height: 240px;
+    height: $slider-height-medium;
     width: 320px;
 
     &.large {
-      height: 420px;
+      height: $slider-height-large;
       width: 100%;
       margin-top: 0.9em;          
     }
@@ -145,6 +146,11 @@ cite:before {
     height: 100%;
     vertical-align: middle;
   }
+}
+
+body.fullscreen .activity-highlight {
+  width: 100%;
+  height: 100%;
 }
   
 // For google+ share link
