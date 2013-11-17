@@ -1,0 +1,9 @@
+<template name="staticMap">
+  {{#if mapExists}}
+    {{#constant}}
+      <div class="map" style="background-image: url({{mapUrl}})">
+        <img src="{{mapUrl}}" alt="{{location}}" />
+      </div>
+    {{/constant}}
+  {{/if}}
+</template>

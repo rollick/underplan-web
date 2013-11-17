@@ -2,7 +2,7 @@
   <div class="inner">
     <div class="activity">
       <div class="content">
-        {{> shortContent}}
+        {{> itemContent}}
       </div>
     </div>
   </div>
@@ -15,8 +15,8 @@
   {{/with}}
 </template>
 
-<template name="shortContent">
-  <div class="info-section">
+<template name="itemContent">
+  <div class="info-section {{#if hasMap}}map{{/if}}" style="background-image: url({{mapUrl}})">
     <div class="picture">
       <img src="{{profilePicture owner}}">
     </div>

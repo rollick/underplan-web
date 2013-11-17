@@ -8,15 +8,6 @@
     margin: 0em;
     margin-top: -1px;
 
-    .actions {
-      right: -1em !important;
-      margin-top: 0.3em;
-
-      .action.edit {
-        width: 3.3em !important;        
-      }
-    }
-
     .alert-box {
       margin-bottom: 0em;
       border-width: 0px;
@@ -25,37 +16,6 @@
 
     & > .content {
       padding: 0em;
-
-      // @media only screen and (min-width: 48em) {
-      //   padding: 0.5em;
-      //   padding-top: 0em;
-      // }
-    
-      .header {
-        @include grid-column(12);
-
-        background-color: lighten($topbar-bg, 30%);
-        padding: 1em;
-
-        h2 {
-          margin-bottom: 0em;
-          line-height: 1.2em;
-          font-weight: 100;
-          margin-top: 0em;
-          color: lighten($topbar-bg, 75%);
-          font-size: 2.4em;
-
-          @media only screen and (min-width: 48em) {
-            font-size: 2.8em;
-          }
-        }
-
-        .info-section .details {
-          .owner, .date {
-            color: lighten($topbar-bg, 60%);
-          }
-        }
-      }
 
       & > .content {
         margin: 0em;

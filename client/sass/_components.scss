@@ -174,26 +174,28 @@
     @if $fixed-details { height: $info-section-height; }
     font-size: 1em;
     color: black;
-    padding-left: 0.5em;
-    padding-right: 0.5em;
+    padding-left: $info-section-margin;
+    padding-right: $info-section-margin;
 
     .picture {
-      float: left;
-      width: $picture-width - 0.4em;
-      height: $picture-width - 0.2em;
+      position: absolute;
+      width: $info-section-height;
+      height: $info-section-height;
+      top: $info-section-margin;
+      left: $info-section-margin;
 
       img {
-        @include border-radius(($picture-width - 0.2em)/2);
-          
-        margin-top: 8px;
+        @include border-radius($picture-width/2);
       }
     }
 
     .details {
       @if $fixed-details { height: $picture-width; }
     
-      margin-left: $picture-width + 0.2em;
-      padding-top: 0.78em;
+      position: absolute;
+      padding: 0.5em 0.8em;
+      top: $info-section-margin;
+      left: $info-section-height + $info-section-margin;
 
       .owner {
         line-height: 1em;
@@ -209,16 +211,71 @@
       }
     }
 
+    &.map {
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.4);
+      height: 140px;
+      color: white;
+
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+
+      .picture,
+      .details {
+        // margin-top: emCalc(140px) - $picture-width;
+      }
+
+      .picture {
+        position: absolute;
+        top: inherit;
+        left: $info-section-margin;
+        bottom: $info-section-margin;
+        width: $info-section-height;
+        height: $info-section-height;
+        z-index: 2;
+
+        img {
+          height: 100%;
+          width: 100%;
+          margin-top: 0em;
+          @include border-radius($info-section-height/2);
+        }
+      }
+
+      .details {
+        position: absolute;
+        padding: 0.5em 0.8em;
+        margin-left: 0em;
+        top: inherit;
+        bottom: $info-section-margin;
+        left: 2em;
+        background-color: rgba(0, 0, 0, 0.55);
+        padding-left: 2.5em;
+        z-index: 1;
+
+        .date {
+          color: #D8D8D8;
+        }
+      }
+    }
+
+    &.large {
+      height: 180px;
+    }
+
     &.small {
       padding: 0.5em 0em;
       margin-bottom: 0em;
 
       .picture {
+        position: absolute;
         width: 1.9em;
         height: 1.9em;
       }
 
       .details {
+        position: absolute;
         margin-left: 2.4em;
         font-family: $header-font-family;
 
@@ -238,58 +295,17 @@
         }
       }
     }
-
-    &.header {
-      padding: 0.5em 0em !important;
-      margin-bottom: 0em;
-      height: 3.8em;
-
-      .picture {
-        width: 3em;
-        height: 3em;
-      }
-
-      .details {
-        margin-left: 3.5em;
-        font-family: $header-font-family;
-        padding-top: 0.65em;
-        height: 3.3em;
-        color: #aaaaaa;
-
-        .date, .owner {
-          float: left;
-          line-height: 1.4em;
-          font-size: emCalc(16px);
-        }
-
-        .owner {
-          font-weight: 400;
-        }
-
-        .location {
-          clear: left;
-          top: 0em;
-          position: absolute;
-          font-size: 0.9em;
-          top: 3em;
-        }
-
-        .date:before {
-          content: "-";
-          padding: 0.3em;
-        }
-      }
-    }
   }
 
   .actions {
-    height: $info-section-height !important;
+    height: $info-section-height;
     margin-top: -$info-section-padding;
+    right: 0em;
+    top: $info-section-margin;
     font-size: 1em;
     color: black;
     z-index: 102;
     position: absolute;
-    right: 0em;
     display: none;
 
     &.show {
@@ -301,6 +317,10 @@
       height: 2em;
       font-weight: bold;
       display: inline-block;
+
+      &.edit {
+        width: 3.3em;       
+      }
 
       &.remove {
         padding-left: 0.7em;
@@ -368,6 +388,7 @@
 
   .ribbon-wrapper {
     margin-top: $standard-margin;
+    z-index: 2;
   }
 
   & > .inner {
@@ -397,10 +418,6 @@
         .ribbon-wrapper {
           border-right: $ribbon-wrapper-strip solid darken($warning-color, 10%);
           margin-right: -$ribbon-wrapper-strip;
-        }
-
-        .actions {
-          right: 3.3em;
         }
       }
 

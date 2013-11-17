@@ -67,25 +67,23 @@
 
 <template name="storyContent">
   {{#unless published}}<span class="alert-box alert">Unpublished<br /></span>{{/unless}}
-  <div class="header">
-    <h2>{{title}}</h2>
-    <div class="info-section header">
-      {{#if canEdit}}
-        <div class="show actions">
-          <a href="{{slug}}/edit" class="edit action"></a>
-        </div>
-      {{/if}}
-      <div class="picture">
-        <img src="{{profilePicture owner}}">
+  <div class="info-section {{#if hasMap}}large map{{/if}}" style="background-image: url('{{mapUrl}}')">
+    {{#if canEdit}}
+      <div class="show actions">
+        <a href="{{slug}}/edit" class="edit action"></a>
       </div>
-      <div class="details">
-        <div class="owner">{{userName owner}}</div>
-        <div class="date">{{dateCreated}}</div>
-        <div class="location">{{basicLocation this}}</div>
-      </div>
+    {{/if}}
+    <div class="picture">
+      <img src="{{profilePicture owner}}">
+    </div>
+    <div class="details">
+      <div class="owner">{{userName owner}}</div>
+      <div class="date">{{dateCreated}} {{basicLocation this}} {{#if canRemove}}- {{_id}}{{/if}}</div>
     </div>
   </div>
   <div class="content">
+    <h2>{{title}}</h2>
+
     {{#if hasWiki}}
       {{wikiContent}}
     {{/if}}

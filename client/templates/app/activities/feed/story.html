@@ -1,25 +1,25 @@
 <template name="storyFeedContent">
-    <div class="ribbon-wrapper">
-      <div class="ribbon">Story</div>
+<!--   <div class="ribbon-wrapper">
+    <div class="ribbon">Story</div>
+  </div> -->
+  <div class="info-section {{#if hasMap}}map{{/if}}" style="background-image: url({{mapUrl}})">
+    <div class="picture">
+      <img src="{{profilePicture owner}}">
     </div>
-    <div class="info-section">
-      <div class="picture">
-        <img src="{{profilePicture owner}}">
-      </div>
-      <div class="details">
-        <div class="owner">{{userName owner}}</div>
-        <div class="date">{{date created}} - {{basicLocation this}}</div>
-      </div>
+    <div class="details">
+      <div class="owner">{{userName owner}}</div>
+      <div class="date">{{date created}} - {{basicLocation this}}</div>
     </div>
-    {{#if canRemove}}
-      <div class="actions">
-        <a href="#" class="remove action"></a>
-      </div>
-    {{/if}}
-    <div class="content">
-      <h5><a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning"> (Unpublished)</span>{{/unless}}</a></h5>
-      <p>{{textPreview}}</p>
-      <a href="{{activityLink}}" class="title more">Continue reading</a>
+  </div>
+  {{#if canRemove}}
+    <div class="actions">
+      <a href="#" class="remove action"></a>
     </div>
-    {{> imageSlider}}
+  {{/if}}
+  <div class="content">
+    <h5><a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning"> (Unpublished)</span>{{/unless}}</a></h5>
+    <p>{{textPreview}}</p>
+    <a href="{{activityLink}}" class="title more">Continue reading</a>
+  </div>
+  {{> imageSlider}}
 </template>

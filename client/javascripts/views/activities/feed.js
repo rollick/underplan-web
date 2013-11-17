@@ -228,13 +228,7 @@ var toggleComments = function(template, expand, focus) {
 ///////////////////////////////////////////////////////////////////////////////
 // Story Feed Content
 
-// Template.storyFeedContent.helpers({
-//   photo: function () {
-//     processActivityPhoto(this);
-//   },
-// });
-
-Template.storyFeedContent.canRemove
+Template.storyFeedContent.helpers(itemHelpers);
 
 Template.storyFeedContent.events({
   'mouseenter .activity': function (event, template) {
@@ -245,23 +239,6 @@ Template.storyFeedContent.events({
   },
 });
 
-Template.storyFeedContent.canRemove = function () {
-  return canUserRemoveActivity(Meteor.userId(), this._id);
-};
-
-Template.storyFeedContent.textPreview = function () {
-  var text = this.text;
-  if (!text)
-    return "";
-
-  var limit = 180;
-
-  var preview = text.substring(0, limit);
-  if(text.length > limit)
-    preview += "...";
-
-  return preview;
-};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Item Actions
@@ -557,35 +534,4 @@ Template.feedGallery.hasGallery = function () {
 Template.feedGallery.destroyed = function () {
   if (Galleria.length)
     Galleria.get(0).destroy();
-};
-
-///////////////////////////////////////////////////////////////////////////////
-// Common Functions
-
-var recentActivitiesMap = function() {
-  var dimensions = "640x240";
-  var recentActivities = Activities.find({group: getCurrentGroupId()}, {limit: 100, sort: {created: -1}});
-  var apiKey = appSettings().mapsApiKey;
-
-  // FIXME: The code here shouldn't need to know about DOM elements.
-  if(parseInt($("body").css("width").match(/\d+/g)) > 767)
-    dimensions = "640x400";
-
-  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&sensor=false&size=:dimensions&maptype=roadmap";
-  imageUrl = imageUrl.replace(/:dimensions/, dimensions).
-                      replace(/:random/, Math.round((new Date()).getTime() / 1000));
-
-  if(apiKey != "")
-    imageUrl = imageUrl + "&key=" + apiKey;
-
-  recentActivities.forEach(function (activity) {
-    if(activity.lat && activity.lng) {
-      imageUrl += "&visible=:lat,:lng&markers=color:green|label::label|:lat,:lng";
-      imageUrl = imageUrl.replace(/:lng/g, activity.lng).
-                          replace(/:lat/g, activity.lat).
-                          replace(/:label/, activity.location);
-    }
-  });
-
-  return imageUrl;
 };

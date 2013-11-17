@@ -1474,7 +1474,11 @@ blockquote p {
   border: 1px solid #2b2b2b;
   position: absolute;
   margin-top: -4px;
-  border-radius: 1.55em;
+  -webkit-border-radius: 3em;
+  -moz-border-radius: 3em;
+  -ms-border-radius: 3em;
+  -o-border-radius: 3em;
+  border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
   /* line 180, ../../sass/app/nav.scss */

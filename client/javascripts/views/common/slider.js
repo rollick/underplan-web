@@ -63,17 +63,27 @@ sliders = {};
 
 Template.imageSlider.events({
   "click .sequence": function (event, template) {
-    // If the image is clicked then route to activity
-    var target = $(event.target);
-    if (target.hasClass("main")) {
-      var sequence = target.closest(".sequence");
-      if (screenfull.enabled) {
+    // Image clicked:
+    //   Fullscreen if supported by browser otherwise expand the image slider
+    if (screenfull.enabled) {
+      var target = $(event.target);
+      if (target.hasClass("main")) {
+        var sequence = target.closest(".sequence");
         screenfull.toggle(sequence.addClass("fullscreen")[0]);
-      } else {
-        var match = sequence.attr("id").match(/^.*-([a-z|0-9]+)/i);
-        if (match)
-          Router.setActivity(match[1]);
+        // if (screenfull.enabled) {
+        //   screenfull.toggle(sequence.addClass("fullscreen")[0]);
+        // } else {
+        //   var match = sequence.attr("id").match(/^.*-([a-z|0-9]+)/i);
+        //   if (match)
+        //     Router.setActivity(match[1]);
+        // }
       }
+    } else {
+      var target = $(event.target);
+      if (target.hasClass("main")) {
+        var sequence = target.closest(".sequence").toggleClass("expanded", 2000);
+        sequence.find("li > div.photo").css("background-size", sequence.hasClass("expanded") ? "contain" : "cover");
+      }      
     }
   }
 });
