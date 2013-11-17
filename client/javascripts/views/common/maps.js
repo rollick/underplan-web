@@ -12,7 +12,7 @@ activityStaticMap = function(activity) {
   imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&zoom=:zoom&sensor=false&size=:dimensions&maptype=roadmap&visible=:lat,:lng&markers=color:green|label::label|:lat,:lng";
   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
                       replace(/:random/, Math.round((new Date()).getTime() / 1000)).
-                      replace(/:zoom/, _.isNumber(activity.mapZoom) ? activity.mapZoom : 12).
+                      replace(/:zoom/, _.isNumber(parseInt(activity.mapZoom)) ? activity.mapZoom : 12).
                       replace(/:lng/g, activity.lng).
                       replace(/:lat/g, activity.lat).
                       replace(/:label/, activity.location);
