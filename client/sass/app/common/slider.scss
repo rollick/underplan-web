@@ -118,6 +118,9 @@ $slider-btn-height: 35px;
   }
 }
 
+////////////////////////
+// Sequence Styles
+
 .activity-highlight .sequence {
   height: $slider-height-medium;
 
@@ -166,6 +169,10 @@ $slider-btn-height: 35px;
 .sequence.fullscreen {
   height: 100%;
   width: 100%;
+
+  @media only screen and (min-width: 48em) {
+    height: 100% !important;
+  }
 
   .sequence-next,
   .sequence-prev {

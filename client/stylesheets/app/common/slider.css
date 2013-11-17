@@ -239,68 +239,74 @@ select {
   transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-/* line 121, ../../../sass/app/common/slider.scss */
+/* line 124, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence {
   height: 240px;
 }
-/* line 125, ../../../sass/app/common/slider.scss */
+/* line 128, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence .sequence-next,
 .activity-highlight .sequence .sequence-prev {
   top: 102.5px;
 }
 
-/* line 130, ../../../sass/app/common/slider.scss */
+/* line 133, ../../../sass/app/common/slider.scss */
 .activity-highlight.large .sequence {
   height: 240px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 130, ../../../sass/app/common/slider.scss */
+  /* line 133, ../../../sass/app/common/slider.scss */
   .activity-highlight.large .sequence {
     height: 420px;
   }
 }
-/* line 138, ../../../sass/app/common/slider.scss */
+/* line 141, ../../../sass/app/common/slider.scss */
 .activity-highlight.large .sequence .sequence-next,
 .activity-highlight.large .sequence .sequence-prev {
   top: 48%;
 }
 
-/* line 144, ../../../sass/app/common/slider.scss */
+/* line 147, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence li .photo {
   background-size: contain;
 }
 
-/* line 149, ../../../sass/app/common/slider.scss */
+/* line 152, ../../../sass/app/common/slider.scss */
 .feed-item .sequence {
   height: 200px;
 }
-/* line 152, ../../../sass/app/common/slider.scss */
+/* line 155, ../../../sass/app/common/slider.scss */
 .feed-item .sequence.expanded {
   height: 420px;
 }
-/* line 157, ../../../sass/app/common/slider.scss */
+/* line 160, ../../../sass/app/common/slider.scss */
 .feed-item .sequence .sequence-next,
 .feed-item .sequence .sequence-prev {
   top: 48%;
 }
-/* line 161, ../../../sass/app/common/slider.scss */
+/* line 164, ../../../sass/app/common/slider.scss */
 .feed-item .sequence li .photo {
   background-size: cover;
 }
 
-/* line 166, ../../../sass/app/common/slider.scss */
+/* line 169, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen {
   height: 100%;
   width: 100%;
 }
-/* line 171, ../../../sass/app/common/slider.scss */
+@media only screen and (min-width: 48em) {
+  /* line 169, ../../../sass/app/common/slider.scss */
+  .sequence.fullscreen {
+    height: 100% !important;
+  }
+}
+/* line 178, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen .sequence-next,
 .sequence.fullscreen .sequence-prev {
   top: 50%;
   opacity: 0.2;
   height: 70px;
 }
-/* line 177, ../../../sass/app/common/slider.scss */
+/* line 184, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen li .photo {
   background-size: contain;
 }
