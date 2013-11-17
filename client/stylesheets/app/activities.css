@@ -1434,7 +1434,7 @@ blockquote p {
 }
 /* line 214, ../../sass/_components.scss */
 .story-item > .inner .activity .info-section.map {
-  overflow: hidden;
+  overflow-x: scroll;
   background-color: rgba(0, 0, 0, 0.4);
   height: 140px;
   color: white;
@@ -2307,7 +2307,7 @@ body.fullscreen .activity-highlight {
 }
 /* line 214, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section.map {
-  overflow: hidden;
+  overflow-x: scroll;
   background-color: rgba(0, 0, 0, 0.4);
   height: 140px;
   color: white;

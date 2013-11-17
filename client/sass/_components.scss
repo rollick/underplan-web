@@ -212,7 +212,7 @@
     }
 
     &.map {
-      overflow: hidden;
+      overflow-x: scroll;
       background-color: rgba(0, 0, 0, 0.4);
       height: 140px;
       color: white;

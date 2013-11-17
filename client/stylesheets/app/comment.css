@@ -1348,7 +1348,7 @@ blockquote p {
 }
 /* line 214, ../../sass/_components.scss */
 .comment .info-section.map {
-  overflow: hidden;
+  overflow-x: scroll;
   background-color: rgba(0, 0, 0, 0.4);
   height: 140px;
   color: white;
@@ -1626,7 +1626,7 @@ blockquote p {
 }
 /* line 214, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .info-section.map {
-  overflow: hidden;
+  overflow-x: scroll;
   background-color: rgba(0, 0, 0, 0.4);
   height: 140px;
   color: white;
