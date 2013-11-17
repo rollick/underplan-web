@@ -153,7 +153,11 @@ $slider-btn-height: 35px;
 }
 
 .activity-highlight.large .sequence {
-  height: $slider-height-large;
+  height: $slider-height-medium;
+
+  @media only screen and (min-width: 48em) {
+    height: $slider-height-large;
+  }
 
   .sequence-next,
   .sequence-prev {
