@@ -373,11 +373,11 @@
   margin: 0 $ribbon-wrapper-strip;
   padding: $standard-corner-radius;
   position: relative;
-  margin-bottom: $standard-small-margin;
+  margin-bottom: $standard-small-margin * 2;
 
   @media only screen and (min-width: 48em) {
     margin: 0em;
-    margin-bottom: $standard-margin;
+    margin-bottom: $standard-margin * 2;
 
     &:last-of-type {
       @include animation(feedInserted);

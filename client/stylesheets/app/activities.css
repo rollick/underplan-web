@@ -1292,7 +1292,7 @@ blockquote p {
   margin: 0 0.25em;
   padding: 0px;
   position: relative;
-  margin-bottom: 0.9375em;
+  margin-bottom: 1.875em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
 .story-item:before, .story-item:after {
@@ -1328,7 +1328,7 @@ blockquote p {
   /* line 4, ../../sass/app/activities.scss */
   .story-item {
     margin: 0em;
-    margin-bottom: 0.9375em;
+    margin-bottom: 1.875em;
   }
   /* line 382, ../../sass/_components.scss */
   .story-item:last-of-type {
@@ -2165,7 +2165,7 @@ body.fullscreen .activity-highlight {
   margin: 0 0.25em;
   padding: 0px;
   position: relative;
-  margin-bottom: 0.9375em;
+  margin-bottom: 1.875em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
 .map-info:before, .map-info:after {
@@ -2201,7 +2201,7 @@ body.fullscreen .activity-highlight {
   /* line 248, ../../sass/app/activities.scss */
   .map-info {
     margin: 0em;
-    margin-bottom: 0.9375em;
+    margin-bottom: 1.875em;
   }
   /* line 382, ../../sass/_components.scss */
   .map-info:last-of-type {
