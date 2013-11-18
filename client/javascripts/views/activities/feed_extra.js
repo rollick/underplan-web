@@ -188,12 +188,20 @@ Template.feedMap.rendered = function() {
     axis: 'y', 
     containment: 'parent',
     helper: 'clone',
-    // distance: 20, 
+    start: function(){
+        var $this = $(this);
+        $this.data('start-top', $this.position().top);
+        $this.data('last-top', $this.position().top);
+    },
     drag: function (event, ui) { 
+      var $this = $(this);
       var height = ui.offset.top; 
       $(this).prev().height(height);
+      gmaps.map.panBy(0, ($this.data('last-top') - height) / 2);
       google.maps.event.trigger(gmaps.map, 'resize');
-    } 
+
+      $this.data('last-top', height);
+    }
   });
 };
 

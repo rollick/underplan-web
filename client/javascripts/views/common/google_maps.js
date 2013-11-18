@@ -97,7 +97,8 @@ gmaps = {
         scrollwheel: false, // to allow page scrolling, not map zooming
         // center: new google.maps.LatLng(53.565, 10.001),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
-
+        
+        panControl: false,
         zoomControl: true,
         zoomControlOptions: {
           style: google.maps.ZoomControlStyle.SMALL,
