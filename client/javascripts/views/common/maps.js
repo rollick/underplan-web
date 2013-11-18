@@ -17,8 +17,11 @@ activityStaticMap = function(activity) {
                       replace(/:lat/g, activity.lat).
                       replace(/:label/, activity.location);
 
-  if(apiKey != "")
+  if (apiKey != "")
     imageUrl = imageUrl + "&key=" + apiKey;
+
+  // get correct dpi image
+  imageUrl = imageUrl + "&scale=" + window.devicePixelRatio;
 
   return imageUrl;
 };
