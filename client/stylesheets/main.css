@@ -3723,7 +3723,7 @@ form.custom .custom.disabled {
 /* line 49, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
 .contain-to-grid {
   width: 100%;
-  background: #111111;
+  background: rgba(17, 17, 17, 0.8);
 }
 
 /* line 55, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
@@ -3741,7 +3741,7 @@ form.custom .custom.disabled {
   height: 45px;
   line-height: 45px;
   position: relative;
-  background: #111111;
+  background: rgba(17, 17, 17, 0.8);
   margin-bottom: 1.875em;
 }
 /* line 72, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
@@ -3843,7 +3843,7 @@ form.custom .custom.disabled {
 }
 /* line 165, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
 .top-bar.expanded .title-area {
-  background: #111111;
+  background: rgba(17, 17, 17, 0.8);
 }
 /* line 168, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
 .top-bar.expanded .toggle-topbar a {
@@ -4016,7 +4016,7 @@ form.custom .custom.disabled {
 @media only screen and (min-width: 58.75em) {
   /* line 325, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
   .top-bar {
-    background: #111111;
+    background: rgba(17, 17, 17, 0.8);
     *zoom: 1;
     overflow: visible;
   }
@@ -4053,7 +4053,7 @@ form.custom .custom.disabled {
   }
   /* line 341, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
   .top-bar.expanded {
-    background: #111111;
+    background: rgba(17, 17, 17, 0.8);
   }
 
   /* line 344, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
@@ -4088,7 +4088,7 @@ form.custom .custom.disabled {
   .top-bar-section li a:not(.button) {
     padding: 0 15px;
     line-height: 45px;
-    background: #111111;
+    background: rgba(17, 17, 17, 0.8);
   }
   /* line 366, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
   .top-bar-section li a:not(.button):hover {
@@ -4141,12 +4141,12 @@ form.custom .custom.disabled {
     line-height: 1;
     white-space: nowrap;
     padding: 7px 15px;
-    background: #1e1e1e;
+    background: rgba(30, 30, 30, 0.8);
   }
   /* line 419, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
   .top-bar-section .dropdown li label {
     white-space: nowrap;
-    background: #1e1e1e;
+    background: rgba(30, 30, 30, 0.8);
   }
   /* line 425, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
   .top-bar-section .dropdown li .dropdown {
@@ -4157,15 +4157,15 @@ form.custom .custom.disabled {
   .top-bar-section > ul > .divider, .top-bar-section > ul > [role="separator"] {
     border-bottom: none;
     border-top: none;
-    border-right: solid 1px #2b2b2b;
-    border-left: solid 1px black;
+    border-right: solid 1px rgba(43, 43, 43, 0.8);
+    border-left: solid 1px rgba(0, 0, 0, 0.8);
     clear: none;
     height: 45px;
     width: 0px;
   }
   /* line 443, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_top-bar.scss */
   .top-bar-section .has-form {
-    background: #111111;
+    background: rgba(17, 17, 17, 0.8);
     padding: 0 15px;
     height: 45px;
   }

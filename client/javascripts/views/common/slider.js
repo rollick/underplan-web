@@ -1,6 +1,21 @@
 ///////////////////////////////////////////////////////////////////////////////
-// Common
+// Common Stuff
 
+processActivityPhotos = function (activity) {
+  var group = Groups.findOne(Session.get("groupId"));
+
+  if (activity.picasaTags && _.isObject(group.trovebox)) {
+    var params = $.extend({tags: activity.picasaTags, max: 10}, group.trovebox),
+        search = new Galleria.Trovebox,
+        self = activity;
+
+    search.albumSearch(params, function(data, params) {
+      if (data.length) {
+        ReactiveGallerySource.setPhotos(activity._id, data);
+      }
+    });
+  }
+};
 
 // Use a reactive source to ensure the template will reactively load
 // the photos once they have been fetched from the external data source

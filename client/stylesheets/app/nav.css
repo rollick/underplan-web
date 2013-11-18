@@ -1244,17 +1244,19 @@ blockquote p {
 }
 
 /* line 4, ../../sass/app/nav.scss */
-.nav {
-  background-color: #009700;
+.nav, .secondary-nav {
+  position: relative;
+  z-index: 5;
 }
-/* line 7, ../../sass/app/nav.scss */
+
+/* line 10, ../../sass/app/nav.scss */
 .nav .logo {
   float: left;
   width: 45px;
   height: 45px;
   background-color: green;
 }
-/* line 13, ../../sass/app/nav.scss */
+/* line 16, ../../sass/app/nav.scss */
 .nav .logo a {
   color: white !important;
   display: block;
@@ -1262,18 +1264,18 @@ blockquote p {
   font-size: 2.4em;
   font-family: 'Lily Script One', cursive;
 }
-/* line 20, ../../sass/app/nav.scss */
+/* line 23, ../../sass/app/nav.scss */
 .nav .logo a:before {
   content: "u";
 }
 
-/* line 27, ../../sass/app/nav.scss */
+/* line 30, ../../sass/app/nav.scss */
 .secondary-nav {
   padding-top: 0em;
-  background-color: #373737;
+  background-color: rgba(55, 55, 55, 0.8);
   max-height: 2.25em;
 }
-/* line 32, ../../sass/app/nav.scss */
+/* line 35, ../../sass/app/nav.scss */
 .secondary-nav .country-filter {
   width: 100%;
   margin-left: auto;
@@ -1296,7 +1298,7 @@ blockquote p {
 .secondary-nav .country-filter:after {
   clear: both;
 }
-/* line 40, ../../sass/app/nav.scss */
+/* line 43, ../../sass/app/nav.scss */
 .secondary-nav .country-filter > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1306,7 +1308,7 @@ blockquote p {
   min-height: 20px;
   margin: 5px 0px 0px 0px !important;
 }
-/* line 47, ../../sass/app/nav.scss */
+/* line 50, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl {
   display: block;
   width: auto;
@@ -1346,22 +1348,22 @@ blockquote p {
   cursor: default;
   color: white;
 }
-/* line 54, ../../sass/app/nav.scss */
+/* line 57, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt {
   margin: 0 0 0 16px;
   padding: 0 0 5px 0;
   opacity: 0.7;
 }
-/* line 59, ../../sass/app/nav.scss */
+/* line 62, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt:first-of-type {
   margin-left: 0px;
 }
-/* line 63, ../../sass/app/nav.scss */
+/* line 66, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt:hover {
   opacity: 1;
   border-bottom: 4px solid green;
 }
-/* line 68, ../../sass/app/nav.scss */
+/* line 71, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt a {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
@@ -1372,12 +1374,12 @@ blockquote p {
   vertical-align: bottom;
   color: white;
 }
-/* line 76, ../../sass/app/nav.scss */
+/* line 79, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt.active {
   border-bottom: 4px solid green;
   opacity: 1;
 }
-/* line 80, ../../sass/app/nav.scss */
+/* line 83, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt.active a {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
@@ -1387,42 +1389,42 @@ blockquote p {
   background: inherit;
   font-weight: normal;
 }
-/* line 86, ../../sass/app/nav.scss */
+/* line 89, ../../sass/app/nav.scss */
 .secondary-nav .country-filter dl dt.active a:hover {
   cursor: pointer;
 }
 
-/* line 97, ../../sass/app/nav.scss */
+/* line 100, ../../sass/app/nav.scss */
 .top-bar-section {
   font-family: "Raleway", sans-serif;
 }
-/* line 101, ../../sass/app/nav.scss */
+/* line 104, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar-section .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 106, ../../sass/app/nav.scss */
+/* line 109, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a {
   text-indent: -44px !important;
 }
-/* line 109, ../../sass/app/nav.scss */
+/* line 112, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: 100;
 }
 
-/* line 114, ../../sass/app/nav.scss */
+/* line 117, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 119, ../../sass/app/nav.scss */
+/* line 122, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
   overflow: inherit;
 }
-/* line 124, ../../sass/app/nav.scss */
+/* line 127, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
@@ -1431,44 +1433,44 @@ blockquote p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 135, ../../sass/app/nav.scss */
+/* line 138, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 135, ../../sass/app/nav.scss */
+  /* line 138, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 143, ../../sass/app/nav.scss */
+/* line 146, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: rgba(255, 255, 255, 0.3);
 }
 @media only screen and (min-width: 48em) {
-  /* line 143, ../../sass/app/nav.scss */
+  /* line 146, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
   }
 }
-/* line 153, ../../sass/app/nav.scss */
+/* line 156, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 161, ../../sass/app/nav.scss */
+  /* line 164, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 167, ../../sass/app/nav.scss */
+/* line 170, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 171, ../../sass/app/nav.scss */
+/* line 174, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 28px;
   padding: 2px;
@@ -1482,47 +1484,47 @@ blockquote p {
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 181, ../../sass/app/nav.scss */
+  /* line 184, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 185, ../../sass/app/nav.scss */
+  /* line 188, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
 
-/* line 194, ../../sass/app/nav.scss */
+/* line 197, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 199, ../../sass/app/nav.scss */
+/* line 202, ../../sass/app/nav.scss */
 li.text {
-  color: #c4c4c4;
+  color: rgba(196, 196, 196, 0.8);
   padding: 10px;
   font-size: 0.9em;
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 199, ../../sass/app/nav.scss */
+  /* line 202, ../../sass/app/nav.scss */
   li.text {
-    color: #919191;
-    background-color: #111111;
+    color: rgba(145, 145, 145, 0.8);
+    background-color: rgba(17, 17, 17, 0.8);
   }
 }
 
-/* line 212, ../../sass/app/nav.scss */
+/* line 215, ../../sass/app/nav.scss */
 li.login-services {
   height: 40px;
 }
-/* line 215, ../../sass/app/nav.scss */
+/* line 218, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 220, ../../sass/app/nav.scss */
+/* line 223, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -1530,7 +1532,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 228, ../../sass/app/nav.scss */
+/* line 231, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

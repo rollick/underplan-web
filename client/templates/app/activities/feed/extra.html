@@ -1,0 +1,12 @@
+<template name="activityFeedExtra">
+  {{#if showExtras}}
+    <div class="feed-extra">
+      <div class="map">
+        <div class="inner">
+          {{> feedMap}}
+        </div>
+      </div>
+      {{> feedGallery}}
+    </div>
+  {{/if}}
+</template>

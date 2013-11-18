@@ -73,6 +73,7 @@ gmaps = {
       for (var i = 0, latLngLength = this.latLngs.length; i < latLngLength; i++) {
         bounds.extend(this.latLngs[i]);
       }
+      
       this.map.fitBounds(bounds);
     },
 
@@ -94,9 +95,19 @@ gmaps = {
       var mapOptions = {
         zoom: 12,
         // center: new google.maps.LatLng(53.565, 10.001),
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      };
+        mapTypeId: google.maps.MapTypeId.ROADMAP,
 
+        zoomControl: true,
+        zoomControlOptions: {
+          style: google.maps.ZoomControlStyle.SMALL,
+          position: google.maps.ControlPosition.LEFT_TOP
+        },
+        mapTypeControl: true,
+        mapTypeControlOptions: {
+          style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
+          position: google.maps.ControlPosition.RIGHT_TOP
+        },
+      };
 
       var canvas = document.getElementById('map-canvas');
       // $(".map").css({"border": "red solid 2px"});
@@ -105,6 +116,14 @@ gmaps = {
         document.getElementById('map-canvas'),
         mapOptions
       );
+
+      // Add a blank div as custom control to push zoom controls 
+      // and layers down and away from top nav bars
+      var fakeControl = $(document.createElement("div"));
+      fakeControl.css("height", 80);
+      fakeControl.css("width", 30);
+      this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(fakeControl[0]);
+      this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(fakeControl.clone()[0]);
 
       // global flag saying we intialized already
       Session.set('feedMap', true);

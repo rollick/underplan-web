@@ -151,9 +151,11 @@
 .feed-extra {
   @include grid-column(12, $collapse: true);
 
-  z-index: 0;
+  position: relative;
+  z-index: 3;
   padding: 0em;
   padding-bottom: 5em;
+  margin-top: -80px;
 
   @media only screen and (min-width: 48em) {
     @include grid-column($feed-extra-columns-large, $collapse: true);
@@ -248,10 +250,12 @@
       // padding: 0;
 
       .recent-photos {
-        height: $photo-feed-height-small;
+        padding-top: 80px;
+        background-color: $common-dark-color;
+        height: $photo-feed-height-small - 80px;
 
         @media only screen and (min-width: 48em) {
-          height: $photo-feed-height-large;
+          height: $photo-feed-height-large - 80px;
         }
       }
 

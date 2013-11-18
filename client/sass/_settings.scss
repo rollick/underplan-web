@@ -28,9 +28,10 @@ $feed-extra-columns-large:  12;
 $feed-columns-large:        12;
 $ribbon-wrapper-strip:      emCalc(4px);
 $footer-height:             34px;
+$common-dark-color:			#111;
 
 //// Gallery Stuff
-$slider-bg:                 #111;
+$slider-bg:                 $common-dark-color;
 $slider-height-small:		200px;
 $slider-height-medium: 		240px;
 $slider-height-large: 		420px;
@@ -39,8 +40,8 @@ $slider-height-large: 		420px;
 $row-width:                 emCalc(720px);
 $header-font-family:        'Raleway', sans-serif;
 $base-line-height:          150% !default;
-$topbar-bg:                 #111;
-$secondary-navbar-bg:		lighten($topbar-bg, 15%);
+$topbar-bg:                 rgba($common-dark-color, 0.8);
+$secondary-navbar-bg:		rgba(lighten($topbar-bg, 15%), 0.8);
 $label-font-color:          lighten(#000, 30%);
 $body-font-family:          'Open Sans', Arial, sans-serif;
 $body-font-weight: 			300;

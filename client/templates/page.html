@@ -16,6 +16,10 @@
     {{> subNav}}
   </div>
 
+  {{#if showActivityFeed}}
+    {{> activityFeedExtra}}
+  {{/if}}
+
   <div class="main-content {{#if showGroupList}}dashboard{{else}}normal{{/if}}" role="content">
     <div class="inner">
       {{#if showInviteList}}

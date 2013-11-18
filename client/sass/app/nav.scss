@@ -1,9 +1,12 @@
 @import "../components";
 @import "foundation/components/sub-nav";
 
+.nav, .secondary-nav {
+  position: relative;
+  z-index: 5;
+}
+
 .nav {
-  background-color: rgb(0, 151, 0);
-  
   .logo {
     float: left;
     width: 45px;

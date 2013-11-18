@@ -2,16 +2,6 @@
   {{#if loading}}
     <p class="loading-feed alert-box large clear">Loading journey...</p>
   {{else}}
-    {{#if showExtras}}
-      <div class="feed-extra">
-        <div class="map">
-          <div class="inner">
-            {{> feedMap}}
-          </div>
-        </div>
-        {{> feedGallery}}
-      </div>
-    {{/if}}
     <div class="feed">
       {{#if userBelongsToGroup}}
         <div class="short-form">
