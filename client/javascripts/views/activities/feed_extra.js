@@ -183,6 +183,18 @@ Template.feedMap.created = function () {
 
 Template.feedMap.rendered = function() {
   setupMap();
+
+  $('.feed-handle').draggable({
+    axis: 'y', 
+    containment: 'parent',
+    helper: 'clone',
+    // distance: 20, 
+    drag: function (event, ui) { 
+      var height = ui.offset.top; 
+      $(this).prev().height(height);
+      google.maps.event.trigger(gmaps.map, 'resize');
+    } 
+  });
 };
 
 Template.feedMap.destroyed = function() {
@@ -230,6 +242,7 @@ setupMap = function () {
         }
       });
       gmaps.calcBounds();
+      gmaps.map.panBy(0, -50);
     }
   });
 }
