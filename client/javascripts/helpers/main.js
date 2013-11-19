@@ -18,17 +18,17 @@ Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
 });
 
 Handlebars.registerHelper("isCurrentCountry", function (country) {
-  if(country === "all" && !Session.get("feedFilter").country)
+  if(country === "all" && !ReactiveFeedFilter.get("country"))
     return "active";
 
-  return (country === Session.get("feedFilter").country ? "active" : "");
+  return (country === ReactiveFeedFilter.get("country") ? "active" : "");
 });
 
-Handlebars.registerHelper("countryFilter", function(countries) {
-  Template.countryFilter.countries = countries;
+// Handlebars.registerHelper("countryFilter", function(countries) {
+//   Template.countryFilter.countries = countries;
 
-  return new Handlebars.SafeString(Template.countryFilter());
-});
+//   return new Handlebars.SafeString(Template.countryFilter());
+// });
 
 Handlebars.registerHelper("activityLink", function() {
   var group = Groups.findOne({_id: this.group}, {slug: 1});
@@ -92,7 +92,7 @@ Handlebars.registerHelper('profilePicture', function(userId) {
 Handlebars.registerHelper('basicLocation', function(activity) {
   var location = "";
   if (_.isString(activity.country) && activity.country.length) {
-    if (Session.get("feedFilter").country) {
+    if (ReactiveFeedFilter.get("country")) {
       location = activity.city || "";
     } else {
       location = [activity.city, activity.country].join(", ");

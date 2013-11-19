@@ -1,20 +1,3 @@
-<template name="countryFilter">
-
-
-  <div class="country-filter">
-    <div class="inner">
-      <dl>
-        {{#isolate}}
-          <dt class="{{isCurrentCountry "all"}}"><a href="#" class="all">All Countries</a></dt>
-          {{#each countries}}
-            <dt class="{{isCurrentCountry this}}"><a href="#">{{this}}</a></dt>
-          {{/each}}
-        {{/isolate}}
-      </dl>
-    </div>
-  </div>
-</template>
-
 <template name="datePicker">
   <div class="row">
     <div class="large-3 columns">

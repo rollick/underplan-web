@@ -4,11 +4,38 @@
 @include keyframe(mapInserted);
 @include keyframe(galleryInserted);
 
+$handle-bg-color: lighten($topbar-bg, 30%);
+$handle-trim-color: lighten($handle-bg-color, 30%);
+$handle-height: 14px;
+$handle-offset: 1px;
+$handle-hover-offset: 5px;
+
 .feed-handle {
-  height: 8px;
-  background-color: grey;
+  border-top: 2px solid $handle-bg-color;
   position: relative;
   clear: left;
+
+  & > div {
+    height: $handle-height;
+    width: 30px;
+    margin: 0 auto;
+    background-color: $handle-bg-color;
+
+    &:before {
+      content: "";
+      position: absolute;
+      top: $handle-offset;
+      width: 24px;
+      height: 0.15em;
+      background: $handle-trim-color;
+      box-shadow: 0 0.25em 0 0 $handle-trim-color, 0 0.5em 0 0 $handle-trim-color;
+      margin-left: 3px;
+    }
+  }
+
+  &.ui-draggable-dragging > div {
+    display: none;
+  }
 }
 
 .feed-extra {

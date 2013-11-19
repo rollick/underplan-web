@@ -97,7 +97,7 @@ Template.activityControls.group = function () {
 
 Template.activityControls.nextActivity = function () {
   var activity = Activities.findOne(this._id);
-  var country = Session.get("feedFilter").country;
+  var country = ReactiveFeedFilter.get("country");
   var params = {
     $and: [
       {group: Session.get("groupId")},
@@ -114,7 +114,7 @@ Template.activityControls.nextActivity = function () {
 
 Template.activityControls.previousActivity = function () {
   var activity = Activities.findOne(this._id);
-  var country = Session.get("feedFilter").country;
+  var country = ReactiveFeedFilter.get("country");
   var params = {
     $and: [
       {group: Session.get("groupId")},

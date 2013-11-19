@@ -39,8 +39,28 @@
   </nav>
 </template>
 
-<template name="subNav">
+<template name="groupActions">
+  {{> countryFilter}}
+</template>
+
+<template name="countryFilter">
   {{#if showCountryFilter}}
-    {{countryFilter countries}}
+    <div class="group-controls">
+      <div class="small-12 large-12 columns">
+        <div class="section-container country-container" data-section="horizontal-nav" data-section-resized="true">
+          <section class="section">
+            <p class="title"><a href="#">{{currentCountry}}</a></p>
+            <div class="content">
+              <ul class="side-nav country-filter">
+                <li><a href="#" class="all">All Countries</a></li>
+                {{#each countries}}
+                  <li class="{{isCurrentCountry this}}"><a href="#">{{this}}</a></dt>
+                {{/each}}
+              </ul>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
   {{/if}}
 </template>

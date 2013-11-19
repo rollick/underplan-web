@@ -34,8 +34,8 @@ var setupGallery = function () {
       if (_.isObject(group.trovebox)) {
         var params = $.extend({tags: null}, group.trovebox);
 
-        if (Session.get("feedFilter").country)
-          params.tags = Session.get("feedFilter").country;
+        if (ReactiveFeedFilter.get("country"))
+          params.tags = ReactiveFeedFilter.get("country");
 
         troveboxGallery.albumSearch(params, function(data) {
           if (_.isEmpty(data)) {
@@ -186,7 +186,7 @@ Template.feedMap.rendered = function() {
 
   $('.feed-handle').draggable({
     axis: 'y', 
-    containment: 'parent',
+    containment: [ 0, navHeight(), 0, 900 ],
     helper: 'clone',
     start: function(){
         var $this = $(this);
@@ -225,7 +225,7 @@ setupMap = function () {
 
     logIfDev("Autorun Map Deps...");
 
-    var recentActivities = Activities.find(Session.get("feedFilter"), {sort: {created: -1}}).fetch();
+    var recentActivities = Activities.find(ReactiveFeedFilter.get('queryFields'), {sort: {created: -1}}).fetch();
     gmaps.clearMarkers();
   
     if (recentActivities.length > 0) {

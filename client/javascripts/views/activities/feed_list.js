@@ -57,9 +57,9 @@ Template.activityFeed.loading = function () {
 };
 
 Template.activityFeed.created = function() {
-  var filter = Session.get("feedFilter");
+  var filter = ReactiveFeedFilter.get("country");
   logIfDev("FeedFilter set here (1)");
-  Session.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
+  ReactiveFeedFilter.set("feedFilter", $.extend(filter, {group: Session.get("groupId")}));
   Session.set("galleryLimit", galleryLimitSkip);
 };
 
@@ -73,12 +73,13 @@ Template.activityFeed.userBelongsToGroup = function () {
   return currentUserBelongsToCurrentGroup();
 };
 
+// FIXME: these two functions need to be fixed. What should each return?
 Template.activityFeed.activityCount = function () {
-  return Activities.find(Session.get("feedFilter")).count();
+  return Activities.find(ReactiveFeedFilter.get('queryFields')).count();
 };
 
 Template.activityFeed.totalActivities = function () {
-  return Activities.find(Session.get("feedFilter")).count();
+  return Activities.find(ReactiveFeedFilter.get('queryFields')).count();
 }
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -97,17 +98,17 @@ Template.feedList.anyActivities = function () {
 
 Template.feedList.recentActivities = function () {
   // never return activities without a group
-  return Activities.find(Session.get("feedFilter"), {sort: {created: -1}, limit: Session.get("feedLimit")});
+  return Activities.find(ReactiveFeedFilter.get('queryFields'), {sort: {created: -1}, limit: Session.get("feedLimit")});
 };
 
 Template.feedList.feedLimitReached = function () {
-  return Session.get("feedLimit") >= Activities.find(Session.get("feedFilter")).count();
+  return Session.get("feedLimit") >= Activities.find(ReactiveFeedFilter.get('queryFields')).count();
 };
 
 // FIXME: this is a hack! Should be able to use "unless" feedLimitReached in template
 //        but it only seems to work for a single reference.
 Template.feedList.moreActivities = function() {
-  return Session.get("feedLimit") < Activities.find(Session.get("feedFilter")).count();
+  return Session.get("feedLimit") < Activities.find(ReactiveFeedFilter.get('queryFields')).count();
 };
 
 ///////////////////////////////////////////////////////////////////////////////

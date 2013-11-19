@@ -19,27 +19,31 @@ Template.mainNav.events({
 ///////////////////////////////////////////////////////////////////////////////
 // Sub Nav
 
-Template.subNav.showCountryFilter = function () {
+Template.countryFilter.showCountryFilter = function () {
   return groupCountries(Session.get("groupId")).length > 1;
 };
 
-Template.subNav.countries = function () {
-  return groupCountries(Session.get("groupId"));
-};
+Template.countryFilter.helpers({
+  currentCountry: function () {
+    return ReactiveFeedFilter.get("country") || "All Countries";
+  },
+  countries: function () {
+    return groupCountries(Session.get("groupId"));
+  }
+});
 
-Template.subNav.events({
-  "click .country-filter a": function (event, template) {
-    var filterElem = $(template.find(".country-filter"));
-    var selected = event.target.text;
-    var filter = {group: Session.get("groupId")}; 
-    var targetElem = $(event.target);
-
+Template.countryFilter.events({
+  "click .country-filter li > a": function (event, template) {
+    var filterElem = $(template.find("#country-filter"));
+    var selectedElem = $(event.target);
+    var selectedText = selectedElem.hasClass("all") ? null : selectedElem.text();
+    
     // set filter
-    if(! targetElem.hasClass("all")) {
-      $.extend(filter, {country: targetElem.text()});
-    }
+    var filter = {group: Session.get("groupId")};
+    $.extend(filter, {country: selectedText});
+    
     logIfDev("FeedFilter set here (3)");
-    Session.set("feedFilter", filter);
+    ReactiveFeedFilter.set("feedFilter", filter);
     Session.set("feedLimit", feedLimitSkip);
 
     Router.setGroup(getCurrentGroup());

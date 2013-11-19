@@ -1,5 +1,6 @@
 @import "../components";
 @import "foundation/components/sub-nav";
+@import "foundation/components/section";
 
 .nav, .secondary-nav {
   position: relative;
@@ -27,74 +28,119 @@
   }
 }
 
-.secondary-nav {
-  padding-top: 0em;
-  background-color: $secondary-navbar-bg;
-  max-height: emCalc(36px);
+.group-controls {
+  @include grid-row(nest);
 
-  .country-filter {
-    @include grid-row();
+  z-index: 5; 
+  position: relative;
+  background-color: transparent;
 
-    font-family: $header-font-family;
-    overflow-x: scroll;
-    -webkit-overflow-scrolling: touch;
-    width:100%;
+  .country-container {
+    @include section-container($section-type:horizontal-nav);
 
-    & > .inner {
-      @include grid-column(12);
+    background: none;
+    width: 180px;
+    margin: 0px auto;
+    height: 33px;
 
-      min-height: 20px; 
-      margin: 5px 0px 0px 0px !important;
+    &.horizontal-nav {
+      background: transparent;
     }
 
-    dl {
-      @include sub-nav();
-      
-      position: relative;
-      width: $row-width - emCalc(10px);
-      margin-bottom: 0 !important;
+    section .title,
+    .section .title {
+      padding-right: 0.5em;
+      text-align: center;
+      background: rgba(239, 239, 239, 0.7);
+    }
 
-      dt {
-        margin: 0 0 0 16px;
-        padding: 0 0 5px 0;
-        opacity: 0.7;
-
-        &:first-of-type {
-          margin-left: 0px;
-        }
-
-        &:hover {
-          opacity: 1;
-          border-bottom: 4px solid $primary-color;
-        }
-
-        a {
-          @include border-radius(0em);
-
-          padding: 6px 0px !important;
-          vertical-align: bottom;
-          color: white;
-        }
-
-        &.active { 
-          border-bottom: 4px solid $primary-color;
-          opacity: 1;
-
-          a {
-            @include border-radius(0em);
-
-            background: inherit;
-            font-weight: normal;
-
-            &:hover {
-              cursor: pointer;
-            }
-          }
-
-        }
-      }
+    .side-nav li {
+      text-align: center;
     }
   }
+}
+
+.group-nav {
+  padding-top: 0em;
+  // background-color: $secondary-navbar-bg;
+  max-height: emCalc(36px);
+  height: 30px;
+  position: relative;
+  z-index: 5;
+  margin: auto 0;
+  width: 100%;
+  border: 1px solid red;
+
+  .country-filter-section {
+    margin: 0 auto;
+    width: 120px;
+    height: 100%;
+    text-align: center;
+  }
+
+  // .country-filter {
+  //   @include grid-row();
+
+  //   font-family: $header-font-family;
+  //   overflow-x: scroll;
+  //   -webkit-overflow-scrolling: touch;
+  //   width:100%;
+
+  //   & > .inner {
+  //     @include grid-column(12);
+
+  //     min-height: 20px; 
+  //     margin: 5px 0px 0px 0px !important;
+  //   }
+
+  //   dl {
+  //     @include sub-nav();
+      
+  //     position: relative;
+  //     width: $row-width - emCalc(10px);
+  //     margin-bottom: 0 !important;
+
+  //     dt {
+  //       margin: 0 0 0 16px;
+  //       padding: 0 0 5px 0;
+  //       opacity: 0.7;
+
+  //       &:first-of-type {
+  //         margin-left: 0px;
+  //       }
+
+  //       &:hover {
+  //         opacity: 1;
+  //         border-bottom: 4px solid $primary-color;
+  //       }
+
+  //       a {
+  //         @include border-radius(0em);
+
+  //         padding: 6px 0px !important;
+  //         vertical-align: bottom;
+  //         color: white;
+  //       }
+
+  //       &.active { 
+  //         border-bottom: 4px solid $primary-color;
+  //         opacity: 1;
+
+  //         a {
+  //           @include border-radius(0em);
+
+  //           background: inherit;
+  //           font-weight: normal;
+
+  //           &:hover {
+  //             cursor: pointer;
+  //           }
+  //         }
+
+  //       }
+  //     }
+  //   }
+  // }
 }
 
 .top-bar-section {

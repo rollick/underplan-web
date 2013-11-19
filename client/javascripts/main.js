@@ -48,11 +48,11 @@ Deps.autorun(function () {
   if (Session.get("groupId")) {
     logIfDev("Subscribe to group data");
     
-    var filter = Session.get("feedFilter") || {};
+    var filter = ReactiveFeedFilter.get("feedFilter") || {};
     if (filter.group !== Session.get("groupId")) {
       filter.group = Session.get("groupId");
       logIfDev("FeedFilter set here");
-      Session.set("feedFilter", filter);
+      ReactiveFeedFilter.set("feedFilter", filter);
     }
 
     self.feedMapSubscription = Meteor.subscribe("basicActivityData", Session.get("groupId"));
@@ -61,7 +61,7 @@ Deps.autorun(function () {
     var options = {
       groupId: Session.get("groupId"),
       limit: Session.get("feedLimit"),
-      country: Session.get("feedFilter").country
+      country: ReactiveFeedFilter.get("country")
     }
     self.feedListSubscription = Meteor.subscribe("feedActivities", options);
     self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
@@ -72,7 +72,7 @@ Deps.autorun(function () {
       groupId: Session.get("groupId"),
       activityIds: Session.get("expandedActivities"),
       limit: Session.get("feedLimit"),
-      country: Session.get("feedFilter").country
+      country: ReactiveFeedFilter.get("country")
     };
 
     if (options.activityIds.length)
@@ -81,7 +81,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.83");
+  Session.set("appVersion", "v1.3.84");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -195,11 +195,14 @@ Template.page.showMainSettings = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Common Functions
 
+this.navHeight = function () {
+  return parseInt($('.nav').css('height')) + parseInt($('.group-nav').css('height'));
+};
+
 // FIXME: move the maps api key to the settings file
 this.appSettings = function () {
   return {mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"};
 };
-
 
 this.getCurrentActivity = function () {
   return Activities.findOne(Session.get("activityId"));

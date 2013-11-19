@@ -122,7 +122,7 @@ gmaps = {
       // Add a blank div as custom control to push zoom controls 
       // and layers down and away from top nav bars
       var fakeControl = $(document.createElement("div"));
-      fakeControl.css("height", 80);
+      fakeControl.css("height", navHeight());
       fakeControl.css("width", 30);
       this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(fakeControl[0]);
       this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(fakeControl.clone()[0]);
