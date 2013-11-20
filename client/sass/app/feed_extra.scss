@@ -4,8 +4,8 @@
 @include keyframe(mapInserted);
 @include keyframe(galleryInserted);
 
-$handle-bg-color: lighten($topbar-bg, 30%);
-$handle-trim-color: lighten($handle-bg-color, 30%);
+$handle-bg-color: lighten($topbar-bg, 20%);
+$handle-trim-color: lighten($handle-bg-color, 80%);
 $handle-height: 14px;
 $handle-offset: 1px;
 $handle-hover-offset: 5px;

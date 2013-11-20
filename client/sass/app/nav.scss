@@ -8,6 +8,10 @@
 }
 
 .nav {
+  &.normal {
+    background: #333333;
+  }
+
   .logo {
     float: left;
     width: 45px;
@@ -170,6 +174,10 @@
 .top-bar {
   margin: 0px 0px 0px 45px !important;
   overflow: inherit;
+
+  &.expanded {
+    background: rgba(17, 17, 17, 0.8) !important;
+  }
 
   .name h1 {
     a {

@@ -7,7 +7,7 @@
     {{> inviteDialog}}
   {{/if}}
 
-  <div class="nav">
+  <div class="nav {{#if showActivityFeed}}feed{{else}}normal{{/if}}">
       <div class="logo"><a href="/" class="main-home"></a></div>
       {{> mainNav}}
   </div>

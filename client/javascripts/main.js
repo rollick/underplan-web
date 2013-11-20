@@ -86,7 +86,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.93");
+  Session.set("appVersion", "v1.3.94");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -188,7 +188,7 @@ Template.page.showMainSettings = function () {
 // Common Functions
 
 this.navHeight = function () {
-  return parseInt($('.nav').css('height')) + parseInt($('.group-nav').css('height'));
+  return parseInt($('.nav').css('height')) + parseInt($('.group-controls').css('height'));
 };
 
 // FIXME: move the maps api key to the settings file
