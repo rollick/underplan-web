@@ -60,7 +60,7 @@ Deps.autorun(function () {
     // Pass some options to the subscription to restrict the amount of data returned
     var options = {
       groupId: Session.get("groupId"),
-      limit: Session.get("feedLimit"),
+      limit: ReactiveFeedFilter.get("limit"),
       country: ReactiveFeedFilter.get("country")
     }
     self.feedListSubscription = Meteor.subscribe("feedActivities", options);
@@ -71,7 +71,7 @@ Deps.autorun(function () {
     var options = {
       groupId: Session.get("groupId"),
       activityIds: Session.get("expandedActivities"),
-      limit: Session.get("feedLimit"),
+      limit: ReactiveFeedFilter.get("limit"),
       country: ReactiveFeedFilter.get("country")
     };
 
@@ -81,7 +81,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.84");
+  Session.set("appVersion", "v1.3.85");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);

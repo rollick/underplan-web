@@ -44,7 +44,7 @@ Template.countryFilter.events({
     
     logIfDev("FeedFilter set here (3)");
     ReactiveFeedFilter.set("feedFilter", filter);
-    Session.set("feedLimit", feedLimitSkip);
+    ReactiveFeedFilter.set("limit", feedLimitSkip);
 
     Router.setGroup(getCurrentGroup());
     return false;

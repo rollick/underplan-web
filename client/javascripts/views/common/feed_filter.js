@@ -76,6 +76,9 @@ ReactiveFeedFilter = {
 
     // Also ensure dep for queryFields as it shouldn't ever be 'set'
     if (!this.fieldsDep['queryFields'])
-      this.fieldsDep['queryFields'] = new Deps.Dependency;    
+      this.fieldsDep['queryFields'] = new Deps.Dependency; 
+
+    if (!this.fieldsDep['feedFilter'])
+      this.fieldsDep['feedFilter'] = new Deps.Dependency;    
   }
 };
