@@ -1,49 +1,32 @@
 // Use a reactive source to store feed filter information
 // eg. country, limit, 
 ReactiveFeedFilter = {
-  fields: {
-    country: null,
-    limit: null,
-    group: null
-  },
-  fieldsDep: {},
-
-  // remove null fields for mongo query
-  // TODO: is this always a good idea?
-  queryFields: function () {
-    var reducedFields = _.clone(this.fields);
-    Object.keys(reducedFields).forEach( function(key) { 
-      if (!reducedFields[key]) {
-        delete reducedFields[key];
-      }
-    });
-
-    return reducedFields;
-  },
-
   clear: function () {
-    Object.keys(this.fields).forEach( function (key) {
-      this.set(key, null);
+    var self = this;
+    Object.keys(this._fields).forEach( function (key) {
+      self.set(key, null);
     });
   },
 
   get: function (key) {
-    this.ensureDep(key);
-    this.fieldsDep[key].depend();
+    this._ensureDep(key);
+    this._fieldsDep[key].depend();
 
     if (key === "feedFilter")
-      return this.fields;
+      return this._fields;
     else if (key === "queryFields")
-      return this.queryFields();
+      return this._queryFields();
+    else if (key === "subscriptionOptions")
+      return this._queryFields();
     else
-      return this.fields[key];
+      return this._fields[key];
   },
 
   set: function (key, value, nested) {
     if (typeof nested === 'undefined')
       nested = false;
 
-    this.ensureDep(key);
+    this._ensureDep(key);
 
     // if the whole feedfilter has been requested then set the individual 
     // fields using the value passed
@@ -53,32 +36,78 @@ ReactiveFeedFilter = {
         self.set(subkey, value[subkey], true);
       });
 
-      this.fieldsDep['feedFilter'].changed();
-      this.fieldsDep['queryFields'].changed();
+      this._aggregatedFieldsChanged();
     } else if (key !== "feedFilter") {
-      this.fields[key] = value;
-      this.fieldsDep[key].changed();
+      this._fields[key] = value;
+      this._fieldsDep[key].changed();
 
       // if the set was nested then the call to changed for the feedFilter
       // and queryFields will need to occur manually
       if (!nested) {
-        this.fieldsDep['feedFilter'].changed();
-        this.fieldsDep['queryFields'].changed();
+        this._aggregatedFieldsChanged();
       }
     } else {
       logDev("Failed to set ReactiveFeedFilter with args: " + [key, value]);
     }
   },
 
-  ensureDep: function (key) {
-    if (!this.fieldsDep[key])
-      this.fieldsDep[key] = new Deps.Dependency;
+  _fields: {
+    country: null,
+    limit: null,
+    group: null
+  },
+  _fieldsDep: {},
 
-    // Also ensure dep for queryFields as it shouldn't ever be 'set'
-    if (!this.fieldsDep['queryFields'])
-      this.fieldsDep['queryFields'] = new Deps.Dependency; 
+  _aggregatedFields: ['queryFields', 'queryFields', 'subscriptionOptions'],
 
-    if (!this.fieldsDep['feedFilter'])
-      this.fieldsDep['feedFilter'] = new Deps.Dependency;    
+  // remove null fields for mongo query
+  // TODO: is this always a good idea?
+  _queryFields: function () {
+    var reducedFields = _.clone(this._fields);
+    Object.keys(reducedFields).forEach( function(key) { 
+      if (!reducedFields[key]) {
+        delete reducedFields[key];
+      }
+    });
+
+    // limit isn't used in model query
+    delete reducedFields["limit"];
+
+    return reducedFields;
+  },
+
+  _subscriptionOptions: function () {
+    var options = {
+      groupId: this._fields["group"],
+      limit: this._fields["limit"]
+    }
+
+    if (!!this._fields["country"])
+      options["country"] = this._fields["country"];
+
+    return options;
+  },
+
+  _ensureDep: function (key) {
+    if (!this._fieldsDep[key])
+      this._fieldsDep[key] = new Deps.Dependency;
+
+    this._ensureAggregatedDeps();  
+  },
+
+  _aggregatedFieldsChanged: function () {
+    var self = this;
+    this._aggregatedFields.forEach( function (field) {
+      self._fieldsDep[field].changed();
+    });
+  },
+
+  // Also ensure dep for queryFields as it shouldn't ever be 'set'
+  _ensureAggregatedDeps: function () {
+    var self = this;
+    this._aggregatedFields.forEach( function (field) {
+      if (!self._fieldsDep[field])
+        self._fieldsDep[field] = new Deps.Dependency; 
+    });
   }
 };

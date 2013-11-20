@@ -197,8 +197,11 @@ Template.feedMap.rendered = function() {
       var $this = $(this);
       var height = ui.offset.top; 
       $(this).prev().height(height);
-      gmaps.map.panBy(0, ($this.data('last-top') - height) / 2);
-      google.maps.event.trigger(gmaps.map, 'resize');
+
+      if (gmaps.map) {
+        gmaps.map.panBy(0, ($this.data('last-top') - height) / 2);
+        google.maps.event.trigger(gmaps.map, 'resize');        
+      }
 
       $this.data('last-top', height);
     }

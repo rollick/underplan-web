@@ -1,7 +1,4 @@
 <template name="activityFeed">
-  {{#if loading}}
-    <p class="loading-feed alert-box large clear">Loading journey...</p>
-  {{else}}
     <div class="feed">
       {{#if userBelongsToGroup}}
         <div class="short-form">
@@ -12,5 +9,4 @@
       {{/if}}
       {{> feedList}}
     </div>
-  {{/if}}
 </template>

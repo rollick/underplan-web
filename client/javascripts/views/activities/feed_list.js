@@ -46,7 +46,7 @@ Template.activityFeed.events({
     return false;
   },
   "click a.feed-all": function () {
-    ReactiveFeedFilter.set("limit", Template.activityFeed.activityCount() + 1);
+    ReactiveFeedFilter.set("limit", Activities.find(ReactiveFeedFilter.get('queryFields')).count() + 1);
     return false;
   }
 });
@@ -99,7 +99,7 @@ Template.feedList.events({
 // };
 
 Template.feedList.anyActivities = function () {
-  return Template.activityFeed.activityCount() > 0;
+  return Activities.find(ReactiveFeedFilter.get('queryFields')).count() > 0;
 };
 
 Template.feedList.recentActivities = function () {

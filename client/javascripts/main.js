@@ -50,21 +50,17 @@ Deps.autorun(function () {
     
     var filter = ReactiveFeedFilter.get("feedFilter") || {};
     if (filter.group !== Session.get("groupId")) {
-      filter.group = Session.get("groupId");
       logIfDev("FeedFilter set here");
-      ReactiveFeedFilter.set("feedFilter", filter);
+      filter.group = Session.get("groupId");
+      filter.limit = 5;
+      // ReactiveFeedFilter.set("feedFilter", filter);
     }
 
     self.feedMapSubscription = Meteor.subscribe("basicActivityData", Session.get("groupId"));
 
-    // Pass some options to the subscription to restrict the amount of data returned
-    var options = {
-      groupId: Session.get("groupId"),
-      limit: ReactiveFeedFilter.get("limit"),
-      country: ReactiveFeedFilter.get("country")
-    }
+    var options = ReactiveFeedFilter.get("subscriptionOptions");
     self.feedListSubscription = Meteor.subscribe("feedActivities", options);
-    self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
+    self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);    
   }
 
   if (Session.get("expandedActivities")) {
@@ -81,7 +77,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.86");
+  Session.set("appVersion", "v1.3.87");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
