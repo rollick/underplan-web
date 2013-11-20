@@ -226,9 +226,11 @@ setupMap = function () {
       });
     }
 
+    var query = ReactiveFeedFilter.get('queryFields');
+
     logIfDev("Autorun Map Deps...");
 
-    var recentActivities = Activities.find(ReactiveFeedFilter.get('queryFields'), {sort: {created: -1}}).fetch();
+    var recentActivities = Activities.find(query, {sort: {created: -1}}).fetch();
     gmaps.clearMarkers();
   
     if (recentActivities.length > 0) {

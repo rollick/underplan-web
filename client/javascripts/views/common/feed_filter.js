@@ -6,8 +6,8 @@ ReactiveFeedFilter = {
     Object.keys(this._fields).forEach( function (key) {
       self.set(key, null);
     });
-    
-    this._fieldsDep = {};
+
+    this._fieldsDep = {}
   },
 
   get: function (key) {
@@ -19,14 +19,17 @@ ReactiveFeedFilter = {
     else if (key === "queryFields")
       return this._queryFields();
     else if (key === "subscriptionOptions")
-      return this._queryFields();
+      return this._subscriptionOptions();
     else
       return this._fields[key];
   },
 
-  set: function (key, value, nested) {
-    if (typeof nested === 'undefined')
-      nested = false;
+  // Return whether the key needed to be updated, eg it was different
+  // to the current value
+  set: function (key, value, options) {
+    options = options || {};
+    var nested = options['nested'] || false;
+    var quiet = options['quiet'] || false;
 
     this._ensureDep(key);
 
@@ -34,23 +37,36 @@ ReactiveFeedFilter = {
     // fields using the value passed
     var self = this;
     if (key === "feedFilter" && _.isObject(value)) {
+      var didChange = false;
       Object.keys(value).forEach( function (subkey) {
-        self.set(subkey, value[subkey], true);
+        if (self.set(subkey, value[subkey], {nested: true}))
+          didChange = true;
       });
 
-      this._aggregatedFieldsChanged();
-    } else if (key !== "feedFilter") {
-      this._fields[key] = value;
-      this._fieldsDep[key].changed();
-
-      // if the set was nested then the call to changed for the feedFilter
-      // and queryFields will need to occur manually
-      if (!nested) {
+      if (didChange && !quiet)
         this._aggregatedFieldsChanged();
+
+      return didChange;
+    } else if (key !== "feedFilter") {
+      if(this._fields[key] !== value) {
+        this._fields[key] = value;
+
+        if (!quiet)
+          this._fieldsDep[key].changed();
+
+        // if the set was nested then the call to changed for the feedFilter
+        // and queryFields will need to occur manually
+        if (!nested && !quiet) {
+          this._aggregatedFieldsChanged();
+        }
+
+        return true
       }
     } else {
       logDev("Failed to set ReactiveFeedFilter with args: " + [key, value]);
     }
+
+    return false;
   },
 
   _fields: {
@@ -60,7 +76,7 @@ ReactiveFeedFilter = {
   },
   _fieldsDep: {},
 
-  _aggregatedFields: ['queryFields', 'queryFields', 'subscriptionOptions'],
+  _aggregatedFields: ['queryFields', 'subscriptionOptions'],
 
   // remove null fields for mongo query
   // TODO: is this always a good idea?
@@ -97,7 +113,7 @@ ReactiveFeedFilter = {
     this._ensureAggregatedDeps();  
   },
 
-  _aggregatedFieldsChanged: function () {
+  _aggregatedFieldsChanged: function (newFields) {
     var self = this;
     this._aggregatedFields.forEach( function (field) {
       self._fieldsDep[field].changed();

@@ -9,6 +9,13 @@ this.logIfDev = function (message) {
     console.log("Underplan: " + message);
 }
 
+// Some defaults
+this.feedLimitSkip   = 5;
+this.galleryLimitSkip = 40;
+this.defaultMapZoom  = 12;
+this.shortMaxLength  = 250;
+this.feedGallery = null;
+
 // Meteor.subscribe("activities");
 Meteor.subscribe("groups");
 Meteor.subscribe("directory");
@@ -50,10 +57,12 @@ Deps.autorun(function () {
     
     var filter = ReactiveFeedFilter.get("feedFilter") || {};
     if (filter.group !== Session.get("groupId")) {
-      logIfDev("FeedFilter set here");
-      filter.group = Session.get("groupId");
-      filter.limit = 5;
-      // ReactiveFeedFilter.set("feedFilter", filter);
+      // set the group without causing reactive
+      ReactiveFeedFilter.set('group', Session.get("groupId"), {quiet: true});
+    }
+    if (!filter.limit) {
+      // set the group without causing reactive
+      ReactiveFeedFilter.set('limit', feedLimitSkip, {quiet: true});
     }
 
     self.feedMapSubscription = Meteor.subscribe("basicActivityData", Session.get("groupId"));
@@ -77,7 +86,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.90");
+  Session.set("appVersion", "v1.3.91");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -107,19 +116,6 @@ Meteor.startup(function () {
 
 ///////////////////////////////////////////////////////////////////////////////
 // Templates
-
-this.feedLimitSkip   = 5;
-this.galleryLimitSkip = 40;
-this.defaultMapZoom  = 12;
-this.shortMaxLength  = 250;
-
-Galleria.configure({
-  imageCrop: false,
-  debug: isDev()
-});
-this.picasaGallery = new Galleria.Picasa();
-this.troveboxGallery = new Galleria.Trovebox();
-this.feedGallery = null;
 
 this.appTemplates = function () {
   return {
