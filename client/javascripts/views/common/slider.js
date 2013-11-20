@@ -26,6 +26,7 @@ ReactiveGallerySource = {
 
   clearPhotos: function (id) {
     this.photos[id] = null;
+    this.stateDeps = {};
     this.set(id, '');
   },
 

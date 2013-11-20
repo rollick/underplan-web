@@ -89,26 +89,26 @@
   }
 
 
-  &.expanded {
-    .user-comment {
-      .info-section {
-        .picture {
-          display: inherit;
-        }
+  // &.expanded {
+  //   .user-comment {
+  //     .info-section {
+  //       .picture {
+  //         display: inherit;
+  //       }
 
-        .details {
-          margin-left: 3.3em;
+  //       .details {
+  //         margin-left: 3.3em;
 
-          #comment {
-            height: 5em;
-          }
+  //         #comment {
+  //           height: 5em;
+  //         }
 
-          & > .button,
-          & > a {
-            display: inline-block;
-          }
-        }
-      }
-    }
-  }
+  //         & > .button,
+  //         & > a {
+  //           display: inline-block;
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
 }

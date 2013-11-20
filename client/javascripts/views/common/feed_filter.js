@@ -6,6 +6,8 @@ ReactiveFeedFilter = {
     Object.keys(this._fields).forEach( function (key) {
       self.set(key, null);
     });
+    
+    this._fieldsDep = {};
   },
 
   get: function (key) {

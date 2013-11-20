@@ -1813,19 +1813,3 @@ blockquote p {
   height: 2.5em;
   min-height: 0em;
 }
-/* line 95, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .info-section .picture {
-  display: inherit;
-}
-/* line 99, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .info-section .details {
-  margin-left: 3.3em;
-}
-/* line 102, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .info-section .details #comment {
-  height: 5em;
-}
-/* line 107, ../../sass/app/comment.scss */
-.comment-form.expanded .user-comment .info-section .details > .button, .comment-form.expanded .user-comment .info-section .details > a {
-  display: inline-block;
-}
