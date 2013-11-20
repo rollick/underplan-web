@@ -1566,7 +1566,9 @@ blockquote p {
   *zoom: 1;
   margin: 0.5em;
   margin: 0.5em;
-  padding-top: 0.5em;
+  min-height: 45px;
+  margin-top: 0em;
+  padding-top: 0em;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
 .comment-form > .inner .user-comment:before, .comment-form > .inner .user-comment:after {
@@ -1779,37 +1781,60 @@ blockquote p {
 .comment-form > .inner .user-comment .content p:last-of-type {
   margin-bottom: 0em;
 }
-/* line 53, ../../sass/app/comment.scss */
+/* line 55, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section {
   margin-bottom: 0em;
 }
-/* line 56, ../../sass/app/comment.scss */
+/* line 58, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .picture {
   display: none;
 }
-/* line 59, ../../sass/app/comment.scss */
+/* line 61, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .picture img {
   margin-top: 0em;
 }
-/* line 64, ../../sass/app/comment.scss */
+/* line 66, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .details {
   padding-top: 0em;
-  margin-left: 0em;
+  left: 0em;
+  right: 0em;
 }
-/* line 69, ../../sass/app/comment.scss */
+/* line 72, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .details > .button, .comment-form > .inner .user-comment .info-section .details > a {
   display: none;
   margin-bottom: 0em;
   margin-top: 0.5em;
 }
-/* line 75, ../../sass/app/comment.scss */
+/* line 78, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .details textarea {
   margin-bottom: 0em;
 }
-/* line 79, ../../sass/app/comment.scss */
+/* line 82, ../../sass/app/comment.scss */
 .comment-form > .inner .user-comment .info-section .details #comment {
   font-size: 0.9em;
   border: 1px solid #dddddd;
   height: 2.5em;
   min-height: 0em;
+}
+/* line 95, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment {
+  display: block;
+  height: 115px;
+}
+/* line 100, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .info-section .picture {
+  display: inherit;
+}
+/* line 104, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .info-section .details {
+  margin-left: 0em;
+  left: 3.8em;
+}
+/* line 108, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .info-section .details #comment {
+  height: 5em;
+}
+/* line 113, ../../sass/app/comment.scss */
+.comment-form.expanded .user-comment .info-section .details > .button, .comment-form.expanded .user-comment .info-section .details > a {
+  display: inline-block;
 }

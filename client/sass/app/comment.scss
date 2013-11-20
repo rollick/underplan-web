@@ -48,7 +48,9 @@
       @include entry-with-profile(3.3em, false);
 
       margin: 0.5em;
-      padding-top: 0.5em;
+      min-height: 45px;
+      margin-top: 0em;
+      padding-top: 0em;
 
       .info-section {
         margin-bottom: 0em;
@@ -63,7 +65,8 @@
     
         .details {
           padding-top: 0em;
-          margin-left: 0em;
+          left: 0em;
+          right: 0em;
           
           & > .button,
           & > a {
@@ -88,27 +91,30 @@
     }
   }
 
+  &.expanded {
+    .user-comment {
+      display: block;
+      height: 115px;
 
-  // &.expanded {
-  //   .user-comment {
-  //     .info-section {
-  //       .picture {
-  //         display: inherit;
-  //       }
+      .info-section {
+        .picture {
+          display: inherit;
+        }
 
-  //       .details {
-  //         margin-left: 3.3em;
+        .details {
+          margin-left: 0em;
+          left: 3.8em;
 
-  //         #comment {
-  //           height: 5em;
-  //         }
+          #comment {
+            height: 5em;
+          }
 
-  //         & > .button,
-  //         & > a {
-  //           display: inline-block;
-  //         }
-  //       }
-  //     }
-  //   }
-  // }
+          & > .button,
+          & > a {
+            display: inline-block;
+          }
+        }
+      }
+    }
+  }
 }

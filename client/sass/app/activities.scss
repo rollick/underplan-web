@@ -188,6 +188,8 @@ body.fullscreen .activity-highlight {
 
   margin: 0em;
   clear: both;
+  // temporarily hide activity controls
+  display: none; 
 
   a {
     height: 24px;
