@@ -5,7 +5,7 @@ processActivityPhotos = function (activity) {
   var group = Groups.findOne(Session.get("groupId"));
 
   if (activity.picasaTags && _.isObject(group.trovebox)) {
-    var params = $.extend({tags: activity.picasaTags, max: 10}, group.trovebox),
+    var params = $.extend({tags: activity.picasaTags, max: 99}, group.trovebox),
         search = new Galleria.Trovebox,
         self = activity;
 
