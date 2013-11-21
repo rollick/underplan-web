@@ -11,6 +11,7 @@ processActivityPhotos = function (activity) {
 
     search.albumSearch(params, function(data, params) {
       if (data.length) {
+        // TODO: maybe too much in "data" for the reactive source
         ReactiveGallerySource.setPhotos(activity._id, data);
       }
     });

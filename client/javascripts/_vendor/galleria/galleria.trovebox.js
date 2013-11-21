@@ -66,7 +66,7 @@
       params = $.extend({
         pageSize: params.max,
         tags : params.tags || null,
-        returnSizes : '72x72,104x104,320x320,640x640,1024x1024,1600x1600',
+        returnSizes : '72x72,104x104,320x320,640x640,720x720,1024x1024,1600x1600',
       }, params );
 
       $.each(params, function( key, value ) {
@@ -96,7 +96,7 @@
 
           gallery.push({
             thumb: photo.photo104x104[1] > 3*photo.photo104x104[2] ? photo.path320x320 : photo.path104x104,
-            image: photo.path640x640,
+            image: photo.path720x720,
             big: photo.pathBase,
             title: photo.title,
             description: photo.description
