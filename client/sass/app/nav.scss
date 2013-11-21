@@ -40,6 +40,7 @@
   z-index: 5; 
   position: relative;
   background-color: transparent;
+  pointer-events: none;
 
   .country-container {
     @include section-container($section-type:horizontal-nav);
@@ -48,6 +49,7 @@
     width: 180px;
     margin: 0px auto;
     height: 33px;
+    pointer-events: all;
 
     &.horizontal-nav {
       background: transparent;
