@@ -1,4 +1,50 @@
+@import "../../settings";
 @import "compass/css3/border-radius";
+
+.map-zoom-controls {
+  z-index: 0;
+  position: absolute;
+  bottom: 26px;
+  margin: $standard-margin;
+  height: 25px;
+  width: 58px;
+  background-color: darken($standard-panel-bg, 20%);
+  opacity: 0.7;
+
+  .zoom-in, .zoom-out {
+    width: 48%;
+    background-color: $standard-panel-bg;
+    opacity: 0.8;
+    height: 100%;
+    cursor: pointer;
+    color: $primary-color;
+
+    &:before {
+      font-size: 2.5em;
+      line-height: 24px;
+      margin-left: 6px;
+    }
+  }
+
+  .zoom-in {
+    float: left;
+    // border-right: 1px solid black;
+
+    &:before {
+      content: "+";
+    }
+  }
+
+  .zoom-out {
+    float: right;
+    // border-left: 1px solid black;
+
+    &:before {
+      content: "–";
+      margin-left: 4px;
+    }
+  }
+}
 
 .map-marker {
   $marker-border-color: white;

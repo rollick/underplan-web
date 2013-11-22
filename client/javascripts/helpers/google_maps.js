@@ -104,13 +104,14 @@ createMapObject = function () {
         // center: new google.maps.LatLng(53.565, 10.001),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
         
+        streetViewControl: false,
         panControl: false,
-        zoomControl: true,
+        zoomControl: false,
         zoomControlOptions: {
           style: google.maps.ZoomControlStyle.SMALL,
-          position: google.maps.ControlPosition.LEFT_TOP
+          position: google.maps.ControlPosition.RIGHT_BOTTOM
         },
-        mapTypeControl: true,
+        mapTypeControl: false,
         mapTypeControlOptions: {
           style: google.maps.MapTypeControlStyle.DROPDOWN_MENU,
           position: google.maps.ControlPosition.RIGHT_TOP
@@ -132,11 +133,27 @@ createMapObject = function () {
 
       // Add a blank div as custom control to push zoom controls 
       // and layers down and away from top nav bars
-      var fakeControl = $(document.createElement("div"));
+      var fakeControl = $("<div>");
       fakeControl.css("height", navHeight() * 2);
       fakeControl.css("width", 30);
       this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(fakeControl[0]);
       this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(fakeControl.clone()[0]);
+
+      var zoomControl = $("<div class=\"map-zoom-controls\">"),
+          zoomIn = $("<div class=\"zoom-in\">").click( function(event) {
+            var currentZoomLevel = self.map.getZoom();
+            if(currentZoomLevel != 0)
+              self.map.setZoom(currentZoomLevel - 1);
+          }),
+          zoomOut = $("<div class=\"zoom-out\">").click( function(event) {
+            var currentZoomLevel = self.map.getZoom();
+            if(currentZoomLevel != 21)
+              self.map.setZoom(currentZoomLevel + 1);
+          });;
+
+      zoomControl.append(zoomIn).append(zoomOut);
+
+      this.map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(zoomControl[0]);
 
       // global flag saying we intialized already
       Session.set('activityMap', true);
