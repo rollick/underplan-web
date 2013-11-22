@@ -121,50 +121,50 @@ select {
 /* line 4, ../../../sass/app/common/map.scss */
 .map-zoom-controls {
   z-index: 0;
-  right: 0em;
   position: absolute;
-  height: 25px;
-  width: 58px;
+  height: 33px;
+  width: 71px;
   background-color: transparent;
   right: 0.6em !important;
   top: 0.9375em !important;
   margin-top: 3.75em;
 }
-/* line 16, ../../../sass/app/common/map.scss */
+/* line 14, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in, .map-zoom-controls .zoom-out {
-  width: 49%;
+  width: 33px;
   opacity: 0.8;
   height: 100%;
   cursor: pointer;
   background: #fafafa;
   opacity: 0.9;
   color: green;
+  font-weight: 100;
 }
-/* line 25, ../../../sass/app/common/map.scss */
+/* line 24, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in:before, .map-zoom-controls .zoom-out:before {
-  font-size: 2em;
-  line-height: 24px;
+  font-size: 2.5em;
   margin-left: 8px;
+  line-height: 32px;
 }
-/* line 32, ../../../sass/app/common/map.scss */
+/* line 31, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in {
   float: left;
 }
-/* line 36, ../../../sass/app/common/map.scss */
+/* line 34, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in:before {
   content: "+";
 }
-/* line 41, ../../../sass/app/common/map.scss */
+/* line 39, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-out {
   float: right;
 }
-/* line 45, ../../../sass/app/common/map.scss */
+/* line 43, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-out:before {
   content: "–";
-  margin-left: 6px;
+  margin-left: 7px;
 }
 
-/* line 55, ../../../sass/app/common/map.scss */
+/* line 53, ../../../sass/app/common/map.scss */
 .map-marker .tick {
   position: absolute;
   left: 0;
@@ -176,7 +176,7 @@ select {
   border-right: 10px solid transparent;
   border-top: 10px solid white;
 }
-/* line 67, ../../../sass/app/common/map.scss */
+/* line 65, ../../../sass/app/common/map.scss */
 .map-marker .inner {
   position: relative;
   left: -50%;
@@ -194,7 +194,7 @@ select {
   -o-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 81, ../../../sass/app/common/map.scss */
+/* line 79, ../../../sass/app/common/map.scss */
 .map-marker .inner img {
   width: 45px;
   height: 45px;

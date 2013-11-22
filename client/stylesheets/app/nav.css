@@ -1619,7 +1619,7 @@ blockquote p {
   border: 1px solid #cccccc;
   background: none;
   width: 150px;
-  height: 33px;
+  height: 2.0625em;
   pointer-events: all;
 }
 /* line 85, ../../sass/app/nav.scss */
