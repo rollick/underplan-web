@@ -131,6 +131,11 @@ select {
 }
 /* line 14, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in, .map-zoom-controls .zoom-out {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
   width: 33px;
   opacity: 0.8;
   height: 100%;
@@ -140,31 +145,35 @@ select {
   color: green;
   font-weight: 100;
 }
-/* line 24, ../../../sass/app/common/map.scss */
+/* line 26, ../../../sass/app/common/map.scss */
+.map-zoom-controls .zoom-in:hover, .map-zoom-controls .zoom-out:hover {
+  background-color: #e2e2e2;
+}
+/* line 30, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in:before, .map-zoom-controls .zoom-out:before {
   font-size: 2.5em;
   margin-left: 8px;
   line-height: 32px;
 }
-/* line 31, ../../../sass/app/common/map.scss */
+/* line 37, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in {
   float: left;
 }
-/* line 34, ../../../sass/app/common/map.scss */
+/* line 40, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in:before {
   content: "+";
 }
-/* line 39, ../../../sass/app/common/map.scss */
+/* line 45, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-out {
   float: right;
 }
-/* line 43, ../../../sass/app/common/map.scss */
+/* line 49, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-out:before {
   content: "–";
   margin-left: 7px;
 }
 
-/* line 53, ../../../sass/app/common/map.scss */
+/* line 59, ../../../sass/app/common/map.scss */
 .map-marker .tick {
   position: absolute;
   left: 0;
@@ -176,7 +185,7 @@ select {
   border-right: 10px solid transparent;
   border-top: 10px solid white;
 }
-/* line 65, ../../../sass/app/common/map.scss */
+/* line 71, ../../../sass/app/common/map.scss */
 .map-marker .inner {
   position: relative;
   left: -50%;
@@ -194,7 +203,7 @@ select {
   -o-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 79, ../../../sass/app/common/map.scss */
+/* line 85, ../../../sass/app/common/map.scss */
 .map-marker .inner img {
   width: 45px;
   height: 45px;

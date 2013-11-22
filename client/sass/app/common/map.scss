@@ -12,6 +12,8 @@
   margin-top: emCalc(45px) + $standard-margin;
 
   .zoom-in, .zoom-out {
+    @include border-radius(3px);
+
     width: 33px;
     opacity: 0.8;
     height: 100%;
@@ -20,6 +22,10 @@
     opacity: 0.9;
     color: $primary-color;
     font-weight: 100;
+
+    &:hover {
+      background-color: #e2e2e2;
+    }
 
     &:before {
       font-size: 2.5em;

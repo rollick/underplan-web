@@ -88,6 +88,8 @@
 
     section, .section {
       .title {
+        @include border-radius(3px);
+
         padding-right: 0.5em;
         text-align: center;
         background: $standard-panel-bg;
@@ -95,11 +97,15 @@
       }
 
       &.active .title {
+        @include border-bottom-radius(0);
+
         background: $standard-panel-bg;
         opacity: 1.0;
       }
 
       .content {
+        @include border-bottom-radius(3px);
+
         background: $standard-panel-bg;
         border-top: none;
         opacity: 0.9;
