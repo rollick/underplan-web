@@ -63,7 +63,7 @@ ReactiveFeedFilter = {
         return true
       }
     } else {
-      logDev("Failed to set ReactiveFeedFilter with args: " + [key, value]);
+      logIfDev("Failed to set ReactiveFeedFilter with args: " + [key, value]);
     }
 
     return false;

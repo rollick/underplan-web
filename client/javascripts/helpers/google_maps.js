@@ -1,3 +1,27 @@
+function ImageMarker( id, options ) {
+  this.setValues( options );
+  this.set("_id", id);
+  
+  this.$inner = $("<div class='map-marker-profile'>").css({
+    position: "relative",
+    left: "-50%", top: "-50%",
+    fontSize: "1px",
+    lineHeight: "1px",
+    width: "100%",
+    border: "2px solid white",
+    padding: "2px",
+    backgroundColor: "white",
+    cursor: "default"
+  });
+
+  this.$div = $("<div>")
+    .append( this.$inner )
+    .css({
+      position: "absolute",
+      display: "none"
+    });
+};
+
 createMapObject = function () {
   var mapObject = {
     // map object
@@ -25,47 +49,33 @@ createMapObject = function () {
     },
 
     addMarker: function(marker) {
-      mapIconUrl = "http://mt.google.com/vt/icon?psize=27&font=fonts/Roboto-Bold.ttf&color=ff135C13&name=icons/spotlight/%s&ax=43&ay=50&text=•&scale=2";
-
-      mapIconsByType = {
-        short: {
-          url: mapIconUrl.replace("%s", "spotlight-waypoint-a.png"),
-          scaledSize: new google.maps.Size(20, 35)
-        },
-        story: {
-          url: mapIconUrl.replace("%s", "spotlight-waypoint-b.png"),
-          scaledSize: new google.maps.Size(20, 35)
-        }
-      }
-
       var gLatLng = new google.maps.LatLng(marker.lat, marker.lng);
-      var gMarker = new google.maps.Marker({
-        position: gLatLng,
+      var gMarker = new ImageMarker(marker.id, {
         map: this.map,
-        title: marker.title,
-        // animation: google.maps.Animation.DROP,
-        icon: mapIconsByType[marker.type]
+        position: gLatLng,
+        image: marker.image,
+        events: {
+          click: function( event ) {
+            var markerElem = $(event.target).closest(".map-marker-profile");
+            var activity = Activities.findOne(markerElem.attr('id'));
+
+            if(activity) {
+              if(activity.type === "story") {
+                Router.setActivity(activity);            
+              } else {
+                Router.setPermaActivity(activity);
+              }
+            } else {
+              if (isDev)
+                console.log("Crash! Bang!");
+            }
+          }
+        }
       });
+
       this.latLngs.push(gLatLng);
       this.markers.push(gMarker);
       this.markerData.push(marker);
-
-      google.maps.event.addListener(gMarker, 'click', (function(marker) {
-        return function() {
-          var activity = Activities.findOne(marker.id);
-
-          if(activity) {
-            if(activity.type === "story") {
-              Router.setActivity(activity);            
-            } else {
-              Router.setPermaActivity(activity);
-            }
-          } else {
-            if (isDev)
-              console.log("Crash! Bang!");
-          }
-        }
-      })(marker));
 
       return gMarker;
     },
@@ -95,6 +105,8 @@ createMapObject = function () {
     initialize: function() {
       logIfDev("Intializing Google Maps...");
 
+      this.initMapMarker();
+
       var mapOptions = {
         zoom: 12,
         scrollwheel: false, // to allow page scrolling, not map zooming
@@ -114,16 +126,16 @@ createMapObject = function () {
         },
       };
 
-      var canvas = document.getElementById('map-canvas');
+      var canvas = document.getElementById("map-canvas");
       // $(".map").css({"border": "red solid 2px"});
 
       this.map = new google.maps.Map(
-        document.getElementById('map-canvas'),
+        document.getElementById("map-canvas"),
         mapOptions
       );
 
       var self = this;
-      google.maps.event.addListenerOnce(this.map, 'idle', function() {
+      google.maps.event.addListenerOnce(this.map, "idle", function() {
         self.mapReady = true;
       });
 
@@ -137,6 +149,40 @@ createMapObject = function () {
 
       // global flag saying we intialized already
       Session.set('activityMap', true);
+    },
+
+    initMapMarker: function () {
+      ImageMarker.prototype = new google.maps.OverlayView;
+
+      ImageMarker.prototype.onAdd = function() {
+        $( this.getPanes().overlayMouseTarget ).append( this.$div );
+      };
+
+      ImageMarker.prototype.onRemove = function() {
+        this.$div.remove();
+      };
+
+      ImageMarker.prototype.draw = function() {
+        var marker = this;
+        var projection = this.getProjection();
+        var position = projection.fromLatLngToDivPixel( this.get("position") );
+
+        this.$div.css({
+          left: position.x,
+          top: position.y,
+          display: "block"
+        })
+
+        var img = $("<img src='" + this.get("image") + "'/>").css({width: "45px", height: "45px:"});
+
+        this.$inner
+          .html(img)
+          .attr("id", this.get("_id"))
+          .click( function( event ) {
+              var events = marker.get("events");
+              events && events.click( event );
+          });
+      };
     }
   }
 

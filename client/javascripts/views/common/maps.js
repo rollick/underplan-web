@@ -147,7 +147,8 @@ setupMap = function (type) {
             id: activity._id,
             lat: activity.lat,
             lng: activity.lng,
-            type: activity.type
+            type: activity.type,
+            image: userPicture(Meteor.users.findOne(activity.owner), 90)
           };
 
           // check if marker already exists
