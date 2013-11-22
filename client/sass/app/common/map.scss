@@ -2,11 +2,11 @@
 @import "compass/css3/border-radius";
 
 .map-zoom-controls {
-  z-index: 0;
-  right: 0em;
   position: absolute;
+  z-index: 0;
   height: 25px;
   width: 58px;
+  right: 0em;
   background-color: transparent;
   right: 0.6em !important;
   top: 1.6em !important;

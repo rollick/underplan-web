@@ -142,13 +142,13 @@ createMapObject = function () {
       var zoomControl = $("<div class=\"map-zoom-controls\">"),
           zoomIn = $("<div class=\"zoom-in\">").click( function(event) {
             var currentZoomLevel = self.map.getZoom();
-            if(currentZoomLevel != 0)
-              self.map.setZoom(currentZoomLevel - 1);
+            if(currentZoomLevel != 21)
+              self.map.setZoom(currentZoomLevel + 1);
           }),
           zoomOut = $("<div class=\"zoom-out\">").click( function(event) {
             var currentZoomLevel = self.map.getZoom();
-            if(currentZoomLevel != 21)
-              self.map.setZoom(currentZoomLevel + 1);
+            if(currentZoomLevel != 0)
+              self.map.setZoom(currentZoomLevel - 1);
           });;
 
       zoomControl.append(zoomIn).append(zoomOut);
