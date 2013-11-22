@@ -55,6 +55,7 @@ $handle-hover-offset: 5px;
   }
 
   &.home {
+    border-bottom: 1px solid darken($handle-bg-color, 10%);
     height: $home-map-height-small;
 
     @media only screen and (min-width: 48em) {
