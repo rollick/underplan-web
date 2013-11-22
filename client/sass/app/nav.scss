@@ -38,14 +38,16 @@
     }
 
     &.home {
-      width: 170px;
+      @media only screen and (min-width: 48em) {
+        width: 170px;
 
-      a {
-        padding: 4px 10px;
-        font-size: 2em;
+        a {
+          padding: 4px 10px;
+          font-size: 2em;
 
-        &:before {
-          content: "Underplan";
+          &:before {
+            content: "Underplan";
+          }
         }
       }
     }
