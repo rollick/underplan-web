@@ -2,10 +2,11 @@ function ImageMarker( id, options ) {
   this.setValues( options );
   this.set("_id", id);
   
-  this.$inner = $("<div class='map-marker-profile'>");
+  this.$inner = $("<div class='inner'>");
 
-  this.$div = $("<div>")
-    .append( this.$inner )
+  this.$div = $("<div class='map-marker'>")
+    .append(this.$inner)
+    .append($("<div class='tick'>"))
     .css({
       position: "absolute",
       display: "none"
@@ -159,7 +160,7 @@ createMapObject = function () {
 
         this.$div.css({
           left: position.x,
-          top: position.y,
+          top: position.y - 45 - 10, // minus profile and tick heights
           display: "block"
         })
 
