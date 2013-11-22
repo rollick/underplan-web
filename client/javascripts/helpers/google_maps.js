@@ -153,7 +153,7 @@ createMapObject = function () {
 
       zoomControl.append(zoomIn).append(zoomOut);
 
-      this.map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(zoomControl[0]);
+      this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(zoomControl[0]);
 
       // global flag saying we intialized already
       Session.set('activityMap', true);
