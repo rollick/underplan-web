@@ -2,17 +2,7 @@ function ImageMarker( id, options ) {
   this.setValues( options );
   this.set("_id", id);
   
-  this.$inner = $("<div class='map-marker-profile'>").css({
-    position: "relative",
-    left: "-50%", top: "-50%",
-    fontSize: "1px",
-    lineHeight: "1px",
-    width: "100%",
-    border: "2px solid white",
-    padding: "2px",
-    backgroundColor: "white",
-    cursor: "default"
-  });
+  this.$inner = $("<div class='map-marker-profile'>");
 
   this.$div = $("<div>")
     .append( this.$inner )
@@ -173,7 +163,7 @@ createMapObject = function () {
           display: "block"
         })
 
-        var img = $("<img src='" + this.get("image") + "'/>").css({width: "45px", height: "45px:"});
+        var img = $("<img src='" + this.get("image") + "'/>");
 
         this.$inner
           .html(img)

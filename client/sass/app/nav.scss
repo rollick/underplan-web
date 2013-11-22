@@ -12,10 +12,17 @@
     background: #333333;
   }
 
+  .home-title {
+    position: absolute;
+    margin: auto 0;
+  }
+
   .logo {
     float: left;
-    width: 45px;
+    z-index: 5;
+    position: relative;
     height: 45px;
+    width: 45px;
     background-color: $primary-color;
 
     a {
@@ -27,6 +34,19 @@
 
       &:before {
         content: "u";
+      }
+    }
+
+    &.home {
+      width: 170px;
+
+      a {
+        padding: 4px 10px;
+        font-size: 2em;
+
+        &:before {
+          content: "Underplan";
+        }
       }
     }
   }

@@ -33,6 +33,7 @@
       @include grid-column(12, $collapse: true);
 
       h1 {
+        display: none;
         margin-top: 0.5em;
         margin-bottom: 0em;
         font-weight: normal;
@@ -48,11 +49,8 @@
       }
 
       blockquote {
-        display: none;
         border-left: none;
-        // margin-bottom: 25px;
         text-align: center;
-        padding: 1em;
         padding-top: 0em;
         
         p {
@@ -161,7 +159,6 @@
           .follow-group {
             $followed-color: rgba(255, 255, 0, 0.7);
 
-            // width: 100%;
             text-align: right;
             bottom: 24px;
             right: 20px;
@@ -190,7 +187,6 @@
 
             a {
               font-size: 0.9em;
-              // height: 45px !important;
               float: right;
 
               &:before {
@@ -214,13 +210,8 @@
 
       margin-left: 0em;
       margin-right: 0em;
-      margin-top: 45px;
       text-align: center;
       pointer-events: all;
-
-      @media only screen and (min-width: 48em) {
-        margin-top: 110px;
-      }
 
       & > .inner {
         @include grid-column(12);
