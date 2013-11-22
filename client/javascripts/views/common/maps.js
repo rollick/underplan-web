@@ -59,6 +59,7 @@ recentActivitiesMap = function() {
 
 gmaps = null;
 mapTypes = ["feed", "home"];
+mapDepComputation = null; 
 
 Template.activityMap.created = function () {
   Session.set('activityMap', false);
@@ -100,7 +101,11 @@ Template.activityMap.rendered = function() {
 Template.activityMap.destroyed = function() {
   logIfDev("Destroying Google Maps...");
   Session.set('activityMap', false);
-  // gmaps = null;
+  
+  if (!!mapDepComputation) {
+    mapDepComputation.stop();
+    mapDepComputation = null;
+  }
 };
 
 setupMap = function (type) {
@@ -111,7 +116,7 @@ setupMap = function (type) {
   if (Session.equals('activityMap', false))
     gmaps.initialize();
 
-  Deps.autorun(function(computation) {
+  mapDepComputation = Deps.autorun(function(computation) {
     if (isDev()) {
       computation.onInvalidate(function() {
         console.trace();
@@ -120,6 +125,7 @@ setupMap = function (type) {
 
     var conds = null;
     var options = null;
+
     if (type === "feed") {
       logIfDev("Render Feed Map...");
       conds = ReactiveFeedFilter.get('queryFields');
