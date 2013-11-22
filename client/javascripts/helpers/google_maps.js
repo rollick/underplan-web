@@ -47,8 +47,8 @@ createMapObject = function () {
         image: marker.image,
         events: {
           click: function( event ) {
-            var markerElem = $(event.target).closest(".map-marker-profile");
-            var activity = Activities.findOne(markerElem.attr('id'));
+            var activityId = $(event.target).attr('id');
+            var activity = Activities.findOne(activityId);
 
             if(activity) {
               if(activity.type === "story") {
@@ -170,8 +170,8 @@ createMapObject = function () {
           .html(img)
           .attr("id", this.get("_id"))
           .click( function( event ) {
-              var events = marker.get("events");
-              events && events.click( event );
+            var events = marker.get("events");
+            events && events.click( event );
           });
       };
     }
