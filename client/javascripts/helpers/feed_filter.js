@@ -114,6 +114,7 @@ ReactiveFeedFilter = {
   },
 
   _aggregatedFieldsChanged: function (newFields) {
+    logIfDev("Calling change on ReactiveFeedFilter aggregates");
     var self = this;
     this._aggregatedFields.forEach( function (field) {
       self._fieldsDep[field].changed();

@@ -54,6 +54,16 @@ $handle-hover-offset: 5px;
     height: $map-height-large;
   }
 
+  &.home {
+    height: $home-map-height-small;
+
+    @media only screen and (min-width: 48em) {
+      @include grid-column($feed-extra-columns-large, $collapse: true);
+
+      height:$home-map-height-large;
+    }
+  }
+
   &.no-photos {
     padding-bottom: 0em;
 

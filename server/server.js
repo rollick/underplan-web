@@ -149,6 +149,35 @@ Meteor.publish("basicActivityData", function (groupId) {
   return Activities.find(activityConds, activityFields);
 });
 
+// limited by the feed items count
+Meteor.publish("recentActivities", function () {
+  logIfDev("Publishing 'recentActivities'");
+
+  var activityOptions = { 
+    fields: {
+      _id: 1,
+      group: 1,
+      lat: 1,
+      lng: 1,
+      title: 1,
+      owner: 1,
+      created: 1,
+      updated: 1,
+      type: 1,
+      published: 1,
+    }, 
+    sort: {created: -1}
+  };
+
+  activityOptions.limit = 25;
+
+  var activityConds = {
+    "published": true
+  };
+
+  return Activities.find(activityConds, activityOptions);
+});
+
 // Feed activities with only the necessary fields included and
 
 // limited by the feed items count

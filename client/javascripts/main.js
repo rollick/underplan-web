@@ -18,6 +18,7 @@ this.feedGallery = null;
 
 // Meteor.subscribe("activities");
 Meteor.subscribe("groups");
+Meteor.subscribe("recentActivities");
 Meteor.subscribe("directory");
 Meteor.subscribe("userDetails");
 
@@ -86,7 +87,7 @@ Deps.autorun(function () {
 });
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.98");
+  Session.set("appVersion", "v1.3.99");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -123,8 +124,8 @@ this.appTemplates = function () {
     currentActivity:  "showActivity",
     storyEditor:      "showStoryEditor",
     groupEditor:      "showGroupEditor",
-    activityFeed:     "showActivityFeed",
-    mainHome:         "showGroupList",
+    activityFeed:     ["showActivityFeed", {highContent: true}],
+    mainHome:         ["showGroupList", {highContent: true}],
     userSettings:     "showUserSettings",
     loginForm:        "showLoginForm",
     mainSettings:     "showMainSettings",
@@ -136,16 +137,31 @@ this.showTemplate = function (templateName, callback) {
   var conditions = this.appTemplates();
 
   _.each(_.keys(conditions), function (key) {
-    if (key === templateName) {
-      Session.set(conditions[key], true);
+    // If is array then template includes template options
+    var flag = null,
+        options = {};
+    if (_.isArray(conditions[key])) {
+      flag = conditions[key][0];
+      options = conditions[key][1];
     } else {
-      Session.set(conditions[key], false);
+      flag = conditions[key];
+    }
+
+    if (key === templateName) {
+      Session.set(flag, true);
+      Session.set('pageOptions', options)
+    } else {
+      Session.set(flag, false);
     }
   });
 
   if (_.isFunction(callback)) {
     callback();
   }
+};
+
+Template.page.pageOptions = function () {
+  return Session.get("pageOptions");
 };
 
 Template.page.showGroupList = function () {

@@ -7,7 +7,7 @@
     {{> inviteDialog}}
   {{/if}}
 
-  <div class="nav {{#if showActivityFeed}}feed{{else}}normal{{/if}}">
+  <div class="nav {{#if pageOptions.highContent}}high-content{{else}}normal{{/if}}">
       <div class="logo"><a href="/" class="main-home"></a></div>
       {{> mainNav}}
   </div>
@@ -15,6 +15,10 @@
   {{#if showActivityFeed}}
     {{> groupActions}}
     {{> activityFeedExtra}}
+  {{/if}}
+
+  {{#if showGroupList}}
+    {{> mainHomeMap}}
   {{/if}}
 
   <div class="main-content {{#if showGroupList}}dashboard{{else}}normal{{/if}}" role="content">

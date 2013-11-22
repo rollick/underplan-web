@@ -55,15 +55,33 @@
       background: transparent;
     }
 
-    section .title,
-    .section .title {
-      padding-right: 0.5em;
-      text-align: center;
-      background: rgba(239, 239, 239, 0.7);
+    section, .section {
+      .title {
+        padding-right: 0.5em;
+        text-align: center;
+        background: $standard-panel-bg;
+        opacity: 0.7;
+      }
+
+      &.active .title {
+        background: $standard-panel-bg;
+        opacity: 1.0;
+      }
+
+      .content {
+        background: $standard-panel-bg;
+        border-top: none;
+        opacity: 0.9;
+      }
     }
 
     .side-nav li {
       text-align: center;
+
+      &.active a {
+        font-weight: normal;
+        cursor: default;
+      }
     }
   }
 }

@@ -1437,14 +1437,29 @@ blockquote p {
   }
 }
 /* line 57, ../../sass/app/feed_extra.scss */
+.feed-extra.home {
+  height: 260px;
+}
+@media only screen and (min-width: 48em) {
+  /* line 57, ../../sass/app/feed_extra.scss */
+  .feed-extra.home {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    width: 100%;
+    float: left;
+    height: 260px;
+  }
+}
+/* line 67, ../../sass/app/feed_extra.scss */
 .feed-extra.no-photos {
   padding-bottom: 0em;
 }
-/* line 60, ../../sass/app/feed_extra.scss */
+/* line 70, ../../sass/app/feed_extra.scss */
 .feed-extra.no-photos .gallery {
   display: none;
 }
-/* line 65, ../../sass/app/feed_extra.scss */
+/* line 75, ../../sass/app/feed_extra.scss */
 .feed-extra .alert-box {
   background-color: #e9e9e9;
   border-color: #d0d0d0;
@@ -1452,7 +1467,7 @@ blockquote p {
   border-left: none;
   border-right: none;
 }
-/* line 72, ../../sass/app/feed_extra.scss */
+/* line 82, ../../sass/app/feed_extra.scss */
 .feed-extra .map {
   width: auto;
   margin-left: -0.9375em;
@@ -1477,7 +1492,7 @@ blockquote p {
 .feed-extra .map:after {
   clear: both;
 }
-/* line 81, ../../sass/app/feed_extra.scss */
+/* line 91, ../../sass/app/feed_extra.scss */
 .feed-extra .map > .inner {
   position: relative;
   padding-left: 0;
@@ -1487,7 +1502,7 @@ blockquote p {
   padding: 0;
   height: 100%;
 }
-/* line 87, ../../sass/app/feed_extra.scss */
+/* line 97, ../../sass/app/feed_extra.scss */
 .feed-extra .map > .inner #map-canvas {
   animation-duration: 0.001s;
   -o-animation-duration: 0.001s;
@@ -1500,35 +1515,35 @@ blockquote p {
   -moz-animation-name: mapInserted;
   -webkit-animation-name: mapInserted;
 }
-/* line 90, ../../sass/app/feed_extra.scss */
+/* line 100, ../../sass/app/feed_extra.scss */
 .feed-extra .map > .inner #map-canvas img {
   max-width: none;
 }
-/* line 94, ../../sass/app/feed_extra.scss */
+/* line 104, ../../sass/app/feed_extra.scss */
 .feed-extra .map > .inner #map-canvas label {
   width: auto;
   display: inline;
 }
-/* line 100, ../../sass/app/feed_extra.scss */
+/* line 110, ../../sass/app/feed_extra.scss */
 .feed-extra .map > .inner .alert-box {
   margin-top: 0em;
   line-height: 240px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 100, ../../sass/app/feed_extra.scss */
+  /* line 110, ../../sass/app/feed_extra.scss */
   .feed-extra .map > .inner .alert-box {
     line-height: 300px;
   }
 }
-/* line 110, ../../sass/app/feed_extra.scss */
+/* line 120, ../../sass/app/feed_extra.scss */
 .feed-extra .map > .inner .infoBox > img {
   z-index: 2;
 }
-/* line 114, ../../sass/app/feed_extra.scss */
+/* line 124, ../../sass/app/feed_extra.scss */
 .feed-extra .map > .inner .infoBox .map-info .inner {
   margin-top: -0.9375em;
 }
-/* line 121, ../../sass/app/feed_extra.scss */
+/* line 131, ../../sass/app/feed_extra.scss */
 .feed-extra .gallery {
   width: auto;
   margin-left: -0.9375em;
@@ -1562,11 +1577,11 @@ blockquote p {
 .feed-extra .gallery:after {
   clear: both;
 }
-/* line 132, ../../sass/app/feed_extra.scss */
+/* line 142, ../../sass/app/feed_extra.scss */
 .feed-extra .gallery.visible {
   z-index: 1;
 }
-/* line 136, ../../sass/app/feed_extra.scss */
+/* line 146, ../../sass/app/feed_extra.scss */
 .feed-extra .gallery > .inner {
   position: relative;
   padding-left: 0;
@@ -1574,13 +1589,13 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 141, ../../sass/app/feed_extra.scss */
+/* line 151, ../../sass/app/feed_extra.scss */
 .feed-extra .gallery > .inner .recent-photos {
   padding-top: 160px;
   background-color: #111111;
   height: 100%;
 }
-/* line 153, ../../sass/app/feed_extra.scss */
+/* line 163, ../../sass/app/feed_extra.scss */
 .feed-extra .gallery > .inner .galleria-map {
   width: 50%;
   top: 15px;
@@ -1591,15 +1606,15 @@ blockquote p {
   color: gray;
   font-style: italic;
 }
-/* line 163, ../../sass/app/feed_extra.scss */
+/* line 173, ../../sass/app/feed_extra.scss */
 .feed-extra .gallery > .inner .galleria-map:before {
   content: "Back to Map";
 }
-/* line 167, ../../sass/app/feed_extra.scss */
+/* line 177, ../../sass/app/feed_extra.scss */
 .feed-extra .gallery > .inner .galleria-map:hover {
   cursor: pointer;
 }
-/* line 174, ../../sass/app/feed_extra.scss */
+/* line 184, ../../sass/app/feed_extra.scss */
 .feed-extra .gallery-more {
   width: auto;
   margin-left: -0.9375em;

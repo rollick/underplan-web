@@ -2025,7 +2025,7 @@ blockquote p {
   padding-right: 0;
   width: 100%;
   float: left;
-  z-index: 10;
+  z-index: 4;
 }
 /* line 96, ../../sass/app/feed.scss */
 .feed .feed-item:first-of-type {

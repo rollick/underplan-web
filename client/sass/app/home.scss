@@ -9,7 +9,7 @@
 .dashboard {
   margin: 15px;
   margin-top: 0;
-  
+
   h4, .or {
     color: white;
   }
@@ -72,6 +72,7 @@
 
   .groups { 
     margin-top: 5px;
+    pointer-events: all;
 
     @media only screen and (min-width: 48em) {
       margin-top: 20px;
@@ -215,6 +216,7 @@
       margin-right: 0em;
       margin-top: 45px;
       text-align: center;
+      pointer-events: all;
 
       @media only screen and (min-width: 48em) {
         margin-top: 110px;

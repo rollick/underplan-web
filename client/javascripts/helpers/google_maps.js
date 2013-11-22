@@ -1,13 +1,16 @@
-gmaps = {
+createMapObject = function () {
+  var mapObject = {
     // map object
     map: null,
- 
+
+    mapReady: false,
+
     // google markers objects
     markers: [],
- 
+
     // google lat lng objects
     latLngs: [],
- 
+
     // our formatted marker data objects
     markerData: [],
 
@@ -119,15 +122,23 @@ gmaps = {
         mapOptions
       );
 
+      var self = this;
+      google.maps.event.addListenerOnce(this.map, 'idle', function() {
+        self.mapReady = true;
+      });
+
       // Add a blank div as custom control to push zoom controls 
       // and layers down and away from top nav bars
       var fakeControl = $(document.createElement("div"));
-      fakeControl.css("height", navHeight());
+      fakeControl.css("height", navHeight() * 2);
       fakeControl.css("width", 30);
       this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(fakeControl[0]);
       this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(fakeControl.clone()[0]);
 
       // global flag saying we intialized already
-      Session.set('feedMap', true);
+      Session.set('activityMap', true);
     }
+  }
+
+  return mapObject;
 }

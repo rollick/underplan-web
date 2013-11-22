@@ -213,7 +213,7 @@ var AppRouter = Backbone.Router.extend({
 
     Session.set("groupSlug", groupSlug);
     ReactiveFeedFilter.clear();
-    ReactiveFeedFilter.set("limit", feedLimitSkip);
+    // ReactiveFeedFilter.set("limit", feedLimitSkip);
     Session.set("galleryLimit", galleryLimitSkip);
     Session.set("expandedActivities", []);
   },
