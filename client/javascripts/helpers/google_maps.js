@@ -133,9 +133,9 @@ createMapObject = function () {
 
       // Add a blank div as custom control to push zoom controls 
       // and layers down and away from top nav bars
-      var fakeControl = $("<div>");
-      fakeControl.css("height", navHeight() * 2);
-      fakeControl.css("width", 30);
+      var fakeControl = $("<div class=\"fake-control\">");
+      fakeControl.css("height", "45px");
+      fakeControl.css("width", "30px");
       this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(fakeControl[0]);
       this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(fakeControl.clone()[0]);
 
@@ -153,7 +153,7 @@ createMapObject = function () {
 
       zoomControl.append(zoomIn).append(zoomOut);
 
-      this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(zoomControl[0]);
+      this.map.controls[google.maps.ControlPosition.RIGHT_TOP].push(zoomControl[0]);
 
       // global flag saying we intialized already
       Session.set('activityMap', true);

@@ -120,16 +120,17 @@ select {
 
 /* line 4, ../../../sass/app/common/map.scss */
 .map-zoom-controls {
-  position: absolute;
   z-index: 0;
+  right: 0em;
+  position: absolute;
   height: 25px;
   width: 58px;
-  right: 0em;
   background-color: transparent;
   right: 0.6em !important;
-  top: 1.6em !important;
+  top: 0.9375em !important;
+  margin-top: 3.75em;
 }
-/* line 14, ../../../sass/app/common/map.scss */
+/* line 16, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in, .map-zoom-controls .zoom-out {
   width: 49%;
   opacity: 0.8;
@@ -139,31 +140,31 @@ select {
   opacity: 0.9;
   color: green;
 }
-/* line 23, ../../../sass/app/common/map.scss */
+/* line 25, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in:before, .map-zoom-controls .zoom-out:before {
   font-size: 2em;
   line-height: 24px;
   margin-left: 8px;
 }
-/* line 30, ../../../sass/app/common/map.scss */
+/* line 32, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in {
   float: left;
 }
-/* line 34, ../../../sass/app/common/map.scss */
+/* line 36, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in:before {
   content: "+";
 }
-/* line 39, ../../../sass/app/common/map.scss */
+/* line 41, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-out {
   float: right;
 }
-/* line 43, ../../../sass/app/common/map.scss */
+/* line 45, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-out:before {
   content: "–";
   margin-left: 6px;
 }
 
-/* line 53, ../../../sass/app/common/map.scss */
+/* line 55, ../../../sass/app/common/map.scss */
 .map-marker .tick {
   position: absolute;
   left: 0;
@@ -175,7 +176,7 @@ select {
   border-right: 10px solid transparent;
   border-top: 10px solid white;
 }
-/* line 65, ../../../sass/app/common/map.scss */
+/* line 67, ../../../sass/app/common/map.scss */
 .map-marker .inner {
   position: relative;
   left: -50%;
@@ -193,7 +194,7 @@ select {
   -o-border-radius: 2px;
   border-radius: 2px;
 }
-/* line 79, ../../../sass/app/common/map.scss */
+/* line 81, ../../../sass/app/common/map.scss */
 .map-marker .inner img {
   width: 45px;
   height: 45px;

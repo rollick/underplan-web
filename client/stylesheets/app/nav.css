@@ -1587,6 +1587,7 @@ blockquote p {
   position: relative;
   background-color: transparent;
   pointer-events: none;
+  position: absolute;
 }
 /* line 101, ../../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_global.scss */
 .group-controls:before, .group-controls:after {
@@ -1597,7 +1598,7 @@ blockquote p {
 .group-controls:after {
   clear: both;
 }
-/* line 67, ../../sass/app/nav.scss */
+/* line 68, ../../sass/app/nav.scss */
 .group-controls > .inner {
   position: relative;
   padding-left: 0.9375em;
@@ -1608,7 +1609,7 @@ blockquote p {
   margin-right: 0em;
   padding: 0.5em;
 }
-/* line 75, ../../sass/app/nav.scss */
+/* line 76, ../../sass/app/nav.scss */
 .group-controls .country-container {
   width: 100%;
   display: block;
@@ -1621,39 +1622,39 @@ blockquote p {
   height: 33px;
   pointer-events: all;
 }
-/* line 84, ../../sass/app/nav.scss */
+/* line 85, ../../sass/app/nav.scss */
 .group-controls .country-container.horizontal-nav {
   background: transparent;
 }
-/* line 89, ../../sass/app/nav.scss */
+/* line 90, ../../sass/app/nav.scss */
 .group-controls .country-container section .title, .group-controls .country-container .section .title {
   padding-right: 0.5em;
   text-align: center;
   background: #fafafa;
   opacity: 0.9;
 }
-/* line 96, ../../sass/app/nav.scss */
+/* line 97, ../../sass/app/nav.scss */
 .group-controls .country-container section.active .title, .group-controls .country-container .section.active .title {
   background: #fafafa;
   opacity: 1.0;
 }
-/* line 101, ../../sass/app/nav.scss */
+/* line 102, ../../sass/app/nav.scss */
 .group-controls .country-container section .content, .group-controls .country-container .section .content {
   background: #fafafa;
   border-top: none;
   opacity: 0.9;
 }
-/* line 108, ../../sass/app/nav.scss */
+/* line 109, ../../sass/app/nav.scss */
 .group-controls .country-container .side-nav li {
   text-align: center;
 }
-/* line 111, ../../sass/app/nav.scss */
+/* line 112, ../../sass/app/nav.scss */
 .group-controls .country-container .side-nav li.active a {
   font-weight: normal;
   cursor: default;
 }
 
-/* line 119, ../../sass/app/nav.scss */
+/* line 120, ../../sass/app/nav.scss */
 .group-nav {
   padding-top: 0em;
   max-height: 2.25em;
@@ -1664,7 +1665,7 @@ blockquote p {
   width: 100%;
   border: 1px solid red;
 }
-/* line 130, ../../sass/app/nav.scss */
+/* line 131, ../../sass/app/nav.scss */
 .group-nav .country-filter-section {
   margin: 0 auto;
   width: 120px;
@@ -1672,41 +1673,41 @@ blockquote p {
   text-align: center;
 }
 
-/* line 202, ../../sass/app/nav.scss */
+/* line 203, ../../sass/app/nav.scss */
 .top-bar-section {
   font-family: "Raleway", sans-serif;
 }
-/* line 206, ../../sass/app/nav.scss */
+/* line 207, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar-section .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 211, ../../sass/app/nav.scss */
+/* line 212, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a {
   text-indent: -44px !important;
 }
-/* line 214, ../../sass/app/nav.scss */
+/* line 215, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: 100;
 }
 
-/* line 219, ../../sass/app/nav.scss */
+/* line 220, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 224, ../../sass/app/nav.scss */
+/* line 225, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
   overflow: inherit;
 }
-/* line 228, ../../sass/app/nav.scss */
+/* line 229, ../../sass/app/nav.scss */
 .top-bar.expanded {
   background: rgba(17, 17, 17, 0.8) !important;
 }
-/* line 233, ../../sass/app/nav.scss */
+/* line 234, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
@@ -1715,44 +1716,44 @@ blockquote p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 244, ../../sass/app/nav.scss */
+/* line 245, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 244, ../../sass/app/nav.scss */
+  /* line 245, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 252, ../../sass/app/nav.scss */
+/* line 253, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: rgba(255, 255, 255, 0.3);
 }
 @media only screen and (min-width: 48em) {
-  /* line 252, ../../sass/app/nav.scss */
+  /* line 253, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
   }
 }
-/* line 262, ../../sass/app/nav.scss */
+/* line 263, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 270, ../../sass/app/nav.scss */
+  /* line 271, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 276, ../../sass/app/nav.scss */
+/* line 277, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 280, ../../sass/app/nav.scss */
+/* line 281, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 28px;
   padding: 2px;
@@ -1766,23 +1767,23 @@ blockquote p {
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 290, ../../sass/app/nav.scss */
+  /* line 291, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 294, ../../sass/app/nav.scss */
+  /* line 295, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
 
-/* line 303, ../../sass/app/nav.scss */
+/* line 304, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 308, ../../sass/app/nav.scss */
+/* line 309, ../../sass/app/nav.scss */
 li.text {
   color: rgba(196, 196, 196, 0.4);
   padding: 10px;
@@ -1790,23 +1791,23 @@ li.text {
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 308, ../../sass/app/nav.scss */
+  /* line 309, ../../sass/app/nav.scss */
   li.text {
     color: rgba(145, 145, 145, 0.4);
     background-color: rgba(17, 17, 17, 0.4);
   }
 }
 
-/* line 321, ../../sass/app/nav.scss */
+/* line 322, ../../sass/app/nav.scss */
 li.login-services {
   height: 40px;
 }
-/* line 324, ../../sass/app/nav.scss */
+/* line 325, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 329, ../../sass/app/nav.scss */
+/* line 330, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -1814,7 +1815,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 337, ../../sass/app/nav.scss */
+/* line 338, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;
