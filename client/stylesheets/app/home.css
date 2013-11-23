@@ -1344,7 +1344,7 @@ blockquote p {
   text-align: center;
   padding: 10px 0px 20px 0px;
   font-size: 1.2em;
-  font-weight: bold;
+  font-weight: 400;
 }
 /* line 103, ../../sass/app/home.scss */
 .dashboard .groups .list {
