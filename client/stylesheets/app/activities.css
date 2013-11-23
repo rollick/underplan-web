@@ -1984,11 +1984,15 @@ body.fullscreen .activity-highlight {
   height: 100%;
 }
 
-/* line 118, ../../sass/app/activities.scss */
+/* line 117, ../../sass/app/activities.scss */
+.pac-container {
+  font-family: inherit;
+}
+/* line 120, ../../sass/app/activities.scss */
 .pac-container:after {
   content: none !important;
 }
-/* line 122, ../../sass/app/activities.scss */
+/* line 124, ../../sass/app/activities.scss */
 .pac-container .pac-item {
   text-decoration: none;
   display: block;
@@ -1998,27 +2002,79 @@ body.fullscreen .activity-highlight {
   /* support: IE7 */
   font-weight: normal;
 }
-/* line 130, ../../sass/app/activities.scss */
+/* line 132, ../../sass/app/activities.scss */
 .pac-container .pac-item:hover {
-  border: 1px solid #999999;
-  background: #dadada;
+  border-top: 1px solid #dadada;
+  background: #f3f3f3;
   font-weight: normal;
   color: #212121;
-  margin: -1px;
+}
+/* line 140, ../../sass/app/activities.scss */
+.pac-container .pac-item .pac-item-query {
+  line-height: 2.3em;
 }
 
-/* line 140, ../../sass/app/activities.scss */
+/* line 146, ../../sass/app/activities.scss */
+.ui-autocomplete {
+  font-size: 1em;
+  padding: 0em;
+  font-family: inherit;
+}
+/* line 151, ../../sass/app/activities.scss */
+.ui-autocomplete li.ui-menu-item {
+  text-decoration: none;
+  display: block;
+  line-height: 1.5;
+  min-height: 0;
+  /* support: IE7 */
+  font-weight: normal;
+  border: none;
+  border-top: 1px solid #dadada;
+  background: white;
+  padding: 0.5em 0.5em;
+  margin: 0em;
+  font-size: 0.8em;
+}
+/* line 165, ../../sass/app/activities.scss */
+.ui-autocomplete li.ui-menu-item a {
+  border: none;
+  color: #666666;
+}
+/* line 170, ../../sass/app/activities.scss */
+.ui-autocomplete li.ui-menu-item a.ui-state-focus {
+  border: none;
+  background: none;
+  margin: 0em;
+  color: #000;
+}
+/* line 177, ../../sass/app/activities.scss */
+.ui-autocomplete li.ui-menu-item a:hover {
+  background: none;
+}
+/* line 182, ../../sass/app/activities.scss */
+.ui-autocomplete li.ui-menu-item:hover {
+  border-top: 1px solid #dadada;
+  background: #f3f3f3;
+  font-weight: normal;
+  color: #212121;
+}
+/* line 189, ../../sass/app/activities.scss */
+.ui-autocomplete li.ui-menu-item:hover a:hover {
+  background: none;
+}
+
+/* line 196, ../../sass/app/activities.scss */
 .share-links {
   float: right;
   width: 125px;
   height: 20px;
   margin-bottom: 10px;
 }
-/* line 146, ../../sass/app/activities.scss */
+/* line 202, ../../sass/app/activities.scss */
 .share-links > div {
   float: right;
 }
-/* line 150, ../../sass/app/activities.scss */
+/* line 206, ../../sass/app/activities.scss */
 .share-links .fb-share {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -2038,7 +2094,7 @@ body.fullscreen .activity-highlight {
   height: 20px;
   padding: 2px 5px 2px 2px;
 }
-/* line 162, ../../sass/app/activities.scss */
+/* line 218, ../../sass/app/activities.scss */
 .share-links .fb-share:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));
   background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
@@ -2046,12 +2102,12 @@ body.fullscreen .activity-highlight {
   background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
   background-image: linear-gradient(top, #ffffff, #f2f2f2);
 }
-/* line 166, ../../sass/app/activities.scss */
+/* line 222, ../../sass/app/activities.scss */
 .share-links .fb-share i {
   color: #3B5998;
   font-size: 0.9em;
 }
-/* line 171, ../../sass/app/activities.scss */
+/* line 227, ../../sass/app/activities.scss */
 .share-links .fb-share i p {
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
   font-size: 0.75em;
@@ -2064,7 +2120,7 @@ body.fullscreen .activity-highlight {
   margin-top: -17px;
 }
 
-/* line 186, ../../sass/app/activities.scss */
+/* line 242, ../../sass/app/activities.scss */
 .activity-controls {
   width: auto;
   margin-left: -0.9375em;
@@ -2086,18 +2142,18 @@ body.fullscreen .activity-highlight {
 .activity-controls:after {
   clear: both;
 }
-/* line 194, ../../sass/app/activities.scss */
+/* line 250, ../../sass/app/activities.scss */
 .activity-controls a {
   height: 24px;
   font-size: 0.9em;
 }
-/* line 198, ../../sass/app/activities.scss */
+/* line 254, ../../sass/app/activities.scss */
 .activity-controls a:before, .activity-controls a:after {
   background-size: 14px 14px;
   background-repeat: no-repeat;
   content: "\00a0\00a0\00a0\00a0";
 }
-/* line 205, ../../sass/app/activities.scss */
+/* line 261, ../../sass/app/activities.scss */
 .activity-controls .previous, .activity-controls .next {
   position: relative;
   padding-left: 0.9375em;
@@ -2107,7 +2163,7 @@ body.fullscreen .activity-highlight {
   margin-bottom: 0.9375em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 205, ../../sass/app/activities.scss */
+  /* line 261, ../../sass/app/activities.scss */
   .activity-controls .previous, .activity-controls .next {
     position: relative;
     padding-left: 0.9375em;
@@ -2116,40 +2172,40 @@ body.fullscreen .activity-highlight {
     float: left;
   }
 }
-/* line 214, ../../sass/app/activities.scss */
+/* line 270, ../../sass/app/activities.scss */
 .activity-controls .previous.clear, .activity-controls .next.clear {
   margin-bottom: 0em;
 }
-/* line 217, ../../sass/app/activities.scss */
+/* line 273, ../../sass/app/activities.scss */
 .activity-controls .previous.clear:before, .activity-controls .next.clear:before {
   content: "\00a0";
 }
-/* line 224, ../../sass/app/activities.scss */
+/* line 280, ../../sass/app/activities.scss */
 .activity-controls .previous a {
   margin-left: -6px;
 }
-/* line 227, ../../sass/app/activities.scss */
+/* line 283, ../../sass/app/activities.scss */
 .activity-controls .previous a:before {
   padding-left: 0px;
   background-position: 2px;
   background-image: url("/images/left.png");
 }
-/* line 235, ../../sass/app/activities.scss */
+/* line 291, ../../sass/app/activities.scss */
 .activity-controls .next {
   text-align: right;
 }
-/* line 238, ../../sass/app/activities.scss */
+/* line 294, ../../sass/app/activities.scss */
 .activity-controls .next a {
   margin-right: -2px;
 }
-/* line 241, ../../sass/app/activities.scss */
+/* line 297, ../../sass/app/activities.scss */
 .activity-controls .next a:after {
   padding-left: 0px;
   background-position: 2px;
   background-image: url("/images/right.png");
 }
 
-/* line 250, ../../sass/app/activities.scss */
+/* line 306, ../../sass/app/activities.scss */
 .map-info {
   width: auto;
   margin-left: -0.9375em;
@@ -2200,7 +2256,7 @@ body.fullscreen .activity-highlight {
   line-height: 1.4;
 }
 @media only screen and (min-width: 48em) {
-  /* line 250, ../../sass/app/activities.scss */
+  /* line 306, ../../sass/app/activities.scss */
   .map-info {
     margin: 0em;
     margin-bottom: 1.875em;
@@ -2743,7 +2799,7 @@ body.fullscreen .activity-highlight {
   height: 100%;
 }
 @media only screen and (min-width: 48em) {
-  /* line 250, ../../sass/app/activities.scss */
+  /* line 306, ../../sass/app/activities.scss */
   .map-info {
     width: 400px;
   }

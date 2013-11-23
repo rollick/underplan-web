@@ -115,6 +115,8 @@ body.fullscreen .activity-highlight {
   
 // For google+ share link
 .pac-container {
+  font-family: inherit;
+
   &:after {
     content: none !important;;
   }
@@ -128,11 +130,65 @@ body.fullscreen .activity-highlight {
     font-weight: normal;
 
     &:hover {
-      border: 1px solid #999999;
-      background: #dadada;
+      border-top: 1px solid #dadada;
+      background: lighten(#dadada, 10%);
       font-weight: normal;
       color: #212121;
-      margin: -1px;
+      // margin: -1px;
+    }
+
+    .pac-item-query {
+      line-height: 2.3em;
+    }
+  }
+}
+
+.ui-autocomplete {
+  font-size: 1em;
+  padding: 0em;
+  font-family: inherit;
+
+  li.ui-menu-item {
+    text-decoration: none;
+    display: block;
+    // padding: 2px .4em;
+    line-height: 1.5;
+    min-height: 0; /* support: IE7 */
+    font-weight: normal;
+    border: none;
+    border-top: 1px solid #dadada;
+    background: lighten(#dadada, 25%);
+    padding: 0.5em 0.5em;
+    margin: 0em;
+    font-size: 0.8em;
+
+    a {
+      // padding: 2px;
+      border: none;
+      color: darken(#999, 20%);
+
+      &.ui-state-focus {
+        border: none;
+        background: none;
+        margin: 0em;
+        color: #000;
+      }
+
+      &:hover {
+        background: none;
+      }
+    }
+
+    &:hover {
+      border-top: 1px solid #dadada;
+      background: lighten(#dadada, 10%);
+      font-weight: normal;
+      color: #212121;
+      // margin: -1px;
+
+      a:hover {
+        background: none;
+      }
     }
   }
 }
