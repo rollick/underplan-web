@@ -3,7 +3,7 @@
 
 Template.currentActivity.events({
   'click .edit': function () {
-    Router.setEditActivity(Session.get("groupId"), this);
+    Router.setEditActivity(this);
     return false;
   },
   'click a.comments': function (event, template) {
@@ -41,11 +41,11 @@ Template.currentActivity.events({
 });
 
 Template.currentActivity.group = function () {
-  return Groups.findOne(Session.get("groupId"));
+  return Groups.findOne(ReactiveGroupFilter.get("group"));
 };
 
 Template.currentActivity.activity = function () {
-  return Activities.findOne(Session.get("activityId"));
+  return Activities.findOne(ReactiveGroupFilter.get("activity"));
 };
 
 Template.currentActivity.hasMap = function () {
@@ -57,7 +57,7 @@ Template.currentActivity.anyActivities = function () {
 };
 
 Template.currentActivity.textPreview = function () {
-  var text = Activities.findOne(Session.get("activityId")).text;
+  var text = Activities.findOne(ReactiveGroupFilter.get("activity")).text;
 
   if (!text)
     return "";
@@ -72,7 +72,7 @@ Template.currentActivity.textPreview = function () {
 };
 
 Template.currentActivity.anyComments = function () {
-  var activity = Activities.findOne(Session.get("activityId"));
+  var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
 
   return Comments.find({activityId: activity._id}).count() > 0;
 };
@@ -97,11 +97,11 @@ Template.activityControls.group = function () {
 
 Template.activityControls.nextActivity = function () {
   var activity = Activities.findOne(this._id);
-  var country = ReactiveFeedFilter.get("country");
+  var country = ReactiveGroupFilter.get("country");
   var params = {
     $and: [
-      {group: Session.get("groupId")},
-      {"_id": {"$not": Session.get("activityId")}},
+      {group: ReactiveGroupFilter.get("group")},
+      {"_id": {"$not": ReactiveGroupFilter.get("activity")}},
       {"type": "story"}, 
       {_id: {"$gte": activity._id}}
     ]};
@@ -114,11 +114,11 @@ Template.activityControls.nextActivity = function () {
 
 Template.activityControls.previousActivity = function () {
   var activity = Activities.findOne(this._id);
-  var country = ReactiveFeedFilter.get("country");
+  var country = ReactiveGroupFilter.get("country");
   var params = {
     $and: [
-      {group: Session.get("groupId")},
-      {"_id": {"$not": Session.get("activityId")}}, 
+      {group: ReactiveGroupFilter.get("group")},
+      {"_id": {"$not": ReactiveGroupFilter.get("activity")}}, 
       {"type": "story"}, 
       {_id: {"$lte": activity._id}}
     ]};

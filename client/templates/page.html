@@ -1,3 +1,14 @@
+<template name="mainMap">
+  <div class="feed-extra home">
+    <div class="map">
+      <div class="inner">
+        {{> activityMap}}
+      </div>
+    </div>
+  </div>
+  <div class="feed-handle hide-for-touch"><div><span></span></div></div>
+</template>
+
 <template name="page">
   {{#if showCreateDialog}}
     {{> createDialog}}
@@ -14,12 +25,9 @@
 
   {{#if showActivityFeed}}
     {{> groupActions}}
-    {{> activityFeedExtra}}
   {{/if}}
-
-  {{#if showGroupList}}
-    {{> mainHomeMap}}
-  {{/if}}
+  
+  {{> mainMap}}
 
   <div class="main-content {{#if showGroupList}}dashboard{{else}}normal{{/if}}" role="content">
     <div class="inner">

@@ -2,7 +2,7 @@
 // Common Stuff
 
 processActivityPhotos = function (activity) {
-  var group = Groups.findOne(Session.get("groupId"));
+  var group = Groups.findOne(ReactiveGroupFilter.get("group"));
 
   if (activity.picasaTags && _.isObject(group.trovebox)) {
     var params = $.extend({tags: activity.picasaTags, max: 99}, group.trovebox),

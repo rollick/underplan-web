@@ -81,7 +81,7 @@ Template.storyEditor.events({
     return false;
   },
   'click .cancel': function (event, template) {
-    Router.setGroup(getCurrentGroup());
+    Router.setGroup(Groups.findOne(ReactiveGroupFilter.get("group")));
     return false;
   },
   'click .back': function (event, template) {
@@ -171,7 +171,7 @@ var getStoryValues = function(template) {
   values.mapZoom =          template.find("#map-zoom").value;
   values.wikipediaSearch =  template.find("#wikipedia-search").value;
   values.wikipediaId =      template.find("#wikipedia-id").value;
-  values.groupId =          getCurrentGroupId();
+  values.groupId =          ReactiveGroupFilter.get("group");
 
   return values;
 }

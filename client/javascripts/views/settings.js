@@ -2,7 +2,7 @@
 // Main Settings
 
 Template.mainSettings.isGroupAdmin = function () {
-  return isGroupAdmin(Meteor.userId(), getCurrentGroupId());
+  return isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group"));
 };
 
 Template.mainSettings.rendered = function () {

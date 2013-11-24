@@ -4,8 +4,8 @@
 .map-zoom-controls {
   z-index: 0;
   position: absolute;
-  height: 33px;
-  width: 33px*2 + 5px;
+  // height: 25px;
+  width: 25px;
   background-color: transparent;
   right: 0.6em !important;
   top: $standard-margin !important;
@@ -14,7 +14,8 @@
   .zoom-in, .zoom-out {
     @include border-radius(3px);
 
-    width: 33px;
+    width: 25px;
+    height: 25px;
     opacity: 0.8;
     height: 100%;
     cursor: pointer;
@@ -29,13 +30,14 @@
 
     &:before {
       font-size: 2.5em;
-      margin-left: 8px;
-      line-height: 32px;
+      margin-left: 5px;
+      line-height: 24px;
     }
   }
 
   .zoom-in {
     float: left;
+    margin-bottom: 0.2em;
 
     &:before {
       content: "+";
@@ -48,7 +50,7 @@
 
     &:before {
       content: "–";
-      margin-left: 7px;
+      margin-left: 3px;
     }
   }
 }
@@ -88,4 +90,8 @@
       pointer-events: none;
     }
   }
+}
+
+.map.panning .map-marker {
+  opacity: 0.2;
 }

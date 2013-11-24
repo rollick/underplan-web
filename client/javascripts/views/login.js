@@ -67,7 +67,7 @@ Template.loggedin.events({
     return false;
   },
   'click .main-settings': function(event, template) {
-    Router.setMainSettings(getCurrentGroup());
+    Router.setMainSettings(Groups.findOne(ReactiveGroupFilter.get("group")));
     return false;
   }
 });
@@ -77,7 +77,7 @@ Template.loggedin.events({
 // };
 
 Template.loggedin.group = function () {
-  return getCurrentGroup();
+  return Groups.findOne(ReactiveGroupFilter.get("group"));
 };
 
 Template.loggedin.isSettingsRoute = function () {

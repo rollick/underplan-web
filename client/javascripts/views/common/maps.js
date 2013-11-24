@@ -28,7 +28,7 @@ activityStaticMap = function(activity) {
 
 recentActivitiesMap = function() {
   var dimensions = "640x240";
-  var recentActivities = Activities.find({group: getCurrentGroupId()}, {limit: 100, sort: {created: -1}});
+  var recentActivities = Activities.find({group: ReactiveGroupFilter.get("group")}, {limit: 100, sort: {created: -1}});
   var apiKey = appSettings().mapsApiKey;
 
   // FIXME: The code here shouldn't need to know about DOM elements.
@@ -58,7 +58,7 @@ recentActivitiesMap = function() {
 // Activity Map
 
 gmaps = null;
-mapTypes = ["feed", "home"];
+mapTypes = ["feed", "home", "activity"];
 mapDepComputation = null; 
 
 Template.activityMap.created = function () {
@@ -68,11 +68,7 @@ Template.activityMap.created = function () {
 }
 
 Template.activityMap.rendered = function() {
-  var type = "feed";
-  if (_.intersection([this.data], mapTypes).length)
-    type = this.data;
-    
-  setupMap(type);
+  setupMap();
 
   $('.feed-handle').draggable({
     axis: 'y', 
@@ -108,9 +104,7 @@ Template.activityMap.destroyed = function() {
   }
 };
 
-setupMap = function (type) {
-  check(type, String);
-
+setupMap = function () {
   logIfDev("Inner Map Rendered...");
   
   if (Session.equals('activityMap', false))
@@ -123,23 +117,33 @@ setupMap = function (type) {
       });
     }
 
-    var conds = null;
-    var options = null;
+    // wrap some vars in Deps.nonreactive as a change in them will also be
+    // reflected in the queryFields reactive field => don't want this code 
+    // to run multiple times. 
+    var conds = null,
+        options = null,
+        group = Deps.nonreactive( function () { return ReactiveGroupFilter.get("group") }),
+        activity = Deps.nonreactive( function () { return ReactiveGroupFilter.get("activity") }),
+        type = _.isNull(activity) ? (_.isNull(group) ? "home" : "feed") : "activity";
 
     if (type === "feed") {
       logIfDev("Render Feed Map...");
-      conds = ReactiveFeedFilter.get('queryFields');
+      conds = ReactiveGroupFilter.get('queryFields');
       options = {sort: {created: -1}};
-    }
-    else if (type === "home") {
+    } else if (type === "home") {
       logIfDev("Render Home Map...");
       conds = {};
       options = {limit: 25, sort: {created: -1}};
+    } else if (type === "activity") {
+      logIfDev("Render Activity Map...");
+      conds = {_id: activity};
+      options = {};
     }
+    
+    var recentActivities = Activities.find(conds, options).fetch();
 
     logIfDev("Autorun Map Deps...");
 
-    var recentActivities = Activities.find(conds, options).fetch();
     gmaps.clearMarkers();
   
     if (recentActivities.length > 0) {
@@ -165,6 +169,9 @@ setupMap = function (type) {
       });
       gmaps.calcBounds();
       gmaps.map.panBy(0, -50);
+      
+      if (type === "activity")
+        gmaps.map.setZoom(6);
     }
   });
 }

@@ -26,59 +26,46 @@ var self = this;
 self.commentsSubscription = self.activitiesSubscription = null;
 self.activityCommentStatus = {};
 
+///////////////////////////////////////////////////////////////////////////////
+// Main Autorun Deps
+
 Deps.autorun(function () {
 
-  if (Session.get("groupSlug")) {
-    var group = Groups.findOne({slug: Session.get("groupSlug")});
-
-    if (group) { // activity hasn't loaded!
-      Session.set("groupId", group._id);
-    }
-  } else {
-    Session.set("groupId", null);
-  }
-
-  if (Session.get("activitySlug")) {
-    var activity = Activities.findOne({ slug: Session.get("activitySlug") });
-
-    if (activity) { // activity hasn't loaded!
-      Session.set("activityId", activity._id);
-    }
-  }
-
-  if (Session.get("activityId")) {
+  var activityId = ReactiveGroupFilter.get("activity");
+  if (activityId) {
     logIfDev("Subscribe to activity");
 
-    self.activitySubscription = Meteor.subscribe("activityShow", Session.get("activityId"));
-    self.commentsSubscription = Meteor.subscribe("activityComments", Session.get("activityId"));
+    self.activitySubscription = Meteor.subscribe("activityShow", activityId);
+    self.commentsSubscription = Meteor.subscribe("activityComments", activityId);
   }
 
-  if (Session.get("groupId")) {
+  var groupId = ReactiveGroupFilter.get("group");
+  if (groupId) {
     logIfDev("Subscribe to group data");
     
-    var filter = ReactiveFeedFilter.get("feedFilter") || {};
-    if (filter.group !== Session.get("groupId")) {
+    var filter = ReactiveGroupFilter.get("feedFilter") || {};
+    if (filter.group !== groupId) {
       // set the group without causing reactive
-      ReactiveFeedFilter.set('group', Session.get("groupId"), {quiet: true});
+      ReactiveGroupFilter.set('group', groupId, {quiet: true});
     }
     if (!filter.limit) {
       // set the group without causing reactive
-      ReactiveFeedFilter.set('limit', feedLimitSkip, {quiet: true});
+      ReactiveGroupFilter.set('limit', feedLimitSkip, {quiet: true});
     }
 
-    self.feedMapSubscription = Meteor.subscribe("basicActivityData", Session.get("groupId"));
+    self.feedMapSubscription = Meteor.subscribe("basicActivityData", groupId);
 
-    var options = ReactiveFeedFilter.get("subscriptionOptions");
+    var options = ReactiveGroupFilter.get("subscriptionOptions");
     self.feedListSubscription = Meteor.subscribe("feedActivities", options);
     self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);    
   }
 
   if (Session.get("expandedActivities")) {
     var options = {
-      groupId: Session.get("groupId"),
+      groupId: groupId,
       activityIds: Session.get("expandedActivities"),
-      limit: ReactiveFeedFilter.get("limit"),
-      country: ReactiveFeedFilter.get("country")
+      limit: ReactiveGroupFilter.get("limit"),
+      country: ReactiveGroupFilter.get("country")
     };
 
     if (options.activityIds.length)
@@ -86,8 +73,11 @@ Deps.autorun(function () {
   }
 });
 
+///////////////////////////////////////////////////////////////////////////////
+// Meteor Startup
+
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.117");
+  Session.set("appVersion", "v1.3.118");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -109,7 +99,7 @@ Meteor.startup(function () {
   }
 
   Meteor.autorun(function() {
-    var group = Groups.findOne(Session.get('groupId'));
+    var group = Groups.findOne(ReactiveGroupFilter.get("group"));
     if (!!group)
       document.title = "Underplan: " + group.name;
   });
@@ -121,7 +111,7 @@ Meteor.startup(function () {
 this.appTemplates = function () {
   return {
     groupInviteList:  "showInviteList",
-    currentActivity:  "showActivity",
+    currentActivity:  ["showActivity", {highContent: true}],
     storyEditor:      "showStoryEditor",
     groupEditor:      "showGroupEditor",
     activityFeed:     ["showActivityFeed", {highContent: true}],
@@ -129,7 +119,7 @@ this.appTemplates = function () {
     userSettings:     "showUserSettings",
     loginForm:        "showLoginForm",
     mainSettings:     "showMainSettings",
-    permaShorty:      "showPermaShorty"
+    permaShorty:      ["showPermaShorty", {highContent: true}]
   };
 };
 
@@ -213,11 +203,11 @@ this.appSettings = function () {
 };
 
 this.getCurrentActivity = function () {
-  return Activities.findOne(Session.get("activityId"));
+  return Activities.findOne(ReactiveGroupFilter.get("activity"));
 };
 
 this.getCurrentActivityId = function () {
-  return Session.get("activityId");
+  return ReactiveGroupFilter.get("activity");
 };
 
 this.currentActivityHasPhotos = function () {
@@ -243,11 +233,11 @@ this.currentActivityHasMap = function () {
 };
 
 this.getCurrentGroup = function () {
-  return Groups.findOne(Session.get("groupId"));
+  return Groups.findOne(ReactiveGroupFilter.get("group"));
 };
 
 this.getCurrentGroupId = function () {
-  return Session.get("groupId");
+  return ReactiveGroupFilter.get("group");
 };
 
 this.isFollowingGroup = function (userId, groupId) {
@@ -283,18 +273,11 @@ this.followCurrentGroup = function (state) {
     state = true;
   }
 
-  this.followGroup(this.getCurrentGroupId(), state);
-};
-
-this.resetGroup = function () {
-  Session.set("groupId", null);
-  Session.set("groupSlug", null);
-  Session.set("activityId", null);
-  Session.set("activitySlug", null);
+  this.followGroup(this.ReactiveGroupFilter.get("group"), state);
 };
 
 this.userBelongsToCurrentGroup = function (userId) {
-  var group = this.getCurrentGroup();
+  var group = this.Groups.findOne(ReactiveGroupFilter.get("group"));
   var result;
 
   if (!group) {
@@ -311,7 +294,7 @@ this.currentUserBelongsToCurrentGroup = function () {
 };
 
 this.defaultBack = function () {
-  var group = this.getCurrentGroup();
+  var group = this.Groups.findOne(ReactiveGroupFilter.get("group"));
   if (group) {
     Router.setGroup(group);
   } else {

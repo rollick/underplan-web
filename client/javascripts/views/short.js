@@ -1,5 +1,5 @@
 Template.permaShorty.activity = function () {
-  return Activities.findOne(Session.get("activityId"));
+  return Activities.findOne(ReactiveGroupFilter.get("activity"));
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -113,7 +113,7 @@ Template.shortForm.events({
     values.country    = template.find("#country").value;
     values.region     = template.find("#region").value;
     values.picasaTags = template.find("#picasa-tags").value;
-    values.groupId    = getCurrentGroupId();
+    values.groupId    = ReactiveGroupFilter.get("group");
 
     if (values.groupId && values.text.length) {
       Meteor.call('createActivity', values, function (error, activityId) {

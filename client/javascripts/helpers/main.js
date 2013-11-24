@@ -18,10 +18,10 @@ Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
 });
 
 Handlebars.registerHelper("isCurrentCountry", function (country) {
-  if(country === "all" && !ReactiveFeedFilter.get("country"))
+  if(country === "all" && !ReactiveGroupFilter.get("country"))
     return "active";
 
-  return (country === ReactiveFeedFilter.get("country") ? "active" : "");
+  return (country === ReactiveGroupFilter.get("country") ? "active" : "");
 });
 
 // Handlebars.registerHelper("countryFilter", function(countries) {
@@ -92,7 +92,7 @@ Handlebars.registerHelper('profilePicture', function(userId) {
 Handlebars.registerHelper('basicLocation', function(activity) {
   var location = "";
   if (_.isString(activity.country) && activity.country.length) {
-    if (ReactiveFeedFilter.get("country")) {
+    if (ReactiveGroupFilter.get("country")) {
       location = activity.city || "";
     } else {
       location = [activity.city, activity.country].join(", ");

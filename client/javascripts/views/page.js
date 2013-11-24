@@ -6,17 +6,17 @@ Template.page.appVersion = function () {
 };
 
 Template.page.noGroup = function () {
-  var group = Groups.findOne(Session.get("groupId"));
+  var group = Groups.findOne(ReactiveGroupFilter.get("group"));
   return group ? false : true;
 };
 
 Template.page.showGroup = function () {
-  return !!Session.get("groupId");
+  return !!ReactiveGroupFilter.get("group");
 };
 
 Template.page.groupName = function () {
-  if (Session.get("groupId")) {
-    group = Groups.findOne(Session.get("groupId"));
+  if (ReactiveGroupFilter.get("group")) {
+    group = Groups.findOne(ReactiveGroupFilter.get("group"));
     if (group)
       return group.name;
   }
@@ -28,3 +28,13 @@ Template.page.events({
     return false;
   }
 });
+
+///////////////////////////////////////////////////////////////////////////////
+// Main Map
+
+Template.mainMap.mapType = function () {
+  // var group = ReactiveGroupFilter.get("group");
+  // var activity = ReactiveGroupFilter.get("activity");
+
+  // return _.isNull(activity) ? (_.isNull(group) ? "home" : "feed") : "activity";
+};

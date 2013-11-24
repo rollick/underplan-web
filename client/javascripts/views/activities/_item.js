@@ -15,7 +15,7 @@ itemHelpers = {
     return canUserRemoveActivity(Meteor.userId(), this._id);
   },
   canEdit: function () {
-    return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), getCurrentGroupId()));
+    return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group")));
   },
   activity: function () {
     return this;
@@ -48,9 +48,9 @@ itemHelpers = {
     return currentActivityHasPhotos();
   },
   facebookShareUrl: function () {
-    if(Session.get("groupId") && Session.get("activityId")) {
-      var activity = Activities.findOne(Session.get("activityId"));
-      var group = Groups.findOne(Session.get("groupId"));
+    if(ReactiveGroupFilter.get("group") && ReactiveGroupFilter.get("activity")) {
+      var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
+      var group = Groups.findOne(ReactiveGroupFilter.get("group"));
 
       if(activity && group) {
         var activityUrl = Meteor.absoluteUrl() + [group.slug, activity.slug].join("/");
@@ -82,7 +82,7 @@ itemHelpers = {
   },
   wikiContent: function () {
     var domain = "http://www.dbpedialite.org";
-    var activity = Activities.findOne(Session.get("activityId"));
+    var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
 
     $.ajax({
       url: domain + "/things/" + activity.wikipediaId + ".jsonld",
@@ -97,8 +97,8 @@ itemHelpers = {
     return new Handlebars.SafeString("<blockquote class=\"wiki\">Loading wiki...</blockquote>");
   },
   gallery: function () {
-    var group = Groups.findOne(Session.get("groupId"));
-    var activity = Activities.findOne(Session.get("activityId"));
+    var group = Groups.findOne(ReactiveGroupFilter.get("group"));
+    var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
     var element = ".activity-highlight";
 
     if (_.isObject(group.trovebox)) {

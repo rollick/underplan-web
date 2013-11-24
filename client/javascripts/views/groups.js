@@ -34,13 +34,6 @@ Template.mainHome.message = function () {
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-// Groups Home Map
-
-Template.mainHomeMap.mapType = function () {
-  return "home";
-};
-
-///////////////////////////////////////////////////////////////////////////////
 // Groups List Item
 
 Template.groupItem.events({
@@ -93,10 +86,10 @@ Template.groupEditor.events({
       Meteor.call('createGroup', values, function (error, groupId) {
         if (! error) {
           Session.set("groupId", groupId);
-          var group = getCurrentGroup();
+          var group = Groups.findOne(ReactiveGroupFilter.get("group"));
 
           if(group && group.approved) {
-            Router.setGroup(getCurrentGroup());
+            Router.setGroup(Groups.findOne(ReactiveGroupFilter.get("group")));
           } else {
             Session.set("message",
                   "Your group is awaiting approval");
@@ -138,7 +131,7 @@ Template.groupEditor.error = function () {
 };
 
 Template.groupEditor.group = function () {
-  return getCurrentGroup();
+  return Groups.findOne(ReactiveGroupFilter.get("group"));
 };
 
 var getGroupValues = function(template) {
@@ -172,18 +165,18 @@ var hideGroupEditor = function() {
 
 Template.groupAdminActions.events({
   'click .membership': function (event, template) {
-    Router.setGroupMembership(getCurrentGroup());
+    Router.setGroupMembership(Groups.findOne(ReactiveGroupFilter.get("group")));
     return false;
   },
 
   'click .group-settings': function (event, template) {
-    Router.setGroupEditor(getCurrentGroup());
+    Router.setGroupEditor(Groups.findOne(ReactiveGroupFilter.get("group")));
     return false;
   }
 });
 
 Template.groupAdminActions.isGroupAdmin = function () {
-  return isGroupAdmin(Meteor.userId(), getCurrentGroupId());
+  return isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group"));
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -195,21 +188,21 @@ Template.groupAdminActions.isGroupAdmin = function () {
 
 Template.groupInviteList.events({
   'click .invite': function (event, template) {
-    Meteor.call('invite', Session.get("groupId"), this._id);
+    Meteor.call('invite', ReactiveGroupFilter.get("group"), this._id);
     return false;
   },
   'click .cancel': function () {
-    Router.setGroup(getCurrentGroup());
+    Router.setGroup(Groups.findOne(ReactiveGroupFilter.get("group")));
     return false;
   }
 });
 
 Template.groupInviteList.invited = function () {
-  return Meteor.users.find({$and: [{_id: {$in: getCurrentGroup().invited}}]});
+  return Meteor.users.find({$and: [{_id: {$in: Groups.findOne(ReactiveGroupFilter.get("group")).invited}}]});
 };
 
 Template.groupInviteList.uninvited = function () {
-  var group = Groups.findOne(Session.get("groupId"));
+  var group = Groups.findOne(ReactiveGroupFilter.get("group"));
   if (! group)
     return []; // group hasn't loaded yet
   return Meteor.users.find({$nor: [{_id: {$in: group.invited}},

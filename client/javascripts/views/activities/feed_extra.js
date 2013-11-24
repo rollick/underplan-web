@@ -19,10 +19,10 @@ var setupGallery = function () {
       });
     }
 
-    if (Session.get("groupId")) {
+    if (ReactiveGroupFilter.get("group")) {
       logIfDev("Loading Feed Gallery");
 
-      var group = Groups.findOne(Session.get("groupId"));
+      var group = Groups.findOne(ReactiveGroupFilter.get("group"));
 
       // NOTE: this needs work. shouldn't always assume skip limit is max loaded
       var limit = galleryLimitSkip;
@@ -34,8 +34,8 @@ var setupGallery = function () {
       if (_.isObject(group.trovebox)) {
         var params = $.extend({tags: null}, group.trovebox);
 
-        if (ReactiveFeedFilter.get("country"))
-          params.tags = ReactiveFeedFilter.get("country");
+        if (ReactiveGroupFilter.get("country"))
+          params.tags = ReactiveGroupFilter.get("country");
 
         troveboxGallery.albumSearch(params, function(data) {
           if (_.isEmpty(data)) {
@@ -146,11 +146,11 @@ Template.feedGallery.helpers({
 });
 
 Template.feedGallery.group = function () {
-  return Groups.findOne({_id: Session.get("groupId")});
+  return Groups.findOne({_id: ReactiveGroupFilter.get("group")});
 };
 
 Template.feedGallery.picasaGalleryUrl = function () {
-  var group = Groups.findOne({_id: Session.get("groupId")});
+  var group = Groups.findOne({_id: ReactiveGroupFilter.get("group")});
   var picasaPath = [group.picasaUsername, group.picasaAlbum].join("/");
 
   if(group.picasaKey)
@@ -160,7 +160,7 @@ Template.feedGallery.picasaGalleryUrl = function () {
 };
 
 Template.feedGallery.hasGallery = function () {
-  var group = Groups.findOne(Session.get("groupId"));
+  var group = Groups.findOne(ReactiveGroupFilter.get("group"));
 
   if (!group) {
     return false

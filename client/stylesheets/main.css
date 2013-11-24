@@ -7263,26 +7263,27 @@ h2 span.warning, a span.warning {
 .main-content:after {
   clear: both;
 }
-/* line 113, ../sass/main.scss */
+/* line 112, ../sass/main.scss */
 .main-content.normal {
   background-color: transparent;
   margin-top: 0px;
   overflow: visible;
 }
-/* line 119, ../sass/main.scss */
+/* line 118, ../sass/main.scss */
 .main-content.dashboard {
   background: url("/images/dash_bg_2.jpg") 0 0 no-repeat;
   background-color: black;
-  margin-top: -15px;
 }
-/* line 125, ../sass/main.scss */
+/* line 123, ../sass/main.scss */
 .main-content > .inner {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
   width: 100%;
   float: left;
+  margin-top: -15px;
   padding: 0em;
+  z-index: 3;
 }
 
 @media only screen and (min-width: 48em) {
@@ -7459,7 +7460,7 @@ ul.dropdown h5 a {
   color: green;
   padding: 0px;
   display: inline;
-  line-height: 33px;
+  line-height: 25px;
 }
 /* line 14, ../sass/_components.scss */
 .section-container .section .title > a:before, .section-container section .title > a:before {

@@ -6,12 +6,12 @@ Template.mainNav.appVersion = function () {
 };
 
 Template.mainNav.group = function () {
-  return Groups.findOne(Session.get("groupId"));
+  return Groups.findOne(ReactiveGroupFilter.get("group"));
 };
 
 Template.mainNav.events({
   'click .home': function () {
-    Router.setGroup(getCurrentGroup());
+    Router.setGroup(Groups.findOne(ReactiveGroupFilter.get("group")));
     return false;
   }
 });
@@ -20,15 +20,15 @@ Template.mainNav.events({
 // Sub Nav
 
 Template.countryFilter.showCountryFilter = function () {
-  return groupCountries(Session.get("groupId")).length > 1;
+  return groupCountries(ReactiveGroupFilter.get("group")).length > 1;
 };
 
 Template.countryFilter.helpers({
   currentCountry: function () {
-    return ReactiveFeedFilter.get("country") || "All Countries";
+    return ReactiveGroupFilter.get("country") || "All Countries";
   },
   countries: function () {
-    return groupCountries(Session.get("groupId"));
+    return groupCountries(ReactiveGroupFilter.get("group"));
   }
 });
 
@@ -38,15 +38,10 @@ Template.countryFilter.events({
     var selectedElem = $(event.target);
     var selectedText = selectedElem.hasClass("all") ? null : selectedElem.text();
     
-    // set filter
-    var filter = {group: Session.get("groupId")};
-    $.extend(filter, {country: selectedText});
     
-    logIfDev("FeedFilter set here (3)");
-    ReactiveFeedFilter.set("feedFilter", filter);
-    ReactiveFeedFilter.set("limit", feedLimitSkip);
+    ReactiveGroupFilter.set("country", selectedText);
+    ReactiveGroupFilter.set("limit", feedLimitSkip);
 
-    Router.setGroup(getCurrentGroup());
     return false;
   }
 });
@@ -77,7 +72,7 @@ Template.activityActions.userCanFollow = function () {
 };
 
 Template.activityActions.followingGroup = function () {
-  return isFollowingGroup(Meteor.userId(), Session.get("groupId"));
+  return isFollowingGroup(Meteor.userId(), ReactiveGroupFilter.get("group"));
 };
 
 Template.activityActions.userBelongsToGroup = function () {

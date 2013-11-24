@@ -29,6 +29,10 @@ createMapObject = function () {
     // our formatted marker data objects
     markerData: [],
 
+    defaultZoom: 12,
+
+    defaultTimerId: null,
+
     clearMarkers: function () {
       for (var i = 0; i < this.markers.length; i++ ) {
         this.markers[i].setMap(null);
@@ -99,7 +103,7 @@ createMapObject = function () {
       this.initMapMarker();
 
       var mapOptions = {
-        zoom: 12,
+        zoom: this.defaultZoom,
         scrollwheel: false, // to allow page scrolling, not map zooming
         // center: new google.maps.LatLng(53.565, 10.001),
         mapTypeId: google.maps.MapTypeId.ROADMAP,
@@ -129,6 +133,13 @@ createMapObject = function () {
       var self = this;
       google.maps.event.addListenerOnce(this.map, "idle", function() {
         self.mapReady = true;
+      });
+
+      google.maps.event.addListener(this.map, "dragstart", function () {
+        $(gmaps.map.getDiv()).closest(".map").addClass("panning");
+      });
+      google.maps.event.addListener(this.map, "dragend", function () {
+        $(gmaps.map.getDiv()).closest(".map").removeClass("panning");
       });
 
       // Add a blank div as custom control to push zoom controls 

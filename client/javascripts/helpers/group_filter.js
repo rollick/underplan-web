@@ -1,10 +1,11 @@
 // Use a reactive source to store feed filter information
 // eg. country, limit, 
-ReactiveFeedFilter = {
-  clear: function () {
+ReactiveGroupFilter = {
+  clear: function (options) {
+    options = options || {};
     var self = this;
     Object.keys(this._fields).forEach( function (key) {
-      self.set(key, null);
+      self.set(key, null, options);
     });
 
     this._fieldsDep = {}
@@ -51,8 +52,10 @@ ReactiveFeedFilter = {
       if(this._fields[key] !== value) {
         this._fields[key] = value;
 
-        if (!quiet)
+        if (!quiet) {
+          logIfDev("++ Called changed on " + key);
           this._fieldsDep[key].changed();
+        }
 
         // if the set was nested then the call to changed for the feedFilter
         // and queryFields will need to occur manually
@@ -63,7 +66,7 @@ ReactiveFeedFilter = {
         return true
       }
     } else {
-      logIfDev("Failed to set ReactiveFeedFilter with args: " + [key, value]);
+      logIfDev("Failed to set ReactiveGroupFilter with args: " + [key, value]);
     }
 
     return false;
@@ -72,7 +75,9 @@ ReactiveFeedFilter = {
   _fields: {
     country: null,
     limit: null,
-    group: null
+    group: null,
+    activity: null,
+
   },
   _fieldsDep: {},
 
@@ -81,17 +86,14 @@ ReactiveFeedFilter = {
   // remove null fields for mongo query
   // TODO: is this always a good idea?
   _queryFields: function () {
-    var reducedFields = _.clone(this._fields);
-    Object.keys(reducedFields).forEach( function(key) { 
-      if (!reducedFields[key]) {
-        delete reducedFields[key];
-      }
-    });
+    var qfields = {},
+        fields = this._fields;
 
-    // limit isn't used in model query
-    delete reducedFields["limit"];
+    qfields.group = fields.group;
+    if (fields.country)
+      qfields.country = fields.country;
 
-    return reducedFields;
+    return qfields;
   },
 
   _subscriptionOptions: function () {
@@ -114,9 +116,9 @@ ReactiveFeedFilter = {
   },
 
   _aggregatedFieldsChanged: function (newFields) {
-    logIfDev("Calling change on ReactiveFeedFilter aggregates");
     var self = this;
     this._aggregatedFields.forEach( function (field) {
+      logIfDev("++ Called changed on " + field);
       self._fieldsDep[field].changed();
     });
   },
