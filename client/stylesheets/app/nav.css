@@ -1635,7 +1635,7 @@ blockquote p {
   border-radius: 3px;
   padding-right: 0.5em;
   text-align: center;
-  background: #fafafa;
+  background: white;
   opacity: 0.9;
 }
 /* line 99, ../../sass/app/nav.scss */
@@ -1646,7 +1646,7 @@ blockquote p {
   -moz-border-radius-bottomright: 0;
   -webkit-border-bottom-right-radius: 0;
   border-bottom-right-radius: 0;
-  background: #fafafa;
+  background: white;
   opacity: 1.0;
 }
 /* line 106, ../../sass/app/nav.scss */
@@ -1657,7 +1657,7 @@ blockquote p {
   -moz-border-radius-bottomright: 3px;
   -webkit-border-bottom-right-radius: 3px;
   border-bottom-right-radius: 3px;
-  background: #fafafa;
+  background: white;
   border-top: none;
   opacity: 0.9;
   padding: 0.5em;

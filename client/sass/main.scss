@@ -57,7 +57,7 @@ html, body {
 }
 
 body {
-  background-color: rgb(229, 229, 229);
+  background-color: $body-bg-color;
 }
 
 .row { max-width: 960px; }
@@ -113,17 +113,18 @@ h2, a {
     background-color: transparent;
     margin-top: 0px;
     overflow: visible;
+    margin-top: -15px;
   }
 
   &.dashboard {
     background: url("/images/dash_bg_2.jpg") 0 0 no-repeat;
     background-color: black;
+    margin-top: -15px;
   }
 
   & > .inner {
     @include grid-column(12);
 
-    margin-top: -15px;
     padding: 0em;
     z-index: 3;
   }

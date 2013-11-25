@@ -5170,10 +5170,10 @@ kbd {
 .panel {
   border-style: solid;
   border-width: 1px;
-  border-color: #e0e0e0;
+  border-color: #e6e6e6;
   margin-bottom: 1.25em;
   padding: 1.25em;
-  background: #fafafa;
+  background: white;
 }
 /* line 43, ../../../../.rvm/gems/ruby-2.0.0-p247/gems/zurb-foundation-4.1.5/scss/foundation/components/_panels.scss */
 .panel h1, .panel h2, .panel h3, .panel h4, .panel h5, .panel h6, .panel p {
@@ -7201,7 +7201,7 @@ html, body {
 
 /* line 59, ../sass/main.scss */
 body {
-  background-color: #e5e5e5;
+  background-color: #d2d1d0;
 }
 
 /* line 63, ../sass/main.scss */
@@ -7268,31 +7268,32 @@ h2 span.warning, a span.warning {
   background-color: transparent;
   margin-top: 0px;
   overflow: visible;
+  margin-top: -15px;
 }
-/* line 118, ../sass/main.scss */
+/* line 119, ../sass/main.scss */
 .main-content.dashboard {
   background: url("/images/dash_bg_2.jpg") 0 0 no-repeat;
   background-color: black;
+  margin-top: -15px;
 }
-/* line 123, ../sass/main.scss */
+/* line 125, ../sass/main.scss */
 .main-content > .inner {
   position: relative;
   padding-left: 0.9375em;
   padding-right: 0.9375em;
   width: 100%;
   float: left;
-  margin-top: -15px;
   padding: 0em;
   z-index: 3;
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 133, ../sass/main.scss */
+  /* line 134, ../sass/main.scss */
   .row.main-content {
     box-shadow: 0px 1px 8px rgba(0, 0, 0, 0.5);
   }
 }
-/* line 143, ../sass/main.scss */
+/* line 144, ../sass/main.scss */
 .footer .info {
   width: 100%;
   position: relative;
@@ -7303,32 +7304,32 @@ h2 span.warning, a span.warning {
   height: 34px;
   vertical-align: top;
 }
-/* line 153, ../sass/main.scss */
+/* line 154, ../sass/main.scss */
 .footer .info > p {
   height: 34px;
   line-height: 34px;
   margin: 0em;
 }
 
-/* line 161, ../sass/main.scss */
+/* line 162, ../sass/main.scss */
 .no-side-padding {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
 
-/* line 166, ../sass/main.scss */
+/* line 167, ../sass/main.scss */
 .bordered {
   border: 1px solid #e7e4e4;
   padding: 2px;
 }
 
-/* line 171, ../sass/main.scss */
+/* line 172, ../sass/main.scss */
 .normal {
   background: #fff;
   background: white;
 }
 
-/* line 176, ../sass/main.scss */
+/* line 177, ../sass/main.scss */
 .input-subtext {
   margin-top: -10px;
   font-style: italic;
@@ -7339,80 +7340,80 @@ h2 span.warning, a span.warning {
   min-height: 1px;
 }
 
-/* line 192, ../sass/main.scss */
+/* line 193, ../sass/main.scss */
 .carousel .th {
   border: none;
   padding: 2px;
 }
 
-/* line 198, ../sass/main.scss */
+/* line 199, ../sass/main.scss */
 [data-clearing] li {
   margin-right: 0em;
 }
 
-/* line 202, ../sass/main.scss */
+/* line 203, ../sass/main.scss */
 .tooltip {
   font-size: 0.8em;
   font-weight: normal;
 }
 
-/* line 210, ../sass/main.scss */
+/* line 211, ../sass/main.scss */
 a.small.secondary {
   font-size: 0.8em;
   padding: 0.5em;
 }
 
-/* line 215, ../sass/main.scss */
+/* line 216, ../sass/main.scss */
 .alert-box {
   margin-top: 8px;
   text-align: center;
   font-weight: normal !important;
 }
-/* line 220, ../sass/main.scss */
+/* line 221, ../sass/main.scss */
 .alert-box a.close {
   position: relative;
   padding: 10px;
   color: white;
 }
 
-/* line 230, ../sass/main.scss */
+/* line 231, ../sass/main.scss */
 .button {
-  -webkit-border-radius: 1px;
-  -moz-border-radius: 1px;
-  -ms-border-radius: 1px;
-  -o-border-radius: 1px;
-  border-radius: 1px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
   box-shadow: none;
   font-weight: normal;
 }
 
-/* line 236, ../sass/main.scss */
+/* line 237, ../sass/main.scss */
 .clearing-assembled {
   padding-bottom: 10px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 236, ../sass/main.scss */
+  /* line 237, ../sass/main.scss */
   .clearing-assembled {
     padding-bottom: 0px !important;
   }
 }
-/* line 243, ../sass/main.scss */
+/* line 244, ../sass/main.scss */
 .clearing-assembled .clearing-caption {
   background-color: rgba(17, 17, 17, 0.6);
   padding-bottom: 30px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 243, ../sass/main.scss */
+  /* line 244, ../sass/main.scss */
   .clearing-assembled .clearing-caption {
     padding-bottom: 10px !important;
   }
 }
 
-/* line 253, ../sass/main.scss */
+/* line 254, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 256, ../sass/main.scss */
+/* line 257, ../sass/main.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -7420,27 +7421,27 @@ a.small.secondary {
   padding-top: 1px;
 }
 
-/* line 264, ../sass/main.scss */
+/* line 265, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 269, ../sass/main.scss */
+/* line 270, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 273, ../sass/main.scss */
+/* line 274, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }
 
-/* line 277, ../sass/main.scss */
+/* line 278, ../sass/main.scss */
 .section-container {
   border: none !important;
 }
-/* line 280, ../sass/main.scss */
+/* line 281, ../sass/main.scss */
 .section-container .section, .section-container section {
   border-top: 2px solid green;
   font-size: 0.9em;
@@ -7450,12 +7451,12 @@ ul.dropdown h5 a {
   cursor: pointer;
   border-top: none;
 }
-/* line 285, ../sass/main.scss */
+/* line 286, ../sass/main.scss */
 .section-container .section .title, .section-container section .title {
   padding-left: 5px;
   margin-bottom: 5px;
 }
-/* line 289, ../sass/main.scss */
+/* line 290, ../sass/main.scss */
 .section-container .section .title > a, .section-container section .title > a {
   color: green;
   padding: 0px;
@@ -7472,11 +7473,11 @@ ul.dropdown h5 a {
   content: "\00a0\00a0";
   height: 24px;
 }
-/* line 299, ../sass/main.scss */
+/* line 300, ../sass/main.scss */
 .section-container .section.active, .section-container section.active {
   padding-top: 0px !important;
 }
-/* line 302, ../sass/main.scss */
+/* line 303, ../sass/main.scss */
 .section-container .section.active .title, .section-container section.active .title {
   margin-bottom: 0px;
 }
@@ -7490,17 +7491,17 @@ ul.dropdown h5 a {
   content: "\00a0\00a0";
   height: 24px;
 }
-/* line 312, ../sass/main.scss */
+/* line 313, ../sass/main.scss */
 .section-container .section > .content, .section-container section > .content {
   padding: 5px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 312, ../sass/main.scss */
+  /* line 313, ../sass/main.scss */
   .section-container .section > .content, .section-container section > .content {
     padding: 15px;
   }
 }
-/* line 319, ../sass/main.scss */
+/* line 320, ../sass/main.scss */
 .section-container .section > .content ul.disc, .section-container section > .content ul.disc {
   margin-left: 20px;
 }

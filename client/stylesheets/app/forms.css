@@ -1209,7 +1209,7 @@ blockquote p {
 .story-editor,
 .settings-editor {
   padding: 0.9375em;
-  background-color: #fafafa;
+  background-color: white;
   padding-top: 5px;
 }
 /* line 11, ../../sass/app/forms.scss */

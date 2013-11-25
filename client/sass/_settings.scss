@@ -13,9 +13,10 @@ $em-base: 16px !default;
 
 //// Underplan Standard Variables
 
-$standard-border-size:      1px;
+$body-bg-color:             #D2D1D0;
+$standard-border-size:      3px;
 $standard-corner-radius:    0px;
-$standard-panel-bg:         darken(#fff, 2%);
+$standard-panel-bg:         darken(#fff, 0%);
 $standard-border-color:     darken($standard-panel-bg, 40%);
 $standard-padding:          0.5em;
 $standard-margin:           emCalc(15px);
