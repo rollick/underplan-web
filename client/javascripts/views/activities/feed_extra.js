@@ -39,9 +39,9 @@ var setupGallery = function () {
 
         troveboxGallery.albumSearch(params, function(data) {
           if (_.isEmpty(data)) {
-            $(".feed-extra").addClass("no-photos");
+            $(".top-extra").addClass("no-photos");
           } else {
-            $(".feed-extra").removeClass("no-photos");
+            $(".top-extra").removeClass("no-photos");
             // reverse the order to get newest to oldest and then process gallery
             processFeedPhotos(data.reverse(), offset, ".recent-photos");
           }

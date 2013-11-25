@@ -6,7 +6,7 @@ setInterval(function () {
     commentsScrollOk = true;
 }, 50);
 
-Template.feedItemComments.events({
+Template.itemComments.events({
   "scroll .short-comments .inner": function (event, template) {
     if (commentsScrollOk === true) {
       commentsScrollOk = false;
@@ -21,7 +21,7 @@ Template.feedItemComments.events({
   }
 });
 
-Template.feedItemComments.rendered = function () {
+Template.itemComments.rendered = function () {
   setFeedCommentsNotice(this);
 };
 

@@ -10,7 +10,7 @@ $handle-height: 14px;
 $handle-offset: 1px;
 $handle-hover-offset: 5px;
 
-.feed-handle {
+.top-extra-handle {
   border-top: 2px solid $handle-bg-color;
   position: relative;
   clear: left;
@@ -39,7 +39,7 @@ $handle-hover-offset: 5px;
   }
 }
 
-.feed-extra {
+.top-extra {
   @include grid-column(12, $collapse: true);
 
   position: relative;
@@ -50,19 +50,23 @@ $handle-hover-offset: 5px;
   height: $map-height-small;
 
   @media only screen and (min-width: 48em) {
-    @include grid-column($feed-extra-columns-large, $collapse: true);
-
-    height: $map-height-large;
+    height: $map-height-medium;
   }
 
   &.home {
     border-bottom: 1px solid darken($handle-bg-color, 10%);
-    height: $home-map-height-small;
+    height: $map-height-small;
 
     @media only screen and (min-width: 48em) {
-      @include grid-column($feed-extra-columns-large, $collapse: true);
+      height:$map-height-medium;
+    }
+  }
 
-      height:$home-map-height-large;
+  &.single-item {
+    height: $map-height-medium;
+
+    @media only screen and (min-width: 48em) {
+      height: $map-height-large;
     }
   }
 
@@ -134,7 +138,6 @@ $handle-hover-offset: 5px;
     @include grid-row(nest);
     @include animation(galleryInserted);
 
-    // margin: 0 !important;
     position: absolute;
     top: 0;
     margin: 0;
@@ -148,18 +151,10 @@ $handle-hover-offset: 5px;
     & > .inner {
       @include grid-column(12, $collapse: true);
 
-      // padding: 0;
-
       .recent-photos {
-        // padding == nav + thumbnails
         padding-top: 80px + 80px;
         background-color: $common-dark-color;
         height: 100%;
-        // height: $photo-feed-height-small - 80px;
-
-        // @media only screen and (min-width: 48em) {
-        //   height: $photo-feed-height-large - 80px;
-        // }
       }
 
       .galleria-map {

@@ -17,6 +17,13 @@ itemHelpers = {
   canEdit: function () {
     return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group")));
   },
+  editUrl: function () {
+    if (this.type === "story")
+      return "/" + Groups.findOne(this.group).slug + "/" + this.slug + "/edit";
+    else if (this.type === "short")
+      return "/" + Groups.findOne(this.group).slug + "/pl/" + this._id + "/edit";
+    return "";
+  },
   activity: function () {
     return this;
   },
@@ -157,6 +164,9 @@ itemHelpers = {
       preview += "...";
 
     return preview;
+  },
+  isStory: function () {
+    return (this.type === "story");
   }
 };
 

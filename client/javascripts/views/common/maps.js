@@ -68,9 +68,11 @@ Template.activityMap.created = function () {
 }
 
 Template.activityMap.rendered = function() {
+  logIfDev("++ Rendered Activity Map...");
+
   setupMap();
 
-  $('.feed-handle').draggable({
+  $('.top-extra-handle').draggable({
     axis: 'y', 
     containment: [ 0, 150, 9999, 500 ],
     helper: 'clone',
@@ -95,7 +97,6 @@ Template.activityMap.rendered = function() {
 };
 
 Template.activityMap.destroyed = function() {
-  logIfDev("Destroying Google Maps...");
   Session.set('activityMap', false);
   
   if (!!mapDepComputation) {
@@ -105,8 +106,6 @@ Template.activityMap.destroyed = function() {
 };
 
 setupMap = function () {
-  logIfDev("Inner Map Rendered...");
-  
   if (Session.equals('activityMap', false))
     gmaps.initialize();
 
@@ -135,20 +134,14 @@ setupMap = function () {
       conds = {};
       options = {limit: 25, sort: {created: -1}};
     } else if (type === "activity") {
-      logIfDev("Render Activity Map...");
       conds = {_id: activity};
       options = {};
     }
     
     var recentActivities = Activities.find(conds, options).fetch();
-
-    logIfDev("Autorun Map Deps...");
-
     gmaps.clearMarkers();
   
     if (recentActivities.length > 0) {
-      logIfDev("Processing Map Data...");
-
       _.each(recentActivities, function(activity) {
         if (typeof activity.lat !== 'undefined' &&
             typeof activity.lng !== 'undefined') {
@@ -168,10 +161,14 @@ setupMap = function () {
         }
       });
       gmaps.calcBounds();
-      gmaps.map.panBy(0, -50);
+
+      if (type === "feed" || type === "home") {
+        gmaps.map.panBy(0, -50);
+      }
       
-      if (type === "activity")
-        gmaps.map.setZoom(6);
+      if (type === "activity" && recentActivities[0].mapZoom){
+        gmaps.map.setZoom(parseInt(recentActivities[0].mapZoom));
+      }
     }
   });
 }

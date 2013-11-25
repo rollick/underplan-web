@@ -2,21 +2,17 @@
   {{#with this}}
     <div class="feed-item {{expandClass}}" id="{{_id}}">
       <div class="inner">
-        <div class="activity {{#if typeIs "story"}}story{{/if}}">
-          {{#if typeIs "story"}}
-            {{> storyFeedContent}}
-          {{else}}
-            {{> itemContent}}
-          {{/if}}
+        <div class="activity">
+          {{> itemContent}}
         </div>
-        {{> feedItemActions}}
-        {{> feedItemComments}}
+        {{> itemActions}}
+        {{> itemComments}}
       </div>
     </div>
   {{/with}}
 </template>
 
-<template name="feedItemActions">
+<template name="itemActions">
   <div class="item-actions">
     <div class="show-comments">
       {{#if hasComments}}
@@ -37,7 +33,7 @@
   </div>
 </template>
 
-<template name="feedItemComments">
+<template name="itemComments">
   <div class="short-comments">
     <div class="inner">
       {{> commentList this}}

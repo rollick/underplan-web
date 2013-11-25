@@ -11,6 +11,7 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug/pl/:activityId":      "permaActivity",
     ":groupSlug/:activitySlug":       "activity",
     ":groupSlug/:activitySlug/edit":  "editActivity",
+    ":groupSlug/pl/:activityId/edit": "editShortActivity",
   },
 
   routeLabels: {
@@ -25,6 +26,7 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug/pl/:activityId":      "Activity Loaded",
     ":groupSlug/:activitySlug":       "Story Loaded",
     ":groupSlug/:activitySlug/edit":  "Story Editor Loaded",
+    ":groupSlug/pl/:activityId/edit": "Shorty Editor Loaded",
   },
 
   before: function(route, params) {
@@ -68,7 +70,7 @@ var AppRouter = Backbone.Router.extend({
   main: function() {
     this.resetGroup();
 
-    showTemplate("mainHome");
+    Session.set("mainTemplate", "mainHome");
     this.jumpToTop();
   },
 
@@ -79,41 +81,41 @@ var AppRouter = Backbone.Router.extend({
     ReactiveGroupFilter.set("activity", null);
     ReactiveGroupFilter.set("country", null);
 
-    showTemplate("activityFeed");
+    Session.set("mainTemplate", "activityFeed");
     this.jumpToTop();
   },
 
   mainSettings: function() {
-    showTemplate("mainSettings");
+    Session.set("mainTemplate", "mainSettings");
   },
 
   groupSettings: function(groupSlug) {
     this.runSetGroup(groupSlug);
 
-    showTemplate("mainSettings");
+    Session.set("mainTemplate", "mainSettings");
   },
 
   newGroup: function() {
-    showTemplate("groupEditor");
+    Session.set("mainTemplate", "groupEditor");
     this.jumpToTop();
   },
 
   userSettings: function() {
-    showTemplate("userSettings");
+    Session.set("mainTemplate", "userSettings");
     this.jumpToTop();
   },
 
   groupMembership: function(groupSlug) {
     this.runSetGroup(groupSlug);
 
-    showTemplate("groupInviteList");
+    Session.set("mainTemplate", "groupInviteList");
   },
 
   newActivity: function(groupSlug) {
     this.runSetGroup(groupSlug);
     ReactiveGroupFilter.set("activity", null);
 
-    showTemplate("storyEditor");
+    Session.set("mainTemplate", "storyEditor");
     this.jumpToTop();
   },
 
@@ -121,7 +123,7 @@ var AppRouter = Backbone.Router.extend({
     var parts = activitySlug.split("?");
     this.runSetActivity(groupSlug, parts[0]);
 
-    showTemplate("currentActivity");
+    Session.set("mainTemplate", "currentActivity");
     this.jumpToTop();
   },
 
@@ -129,7 +131,7 @@ var AppRouter = Backbone.Router.extend({
     var parts = activityId.split("?");
     this.runSetActivity(groupSlug, parts[0], true);
 
-    showTemplate("permaShorty");
+    Session.set("mainTemplate", "permaShorty");
     this.jumpToTop();
   },
 
@@ -137,7 +139,15 @@ var AppRouter = Backbone.Router.extend({
     var parts = activitySlug.split("?");
     this.runSetActivity(groupSlug, parts[0], true);
 
-    showTemplate("storyEditor");
+    Session.set("mainTemplate", "storyEditor");
+    this.jumpToTop();      
+  },
+
+  editShortActivity: function(groupSlug, activityId) {
+    var parts = activityId.split("?");
+    this.runSetActivity(groupSlug, parts[0], true);
+
+    Session.set("mainTemplate", "shortyEditor");
     this.jumpToTop();      
   },
 
@@ -186,6 +196,12 @@ var AppRouter = Backbone.Router.extend({
     this.navigate(group.slug + "/" + activity.slug + "/edit", true);
   },
 
+  setEditShortActivity: function(activity) {
+    var group = Groups.findOne({_id: activity.group}, {slug: 1});
+
+    this.navigate(group.slug + "/pl/" + activity._id + "/edit", true);
+  },
+
   setActivity: function(activity) {
     if(typeof activity == "string") {
       activity = Activities.findOne({_id: activity});
@@ -228,20 +244,22 @@ var AppRouter = Backbone.Router.extend({
 
     // The activity record might not be fetched yet if the user has just arrived at the site.
     // Use a deps.autorun to get the group once the record has been received.
-    Deps.autorun( function (computation) {
-      var group = Groups.findOne({slug: groupSlug});
+    if (ReactiveGroupFilter.get("activity") !== activityId) {
+      Deps.autorun( function (computation) {
+        var group = Groups.findOne({slug: groupSlug});
 
-      if (group) {
-        var activity = Activities.findOne(_.extend(options, {group: group._id}));
+        if (group) {
+          var activity = Activities.findOne(_.extend(options, {group: group._id}));
 
-        if (activity) {
-          logIfDev("++ Setting activity from router");
+          if (activity) {
+            logIfDev("++ Setting activity from router");
 
-          ReactiveGroupFilter.set("activity", activity._id);
-          computation.stop();
+            ReactiveGroupFilter.set("activity", activity._id);
+            computation.stop();
+          }
         }
-      }
-    });
+      });
+    }
   },
 
   runSetGroup: function (groupSlug) {

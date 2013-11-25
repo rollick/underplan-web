@@ -4,7 +4,7 @@ function ImageMarker( id, options ) {
   
   this.$inner = $("<div class='inner'>");
 
-  this.$div = $("<div class='map-marker'>")
+  this.$div = $("<div class='map-marker " + options.type + "'>")
     .append(this.$inner)
     .append($("<div class='tick'>"))
     .css({
@@ -49,6 +49,7 @@ createMapObject = function () {
         map: this.map,
         position: gLatLng,
         image: marker.image,
+        type: marker.type,
         events: {
           click: function( event ) {
             var activityId = $(event.target).attr('id');
@@ -195,12 +196,13 @@ createMapObject = function () {
         var img = $("<img src='" + this.get("image") + "'/>");
 
         this.$inner
+          .css({display: "none"})
           .html(img)
           .attr("id", this.get("_id"))
           .click( function( event ) {
             var events = marker.get("events");
             events && events.click( event );
-          });
+          }).show().animate({opacity: 1.0}, 1750);
       };
     }
   }

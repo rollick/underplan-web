@@ -12,7 +12,7 @@ var clearHiddenLocationFields = function(template) {
 };
 
 Template.storyEditor.activity = function () {
-  return Activities.findOne(getCurrentActivityId());
+  return Activities.findOne(ReactiveGroupFilter.get("activity"));
 };
 
 Template.storyEditor.defaultMapZoom = function () {

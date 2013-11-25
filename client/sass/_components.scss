@@ -40,6 +40,65 @@
   @include item-by-user();
 }
 
+@mixin single-item() {
+  @include item-by-user($dark-details: true);
+  @include border-top-radius(0em);
+
+  margin-top: 1px;
+
+  & > .inner .activity {
+    margin-top: emCalc(-120px);
+    background-color: transparent;
+  }
+
+  & > .inner .activity .info-section {
+    height: emCalc(120px);
+  }
+
+  // .activity {
+  //   margin: 0em;
+  //   padding: 0em;
+
+  //   & > .content {
+  //     margin: 0em;
+  //     padding: 0.5em;
+
+  //     .alert-box {
+  //       margin-bottom: 0em;
+  //       border-width: 0px;
+  //       margin-top: 0em;
+  //     }
+
+  //     @media only screen and (min-width: 48em) {
+  //       padding: 1em;
+  //     }
+
+  //     .alert-box {
+  //       margin-top: -1px;
+  //     }
+
+  //     blockquote {
+  //       margin-bottom: 0em;
+  //       padding: 0.25em 0.9em 0.25em 0.9em;
+
+  //       @media only screen and (min-width: 48em) {
+  //         padding: 0.5em 1em 0.5em 1em;
+  //       }
+  //     }
+
+  //     .text {
+  //       &.intro p {
+  //         font-style: italic;
+  //       }
+
+  //       ul {
+  //         margin-left: 20px;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
 @mixin png-arrow($direction: 'down', $color: false) {
   @if $color { $color: '_' + $color; }
   @else { $color: '' }
@@ -147,7 +206,7 @@
 }
 
 @mixin standard-corners($position: "all") {
-  @include border-radius($standard-border-size);
+  @include border-radius($standard-corner-radius);
 }
 
 @mixin standard-bar() {
@@ -159,7 +218,7 @@
   cursor: pointer;
 }
 
-@mixin entry-with-profile($picture-width: 4em, $fixed-details: true) {
+@mixin entry-with-profile($picture-width: 4em, $fixed-details: true, $dark-details: false) {
   @include grid-row(nest);
   $info-section-margin: 0.5em;
   $info-section-padding: 0.3em;
@@ -208,6 +267,47 @@
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+      }
+    }
+
+    @if $dark-details {
+      overflow-x: scroll;
+      -webkit-overflow-scrolling: touch;
+      background-color: $topbar-bg;
+      height: 140px;
+      color: white;
+
+      .picture {
+        position: absolute;
+        top: inherit;
+        left: $info-section-margin;
+        bottom: $info-section-margin;
+        width: $info-section-height;
+        height: $info-section-height;
+        z-index: 2;
+
+        img {
+          height: 100%;
+          width: 100%;
+          margin-top: 0em;
+          @include border-radius($info-section-height/2);
+        }
+      }
+
+      .details {
+        position: absolute;
+        padding: 0.5em 0.8em;
+        margin-left: 0em;
+        top: inherit;
+        bottom: $info-section-margin;
+        left: 2em;
+        background-color: rgba(0, 0, 0, 0.55);
+        padding-left: 2.5em;
+        z-index: 1;
+
+        .date {
+          color: #D8D8D8;
+        }
       }
     }
 
@@ -366,14 +466,14 @@
   }
 }
 
-@mixin item-by-user() {
+@mixin item-by-user($dark-details: false) {
   @include grid-row(nest);
   @include panel();
-  @include border-radius($standard-border-size);
+  @include border-radius($standard-corner-radius);
 
   $story-radius: 1px;
   margin: 0 $ribbon-wrapper-strip;
-  padding: $standard-corner-radius;
+  padding: 0em;
   position: relative;
   margin-bottom: $standard-small-margin * 2;
   border: none;
@@ -401,7 +501,7 @@
 
     .activity {
 
-      @include entry-with-profile(3.3em);
+      @include entry-with-profile(3.3em, $dark-details: $dark-details);
       @include standard-panel-color();
 
       z-index: 90;
@@ -414,13 +514,6 @@
 
         &:after {
           content: "\00a0→";
-        }
-      }
-
-      &.story {
-        .ribbon-wrapper {
-          border-right: $ribbon-wrapper-strip solid darken($warning-color, 10%);
-          margin-right: -$ribbon-wrapper-strip;
         }
       }
 
@@ -521,15 +614,14 @@
       @include grid-row(nest);
 
       margin: 0em;
-
-
+      
       & > .inner {
         @include grid-column(12);
 
         overflow: hidden;
         height: 0px;
         background-color: #FFF;
-        border: 1px solid #f3f3f3;
+        // border: 1px solid #f3f3f3;
         border-top: none;
         padding: 0em;
         

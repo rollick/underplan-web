@@ -1,65 +1,8 @@
 @import "../components";
 @import "foundation/components/panels";
 
-.story-item {
-  @include standard-item();
-
-  .activity.story {
-    margin: 0em;
-    margin-top: -1px;
-
-    .alert-box {
-      margin-bottom: 0em;
-      border-width: 0px;
-      margin-top: 0em;
-    }
-
-    & > .content {
-      padding: 0em;
-
-      & > .content {
-        margin: 0em;
-        padding: 0.5em;
-
-        @media only screen and (min-width: 48em) {
-          padding: 1em;
-        }
-
-        blockquote {
-          margin-bottom: 0em;
-          padding: 0.25em 0.9em 0.25em 0.9em;
-
-          @media only screen and (min-width: 48em) {
-            padding: 0.5em 1em 0.5em 1em;
-          }
-        }
-
-        .text {
-          &.intro p {
-            font-style: italic;
-          }
-
-          ul {
-            margin-left: 20px;
-          }
-        }
-
-        .galleria-thumbnails-container {
-          height: 0px;
-        }
-
-        .galleria-thumbnails {
-          display: none;
-          height: 0px;
-        }
-
-        .galleria-stage {
-          top: 10px;
-          bottom: 10px;
-        }
-      }
-    }
-  }
+.single-item {
+  @include single-item();
 }
 
 cite:before { 

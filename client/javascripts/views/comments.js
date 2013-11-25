@@ -36,7 +36,7 @@ var saveComment = function (template, success) {
 };
 
 Template.commentForm.activity = function () {
-  return Activities.findOne(getCurrentActivityId());
+  return Activities.findOne(ReactiveGroupFilter.get("activity"));
 };
 
 Template.commentForm.events({

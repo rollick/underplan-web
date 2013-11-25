@@ -14,11 +14,15 @@ $entry-bottom-margin: 0.9em;
     margin-left: 0em;
     margin-right: 0em;
   }
+
+  &.single-item {
+    margin-top: 0em;
+  }
   
   .form-content {
     @include grid-column(12, $collapse: true);
     @include panel();
-    @include border-radius($standard-border-size);
+    @include border-radius($standard-corner-radius);
 
     border: none;
     padding: $standard-padding;

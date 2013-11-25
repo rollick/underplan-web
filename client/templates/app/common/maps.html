@@ -1,3 +1,14 @@
+<template name="mainMap">
+  <div class="top-extra home {{#if this.singleItem}}large{{/if}}">
+    <div class="map">
+      <div class="inner">
+        {{> activityMap}}
+      </div>
+    </div>
+  </div>
+  <div class="top-extra-handle hide-for-touch"><div><span></span></div></div>
+</template>
+
 <template name="staticMap">
   {{#if mapExists}}
     {{#constant}}

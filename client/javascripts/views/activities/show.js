@@ -7,7 +7,7 @@ Template.currentActivity.events({
     return false;
   },
   'click a.comments': function (event, template) {
-    var item = $(event.target).closest(".story-item");
+    var item = $(event.target).closest(".single-item");
     item.toggleClass("expanded");
     
     if (item.hasClass("expanded")) {
@@ -24,7 +24,7 @@ Template.currentActivity.events({
     }
 
     var self = this;
-    var item = $(event.target).closest(".story-item");
+    var item = $(event.target).closest(".single-item");
     item.addClass("expanded");
 
     if (item.hasClass("expanded"))
@@ -135,9 +135,9 @@ Template.activityControls.previousActivity = function () {
 // If the story has a short description and photos to show then return true
 // Used to alter layout in template for photo-centered view
 
-Template.storyContent.helpers(itemHelpers);
+Template.singleItemContent.helpers(itemHelpers);
 
-Template.storyContent.created = function() {
+Template.singleItemContent.created = function() {
   ///////////////////////
   // Share this on Google+
   window.___gcfg = {lang: 'en-GB'};
@@ -149,7 +149,7 @@ Template.storyContent.created = function() {
   })();
 };
 
-Template.storyContent.destroyed = function () {
+Template.singleItemContent.destroyed = function () {
   if (Galleria.length)
     Galleria.get(0).destroy();
 }

@@ -229,7 +229,7 @@ a.small.secondary {
 }
 
 .button {
-  @include border-radius($standard-border-size);
+  @include border-radius($standard-corner-radius);
   box-shadow: none;
   font-weight: normal;
 }

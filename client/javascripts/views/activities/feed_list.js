@@ -223,11 +223,11 @@ Template.storyFeedContent.events({
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Item Actions
 
-Template.feedItemActions.hasComments = function () {
+Template.itemActions.hasComments = function () {
   return Comments.find({activityId: this._id}).count() > 0;
 };
 
-Template.feedItemActions.countText = function () {
+Template.itemActions.countText = function () {
   var count = Comments.find({activityId: this._id}).count();
   var text = count;
 

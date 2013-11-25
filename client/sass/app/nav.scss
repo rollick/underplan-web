@@ -71,57 +71,61 @@
     margin-left: 0em;
     margin-right: 0em;
     padding: $standard-padding;
-  }
 
-  .country-container {
-    @include section-container($section-type:horizontal-nav);
+    .country-container {
+      @include section-container($section-type:horizontal-nav);
 
-    background: none;
-    width: 150px;
-    // margin: 0px auto;
-    height: $standard-control-height;
-    pointer-events: all;
+      background: none;
+      width: 180px;
+      height: $standard-control-height;
+      pointer-events: all;
 
-    &.horizontal-nav {
-      background: transparent;
-    }
+      &.horizontal-nav {
+        background: transparent;
+      }
 
-    section, .section {
-      .title {
-        @include border-radius(3px);
+      section, .section {
+        .title {
+          @include border-radius($standard-corner-radius);
 
-        padding-right: 0.5em;
+          padding-right: 0.5em;
+          text-align: center;
+          background: $standard-panel-bg;
+          opacity: 0.9;
+          width: 180px;
+          margin-left: -1px;
+        }
+
+        &.active .title {
+          @include border-bottom-radius($standard-corner-radius);
+
+          background: $standard-panel-bg;
+          opacity: 1.0;
+        }
+
+        .content {
+          @include border-bottom-radius($standard-corner-radius);
+
+          background: $standard-panel-bg;
+          border-top: none;
+          opacity: 0.9;
+          padding: $standard-padding;
+          // margin: 0em;
+          // margin-top: $standard-control-height;
+        }
+      }
+
+      .side-nav li {
         text-align: center;
-        background: $standard-panel-bg;
-        opacity: 0.9;
-      }
 
-      &.active .title {
-        @include border-bottom-radius(0);
-
-        background: $standard-panel-bg;
-        opacity: 1.0;
-      }
-
-      .content {
-        @include border-bottom-radius(3px);
-
-        background: $standard-panel-bg;
-        border-top: none;
-        opacity: 0.9;
-        padding: $standard-padding;
-      }
-    }
-
-    .side-nav li {
-      text-align: center;
-
-      &.active a {
-        font-weight: normal;
-        cursor: default;
+        &.active a {
+          font-weight: normal;
+          cursor: default;
+        }
       }
     }
   }
+
 }
 
 .group-nav {

@@ -2,10 +2,24 @@ Template.permaShorty.activity = function () {
   return Activities.findOne(ReactiveGroupFilter.get("activity"));
 };
 
+Template.permaShorty.events({
+  'click .edit': function () {
+    Router.setEditShortActivity(this);
+    return false;
+  }
+});
+
+///////////////////////////////////////////////////////////////////////////////
+// Shorty Editor
+
+Template.shortyEditor.activity = function () {
+  return Activities.findOne(ReactiveGroupFilter.get("activity"));
+};
+
 ///////////////////////////////////////////////////////////////////////////////
 // Short Form
 
-var clearHiddenLocationFields = function(template) {
+var clearHiddenLocationFields = function (template) {
   template.find("#lat").value = "";
   template.find("#lng").value = "";
   template.find("#city").value = "";
@@ -15,12 +29,35 @@ var clearHiddenLocationFields = function(template) {
   template.find(".location-coords").innerHTML = "";
 };
 
-var clearForm = function(template) {
+var clearForm = function (template) {
   clearHiddenLocationFields(template);
   template.find("#text").value = "";
   template.find("#location").value = "";
   template.find("#picasa-tags").value = "";
   template.find(".location-coords").innerHTML = "";
+};
+
+var getValues = function (template) {
+  return {
+    text:       template.find("#text").value,
+    location:   template.find("#location").value,
+    lat:        template.find("#lat").value,
+    lng:        template.find("#lng").value,
+    city:       template.find("#city").value,
+    country:    template.find("#country").value,
+    region:     template.find("#region").value,
+    picasaTags: template.find("#picasa-tags").value,
+    groupId:    ReactiveGroupFilter.get("group")
+  };
+}
+
+Template.shortForm.activity = function () {
+  var activityId = ReactiveGroupFilter.get("activity");
+  if (activityId) {
+    return Activities.findOne(activityId);
+  } else {
+    return {};
+  }
 };
 
 Template.shortForm.events({
@@ -31,8 +68,13 @@ Template.shortForm.events({
     return false;
   },
   'click .cancel': function (event, template) {
-    clearForm(template);
-    $(template.find("form")).removeClass("expanded");
+    var element = template.find("#_id");
+    if (element) {
+      Router.setPermaActivity(element.value);
+    } else {
+      clearForm(template);
+      $(template.find("form")).removeClass("expanded");
+    }
 
     return false;
   },
@@ -101,37 +143,42 @@ Template.shortForm.events({
 
     return false;
   },
+  'click .update': function (event, template) {
+    if($(template.find("a")).hasClass("disabled"))
+      return false;
+
+    var activityId = template.find("#_id").value;
+    var values = getValues(template);
+
+    if (values.groupId && values.text.length) {
+      Meteor.call('updateActivity', {notify: false, activityId: activityId, values: values}, function (error) {
+        if (error) {
+          Session.set("createError", error.reason);
+        } else {
+          clearForm(template);
+          Router.setPermaActivity(activityId);
+        }
+      });
+    } else {
+      Session.set("createError",
+                  "It needs to have text");
+    }
+    return false;
+  },
   'click .post': function (event, template) {
     if($(template.find("a")).hasClass("disabled"))
       return false;
 
-    var values = {};
-    values.text       = template.find("#text").value;
-    values.lat        = template.find("#lat").value;
-    values.lng        = template.find("#lng").value;
-    values.city       = template.find("#city").value;
-    values.country    = template.find("#country").value;
-    values.region     = template.find("#region").value;
-    values.picasaTags = template.find("#picasa-tags").value;
-    values.groupId    = ReactiveGroupFilter.get("group");
+    var values = getValues(template);
 
     if (values.groupId && values.text.length) {
       Meteor.call('createActivity', values, function (error, activityId) {
         if (error) {
           Session.set("createError", error.reason);
         } else {
+          clearForm(template);
+
           $(template.find("form")).removeClass("expanded");
-
-          template.find("#text").value = 
-          template.find("#picasa-tags").value =
-          template.find("#lat").value = 
-          template.find("#lng").value = 
-          template.find("#location").value =
-          template.find("#city").value =
-          template.find("#country").value =
-          template.find("#region").value = "";
-
-          template.find(".text-length").innerHTML = shortMaxLength;
         }
       });
     } else {

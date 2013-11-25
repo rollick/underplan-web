@@ -33,6 +33,7 @@
 
 .comment-form {
   @include grid-row(nest);
+  @include border-bottom-radius($standard-corner-radius);
 
   margin: 0em;
   padding-bottom: 0px;
@@ -94,7 +95,7 @@
   &.expanded {
     .user-comment {
       display: block;
-      height: 115px;
+      height: 120px;
 
       .info-section {
         .picture {

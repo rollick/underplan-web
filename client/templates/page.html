@@ -1,14 +1,3 @@
-<template name="mainMap">
-  <div class="feed-extra home">
-    <div class="map">
-      <div class="inner">
-        {{> activityMap}}
-      </div>
-    </div>
-  </div>
-  <div class="feed-handle hide-for-touch"><div><span></span></div></div>
-</template>
-
 <template name="page">
   {{#if showCreateDialog}}
     {{> createDialog}}
@@ -19,62 +8,18 @@
   {{/if}}
 
   <div class="nav {{#if pageOptions.highContent}}high-content{{else}}normal{{/if}}">
-      <div class="logo {{#if showGroupList}}home{{/if}}"><a href="/" class="main-home"></a></div>
+      <div class="logo {{#if pageOptions.isHome}}home{{/if}}"><a href="/" class="main-home"></a></div>
       {{> mainNav}}
   </div>
 
-  {{#if showActivityFeed}}
+  {{#if pageOptions.isFeed}}
     {{> groupActions}}
   {{/if}}
   
-  {{> mainMap}}
+  {{> mainMap pageOptions}}
 
-  <div class="main-content {{#if showGroupList}}dashboard{{else}}normal{{/if}}" role="content">
-    <div class="inner">
-      {{#if showInviteList}}
-        {{> groupInviteList}}
-      {{/if}}
-
-      {{#if showGroupEditor}}
-        {{> groupEditor}}
-      {{/if}}
-
-      {{#if showStoryEditor}}
-        {{> storyEditor}}
-      {{/if}}
-
-      {{#if showActivity}}
-        {{> currentActivity}}
-      {{/if}}
-
-      {{#if showPermaShorty}}
-        {{> permaShorty}}
-      {{/if}}
-
-      {{#if showActivityFeed}}
-        {{> activityFeed}}
-      {{/if}}
-
-      {{#if showMainSettings}}
-        {{> mainSettings}}
-      {{/if}}
-
-      {{#if showUserSettings}}
-        {{> userSettings}}
-      {{/if}}
-
-      {{#if showGroupSettings}}
-        {{> activityFeed}}
-      {{/if}}
-
-      {{#if showGroupList}}
-        {{> mainHome}}
-      {{/if}}
-
-      {{#if showLoginForm}}
-        {{> loginForm}}
-      {{/if}}
-    </div>
+  <div role="content" class="main-content {{#if pageOptions.isHome}}dashboard{{else}}normal{{/if}}">
+    <div class="inner">{{{mainTemplate}}}</div>
     <div class="push"></div>
   </div>
 

@@ -1,16 +1,14 @@
 <template name="currentActivity">
   {{#if activity}}
     {{#with activity}}
-    <div class="story-item" id="{{_id}}">
+    <div class="single-item" id="{{_id}}">
       <div class="inner">
-        <div class="activity story">
-          <div class="content">
-            {{> storyContent this}}
-          </div>
+        <div class="activity">
+          {{> singleItemContent this}}
         </div>
         {{> activityControls this}}
-        {{> feedItemActions}}
-        {{> feedItemComments}}
+        {{> itemActions}}
+        {{> itemComments}}
       </div>
     </div>
     {{/with}}
@@ -48,12 +46,11 @@
   </div>
 </template>
 
-<template name="storyContent">
-  {{#unless published}}<span class="alert-box alert">Unpublished<br /></span>{{/unless}}
-  <div class="info-section {{#if hasMap}}large map{{/if}}" style="background-image: url('{{mapUrl}}')">
+<template name="singleItemContent">
+  <div class="info-section">
     {{#if canEdit}}
       <div class="show actions">
-        <a href="{{slug}}/edit" class="edit action"></a>
+        <a href="{{editUrl}}" class="edit action"></a>
       </div>
     {{/if}}
     <div class="picture">
@@ -65,8 +62,9 @@
     </div>
   </div>
   <div class="content">
-    <h2>{{title}}</h2>
+    {{#unless published}}<span class="alert-box alert">Unpublished<br /></span>{{/unless}}
 
+    {{#if title}}<h2>{{title}}</h2>{{/if}}
     {{#if hasWiki}}
       {{wikiContent}}
     {{/if}}

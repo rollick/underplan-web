@@ -27,57 +27,10 @@ self.commentsSubscription = self.activitiesSubscription = null;
 self.activityCommentStatus = {};
 
 ///////////////////////////////////////////////////////////////////////////////
-// Main Autorun Deps
-
-Deps.autorun(function () {
-
-  var activityId = ReactiveGroupFilter.get("activity");
-  if (activityId) {
-    logIfDev("Subscribe to activity");
-
-    self.activitySubscription = Meteor.subscribe("activityShow", activityId);
-    self.commentsSubscription = Meteor.subscribe("activityComments", activityId);
-  }
-
-  var groupId = ReactiveGroupFilter.get("group");
-  if (groupId) {
-    logIfDev("Subscribe to group data");
-    
-    var filter = ReactiveGroupFilter.get("feedFilter") || {};
-    if (filter.group !== groupId) {
-      // set the group without causing reactive
-      ReactiveGroupFilter.set('group', groupId, {quiet: true});
-    }
-    if (!filter.limit) {
-      // set the group without causing reactive
-      ReactiveGroupFilter.set('limit', feedLimitSkip, {quiet: true});
-    }
-
-    self.feedMapSubscription = Meteor.subscribe("basicActivityData", groupId);
-
-    var options = ReactiveGroupFilter.get("subscriptionOptions");
-    self.feedListSubscription = Meteor.subscribe("feedActivities", options);
-    self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);    
-  }
-
-  if (Session.get("expandedActivities")) {
-    var options = {
-      groupId: groupId,
-      activityIds: Session.get("expandedActivities"),
-      limit: ReactiveGroupFilter.get("limit"),
-      country: ReactiveGroupFilter.get("country")
-    };
-
-    if (options.activityIds.length)
-      self.commentsSubscription = Meteor.subscribe("openFeedComments", options);
-  }
-});
-
-///////////////////////////////////////////////////////////////////////////////
 // Meteor Startup
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.120");
+  Session.set("appVersion", "v1.3.121");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -98,97 +51,57 @@ Meteor.startup(function () {
     });
   }
 
-  Meteor.autorun(function() {
+  ///////////////////////////////////////////////////////////////////////////////
+  // Main Autorun Deps
+
+  Deps.autorun(function () {
+
+    var activityId = ReactiveGroupFilter.get("activity");
+    if (activityId) {
+      logIfDev("Subscribe to activity");
+
+      self.activitySubscription = Meteor.subscribe("activityShow", activityId);
+      self.commentsSubscription = Meteor.subscribe("activityComments", activityId);
+    }
+
+    var groupId = ReactiveGroupFilter.get("group");
+    if (groupId) {
+      logIfDev("Subscribe to group data");
+      
+      var filter = ReactiveGroupFilter.get("feedFilter") || {};
+      if (filter.group !== groupId) {
+        // set the group without causing reactive
+        ReactiveGroupFilter.set('group', groupId, {quiet: true});
+      }
+      if (!filter.limit) {
+        // set the group without causing reactive
+        ReactiveGroupFilter.set('limit', feedLimitSkip, {quiet: true});
+      }
+
+      self.feedMapSubscription = Meteor.subscribe("basicActivityData", groupId);
+
+      var options = ReactiveGroupFilter.get("subscriptionOptions");
+      self.feedListSubscription = Meteor.subscribe("feedActivities", options);
+      self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);    
+    }
+
+    if (Session.get("expandedActivities")) {
+      var options = {
+        groupId: groupId,
+        activityIds: Session.get("expandedActivities"),
+        limit: ReactiveGroupFilter.get("limit"),
+        country: ReactiveGroupFilter.get("country")
+      };
+
+      if (options.activityIds.length)
+        self.commentsSubscription = Meteor.subscribe("openFeedComments", options);
+    }
+
     var group = Groups.findOne(ReactiveGroupFilter.get("group"));
     if (!!group)
       document.title = "Underplan: " + group.name;
   });
 });
-
-///////////////////////////////////////////////////////////////////////////////
-// Templates
-
-this.appTemplates = function () {
-  return {
-    groupInviteList:  "showInviteList",
-    currentActivity:  ["showActivity", {highContent: true}],
-    storyEditor:      "showStoryEditor",
-    groupEditor:      "showGroupEditor",
-    activityFeed:     ["showActivityFeed", {highContent: true}],
-    mainHome:         ["showGroupList", {highContent: true}],
-    userSettings:     "showUserSettings",
-    loginForm:        "showLoginForm",
-    mainSettings:     "showMainSettings",
-    permaShorty:      ["showPermaShorty", {highContent: true}]
-  };
-};
-
-this.showTemplate = function (templateName, callback) {
-  var conditions = this.appTemplates();
-
-  _.each(_.keys(conditions), function (key) {
-    // If is array then template includes template options
-    var flag = null,
-        options = {};
-    if (_.isArray(conditions[key])) {
-      flag = conditions[key][0];
-      options = conditions[key][1];
-    } else {
-      flag = conditions[key];
-    }
-
-    if (key === templateName) {
-      Session.set(flag, true);
-      Session.set('pageOptions', options)
-    } else {
-      Session.set(flag, false);
-    }
-  });
-
-  if (_.isFunction(callback)) {
-    callback();
-  }
-};
-
-Template.page.pageOptions = function () {
-  return Session.get("pageOptions");
-};
-
-Template.page.showGroupList = function () {
-  return Session.get("showGroupList");
-};
-
-Template.page.showGroupEditor = function () {
-  return Session.get("showGroupEditor");
-};
-
-Template.page.showActivityFeed = function () {
-  return Session.get("showActivityFeed");
-};
-
-Template.page.showStoryEditor = function () {
-  return Session.get("showStoryEditor");
-};
-
-Template.page.showActivity = function () {
-  return Session.get("showActivity");
-};
-
-Template.page.showPermaShorty = function () {
-  return Session.get("showPermaShorty");
-};
-
-Template.page.showGroupList = function () {
-  return Session.get("showGroupList");
-};
-
-Template.page.showUserSettings = function () {
-  return Session.get("showUserSettings");
-};
-
-Template.page.showMainSettings = function () {
-  return Session.get("showMainSettings");
-};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Common Functions
