@@ -370,12 +370,13 @@
   @include grid-row(nest);
   @include panel();
   @include border-radius($standard-border-size);
-  
+
   $story-radius: 1px;
   margin: 0 $ribbon-wrapper-strip;
   padding: $standard-corner-radius;
   position: relative;
   margin-bottom: $standard-small-margin * 2;
+  border: none;
 
   @media only screen and (min-width: 48em) {
     margin: 0em;

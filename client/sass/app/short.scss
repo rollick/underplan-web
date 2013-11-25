@@ -19,7 +19,8 @@ $entry-bottom-margin: 0.9em;
     @include grid-column(12, $collapse: true);
     @include panel();
     @include border-radius($standard-border-size);
-    
+
+    border: none;
     padding: $standard-padding;
     margin-bottom: 0px;
 

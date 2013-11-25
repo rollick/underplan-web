@@ -1320,6 +1320,7 @@ blockquote p {
   -ms-border-radius: 3px;
   -o-border-radius: 3px;
   border-radius: 3px;
+  border: none;
   padding: 0.5em;
   margin-bottom: 0px;
 }
@@ -1344,11 +1345,11 @@ blockquote p {
 .short-form .form-content h1.subheader, .short-form .form-content h2.subheader, .short-form .form-content h3.subheader, .short-form .form-content h4.subheader, .short-form .form-content h5.subheader, .short-form .form-content h6.subheader {
   line-height: 1.4;
 }
-/* line 26, ../../sass/app/short.scss */
+/* line 27, ../../sass/app/short.scss */
 .short-form .form-content form {
   padding: 10px;
 }
-/* line 31, ../../sass/app/short.scss */
+/* line 32, ../../sass/app/short.scss */
 .short-form .form-content form .text-section,
 .short-form .form-content form .location-section,
 .short-form .form-content form .action-section {
@@ -1375,7 +1376,7 @@ blockquote p {
 .short-form .form-content form .action-section:after {
   clear: both;
 }
-/* line 37, ../../sass/app/short.scss */
+/* line 38, ../../sass/app/short.scss */
 .short-form .form-content form .text-section .input-field {
   position: relative;
   padding-left: 0.9375em;
@@ -1383,14 +1384,14 @@ blockquote p {
   width: 66.66667%;
   float: left;
 }
-/* line 40, ../../sass/app/short.scss */
+/* line 41, ../../sass/app/short.scss */
 .short-form .form-content form .text-section .input-field textarea {
   height: 40px;
   min-height: 0px !important;
   margin-bottom: 0px;
   padding: 0.7em;
 }
-/* line 48, ../../sass/app/short.scss */
+/* line 49, ../../sass/app/short.scss */
 .short-form .form-content form .text-section .add-story {
   position: relative;
   padding-left: 0.9375em;
@@ -1401,30 +1402,30 @@ blockquote p {
   padding-left: 0px !important;
   margin-top: 0.8em;
 }
-/* line 58, ../../sass/app/short.scss */
+/* line 59, ../../sass/app/short.scss */
 .short-form .form-content form .location-section,
 .short-form .form-content form .action-section {
   display: none;
 }
-/* line 61, ../../sass/app/short.scss */
+/* line 62, ../../sass/app/short.scss */
 .short-form .form-content form .location-section .button,
 .short-form .form-content form .action-section .button {
   margin-bottom: 0em;
 }
-/* line 67, ../../sass/app/short.scss */
+/* line 68, ../../sass/app/short.scss */
 .short-form .form-content form .location-section .location-fields {
   display: none;
 }
-/* line 72, ../../sass/app/short.scss */
+/* line 73, ../../sass/app/short.scss */
 .short-form .form-content form .location-section .show-advanced-location:before {
   content: "- ";
 }
-/* line 80, ../../sass/app/short.scss */
+/* line 81, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .location-section,
 .short-form .form-content form.expanded .action-section {
   display: inherit;
 }
-/* line 85, ../../sass/app/short.scss */
+/* line 86, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .input-field {
   position: relative;
   padding-left: 0.9375em;
@@ -1432,12 +1433,12 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 88, ../../sass/app/short.scss */
+/* line 89, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .input-field textarea {
   margin-bottom: 0.8em;
   height: 80px;
 }
-/* line 94, ../../sass/app/short.scss */
+/* line 95, ../../sass/app/short.scss */
 .short-form .form-content form.expanded .text-section .add-story {
   display: none;
 }
