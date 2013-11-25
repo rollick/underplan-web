@@ -179,7 +179,7 @@ createMapObject = function () {
       };
 
       ImageMarker.prototype.onRemove = function() {
-        this.$div.remove();
+        this.$div.animate({opacity: 0}, 500).remove();
       };
 
       ImageMarker.prototype.draw = function() {
@@ -190,19 +190,19 @@ createMapObject = function () {
         this.$div.css({
           left: position.x,
           top: position.y - 45 - 10, // minus profile and tick heights
-          display: "block"
-        })
+          display: "block",
+          opacity: 0
+        }).animate({opacity: 1.0}, 500);
 
         var img = $("<img src='" + this.get("image") + "'/>");
 
         this.$inner
-          .css({display: "none"})
           .html(img)
           .attr("id", this.get("_id"))
           .click( function( event ) {
             var events = marker.get("events");
             events && events.click( event );
-          }).show().animate({opacity: 1.0}, 1750);
+          })
       };
     }
   }
