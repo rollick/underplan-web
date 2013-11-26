@@ -223,6 +223,7 @@
   $info-section-margin: 0.5em;
   $info-section-padding: 0.3em;
   $info-section-height: $picture-width;
+  $dark-details-bg: rgba(0, 0, 0, 0.7);
 
   // padding: $info-section-padding 0;
   margin: $info-section-margin;
@@ -244,7 +245,7 @@
 
     a.action {
       width: 2em;
-      height: 2em;
+      height: 1.8em;
       font-weight: bold;
       display: inline-block;
 
@@ -254,26 +255,26 @@
 
       &.remove {
         padding-left: 0.7em;
-        padding-top: 0.5em;
+        padding-top: 0.4em;
         background-color: $warning-color;
 
         &:before {
           content: "X";
           color: lighten($warning-color, 25%);
-          font-weight: 400;
+          font-weight: 100;
           padding-left: 1px;
         }
       }
 
       &.edit {
         padding-left: 0.7em;
-        padding-top: 0.5em;
-        background-color: $secondary-navbar-bg;
+        padding-top: 0.4em;
+        background: $dark-details-bg;
 
         &:before {
           content: "Edit";
-          font-weight: normal;
-          color: lighten($secondary-navbar-bg, 50%);
+          font-weight: 100;
+          color: #fff;
         }
       }
     }
@@ -349,6 +350,11 @@
       .actions {
         top: inherit;
         bottom: 0.5em;
+        line-height: 1em;
+
+        @media only screen and (min-width: 48em) {
+          // right: $info-section-margin;
+        }
       }
 
       .details {
@@ -358,9 +364,13 @@
         top: inherit;
         bottom: $info-section-margin;
         left: 2em;
-        background-color: rgba(0, 0, 0, 0.55);
+        background-color: $dark-details-bg;
         padding-left: 2.5em;
         z-index: 1;
+
+        @media only screen and (min-width: 48em) {
+          // right: $info-section-margin;
+        }
 
         .date {
           color: #D8D8D8;
@@ -408,7 +418,7 @@
         top: inherit;
         bottom: $info-section-margin;
         left: 2em;
-        background-color: rgba(0, 0, 0, 0.55);
+        background-color: $dark-details-bg;
         padding-left: 2.5em;
         z-index: 1;
 

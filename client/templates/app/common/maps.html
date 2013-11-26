@@ -3,19 +3,10 @@
     <div class="map">
       <div class="inner">
         {{> activityMap}}
-        {{> activityCountControl}}
       </div>
     </div>
   </div>
   <div class="top-extra-handle hide-for-touch"><div><span></span></div></div>
-</template>
-
-<template name="activityCountControl">
-  {{#if showCountControl}}
-    <div class="map-secondary-actions">
-      {{loadMore}}
-    </div>
-  {{/if}}
 </template>
 
 <template name="staticMap">

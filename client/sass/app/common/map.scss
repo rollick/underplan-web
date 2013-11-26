@@ -19,8 +19,7 @@
     opacity: 0.8;
     height: 100%;
     cursor: pointer;
-    background: $standard-panel-bg;
-    opacity: 0.9;
+    background: $standard-map-control-bg;
     color: $primary-color;
     font-weight: 100;
 
@@ -37,7 +36,7 @@
 
   .zoom-in {
     float: left;
-    margin-bottom: 0.2em;
+    margin-bottom: $standard-padding;
 
     &:before {
       content: "+";
@@ -56,28 +55,26 @@
 }
 
 .map-secondary-actions {
-  position: absolute;
-  // border: 1px solid red;
-  width: 100%;
+  position: relative;
   text-align: center;
-  margin-top: -$standard-control-height - 0.5em;
+  // margin-top: -$standard-control-height - 0.5em;
   pointer-events: none;
+  float: left;
+  padding-left: $standard-padding;
 
   .load-more {
     @include border-radius($standard-corner-radius);
 
     font-size: 0.9em;
-    background: white;
-    opacity: 0.9;
-    // border: 1px solid blue;
+    background: $standard-map-control-bg;
     pointer-events: all;
-    width: 125px;
     margin: 0 auto;
-    height: $standard-control-height;
+    height: 25px;
     margin-bottom: 0.5em;
+    padding: 0 $standard-padding;
 
     a {
-      line-height: $standard-control-height;
+      line-height: 25px;
       padding: 0px;
       display: inline;
     }

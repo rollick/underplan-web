@@ -87,13 +87,14 @@ Template.activityCountControl.helpers({
     }
 
     var container = $("<div />").addClass(classNames);
-    var link = $("<a />").attr("href", "#").html(linkText + " (" + limit + "/" + total + ")");
+    var link = $("<a />").attr("href", "#").html(linkText + " - " + limit + "/" + total + "");
     var html = $('<div>').append(container.append(link));
 
     return new Handlebars.SafeString(html.html());
   },
   showCountControl: function () {
-    return !!ReactiveGroupFilter.get("group");
+    // when the group is set but not an activity
+    return !!ReactiveGroupFilter.get("group") && !ReactiveGroupFilter.get("activity");
   }
 });
 

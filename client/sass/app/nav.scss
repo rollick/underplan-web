@@ -64,6 +64,7 @@
   background-color: transparent;
   pointer-events: none;
   position: absolute;
+  width: auto;
 
   & > .inner {
     @include grid-column(12);
@@ -76,24 +77,25 @@
       @include section-container($section-type:horizontal-nav);
 
       background: none;
-      width: 180px;
       height: $standard-control-height;
       pointer-events: all;
+      float: left;
+      width: 180px;
 
       &.horizontal-nav {
         background: transparent;
       }
 
       section, .section {
+        width: 100%;
+
         .title {
           @include border-radius($standard-corner-radius);
 
           padding-right: 0.5em;
           text-align: center;
-          background: $standard-panel-bg;
-          opacity: 0.9;
-          width: 180px;
-          // margin-left: -1px;
+          background: $standard-map-control-bg;
+          padding: 0 $standard-padding;
         }
 
         &.active .title {
@@ -106,12 +108,11 @@
         .content {
           @include border-bottom-radius($standard-corner-radius);
 
+          right: 0 !important;
           background: $standard-panel-bg;
           border-top: none;
           opacity: 0.9;
           padding: $standard-padding;
-          // margin: 0em;
-          // margin-top: $standard-control-height;
         }
       }
 
