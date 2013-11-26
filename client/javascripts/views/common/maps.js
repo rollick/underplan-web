@@ -75,12 +75,25 @@ Template.mainMap.helpers({
 
     limit = total < limit ? total : limit;
  
-    var classNames = limit < total ? "load-more" : "load-more disabled";
+    var classNames = "",
+        linkText = "";
+
+    if (limit < total) {
+      classNames = "load-more";
+      linkText = "Load More";
+    } else {
+      classNames = "load-more disabled";
+      linkText = "Complete";
+    }
+
     var container = $("<div />").addClass(classNames);
-    var link = $("<a />").attr("href", "#").html("Load More (" + limit + "/" + total + ")");
+    var link = $("<a />").attr("href", "#").html(linkText + " (" + limit + "/" + total + ")");
     var html = $('<div>').append(container.append(link));
 
     return new Handlebars.SafeString(html.html());
+  },
+  showCountControl: function () {
+    return !!ReactiveGroupFilter.get("group");
   }
 });
 

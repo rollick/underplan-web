@@ -227,6 +227,58 @@
   // padding: $info-section-padding 0;
   margin: $info-section-margin;
 
+  .actions {
+    height: $info-section-height;
+    margin-top: -$info-section-padding;
+    right: 0em;
+    top: $info-section-margin;
+    font-size: 1em;
+    color: black;
+    z-index: 102;
+    position: absolute;
+    display: none;
+
+    &.show {
+      display: block;
+    }
+
+    a.action {
+      width: 2em;
+      height: 2em;
+      font-weight: bold;
+      display: inline-block;
+
+      &.edit {
+        width: 3.3em;       
+      }
+
+      &.remove {
+        padding-left: 0.7em;
+        padding-top: 0.5em;
+        background-color: $warning-color;
+
+        &:before {
+          content: "X";
+          color: lighten($warning-color, 25%);
+          font-weight: 400;
+          padding-left: 1px;
+        }
+      }
+
+      &.edit {
+        padding-left: 0.7em;
+        padding-top: 0.5em;
+        background-color: $secondary-navbar-bg;
+
+        &:before {
+          content: "Edit";
+          font-weight: normal;
+          color: lighten($secondary-navbar-bg, 50%);
+        }
+      }
+    }
+  }
+
   .info-section {
     @include grid-column(12);
 
@@ -273,7 +325,7 @@
     @if $dark-details {
       overflow-x: scroll;
       -webkit-overflow-scrolling: touch;
-      background-color: $topbar-bg;
+      // background-color: $topbar-bg;
       height: 140px;
       color: white;
 
@@ -292,6 +344,11 @@
           margin-top: 0em;
           @include border-radius($info-section-height/2);
         }
+      }
+
+      .actions {
+        top: inherit;
+        bottom: 0.5em;
       }
 
       .details {
@@ -393,58 +450,6 @@
         .date:before {
           content: "-";
           padding: 0.3em;
-        }
-      }
-    }
-  }
-
-  .actions {
-    height: $info-section-height;
-    margin-top: -$info-section-padding;
-    right: 0em;
-    top: $info-section-margin;
-    font-size: 1em;
-    color: black;
-    z-index: 102;
-    position: absolute;
-    display: none;
-
-    &.show {
-      display: block;
-    }
-
-    a.action {
-      width: 2em;
-      height: 2em;
-      font-weight: bold;
-      display: inline-block;
-
-      &.edit {
-        width: 3.3em;       
-      }
-
-      &.remove {
-        padding-left: 0.7em;
-        padding-top: 0.5em;
-        background-color: $warning-color;
-
-        &:before {
-          content: "X";
-          color: lighten($warning-color, 25%);
-          font-weight: 400;
-          padding-left: 1px;
-        }
-      }
-
-      &.edit {
-        padding-left: 0.7em;
-        padding-top: 0.5em;
-        background-color: $secondary-navbar-bg;
-
-        &:before {
-          content: "Edit";
-          font-weight: normal;
-          color: lighten($secondary-navbar-bg, 50%);
         }
       }
     }

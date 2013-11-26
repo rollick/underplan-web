@@ -3,9 +3,11 @@
     <div class="map">
       <div class="inner">
         {{> activityMap}}
-        <div class="map-secondary-actions">
-          {{activityCountControl}}
-        </div>
+        {{#if showCountControl}}
+          <div class="map-secondary-actions">
+            {{activityCountControl}}
+          </div>
+        {{/if}}
       </div>
     </div>
   </div>
