@@ -55,6 +55,35 @@
   }
 }
 
+.map-secondary-actions {
+  position: absolute;
+  // border: 1px solid red;
+  width: 100%;
+  text-align: center;
+  margin-top: -$standard-control-height - 0.5em;
+  pointer-events: none;
+
+  .load-more {
+    @include border-radius($standard-corner-radius);
+
+    font-size: 0.9em;
+    background: white;
+    opacity: 0.9;
+    // border: 1px solid blue;
+    pointer-events: all;
+    width: 120px;
+    margin: 0 auto;
+    height: $standard-control-height;
+    margin-bottom: 0.5em;
+
+    a {
+      line-height: $standard-control-height;
+      padding: 0px;
+      display: inline;
+    }
+  }
+}
+
 .map-marker {
   $marker-corner-radius: 22em;
   $marker-image-width: 70px;

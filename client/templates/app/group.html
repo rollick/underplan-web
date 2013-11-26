@@ -1,0 +1,48 @@
+<template name="groupItem">
+  <div class="group">
+    {{#with this}}
+      <div class="panel radius">
+        {{#if userCanFollow}}
+          <div class="follow-group"> 
+            <a href="#" class="{{#if followingGroup}}followed{{/if}} foundicon-general-star"></a>
+            {{#constant}}<div class="text"></div>{{/constant}}
+          </div>
+        {{/if}}
+        <h5>
+          <a href="/{{slug}}" class="foundicon-flag"> {{name}}</a>
+        </h5>
+        <span class="started">
+          <i class="foundicon-general-clock"></i>
+          <p>{{date created}}</p>
+        </span>
+        {{#if description}}<p>{{description}}</p>{{/if}}
+      </div>
+    {{/with}}
+  </div>
+</template>
+
+<template name="groupActions">
+  <div class="group-controls">
+    <div class="inner">
+      {{> countryFilter}}
+    </div>
+  </div>
+</template>
+
+<template name="countryFilter">
+  {{#if showCountryFilter}}
+    <div class="section-container country-container" data-section="horizontal-nav" data-section-resized="true">
+      <section class="section">
+        <p class="title"><a href="#">{{currentCountry}}</a></p>
+        <div class="content">
+          <ul class="side-nav country-filter">
+            <li class="{{isCurrentCountry "all"}}"><a href="#" class="all">All Countries</a></li>
+            {{#each countries}}
+              <li class="{{isCurrentCountry this}}"><a href="#">{{this}}</a></dt>
+            {{/each}}
+          </ul>
+        </div>
+      </section>
+    </div>
+  {{/if}}
+</template>

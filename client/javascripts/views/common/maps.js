@@ -8,14 +8,14 @@ activityStaticMap = function(activity) {
 
   var dimensions = "720x240";
   var apiKey = appSettings().mapsApiKey;
-
+  
   imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&zoom=:zoom&sensor=false&size=:dimensions&maptype=roadmap&visible=:lat,:lng&markers=color:green|label::label|:lat,:lng";
   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
                       replace(/:random/, Math.round((new Date()).getTime() / 1000)).
-                      replace(/:zoom/, _.isNumber(parseInt(activity.mapZoom)) ? activity.mapZoom : 12).
+                      replace(/:zoom/, (!!parseInt(activity.mapZoom) ? activity.mapZoom : 12)).
                       replace(/:lng/g, activity.lng).
                       replace(/:lat/g, activity.lat).
-                      replace(/:label/, activity.location);
+                      replace(/:label/, encodeURIComponent(activity.location));
 
   if (apiKey != "")
     imageUrl = imageUrl + "&key=" + apiKey;
@@ -128,7 +128,7 @@ setupMap = function () {
     if (type === "feed") {
       logIfDev("Render Feed Map...");
       conds = ReactiveGroupFilter.get('queryFields');
-      options = {sort: {created: -1}};
+      options = {sort: {created: -1}, limit: ReactiveGroupFilter.get("limit")};
     } else if (type === "home") {
       logIfDev("Render Home Map...");
       conds = {};
