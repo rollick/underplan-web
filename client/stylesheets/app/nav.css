@@ -2380,7 +2380,7 @@ blockquote p {
   border-radius: 3px;
   padding-right: 0.5em;
   text-align: center;
-  background: white;
+  background: rgba(255, 255, 255, 0.9);
   padding: 0 0.5em;
 }
 /* line 101, ../../sass/app/nav.scss */
@@ -2547,31 +2547,31 @@ blockquote p {
   background-color: #009700;
 }
 
-/* line 256, ../../sass/app/nav.scss */
-li.text {
+/* line 257, ../../sass/app/nav.scss */
+.top-bar-section li.text {
   color: rgba(196, 196, 196, 0.4);
   padding: 10px;
-  font-size: 0.9em;
+  height: 45px;
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 256, ../../sass/app/nav.scss */
-  li.text {
+  /* line 257, ../../sass/app/nav.scss */
+  .top-bar-section li.text {
     color: rgba(145, 145, 145, 0.4);
     background-color: rgba(17, 17, 17, 0.4);
   }
 }
 
-/* line 269, ../../sass/app/nav.scss */
+/* line 270, ../../sass/app/nav.scss */
 li.login-services {
-  height: 40px;
+  height: 45px;
 }
-/* line 272, ../../sass/app/nav.scss */
+/* line 273, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 277, ../../sass/app/nav.scss */
+/* line 278, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -2579,7 +2579,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 285, ../../sass/app/nav.scss */
+/* line 286, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

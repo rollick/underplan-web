@@ -253,21 +253,22 @@
   background-color: rgb(0, 151, 0);
 }
 
-li.text {
-  color: lighten($topbar-bg, 70%);
-  padding: 10px;
-  font-size: 0.9em;
-  cursor: default;
-  // font-style: italic;
+.top-bar-section {
+  li.text {
+    color: lighten($topbar-bg, 70%);
+    padding: 10px;
+    height: 45px;
+    cursor: default;
 
-  @media only screen and (min-width: 48em) {
-    color: lighten($topbar-bg, 50%);
-    background-color: $topbar-bg;
-  }
+    @media only screen and (min-width: 48em) {
+      color: lighten($topbar-bg, 50%);
+      background-color: $topbar-bg;
+    }
+  }  
 }
 
 li.login-services {
-  height: 40px;
+  height: 45px;
 
   a {
     padding-top: 5px !important;
