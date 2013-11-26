@@ -32,7 +32,7 @@ self.activityCommentStatus = {};
 Meteor.startup(function () {
   logIfDev("===Starting Underplan===");
 
-  Session.set("appVersion", "v1.3.128");
+  Session.set("appVersion", "v1.3.129");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);

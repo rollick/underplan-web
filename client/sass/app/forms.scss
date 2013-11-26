@@ -7,6 +7,16 @@
 
   padding-top: 5px;
 
+  .section, section {
+    &:first-of-type {
+      border-top: 1px solid #CCC;
+    }
+
+    &.active:first-of-type {
+      border-top: inherit;
+    }
+  }
+
   .show-advanced-location {
     &:before {
       content: "- ";
