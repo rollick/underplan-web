@@ -57,11 +57,16 @@
 
 .map-marker {
   $marker-corner-radius: 22em;
-  $marker-image-width: 65px;
+  $marker-image-width: 70px;
+  $marker-image-small-width: 50px;
   $marker-short-color: $primary-color; //lighten(gray, 30%);
   $marker-story-color: $notice-color; //darken(gray, 10%);
 
   margin-top: -18px;
+
+  &.panning {
+    opacity: 0.2;
+  }
 
   .tick {
     position: absolute;
@@ -88,10 +93,18 @@
     // z-index: 10;
 
     img {
-      @include border-radius($marker-image-width / 2);
+      @include border-radius($marker-image-small-width / 2);
 
-      width: $marker-image-width; 
-      height: $marker-image-width;
+      width: $marker-image-small-width; 
+      height: $marker-image-small-width;
+
+      @media only screen and (min-width: 48em) {
+        @include border-radius($marker-image-width / 2);
+
+        width: $marker-image-width; 
+        height: $marker-image-width;
+      }
+
       pointer-events: none;
       background-color: #C0C0C0;
       border-style: solid;

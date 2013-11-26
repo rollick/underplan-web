@@ -179,7 +179,7 @@ createMapObject = function () {
       };
 
       ImageMarker.prototype.onRemove = function() {
-        this.$div.animate({opacity: 0}, 500).remove();
+        this.$div.remove();
       };
 
       ImageMarker.prototype.draw = function() {
@@ -190,9 +190,8 @@ createMapObject = function () {
         this.$div.css({
           left: position.x,
           top: position.y - 45 - 10, // minus profile and tick heights
-          display: "block",
-          opacity: 0
-        }).animate({opacity: 1.0}, 500);
+          display: "block"
+        });
 
         var img = $("<img src='" + this.get("image") + "'/>");
 

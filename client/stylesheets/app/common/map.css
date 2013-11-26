@@ -197,7 +197,11 @@ select {
 .map-marker {
   margin-top: -18px;
 }
-/* line 66, ../../../sass/app/common/map.scss */
+/* line 67, ../../../sass/app/common/map.scss */
+.map-marker.panning {
+  opacity: 0.2;
+}
+/* line 71, ../../../sass/app/common/map.scss */
 .map-marker .tick {
   position: absolute;
   left: 0;
@@ -210,7 +214,7 @@ select {
   border-top-style: solid;
   border-top-width: 10px;
 }
-/* line 79, ../../../sass/app/common/map.scss */
+/* line 84, ../../../sass/app/common/map.scss */
 .map-marker .inner {
   position: relative;
   left: -50%;
@@ -221,38 +225,50 @@ select {
   cursor: pointer;
   overflow: hidden;
 }
-/* line 90, ../../../sass/app/common/map.scss */
+/* line 95, ../../../sass/app/common/map.scss */
 .map-marker .inner img {
-  -webkit-border-radius: 32.5px;
-  -moz-border-radius: 32.5px;
-  -ms-border-radius: 32.5px;
-  -o-border-radius: 32.5px;
-  border-radius: 32.5px;
-  width: 65px;
-  height: 65px;
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -o-border-radius: 25px;
+  border-radius: 25px;
+  width: 50px;
+  height: 50px;
   pointer-events: none;
   background-color: #C0C0C0;
   border-style: solid;
   border-width: 2px;
 }
-/* line 103, ../../../sass/app/common/map.scss */
+@media only screen and (min-width: 48em) {
+  /* line 95, ../../../sass/app/common/map.scss */
+  .map-marker .inner img {
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    -ms-border-radius: 35px;
+    -o-border-radius: 35px;
+    border-radius: 35px;
+    width: 70px;
+    height: 70px;
+  }
+}
+/* line 116, ../../../sass/app/common/map.scss */
 .map-marker.short .tick {
   border-top-color: green;
 }
-/* line 104, ../../../sass/app/common/map.scss */
+/* line 117, ../../../sass/app/common/map.scss */
 .map-marker.short .inner img {
   border-color: green;
 }
-/* line 108, ../../../sass/app/common/map.scss */
+/* line 121, ../../../sass/app/common/map.scss */
 .map-marker.story .tick {
   border-top-color: #1f4100;
 }
-/* line 109, ../../../sass/app/common/map.scss */
+/* line 122, ../../../sass/app/common/map.scss */
 .map-marker.story .inner img {
   border-color: #1f4100;
 }
 
-/* line 113, ../../../sass/app/common/map.scss */
+/* line 126, ../../../sass/app/common/map.scss */
 .map.panning .map-marker {
   opacity: 0.2;
 }
