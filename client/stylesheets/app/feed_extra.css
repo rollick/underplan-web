@@ -1205,120 +1205,120 @@ blockquote p {
 }
 
 @keyframes mapInserted {
-  /* line 111, ../../sass/_components.scss */
+  /* line 98, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 112, ../../sass/_components.scss */
+  /* line 99, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-moz-keyframes mapInserted {
-  /* line 116, ../../sass/_components.scss */
+  /* line 103, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 117, ../../sass/_components.scss */
+  /* line 104, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-webkit-keyframes mapInserted {
-  /* line 121, ../../sass/_components.scss */
+  /* line 108, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 122, ../../sass/_components.scss */
+  /* line 109, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-ms-keyframes mapInserted {
-  /* line 126, ../../sass/_components.scss */
+  /* line 113, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 127, ../../sass/_components.scss */
+  /* line 114, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-o-keyframes mapInserted {
-  /* line 131, ../../sass/_components.scss */
+  /* line 118, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 132, ../../sass/_components.scss */
+  /* line 119, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @keyframes galleryInserted {
-  /* line 111, ../../sass/_components.scss */
+  /* line 98, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 112, ../../sass/_components.scss */
+  /* line 99, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-moz-keyframes galleryInserted {
-  /* line 116, ../../sass/_components.scss */
+  /* line 103, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 117, ../../sass/_components.scss */
+  /* line 104, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-webkit-keyframes galleryInserted {
-  /* line 121, ../../sass/_components.scss */
+  /* line 108, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 122, ../../sass/_components.scss */
+  /* line 109, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-ms-keyframes galleryInserted {
-  /* line 126, ../../sass/_components.scss */
+  /* line 113, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 127, ../../sass/_components.scss */
+  /* line 114, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-o-keyframes galleryInserted {
-  /* line 131, ../../sass/_components.scss */
+  /* line 118, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 132, ../../sass/_components.scss */
+  /* line 119, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
@@ -1579,7 +1579,7 @@ blockquote p {
 .top-extra .gallery-more:after {
   clear: both;
 }
-/* line 176, ../../sass/_components.scss */
+/* line 163, ../../sass/_components.scss */
 .top-extra .gallery-more > .content {
   position: relative;
   padding-left: 0.9375em;

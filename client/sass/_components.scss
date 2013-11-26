@@ -55,48 +55,35 @@
     height: emCalc(120px);
   }
 
-  // .activity {
-  //   margin: 0em;
-  //   padding: 0em;
+  & > .inner .activity {
 
-  //   & > .content {
-  //     margin: 0em;
-  //     padding: 0.5em;
+    & > .content {
+      padding: 0.5em;
 
-  //     .alert-box {
-  //       margin-bottom: 0em;
-  //       border-width: 0px;
-  //       margin-top: 0em;
-  //     }
+      @media only screen and (min-width: 48em) {
+        padding: 1em;
+      }
 
-  //     @media only screen and (min-width: 48em) {
-  //       padding: 1em;
-  //     }
+      blockquote {
+        margin-bottom: 0em;
+        padding: 0.25em 0.9em 0.25em 0.9em;
 
-  //     .alert-box {
-  //       margin-top: -1px;
-  //     }
+        @media only screen and (min-width: 48em) {
+          padding: 0.5em 1em 0.5em 1em;
+        }
+      }
 
-  //     blockquote {
-  //       margin-bottom: 0em;
-  //       padding: 0.25em 0.9em 0.25em 0.9em;
+      .text {
+        &.intro p {
+          font-style: italic;
+        }
 
-  //       @media only screen and (min-width: 48em) {
-  //         padding: 0.5em 1em 0.5em 1em;
-  //       }
-  //     }
-
-  //     .text {
-  //       &.intro p {
-  //         font-style: italic;
-  //       }
-
-  //       ul {
-  //         margin-left: 20px;
-  //       }
-  //     }
-  //   }
-  // }
+        ul {
+          margin-left: 20px;
+        }
+      }
+    }
+  }
 }
 
 @mixin png-arrow($direction: 'down', $color: false) {
