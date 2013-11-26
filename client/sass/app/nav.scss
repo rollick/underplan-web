@@ -93,11 +93,11 @@
           background: $standard-panel-bg;
           opacity: 0.9;
           width: 180px;
-          margin-left: -1px;
+          // margin-left: -1px;
         }
 
         &.active .title {
-          @include border-bottom-radius($standard-corner-radius);
+          @include border-bottom-radius(0em);
 
           background: $standard-panel-bg;
           opacity: 1.0;

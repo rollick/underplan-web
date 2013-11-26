@@ -30,7 +30,9 @@ self.activityCommentStatus = {};
 // Meteor Startup
 
 Meteor.startup(function () {
-  Session.set("appVersion", "v1.3.127");
+  logIfDev("===Starting Underplan===");
+
+  Session.set("appVersion", "v1.3.128");
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);

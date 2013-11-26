@@ -56,19 +56,19 @@ recentActivitiesMap = function() {
 
 
 ///////////////////////////////////////////////////////////////////////////////
-// Main Map
+// Map Count Control
 
-Template.mainMap.events({
+Template.activityCountControl.events({
   "click .load-more": function (event, template) {
     ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
     return false;
   }
 });
 
-Template.mainMap.helpers({
+Template.activityCountControl.helpers({
   // count of activities shown on map is either the current set "limit", or the activities
   // count if it is less than the "limit", eg all activities have been fetched
-  activityCountControl: function () {
+  loadMore: function () {
     var groupId = ReactiveGroupFilter.get("group");
     var total = Activities.find(ReactiveGroupFilter.get('queryFields'), {_id: 1}).count();
     var limit = ReactiveGroupFilter.get("limit") || 0;
@@ -96,6 +96,9 @@ Template.mainMap.helpers({
     return !!ReactiveGroupFilter.get("group");
   }
 });
+
+///////////////////////////////////////////////////////////////////////////////
+// Main Map
 
 Template.mainMap.rendered = function () {
   logIfDev("++ Rendered main map: " + JSON.stringify(this.data));
@@ -210,7 +213,7 @@ setupMap = function () {
       gmaps.calcBounds();
 
       if (type === "feed" || type === "home") {
-        gmaps.map.panBy(0, -50);
+        gmaps.map.panBy(0, -35);
       }
       
       if (type === "activity" && recentActivities[0].mapZoom){

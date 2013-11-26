@@ -15,7 +15,7 @@ pageOptions = {
 Template.page.helpers({
   mainTemplate: function () {
     var templateName = Session.get("mainTemplate");
-    if (Session.get("mainTemplate")) {
+    if (templateName) {
       Session.set("pageOptions", pageOptions[templateName]);
 
       return Template[templateName]();
@@ -25,54 +25,8 @@ Template.page.helpers({
   }
 });
 
-this.showTemplate = function (templateName, callback) {
-  var conditions = this.appTemplates();
-
-  _.each(_.keys(conditions), function (key) {
-    // If is array then template includes template options
-    var flag = null,
-        options = {};
-    if (_.isArray(conditions[key])) {
-      flag = conditions[key][0];
-      options = conditions[key][1];
-    } else {
-      flag = conditions[key];
-    }
-
-    if (key === templateName) {
-      
-      // Session.set(flag, true);
-      Session.set('pageOptions', options)
-    } else {
-      Session.set(flag, false);
-    }
-  });
-
-  if (_.isFunction(callback)) {
-    callback();
-  }
-};
-
-
 Template.page.appVersion = function () {
   return Session.get("appVersion");
-};
-
-Template.page.noGroup = function () {
-  var group = Groups.findOne(ReactiveGroupFilter.get("group"));
-  return group ? false : true;
-};
-
-Template.page.showGroup = function () {
-  return !!ReactiveGroupFilter.get("group");
-};
-
-Template.page.groupName = function () {
-  if (ReactiveGroupFilter.get("group")) {
-    group = Groups.findOne(ReactiveGroupFilter.get("group"));
-    if (group)
-      return group.name;
-  }
 };
 
 Template.page.pageOptions = function () {

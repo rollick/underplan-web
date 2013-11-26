@@ -235,12 +235,13 @@ select {
 /* line 95, ../../../sass/app/common/map.scss */
 .map-marker {
   margin-top: -18px;
+  pointer-events: none;
 }
-/* line 104, ../../../sass/app/common/map.scss */
+/* line 106, ../../../sass/app/common/map.scss */
 .map-marker.panning {
   opacity: 0.2;
 }
-/* line 108, ../../../sass/app/common/map.scss */
+/* line 110, ../../../sass/app/common/map.scss */
 .map-marker .tick {
   position: absolute;
   left: 0;
@@ -253,7 +254,7 @@ select {
   border-top-style: solid;
   border-top-width: 10px;
 }
-/* line 121, ../../../sass/app/common/map.scss */
+/* line 123, ../../../sass/app/common/map.scss */
 .map-marker .inner {
   position: relative;
   left: -50%;
@@ -263,8 +264,9 @@ select {
   width: 100%;
   cursor: pointer;
   overflow: hidden;
+  pointer-events: all;
 }
-/* line 132, ../../../sass/app/common/map.scss */
+/* line 134, ../../../sass/app/common/map.scss */
 .map-marker .inner img {
   -webkit-border-radius: 25px;
   -moz-border-radius: 25px;
@@ -279,7 +281,7 @@ select {
   border-width: 2px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 132, ../../../sass/app/common/map.scss */
+  /* line 134, ../../../sass/app/common/map.scss */
   .map-marker .inner img {
     -webkit-border-radius: 35px;
     -moz-border-radius: 35px;
@@ -291,23 +293,27 @@ select {
   }
 }
 /* line 153, ../../../sass/app/common/map.scss */
+.map-marker .inner:hover img {
+  border-width: 4px;
+}
+/* line 159, ../../../sass/app/common/map.scss */
 .map-marker.short .tick {
   border-top-color: green;
 }
-/* line 154, ../../../sass/app/common/map.scss */
+/* line 160, ../../../sass/app/common/map.scss */
 .map-marker.short .inner img {
   border-color: green;
 }
-/* line 158, ../../../sass/app/common/map.scss */
+/* line 164, ../../../sass/app/common/map.scss */
 .map-marker.story .tick {
   border-top-color: #1f4100;
 }
-/* line 159, ../../../sass/app/common/map.scss */
+/* line 165, ../../../sass/app/common/map.scss */
 .map-marker.story .inner img {
   border-color: #1f4100;
 }
 
-/* line 163, ../../../sass/app/common/map.scss */
+/* line 169, ../../../sass/app/common/map.scss */
 .map.panning .map-marker {
   opacity: 0.2;
 }

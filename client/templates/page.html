@@ -1,15 +1,7 @@
 <template name="page">
-  {{#if showCreateDialog}}
-    {{> createDialog}}
-  {{/if}}
-
-  {{#if showInviteDialog}}
-    {{> inviteDialog}}
-  {{/if}}
-
   <div class="nav {{#if pageOptions.highContent}}high-content{{else}}normal{{/if}}">
-      <div class="logo {{#if pageOptions.isHome}}home{{/if}}"><a href="/" class="main-home"></a></div>
-      {{> mainNav}}
+    <div class="logo {{#if pageOptions.isHome}}home{{/if}}"><a href="/" class="main-home"></a></div>
+    {{> mainNav}}
   </div>
 
   {{#if pageOptions.isFeed}}

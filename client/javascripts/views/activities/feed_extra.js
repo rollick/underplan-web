@@ -1,12 +1,6 @@
 var dashboardMap = null;
 var dashboardMapBounds = null;
 
-Template.activityFeedExtra.showExtras = function () {
-  // FIXME: this needs to be dynamic (maybe) based on the screen size
-  //        also, the value of 767 shouldn't be hard coded - get it from the css??
-  return true //parseInt($("body").css("width").match(/\d+/g)) > 767
-};
-
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Gallery
 
