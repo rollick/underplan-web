@@ -71,7 +71,7 @@
     opacity: 0.9;
     // border: 1px solid blue;
     pointer-events: all;
-    width: 120px;
+    width: 125px;
     margin: 0 auto;
     height: $standard-control-height;
     margin-bottom: 0.5em;
@@ -80,6 +80,14 @@
       line-height: $standard-control-height;
       padding: 0px;
       display: inline;
+    }
+
+    &.disabled {
+      pointer-events: none;
+
+      a {
+        color: gray;
+      }
     }
   }
 }

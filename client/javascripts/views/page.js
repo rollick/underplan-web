@@ -89,31 +89,3 @@ Template.page.events({
     return false;
   }
 });
-
-///////////////////////////////////////////////////////////////////////////////
-// Main Map
-
-Template.mainMap.events({
-  "click .load-more": function (event, template) {
-    ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
-    return false;
-  }
-});
-
-Template.mainMap.helpers({
-  // count of activities shown on map is either the current set "limit", or the activities
-  // count if it is less than the "limit", eg all activities have been fetched
-  activityCount: function () {
-    var groupId = ReactiveGroupFilter.get("group");
-    var total = Activities.find({group: groupId}, {_id: 1}).count();
-    var limit = ReactiveGroupFilter.get("limit") || 0;
-
-    limit = total < limit ? total : limit;
-
-    return limit + "/" + total;
-  }
-});
-
-Template.mainMap.rendered = function () {
-  logIfDev("++ Rendered main map: " + JSON.stringify(this.data));
-};

@@ -54,6 +54,40 @@ recentActivitiesMap = function() {
   return imageUrl;
 };
 
+
+///////////////////////////////////////////////////////////////////////////////
+// Main Map
+
+Template.mainMap.events({
+  "click .load-more": function (event, template) {
+    ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
+    return false;
+  }
+});
+
+Template.mainMap.helpers({
+  // count of activities shown on map is either the current set "limit", or the activities
+  // count if it is less than the "limit", eg all activities have been fetched
+  activityCountControl: function () {
+    var groupId = ReactiveGroupFilter.get("group");
+    var total = Activities.find(ReactiveGroupFilter.get('queryFields'), {_id: 1}).count();
+    var limit = ReactiveGroupFilter.get("limit") || 0;
+
+    limit = total < limit ? total : limit;
+ 
+    var classNames = limit < total ? "load-more" : "load-more disabled";
+    var container = $("<div />").addClass(classNames);
+    var link = $("<a />").attr("href", "#").html("Load More (" + limit + "/" + total + ")");
+    var html = $('<div>').append(container.append(link));
+
+    return new Handlebars.SafeString(html.html());
+  }
+});
+
+Template.mainMap.rendered = function () {
+  logIfDev("++ Rendered main map: " + JSON.stringify(this.data));
+};
+
 ///////////////////////////////////////////////////////////////////////////////
 // Activity Map
 
