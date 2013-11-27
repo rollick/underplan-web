@@ -143,9 +143,8 @@ select {
   position: absolute;
   width: 25px;
   background-color: transparent;
-  right: 0.6em !important;
-  top: 0.9375em !important;
-  margin-top: 3.75em;
+  left: 0.6em !important;
+  margin-bottom: 0.9375em;
 }
 /* line 14, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in, .map-zoom-controls .zoom-out {

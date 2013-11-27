@@ -7,9 +7,9 @@
   // height: 25px;
   width: 25px;
   background-color: transparent;
-  right: 0.6em !important;
-  top: $standard-margin !important;
-  margin-top: emCalc(45px) + $standard-margin;
+  left: 0.6em !important;
+  // top: $standard-margin !important;
+  margin-bottom: $standard-margin;
 
   .zoom-in, .zoom-out {
     @include border-radius($standard-corner-radius);

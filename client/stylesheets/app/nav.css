@@ -2344,7 +2344,7 @@ blockquote p {
   height: 1.5625em;
   pointer-events: all;
   float: left;
-  width: 180px;
+  width: 130px;
 }
 /* line 49, ../../../../../.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_section.scss */
 .group-controls > .inner .country-container:not([data-section-resized]):not([data-section-small-style]) {
