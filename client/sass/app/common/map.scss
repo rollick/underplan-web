@@ -122,43 +122,55 @@
     right: -50%;
     font-size: 1px;
     line-height: 1px;
-    width: 100%;
     cursor: pointer;
     overflow: hidden;
     pointer-events: all;
+    border-style: solid;
+    border-width: $marker-border-width;
+
+    @include border-radius($marker-image-small-width / 2);
+
+    width: $marker-image-small-width; 
+    height: $marker-image-small-width;
+
+    @media only screen and (min-width: 48em) {
+      @include border-radius($marker-image-width / 2);
+
+      width: $marker-image-width; 
+      height: $marker-image-width;
+    }
 
     img {
-      @include border-radius($marker-image-small-width / 2);
-
-      width: $marker-image-small-width; 
-      height: $marker-image-small-width;
-
-      @media only screen and (min-width: 48em) {
-        @include border-radius($marker-image-width / 2);
-
-        width: $marker-image-width; 
-        height: $marker-image-width;
-      }
+      position: absolute;
+      height: 100%;
+      width: 100%;
+      top: 0%;
+      left: 0%;
 
       pointer-events: none;
       background-color: #C0C0C0;
-      border-style: solid;
-      border-width: $marker-border-width;
     }
 
-    &:hover img {
-      border-width: $marker-border-width*2;
+    &:hover {
+      // border-width: $marker-border-width*2;
+
+      img {
+        width: 110%;
+        height: 110%;
+        left: -5%;
+        top: -5%;
+      }
     }
   }
 
   &.short {
     .tick { border-top-color: $marker-short-color; }
-    .inner img { border-color: $marker-short-color; }
+    .inner { border-color: $marker-short-color; }
   }
 
   &.story {
     .tick { border-top-color: $marker-story-color; }
-    .inner img { border-color: $marker-story-color; }
+    .inner { border-color: $marker-story-color; }
   }
 }
 

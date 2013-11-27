@@ -196,6 +196,7 @@ createMapObject = function () {
         var img = $("<img src='" + this.get("image") + "'/>");
 
         this.$inner
+          // .css("background", "url(" + this.get("image") + ")")
           .html(img)
           .attr("id", this.get("_id"))
           .click( function( event ) {
