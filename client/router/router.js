@@ -131,7 +131,7 @@ var AppRouter = Backbone.Router.extend({
     var parts = activityId.split("?");
     this.runSetActivity(groupSlug, parts[0], true);
 
-    Session.set("mainTemplate", "permaShorty");
+    Session.set("mainTemplate", "currentActivity");
     this.jumpToTop();
   },
 

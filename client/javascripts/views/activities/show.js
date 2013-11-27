@@ -3,7 +3,11 @@
 
 Template.currentActivity.events({
   'click .edit': function () {
-    Router.setEditActivity(this);
+    if (this.type === "story")
+      Router.setEditActivity(this);
+    else
+      Router.setEditShortActivity(this);
+    
     return false;
   },
   'click a.comments': function (event, template) {

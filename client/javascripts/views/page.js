@@ -6,8 +6,7 @@ pageOptions = {
   storyEditor:      {highContent: true, singleItem: true},
   shortyEditor:     {highContent: true, singleItem: true},
   activityFeed:     {highContent: true, isFeed: true},
-  mainHome:         {highContent: true, isHome: true},
-  permaShorty:      {highContent: true, singleItem: true}
+  mainHome:         {highContent: true, isHome: true}
 };
 
 ///////////////////////////////////////////////////////////////////////////////

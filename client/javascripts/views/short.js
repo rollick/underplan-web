@@ -1,14 +1,3 @@
-Template.permaShorty.activity = function () {
-  return Activities.findOne(ReactiveGroupFilter.get("activity"));
-};
-
-Template.permaShorty.events({
-  'click .edit': function () {
-    Router.setEditShortActivity(this);
-    return false;
-  }
-});
-
 ///////////////////////////////////////////////////////////////////////////////
 // Shorty Editor
 

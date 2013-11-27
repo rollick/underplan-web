@@ -14,23 +14,6 @@
   </div>
 </template>
 
-<template name="permaShorty">
-  {{#if activity}}
-    {{#with activity}}
-      <div class="single-item" id="{{_id}}">
-        <div class="inner">
-          <div class="activity">
-            {{> singleItemContent this}}
-          </div>
-          {{> activityControls this}}
-          {{> itemActions}}
-          {{> itemComments}}
-        </div>
-      </div>
-    {{/with}}
-  {{/if}}
-</template>
-
 <template name="itemContent">
   <div class="info-section {{#if hasMap}}map{{/if}}" style="background-image: url({{mapUrl}})">
     <div class="picture">
