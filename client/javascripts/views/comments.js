@@ -101,8 +101,18 @@ Template.comment.loaded = function() {
 
 Template.comment.events({
   'click .remove': function (event, template) {
-    $(template.find(".comment")).addClass("disabled");
-    Comments.remove(this._id);
+    var button = $(event.target);
+    if (button.hasClass("ready")) {
+      $(template.find(".comment")).addClass("disabled");
+      Comments.remove(this._id);
+    } else {
+      button.addClass("ready");
+
+      // after 2 secs reset the button state
+      setTimeout( function () {
+        button.removeClass("ready");
+      }, 2000);
+    }
 
     return false;
   },

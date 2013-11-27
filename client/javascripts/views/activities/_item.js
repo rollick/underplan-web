@@ -177,13 +177,23 @@ Template.itemContent.helpers(itemHelpers);
 
 Template.itemContent.events({
   'click .remove': function (event, template) {
-    $(template.firstNode).closest(".activity").addClass("disabled");
+    var button = $(event.target);
+    if (button.hasClass("ready")) {
+      $(template.firstNode).closest(".activity").addClass("disabled");
 
-    Meteor.call('removeActivity', this._id, function (error) {
-      if (error) {
-        Session.set("createError", [error.error, error.reason].join(": "));
-      }
-    });
+      Meteor.call('removeActivity', this._id, function (error) {
+        if (error) {
+          Session.set("createError", [error.error, error.reason].join(": "));
+        }
+      });
+    } else {
+      button.addClass("ready");
+
+      // after 2 secs reset the button state
+      setTimeout( function () {
+        button.removeClass("ready");
+      }, 2000);
+    }
 
     return false;
   },
