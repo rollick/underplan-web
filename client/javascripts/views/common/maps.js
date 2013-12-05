@@ -223,7 +223,10 @@ setupMap = function () {
     }
     
     var recentActivities = Activities.find(conds, options).fetch();
-    // gmaps.clearMarkers(); 
+    
+    // Clear the markers if returning to the home page
+    if (type === "home")
+      gmaps.clearMarkers();
   
     if (recentActivities.length > 0) {
       _.each(recentActivities, function(activity) {
@@ -244,6 +247,10 @@ setupMap = function () {
           }
         }
       });
+
+      // if (type === "feed" || type === "home") {
+      //   gmaps.map.panBy(0, -50);
+      // }
       
       if (type !== "activity"){
         gmaps.calcBounds();

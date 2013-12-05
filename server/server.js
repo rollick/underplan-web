@@ -5,8 +5,8 @@ Meteor.startup(function () {
   // Script:
   BrowserPolicy.content.allowInlineScripts();
   BrowserPolicy.content.allowEval();
-  BrowserPolicy.content.allowScriptOrigin("cdn.mxpnl.com");
   BrowserPolicy.content.allowScriptOrigin("*.gstatic.com");
+  BrowserPolicy.content.allowScriptOrigin("https://cdn.mxpnl.com");
   BrowserPolicy.content.allowScriptOrigin("http://maps.google.com");
   BrowserPolicy.content.allowScriptOrigin("https://apis.google.com");
   BrowserPolicy.content.allowScriptOrigin("http://apis.google.com");
