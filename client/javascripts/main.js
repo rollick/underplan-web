@@ -32,7 +32,7 @@ self.activityCommentStatus = {};
 Meteor.startup(function () {
   logIfDev("===Starting Underplan===");
 
-  Session.set("appVersion", "v1.3.139");
+  Session.set("appVersion", "v1.3.140");
   Session.set('mapReady', false);
 
   // Mixpanel tracking
@@ -70,6 +70,10 @@ Meteor.startup(function () {
     var groupId = ReactiveGroupFilter.get("group");
     if (groupId) {
       logIfDev("Subscribe to group data");
+
+      // clear any map markers
+      if (gmaps && _.isFunction(gmaps.clearMarkers))
+        gmaps.clearMarkers();
       
       var filter = ReactiveGroupFilter.get("feedFilter") || {};
       if (filter.group !== groupId) {
