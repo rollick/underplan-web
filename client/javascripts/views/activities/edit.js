@@ -101,15 +101,15 @@ Template.storyEditor.events({
     event.stopPropagation();
     event.preventDefault();
 
+    // check if button is disabled => save already triggered
     var btns = $(template.find(".save.button, .cancel.button"));
-    if(!btns.hasClass("disabled")) {
+    if(btns.hasClass("disabled")) {
       return false;
     } else {
       btns.addClass("disabled");
     }
 
     var values = getStoryValues(template);
-    // the 
     Meteor.call('createActivity', values, function (error, activityId) {
       if (error) {
         Session.set("createError", error.reason);
