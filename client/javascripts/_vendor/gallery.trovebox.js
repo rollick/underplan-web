@@ -1,27 +1,21 @@
+Gallery = {};
+
 (function($) {
-
-  /*global jQuery, Galleria, window */
-  Galleria.requires(1.25, 'The Trovebox Plugin requires Galleria version 1.2.5 or later.');
-
-  // The script path
-  var PATH = Galleria.utils.getScriptPath();
-
   /**
 
       @class
       @constructor
 
-      @example var trovebox = new Galleria.Trovebox();
+      @example var trovebox = new Gallery.Trovebox();
 
       @author https://github.com/rollick
 
       @requires jQuery
-      @requires Galleria
 
       @returns Instance
   */
 
-  Galleria.Trovebox = function( domain, album, albumKey ) {
+  Gallery.Trovebox = function( domain, album, albumKey ) {
     this.domain     = domain;
     this.album      = album || null;
     this.albumKey   = albumKey || null;
@@ -31,17 +25,16 @@
       imageSize: 'medium',           // photo size ( thumb,small,medium,big,original )
       thumbSize: 'thumb',            // thumbnail size ( thumb,small,medium,big,original )
       description: false,            // set this to true to get description as caption
-      complete: function(){},        // callback to be called inside the Galleria.prototype.load
       backlink: false                // set this to true if you want to pass a link back to the original image
     };
   };
 
-  Galleria.Trovebox.prototype = {
-    constructor: Galleria.Trovebox,
+  Gallery.Trovebox.prototype = {
+    constructor: Gallery.Trovebox,
 
     albumSearch: function( params, callback ) {
       if ( typeof params.album != 'string' ) {
-        Galleria.raise( 'No trovebox album provided' );
+        throw( 'No trovebox album provided' );
       }
       
       this.setOptions( params );
@@ -57,7 +50,7 @@
     _call: function( params, callback ) {
 
       if (typeof params.domain != 'string')
-        Galleria.raise( 'No trovebox domain provided' );
+        throw( 'No trovebox domain provided' );
       
       var url = 'https://' + params.domain + '/photos/album-' + params.album + '/token-' + params.albumKey + '/list.json?';
 
@@ -78,7 +71,7 @@
         if ( data.code === 200 ) {
           callback.call(scope, data);
         } else {
-          Galleria.raise( data.code.toString() + ' ' + data.stat + ': ' + data.message, true );
+          throw( data.code.toString() + ' ' + data.stat + ': ' + data.message );
         }
       });
       return scope;

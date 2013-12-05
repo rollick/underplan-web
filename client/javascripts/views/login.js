@@ -1,5 +1,8 @@
 Template.loggedout.events({
   'click .login': function(event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var target = $(event.currentTarget);
     var loginCall, params;
 
@@ -29,6 +32,9 @@ Template.loggedout.events({
     })
   },
   'click .login-form': function(event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     showTemplate("loginForm");
   }
 });
@@ -51,6 +57,9 @@ Template.loggedout.hasFacebook = function () {
 
 Template.loggedin.events({
   'click .logout': function(event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Meteor.logout(function(err){
       if (err) {
         logIfDev("Logout error: " + err);
@@ -63,27 +72,28 @@ Template.loggedin.events({
     // return false;
   },
   'click .user-settings': function(event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setMainSettings();
-    return false;
   },
   'click .main-settings': function(event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setMainSettings(Groups.findOne(ReactiveGroupFilter.get("group")));
-    return false;
   }
 });
 
-// Template.loggedin.profilePicture = function () {
-//   return userPicture(Meteor.user(), 34);
-// };
+Template.loggedin.helpers({
+  settingsActiveCls: function () {
+    var fragment = Backbone.history.fragment;
+    if(!fragment)
+      return false;
 
-Template.loggedin.group = function () {
-  return Groups.findOne(ReactiveGroupFilter.get("group"));
-};
-
-Template.loggedin.isSettingsRoute = function () {
-  var fragment = Backbone.history.fragment;
-  if(!fragment)
-    return false;
-
-  return !!(fragment.match(/settings/));
-};
+    return !!(fragment.match(/settings/)) ? "active" : "";
+  },
+  mainCls: function () {
+    return !!ReactiveGroupFilter.get("group") ? "main-settings" : "user-settings";
+  }
+});

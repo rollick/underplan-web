@@ -1,7 +1,7 @@
 <template name="activityActions">
   {{#if userCanFollow}}
     <li class="follow-group">
-      <a href="#" class="{{#if followingGroup}}followed{{/if}} foundicon-general-star">
+      <a href="#" class="{{followedCls}} foundicon-general-star">
         <span>Follow</span>
       </a>
     </li>
@@ -11,15 +11,8 @@
 <template name="mainNav">
   <nav class="top-bar">
     <ul class="title-area">
-      <!-- Title Area -->
       <li class="name">
-        {{#if group}}
-        <h1>
-          <a href="/{{group.slug}}" class="home branding">
-            {{group.name}}
-          </a>
-        </h1>
-        {{/if}}
+        {{> groupNavTitle}}
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>
@@ -36,4 +29,14 @@
       </ul>
     </section>
   </nav>
+</template>
+
+<template name="navTitle">
+  {{#if name}}
+    <h1>
+      <a href="/{{slug}}" class="home branding">
+        {{name}}
+      </a>
+    </h1>
+  {{/if}}
 </template>

@@ -40,6 +40,12 @@ var getValues = function (template) {
   };
 }
 
+Template.shortForm.helpers({
+  formCls: function () {
+    return this._id ? "expanded" : "";
+  }
+});
+
 Template.shortForm.activity = function () {
   var activityId = ReactiveGroupFilter.get("activity");
   if (activityId) {
@@ -51,12 +57,16 @@ Template.shortForm.activity = function () {
 
 Template.shortForm.events({
   'click .show-advanced-location': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var fields = template.find(".location-fields");
     $(fields).toggle();
-
-    return false;
   },
   'click .cancel': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var element = template.find("#_id");
     if (element) {
       Router.setPermaActivity(element.value);
@@ -64,8 +74,6 @@ Template.shortForm.events({
       clearForm(template);
       $(template.find("form")).removeClass("expanded");
     }
-
-    return false;
   },
   'focus #text': function (event, template) {
     $(template.find("form")).addClass("expanded");
@@ -133,6 +141,9 @@ Template.shortForm.events({
     return false;
   },
   'click .update': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+debugger
     if($(template.find("a")).hasClass("disabled"))
       return false;
 
@@ -152,9 +163,11 @@ Template.shortForm.events({
       Session.set("createError",
                   "It needs to have text");
     }
-    return false;
   },
   'click .post': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     if($(template.find("a")).hasClass("disabled"))
       return false;
 
@@ -174,6 +187,5 @@ Template.shortForm.events({
       Session.set("createError",
                   "It needs to have text");
     }
-    return false;
   }
 });

@@ -11,20 +11,25 @@ var clearHiddenLocationFields = function(template) {
   template.find("#location-coords").innerHTML = "";
 };
 
-Template.storyEditor.activity = function () {
-  return Activities.findOne(ReactiveGroupFilter.get("activity"));
-};
-
-Template.storyEditor.defaultMapZoom = function () {
-  return defaultMapZoom;
-};
+Template.storyEditor.helpers({
+  activity: function () {
+    return Activities.findOne(ReactiveGroupFilter.get("activity"));
+  },
+  defaultMapZoom: function () {
+    return defaultMapZoom;
+  },
+  publishedCls: function () {
+    return this.published ? "checked" : "";
+  }
+});
 
 Template.storyEditor.events({
   'click .show-advanced-location': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var fields = template.find(".location-fields");
     $(fields).toggle();
-
-    return false;
   },
   'keydown #location': function (event, template) {
     if(event.which === 13)
@@ -81,16 +86,23 @@ Template.storyEditor.events({
     return false;
   },
   'click .cancel': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setGroup(Groups.findOne(ReactiveGroupFilter.get("group")));
-    return false;
   },
   'click .back': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setActivity(this);
-    return false;
   },
   'click .save': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var btns = $(template.find(".save.button, .cancel.button"));
-    if(btns.hasClass("disabled")) {
+    if(!btns.hasClass("disabled")) {
       return false;
     } else {
       btns.addClass("disabled");
@@ -108,10 +120,11 @@ Template.storyEditor.events({
 
     btns.removeClass("disabled");
     $(document).scrollTop(0);
-
-    return false;
   },
   'click .update': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var activityId = template.find("#_id").value;
     var notify = template.find("#notify").checked;
     var values = getStoryValues(template);
@@ -124,10 +137,33 @@ Template.storyEditor.events({
       }
     });
     $(document).scrollTop(0);
-
-    return false;
   },
 });
+
+Template.storyEditor.publishedDatePicker = function() {
+  var theDate = this.currentDate;
+  if(typeof theDate != "object" || typeof theDate.getMonth != "function") {
+    theDate = new Date();
+  }
+
+  var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  var month = months[theDate.getMonth()];
+  var year = theDate.getFullYear();
+  var day = theDate.getDate();
+  var days = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
+  var years = [year-2, year-1, year, year+1, year+2];
+
+  var data = {
+    selectedYear: year,
+    selectedMonth: month,
+    selectedDay: day,
+    years: years,
+    months: months,
+    days: days
+  };
+
+  return Template.datePicker.withData(data);
+};
 
 var getStoryValues = function(template) {
   values = {type: "story"};

@@ -144,9 +144,11 @@ select {
   width: 25px;
   background-color: transparent;
   left: 0.6em !important;
-  margin-bottom: 0.9375em;
+  top: 0.9375em;
+  margin-top: 3.75em;
+  margin-left: 1px;
 }
-/* line 14, ../../../sass/app/common/map.scss */
+/* line 15, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in, .map-zoom-controls .zoom-out {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -161,36 +163,36 @@ select {
   color: green;
   font-weight: 100;
 }
-/* line 25, ../../../sass/app/common/map.scss */
+/* line 26, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in:hover, .map-zoom-controls .zoom-out:hover {
   background-color: #e2e2e2;
 }
-/* line 29, ../../../sass/app/common/map.scss */
+/* line 30, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in:before, .map-zoom-controls .zoom-out:before {
   font-size: 2.5em;
   margin-left: 5px;
   line-height: 24px;
 }
-/* line 36, ../../../sass/app/common/map.scss */
+/* line 37, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in {
   float: left;
   margin-bottom: 0.5em;
 }
-/* line 40, ../../../sass/app/common/map.scss */
+/* line 41, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-in:before {
   content: "+";
 }
-/* line 45, ../../../sass/app/common/map.scss */
+/* line 46, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-out {
   float: right;
 }
-/* line 49, ../../../sass/app/common/map.scss */
+/* line 50, ../../../sass/app/common/map.scss */
 .map-zoom-controls .zoom-out:before {
   content: "–";
   margin-left: 3px;
 }
 
-/* line 56, ../../../sass/app/common/map.scss */
+/* line 57, ../../../sass/app/common/map.scss */
 .map-secondary-actions {
   position: relative;
   text-align: center;
@@ -198,7 +200,7 @@ select {
   float: left;
   padding-left: 0.5em;
 }
-/* line 64, ../../../sass/app/common/map.scss */
+/* line 65, ../../../sass/app/common/map.scss */
 .map-secondary-actions .load-more {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -213,31 +215,31 @@ select {
   margin-bottom: 0.5em;
   padding: 0 0.5em;
 }
-/* line 75, ../../../sass/app/common/map.scss */
+/* line 76, ../../../sass/app/common/map.scss */
 .map-secondary-actions .load-more a {
   line-height: 25px;
   padding: 0px;
   display: inline;
 }
-/* line 81, ../../../sass/app/common/map.scss */
+/* line 82, ../../../sass/app/common/map.scss */
 .map-secondary-actions .load-more.disabled {
   pointer-events: none;
 }
-/* line 84, ../../../sass/app/common/map.scss */
+/* line 85, ../../../sass/app/common/map.scss */
 .map-secondary-actions .load-more.disabled a {
   color: gray;
 }
 
-/* line 91, ../../../sass/app/common/map.scss */
+/* line 92, ../../../sass/app/common/map.scss */
 .map-marker {
   margin-top: -18px;
   pointer-events: none;
 }
-/* line 102, ../../../sass/app/common/map.scss */
+/* line 103, ../../../sass/app/common/map.scss */
 .map-marker.panning {
   opacity: 0.2;
 }
-/* line 106, ../../../sass/app/common/map.scss */
+/* line 107, ../../../sass/app/common/map.scss */
 .map-marker .tick {
   position: absolute;
   left: 0;
@@ -250,7 +252,7 @@ select {
   border-top-style: solid;
   border-top-width: 10px;
 }
-/* line 119, ../../../sass/app/common/map.scss */
+/* line 120, ../../../sass/app/common/map.scss */
 .map-marker .inner {
   position: relative;
   left: -50%;
@@ -271,7 +273,7 @@ select {
   height: 50px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 119, ../../../sass/app/common/map.scss */
+  /* line 120, ../../../sass/app/common/map.scss */
   .map-marker .inner {
     -webkit-border-radius: 35px;
     -moz-border-radius: 35px;
@@ -282,7 +284,7 @@ select {
     height: 70px;
   }
 }
-/* line 143, ../../../sass/app/common/map.scss */
+/* line 144, ../../../sass/app/common/map.scss */
 .map-marker .inner img {
   position: absolute;
   height: 100%;
@@ -292,7 +294,7 @@ select {
   pointer-events: none;
   background-color: #C0C0C0;
 }
-/* line 157, ../../../sass/app/common/map.scss */
+/* line 158, ../../../sass/app/common/map.scss */
 .map-marker .inner:hover img {
   width: 110%;
   height: 110%;
@@ -300,23 +302,45 @@ select {
   top: -5%;
 }
 /* line 167, ../../../sass/app/common/map.scss */
+.map-marker.large .inner {
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+  border-radius: 50px;
+  width: 75px;
+  height: 75px;
+}
+@media only screen and (min-width: 48em) {
+  /* line 167, ../../../sass/app/common/map.scss */
+  .map-marker.large .inner {
+    -webkit-border-radius: 70px;
+    -moz-border-radius: 70px;
+    -ms-border-radius: 70px;
+    -o-border-radius: 70px;
+    border-radius: 70px;
+    width: 105px;
+    height: 105px;
+  }
+}
+/* line 184, ../../../sass/app/common/map.scss */
 .map-marker.short .tick {
   border-top-color: green;
 }
-/* line 168, ../../../sass/app/common/map.scss */
+/* line 185, ../../../sass/app/common/map.scss */
 .map-marker.short .inner {
   border-color: green;
 }
-/* line 172, ../../../sass/app/common/map.scss */
+/* line 189, ../../../sass/app/common/map.scss */
 .map-marker.story .tick {
   border-top-color: #1f4100;
 }
-/* line 173, ../../../sass/app/common/map.scss */
+/* line 190, ../../../sass/app/common/map.scss */
 .map-marker.story .inner {
   border-color: #1f4100;
 }
 
-/* line 177, ../../../sass/app/common/map.scss */
+/* line 194, ../../../sass/app/common/map.scss */
 .map.panning .map-marker {
   opacity: 0.2;
 }

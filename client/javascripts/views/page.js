@@ -2,27 +2,39 @@
 // Templates
 
 pageOptions = {
-  currentActivity:  {highContent: true, singleItem: true},
-  storyEditor:      {highContent: true, singleItem: true},
-  shortyEditor:     {highContent: true, singleItem: true},
-  activityFeed:     {highContent: true, isFeed: true},
-  mainHome:         {highContent: true, isHome: true}
+  currentActivity:  {showMap: true},
+  storyEditor:      {showMap: true, singleItem: true},
+  shortyEditor:     {showMap: true, singleItem: true},
+  activityFeed:     {showMap: true, showCountryFilter: true},
+  mainHome:         {showMap: true, isHome: true},
+  blank:            {showMap: true, fullscreenMap: true, showCountryFilter: true}
 };
 
 ///////////////////////////////////////////////////////////////////////////////
 // Page
 Template.page.helpers({
-  mainTemplate: function () {
-    var templateName = Session.get("mainTemplate");
-    if (templateName) {
-      Session.set("pageOptions", pageOptions[templateName]);
-
-      return Template[templateName]();
-    } else {
-      return "Loading...";
-    }
+  navCls: function () {
+    var opts = Session.get("pageOptions");
+    return (opts && opts.showMap) ? "high-content" : "normal";
+  },
+  logoCls: function () {
+    var opts = Session.get("pageOptions");
+    return (opts && opts.isHome) ? "home" : "";
+  },
+  mainContentCls: function () {
+    var opts = Session.get("pageOptions");
+    return (opts && opts.isHome) ? "dashboard" : "normal";
   }
 });
+
+Template.page.mainTemplate = function () {
+  var templateName = Session.get("mainTemplate");
+  if (templateName) {
+    Session.set("pageOptions", pageOptions[templateName]);
+
+    return Template[templateName];
+  }
+};
 
 Template.page.appVersion = function () {
   return Session.get("appVersion");
@@ -38,7 +50,9 @@ Template.page.rendered = function () {
 
 Template.page.events({
   'click .main-home': function () {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setHome();
-    return false;
   }
 });

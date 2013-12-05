@@ -8,8 +8,9 @@
   width: 25px;
   background-color: transparent;
   left: 0.6em !important;
-  // top: $standard-margin !important;
-  margin-bottom: $standard-margin;
+  top: $standard-margin;
+  margin-top: emCalc(45px) + $standard-margin;
+  margin-left: 1px; // little fix to line up with country controls
 
   .zoom-in, .zoom-out {
     @include border-radius($standard-corner-radius);
@@ -160,6 +161,22 @@
         left: -5%;
         top: -5%;
       }
+    }
+  }
+
+  &.large .inner {
+    $large-marker-scale-factor: 1.5;
+
+    @include border-radius($marker-image-small-width);
+    
+    width: $marker-image-small-width*$large-marker-scale-factor; 
+    height: $marker-image-small-width*$large-marker-scale-factor;
+
+    @media only screen and (min-width: 48em) {
+      @include border-radius($marker-image-width);
+
+      width: $marker-image-width*$large-marker-scale-factor;
+      height: $marker-image-width*$large-marker-scale-factor;
     }
   }
 

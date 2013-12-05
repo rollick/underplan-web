@@ -33,6 +33,7 @@ Meteor.startup(function () {
   logIfDev("===Starting Underplan===");
 
   Session.set("appVersion", "v1.3.136");
+  Session.set('mapReady', false);
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);

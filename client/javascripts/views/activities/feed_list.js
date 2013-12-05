@@ -38,29 +38,28 @@ Template.activityFeed.helpers({
 
 Template.activityFeed.events({
   'click .new-short': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     $(".short-form.row").show().find("textarea").focus();
-    return false;
   },
   "click .new-story": function () {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setNewActivity(Groups.findOne(ReactiveGroupFilter.get("group")));
-    return false;
   },
   "click a.feed-all": function () {
+    event.stopPropagation();
+    event.preventDefault();
+
     ReactiveGroupFilter.set("limit", Activities.find(ReactiveGroupFilter.get('queryFields')).count() + 1);
-    return false;
   }
 });
 
 Template.activityFeed.loading = function () {
   return (typeof(feedListSubscription) == 'object' && !feedListSubscription.ready()) && 
          (typeof(feedMapSubscription) == 'object' && !feedMapSubscription.ready());
-};
-
-Template.activityFeed.created = function() {
-  var filter = ReactiveGroupFilter.get("country");
-  logIfDev("FeedFilter set here (1)");
-  ReactiveGroupFilter.set("feedFilter", $.extend(filter, {group: ReactiveGroupFilter.get("group")}));
-  Session.set("galleryLimit", galleryLimitSkip);
 };
 
 Template.activityFeed.rendered = function () {
@@ -87,16 +86,12 @@ Template.activityFeed.totalActivities = function () {
 
 Template.feedList.events({
   "click .feed-more a": function () {
+    event.stopPropagation();
+    event.preventDefault();
+
     ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
-    return false;
   }
 });
-
-// Template.feedList.rendered = function () {
-//   $(document).on("inview", ".feed-more", function(e) {
-//     ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
-//   });
-// };
 
 Template.feedList.anyActivities = function () {
   return Activities.find(ReactiveGroupFilter.get('queryFields')).count() > 0;
@@ -123,43 +118,49 @@ Template.feedList.moreActivities = function() {
 // Template.short.preserve([".short.entry.expanded"]);
 
 Template.feedItem.events({
-  'click .remove': function (event, template) {
-    var button = $(event.target);
-    if (button.hasClass("ready")) {
-      $(template.find(".comment")).addClass("disabled");
-      Comments.remove(this._id);
-    } else {
-      button.addClass("ready");
+  // 'click .remove': function (event, template) {
+  //   var button = $(event.target);
+  //   if (button.hasClass("ready")) {
+  //     $(template.find(".comment")).addClass("disabled");
+  //     Comments.remove(this._id);
+  //   } else {
+  //     button.addClass("ready");
 
-      // after 2 secs reset the button state
-      setTimeout( function () {
-        button.removeClass("ready");
-      }, 2000);
-    }
-
-    return false;
-  },
-  'mouseenter .comment': function (event, template) {
-    $(template.find(".remove")).show();
-  },
-  'mouseleave .comment': function (event, template) {
-    $(template.find(".remove")).hide();
-  },
+  //     // after 2 secs reset the button state
+  //     setTimeout( function () {
+  //       button.removeClass("ready");
+  //     }, 2000);
+  //   }
+    
+  //   return false;
+  // },
+  // 'mouseenter .comment': function (event, template) {
+  //   $(template.find(".remove")).show();
+  // },
+  // 'mouseleave .comment': function (event, template) {
+  //   $(template.find(".remove")).hide();
+  // },
   'click .activity a.title': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setActivity(this);
-    return false;
   },
   'click .item-actions a.comments': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     toggleComments(template);
-    return false;
   },
   'click .item-actions .new-comment a': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     if (!!$(event.target).closest("a").hasClass("disabled")) {
       return false;
     }
 
     toggleComments(template, true, true);
-    return false;
   }
 });
 
@@ -232,6 +233,15 @@ Template.storyFeedContent.events({
 
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Item Actions
+
+Template.itemActions.helpers({
+  commentCls: function () {
+    return !!Meteor.userId() ? "" : "disabled";
+  },
+  isLoggedIn: function () {
+    return !!Meteor.userId();
+  }
+});
 
 Template.itemActions.hasComments = function () {
   return Comments.find({activityId: this._id}).count() > 0;

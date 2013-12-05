@@ -46,12 +46,16 @@ Template.commentForm.events({
     return false;
   },
   'click .cancel': function (event, template) {
-    $(template.find(".comment-form")).removeClass("expanded");
+    event.stopPropagation();
+    event.preventDefault();
 
-    return false;
+    $(template.find(".comment-form")).removeClass("expanded");
   },
   'click .save': function (event, template) {
-    return saveComment(template);
+    event.stopPropagation();
+    event.preventDefault();
+
+    saveComment(template);
   },
   'keyup #comment': function (event, template) {
     var comment = template.find("#comment").value,
@@ -95,9 +99,17 @@ Template.comment.canRemove = function () {
 
 // The subscription for comments initially doesn't return the owner
 // so we can use that below to check whether the full data has loaded
+// FIXME: this is a bad way to check for a full record
 Template.comment.loaded = function() {
-  return !!Comments.findOne(this._id).owner;
+  var comment = Comments.findOne(this._id);
+  return (!!comment && !!comment.owner);
 };
+
+Template.comment.helpers({
+  htmlText: function () {
+    return Template._markdown.withData({text: this.comment});
+  }
+});
 
 Template.comment.events({
   'click .remove': function (event, template) {

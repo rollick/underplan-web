@@ -105,6 +105,21 @@ Template.mainMap.rendered = function () {
   logIfDev("++ Rendered main map: " + JSON.stringify(this.data));
 };
 
+Template.mainMap.events({
+  "dblclick .top-extra-handle > div": function (event, template) {
+    var element = template.find(".top-extra"),
+        oldHeight = element.style.height;
+
+    element.style.height = "";
+    var transitions = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
+    $(element).one(transitions, function(event) {
+      var newHeight = $(element).css("height");
+      google.maps.event.trigger(gmaps.map, 'resize');
+      gmaps.map.panBy(0, (parseInt(oldHeight) - parseInt(newHeight)) / 2);      
+    });
+  }
+})
+
 ///////////////////////////////////////////////////////////////////////////////
 // Activity Map
 
@@ -112,39 +127,8 @@ gmaps = null;
 mapTypes = ["feed", "home", "activity"];
 mapDepComputation = null; 
 
-Template.activityMap.created = function () {
-  Session.set('activityMap', false);
-
-  gmaps = createMapObject();
-}
-
 Template.activityMap.rendered = function() {
   logIfDev("++ Rendered Activity Map...");
-
-  setupMap();
-
-  $('.top-extra-handle').draggable({
-    axis: 'y', 
-    containment: [ 0, 150, 9999, 500 ],
-    helper: 'clone',
-    start: function(){
-        var $this = $(this);
-        $this.data('start-top', $this.position().top);
-        $this.data('last-top', $this.position().top);
-    },
-    drag: function (event, ui) { 
-      var $this = $(this);
-      var height = ui.offset.top; 
-      $(this).prev().height(height);
-
-      if (!!gmaps && gmaps.mapReady && !_.isUndefined(gmaps.map.getCenter())) {
-        gmaps.map.panBy(0, ($this.data('last-top') - height) / 2);
-        google.maps.event.trigger(gmaps.map, 'resize');        
-      }
-
-      $this.data('last-top', height);
-    }
-  });
 };
 
 Template.activityMap.destroyed = function() {
@@ -156,35 +140,84 @@ Template.activityMap.destroyed = function() {
   }
 };
 
+///////////////////////////////////////////////////////////////////////////////
+// Map
+
+Template.map.rendered = function () {
+  logIfDev("++ Rendered map: " + JSON.stringify(this.data));
+
+  ////
+  // FIXME: remove timer and use a better method to ensure map canvas 
+  //        elements are in the dom before creating the map 
+  setTimeout(function () {
+    setupMap();
+
+    $(".top-extra-handle").draggable({
+      axis: "y", 
+      containment: [ 0, 150, 9999, 9999 ],
+      helper: "clone",
+      start: function(){
+          var $this = $(this);
+          $this.siblings(".top-extra").addClass("no-transition");
+          $this.data("start-top", $this.position().top);
+          $this.data("last-top", $this.position().top);
+      },
+      drag: function (event, ui) { 
+        var $this = $(this);
+        var height = ui.offset.top; 
+        $(this).prev().height(height);
+        if (!!gmaps && gmaps.mapReady && !_.isUndefined(gmaps.map.getCenter())) {
+          gmaps.map.panBy(0, ($this.data("last-top") - height) / 2);
+        }
+        $this.data("last-top", height);
+      },
+      stop: function () {
+        $(this).siblings(".top-extra").removeClass("no-transition");
+        if (!!gmaps && gmaps.mapReady && !_.isUndefined(gmaps.map.getCenter())) {
+          google.maps.event.trigger(gmaps.map, "resize");        
+        }
+      }
+    });
+  }, 1000);
+};
+
+
 setupMap = function () {
-  if (Session.equals('activityMap', false))
-    gmaps.initialize();
+  // Initialize map and set session activityMap to true using readyCallback
+  gmaps = createMapObject();
+  gmaps.initialize(function() {
+    Session.set('mapReady', true);
+  });
 
   mapDepComputation = Deps.autorun(function(computation) {
-    if (isDev()) {
-      computation.onInvalidate(function() {
-        console.trace();
-      });
-    }
+    // if (isDev()) {
+    //   computation.onInvalidate(function() {
+    //     console.trace();
+    //   });
+    // }
 
     // wrap some vars in Deps.nonreactive as a change in them will also be
     // reflected in the queryFields reactive field => don't want this code 
     // to run multiple times. 
     var conds = null,
         options = null,
-        group = Deps.nonreactive( function () { return ReactiveGroupFilter.get("group") }),
-        activity = Deps.nonreactive( function () { return ReactiveGroupFilter.get("activity") }),
+        group = ReactiveGroupFilter.get("group"),
+        activity = ReactiveGroupFilter.get("activity"),
         type = _.isNull(activity) ? (_.isNull(group) ? "home" : "feed") : "activity";
 
     if (type === "feed") {
       logIfDev("Render Feed Map...");
+
       conds = ReactiveGroupFilter.get('queryFields');
       options = {sort: {created: -1}, limit: ReactiveGroupFilter.get("limit")};
     } else if (type === "home") {
       logIfDev("Render Home Map...");
+
       conds = {};
       options = {limit: 25, sort: {created: -1}};
     } else if (type === "activity") {
+      logIfDev("Render Activity Map...");
+
       conds = {_id: activity};
       options = {};
     }
@@ -213,9 +246,9 @@ setupMap = function () {
       });
       gmaps.calcBounds();
 
-      if (type === "feed" || type === "home") {
-        gmaps.map.panBy(0, -35);
-      }
+      // if (type === "feed" || type === "home") {
+      //   gmaps.map.panBy(0, -50);
+      // }
       
       if (type === "activity" && recentActivities[0].mapZoom){
         gmaps.map.setZoom(parseInt(recentActivities[0].mapZoom));

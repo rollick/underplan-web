@@ -31,7 +31,7 @@ var setupGallery = function () {
         if (ReactiveGroupFilter.get("country"))
           params.tags = ReactiveGroupFilter.get("country");
 
-        troveboxGallery.albumSearch(params, function(data) {
+        Gallery.Trovebox.albumSearch(params, function(data) {
           if (_.isEmpty(data)) {
             $(".top-extra").addClass("no-photos");
           } else {
@@ -39,20 +39,6 @@ var setupGallery = function () {
             // reverse the order to get newest to oldest and then process gallery
             processFeedPhotos(data.reverse(), offset, ".recent-photos");
           }
-        });
-      } else if (group.picasaUsername) {
-        var params = {};
-
-        if (_.isString(group.picasaKey) && group.picasaKey.length)
-          params.authkey = group.picasaKey;
-
-        if (Session.get("galleryLimit") > limit)
-          params["start-index"] = offset;
-
-        picasaGallery.setOptions({
-          max: limit
-        }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
-          processFeedPhotos(data.reverse(), offset, ".recent-photos");
         });
       }
     }
@@ -161,9 +147,4 @@ Template.feedGallery.hasGallery = function () {
   } else {
     return _.isObject(group.trovebox) || !!group.picasaUsername
   }
-};
-
-Template.feedGallery.destroyed = function () {
-  if (Galleria.length)
-    Galleria.get(0).destroy();
 };

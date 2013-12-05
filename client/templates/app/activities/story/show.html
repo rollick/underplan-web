@@ -1,7 +1,7 @@
 <template name="currentActivity">
   {{#if activity}}
     {{#with activity}}
-    <div class="single-item" id="{{_id}}">
+    <div class="single-item" id="activity-{{_id}}">
       <div class="inner">
         <div class="activity">
           {{> singleItemContent this}}
@@ -71,7 +71,7 @@
 
     {{#if photoShow}}
       <div class="text intro">
-        {{#markdown}}{{text}}{{/markdown}}
+        {{> htmlText}}
       </div>
       {{#if hasPhotos}}
         <div class="activity-highlight large">
@@ -85,7 +85,7 @@
         </div>
       {{/if}}
       <div class="text">
-        {{#markdown}}{{text}}{{/markdown}}
+        {{> htmlText}}
       </div> 
     {{/if}}             
     <div itemprop="description" style="display: none">{{textPreview}}</div>

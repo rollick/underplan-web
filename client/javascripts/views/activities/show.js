@@ -3,14 +3,18 @@
 
 Template.currentActivity.events({
   'click .edit': function () {
+    event.stopPropagation();
+    event.preventDefault();
+
     if (this.type === "story")
       Router.setEditActivity(this);
     else
       Router.setEditShortActivity(this);
-    
-    return false;
   },
   'click a.comments': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var item = $(event.target).closest(".single-item");
     item.toggleClass("expanded");
     
@@ -19,10 +23,11 @@ Template.currentActivity.events({
     } else {
       hideFeedCommentsNotice(item);
     }
-
-    return false;
   },
   'click .new-comment a': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     if (!!$(event.target).closest("a").hasClass("disabled")) {
       return false;
     }
@@ -35,12 +40,12 @@ Template.currentActivity.events({
       setFeedCommentsNotice(template);
 
     $("#" + self._id + " #comment").focus();
-
-    return false;
   },
   'click .activity-controls a': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setActivity(this);
-    return false;
   }
 });
 
@@ -144,16 +149,28 @@ Template.singleItemContent.helpers(itemHelpers);
 Template.singleItemContent.created = function() {
   ///////////////////////
   // Share this on Google+
-  window.___gcfg = {lang: 'en-GB'};
+  // window.___gcfg = {lang: 'en-GB'};
 
-  (function() {
-    var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-    po.src = 'https://apis.google.com/js/plusone.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  })();
+  // (function() {
+  //   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
+  //   po.src = 'https://apis.google.com/js/plusone.js';
+  //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
+  // })();
 };
 
-Template.singleItemContent.destroyed = function () {
-  if (Galleria.length)
-    Galleria.get(0).destroy();
-}
+
+
+Template.singleItemContent.rendered = function () {
+  // FIXME: ugly hack - need a better way to only execute code below when map has loaded
+  Deps.autorun(function(computation) {
+    if (ReactiveGroupFilter.get("activity") && Session.get("mapReady")) {
+      var marker = $(gmaps.map.getDiv()).find("#marker-" + ReactiveGroupFilter.get("activity"));
+      marker.addClass("large").css("z-index", 2).siblings().removeClass("large").css("z-index", 1);
+
+      var latLng = new google.maps.LatLng(this.lat, this.lng);
+      gmaps.map.setCenter(latLng);
+
+      google.maps.event.trigger(gmaps.map, 'resize');
+    }
+  });
+};

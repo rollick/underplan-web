@@ -2,6 +2,9 @@
 // Common Helpers for Short / Story Item
 
 itemHelpers = {
+  htmlText: function () {
+    return Template._markdown.withData({text: this.text});
+  },
   mapUrl: function () {
     return activityStaticMap(this);
   },
@@ -37,7 +40,7 @@ itemHelpers = {
         return true;
 
       // Or if there is a story text but it is short
-      if (activity.text.length < shortMaxLength )
+      if (activity.text && activity.text.length < shortMaxLength )
         return true;
     }
 
@@ -103,55 +106,6 @@ itemHelpers = {
 
     return new Handlebars.SafeString("<blockquote class=\"wiki\">Loading wiki...</blockquote>");
   },
-  gallery: function () {
-    var group = Groups.findOne(ReactiveGroupFilter.get("group"));
-    var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
-    var element = ".activity-highlight";
-
-    if (_.isObject(group.trovebox)) {
-      var params = $.extend({}, group.trovebox);
-
-      // Need to change field name for tags to something like photoTags
-      if (_.isString(activity.picasaTags) && activity.picasaTags.length)
-        params.tags = activity.picasaTags;
-
-      params.max = 999;
-
-      troveboxGallery.albumSearch(params, function(data) {
-        Galleria.run(element, {
-          dataSource: data,
-          showInfo: true,
-          thumbnails: false,
-          debug: isDev(),
-          extend: function(options) {
-            // this.$('thumbnails').hide();
-          }
-        });
-      });            
-      
-    } else if (group.picasaUsername) {
-      var params = {};
-
-      if (_.isString(group.picasaKey) && group.picasaKey.length)
-        params.authkey = group.picasaKey
-
-      if (_.isString(activity.picasaTags) && activity.picasaTags.length)
-        params.tag = activity.picasaTags;
-
-      // Note: Hope there isn't more in this story...
-      picasaGallery.setOptions({
-        max: 999
-      }).useralbum(group.picasaUsername, group.picasaAlbum, params, function(data) {
-        Galleria.run(element, {
-          dataSource: data,
-          debug: isDev(),
-          showInfo: true
-        });
-      });
-    }
-
-    return new Handlebars.SafeString("<p class=\"alert-box clear\">Loading photos...</p>");
-  },
   textPreview: function () {
     var text = this.text;
     if (!text)
@@ -167,6 +121,9 @@ itemHelpers = {
   },
   isStory: function () {
     return (this.type === "story");
+  },
+  infoSectionCls: function () {
+    return (this.lat && this.lng) ? "map" : "";
   }
 };
 
@@ -177,6 +134,9 @@ Template.itemContent.helpers(itemHelpers);
 
 Template.itemContent.events({
   'click .remove': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var button = $(event.target);
     if (button.hasClass("ready")) {
       $(template.firstNode).closest(".activity").addClass("disabled");
@@ -194,8 +154,6 @@ Template.itemContent.events({
         button.removeClass("ready");
       }, 2000);
     }
-
-    return false;
   },
   'mouseenter': function (event, template) {
     $(template.find(".actions")).show();

@@ -29,7 +29,8 @@ cite:before {
   overflow: hidden;
 
   &.large {
-    margin-top: 0.9em;    
+    margin-top: 0.9em;
+    height: $slider-height-medium;
   }
 
   @media only screen and (min-width: 48em) {
@@ -51,9 +52,12 @@ cite:before {
   }
 }
 
-body.fullscreen .activity-highlight {
-  width: 100%;
-  height: 100%;
+body.fullscreen {
+  .activity-highlight,
+  .activity-highlight.large {
+    width: 100%;
+    height: 100%;
+  }
 }
   
 // For google+ share link

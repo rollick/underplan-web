@@ -51,10 +51,16 @@ createMapObject = function () {
         image: marker.image,
         type: marker.type,
         events: {
-          click: function( event ) {
-            var activityId = $(event.target).attr('id');
-            var activity = Activities.findOne(activityId);
+          click: function( event, marker ) {
+            // get the activity _id from the element id
+            var parts = $(event.target).closest(".map-marker").attr('id').match(/.*-([a-z|0-9]+)/i);
+            if (!parts) {
+              throw("Marker Activity ID not found on marker!");
+            }
 
+            var activity = Activities.findOne(parts[1]);
+
+            // Now load the activity
             if(activity) {
               if(activity.type === "story") {
                 Router.setActivity(activity);            
@@ -63,8 +69,10 @@ createMapObject = function () {
               }
             } else {
               if (isDev)
-                console.log("Crash! Bang!");
+                throw("Crash! Bang!");
             }
+
+            return false;
           }
         }
       });
@@ -82,7 +90,7 @@ createMapObject = function () {
       for (var i = 0, latLngLength = this.latLngs.length; i < latLngLength; i++) {
         bounds.extend(this.latLngs[i]);
       }
-      
+
       this.map.fitBounds(bounds);
     },
 
@@ -98,7 +106,7 @@ createMapObject = function () {
     },
 
         // initialize the map
-    initialize: function() {
+    initialize: function(readyCallback) {
       logIfDev("Intializing Google Maps...");
 
       this.initMapMarker();
@@ -134,13 +142,16 @@ createMapObject = function () {
       var self = this;
       google.maps.event.addListenerOnce(this.map, "idle", function() {
         self.mapReady = true;
+
+        if (_.isFunction(readyCallback))
+          readyCallback.call();
       });
 
       google.maps.event.addListener(this.map, "dragstart", function () {
-        $(gmaps.map.getDiv()).closest(".map").addClass("panning");
+        $(this.getDiv()).closest(".map").addClass("panning");
       });
       google.maps.event.addListener(this.map, "dragend", function () {
-        $(gmaps.map.getDiv()).closest(".map").removeClass("panning");
+        $(this.getDiv()).closest(".map").removeClass("panning");
       });
 
       // Add a blank div as custom control to push zoom controls 
@@ -165,10 +176,7 @@ createMapObject = function () {
 
       zoomControl.append(zoomIn).append(zoomOut);
 
-      this.map.controls[google.maps.ControlPosition.LEFT_BOTTOM].push(zoomControl[0]);
-
-      // global flag saying we intialized already
-      Session.set('activityMap', true);
+      this.map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControl[0]);      
     },
 
     initMapMarker: function () {
@@ -191,17 +199,16 @@ createMapObject = function () {
           left: position.x,
           top: position.y - 45 - 10, // minus profile and tick heights
           display: "block"
-        });
+        }).attr("id", "marker-" + this.get("_id"));
 
         var img = $("<img src='" + this.get("image") + "'/>");
 
         this.$inner
           // .css("background", "url(" + this.get("image") + ")")
           .html(img)
-          .attr("id", this.get("_id"))
           .click( function( event ) {
             var events = marker.get("events");
-            events && events.click( event );
+            events && events.click( event, marker );
           })
       };
     }

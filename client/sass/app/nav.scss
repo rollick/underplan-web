@@ -55,6 +55,8 @@
 }
 
 .group-controls {
+  $group-controls-width: 180px;
+
   @include grid-row(nest);
 
   margin-left: 0em;
@@ -80,7 +82,8 @@
       height: $standard-control-height;
       pointer-events: all;
       float: left;
-      width: 130px;
+      width: $group-controls-width;
+      margin-bottom: 0em;
 
       &.horizontal-nav {
         background: transparent;
@@ -96,6 +99,7 @@
           text-align: center;
           background: $standard-map-control-bg;
           padding: 0 $standard-padding;
+          margin-left: 0px;
         }
 
         &.active .title {
@@ -108,11 +112,18 @@
         .content {
           @include border-bottom-radius($standard-corner-radius);
 
+          width: $group-controls-width;
           right: 0 !important;
+          left: 0px !important;
           background: $standard-panel-bg;
           border-top: none;
-          opacity: 0.9;
+          opacity: 0.8;
           padding: $standard-padding;
+
+          ul.country-filter {
+            width: 100%;
+            padding: 0em;
+          }
         }
       }
 

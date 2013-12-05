@@ -1,12 +1,10 @@
 <template name="feedItem">
   {{#with this}}
-    <div class="feed-item {{expandClass}}" id="{{_id}}">
+    <div class="feed-item" id="feed-item-{{_id}}">
       <div class="inner">
         <div class="activity">
           {{> itemContent}}
         </div>
-        {{> itemActions}}
-        {{> itemComments}}
       </div>
     </div>
   {{/with}}
@@ -23,10 +21,14 @@
     </div>
     <div class="main-actions">
       <div class="action new-comment">
-        <a href="#" class="{{#unless currentUser}}disabled{{/unless}}">
-          <span {{#unless currentUser}}data-tooltip class="tip-top" title="Log in to comment"{{/unless}}>
-            Comment
-          </span>
+        <a href="#" class="{{commentCls}}">
+          {{#if isLoggedIn}}
+            <span>Comment</span>
+          {{else}}
+            <span data-tooltip class="tip-top" title="Log in to comment">
+              Comment
+            </span>
+          {{/if}}
         </a>
       </div>
     </div>

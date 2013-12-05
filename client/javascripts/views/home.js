@@ -3,6 +3,9 @@
 
 Template.mainHome.events({
   'click .new-group': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+    
     if(Meteor.userId()) {
       Router.setNewGroup();
     } else {
@@ -10,18 +13,21 @@ Template.mainHome.events({
                   "You must be logged in to create a group");
       Router.setHome();
     }
-    return false;
   }
 });
 
 Template.mainHome.events({
   'click .groups a, click .groups .panel': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+    
     Router.setGroup(this);
-    return false;
   },
   'click .alert-box a.close': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Session.set("message", null);
-    return true;
   }
 });
 
@@ -61,19 +67,21 @@ Template.groupItem.events({
   }
 });
 
-Template.groupItem.userCanFollow = function () {
-  // can follow if logged in but not a group member
-  return !!Meteor.user() && !currentUserBelongsToCurrentGroup()
-};
-
-Template.groupItem.followingGroup = function () {
-  return isFollowingGroup(Meteor.userId(), this._id);
-};
-
-// override this method to specify a different short
-Template.groupItem.group = function() {
-  return this;
-};
+Template.groupItem.helpers({
+  userCanFollow: function () {
+    // can follow if logged in but not a group member
+    return !!Meteor.user() && !currentUserBelongsToCurrentGroup()
+  },
+  followingGroup: function () {
+    return isFollowingGroup(Meteor.userId(), this._id);
+  },
+  group: function() {
+    return this;
+  },
+  followedCls: function () {
+    return this.followingGroup ? "followed" : "";
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Groups Editor
@@ -165,13 +173,17 @@ var hideGroupEditor = function() {
 
 Template.groupAdminActions.events({
   'click .membership': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setGroupMembership(Groups.findOne(ReactiveGroupFilter.get("group")));
-    return false;
   },
 
   'click .group-settings': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setGroupEditor(Groups.findOne(ReactiveGroupFilter.get("group")));
-    return false;
   }
 });
 
@@ -188,12 +200,16 @@ Template.groupAdminActions.isGroupAdmin = function () {
 
 Template.groupInviteList.events({
   'click .invite': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     Meteor.call('invite', ReactiveGroupFilter.get("group"), this._id);
-    return false;
   },
   'click .cancel': function () {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setGroup(Groups.findOne(ReactiveGroupFilter.get("group")));
-    return false;
   }
 });
 

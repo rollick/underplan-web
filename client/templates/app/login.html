@@ -23,19 +23,19 @@
 <template name="loggedin">
   {{#unless loggingIn}}
     <li class="hide-for-small has-dropdown settings not-click">
-      <a href="#" class="{{#if isSettingsRoute}}active{{/if}}">
+      <a href="#" class="{{settingsActiveCls}}">
         <img src="{{profilePicture currentUser}}">
-        <span>{{displayName currentUser}}</span>
+        <span>{{userName currentUser}}</span>
       </a>
       <ul class="dropdown">
-        <li><a href="#" class="{{#if group}}main{{else}}user{{/if}}-settings {{#if isSettingsRoute}}active{{/if}}">Settings</a></li>
+        <li><a href="#" class="{{mainCls}} {{settingsActiveCls}}">Settings</a></li>
         <li><a href="#" class="logout">Logout</a></li>
       </ul>
     </li>
     <li class="show-for-small settings">
-      <a href="#" class="{{#if group}}main{{else}}user{{/if}}-settings {{#if isSettingsRoute}}active{{/if}}">
+      <a href="#" class="{{mainCls}} {{settingsActiveCls}}">
         <img src="{{profilePicture currentUser}}">
-        <span>{{displayName currentUser}}</span>
+        <span>{{userName currentUser}}</span>
       </a>
     </li>
     <li class="show-for-small"><a href="#" class="logout">Logout</a></li>

@@ -4,8 +4,8 @@
       <div class="panel radius">
         {{#if userCanFollow}}
           <div class="follow-group"> 
-            <a href="#" class="{{#if followingGroup}}followed{{/if}} foundicon-general-star"></a>
-            {{#constant}}<div class="text"></div>{{/constant}}
+            <a href="#" class="{{followedCls}} foundicon-general-star"></a>
+            <div class="text"></div>
           </div>
         {{/if}}
         <h5>

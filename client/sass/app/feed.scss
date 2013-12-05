@@ -94,7 +94,8 @@
   z-index: 4;
 
   .feed-item:first-of-type {
-    margin-top: $standard-margin;
+    margin-top: $standard-margin * 2;
+
   }
 
   li { 

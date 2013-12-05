@@ -11,7 +11,7 @@
           <label>Title</label>
           <input type="text" id="title" value="{{title}}" placeholder="Start with a title...">
           <label>Story</label>
-          <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something...">{{text}}</textarea><br />
+          <textarea id="text" rows="20" style="height: 240px;" placeholder="Write something...">{{{text}}}</textarea><br />
           <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
           <input type="text" id="location" value="{{location}}" placeholder="Enter a location...">
           <div id="location-coords" class="input-subtext"></div>
@@ -37,11 +37,11 @@
           <label>Photo Tags</label>
           <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
           <label for="published">
-            <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
-            <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published
+            <input type="checkbox" class="published" id="published" style="display: none;" {{checked published}}>
+            <span class="custom checkbox {{publishedCls}}"></span> Published
           </label><br />
           <label>Published Date</label>
-          {{datePicker created}}
+          {{> publishedDatePicker}}
           <hr />
           <label for="notify">
             <input type="checkbox" class="notify" id="notify" style="display: none;">
@@ -81,11 +81,11 @@
         <label>Photo Tags</label>
         <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
         <label for="published">
-          <input type="checkbox" class="published" id="published" style="display: none;" {{#if published}}checked{{/if}}>
-          <span class="custom checkbox {{#if published}}checked{{/if}}"></span> Published
+          <input type="checkbox" class="published" id="published" style="display: none;" {{checked published}}>
+          <span class="custom checkbox {{publishedCls}}"></span> Published
         </label><br />
         <label>Published Date</label>
-        {{datePicker}}
+        {{> publishedDatePicker}}
         <a href="#" class="small button success save">Create</a>
         <a href="#" class="small secondary cancel">Cancel</a>
       {{/if}}

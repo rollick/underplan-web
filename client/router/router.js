@@ -71,18 +71,20 @@ var AppRouter = Backbone.Router.extend({
     this.resetGroup();
 
     Session.set("mainTemplate", "mainHome");
-    this.jumpToTop();
+
+    this.jumpToTop().mapToSmall();
   },
 
   group: function(groupSlug) {
-    this.runSetGroup(groupSlug);
+    this.runSetGroup(groupSlug, function () {
+      Session.set("expandedActivities", []);
+      ReactiveGroupFilter.set("activity", null);
+      ReactiveGroupFilter.set("country", null);
 
-    Session.set("expandedActivities", []);
-    ReactiveGroupFilter.set("activity", null);
-    ReactiveGroupFilter.set("country", null);
-
-    Session.set("mainTemplate", "activityFeed");
-    this.jumpToTop();
+      Session.set("mainTemplate", "blank");
+    });
+    
+    this.jumpToTop().mapToFullscreen();
   },
 
   mainSettings: function() {
@@ -96,8 +98,8 @@ var AppRouter = Backbone.Router.extend({
   },
 
   newGroup: function() {
-    Session.set("mainTemplate", "groupEditor");
     this.jumpToTop();
+    Session.set("mainTemplate", "groupEditor");
   },
 
   userSettings: function() {
@@ -124,7 +126,8 @@ var AppRouter = Backbone.Router.extend({
     this.runSetActivity(groupSlug, parts[0]);
 
     Session.set("mainTemplate", "currentActivity");
-    this.jumpToTop();
+    
+    this.jumpToTop().mapToSmall();
   },
 
   permaActivity: function(groupSlug, activityId) {
@@ -132,7 +135,8 @@ var AppRouter = Backbone.Router.extend({
     this.runSetActivity(groupSlug, parts[0], true);
 
     Session.set("mainTemplate", "currentActivity");
-    this.jumpToTop();
+    
+    this.jumpToTop().mapToSmall();
   },
 
   editActivity: function(groupSlug, activitySlug) {
@@ -148,7 +152,8 @@ var AppRouter = Backbone.Router.extend({
     this.runSetActivity(groupSlug, parts[0], true);
 
     Session.set("mainTemplate", "shortyEditor");
-    this.jumpToTop();      
+    
+    this.jumpToTop().mapToSmall();      
   },
 
   ////////////////////////
@@ -262,7 +267,7 @@ var AppRouter = Backbone.Router.extend({
     }
   },
 
-  runSetGroup: function (groupSlug) {
+  runSetGroup: function (groupSlug, callback) {
     // The group record might not be fetched yet if the user has just arrived at the site.
     // Use a deps.autorun to get the group once the record has been received.
     Deps.autorun( function (computation) {
@@ -270,6 +275,8 @@ var AppRouter = Backbone.Router.extend({
 
       if (group){
         ReactiveGroupFilter.set("group", group._id);
+        if (_.isFunction(callback))
+          callback.call();
         computation.stop();
       }
     });
@@ -281,6 +288,46 @@ var AppRouter = Backbone.Router.extend({
 
   jumpToTop: function() {
     $('html,body').scrollTop(0);
+
+    return this;
+  },
+
+  mapToCls: function (mapCls) {
+    if (gmaps && gmaps.map) {
+      var element = $('.top-extra');
+      var oldHeight = element.height();
+
+      // Remove height which could be added be dragging map handle
+      element.removeAttr("style");
+
+      // Remove all classes except top-extra and then add new class
+      element.removeClass(function(i, cls) {
+        var list = cls.split(' ');
+        return  list.filter(function(val) {
+          return (val != 'top-extra');
+        }).join(' ');
+      }).addClass(mapCls);
+
+      // Check for css animation end to refresh map tiles
+      var transitions = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
+      element.one(transitions, function(event) {
+        google.maps.event.trigger(gmaps.map, 'resize');
+
+        var newHeight = $(element).css("height");
+        gmaps.map.panBy(0, (parseInt(oldHeight) - parseInt(newHeight)) / 2); 
+        // gmaps.calcBounds();
+      });
+    }
+
+    return this;
+  },
+
+  mapToFullscreen: function() {
+    return this.mapToCls('fullscreen');
+  },
+
+  mapToSmall: function() {
+    return this.mapToCls('default');
   }
 });
 

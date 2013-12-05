@@ -16,6 +16,9 @@ Template.mainSettings.rendered = function () {
 
 Template.userSettings.events({
   'click .save': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var nickname = template.find("#name").value;
     var email = template.find("#email").value;
 
@@ -28,8 +31,10 @@ Template.userSettings.events({
     }
   },
   'click .cancel': function () {
+    event.stopPropagation();
+    event.preventDefault();
+
     defaultBack();
-    return false;
   }
 });
 

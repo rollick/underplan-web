@@ -1,5 +1,5 @@
 <template name="mainMap">
-  <div class="top-extra home {{#if this.singleItem}}large{{/if}}">
+  <div class="top-extra">
     <div class="map">
       <div class="inner">
         {{> activityMap}}
@@ -11,11 +11,9 @@
 
 <template name="staticMap">
   {{#if mapExists}}
-    {{#constant}}
-      <div class="map" style="background-image: url({{mapUrl}})">
-        <img src="{{mapUrl}}" alt="{{location}}" />
-      </div>
-    {{/constant}}
+    <div class="map" style="background-image: url({{mapUrl}})">
+      <img src="{{mapUrl}}" alt="{{location}}" />
+    </div>
   {{/if}}
 </template>
 
@@ -24,7 +22,5 @@
 </template>
 
 <template name="map">
-  {{#constant}}
-    <div id="map-canvas" style="height: 100%;"></div>
-  {{/constant}}
+  <div id="map-canvas" style="height: 100%;"></div>
 </template>

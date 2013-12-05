@@ -1205,156 +1205,160 @@ blockquote p {
 }
 
 @keyframes mapInserted {
-  /* line 98, ../../sass/_components.scss */
+  /* line 99, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 99, ../../sass/_components.scss */
+  /* line 100, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-moz-keyframes mapInserted {
-  /* line 103, ../../sass/_components.scss */
+  /* line 104, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 104, ../../sass/_components.scss */
+  /* line 105, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-webkit-keyframes mapInserted {
-  /* line 108, ../../sass/_components.scss */
+  /* line 109, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 109, ../../sass/_components.scss */
+  /* line 110, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-ms-keyframes mapInserted {
-  /* line 113, ../../sass/_components.scss */
+  /* line 114, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 114, ../../sass/_components.scss */
+  /* line 115, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-o-keyframes mapInserted {
-  /* line 118, ../../sass/_components.scss */
+  /* line 119, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 119, ../../sass/_components.scss */
+  /* line 120, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @keyframes galleryInserted {
-  /* line 98, ../../sass/_components.scss */
+  /* line 99, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 99, ../../sass/_components.scss */
+  /* line 100, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-moz-keyframes galleryInserted {
-  /* line 103, ../../sass/_components.scss */
+  /* line 104, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 104, ../../sass/_components.scss */
+  /* line 105, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-webkit-keyframes galleryInserted {
-  /* line 108, ../../sass/_components.scss */
+  /* line 109, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 109, ../../sass/_components.scss */
+  /* line 110, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-ms-keyframes galleryInserted {
-  /* line 113, ../../sass/_components.scss */
+  /* line 114, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 114, ../../sass/_components.scss */
+  /* line 115, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-o-keyframes galleryInserted {
-  /* line 118, ../../sass/_components.scss */
+  /* line 119, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 119, ../../sass/_components.scss */
+  /* line 120, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
-/* line 13, ../../sass/app/feed_extra.scss */
+/* line 14, ../../sass/app/feed_extra.scss */
 .top-extra-handle {
-  border-top: 2px solid rgba(68, 68, 68, 0.4);
+  border-top: 2px solid #5f5f5f;
   position: relative;
   clear: left;
   z-index: 4;
 }
-/* line 19, ../../sass/app/feed_extra.scss */
+/* line 20, ../../sass/app/feed_extra.scss */
 .top-extra-handle > div {
   height: 14px;
   width: 30px;
   margin: 0 auto;
-  background-color: rgba(68, 68, 68, 0.4);
+  background-color: #5f5f5f;
 }
-/* line 25, ../../sass/app/feed_extra.scss */
+/* line 26, ../../sass/app/feed_extra.scss */
+.top-extra-handle > div:hover {
+  cursor: row-resize;
+}
+/* line 30, ../../sass/app/feed_extra.scss */
 .top-extra-handle > div:before {
   content: "";
   position: absolute;
   top: 1px;
   width: 24px;
   height: 0.15em;
-  background: rgba(255, 255, 255, 0.4);
-  box-shadow: 0 0.25em 0 0 rgba(255, 255, 255, 0.4), 0 0.5em 0 0 rgba(255, 255, 255, 0.4);
+  background: #ababab;
+  box-shadow: 0 0.25em 0 0 #ababab, 0 0.5em 0 0 #ababab;
   margin-left: 3px;
 }
-/* line 37, ../../sass/app/feed_extra.scss */
+/* line 42, ../../sass/app/feed_extra.scss */
 .top-extra-handle.ui-draggable-dragging > div {
   display: none;
 }
 
-/* line 42, ../../sass/app/feed_extra.scss */
+/* line 47, ../../sass/app/feed_extra.scss */
 .top-extra {
   position: relative;
   padding-left: 0;
@@ -1366,43 +1370,66 @@ blockquote p {
   padding: 0em;
   margin-top: -45px;
   height: 260px;
+  -webkit-transition-property: height;
+  -moz-transition-property: height;
+  -o-transition-property: height;
+  transition-property: height;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
+  -webkit-transition-timing-function: ease;
+  -moz-transition-timing-function: ease;
+  -o-transition-timing-function: ease;
+  transition-timing-function: ease;
 }
 @media only screen and (min-width: 48em) {
-  /* line 42, ../../sass/app/feed_extra.scss */
+  /* line 47, ../../sass/app/feed_extra.scss */
   .top-extra {
     height: 320px;
   }
 }
-/* line 56, ../../sass/app/feed_extra.scss */
+/* line 65, ../../sass/app/feed_extra.scss */
+.top-extra.no-transition {
+  -webkit-transition-property: none;
+  -moz-transition-property: none;
+  -o-transition-property: none;
+  transition-property: none;
+}
+/* line 69, ../../sass/app/feed_extra.scss */
 .top-extra.home {
-  border-bottom: 1px solid rgba(43, 43, 43, 0.4);
+  border-bottom: 1px solid #464646;
   height: 260px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 56, ../../sass/app/feed_extra.scss */
+  /* line 69, ../../sass/app/feed_extra.scss */
   .top-extra.home {
     height: 320px;
   }
 }
-/* line 65, ../../sass/app/feed_extra.scss */
-.top-extra.single-item {
+/* line 78, ../../sass/app/feed_extra.scss */
+.top-extra.default {
   height: 320px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 65, ../../sass/app/feed_extra.scss */
-  .top-extra.single-item {
+  /* line 78, ../../sass/app/feed_extra.scss */
+  .top-extra.default {
     height: 400px;
   }
 }
-/* line 73, ../../sass/app/feed_extra.scss */
+/* line 86, ../../sass/app/feed_extra.scss */
+.top-extra.fullscreen {
+  height: 100%;
+}
+/* line 90, ../../sass/app/feed_extra.scss */
 .top-extra.no-photos {
   padding-bottom: 0em;
 }
-/* line 76, ../../sass/app/feed_extra.scss */
+/* line 93, ../../sass/app/feed_extra.scss */
 .top-extra.no-photos .gallery {
   display: none;
 }
-/* line 81, ../../sass/app/feed_extra.scss */
+/* line 98, ../../sass/app/feed_extra.scss */
 .top-extra .alert-box {
   background-color: #e9e9e9;
   border-color: #d0d0d0;
@@ -1410,7 +1437,7 @@ blockquote p {
   border-left: none;
   border-right: none;
 }
-/* line 88, ../../sass/app/feed_extra.scss */
+/* line 105, ../../sass/app/feed_extra.scss */
 .top-extra .map {
   width: auto;
   margin-left: -0.9375em;
@@ -1435,7 +1462,7 @@ blockquote p {
 .top-extra .map:after {
   clear: both;
 }
-/* line 97, ../../sass/app/feed_extra.scss */
+/* line 114, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner {
   position: relative;
   padding-left: 0;
@@ -1445,7 +1472,7 @@ blockquote p {
   padding: 0;
   height: 100%;
 }
-/* line 103, ../../sass/app/feed_extra.scss */
+/* line 120, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner #map-canvas {
   animation-duration: 0.001s;
   -o-animation-duration: 0.001s;
@@ -1458,35 +1485,35 @@ blockquote p {
   -moz-animation-name: mapInserted;
   -webkit-animation-name: mapInserted;
 }
-/* line 106, ../../sass/app/feed_extra.scss */
+/* line 123, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner #map-canvas img {
   max-width: none;
 }
-/* line 110, ../../sass/app/feed_extra.scss */
+/* line 127, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner #map-canvas label {
   width: auto;
   display: inline;
 }
-/* line 116, ../../sass/app/feed_extra.scss */
+/* line 133, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner .alert-box {
   margin-top: 0em;
   line-height: 240px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 116, ../../sass/app/feed_extra.scss */
+  /* line 133, ../../sass/app/feed_extra.scss */
   .top-extra .map > .inner .alert-box {
     line-height: 380px;
   }
 }
-/* line 126, ../../sass/app/feed_extra.scss */
+/* line 143, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner .infoBox > img {
   z-index: 2;
 }
-/* line 130, ../../sass/app/feed_extra.scss */
+/* line 147, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner .infoBox .map-info .inner {
   margin-top: -0.9375em;
 }
-/* line 137, ../../sass/app/feed_extra.scss */
+/* line 154, ../../sass/app/feed_extra.scss */
 .top-extra .gallery {
   width: auto;
   margin-left: -0.9375em;
@@ -1520,11 +1547,11 @@ blockquote p {
 .top-extra .gallery:after {
   clear: both;
 }
-/* line 147, ../../sass/app/feed_extra.scss */
+/* line 164, ../../sass/app/feed_extra.scss */
 .top-extra .gallery.visible {
   z-index: 1;
 }
-/* line 151, ../../sass/app/feed_extra.scss */
+/* line 168, ../../sass/app/feed_extra.scss */
 .top-extra .gallery > .inner {
   position: relative;
   padding-left: 0;
@@ -1532,32 +1559,13 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 154, ../../sass/app/feed_extra.scss */
+/* line 171, ../../sass/app/feed_extra.scss */
 .top-extra .gallery > .inner .recent-photos {
   padding-top: 160px;
   background-color: #111111;
   height: 100%;
 }
-/* line 160, ../../sass/app/feed_extra.scss */
-.top-extra .gallery > .inner .galleria-map {
-  width: 50%;
-  top: 15px;
-  right: 15px;
-  z-index: 2;
-  position: absolute;
-  text-align: right;
-  color: gray;
-  font-style: italic;
-}
-/* line 170, ../../sass/app/feed_extra.scss */
-.top-extra .gallery > .inner .galleria-map:before {
-  content: "Back to Map";
-}
-/* line 174, ../../sass/app/feed_extra.scss */
-.top-extra .gallery > .inner .galleria-map:hover {
-  cursor: pointer;
-}
-/* line 181, ../../sass/app/feed_extra.scss */
+/* line 179, ../../sass/app/feed_extra.scss */
 .top-extra .gallery-more {
   width: auto;
   margin-left: -0.9375em;
@@ -1579,7 +1587,7 @@ blockquote p {
 .top-extra .gallery-more:after {
   clear: both;
 }
-/* line 163, ../../sass/_components.scss */
+/* line 164, ../../sass/_components.scss */
 .top-extra .gallery-more > .content {
   position: relative;
   padding-left: 0.9375em;

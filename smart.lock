@@ -1,0 +1,22 @@
+{
+  "meteor": {
+    "git": "https://github.com/meteor/meteor.git",
+    "tag": "release/template-engine-preview-5.5",
+    "commit": "b31d3fdeae3a118d948f203b96dafed58294e4a4"
+  },
+  "dependencies": {
+    "basePackages": {
+      "mixpanel": {
+        "git": "https://github.com/spencern/meteor-mixpanel",
+        "branch": "master"
+      }
+    },
+    "packages": {
+      "mixpanel": {
+        "git": "https://github.com/spencern/meteor-mixpanel",
+        "branch": "master",
+        "commit": "d3d33b5426f90d48e51fd5a824b5e3df0871434e"
+      }
+    }
+  }
+}

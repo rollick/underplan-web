@@ -46,7 +46,7 @@
 @import "components";
 @import "compass/layout/sticky-footer";
 
-@include sticky-footer($footer-height, ".main-content", ".push", ".footer");
+// @include sticky-footer($footer-height, ".main-content", ".push", ".footer");
 
 * {
   margin: 0;
@@ -103,9 +103,9 @@ h2, a {
   @include grid-row();
 
   padding: 0px;
-  min-height: 100%;
-  height: auto !important;
-  height: 100%;
+  // min-height: 100%;
+  // height: auto !important;
+  // height: 100%;
   margin-top: 0px;
   background-color: rgb(229, 229, 229);
 
@@ -113,13 +113,13 @@ h2, a {
     background-color: transparent;
     margin-top: 0px;
     overflow: visible;
-    margin-top: -15px;
+    margin-top: -16px;
   }
 
   &.dashboard {
     background: url("/images/dash_bg_2.jpg") 0 0 no-repeat;
     background-color: black;
-    margin-top: -15px;
+    margin-top: -16px;
   }
 
   & > .inner {

@@ -15,7 +15,7 @@
 </template>
 
 <template name="itemContent">
-  <div class="info-section {{#if hasMap}}map{{/if}}" style="background-image: url({{mapUrl}})">
+  <div class="info-section {{infoSectionCls}}" style="background-image: url({{mapUrl}})">
     <div class="picture">
       <img src="{{profilePicture owner}}">
     </div>
@@ -35,7 +35,7 @@
       <p>{{textPreview}}</p>
       <a href="{{activityLink}}" class="title more">Continue reading</a>
     {{else}}
-      {{#markdown}}{{text}}{{/markdown}}
+      {{> htmlText}}
     {{/if}}
   </div>
   {{> imageSlider}}
@@ -43,11 +43,13 @@
 
 <template name="shortForm">
 {{#with activity}}
-  <form class="{{#if _id}}expanded{{/if}}">
+  <form class="{{formCls}}">
     {{#if _id}}<input type="hidden" id="_id" value="{{_id}}">{{/if}}
     <div class="text-section">
       <div class="input-field">
-        <textarea type="text" id="text" placeholder="Write a shorty..." >{{text}}</textarea>
+        <textarea type="text" id="text" placeholder="Write a shorty..." >
+          {{text}}
+        </textarea>
       </div>
       <div class="add-story">
         <span>Or, <a href="#" class="new-story">a Story</a></span>

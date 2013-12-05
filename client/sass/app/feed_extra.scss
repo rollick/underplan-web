@@ -1,11 +1,12 @@
 @import "../components";
 @import "foundation/components/alert-boxes";
+@import "compass/css3";
 
 @include keyframe(mapInserted);
 @include keyframe(galleryInserted);
 
-$handle-bg-color: lighten($topbar-bg, 20%);
-$handle-trim-color: lighten($handle-bg-color, 80%);
+$handle-bg-color: lighten($body-bg-color, 20%);
+$handle-trim-color: lighten($handle-bg-color, 30%);
 $handle-height: 14px;
 $handle-offset: 1px;
 $handle-hover-offset: 5px;
@@ -21,6 +22,10 @@ $handle-hover-offset: 5px;
     width: 30px;
     margin: 0 auto;
     background-color: $handle-bg-color;
+
+    &:hover {
+      cursor: row-resize;
+    }
 
     &:before {
       content: "";
@@ -53,6 +58,14 @@ $handle-hover-offset: 5px;
     height: $map-height-medium;
   }
 
+  @include transition-property(height);
+  @include transition-duration(0.5s);
+  @include transition-timing-function(ease);
+
+  &.no-transition {
+    @include transition-property(none);
+  }
+
   &.home {
     border-bottom: 1px solid darken($handle-bg-color, 10%);
     height: $map-height-small;
@@ -62,12 +75,16 @@ $handle-hover-offset: 5px;
     }
   }
 
-  &.single-item {
+  &.default {
     height: $map-height-medium;
 
     @media only screen and (min-width: 48em) {
       height: $map-height-large;
     }
+  }
+
+  &.fullscreen {
+    height: 100%;;
   }
 
   &.no-photos {
@@ -155,25 +172,6 @@ $handle-hover-offset: 5px;
         padding-top: 80px + 80px;
         background-color: $common-dark-color;
         height: 100%;
-      }
-
-      .galleria-map {
-        width: 50%;
-        top: 15px;
-        right: 15px;
-        z-index: 2;
-        position: absolute;
-        text-align: right;
-        color: gray;
-        font-style: italic;
-
-        &:before {
-          content: "Back to Map";
-        }
-
-        &:hover {
-          cursor: pointer;
-        }
       }
     }
   }

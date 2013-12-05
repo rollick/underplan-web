@@ -1,17 +1,19 @@
 <template name="page">
-  <div class="nav {{#if pageOptions.highContent}}high-content{{else}}normal{{/if}}">
-    <div class="logo {{#if pageOptions.isHome}}home{{/if}}"><a href="/" class="main-home"></a></div>
+  <div class="nav {{navCls}}">
+    <div class="logo {{logoCls}}"><a href="/" class="main-home"></a></div>
     {{> mainNav}}
   </div>
 
-  {{#if pageOptions.isFeed}}
+  {{#if pageOptions.showCountryFilter}}
     {{> groupActions}}
   {{/if}}
-  
-  {{> mainMap pageOptions}}
 
-  <div role="content" class="main-content {{#if pageOptions.isHome}}dashboard{{else}}normal{{/if}}">
-    <div class="inner">{{{mainTemplate}}}</div>
+  {{#if pageOptions.showMap}}  
+    {{> mainMap pageOptions}}
+  {{/if}}
+
+  <div role="content" class="main-content {{mainContentCls}}">
+    <div class="inner">{{> mainTemplate}}</div>
     <div class="push"></div>
   </div>
 
