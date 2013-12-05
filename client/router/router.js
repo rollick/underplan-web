@@ -105,7 +105,7 @@ var AppRouter = Backbone.Router.extend({
 
   userSettings: function() {
     Session.set("mainTemplate", "userSettings");
-    
+
     this.jumpToTop();
   },
 
@@ -295,21 +295,21 @@ var AppRouter = Backbone.Router.extend({
   },
 
   mapToCls: function (mapCls, fit) {
+    var element = $('.top-extra');
+    var oldHeight = element.height();
+
+    // Remove height which could be added be dragging map handle
+    element.removeAttr("style");
+
+    // Remove all classes except top-extra and then add new class
+    element.removeClass(function(i, cls) {
+      var list = cls.split(' ');
+      return  list.filter(function(val) {
+        return (val != 'top-extra');
+      }).join(' ');
+    }).addClass(mapCls);
+
     if (gmaps && gmaps.map) {
-      var element = $('.top-extra');
-      var oldHeight = element.height();
-
-      // Remove height which could be added be dragging map handle
-      element.removeAttr("style");
-
-      // Remove all classes except top-extra and then add new class
-      element.removeClass(function(i, cls) {
-        var list = cls.split(' ');
-        return  list.filter(function(val) {
-          return (val != 'top-extra');
-        }).join(' ');
-      }).addClass(mapCls);
-
       // Check for css animation end to refresh map tiles
       var transitions = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
       element.one(transitions, function(event) {
