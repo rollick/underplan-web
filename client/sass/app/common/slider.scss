@@ -121,31 +121,31 @@ $slider-btn-height: 35px;
 ////////////////////////
 // Sequence Styles
 
-.activity-highlight .sequence {
-  height: $slider-height-medium;
+.activity-highlight {
+  .sequence {
+    height: $slider-height-small;
 
-  .sequence-next,
-  .sequence-prev {
-    top: $slider-height-medium/2  - $slider-btn-height/2;
-  }
-}
+    .sequence-next,
+    .sequence-prev {
+      top: $slider-height-small/2  - $slider-btn-height/2;
+    }
 
-.activity-highlight.large .sequence {
-  height: $slider-height-medium;
-
-  @media only screen and (min-width: 48em) {
-    height: $slider-height-large;
+    li .photo {
+      background-size: contain;
+    }
   }
 
-  .sequence-next,
-  .sequence-prev {
-    top: 48%;
-  }
-}
+  &.large .sequence {
+    height: $slider-height-medium;
 
-.activity-highlight .sequence {
-  li .photo {
-    background-size: contain;
+    @media only screen and (min-width: 48em) {
+      height: $slider-height-large;
+    }
+
+    .sequence-next,
+    .sequence-prev {
+      top: 48%;
+    }
   }
 }
 

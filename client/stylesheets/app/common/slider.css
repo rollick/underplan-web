@@ -258,35 +258,33 @@ select {
   transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-/* line 124, ../../../sass/app/common/slider.scss */
+/* line 125, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence {
-  height: 240px;
+  height: 200px;
 }
-/* line 128, ../../../sass/app/common/slider.scss */
+/* line 129, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence .sequence-next,
 .activity-highlight .sequence .sequence-prev {
-  top: 102.5px;
+  top: 82.5px;
 }
-
 /* line 133, ../../../sass/app/common/slider.scss */
+.activity-highlight .sequence li .photo {
+  background-size: contain;
+}
+/* line 138, ../../../sass/app/common/slider.scss */
 .activity-highlight.large .sequence {
   height: 240px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 133, ../../../sass/app/common/slider.scss */
+  /* line 138, ../../../sass/app/common/slider.scss */
   .activity-highlight.large .sequence {
     height: 420px;
   }
 }
-/* line 141, ../../../sass/app/common/slider.scss */
+/* line 146, ../../../sass/app/common/slider.scss */
 .activity-highlight.large .sequence .sequence-next,
 .activity-highlight.large .sequence .sequence-prev {
   top: 48%;
-}
-
-/* line 147, ../../../sass/app/common/slider.scss */
-.activity-highlight .sequence li .photo {
-  background-size: contain;
 }
 
 /* line 152, ../../../sass/app/common/slider.scss */
