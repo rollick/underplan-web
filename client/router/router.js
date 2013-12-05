@@ -98,12 +98,14 @@ var AppRouter = Backbone.Router.extend({
   },
 
   newGroup: function() {
-    this.jumpToTop();
     Session.set("mainTemplate", "groupEditor");
+    
+    this.jumpToTop();
   },
 
   userSettings: function() {
     Session.set("mainTemplate", "userSettings");
+    
     this.jumpToTop();
   },
 
@@ -118,7 +120,7 @@ var AppRouter = Backbone.Router.extend({
     ReactiveGroupFilter.set("activity", null);
 
     Session.set("mainTemplate", "storyEditor");
-    this.jumpToTop();
+    this.jumpToTop().mapToSmall();
   },
 
   activity: function(groupSlug, activitySlug) {
@@ -144,7 +146,7 @@ var AppRouter = Backbone.Router.extend({
     this.runSetActivity(groupSlug, parts[0], true);
 
     Session.set("mainTemplate", "storyEditor");
-    this.jumpToTop();      
+    this.jumpToTop().mapToSmall();      
   },
 
   editShortActivity: function(groupSlug, activityId) {
