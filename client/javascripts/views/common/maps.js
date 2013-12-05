@@ -223,7 +223,7 @@ setupMap = function () {
     }
     
     var recentActivities = Activities.find(conds, options).fetch();
-    gmaps.clearMarkers();
+    // gmaps.clearMarkers(); 
   
     if (recentActivities.length > 0) {
       _.each(recentActivities, function(activity) {
@@ -244,14 +244,9 @@ setupMap = function () {
           }
         }
       });
-      gmaps.calcBounds();
-
-      // if (type === "feed" || type === "home") {
-      //   gmaps.map.panBy(0, -50);
-      // }
       
-      if (type === "activity" && recentActivities[0].mapZoom){
-        gmaps.map.setZoom(parseInt(recentActivities[0].mapZoom));
+      if (type !== "activity"){
+        gmaps.calcBounds();
       }
     }
   });

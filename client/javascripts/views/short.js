@@ -40,6 +40,16 @@ var getValues = function (template) {
   };
 }
 
+// TODO: remove this when meteor 0.7 released
+// Use jquery to insert text value. Current version of meteor 0.7 is
+// adding a script tag when using {{text}} in the template
+Template.shortForm.rendered = function () {
+  var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
+  if (activity) {
+    $(this.find("#text")).html(activity.text);
+  }
+};
+
 Template.shortForm.helpers({
   formCls: function () {
     return this._id ? "expanded" : "";
@@ -143,7 +153,7 @@ Template.shortForm.events({
   'click .update': function (event, template) {
     event.stopPropagation();
     event.preventDefault();
-debugger
+
     if($(template.find("a")).hasClass("disabled"))
       return false;
 

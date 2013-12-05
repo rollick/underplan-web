@@ -158,19 +158,31 @@ Template.singleItemContent.created = function() {
   // })();
 };
 
-
+singleItemDeps = null;
 
 Template.singleItemContent.rendered = function () {
   // FIXME: ugly hack - need a better way to only execute code below when map has loaded
-  Deps.autorun(function(computation) {
+  singleItemDeps = Deps.autorun(function(computation) {
     if (ReactiveGroupFilter.get("activity") && Session.get("mapReady")) {
       var marker = $(gmaps.map.getDiv()).find("#marker-" + ReactiveGroupFilter.get("activity"));
-      marker.addClass("large").css("z-index", 2).siblings().removeClass("large").css("z-index", 1);
 
-      var latLng = new google.maps.LatLng(this.lat, this.lng);
-      gmaps.map.setCenter(latLng);
+      if (marker.length) {
+        marker.addClass("large").css("z-index", 2).siblings().removeClass("large").css("z-index", 1);
 
-      google.maps.event.trigger(gmaps.map, 'resize');
+        var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
+        var latLng = new google.maps.LatLng(activity.lat, activity.lng);
+        gmaps.map.setCenter(latLng);
+        gmaps.map.setZoom(activity.mapZoom ? parseInt(activity.mapZoom) : gmaps.defaultZoom);
+
+        google.maps.event.trigger(gmaps.map, 'resize');
+      }
     }
   });
+};
+
+Template.singleItemContent.destroyed = function () {
+  if (!!singleItemDeps) {
+    singleItemDeps.stop();
+    singleItemDeps = null;
+  }
 };

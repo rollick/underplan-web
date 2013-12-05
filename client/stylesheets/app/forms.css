@@ -1182,19 +1182,25 @@ blockquote p {
   display: none;
 }
 /* line 30, ../../sass/app/forms.scss */
+.group-editor #text,
+.story-editor #text,
+.settings-editor #text {
+  height: 240px;
+}
+/* line 34, ../../sass/app/forms.scss */
 .group-editor .description,
 .story-editor .description,
 .settings-editor .description {
   height: 80px;
 }
-/* line 34, ../../sass/app/forms.scss */
+/* line 38, ../../sass/app/forms.scss */
 .group-editor .button,
 .story-editor .button,
 .settings-editor .button {
   margin-bottom: 0em;
 }
 
-/* line 42, ../../sass/app/forms.scss */
+/* line 46, ../../sass/app/forms.scss */
 .section-container .group-editor,
 .section-container .story-editor,
 .section-container .settings-editor {

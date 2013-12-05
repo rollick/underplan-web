@@ -84,14 +84,18 @@ createMapObject = function () {
       return gMarker;
     },
 
-    // calculate and move the bound box based on our markers
-    calcBounds: function() {
+    bounds: function () {
       var bounds = new google.maps.LatLngBounds();
       for (var i = 0, latLngLength = this.latLngs.length; i < latLngLength; i++) {
         bounds.extend(this.latLngs[i]);
       }
 
-      this.map.fitBounds(bounds);
+      return bounds;
+    },
+
+    // calculate and move the bound box based on our markers
+    calcBounds: function() {
+      this.map.fitBounds(this.bounds());
     },
 
     // check if a marker already exists

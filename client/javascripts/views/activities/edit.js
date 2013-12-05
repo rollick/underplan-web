@@ -216,7 +216,15 @@ Template.storyEditor.error = function () {
   return Session.get("createError");
 };
 
-Template.storyEditor.rendered = function () {
+Template.storyEditor.rendered = function () { 
+  // TODO: remove this when meteor 0.7 released
+  // Use jquery to insert text value. Current version of meteor 0.7 is
+  // adding a script tag when using {{text}} in the template
+  var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
+  if (activity) {
+    $(this.find("#text")).html(activity.text);
+  }
+
   var domain = "http://www.dbpedialite.org";
 
   $("#wikipedia-search").autocomplete({

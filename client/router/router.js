@@ -292,7 +292,7 @@ var AppRouter = Backbone.Router.extend({
     return this;
   },
 
-  mapToCls: function (mapCls) {
+  mapToCls: function (mapCls, fit) {
     if (gmaps && gmaps.map) {
       var element = $('.top-extra');
       var oldHeight = element.height();
@@ -314,8 +314,15 @@ var AppRouter = Backbone.Router.extend({
         google.maps.event.trigger(gmaps.map, 'resize');
 
         var newHeight = $(element).css("height");
-        gmaps.map.panBy(0, (parseInt(oldHeight) - parseInt(newHeight)) / 2); 
-        // gmaps.calcBounds();
+        // gmaps.map.panBy(0, (parseInt(oldHeight) - parseInt(newHeight)) / 2); 
+        
+        if (fit) {
+          var bounds = gmaps.bounds();
+          gmaps.map.panToBounds(bounds);
+          google.maps.event.addListenerOnce(gmaps.map, "idle", function() {
+            this.panTo(bounds.getCenter());
+          })
+        }
       });
     }
 
@@ -323,7 +330,7 @@ var AppRouter = Backbone.Router.extend({
   },
 
   mapToFullscreen: function() {
-    return this.mapToCls('fullscreen');
+    return this.mapToCls('fullscreen', true);
   },
 
   mapToSmall: function() {
