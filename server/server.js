@@ -311,18 +311,18 @@ Meteor.publish("groups", function () {
 });
 
 // Activities with all fields included
-Meteor.publish("activityShow", function (activityId) {
+// activityId is the _id or the slug
+Meteor.publish("activityShow", function (activityId, groupId) {
   check(activityId, String);
+  check(groupId, String);
 
   logIfDev("Publishing 'activityShow': " + activityId);
 
-  if (!activityId)
+  if (!activityId || !groupId)
     return null;
 
-  var activity = Activities.findOne(activityId, {fields: {group: 1}});
-
-  var activityConds = getActivityConditons(activity.group, this.userId);
-  activityConds._id = activityId;
+  var activityConds = getActivityConditons(groupId, this.userId);
+  activityConds.$or = [{_id: activityId}, {slug: activityId}];
 
   var activityOptions = { 
     fields: {

@@ -111,7 +111,6 @@ Template.activityControls.nextActivity = function () {
     $and: [
       {group: ReactiveGroupFilter.get("group")},
       {"_id": {"$not": ReactiveGroupFilter.get("activity")}},
-      {"type": "story"}, 
       {_id: {"$gte": activity._id}}
     ]};
 
@@ -128,7 +127,6 @@ Template.activityControls.previousActivity = function () {
     $and: [
       {group: ReactiveGroupFilter.get("group")},
       {"_id": {"$not": ReactiveGroupFilter.get("activity")}}, 
-      {"type": "story"}, 
       {_id: {"$lte": activity._id}}
     ]};
 
@@ -141,48 +139,4 @@ Template.activityControls.previousActivity = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Story Content
 
-// If the story has a short description and photos to show then return true
-// Used to alter layout in template for photo-centered view
-
 Template.singleItemContent.helpers(itemHelpers);
-
-Template.singleItemContent.created = function() {
-  ///////////////////////
-  // Share this on Google+
-  // window.___gcfg = {lang: 'en-GB'};
-
-  // (function() {
-  //   var po = document.createElement('script'); po.type = 'text/javascript'; po.async = true;
-  //   po.src = 'https://apis.google.com/js/plusone.js';
-  //   var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(po, s);
-  // })();
-};
-
-singleItemDeps = null;
-
-Template.singleItemContent.rendered = function () {
-  // FIXME: ugly hack - need a better way to only execute code below when map has loaded
-  singleItemDeps = Deps.autorun(function(computation) {
-    if (ReactiveGroupFilter.get("activity") && Session.get("mapReady")) {
-      var marker = $(gmaps.map.getDiv()).find("#marker-" + ReactiveGroupFilter.get("activity"));
-
-      if (marker.length) {
-        marker.addClass("large").css("z-index", 2).siblings().removeClass("large").css("z-index", 1);
-
-        var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
-        var latLng = new google.maps.LatLng(activity.lat, activity.lng);
-        gmaps.map.setCenter(latLng);
-        gmaps.map.setZoom(activity.mapZoom ? parseInt(activity.mapZoom) : gmaps.defaultZoom);
-
-        google.maps.event.trigger(gmaps.map, 'resize');
-      }
-    }
-  });
-};
-
-Template.singleItemContent.destroyed = function () {
-  if (!!singleItemDeps) {
-    singleItemDeps.stop();
-    singleItemDeps = null;
-  }
-};

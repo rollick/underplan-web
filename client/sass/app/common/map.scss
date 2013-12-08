@@ -97,8 +97,12 @@
   $marker-story-color: $notice-color; //darken(gray, 10%);
   $marker-border-width: 2px;
 
-  margin-top: -18px;
   pointer-events: none;
+  margin-top: -$marker-image-small-width/2;
+
+  @media only screen and (min-width: 48em) {
+    margin-top: -$marker-image-width/2;
+  }
 
   &.panning {
     opacity: 0.2;
@@ -164,19 +168,28 @@
     }
   }
 
-  &.large .inner {
+  &.large {
     $large-marker-scale-factor: 1.5;
-
-    @include border-radius($marker-image-small-width);
     
-    width: $marker-image-small-width*$large-marker-scale-factor; 
-    height: $marker-image-small-width*$large-marker-scale-factor;
-
+    margin-top: -$marker-image-small-width*$large-marker-scale-factor/2;
+    
     @media only screen and (min-width: 48em) {
-      @include border-radius($marker-image-width);
+      margin-top: -$marker-image-width*$large-marker-scale-factor/2;
+    }
+    
+    .inner {
 
-      width: $marker-image-width*$large-marker-scale-factor;
-      height: $marker-image-width*$large-marker-scale-factor;
+      @include border-radius($marker-image-small-width);
+      
+      width: $marker-image-small-width*$large-marker-scale-factor; 
+      height: $marker-image-small-width*$large-marker-scale-factor;
+
+      @media only screen and (min-width: 48em) {
+        @include border-radius($marker-image-width);
+
+        width: $marker-image-width*$large-marker-scale-factor;
+        height: $marker-image-width*$large-marker-scale-factor;
+      }
     }
   }
 

@@ -2,20 +2,19 @@
 // Templates
 
 pageOptions = {
-  currentActivity:  {showMap: true},
-  storyEditor:      {showMap: true, singleItem: true},
-  shortyEditor:     {showMap: true, singleItem: true},
-  activityFeed:     {showMap: true, showCountryFilter: true},
-  mainHome:         {showMap: true, isHome: true},
-  blank:            {showMap: true, fullscreenMap: true, showCountryFilter: true}
+  currentActivity:  {},
+  storyEditor:      {singleItem: true},
+  shortyEditor:     {singleItem: true},
+  activityFeed:     {showCountryFilter: true},
+  mainHome:         {isHome: true},
+  blank:            {showCountryFilter: true}
 };
 
 ///////////////////////////////////////////////////////////////////////////////
 // Page
 Template.page.helpers({
   navCls: function () {
-    var opts = Session.get("pageOptions");
-    return (opts && opts.showMap) ? "high-content" : "normal";
+    return "high-content";
   },
   logoCls: function () {
     var opts = Session.get("pageOptions");

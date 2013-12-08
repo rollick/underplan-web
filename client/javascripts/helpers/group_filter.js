@@ -77,8 +77,9 @@ ReactiveGroupFilter = {
     limit: null,
     group: null,
     activity: null,
-
+    activitySlug: null
   },
+  
   _fieldsDep: {},
 
   _aggregatedFields: ['queryFields', 'subscriptionOptions'],

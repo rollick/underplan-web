@@ -114,44 +114,22 @@ Template.mainMap.events({
     var transitions = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
     $(element).one(transitions, function(event) {
       var newHeight = $(element).css("height");
-      google.maps.event.trigger(gmaps.map, 'resize');
-      gmaps.map.panBy(0, (parseInt(oldHeight) - parseInt(newHeight)) / 2);      
+      google.maps.event.trigger(mappingFsm.map, 'resize');
+      mappingFsm.map.panBy(0, (parseInt(oldHeight) - parseInt(newHeight)) / 2);      
     });
   }
 })
 
 ///////////////////////////////////////////////////////////////////////////////
-// Activity Map
-
-gmaps = null;
-mapTypes = ["feed", "home", "activity"];
-mapDepComputation = null; 
-
-Template.activityMap.rendered = function() {
-  logIfDev("++ Rendered Activity Map...");
-};
-
-Template.activityMap.destroyed = function() {
-  Session.set('activityMap', false);
-  
-  if (!!mapDepComputation) {
-    mapDepComputation.stop();
-    mapDepComputation = null;
-  }
-};
-
-///////////////////////////////////////////////////////////////////////////////
 // Map
 
-Template.map.rendered = function () {
+Template.mainMap.rendered = function () {
   logIfDev("++ Rendered map: " + JSON.stringify(this.data));
 
   ////
   // FIXME: remove timer and use a better method to ensure map canvas 
   //        elements are in the dom before creating the map 
   setTimeout(function () {
-    setupMap();
-
     $(".top-extra-handle").draggable({
       axis: "y", 
       containment: [ 0, 150, 9999, 9999 ],
@@ -166,95 +144,13 @@ Template.map.rendered = function () {
         var $this = $(this);
         var height = ui.offset.top; 
         $(this).prev().height(height);
-        if (!!gmaps && gmaps.mapReady && !_.isUndefined(gmaps.map.getCenter())) {
-          gmaps.map.panBy(0, ($this.data("last-top") - height) / 2);
-        }
+        mappingFsm.map.panBy(0, ($this.data("last-top") - height) / 2);
         $this.data("last-top", height);
       },
       stop: function () {
         $(this).siblings(".top-extra").removeClass("no-transition");
-        if (!!gmaps && gmaps.mapReady && !_.isUndefined(gmaps.map.getCenter())) {
-          google.maps.event.trigger(gmaps.map, "resize");        
-        }
+        google.maps.event.trigger(mappingFsm.map, "resize");        
       }
     });
   }, 1000);
 };
-
-
-setupMap = function () {
-  // Initialize map and set session activityMap to true using readyCallback
-  gmaps = createMapObject();
-  gmaps.initialize(function() {
-    Session.set('mapReady', true);
-  });
-
-  mapDepComputation = Deps.autorun(function(computation) {
-    // if (isDev()) {
-    //   computation.onInvalidate(function() {
-    //     console.trace();
-    //   });
-    // }
-
-    // wrap some vars in Deps.nonreactive as a change in them will also be
-    // reflected in the queryFields reactive field => don't want this code 
-    // to run multiple times. 
-    var conds = null,
-        options = null,
-        group = ReactiveGroupFilter.get("group"),
-        activity = ReactiveGroupFilter.get("activity"),
-        type = _.isNull(activity) ? (_.isNull(group) ? "home" : "feed") : "activity";
-
-    if (type === "feed") {
-      logIfDev("Render Feed Map...");
-
-      conds = ReactiveGroupFilter.get('queryFields');
-      options = {sort: {created: -1}, limit: ReactiveGroupFilter.get("limit")};
-    } else if (type === "home") {
-      logIfDev("Render Home Map...");
-
-      conds = {};
-      options = {limit: 25, sort: {created: -1}};
-    } else if (type === "activity") {
-      logIfDev("Render Activity Map...");
-
-      conds = {_id: activity};
-      options = {};
-    }
-    
-    var recentActivities = Activities.find(conds, options).fetch();
-    
-    // Clear the markers if returning to the home page
-    if (type === "home")
-      gmaps.clearMarkers();
-  
-    if (recentActivities.length > 0) {
-      _.each(recentActivities, function(activity) {
-        if (typeof activity.lat !== 'undefined' &&
-            typeof activity.lng !== 'undefined') {
-
-          var objMarker = {
-            id: activity._id,
-            lat: activity.lat,
-            lng: activity.lng,
-            type: activity.type,
-            image: userPicture(Meteor.users.findOne(activity.owner), 90)
-          };
-
-          // check if marker already exists
-          if (!gmaps.markerExists('id', objMarker.id)) {
-            gmaps.addMarker(objMarker);
-          }
-        }
-      });
-
-      // if (type === "feed" || type === "home") {
-      //   gmaps.map.panBy(0, -50);
-      // }
-      
-      if (type !== "activity"){
-        gmaps.calcBounds();
-      }
-    }
-  });
-}

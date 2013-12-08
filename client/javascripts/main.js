@@ -22,9 +22,10 @@ Meteor.subscribe("recentActivities");
 Meteor.subscribe("directory");
 Meteor.subscribe("userDetails");
 
-var self = this;
-self.commentsSubscription = self.activitiesSubscription = null;
-self.activityCommentStatus = {};
+this.commentsSubscription = self.activitiesSubscription = null;
+this.activityCommentStatus = {};
+
+this.mappingFsm = null;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Meteor Startup
@@ -38,8 +39,21 @@ Meteor.startup(function () {
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
 
-  // Routing
-  Backbone.history.start({ pushState: true });
+  // Google map init
+  GoogleMaps.init({
+      sensor: true,
+      libraries: 'places'
+      // 'key': 'MY-GOOGLEMAPS-API-KEY',
+      // 'language': 'de'
+    }, 
+    function() {
+      mappingFsm = new MappingFsm();
+
+      // Routing should start after loading the maps
+      // as the route state call the maps state manager
+      Backbone.history.start({pushState: true});
+    }
+  );
 
   // Foundation js loader
   $(document).foundation();
@@ -57,23 +71,26 @@ Meteor.startup(function () {
   ///////////////////////////////////////////////////////////////////////////////
   // Main Autorun Deps
 
+  // Fetching current activity
+  // Deps.autorun(function () {
+  //   var activityId = ReactiveGroupFilter.get("activity"),
+  //       activitySlug = ReactiveGroupFilter.get("activitySlug"),
+  //       groupId = ReactiveGroupFilter.get("group");
+
+  //   if ((activityId || activitySlug) && groupId) {
+  //     logIfDev("Subscribe to activity");
+
+  //     self.activitySubscription = Meteor.subscribe("activityShow", activityId);
+  //     self.commentsSubscription = Meteor.subscribe("activityComments", activityId);
+  //   }
+  // });
+
+  // Fetching current group data
   Deps.autorun(function () {
-
-    var activityId = ReactiveGroupFilter.get("activity");
-    if (activityId) {
-      logIfDev("Subscribe to activity");
-
-      self.activitySubscription = Meteor.subscribe("activityShow", activityId);
-      self.commentsSubscription = Meteor.subscribe("activityComments", activityId);
-    }
-
     var groupId = ReactiveGroupFilter.get("group");
+
     if (groupId) {
       logIfDev("Subscribe to group data");
-
-      // clear any map markers
-      if (gmaps && _.isFunction(gmaps.clearMarkers))
-        gmaps.clearMarkers();
       
       var filter = ReactiveGroupFilter.get("feedFilter") || {};
       if (filter.group !== groupId) {
@@ -91,7 +108,18 @@ Meteor.startup(function () {
       self.feedListSubscription = Meteor.subscribe("feedActivities", options);
       self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);    
     }
+  });
 
+  Deps.autorun(function () {
+    var group = Groups.findOne(ReactiveGroupFilter.get("group"));
+    if (!!group)
+      document.title = "Underplan: " + group.name;
+  });
+
+  // Fetch open comments for feed
+  Deps.autorun(function () {
+    var groupId = ReactiveGroupFilter.get("group");
+    
     if (Session.get("expandedActivities")) {
       var options = {
         groupId: groupId,
@@ -103,10 +131,6 @@ Meteor.startup(function () {
       if (options.activityIds.length)
         self.commentsSubscription = Meteor.subscribe("openFeedComments", options);
     }
-
-    var group = Groups.findOne(ReactiveGroupFilter.get("group"));
-    if (!!group)
-      document.title = "Underplan: " + group.name;
   });
 });
 

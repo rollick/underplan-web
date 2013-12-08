@@ -9,13 +9,19 @@
       "mixpanel": {
         "git": "https://github.com/spencern/meteor-mixpanel",
         "branch": "master"
-      }
+      },
+      "googlemaps": {}
     },
     "packages": {
       "mixpanel": {
         "git": "https://github.com/spencern/meteor-mixpanel",
         "branch": "master",
         "commit": "d3d33b5426f90d48e51fd5a824b5e3df0871434e"
+      },
+      "googlemaps": {
+        "git": "https://github.com/drewjw81/meteor-googlemaps.git",
+        "tag": "v0.0.2",
+        "commit": "da8785c82cfd7de0111f898ef10728e7ed24e361"
       }
     }
   }
