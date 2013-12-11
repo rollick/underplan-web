@@ -96,9 +96,11 @@
   $marker-short-color: $primary-color; //lighten(gray, 30%);
   $marker-story-color: $notice-color; //darken(gray, 10%);
   $marker-border-width: 2px;
+  $marker-tick-height: 10px;
 
   pointer-events: none;
   margin-top: -$marker-image-small-width/2;
+  z-index: 1;
 
   @media only screen and (min-width: 48em) {
     margin-top: -$marker-image-width/2;
@@ -111,14 +113,14 @@
   .tick {
     position: absolute;
     left: 0;
-    bottom: -8px;
-    margin-left: -10px;
+    bottom: -$marker-tick-height + 2px;
+    margin-left: -$marker-tick-height;
     width: 0;
-    height: 10px;
-    border-left: 10px solid transparent;
-    border-right: 10px solid transparent;
+    height: $marker-tick-height;
+    border-left: $marker-tick-height solid transparent;
+    border-right: $marker-tick-height solid transparent;
     border-top-style: solid;
-    border-top-width: 10px; 
+    border-top-width: $marker-tick-height; 
   }
 
   .inner {
@@ -168,17 +170,17 @@
     }
   }
 
-  &.large {
+  &.selected {
     $large-marker-scale-factor: 1.5;
     
-    margin-top: -$marker-image-small-width*$large-marker-scale-factor/2;
+    z-index: 2;
+    margin-top: -$marker-image-small-width*$large-marker-scale-factor/2 - $marker-tick-height;
     
     @media only screen and (min-width: 48em) {
-      margin-top: -$marker-image-width*$large-marker-scale-factor/2;
+      margin-top: -$marker-image-width*$large-marker-scale-factor/2 - $marker-tick-height;
     }
     
     .inner {
-
       @include border-radius($marker-image-small-width);
       
       width: $marker-image-small-width*$large-marker-scale-factor; 

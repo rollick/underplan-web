@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Common Helpers for Short / Story Item
 
-itemHelpers = {
+this.itemHelpers = {
   htmlText: function () {
     return Template._markdown.withData({text: this.text});
   },

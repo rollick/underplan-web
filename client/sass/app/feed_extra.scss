@@ -66,7 +66,8 @@ $handle-hover-offset: 5px;
     @include transition-property(none);
   }
 
-  &.home {
+  &.home,
+  &.small {
     border-bottom: 1px solid darken($handle-bg-color, 10%);
     height: $map-height-small;
 
@@ -75,7 +76,8 @@ $handle-hover-offset: 5px;
     }
   }
 
-  &.default {
+  &.default,
+  &.medium {
     height: $map-height-medium;
 
     @media only screen and (min-width: 48em) {

@@ -29,6 +29,12 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug/pl/:activityId/edit": "Shorty Editor Loaded",
   },
 
+  ////
+  // Usage:
+  //   Set this with setMainTemplate and then call loadMainTemplate
+  //   Call setAndLoadMainTemplate and pass the template name
+  _mainTemplateName: null,
+
   // Map a main template selection to a MappingFsm state and event
   // Call setMainTemplate to use.
   templateMappings: {
@@ -65,6 +71,9 @@ var AppRouter = Backbone.Router.extend({
   },
 
   before: function(route, params) {
+    // Clear the mainTemplate
+    this.mainTemplate = null;
+
     // Shouldn't be any create errors when re-routing
     Session.set("createError", null);
 
@@ -105,38 +114,33 @@ var AppRouter = Backbone.Router.extend({
   main: function() {
     this.resetGroup();
 
-    this.setMainTemplate("mainHome");
+    this.setAndLoadMainTemplate("mainHome");
   },
 
   group: function(groupSlug) {
-    var self = this;
-    this.runSetGroup(groupSlug, function () {
-      Session.set("expandedActivities", []);
-      ReactiveGroupFilter.set("activity", null);
-      ReactiveGroupFilter.set("country", null);
+    this.runSetGroup(groupSlug);
 
-      self.setMainTemplate("groupMain");
-    });
+    this.setAndLoadMainTemplate("groupMain");
   },
 
   mainSettings: function() {
-    this.setMainTemplate("mainSettings");
+    this.setAndLoadMainTemplate("mainSettings");
   },
 
   groupSettings: function(groupSlug) {
     this.runSetGroup(groupSlug);
 
-    this.setMainTemplate("mainSettings");
+    this.setAndLoadMainTemplate("mainSettings");
   },
 
   newGroup: function() {
-    this.setMainTemplate("groupEditor");
+    this.setAndLoadMainTemplate("groupEditor");
     
     this.jumpToTop();
   },
 
   userSettings: function() {
-    this.setMainTemplate("userSettings");
+    this.setAndLoadMainTemplate("userSettings");
 
     this.jumpToTop();
   },
@@ -144,51 +148,42 @@ var AppRouter = Backbone.Router.extend({
   groupMembership: function(groupSlug) {
     this.runSetGroup(groupSlug);
 
-    this.setMainTemplate("groupInviteList");
+    this.setAndLoadMainTemplate("groupInviteList");
   },
 
   newActivity: function(groupSlug) {
     this.runSetGroup(groupSlug);
     ReactiveGroupFilter.set("activity", null);
 
-    this.setMainTemplate("storyEditor");
-    this.jumpToTop().mapToSmall();
+    this.jumpToTop().setAndLoadMainTemplate("storyEditor");
   },
 
   activity: function(groupSlug, activitySlug) {
     var parts = activitySlug.split("?"),
         self = this;
 
-    this.runSetActivity(groupSlug, parts[0], null, function () {
-      self.setMainTemplate("currentActivity");
-    });
+    this.runSetActivity(groupSlug, parts[0], null).setAndLoadMainTemplate("currentActivity");
   },
 
   permaActivity: function(groupSlug, activityId) {
     var parts = activityId.split("?"),
         self = this;
 
-    this.runSetActivity(groupSlug, parts[0], true, function () {
-      self.setMainTemplate("currentActivity");
-    });
+    this.runSetActivity(groupSlug, parts[0], true).setAndLoadMainTemplate("currentActivity");
   },
 
   editActivity: function(groupSlug, activitySlug) {
     var parts = activitySlug.split("?"),
         self = this;
 
-    this.runSetActivity(groupSlug, parts[0], true, function () {
-      self.setMainTemplate("storyEditor");
-    });
+    this.runSetActivity(groupSlug, parts[0], true).setAndLoadMainTemplate("storyEditor");
   },
 
   editShortActivity: function(groupSlug, activityId) {
     var parts = activityId.split("?"),
         self = this;
 
-    this.runSetActivity(groupSlug, parts[0], true, function () {
-      self.setMainTemplate("shortyEditor");
-    });
+    this.runSetActivity(groupSlug, parts[0], true).setAndLoadMainTemplate("shortyEditor");
   },
 
   ////////////////////////
@@ -272,17 +267,35 @@ var AppRouter = Backbone.Router.extend({
   ////////////////////////
   // Map / Template States
 
-  setMainTemplate: function (templateName) {
-    var match = this.templateMappings[templateName];
+  setMainTemplateName: function (templateName) {
+    this._mainTemplateName = templateName;
+
+    return this;
+  },
+
+  setAndLoadMainTemplate: function (templateName) {
+    this.setMainTemplateName(templateName).loadMainTemplate();
+  },
+
+  loadMainTemplate: function () {
+    if (!this._mainTemplateName)
+      return;
+
+    var match = this.templateMappings[this._mainTemplateName],
+        templateName = this._mainTemplateName;
 
     if (match) { // Set the main template and corresponding map
       var map = match.map,
           mapState = map.state,
           mapEvent = map.evt;
 
+      // If the map state won't change then just set the 
+      // the new main template
       if (mappingFsm.state === mapState) {
         Session.set("mainTemplate", templateName);
       } else {
+        // Set the map and then the main template when the map 
+        // transition has finished
         mappingFsm.transition(mapState);
         mappingFsm.on(mapEvent, function () {
           Session.set("mainTemplate", templateName);
@@ -298,69 +311,24 @@ var AppRouter = Backbone.Router.extend({
   // Common Functions
 
   runSetGroup: function (groupSlug, callback) {
-    // The group record might not be fetched yet if the user has just arrived at the site.
-    // Use a deps.autorun to get the group once the record has been received.
-    Deps.autorun( function (computation) {
-      var group = Groups.findOne({slug: groupSlug});
-
-      if (group){
-        ReactiveGroupFilter.set("group", group._id);
-        if (_.isFunction(callback))
-          callback.call();
-        computation.stop();
-      }
-    });
+    Session.set("expandedActivities", []);
+    ReactiveGroupFilter.set("groupSlug", groupSlug);
+    
+    return this;
   },
 
   runSetActivity: function (groupSlug, activityId, isPermalink, callback) {
-    isPermalink = isPermalink || false;
-    this.runSetGroup(groupSlug, function () {
+    if (isPermalink) {
+      ReactiveGroupFilter.set('activity', activityId);
+      ReactiveGroupFilter.set('activitySlug', null);
+    } else {
+      ReactiveGroupFilter.set('activitySlug', activityId);
+      ReactiveGroupFilter.set('activity', null);
+    }
 
-      // Now we have a group and either an activity id/slug
-      // Subscribe to activityShow and activityComments now but
-      // first check whether we already have the activity record
-      // and if so, then run the callback method if any was supplied
-      // var options = {};
-      // if (isPermalink)
-      //   options._id = activityId;
-      // else
-      //   options.slug = activityId;
+    this.runSetGroup(groupSlug);
 
-      logIfDev("Subscribe to activity");
-
-      var group = Groups.findOne({slug: groupSlug});
-
-      activitySubscription = Meteor.subscribe("activityShow", activityId, group._id);
-      commentsSubscription = Meteor.subscribe("activityComments", activityId, group._id);
-
-      // The activity record might not be fetched yet if the user has just arrived at the site.
-      // Use a deps.autorun to get the group once the record has been received.
-      if (ReactiveGroupFilter.get("activity") !== activityId) {
-        Deps.autorun( function (computation) {
-          
-
-          if (group) {
-            var activity = Activities.findOne(_.extend(options, {group: group._id}));
-
-            if (activity) {
-              logIfDev("++ Setting activity from router");
-
-              ReactiveGroupFilter.set("activity", activity._id);
-
-              if (_.isFunction(callback))
-                callback.call();
-
-              computation.stop(); 
-            }
-          }
-        }); 
-
-      // Just run the callback if set and the activity hasn't changed. This happens when 
-      // the user goes from an activity view to the edit view.
-      } else if (_.isFunction(callback)) {
-        callback.call();
-      }
-    });
+    return this;
   },
 
   jumpToTop: function () {

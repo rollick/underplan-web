@@ -318,9 +318,6 @@ Meteor.publish("activityShow", function (activityId, groupId) {
 
   logIfDev("Publishing 'activityShow': " + activityId);
 
-  if (!activityId || !groupId)
-    return null;
-
   var activityConds = getActivityConditons(groupId, this.userId);
   activityConds.$or = [{_id: activityId}, {slug: activityId}];
 
@@ -350,21 +347,31 @@ Meteor.publish("activityShow", function (activityId, groupId) {
     }
   };
 
-  activity = Activities.find(activityConds, activityOptions);
-  
-  return activity;
+  return Activities.find(activityConds, activityOptions);
 });
 
-Meteor.publish("activityComments", function (activityId) {
+Meteor.publish("activityComments", function (activityId, groupId) {
   check(activityId, String);
+  check(groupId, String);
 
   logIfDev("Publishing 'activityComments': " + activityId);
 
-  // don't return any comments without an activityId
-  if (_.isNull(activityId) || !_.isString(activityId))
+  // Check permissions on the activity as this determines access to the comments
+  var activityConds = getActivityConditons(groupId, this.userId);
+  activityConds.$or = [{_id: activityId}, {slug: activityId}];
+
+  var activityOptions = { 
+    fields: {
+      _id: 1
+    }
+  };
+
+  var activity = Activities.find(activityConds, activityOptions);
+
+  if (!activity)
     return [];
 
-  return Comments.find({activityId: activityId});
+  return Comments.find({activityId: activity._id});
 });
 
 Meteor.publish("activityCommentsCount", function (activityId) {

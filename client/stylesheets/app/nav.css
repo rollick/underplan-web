@@ -2559,6 +2559,7 @@ blockquote p {
 /* line 268, ../../sass/app/nav.scss */
 .top-bar-section li.text {
   color: rgba(196, 196, 196, 0.4);
+  opacity: 1;
   padding: 10px;
   height: 45px;
   cursor: default;
@@ -2566,21 +2567,21 @@ blockquote p {
 @media only screen and (min-width: 48em) {
   /* line 268, ../../sass/app/nav.scss */
   .top-bar-section li.text {
-    color: rgba(145, 145, 145, 0.4);
+    color: rgba(247, 247, 247, 0.4);
     background-color: rgba(17, 17, 17, 0.4);
   }
 }
 
-/* line 281, ../../sass/app/nav.scss */
+/* line 282, ../../sass/app/nav.scss */
 li.login-services {
   height: 45px;
 }
-/* line 284, ../../sass/app/nav.scss */
+/* line 285, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 289, ../../sass/app/nav.scss */
+/* line 290, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -2588,7 +2589,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 297, ../../sass/app/nav.scss */
+/* line 298, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

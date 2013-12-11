@@ -267,12 +267,13 @@
 .top-bar-section {
   li.text {
     color: lighten($topbar-bg, 70%);
+    opacity: 1;
     padding: 10px;
     height: 45px;
     cursor: default;
 
     @media only screen and (min-width: 48em) {
-      color: lighten($topbar-bg, 50%);
+      color: lighten($topbar-bg, 90%);
       background-color: $topbar-bg;
     }
   }  

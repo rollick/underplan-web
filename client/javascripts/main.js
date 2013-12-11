@@ -33,7 +33,7 @@ this.mappingFsm = null;
 Meteor.startup(function () {
   logIfDev("===Starting Underplan===");
 
-  Session.set("appVersion", "v1.3.144");
+  Session.set("appVersion", "v1.3.146");
   Session.set('mapReady', false);
 
   // Mixpanel tracking
@@ -45,7 +45,7 @@ Meteor.startup(function () {
       libraries: 'places'
       // 'key': 'MY-GOOGLEMAPS-API-KEY',
       // 'language': 'de'
-    }, 
+    },
     function() {
       mappingFsm = new MappingFsm();
 
@@ -71,19 +71,56 @@ Meteor.startup(function () {
   ///////////////////////////////////////////////////////////////////////////////
   // Main Autorun Deps
 
-  // Fetching current activity
-  // Deps.autorun(function () {
-  //   var activityId = ReactiveGroupFilter.get("activity"),
-  //       activitySlug = ReactiveGroupFilter.get("activitySlug"),
-  //       groupId = ReactiveGroupFilter.get("group");
+  Deps.autorun( function (computation) {
+    var groupSlug = ReactiveGroupFilter.get('groupSlug');
+    if (!groupSlug)
+      return;
 
-  //   if ((activityId || activitySlug) && groupId) {
-  //     logIfDev("Subscribe to activity");
+    var group = Groups.findOne({slug: groupSlug});
 
-  //     self.activitySubscription = Meteor.subscribe("activityShow", activityId);
-  //     self.commentsSubscription = Meteor.subscribe("activityComments", activityId);
-  //   }
-  // });
+    if (group) {
+      ReactiveGroupFilter.set("group", group._id);
+    }
+  });
+
+
+  Deps.autorun( function (computation) {
+
+    var group = Groups.findOne(ReactiveGroupFilter.get('group'));
+
+    if (!group)
+      return;
+
+    var activityValue = ReactiveGroupFilter.get('activity') || ReactiveGroupFilter.get('activitySlug');
+
+    ////
+    // This will set the template for based on an activity type (story or shorty) 
+    // and an action (show or edit). The type is based on whether the activity or 
+    // activitySlug field is set in the ReactiveGroupFilter but currently we are
+    // using the same Handlebars "show" template for a shorty and a story so it isn't 
+    // important for that action. The edit action will render different templates for
+    // the shorty and story types so we need to check the current router state:
+    //    if it includes "edit" and "pl" then render the shorty editor
+    //    otherwise if it includes "edit" then render the story editor
+    //
+    if (activityValue) {
+      logIfDev("Subscribe to activity");
+
+      activitySubscription = Meteor.subscribe("activityShow", activityValue, group._id, function () {
+        // Now safe to assign the activity id - only 
+        var value = this.params[0];
+        var activityConds = {
+          group: this.params[1],
+          $or: [{_id: value}, {slug: value}]
+        };
+        
+        var activity = Activities.findOne(activityConds, {_id: 1});
+
+        ReactiveGroupFilter.set("activity", activity._id);
+      });
+      commentsSubscription = Meteor.subscribe("activityComments", activityValue, group._id);
+    }
+  });
 
   // Fetching current group data
   Deps.autorun(function () {
@@ -91,7 +128,7 @@ Meteor.startup(function () {
 
     if (groupId) {
       logIfDev("Subscribe to group data");
-      
+
       var filter = ReactiveGroupFilter.get("feedFilter") || {};
       if (filter.group !== groupId) {
         // set the group without causing reactive
@@ -106,7 +143,7 @@ Meteor.startup(function () {
 
       var options = ReactiveGroupFilter.get("subscriptionOptions");
       self.feedListSubscription = Meteor.subscribe("feedActivities", options);
-      self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);    
+      self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
     }
   });
 
@@ -119,7 +156,7 @@ Meteor.startup(function () {
   // Fetch open comments for feed
   Deps.autorun(function () {
     var groupId = ReactiveGroupFilter.get("group");
-    
+
     if (Session.get("expandedActivities")) {
       var options = {
         groupId: groupId,
@@ -271,12 +308,12 @@ this.geoLocation = function (location, inputId, callback) {
           //this is the object you are looking for
           city = place.address_components[i].long_name;
         }
-        
+
         if (_.indexOf(place.address_components[i].types, "administrative_area_level_1") >= 0) {
           //this is the object you are looking for
           region = place.address_components[i].long_name;
         }
-        
+
         if (_.indexOf(place.address_components[i].types, "country") >= 0) {
           //this is the object you are looking for
           country = place.address_components[i].long_name;
@@ -284,8 +321,8 @@ this.geoLocation = function (location, inputId, callback) {
       }
 
       result = {
-        lat: lat, 
-        lng: lng, 
+        lat: lat,
+        lng: lng,
         address: place.formatted_address,
         city: city,
         region: region,
@@ -310,7 +347,7 @@ this.logRenders = function () {
 
     template.rendered = function () {
       logIfDev(name, "render count: ", ++counter);
-      
+
       oldRender && oldRender.apply(this, arguments);
     };
   });
@@ -346,7 +383,7 @@ this.trackEvent = function(eventName, properties) {
           "$name": user.profile.name,
           "$created": (new Date(user.createdAt)).toUTCString(),
           "$email": userEmail(user)
-        });        
+        });
       }
     }
 
