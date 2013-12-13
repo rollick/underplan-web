@@ -99,11 +99,11 @@
   $marker-tick-height: 10px;
 
   pointer-events: none;
-  margin-top: -$marker-image-small-width/2;
+  // margin-top: -$marker-image-small-width/2;
   z-index: 1;
 
   @media only screen and (min-width: 48em) {
-    margin-top: -$marker-image-width/2;
+    // margin-top: -$marker-image-width/2;
   }
 
   &.panning {
@@ -174,10 +174,10 @@
     $large-marker-scale-factor: 1.5;
     
     z-index: 2;
-    margin-top: -$marker-image-small-width*$large-marker-scale-factor/2 - $marker-tick-height;
+    // margin-top: -$marker-image-small-width*$large-marker-scale-factor/2 - $marker-tick-height;
     
     @media only screen and (min-width: 48em) {
-      margin-top: -$marker-image-width*$large-marker-scale-factor/2 - $marker-tick-height;
+      // margin-top: -$marker-image-width*$large-marker-scale-factor/2 - $marker-tick-height;
     }
     
     .inner {

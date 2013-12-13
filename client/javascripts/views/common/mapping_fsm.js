@@ -29,9 +29,12 @@ function initMapExtras() {
     var projection = this.getProjection();
     var position = projection.fromLatLngToDivPixel( this.get("position") );
 
+    var profileHeight = parseInt(this.$inner.css("height")),
+        tickHeight = parseInt(this.$inner.siblings(".tick").css("height"));
+
     this.$div.css({
       left: position.x,
-      top: position.y - 45 - 10, // minus profile and tick heights
+      top: position.y - profileHeight - tickHeight, // minus profile and tick heights
       display: "block"
     }).attr("id", "marker-" + this.get("_id"));
 
@@ -560,10 +563,13 @@ MappingFsm = machina.Fsm.extend({
       "marker.load": function() {
         var self = this;
 
+        // Clear activities if the previous state was the home page
+        var clearMarkers = (this.priorState === "recentAll");
+
         // TODO: should we queue the setup markers below as the activityId might not
         //       be set yet. Then in a deps autorun we can process the map queue once
         //       the activity id has been set...
-        this._setupMarkers({_id: this.activityId}, {}, false, function () {
+        this._setupMarkers({_id: this.activityId}, {}, clearMarkers, function () {
           self._centerMarkerById(self.activityId, 0, -45);
         });
 

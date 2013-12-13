@@ -232,14 +232,7 @@ select {
 /* line 92, ../../../sass/app/common/map.scss */
 .map-marker {
   pointer-events: none;
-  margin-top: -25px;
   z-index: 1;
-}
-@media only screen and (min-width: 48em) {
-  /* line 92, ../../../sass/app/common/map.scss */
-  .map-marker {
-    margin-top: -35px;
-  }
 }
 /* line 109, ../../../sass/app/common/map.scss */
 .map-marker.panning {
@@ -310,13 +303,6 @@ select {
 /* line 173, ../../../sass/app/common/map.scss */
 .map-marker.selected {
   z-index: 2;
-  margin-top: -47.5px;
-}
-@media only screen and (min-width: 48em) {
-  /* line 173, ../../../sass/app/common/map.scss */
-  .map-marker.selected {
-    margin-top: -62.5px;
-  }
 }
 /* line 183, ../../../sass/app/common/map.scss */
 .map-marker.selected .inner {
