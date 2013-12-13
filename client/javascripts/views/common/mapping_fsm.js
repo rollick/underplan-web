@@ -373,7 +373,7 @@ MappingFsm = machina.Fsm.extend({
     this._centerMarkers(null, 0, -45);
   },
 
-  _setupMarkers: function (conds, options, callback) {
+  _setupMarkers: function (conds, options, clearMarkers, callback) {
     var recentActivities = Activities.find(conds, options).fetch(),
         self = this;
 
@@ -381,7 +381,8 @@ MappingFsm = machina.Fsm.extend({
     //   
     // var ids = _.map(recentActivities, function(activity){ return activity._id; });
     // this._clearUnmatchedMarkers(ids);
-    this.clearMarkers();
+    if (_.isUndefined(clearMarkers) || clearMarkers)
+      this.clearMarkers();
 
     if (recentActivities.length > 0) {
       _.each(recentActivities, function(activity) {
@@ -475,7 +476,7 @@ MappingFsm = machina.Fsm.extend({
         // Clear the markers if returning to the home page
         // this.clearMarkers();
 
-        this._setupMarkers({}, {limit: 25, sort: {created: -1}}, function () {
+        this._setupMarkers({}, {limit: 25, sort: {created: -1}}, null, function () {
           self._centerMarkers(null, 0, -45);
         });
 
@@ -562,7 +563,7 @@ MappingFsm = machina.Fsm.extend({
         // TODO: should we queue the setup markers below as the activityId might not
         //       be set yet. Then in a deps autorun we can process the map queue once
         //       the activity id has been set...
-        this._setupMarkers({_id: this.activityId}, {}, function () {
+        this._setupMarkers({_id: this.activityId}, {}, false, function () {
           self._centerMarkerById(self.activityId, 0, -45);
         });
 

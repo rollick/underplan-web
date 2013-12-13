@@ -207,7 +207,7 @@ var AppRouter = Backbone.Router.extend({
     var parts = activitySlug.split("?"),
         self = this;
 
-    this.runSetStoryActivity(groupSlug, parts[0]);
+    this.runSetStoryActivity(groupSlug, parts[0], true);
   },
 
   editShortActivity: function(groupSlug, activityId) {
@@ -336,11 +336,11 @@ var AppRouter = Backbone.Router.extend({
       } else {
         // Set the map and then the main template when the map 
         // transition has finished
-        mappingFsm.transition(mapState);
         mappingFsm.on(mapEvent, function () {
           Session.set("mainTemplate", templateName);
           this.off(mapEvent);
-        });      
+        });
+        mappingFsm.transition(mapState);
       }
     } else { // Set main template only
       Session.set("mainTemplate", templateName);
@@ -399,7 +399,7 @@ var AppRouter = Backbone.Router.extend({
   // A story is a little different to setup because the activity id is not know until
   // it is fetched based on the slug. So we get things running based using runSetActivity
   // and then watch until the activity has been set before transitioning
-  runSetStoryActivity: function (groupSlug, activityId, callback) {
+  runSetStoryActivity: function (groupSlug, activityId, showEditor) {
     var self = this;
 
     this.runSetActivity(groupSlug, activityId, false);
@@ -409,7 +409,11 @@ var AppRouter = Backbone.Router.extend({
     // to find the correct map marker
     this.currentDepsAutorun = Deps.autorun( function (computation) {
       if (ReactiveGroupFilter.get("activity")) {
-        self.setAndLoadMainTemplate("currentActivity");
+        if (showEditor) {
+          self.setAndLoadMainTemplate("storyEditor");  
+        } else {
+          self.setAndLoadMainTemplate("currentActivity");
+        }
 
         // Once we know the activity has been set we can stop future runs
         computation.stop();

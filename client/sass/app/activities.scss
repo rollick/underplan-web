@@ -222,6 +222,8 @@ body.fullscreen {
   }
 
   .previous {
+    padding-left: 0em;
+
     a {
       margin-left: -6px;
 
@@ -235,6 +237,7 @@ body.fullscreen {
 
   .next {    
     text-align: right;
+    padding-right: 0em;
 
     a {
       margin-right: -2px;
