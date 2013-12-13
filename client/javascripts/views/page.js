@@ -7,7 +7,8 @@ pageOptions = {
   shortyEditor:     {singleItem: true},
   activityFeed:     {showCountryFilter: true},
   mainHome:         {isHome: true},
-  blank:            {showCountryFilter: true}
+  blank:            {showCountryFilter: true},
+  groupMain:        {showCountryFilter: true}
 };
 
 ///////////////////////////////////////////////////////////////////////////////

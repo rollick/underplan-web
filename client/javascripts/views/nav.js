@@ -16,7 +16,12 @@ Template.mainNav.events({
   }
 });
 
+Template.mainNav.group = function () {
+  return Groups.findOne(ReactiveGroupFilter.get("group"));
+};
+
 Template.mainNav.groupNavTitle = function () {
+
   var group = Groups.findOne(ReactiveGroupFilter.get("group")),
       data = {};
 
@@ -51,13 +56,17 @@ Template.countryFilter.events({
     event.stopPropagation();
     event.preventDefault();
 
-    var filterElem = $(template.find("#country-filter"));
-    var selectedElem = $(event.target);
-    var selectedText = selectedElem.hasClass("all") ? null : selectedElem.text();
-    
-    
-    ReactiveGroupFilter.set("country", selectedText);
-    ReactiveGroupFilter.set("limit", feedLimitSkip);
+    var selectedElem = $(event.target),
+        group = Groups.findOne(ReactiveGroupFilter.get("group")),
+        country = selectedElem.text();
+
+    if (selectedElem.hasClass("all") || !country) {
+      Router.setGroup(group);
+    } else {
+      Router.setGroupAndCountry(group, country);
+    }
+
+    selectedElem.closest("section, .section").removeClass("active"); 
   }
 });
 

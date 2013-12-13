@@ -2121,7 +2121,6 @@ body.fullscreen .activity-highlight.large {
   *zoom: 1;
   margin: 0em;
   clear: both;
-  display: none;
 }
 /* line 121, ../../../../../.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/zurb-foundation-4.3.2/scss/foundation/components/_global.scss */
 .activity-controls:before, .activity-controls:after {
@@ -2132,18 +2131,18 @@ body.fullscreen .activity-highlight.large {
 .activity-controls:after {
   clear: both;
 }
-/* line 197, ../../sass/app/activities.scss */
+/* line 195, ../../sass/app/activities.scss */
 .activity-controls a {
   height: 24px;
   font-size: 0.9em;
 }
-/* line 201, ../../sass/app/activities.scss */
+/* line 199, ../../sass/app/activities.scss */
 .activity-controls a:before, .activity-controls a:after {
   background-size: 14px 14px;
   background-repeat: no-repeat;
   content: "\00a0\00a0\00a0\00a0";
 }
-/* line 208, ../../sass/app/activities.scss */
+/* line 206, ../../sass/app/activities.scss */
 .activity-controls .previous, .activity-controls .next {
   position: relative;
   padding-left: 0.9375em;
@@ -2153,7 +2152,7 @@ body.fullscreen .activity-highlight.large {
   margin-bottom: 0.9375em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 208, ../../sass/app/activities.scss */
+  /* line 206, ../../sass/app/activities.scss */
   .activity-controls .previous, .activity-controls .next {
     position: relative;
     padding-left: 0.9375em;
@@ -2162,40 +2161,40 @@ body.fullscreen .activity-highlight.large {
     float: left;
   }
 }
-/* line 217, ../../sass/app/activities.scss */
+/* line 215, ../../sass/app/activities.scss */
 .activity-controls .previous.clear, .activity-controls .next.clear {
   margin-bottom: 0em;
 }
-/* line 220, ../../sass/app/activities.scss */
+/* line 218, ../../sass/app/activities.scss */
 .activity-controls .previous.clear:before, .activity-controls .next.clear:before {
   content: "\00a0";
 }
-/* line 227, ../../sass/app/activities.scss */
+/* line 225, ../../sass/app/activities.scss */
 .activity-controls .previous a {
   margin-left: -6px;
 }
-/* line 230, ../../sass/app/activities.scss */
+/* line 228, ../../sass/app/activities.scss */
 .activity-controls .previous a:before {
   padding-left: 0px;
   background-position: 2px;
   background-image: url("/images/left.png");
 }
-/* line 238, ../../sass/app/activities.scss */
+/* line 236, ../../sass/app/activities.scss */
 .activity-controls .next {
   text-align: right;
 }
-/* line 241, ../../sass/app/activities.scss */
+/* line 239, ../../sass/app/activities.scss */
 .activity-controls .next a {
   margin-right: -2px;
 }
-/* line 244, ../../sass/app/activities.scss */
+/* line 242, ../../sass/app/activities.scss */
 .activity-controls .next a:after {
   padding-left: 0px;
   background-position: 2px;
   background-image: url("/images/right.png");
 }
 
-/* line 253, ../../sass/app/activities.scss */
+/* line 251, ../../sass/app/activities.scss */
 .map-info {
   width: auto;
   margin-left: -0.9375em;
@@ -2252,7 +2251,7 @@ body.fullscreen .activity-highlight.large {
   line-height: 1.4;
 }
 @media only screen and (min-width: 48em) {
-  /* line 253, ../../sass/app/activities.scss */
+  /* line 251, ../../sass/app/activities.scss */
   .map-info {
     margin: 0em;
     margin-bottom: 1.875em;
@@ -2798,7 +2797,7 @@ body.fullscreen .activity-highlight.large {
   height: 100%;
 }
 @media only screen and (min-width: 48em) {
-  /* line 253, ../../sass/app/activities.scss */
+  /* line 251, ../../sass/app/activities.scss */
   .map-info {
     width: 400px;
   }

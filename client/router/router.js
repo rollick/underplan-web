@@ -5,7 +5,9 @@ var AppRouter = Backbone.Router.extend({
     "user/settings":                  "userSettings",
     "settings":                       "mainSettings",
     ":groupSlug":                     "group",
+    ":groupSlug/c/:country":          "groupAndCountry",
     ":groupSlug/settings":            "groupSettings",
+    ":groupSlug/feed":                "groupFeed",
     ":groupSlug/new":                 "newActivity",
     ":groupSlug/membership":          "groupMembership",
     ":groupSlug/pl/:activityId":      "permaActivity",
@@ -20,6 +22,7 @@ var AppRouter = Backbone.Router.extend({
     "user/settings":                  "User Settings Loaded",
     "settings":                       "Settings Loaded",
     ":groupSlug":                     "Group Loaded",
+    ":groupSlug/c/:country":          "Group Loaded By Country",
     ":groupSlug/settings":            "Group Settings Loaded",
     ":groupSlug/new":                 "New Activity Loaded",
     ":groupSlug/membership":          "Group Membership Loaded",
@@ -67,12 +70,20 @@ var AppRouter = Backbone.Router.extend({
         evt: "ActivityMapReady",
         state: "showActivity"        
       }
-    }
+    },
+    activityFeed: {
+      map: {
+        evt: "FeedMapReady",
+        state: "recentFeed"        
+      }
+    },
   },
 
   before: function(route, params) {
     // Clear the mainTemplate
     this.mainTemplate = null;
+
+    this.currentDepsAutorun = null;
 
     // Shouldn't be any create errors when re-routing
     Session.set("createError", null);
@@ -108,6 +119,8 @@ var AppRouter = Backbone.Router.extend({
     trackEvent(label, {route: route, params: params, path: path});
   },
 
+  currentDepsAutorun: null,
+
   ////////////////////////
   // Main Routing Functions
 
@@ -119,6 +132,18 @@ var AppRouter = Backbone.Router.extend({
 
   group: function(groupSlug) {
     this.runSetGroup(groupSlug);
+    ReactiveGroupFilter.set("country", null);
+
+    this.setAndLoadMainTemplate("groupMain");
+  },
+
+  groupAndCountry: function(groupSlug, country) {
+    this.runSetGroup(groupSlug);
+
+    if (country) {
+      country = encodeURIComponent(country).replace("-", " ");
+      ReactiveGroupFilter.set("country", country);
+    }
 
     this.setAndLoadMainTemplate("groupMain");
   },
@@ -131,6 +156,12 @@ var AppRouter = Backbone.Router.extend({
     this.runSetGroup(groupSlug);
 
     this.setAndLoadMainTemplate("mainSettings");
+  },
+
+  groupFeed: function(groupSlug) {
+    this.runSetGroup(groupSlug);
+
+    this.setAndLoadMainTemplate("activityFeed");
   },
 
   newGroup: function() {
@@ -162,7 +193,7 @@ var AppRouter = Backbone.Router.extend({
     var parts = activitySlug.split("?"),
         self = this;
 
-    this.runSetActivity(groupSlug, parts[0], null).setAndLoadMainTemplate("currentActivity");
+    this.runSetStoryActivity(groupSlug, parts[0]);
   },
 
   permaActivity: function(groupSlug, activityId) {
@@ -176,7 +207,7 @@ var AppRouter = Backbone.Router.extend({
     var parts = activitySlug.split("?"),
         self = this;
 
-    this.runSetActivity(groupSlug, parts[0], true).setAndLoadMainTemplate("storyEditor");
+    this.runSetStoryActivity(groupSlug, parts[0]);
   },
 
   editShortActivity: function(groupSlug, activityId) {
@@ -222,6 +253,16 @@ var AppRouter = Backbone.Router.extend({
       this.navigate("", true);
     } else {
       this.navigate(group.slug, true);
+    }
+  },
+
+  setGroupAndCountry: function(group, country) {
+    if (!group || typeof group === "undefined") {
+      this.navigate("", true);
+    } else {
+      // replace spaces with hyphens
+      country = encodeURIComponent(country.replace(/\s/, "-"));
+      this.navigate(group.slug + "/c/" + country, true);
     }
   },
 
@@ -283,7 +324,6 @@ var AppRouter = Backbone.Router.extend({
 
     var match = this.templateMappings[this._mainTemplateName],
         templateName = this._mainTemplateName;
-
     if (match) { // Set the main template and corresponding map
       var map = match.map,
           mapState = map.state,
@@ -310,25 +350,71 @@ var AppRouter = Backbone.Router.extend({
   ////////////////////////
   // Common Functions
 
-  runSetGroup: function (groupSlug, callback) {
-    Session.set("expandedActivities", []);
+  runSetGroup: function (groupSlug, clearActivity) {
     ReactiveGroupFilter.set("groupSlug", groupSlug);
+    ReactiveGroupFilter.set("limit", 5);
     
+    Deps.autorun( function (computation) {
+      var group = Groups.findOne({slug: ReactiveGroupFilter.get("groupSlug")});
+
+      if (group) {
+        ReactiveGroupFilter.set("group", group._id);
+        computation.stop();
+      }
+
+    });
+
+    Session.set("expandedActivities", []);
+
+    // Clear activity??
+    if (_.isUndefined(clearActivity) || clearActivity) {
+      // FIXME: there is probably a timing issue here as the slug would need to be cleared 
+      //        before the activity otherwise the autorun in Meteor.startup will reload
+      //        the activity if the slug is set but the activity is null. :-( Maybe we should 
+      //        have a "clearActivity" function on the ReactiveGroupFilter which clears both
+      //        and then triggers any reactive dependencies. Ah, there is a 'quiet' option when
+      //        setting the a property on ReactiveGroupFilter. Will use that below for now...
+      ReactiveGroupFilter.set("activitySlug", null, {quiet: true});
+      ReactiveGroupFilter.set("activity", null);
+    }
+
     return this;
   },
 
   runSetActivity: function (groupSlug, activityId, isPermalink, callback) {
+    // Set group but don't clear activity/activitySlug as any change to them is handled next
+    this.runSetGroup(groupSlug, false);
+
     if (isPermalink) {
-      ReactiveGroupFilter.set('activity', activityId);
       ReactiveGroupFilter.set('activitySlug', null);
+      ReactiveGroupFilter.set('activity', activityId);
     } else {
-      ReactiveGroupFilter.set('activitySlug', activityId);
       ReactiveGroupFilter.set('activity', null);
+      ReactiveGroupFilter.set('activitySlug', activityId);
     }
 
-    this.runSetGroup(groupSlug);
-
     return this;
+  },
+
+  // A story is a little different to setup because the activity id is not know until
+  // it is fetched based on the slug. So we get things running based using runSetActivity
+  // and then watch until the activity has been set before transitioning
+  runSetStoryActivity: function (groupSlug, activityId, callback) {
+    var self = this;
+
+    this.runSetActivity(groupSlug, activityId, false);
+
+    // We need this in a deps to ensure that the activity has been set based on 
+    // the slug before transitioning the map state as the map uses the activity id
+    // to find the correct map marker
+    this.currentDepsAutorun = Deps.autorun( function (computation) {
+      if (ReactiveGroupFilter.get("activity")) {
+        self.setAndLoadMainTemplate("currentActivity");
+
+        // Once we know the activity has been set we can stop future runs
+        computation.stop();
+      }
+    });
   },
 
   jumpToTop: function () {
@@ -338,7 +424,7 @@ var AppRouter = Backbone.Router.extend({
   },
 
   resetGroup: function () {
-    ReactiveGroupFilter.clear();
+    ReactiveGroupFilter.set("group", null);
   }
 });
 

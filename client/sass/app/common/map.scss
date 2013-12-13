@@ -60,7 +60,7 @@
   // margin-top: -$standard-control-height - 0.5em;
   pointer-events: none;
   float: left;
-  padding-left: $standard-padding;
+  padding-right: $standard-padding;
 
   .load-more {
     @include border-radius($standard-corner-radius);
@@ -68,7 +68,7 @@
     font-size: 0.9em;
     background: $standard-map-control-bg;
     pointer-events: all;
-    margin: 0 auto;
+    // margin: 0 auto;
     height: 25px;
     margin-bottom: 0.5em;
     padding: 0 $standard-padding;

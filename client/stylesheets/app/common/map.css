@@ -198,7 +198,7 @@ select {
   text-align: center;
   pointer-events: none;
   float: left;
-  padding-left: 0.5em;
+  padding-right: 0.5em;
 }
 /* line 65, ../../../sass/app/common/map.scss */
 .map-secondary-actions .load-more {
@@ -210,7 +210,6 @@ select {
   font-size: 0.9em;
   background: rgba(255, 255, 255, 0.9);
   pointer-events: all;
-  margin: 0 auto;
   height: 25px;
   margin-bottom: 0.5em;
   padding: 0 0.5em;

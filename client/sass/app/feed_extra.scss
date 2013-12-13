@@ -1,5 +1,6 @@
 @import "../components";
 @import "foundation/components/alert-boxes";
+@import "foundation/components/top-bar";
 @import "compass/css3";
 
 @include keyframe(mapInserted);
@@ -16,12 +17,14 @@ $handle-hover-offset: 5px;
   position: relative;
   clear: left;
   z-index: 4;
+  pointer-events: none;
 
   & > div {
     height: $handle-height;
     width: 30px;
     margin: 0 auto;
     background-color: $handle-bg-color;
+    pointer-events: all;
 
     &:hover {
       cursor: row-resize;
@@ -53,6 +56,7 @@ $handle-hover-offset: 5px;
   // padding-bottom: 5em;
   margin-top: -45px;
   height: $map-height-small;
+  border-bottom: 1px solid darken($handle-bg-color, 10%);
 
   @media only screen and (min-width: 48em) {
     height: $map-height-medium;
@@ -66,9 +70,7 @@ $handle-hover-offset: 5px;
     @include transition-property(none);
   }
 
-  &.home,
-  &.small {
-    border-bottom: 1px solid darken($handle-bg-color, 10%);
+  &.default {
     height: $map-height-small;
 
     @media only screen and (min-width: 48em) {
@@ -76,8 +78,7 @@ $handle-hover-offset: 5px;
     }
   }
 
-  &.default,
-  &.medium {
+  &.home {
     height: $map-height-medium;
 
     @media only screen and (min-width: 48em) {
@@ -85,8 +86,13 @@ $handle-hover-offset: 5px;
     }
   }
 
+  &.hide {
+    height: $topbar-height;
+  }
+
+
   &.fullscreen {
-    height: 100%;;
+    height: 100%;
   }
 
   &.no-photos {

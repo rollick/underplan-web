@@ -6,7 +6,6 @@
         <div class="activity">
           {{> singleItemContent this}}
         </div>
-        {{> activityControls this}}
         {{> itemActions}}
         {{> itemComments}}
       </div>
@@ -62,6 +61,7 @@
     </div>
   </div>
   <div class="content">
+    {{> activityControls this}}
     {{#unless published}}<span class="alert-box alert">Unpublished<br /></span>{{/unless}}
 
     {{#if title}}<h2>{{title}}</h2>{{/if}}

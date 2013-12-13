@@ -105,12 +105,16 @@ Template.activityControls.group = function () {
 };
 
 Template.activityControls.nextActivity = function () {
-  var activity = Activities.findOne(this._id);
-  var country = ReactiveGroupFilter.get("country");
+  if (!this._id) return;
+
+  var activity = Activities.findOne(this._id),
+      country = ReactiveGroupFilter.get("country"),
+      groupId = activity.group;
+
   var params = {
     $and: [
-      {group: ReactiveGroupFilter.get("group")},
-      {"_id": {"$not": ReactiveGroupFilter.get("activity")}},
+      {group: groupId},
+      {"_id": {"$not": activity._id}},
       {_id: {"$gte": activity._id}}
     ]};
 
@@ -121,12 +125,16 @@ Template.activityControls.nextActivity = function () {
 };
 
 Template.activityControls.previousActivity = function () {
-  var activity = Activities.findOne(this._id);
-  var country = ReactiveGroupFilter.get("country");
+  if (!this._id) return;
+
+  var activity = Activities.findOne(this._id),
+      country = ReactiveGroupFilter.get("country"),
+      groupId = activity.group;
+
   var params = {
     $and: [
-      {group: ReactiveGroupFilter.get("group")},
-      {"_id": {"$not": ReactiveGroupFilter.get("activity")}}, 
+      {group: groupId},
+      {"_id": {"$not": activity._id}}, 
       {_id: {"$lte": activity._id}}
     ]};
 

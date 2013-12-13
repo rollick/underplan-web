@@ -13,7 +13,7 @@ function ImageMarker( id, options ) {
     });
 };
 
-function initMapMarker() {
+function initMapExtras() {
   ImageMarker.prototype = new google.maps.OverlayView;
 
   ImageMarker.prototype.onAdd = function() {
@@ -44,6 +44,20 @@ function initMapMarker() {
         var events = marker.get("events");
         events && events.click( event, marker );
       })
+  };
+
+  google.maps.Map.prototype.panToWithOffset = function(latlng, offsetX, offsetY) {
+    var map = this;
+    var ov = new google.maps.OverlayView();
+    ov.onAdd = function() {
+        var proj = this.getProjection();
+        var aPoint = proj.fromLatLngToContainerPixel(latlng);
+        aPoint.x = aPoint.x+offsetX;
+        aPoint.y = aPoint.y+offsetY;
+        map.panTo(proj.fromContainerPixelToLatLng(aPoint));
+    }; 
+    ov.draw = function() {}; 
+    ov.setMap(this); 
   };
 }
 
@@ -134,18 +148,6 @@ MappingFsm = machina.Fsm.extend({
     this.map.fitBounds(this.bounds());
   },
 
-  // Pan bounds to fit in map and then pan again to make the bounds centered
-  // TODO: my best effort to smooth(-ishly) center markers.
-  _centerMarkers: function (callback) {
-    var bounds = this.bounds();
-    this.map.fitBounds(bounds);
-    
-    google.maps.event.addListenerOnce(this.map, 'idle', function() {
-      if (_.isFunction(callback))
-        callback.call();
-    });
-  },
-
   // check if a marker already exists
   markerExists: function(key, val) {
     var match = false
@@ -166,8 +168,8 @@ MappingFsm = machina.Fsm.extend({
       canvasElementId = "map-canvas";
 
     // Once we initialize this we can/should be sure the google maps
-    // lib has loaded so we can extend the MapMarker
-    initMapMarker();
+    // lib has loaded so we can extend some mapping code
+    initMapExtras();
 
     var mapOptions = {
       zoom: this.defaultZoom,
@@ -232,10 +234,32 @@ MappingFsm = machina.Fsm.extend({
     this.map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControl[0]);      
   },
 
-  _centerMarkerById: function (id) {
+  // Pan bounds to fit in map and then pan again to make the bounds centered
+  // TODO: my best effort to smooth(-ishly) center markers.
+  _centerMarkers: function (callback, offsetX, offsetY) {
+    var bounds = this.bounds();
+
+    this.map.fitBounds(bounds);
+
+    if (offsetX || offsetY) {
+      this.map.panBy(offsetX || 0, offsetY || 0);
+    }
+    
+    google.maps.event.addListenerOnce(this.map, 'idle', function() {
+      if (_.isFunction(callback))
+        callback.call();
+    });
+  },
+
+  _centerMarkerById: function (id, offsetX, offsetY) {
     for (var i = 0; i < this.markers.length; i++ ) {
       if (this.markers[i]._id == id) {
-        this.map.panTo(this.markers[i].position);
+        var latLng = this.markers[i].position;
+        if (offsetX || offsetY) {
+          this.map.panToWithOffset(latLng, offsetX || 0, offsetY || 0);
+        } else {
+          this.map.panTo(latLng);
+        }
         break;
       }
     }
@@ -258,19 +282,43 @@ MappingFsm = machina.Fsm.extend({
 
       $(marker.$div).addClass("selected");
     }
-  }, 
+  },
+
+  _transitions: 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', 
+
+  _setTransitionCallback: function (callback) {
+    var self = this;
+
+    $("." + this.containerCls).one(this._transitions, function(event) {
+      google.maps.event.trigger(self.map, 'resize');
+      
+      if (_.isFunction(callback)) {
+        callback.call();
+      }
+
+      // var newHeight = $(element).css("height");
+      // self.map.panBy(0, (parseInt(oldHeight) - parseInt(newHeight)) / 2); 
+      self._cancelTransitionCallback();
+    });
+  },
+
+  _cancelTransitionCallback: function () {
+    // Clear the transitions as, for example, webkit will trigger 
+    // webkitTransitionEnd and transitionend
+    $("." + this.containerCls).off(this._transitions);    
+  },
 
   _setContainerClass: function (mapCls, callback) {
-    var element = $("." + this.containerCls),
-        oldHeight = element.height(),
+    var container = $("." + this.containerCls),
+        oldHeight = container.height(),
         self = this;
 
     // Remove height which could be added be dragging map handle
-    element.removeAttr("style");
+    container.removeAttr("style");
 
-    // If the element already has the class then just call the callback
+    // If the container already has the class then just call the callback
     // if parsed and then return
-    if (element.hasClass(mapCls)) {
+    if (container.hasClass(mapCls)) {
       if (_.isFunction(callback))
         callback.call();
       return;
@@ -284,24 +332,13 @@ MappingFsm = machina.Fsm.extend({
     // FIXME: if the the mapCls is different to the existing class but
     //        changing it doesn't cause one of the css transitions below
     //        then we need a way to still trigger the code in the .one 
-    //        handler for the element. Any ideas??
-
-    var transitions = 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend';
-    element.one(transitions, function(event) {
-      google.maps.event.trigger(self.map, 'resize');
-      
-      if (_.isFunction(callback))
-        callback.call();
-
-      // var newHeight = $(element).css("height");
-      // self.map.panBy(0, (parseInt(oldHeight) - parseInt(newHeight)) / 2); 
-
-      // Clear the transitions as, for example, webkit will trigger webkitTransitionEnd and transitionend
-      $(this).off(transitions);
-    });
+    //        handler for the container. Any ideas??
+    //        ... Trying to use a timer to catch cases where there is no
+    //        transition to trigger. See setTimer at end of function.
+    this._setTransitionCallback(callback);
 
     // Remove all classes except top-extra and then add new class
-    element.removeClass(function(i, cls) {
+    container.removeClass(function(i, cls) {
       var list = cls.split(' ');
       return  list.filter(function(val) {
         return (val != self.containerCls);
@@ -309,10 +346,43 @@ MappingFsm = machina.Fsm.extend({
     }).addClass(mapCls);
   },
 
+  _clearUnmatchedMarkers: function (ids) {
+    // TODO: add this so that it can be used in setupMarkers rather than just 
+    //       removing all markers and then possibly readding the some back
+  },
+
+  // This is meant to be run using the map state transitions, or by a part of the
+  // code which is reactive as the ReactiveGroupFilter calls in the function have
+  // been put inside Deps.nonreactive calls.
+  setupGroupMarkers: function (forceSetup) {
+    // We are assuming the map is in the recentGroup state so return early if it isn't
+    // NOTE: it isn't necessary to be in this state but it is currently the only time we
+    //       want the map to work this way
+    if (this.state !== "recentGroupIdle" && !forceSetup) return;
+
+    var conds = Deps.nonreactive(function () { 
+      return ReactiveGroupFilter.get('queryFields');
+    });
+
+    var limit = Deps.nonreactive(function () { 
+      return ReactiveGroupFilter.get("limit");
+    });
+    var options = {sort: {created: -1}, limit: limit};
+
+    this._setupMarkers(conds, options);
+    this._centerMarkers(null, 0, -45);
+  },
+
   _setupMarkers: function (conds, options, callback) {
     var recentActivities = Activities.find(conds, options).fetch(),
         self = this;
-  
+
+    // TODO: create clearUnmatchedMarkers. For now just call clearMarkers
+    //   
+    // var ids = _.map(recentActivities, function(activity){ return activity._id; });
+    // this._clearUnmatchedMarkers(ids);
+    this.clearMarkers();
+
     if (recentActivities.length > 0) {
       _.each(recentActivities, function(activity) {
         if (typeof activity.lat !== 'undefined' &&
@@ -388,12 +458,12 @@ MappingFsm = machina.Fsm.extend({
       _onEnter: function() {
         $('html,body').scrollTop(0);
 
-        this.queueOrRun(function() { this.handle("map.small"); }, this);
+        this.queueOrRun(function() { this.handle("map.home"); }, this);
       },
-      "map.small": function() {
-        // Set map class to small
+      "map.home": function() {
+        // Set map class to home
         var self = this;
-        this._setContainerClass('small', function () {
+        this._setContainerClass('home', function () {
           self.handle("markers.load");
         });
       },
@@ -406,14 +476,13 @@ MappingFsm = machina.Fsm.extend({
         // this.clearMarkers();
 
         this._setupMarkers({}, {limit: 25, sort: {created: -1}}, function () {
-          self._centerMarkers( function () {
-            // self.map.panBy(0, -45);
-          });
+          self._centerMarkers(null, 0, -45);
         });
 
         this.emit("HomeMapReady");
       }
     },
+
     recentGroup: {
       _onEnter: function () {
         $('html,body').scrollTop(0);
@@ -423,6 +492,31 @@ MappingFsm = machina.Fsm.extend({
         var self = this;
         // Set map class to fullscreen
         this._setContainerClass('fullscreen', function () {
+          self.handle("markers.load");
+        });
+      },
+      "markers.load": function() {
+        this.setupGroupMarkers(true);
+
+        this.transition("recentGroupIdle");
+      }
+    },
+
+    recentGroupIdle: {
+      _onEnter: function () {
+        this.emit("GroupMapReady");
+      }
+    },
+
+    recentFeed: {
+      _onEnter: function () {
+        $('html,body').scrollTop(0);
+        this.queueOrRun(function() { this.handle("map.hide"); }, this);
+      },
+      "map.hide": function() {
+        // Set map class to small
+        var self = this;
+        this._setContainerClass('hide', function () {
           self.handle("markers.load");
         });
       },
@@ -439,7 +533,7 @@ MappingFsm = machina.Fsm.extend({
         this._setupMarkers(conds, options);
         this._centerMarkers();
 
-        this.emit("GroupMapReady");
+        this.emit("FeedMapReady");
       }
     },
 
@@ -449,11 +543,11 @@ MappingFsm = machina.Fsm.extend({
         // set the activityId for use in subsequent actions
         this.activityId = this.activityIdNonReactive();
 
-        this.handle("map.medium");
+        this.handle("map.default");
       },
-      "map.medium": function() {
+      "map.default": function() {
         var self = this;
-        this._setContainerClass('medium', function () {
+        this._setContainerClass('default', function () {
           // Select marker
           self.handle("marker.selected");
         });
@@ -465,8 +559,11 @@ MappingFsm = machina.Fsm.extend({
       "marker.load": function() {
         var self = this;
 
+        // TODO: should we queue the setup markers below as the activityId might not
+        //       be set yet. Then in a deps autorun we can process the map queue once
+        //       the activity id has been set...
         this._setupMarkers({_id: this.activityId}, {}, function () {
-          self._centerMarkerById(self.activityId)
+          self._centerMarkerById(self.activityId, 0, -45);
         });
 
         // Transition to showActivityIdle so that subsequent transitions to showActivity

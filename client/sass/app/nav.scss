@@ -75,6 +75,10 @@
     margin-right: 0em;
     padding: $standard-padding;
 
+    & > div {
+      padding-right: $standard-padding; 
+    }
+
     .country-container {
       @include section-container($section-type:horizontal-nav);
 

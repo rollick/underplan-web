@@ -8,7 +8,7 @@ ReactiveGroupFilter = {
       self.set(key, null, options);
     });
 
-    this._fieldsDep = {}
+    // this._fieldsDep = {}
   },
 
   get: function (key) {
@@ -76,6 +76,7 @@ ReactiveGroupFilter = {
     country: null,
     limit: null,
     group: null,
+    groupSlug: null,
     activity: null,
     activitySlug: null
   },

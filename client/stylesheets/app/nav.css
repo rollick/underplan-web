@@ -2333,6 +2333,10 @@ blockquote p {
   padding: 0.5em;
 }
 /* line 78, ../../sass/app/nav.scss */
+.group-controls > .inner > div {
+  padding-right: 0.5em;
+}
+/* line 82, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container {
   width: 100%;
   position: relative;
@@ -2364,15 +2368,15 @@ blockquote p {
 .group-controls > .inner .country-container[data-section-small-style] > [data-section-region] > [data-section-title], .group-controls > .inner .country-container[data-section-small-style] > [data-section-region] > .title, .group-controls > .inner .country-container[data-section-small-style] > section > [data-section-title], .group-controls > .inner .country-container[data-section-small-style] > section > .title, .group-controls > .inner .country-container[data-section-small-style] > .section > [data-section-title], .group-controls > .inner .country-container[data-section-small-style] > .section > .title {
   width: 100% !important;
 }
-/* line 88, ../../sass/app/nav.scss */
+/* line 92, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container.horizontal-nav {
   background: transparent;
 }
-/* line 92, ../../sass/app/nav.scss */
+/* line 96, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container section, .group-controls > .inner .country-container .section {
   width: 100%;
 }
-/* line 95, ../../sass/app/nav.scss */
+/* line 99, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container section .title, .group-controls > .inner .country-container .section .title {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2385,7 +2389,7 @@ blockquote p {
   padding: 0 0.5em;
   margin-left: 0px;
 }
-/* line 105, ../../sass/app/nav.scss */
+/* line 109, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container section.active .title, .group-controls > .inner .country-container .section.active .title {
   -moz-border-radius-bottomleft: 0em;
   -webkit-border-bottom-left-radius: 0em;
@@ -2396,7 +2400,7 @@ blockquote p {
   background: white;
   opacity: 1.0;
 }
-/* line 112, ../../sass/app/nav.scss */
+/* line 116, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container section .content, .group-controls > .inner .country-container .section .content {
   -moz-border-radius-bottomleft: 3px;
   -webkit-border-bottom-left-radius: 3px;
@@ -2412,22 +2416,22 @@ blockquote p {
   opacity: 0.8;
   padding: 0.5em;
 }
-/* line 123, ../../sass/app/nav.scss */
+/* line 127, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container section .content ul.country-filter, .group-controls > .inner .country-container .section .content ul.country-filter {
   width: 100%;
   padding: 0em;
 }
-/* line 130, ../../sass/app/nav.scss */
+/* line 134, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container .side-nav li {
   text-align: center;
 }
-/* line 133, ../../sass/app/nav.scss */
+/* line 137, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container .side-nav li.active a {
   font-weight: normal;
   cursor: default;
 }
 
-/* line 143, ../../sass/app/nav.scss */
+/* line 147, ../../sass/app/nav.scss */
 .group-nav {
   padding-top: 0em;
   max-height: 2.25em;
@@ -2438,7 +2442,7 @@ blockquote p {
   width: 100%;
   border: 1px solid red;
 }
-/* line 153, ../../sass/app/nav.scss */
+/* line 157, ../../sass/app/nav.scss */
 .group-nav .country-filter-section {
   margin: 0 auto;
   width: 120px;
@@ -2446,41 +2450,41 @@ blockquote p {
   text-align: center;
 }
 
-/* line 161, ../../sass/app/nav.scss */
+/* line 165, ../../sass/app/nav.scss */
 .top-bar-section {
   font-family: "Raleway", sans-serif;
 }
-/* line 165, ../../sass/app/nav.scss */
+/* line 169, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar-section .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 170, ../../sass/app/nav.scss */
+/* line 174, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a {
   text-indent: -44px !important;
 }
-/* line 173, ../../sass/app/nav.scss */
+/* line 177, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: 100;
 }
 
-/* line 178, ../../sass/app/nav.scss */
+/* line 182, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 183, ../../sass/app/nav.scss */
+/* line 187, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
   overflow: inherit;
 }
-/* line 187, ../../sass/app/nav.scss */
+/* line 191, ../../sass/app/nav.scss */
 .top-bar.expanded {
   background: rgba(17, 17, 17, 0.8) !important;
 }
-/* line 192, ../../sass/app/nav.scss */
+/* line 196, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
@@ -2489,44 +2493,44 @@ blockquote p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 203, ../../sass/app/nav.scss */
+/* line 207, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 203, ../../sass/app/nav.scss */
+  /* line 207, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 211, ../../sass/app/nav.scss */
+/* line 215, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: rgba(255, 255, 255, 0.3);
 }
 @media only screen and (min-width: 48em) {
-  /* line 211, ../../sass/app/nav.scss */
+  /* line 215, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
   }
 }
-/* line 221, ../../sass/app/nav.scss */
+/* line 225, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 229, ../../sass/app/nav.scss */
+  /* line 233, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 235, ../../sass/app/nav.scss */
+/* line 239, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 239, ../../sass/app/nav.scss */
+/* line 243, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 28px;
   padding: 2px;
@@ -2540,23 +2544,23 @@ blockquote p {
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 249, ../../sass/app/nav.scss */
+  /* line 253, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 253, ../../sass/app/nav.scss */
+  /* line 257, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
 
-/* line 262, ../../sass/app/nav.scss */
+/* line 266, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 268, ../../sass/app/nav.scss */
+/* line 272, ../../sass/app/nav.scss */
 .top-bar-section li.text {
   color: rgba(196, 196, 196, 0.4);
   opacity: 1;
@@ -2565,23 +2569,23 @@ blockquote p {
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 268, ../../sass/app/nav.scss */
+  /* line 272, ../../sass/app/nav.scss */
   .top-bar-section li.text {
     color: rgba(247, 247, 247, 0.4);
     background-color: rgba(17, 17, 17, 0.4);
   }
 }
 
-/* line 282, ../../sass/app/nav.scss */
+/* line 286, ../../sass/app/nav.scss */
 li.login-services {
   height: 45px;
 }
-/* line 285, ../../sass/app/nav.scss */
+/* line 289, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 290, ../../sass/app/nav.scss */
+/* line 294, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -2589,7 +2593,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 298, ../../sass/app/nav.scss */
+/* line 302, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

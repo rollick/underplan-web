@@ -12,7 +12,13 @@
   <nav class="top-bar">
     <ul class="title-area">
       <li class="name">
-        {{> groupNavTitle}}
+        {{#if group}}
+          <h1>
+            <a href="/{{group.slug}}" class="home branding">
+              {{group.name}}
+            </a>
+          </h1>
+        {{/if}}
       </li>
       <li class="toggle-topbar menu-icon"><a href="#"><span>Menu</span></a></li>
     </ul>

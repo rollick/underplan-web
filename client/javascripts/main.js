@@ -33,8 +33,9 @@ this.mappingFsm = null;
 Meteor.startup(function () {
   logIfDev("===Starting Underplan===");
 
-  Session.set("appVersion", "v1.3.146");
+  Session.set("appVersion", "v1.3.147");
   Session.set('mapReady', false);
+  ReactiveGroupFilter.set("groupSlug", null);
 
   // Mixpanel tracking
   mixpanel.init(Meteor.settings.public.mixpanelToken);
@@ -72,26 +73,19 @@ Meteor.startup(function () {
   // Main Autorun Deps
 
   Deps.autorun( function (computation) {
-    var groupSlug = ReactiveGroupFilter.get('groupSlug');
-    if (!groupSlug)
-      return;
-
-    var group = Groups.findOne({slug: groupSlug});
-
-    if (group) {
-      ReactiveGroupFilter.set("group", group._id);
-    }
-  });
-
-
-  Deps.autorun( function (computation) {
-
     var group = Groups.findOne(ReactiveGroupFilter.get('group'));
 
     if (!group)
       return;
 
-    var activityValue = ReactiveGroupFilter.get('activity') || ReactiveGroupFilter.get('activitySlug');
+    var activityId = ReactiveGroupFilter.get('activity'),
+        activitySlug = ReactiveGroupFilter.get('activitySlug');
+
+    // We can ignore this run if the activity and the activitySlug are both set => the activity 
+    // was set based on the activitySlug... Which implies that if the activitySlug gets set then
+    // the code setting it (or the ReactiveGroupFilter) should set activity to null...
+    if (activityId && activitySlug)
+      return;
 
     ////
     // This will set the template for based on an activity type (story or shorty) 
@@ -103,6 +97,9 @@ Meteor.startup(function () {
     //    if it includes "edit" and "pl" then render the shorty editor
     //    otherwise if it includes "edit" then render the story editor
     //
+
+    var activityValue = activityId || activitySlug;
+
     if (activityValue) {
       logIfDev("Subscribe to activity");
 
@@ -123,7 +120,7 @@ Meteor.startup(function () {
   });
 
   // Fetching current group data
-  Deps.autorun(function () {
+  Deps.autorun(function (computation) {
     var groupId = ReactiveGroupFilter.get("group");
 
     if (groupId) {
@@ -142,12 +139,15 @@ Meteor.startup(function () {
       self.feedMapSubscription = Meteor.subscribe("basicActivityData", groupId);
 
       var options = ReactiveGroupFilter.get("subscriptionOptions");
-      self.feedListSubscription = Meteor.subscribe("feedActivities", options);
+      self.feedListSubscription = Meteor.subscribe("feedActivities", options, function () {
+        // refresh 
+        mappingFsm.setupGroupMarkers();
+      });
       self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
     }
   });
 
-  Deps.autorun(function () {
+  Deps.autorun(function (computation) {
     var group = Groups.findOne(ReactiveGroupFilter.get("group"));
     if (!!group)
       document.title = "Underplan: " + group.name;
