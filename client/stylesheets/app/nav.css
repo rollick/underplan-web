@@ -2334,7 +2334,7 @@ blockquote p {
 }
 /* line 78, ../../sass/app/nav.scss */
 .group-controls > .inner > div {
-  padding-right: 0.5em;
+  margin-right: 0.5em;
 }
 /* line 82, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container {
@@ -2374,7 +2374,7 @@ blockquote p {
 }
 /* line 96, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container section, .group-controls > .inner .country-container .section {
-  width: 100%;
+  width: 180px;
 }
 /* line 99, ../../sass/app/nav.scss */
 .group-controls > .inner .country-container section .title, .group-controls > .inner .country-container .section .title {

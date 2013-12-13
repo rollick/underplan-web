@@ -76,7 +76,7 @@
     padding: $standard-padding;
 
     & > div {
-      padding-right: $standard-padding; 
+      margin-right: $standard-padding; 
     }
 
     .country-container {
@@ -94,7 +94,7 @@
       }
 
       section, .section {
-        width: 100%;
+        width: $group-controls-width;
 
         .title {
           @include border-radius($standard-corner-radius);
