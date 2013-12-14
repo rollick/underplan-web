@@ -65,7 +65,25 @@ Template.shortForm.activity = function () {
   }
 };
 
+Template.shortForm.helpers({
+  group: function () {
+    return Groups.findOne(ReactiveGroupFilter.get("group"));
+  }
+});
+
 Template.shortForm.events({
+  'click .new-short': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    $(".short-form.row").show().find("textarea").focus();
+  },
+  "click .new-story": function () {
+    event.stopPropagation();
+    event.preventDefault();
+
+    Router.setNewActivity(Groups.findOne(ReactiveGroupFilter.get("group")));
+  },
   'click .show-advanced-location': function (event, template) {
     event.stopPropagation();
     event.preventDefault();

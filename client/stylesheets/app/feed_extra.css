@@ -1843,7 +1843,7 @@ blockquote p {
   border-top: 2px solid #5f5f5f;
   position: relative;
   clear: left;
-  z-index: 4;
+  z-index: 7;
   pointer-events: none;
 }
 /* line 22, ../../sass/app/feed_extra.scss */

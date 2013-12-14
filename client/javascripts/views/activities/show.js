@@ -114,14 +114,13 @@ Template.activityControls.nextActivity = function () {
   var params = {
     $and: [
       {group: groupId},
-      {"_id": {"$not": activity._id}},
-      {_id: {"$gte": activity._id}}
+      {_id: {"$gt": activity._id}}
     ]};
 
   if (country)
     params['$and'].push({"country": country});
 
-  return Activities.find(params, {sort: {_id: 1}}).fetch()[0];
+  return Activities.findOne(params, {sort: {_id: 1}});
 };
 
 Template.activityControls.previousActivity = function () {
@@ -134,14 +133,13 @@ Template.activityControls.previousActivity = function () {
   var params = {
     $and: [
       {group: groupId},
-      {"_id": {"$not": activity._id}}, 
-      {_id: {"$lte": activity._id}}
+      {_id: {"$lt": activity._id}}
     ]};
 
   if (country)
     params['$and'].push({"country": country});
 
-  return Activities.find(params, {sort: {_id: -1}}).fetch()[0];
+  return Activities.findOne(params, {sort: {_id: -1}});
 };
 
 ///////////////////////////////////////////////////////////////////////////////

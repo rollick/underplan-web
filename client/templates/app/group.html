@@ -22,14 +22,23 @@
 </template>
 
 <template name="groupActions">
-  {{#if showActions}}
-    <div class="group-controls">
-      <div class="inner">
+  <div class="group-controls">
+    {{#if showMapActions}}
+      <div class="left">
         {{> countryFilter}}
         {{> activityCountControl}}
       </div>
-    </div>
-  {{/if}}
+    {{/if}}
+    {{#if showActivityActions}}
+      <div class="right">
+        <div class="map-secondary-actions">
+          <div class="new-shorty action">
+            <a href="/{{groupSlug}}/new/shorty">Share</a>
+          </div>
+        </div>
+      </div>
+    {{/if}}
+  </div>
 </template>
 
 <template name="activityCountControl">

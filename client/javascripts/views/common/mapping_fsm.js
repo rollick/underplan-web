@@ -617,6 +617,19 @@ MappingFsm = machina.Fsm.extend({
         // unselect all markers by calling without id
         this._selectMarkerById();
       },
+    },
+
+    showEditor: {
+      _onEnter: function () {
+        $('html,body').scrollTop(0);
+
+        this.handle("map.hide");
+      },
+      "map.hide": function() {
+        var self = this;
+        this._setContainerClass('hide');
+        this.emit("EditorMapReady");
+      }
     }
   }
 });

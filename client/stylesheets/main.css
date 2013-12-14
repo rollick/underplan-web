@@ -8259,7 +8259,7 @@ h2 span.warning, a span.warning {
   width: 100%;
   float: left;
   padding: 0em;
-  z-index: 3;
+  z-index: 6;
 }
 
 @media only screen and (min-width: 48em) {

@@ -37,18 +37,6 @@ Template.activityFeed.helpers({
 });
 
 Template.activityFeed.events({
-  'click .new-short': function (event, template) {
-    event.stopPropagation();
-    event.preventDefault();
-
-    $(".short-form.row").show().find("textarea").focus();
-  },
-  "click .new-story": function () {
-    event.stopPropagation();
-    event.preventDefault();
-
-    Router.setNewActivity(Groups.findOne(ReactiveGroupFilter.get("group")));
-  },
   "click a.feed-all": function () {
     event.stopPropagation();
     event.preventDefault();

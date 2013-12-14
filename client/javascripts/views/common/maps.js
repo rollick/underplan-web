@@ -79,10 +79,10 @@ Template.activityCountControl.helpers({
         linkText = "";
 
     if (limit < total) {
-      classNames = "load-more";
+      classNames = "load-more action";
       linkText = "Load More";
     } else {
-      classNames = "load-more disabled";
+      classNames = "load-more action disabled";
       linkText = "Complete";
     }
 

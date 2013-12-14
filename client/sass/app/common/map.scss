@@ -56,43 +56,6 @@
   }
 }
 
-.map-secondary-actions {
-  position: relative;
-  text-align: center;
-  // margin-top: -$standard-control-height - 0.5em;
-  pointer-events: none;
-  float: left;
-  padding-right: $standard-padding;
-
-  .load-more {
-    @include border-radius($standard-corner-radius);
-    @include box-shadow(0px, 1px, 3px, rgba(0,0,0,0.3));
-
-    font-size: 0.9em;
-    background: $standard-map-control-bg;
-    pointer-events: all;
-    // margin: 0 auto;
-    height: 25px;
-    margin-bottom: 0.5em;
-    padding: 0 $standard-padding;
-    box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
-
-    a {
-      line-height: 25px;
-      padding: 0px;
-      display: inline;
-    }
-
-    &.disabled {
-      pointer-events: none;
-
-      a {
-        color: gray;
-      }
-    }
-  }
-}
-
 .map-marker {
   $marker-corner-radius: 22em;
   $marker-image-width: 70px;

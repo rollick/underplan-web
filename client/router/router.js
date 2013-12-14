@@ -8,7 +8,8 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug/c/:country":          "groupAndCountry",
     ":groupSlug/settings":            "groupSettings",
     ":groupSlug/feed":                "groupFeed",
-    ":groupSlug/new":                 "newActivity",
+    ":groupSlug/new":                 "newStory",
+    ":groupSlug/new/shorty":          "newShorty",
     ":groupSlug/membership":          "groupMembership",
     ":groupSlug/pl/:activityId":      "permaActivity",
     ":groupSlug/:activitySlug":       "activity",
@@ -24,7 +25,8 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug":                     "Group Loaded",
     ":groupSlug/c/:country":          "Group Loaded By Country",
     ":groupSlug/settings":            "Group Settings Loaded",
-    ":groupSlug/new":                 "New Activity Loaded",
+    ":groupSlug/new":                 "New Story Loaded",
+    ":groupSlug/new-s":               "New Shorty Loaded",
     ":groupSlug/membership":          "Group Membership Loaded",
     ":groupSlug/pl/:activityId":      "Activity Loaded",
     ":groupSlug/:activitySlug":       "Story Loaded",
@@ -67,8 +69,8 @@ var AppRouter = Backbone.Router.extend({
     },
     shortyEditor: {
       map: {
-        evt: "ActivityMapReady",
-        state: "showActivity"        
+        evt: "EditorMapReady",
+        state: "showEditor"
       }
     },
     activityFeed: {
@@ -182,7 +184,7 @@ var AppRouter = Backbone.Router.extend({
     this.setAndLoadMainTemplate("groupInviteList");
   },
 
-  newActivity: function(groupSlug) {
+  newStory: function(groupSlug) {
     this.runSetGroup(groupSlug);
     ReactiveGroupFilter.set("activity", null);
 
@@ -194,6 +196,13 @@ var AppRouter = Backbone.Router.extend({
         self = this;
 
     this.runSetStoryActivity(groupSlug, parts[0]);
+  },
+
+  newShorty: function(groupSlug) {
+    this.runSetGroup(groupSlug);
+    ReactiveGroupFilter.set("activity", null);
+
+    this.jumpToTop().setAndLoadMainTemplate("shortyEditor");
   },
 
   permaActivity: function(groupSlug, activityId) {
@@ -305,6 +314,10 @@ var AppRouter = Backbone.Router.extend({
     this.navigate(group.slug + "/new", true)
   },
 
+  setNewShorty: function (group) {
+    this.navigate(group.slug + "/new/shorty", true)
+  },
+
   ////////////////////////
   // Map / Template States
 
@@ -361,7 +374,6 @@ var AppRouter = Backbone.Router.extend({
         ReactiveGroupFilter.set("group", group._id);
         computation.stop();
       }
-
     });
 
     Session.set("expandedActivities", []);

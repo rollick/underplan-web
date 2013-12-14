@@ -16,7 +16,7 @@ $handle-hover-offset: 5px;
   border-top: 2px solid $handle-bg-color;
   position: relative;
   clear: left;
-  z-index: 4;
+  z-index: 7;
   pointer-events: none;
 
   & > div {

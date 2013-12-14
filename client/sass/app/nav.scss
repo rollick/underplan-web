@@ -66,10 +66,21 @@
   background-color: transparent;
   pointer-events: none;
   position: absolute;
-  width: auto;
+  width: 100%;
 
-  & > .inner {
-    @include grid-column(12);
+  & > .left .map-secondary-actions {
+    padding-right: $standard-padding;
+    float: left;
+  }
+
+  & > .right .map-secondary-actions {
+    padding-left: $standard-padding;
+    float: right;
+  }
+
+  & > .left,
+  & > .right {
+    @include grid-column(6);
 
     margin-left: 0em;
     margin-right: 0em;
@@ -77,6 +88,41 @@
 
     & > div {
       margin-right: $standard-padding; 
+    }
+
+    .map-secondary-actions {
+      position: relative;
+      text-align: center;
+      // margin-top: -$standard-control-height - 0.5em;
+      pointer-events: none;
+
+      .action {
+        @include border-radius($standard-corner-radius);
+        @include box-shadow(0px, 1px, 3px, rgba(0,0,0,0.3));
+
+        font-size: 0.9em;
+        background: $standard-map-control-bg;
+        pointer-events: all;
+        // margin: 0 auto;
+        height: 25px;
+        margin-bottom: 0.5em;
+        padding: 0 $standard-padding;
+        box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+
+        a {
+          line-height: 25px;
+          padding: 0px;
+          display: inline;
+        }
+
+        &.disabled {
+          pointer-events: none;
+
+          a {
+            color: gray;
+          }
+        }
+      }
     }
 
     .country-container {
@@ -143,7 +189,6 @@
       }
     }
   }
-
 }
 
 .group-nav {
