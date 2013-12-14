@@ -1,5 +1,6 @@
 @import "../../settings";
 @import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
 
 .map-zoom-controls {
   z-index: 0;
@@ -22,9 +23,10 @@
     background: $standard-map-control-bg;
     color: $primary-color;
     font-weight: 100;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
 
     &:hover {
-      background-color: #e2e2e2;
+      color: darken($primary-color, 25%);
     }
 
     &:before {
@@ -64,6 +66,7 @@
 
   .load-more {
     @include border-radius($standard-corner-radius);
+    @include box-shadow(0px, 1px, 3px, rgba(0,0,0,0.3));
 
     font-size: 0.9em;
     background: $standard-map-control-bg;
@@ -72,6 +75,7 @@
     height: 25px;
     margin-bottom: 0.5em;
     padding: 0 $standard-padding;
+    box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
 
     a {
       line-height: 25px;
