@@ -2321,38 +2321,34 @@ blockquote p {
 .group-controls:after {
   clear: both;
 }
-/* line 71, ../../sass/app/nav.scss */
-.group-controls > .left .map-secondary-actions {
-  padding-right: 0.5em;
-  float: left;
-}
-/* line 76, ../../sass/app/nav.scss */
-.group-controls > .right .map-secondary-actions {
-  padding-left: 0.5em;
-  float: right;
-}
-/* line 82, ../../sass/app/nav.scss */
+/* line 73, ../../sass/app/nav.scss */
 .group-controls > .left, .group-controls > .right {
   position: relative;
-  padding-left: 0.9375em;
-  padding-right: 0.9375em;
-  width: 50%;
+  padding-left: 0;
+  padding-right: 0;
+  width: 100%;
   float: left;
   margin-left: 0em;
   margin-right: 0em;
   padding: 0.5em;
 }
-/* line 89, ../../sass/app/nav.scss */
-.group-controls > .left > div, .group-controls > .right > div {
-  margin-right: 0.5em;
+@media only screen and (min-width: 48em) {
+  /* line 73, ../../sass/app/nav.scss */
+  .group-controls > .left, .group-controls > .right {
+    position: relative;
+    padding-left: 0;
+    padding-right: 0;
+    width: 50%;
+    float: left;
+  }
 }
-/* line 93, ../../sass/app/nav.scss */
+/* line 84, ../../sass/app/nav.scss */
 .group-controls > .left .map-secondary-actions, .group-controls > .right .map-secondary-actions {
   position: relative;
   text-align: center;
   pointer-events: none;
 }
-/* line 99, ../../sass/app/nav.scss */
+/* line 90, ../../sass/app/nav.scss */
 .group-controls > .left .map-secondary-actions .action, .group-controls > .right .map-secondary-actions .action {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2370,21 +2366,21 @@ blockquote p {
   padding: 0 0.5em;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
-/* line 112, ../../sass/app/nav.scss */
+/* line 103, ../../sass/app/nav.scss */
 .group-controls > .left .map-secondary-actions .action a, .group-controls > .right .map-secondary-actions .action a {
   line-height: 25px;
   padding: 0px;
   display: inline;
 }
-/* line 118, ../../sass/app/nav.scss */
+/* line 109, ../../sass/app/nav.scss */
 .group-controls > .left .map-secondary-actions .action.disabled, .group-controls > .right .map-secondary-actions .action.disabled {
   pointer-events: none;
 }
-/* line 121, ../../sass/app/nav.scss */
+/* line 112, ../../sass/app/nav.scss */
 .group-controls > .left .map-secondary-actions .action.disabled a, .group-controls > .right .map-secondary-actions .action.disabled a {
   color: gray;
 }
-/* line 128, ../../sass/app/nav.scss */
+/* line 119, ../../sass/app/nav.scss */
 .group-controls > .left .country-container, .group-controls > .right .country-container {
   width: 100%;
   position: relative;
@@ -2396,7 +2392,7 @@ blockquote p {
   height: 1.5625em;
   pointer-events: all;
   float: left;
-  width: 180px;
+  width: 140px;
   margin-bottom: 0em;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
 }
@@ -2417,15 +2413,15 @@ blockquote p {
 .group-controls > .left .country-container[data-section-small-style] > [data-section-region] > [data-section-title], .group-controls > .left .country-container[data-section-small-style] > [data-section-region] > .title, .group-controls > .left .country-container[data-section-small-style] > section > [data-section-title], .group-controls > .left .country-container[data-section-small-style] > section > .title, .group-controls > .left .country-container[data-section-small-style] > .section > [data-section-title], .group-controls > .left .country-container[data-section-small-style] > .section > .title, .group-controls > .right .country-container[data-section-small-style] > [data-section-region] > [data-section-title], .group-controls > .right .country-container[data-section-small-style] > [data-section-region] > .title, .group-controls > .right .country-container[data-section-small-style] > section > [data-section-title], .group-controls > .right .country-container[data-section-small-style] > section > .title, .group-controls > .right .country-container[data-section-small-style] > .section > [data-section-title], .group-controls > .right .country-container[data-section-small-style] > .section > .title {
   width: 100% !important;
 }
-/* line 139, ../../sass/app/nav.scss */
+/* line 130, ../../sass/app/nav.scss */
 .group-controls > .left .country-container.horizontal-nav, .group-controls > .right .country-container.horizontal-nav {
   background: transparent;
 }
-/* line 143, ../../sass/app/nav.scss */
+/* line 134, ../../sass/app/nav.scss */
 .group-controls > .left .country-container section, .group-controls > .left .country-container .section, .group-controls > .right .country-container section, .group-controls > .right .country-container .section {
-  width: 180px;
+  width: 140px;
 }
-/* line 146, ../../sass/app/nav.scss */
+/* line 137, ../../sass/app/nav.scss */
 .group-controls > .left .country-container section .title, .group-controls > .left .country-container .section .title, .group-controls > .right .country-container section .title, .group-controls > .right .country-container .section .title {
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
@@ -2438,7 +2434,7 @@ blockquote p {
   padding: 0 0.5em;
   margin-left: 0px;
 }
-/* line 156, ../../sass/app/nav.scss */
+/* line 147, ../../sass/app/nav.scss */
 .group-controls > .left .country-container section.active .title, .group-controls > .left .country-container .section.active .title, .group-controls > .right .country-container section.active .title, .group-controls > .right .country-container .section.active .title {
   -moz-border-radius-bottomleft: 0em;
   -webkit-border-bottom-left-radius: 0em;
@@ -2449,7 +2445,7 @@ blockquote p {
   background: white;
   opacity: 1.0;
 }
-/* line 163, ../../sass/app/nav.scss */
+/* line 154, ../../sass/app/nav.scss */
 .group-controls > .left .country-container section .content, .group-controls > .left .country-container .section .content, .group-controls > .right .country-container section .content, .group-controls > .right .country-container .section .content {
   -moz-border-radius-bottomleft: 3px;
   -webkit-border-bottom-left-radius: 3px;
@@ -2458,30 +2454,55 @@ blockquote p {
   -webkit-border-bottom-right-radius: 3px;
   border-bottom-right-radius: 3px;
   box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-  width: 180px;
+  min-width: 140px;
   right: 0 !important;
   left: 0px !important;
   background: white;
   border-top: none;
   opacity: 0.8;
   padding: 0.5em;
+  top: 25px;
 }
-/* line 175, ../../sass/app/nav.scss */
+/* line 168, ../../sass/app/nav.scss */
 .group-controls > .left .country-container section .content ul.country-filter, .group-controls > .left .country-container .section .content ul.country-filter, .group-controls > .right .country-container section .content ul.country-filter, .group-controls > .right .country-container .section .content ul.country-filter {
   width: 100%;
   padding: 0em;
 }
-/* line 182, ../../sass/app/nav.scss */
+/* line 175, ../../sass/app/nav.scss */
 .group-controls > .left .country-container .side-nav li, .group-controls > .right .country-container .side-nav li {
   text-align: center;
 }
-/* line 185, ../../sass/app/nav.scss */
+/* line 178, ../../sass/app/nav.scss */
 .group-controls > .left .country-container .side-nav li.active a, .group-controls > .right .country-container .side-nav li.active a {
   font-weight: normal;
   cursor: default;
 }
+/* line 186, ../../sass/app/nav.scss */
+.group-controls > .left {
+  padding-left: 0.5em;
+}
+/* line 189, ../../sass/app/nav.scss */
+.group-controls > .left > div {
+  margin-right: 0.5em;
+}
+/* line 193, ../../sass/app/nav.scss */
+.group-controls > .left .map-secondary-actions {
+  float: left;
+}
+/* line 198, ../../sass/app/nav.scss */
+.group-controls > .right {
+  padding-right: 0.5em;
+}
+/* line 201, ../../sass/app/nav.scss */
+.group-controls > .right > div {
+  margin-left: 0.5em;
+}
+/* line 205, ../../sass/app/nav.scss */
+.group-controls > .right .map-secondary-actions {
+  float: right;
+}
 
-/* line 194, ../../sass/app/nav.scss */
+/* line 211, ../../sass/app/nav.scss */
 .group-nav {
   padding-top: 0em;
   max-height: 2.25em;
@@ -2492,7 +2513,7 @@ blockquote p {
   width: 100%;
   border: 1px solid red;
 }
-/* line 204, ../../sass/app/nav.scss */
+/* line 221, ../../sass/app/nav.scss */
 .group-nav .country-filter-section {
   margin: 0 auto;
   width: 120px;
@@ -2500,41 +2521,41 @@ blockquote p {
   text-align: center;
 }
 
-/* line 212, ../../sass/app/nav.scss */
+/* line 229, ../../sass/app/nav.scss */
 .top-bar-section {
   font-family: "Raleway", sans-serif;
 }
-/* line 216, ../../sass/app/nav.scss */
+/* line 233, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar-section .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 221, ../../sass/app/nav.scss */
+/* line 238, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a {
   text-indent: -44px !important;
 }
-/* line 224, ../../sass/app/nav.scss */
+/* line 241, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: 100;
 }
 
-/* line 229, ../../sass/app/nav.scss */
+/* line 246, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 234, ../../sass/app/nav.scss */
+/* line 251, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
   overflow: inherit;
 }
-/* line 238, ../../sass/app/nav.scss */
+/* line 255, ../../sass/app/nav.scss */
 .top-bar.expanded {
   background: rgba(17, 17, 17, 0.8) !important;
 }
-/* line 243, ../../sass/app/nav.scss */
+/* line 260, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
@@ -2543,44 +2564,44 @@ blockquote p {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-/* line 254, ../../sass/app/nav.scss */
+/* line 271, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 254, ../../sass/app/nav.scss */
+  /* line 271, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 262, ../../sass/app/nav.scss */
+/* line 279, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: rgba(255, 255, 255, 0.3);
 }
 @media only screen and (min-width: 48em) {
-  /* line 262, ../../sass/app/nav.scss */
+  /* line 279, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
   }
 }
-/* line 272, ../../sass/app/nav.scss */
+/* line 289, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 280, ../../sass/app/nav.scss */
+  /* line 297, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 286, ../../sass/app/nav.scss */
+/* line 303, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 290, ../../sass/app/nav.scss */
+/* line 307, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 28px;
   padding: 2px;
@@ -2594,23 +2615,23 @@ blockquote p {
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 300, ../../sass/app/nav.scss */
+  /* line 317, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 304, ../../sass/app/nav.scss */
+  /* line 321, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
 
-/* line 313, ../../sass/app/nav.scss */
+/* line 330, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 319, ../../sass/app/nav.scss */
+/* line 336, ../../sass/app/nav.scss */
 .top-bar-section li.text {
   color: rgba(196, 196, 196, 0.4);
   opacity: 1;
@@ -2619,23 +2640,23 @@ blockquote p {
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 319, ../../sass/app/nav.scss */
+  /* line 336, ../../sass/app/nav.scss */
   .top-bar-section li.text {
     color: rgba(247, 247, 247, 0.4);
     background-color: rgba(17, 17, 17, 0.4);
   }
 }
 
-/* line 333, ../../sass/app/nav.scss */
+/* line 350, ../../sass/app/nav.scss */
 li.login-services {
   height: 45px;
 }
-/* line 336, ../../sass/app/nav.scss */
+/* line 353, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 341, ../../sass/app/nav.scss */
+/* line 358, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -2643,7 +2664,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 349, ../../sass/app/nav.scss */
+/* line 366, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

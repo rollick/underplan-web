@@ -55,7 +55,8 @@
 }
 
 .group-controls {
-  $group-controls-width: 180px;
+  $group-controls-width: 140px;
+  $group-controls-height: 25px;
 
   @include grid-row(nest);
 
@@ -68,27 +69,17 @@
   position: absolute;
   width: 100%;
 
-  & > .left .map-secondary-actions {
-    padding-right: $standard-padding;
-    float: left;
-  }
-
-  & > .right .map-secondary-actions {
-    padding-left: $standard-padding;
-    float: right;
-  }
-
   & > .left,
   & > .right {
-    @include grid-column(6);
+    @include grid-column(12, $collapse: true);
+    
+    @media only screen and (min-width: 48em) {
+      @include grid-column(6, $collapse: true);
+    }
 
     margin-left: 0em;
     margin-right: 0em;
     padding: $standard-padding;
-
-    & > div {
-      margin-right: $standard-padding; 
-    }
 
     .map-secondary-actions {
       position: relative;
@@ -104,13 +95,13 @@
         background: $standard-map-control-bg;
         pointer-events: all;
         // margin: 0 auto;
-        height: 25px;
+        height: $group-controls-height;
         margin-bottom: 0.5em;
         padding: 0 $standard-padding;
         box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
 
         a {
-          line-height: 25px;
+          line-height: $group-controls-height;
           padding: 0px;
           display: inline;
         }
@@ -164,13 +155,15 @@
           @include border-bottom-radius($standard-corner-radius);
 
           box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-          width: $group-controls-width;
+          // width: $group-controls-width;
+          min-width: $group-controls-width;
           right: 0 !important;
           left: 0px !important;
           background: $standard-panel-bg;
           border-top: none;
           opacity: 0.8;
           padding: $standard-padding;
+          top: $group-controls-height;
 
           ul.country-filter {
             width: 100%;
@@ -187,6 +180,30 @@
           cursor: default;
         }
       }
+    }
+  }
+
+  & > .left {
+    padding-left: $standard-padding;
+
+    & > div {
+      margin-right: $standard-padding; 
+    }
+
+    .map-secondary-actions {
+      float: left;
+    }
+  }
+
+  & > .right {
+    padding-right: $standard-padding;
+    
+    & > div {
+      margin-left: $standard-padding;
+    }
+    
+    .map-secondary-actions {
+      float: right;
     }
   }
 }
