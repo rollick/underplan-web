@@ -329,7 +329,9 @@ Meteor.publish("activityShow", function (activityId, groupId) {
   logIfDev("Publishing 'activityShow': " + activityId);
 
   var activityConds = getActivityConditons(groupId, this.userId);
-  activityConds.$or = [{_id: activityId}, {slug: activityId}];
+  activityConds.$and.push({
+    $or: [{_id: activityId}, {slug: activityId}]
+  });
 
   var activityOptions = { 
     fields: {
@@ -356,7 +358,7 @@ Meteor.publish("activityShow", function (activityId, groupId) {
       slug: 1
     }
   };
-
+  
   return Activities.find(activityConds, activityOptions);
 });
 
@@ -368,7 +370,9 @@ Meteor.publish("activityComments", function (activityId, groupId) {
 
   // Check permissions on the activity as this determines access to the comments
   var activityConds = getActivityConditons(groupId, this.userId);
-  activityConds.$or = [{_id: activityId}, {slug: activityId}];
+  activityConds.$and.push({
+    $or: [{_id: activityId}, {slug: activityId}]
+  });
 
   var activityOptions = { 
     fields: {
