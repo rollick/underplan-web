@@ -217,6 +217,8 @@ body.fullscreen {
 
       &:before {
         content: "\00a0";
+        padding-left: 4px;
+        background-position: 4px;
       }
     }
   }
@@ -228,8 +230,6 @@ body.fullscreen {
       margin-left: -6px;
 
       &:before {
-        padding-left: 0px;
-        background-position: 2px;
         background-image: url("/images/left.png");
       }
     }
@@ -243,8 +243,6 @@ body.fullscreen {
       margin-right: -2px;
 
       &:after {
-        padding-left: 0px;
-        background-position: 2px;
         background-image: url('/images/right.png');
       }
     }

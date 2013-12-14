@@ -2174,19 +2174,19 @@ body.fullscreen .activity-highlight.large {
 /* line 218, ../../sass/app/activities.scss */
 .activity-controls .previous.clear:before, .activity-controls .next.clear:before {
   content: "\00a0";
+  padding-left: 4px;
+  background-position: 4px;
 }
-/* line 224, ../../sass/app/activities.scss */
+/* line 226, ../../sass/app/activities.scss */
 .activity-controls .previous {
   padding-left: 0em;
 }
-/* line 227, ../../sass/app/activities.scss */
+/* line 229, ../../sass/app/activities.scss */
 .activity-controls .previous a {
   margin-left: -6px;
 }
-/* line 230, ../../sass/app/activities.scss */
+/* line 232, ../../sass/app/activities.scss */
 .activity-controls .previous a:before {
-  padding-left: 0px;
-  background-position: 2px;
   background-image: url("/images/left.png");
 }
 /* line 238, ../../sass/app/activities.scss */
@@ -2200,12 +2200,10 @@ body.fullscreen .activity-highlight.large {
 }
 /* line 245, ../../sass/app/activities.scss */
 .activity-controls .next a:after {
-  padding-left: 0px;
-  background-position: 2px;
   background-image: url("/images/right.png");
 }
 
-/* line 254, ../../sass/app/activities.scss */
+/* line 252, ../../sass/app/activities.scss */
 .map-info {
   width: auto;
   margin-left: -0.9375em;
@@ -2262,7 +2260,7 @@ body.fullscreen .activity-highlight.large {
   line-height: 1.4;
 }
 @media only screen and (min-width: 48em) {
-  /* line 254, ../../sass/app/activities.scss */
+  /* line 252, ../../sass/app/activities.scss */
   .map-info {
     margin: 0em;
     margin-bottom: 1.875em;
@@ -2808,7 +2806,7 @@ body.fullscreen .activity-highlight.large {
   height: 100%;
 }
 @media only screen and (min-width: 48em) {
-  /* line 254, ../../sass/app/activities.scss */
+  /* line 252, ../../sass/app/activities.scss */
   .map-info {
     width: 400px;
   }
