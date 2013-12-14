@@ -144,7 +144,7 @@ h2, a {
   .info {
     width: 100%;
     position: relative;
-    text-align: center;
+    text-align: right;
     font-size: 0.7em;
     color: rgb(185, 185, 185);
     font-family: 'helvetica';
@@ -155,6 +155,7 @@ h2, a {
       height: $footer-height;
       line-height: $footer-height;
       margin: 0em;
+      margin-right: 10px;
     }
   }
 }

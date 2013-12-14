@@ -509,7 +509,7 @@ MappingFsm = machina.Fsm.extend({
         // Clear the markers if returning to the home page
         // this.clearMarkers();
 
-        this._setupMarkers({}, {limit: 25, sort: {created: -1}}, null, function () {
+        this._setupMarkers({}, {limit: 25, sort: {created: -1}}, true, function () {
           self._centerMarkers(null, 0, -45);
         });
 
