@@ -50,16 +50,22 @@
   & > .inner .activity {
     margin-top: emCalc(-70px);
     background-color: transparent;
+    pointer-events: none; // div overlaps map so disable events here so that map drag / click works
   }
 
   & > .inner .activity .info-section {
     height: emCalc(70px);
+
+    .actions {
+      pointer-events: all; // disabled events on parent but need them working for actions
+    }
   }
 
   & > .inner .activity {
 
     & > .content {
       padding: 0.5em;
+      pointer-events: all;
 
       @media only screen and (min-width: 48em) {
         padding: 1em;
