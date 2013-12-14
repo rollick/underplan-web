@@ -87,7 +87,7 @@ Template.activityCountControl.helpers({
     }
 
     var container = $("<div />").addClass(classNames);
-    var link = $("<a />").attr("href", "#").html(linkText + " - " + limit + "/" + total + "");
+    var link = $("<a />").attr("href", "#").html(limit + "/" + total + " - " + linkText);
     var html = $('<div>').append(container.append(link));
 
     return new Handlebars.SafeString(html.html());
