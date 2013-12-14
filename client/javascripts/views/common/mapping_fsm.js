@@ -350,8 +350,40 @@ MappingFsm = machina.Fsm.extend({
   },
 
   _clearUnmatchedMarkers: function (ids) {
-    // TODO: add this so that it can be used in setupMarkers rather than just 
-    //       removing all markers and then possibly readding the some back
+    var self = this,
+        markersToClear = [],
+        currentIds = _.pluck(this.markers, '_id');
+
+    _.each(currentIds, function (markerId) {
+      // if the marker matches an id then leave it but pop
+      // the id of the ids list. If it doesn't exist then 
+      // clear the marker from the map
+      if (_.contains(ids, markerId))
+        ids = _.without(ids, markerId);
+      else
+        self._clearMarkerById(markerId);
+    });
+  },
+
+  _clearMarkerById: function (markerId) {
+    var self = this;
+        position = null;
+
+    _.every(self.markers, function (marker, i) {
+      // Unset the marker's map property and remove from list of markers
+      if(marker._id === markerId) {
+        marker.setMap(null);
+
+        // Clear the data sources
+        self.markers.splice(i, 1);
+        self.markerData.splice(i, 1);
+        self.latLngs.splice(i, 1);
+
+        return false;
+      } else {
+        return true;
+      }
+    });
   },
 
   // This is meant to be run using the map state transitions, or by a part of the
@@ -380,12 +412,10 @@ MappingFsm = machina.Fsm.extend({
     var recentActivities = Activities.find(conds, options).fetch(),
         self = this;
 
-    // TODO: create clearUnmatchedMarkers. For now just call clearMarkers
-    //   
-    // var ids = _.map(recentActivities, function(activity){ return activity._id; });
-    // this._clearUnmatchedMarkers(ids);
-    if (_.isUndefined(clearMarkers) || clearMarkers)
-      this.clearMarkers();
+    if (_.isUndefined(clearMarkers) || clearMarkers) {
+      var ids = _.map(recentActivities, function(activity){ return activity._id; });
+      this._clearUnmatchedMarkers(ids);
+    }
 
     if (recentActivities.length > 0) {
       _.each(recentActivities, function(activity) {
