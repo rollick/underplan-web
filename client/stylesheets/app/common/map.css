@@ -275,8 +275,8 @@ select {
   -ms-border-radius: 50px;
   -o-border-radius: 50px;
   border-radius: 50px;
-  width: 75px;
-  height: 75px;
+  width: 60px;
+  height: 60px;
 }
 @media only screen and (min-width: 48em) {
   /* line 150, ../../../sass/app/common/map.scss */
@@ -286,8 +286,8 @@ select {
     -ms-border-radius: 70px;
     -o-border-radius: 70px;
     border-radius: 70px;
-    width: 105px;
-    height: 105px;
+    width: 84px;
+    height: 84px;
   }
 }
 /* line 166, ../../../sass/app/common/map.scss */

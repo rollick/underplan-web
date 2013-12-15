@@ -113,8 +113,6 @@ Meteor.methods({
     var activityId;
 
     if(Meteor.isServer) {
-      console.log(JSON.stringify(options));
-
       activityId = Activities.insert({
         owner:            this.userId,
         group:            options.groupId,

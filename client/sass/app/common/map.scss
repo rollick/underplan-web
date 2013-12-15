@@ -138,7 +138,7 @@
   }
 
   &.selected {
-    $large-marker-scale-factor: 1.5;
+    $large-marker-scale-factor: 1.2;
     
     z-index: 2;
     // margin-top: -$marker-image-small-width*$large-marker-scale-factor/2 - $marker-tick-height;

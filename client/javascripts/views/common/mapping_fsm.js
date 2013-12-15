@@ -390,53 +390,49 @@ MappingFsm = machina.Fsm.extend({
   // code which is reactive as the ReactiveGroupFilter calls in the function have
   // been put inside Deps.nonreactive calls.
   setupGroupMarkers: function (forceSetup) {
+    logIfDev("Loading Group Map Markers");
+
     // We are assuming the map is in the recentGroup state so return early if it isn't
     // NOTE: it isn't necessary to be in this state but it is currently the only time we
     //       want the map to work this way
     if (this.state !== "recentGroupIdle" && !forceSetup) return;
 
-    var conds = Deps.nonreactive(function () { 
-      return ReactiveGroupFilter.get('queryFields');
-    });
+    var conds = ReactiveGroupFilter.get("queryFields"),
+        limit = ReactiveGroupFilter.get("limit"),
+        options = {sort: {created: -1}, limit: limit},
+        activities = Activities.find(conds, options);
 
-    var limit = Deps.nonreactive(function () { 
-      return ReactiveGroupFilter.get("limit");
-    });
-    var options = {sort: {created: -1}, limit: limit};
-
-    this._setupMarkers(conds, options);
+    this._setupMarkers(activities);
     this._centerMarkers(null, 0, -45);
   },
 
-  _setupMarkers: function (conds, options, clearMarkers, callback) {
-    var recentActivities = Activities.find(conds, options).fetch(),
-        self = this;
+  _setupMarkers: function (activities, clearMarkers, callback) {
+    var self = this,
+        ids = [];
+      
+    activities.forEach( function (activity) {
+      if (typeof activity.lat !== 'undefined' &&
+          typeof activity.lng !== 'undefined') {
 
-    if (_.isUndefined(clearMarkers) || clearMarkers) {
-      var ids = _.map(recentActivities, function(activity){ return activity._id; });
-      this._clearUnmatchedMarkers(ids);
-    }
+        var objMarker = {
+          id: activity._id,
+          lat: activity.lat,
+          lng: activity.lng,
+          type: activity.type,
+          image: userPicture(Meteor.users.findOne(activity.owner), 90)
+        };
 
-    if (recentActivities.length > 0) {
-      _.each(recentActivities, function(activity) {
-        if (typeof activity.lat !== 'undefined' &&
-            typeof activity.lng !== 'undefined') {
-
-          var objMarker = {
-            id: activity._id,
-            lat: activity.lat,
-            lng: activity.lng,
-            type: activity.type,
-            image: userPicture(Meteor.users.findOne(activity.owner), 90)
-          };
-
-          // check if marker already exists
-          if (!self.markerExists('id', objMarker.id)) {
-            self.addMarker(objMarker);
-          }
+        // check if marker already exists
+        if (!self.markerExists('id', objMarker.id)) {
+          self.addMarker(objMarker);
         }
-      });
-    }
+      }
+
+      ids.push(activity._id);
+    });
+
+    if (_.isUndefined(clearMarkers) || clearMarkers)
+      this._clearUnmatchedMarkers(ids);
 
     if (_.isFunction(callback))
       callback.call();
@@ -508,8 +504,11 @@ MappingFsm = machina.Fsm.extend({
 
         // Clear the markers if returning to the home page
         // this.clearMarkers();
+        var conds = {},
+            options = {limit: 25, sort: {created: -1}},
+            activities = Activities.find(conds, options);
 
-        this._setupMarkers({}, {limit: 25, sort: {created: -1}}, true, function () {
+        this._setupMarkers(activities, true, function () {
           self._centerMarkers(null, 0, -45);
         });
 
@@ -555,16 +554,13 @@ MappingFsm = machina.Fsm.extend({
         });
       },
       "markers.load": function() {
-        var conds = Deps.nonreactive(function () { 
-          return ReactiveGroupFilter.get('queryFields');
-        });
+        var conds = ReactiveGroupFilter.get("queryFields"),
+            limit = ReactiveGroupFilter.get("limit"),
+            options = {sort: {created: -1}, limit: limit};
 
-        var limit = Deps.nonreactive(function () { 
-          return ReactiveGroupFilter.get("limit");
-        });
-        var options = {sort: {created: -1}, limit: limit};
+        var activities = Activities.find(conds, options);
 
-        this._setupMarkers(conds, options);
+        this._setupMarkers(activities);
         this._centerMarkers();
 
         this.emit("FeedMapReady");
@@ -599,7 +595,11 @@ MappingFsm = machina.Fsm.extend({
         // TODO: should we queue the setup markers below as the activityId might not
         //       be set yet. Then in a deps autorun we can process the map queue once
         //       the activity id has been set...
-        this._setupMarkers({_id: this.activityId}, {}, clearMarkers, function () {
+        var conds = {_id: this.activityId},
+            options = {},
+            activities = Activities.find(conds, options);
+
+        this._setupMarkers(activities, clearMarkers, function () {
           self._centerMarkerById(self.activityId, 0, -45);
         });
 
@@ -623,11 +623,11 @@ MappingFsm = machina.Fsm.extend({
       _onEnter: function () {
         $('html,body').scrollTop(0);
 
-        this.handle("map.hide");
+        this.handle("map.default");
       },
-      "map.hide": function() {
+      "map.default": function() {
         var self = this;
-        this._setContainerClass('hide');
+        this._setContainerClass('default');
         this.emit("EditorMapReady");
       }
     }
