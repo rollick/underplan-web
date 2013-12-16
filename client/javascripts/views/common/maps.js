@@ -80,14 +80,14 @@ Template.activityCountControl.helpers({
 
     if (limit < total) {
       classNames = "load-more action";
-      linkText = "Load More";
+      linkText = limit + "/" + total + " - More";
     } else {
-      classNames = "load-more action disabled";
-      linkText = "Complete";
+      classNames = "load-more action hide";
+      linkText = "";
     }
 
     var container = $("<div />").addClass(classNames);
-    var link = $("<a />").attr("href", "#").html(limit + "/" + total + " - " + linkText);
+    var link = $("<a />").attr("href", "#").html(linkText);
     var html = $('<div>').append(container.append(link));
 
     return new Handlebars.SafeString(html.html());
@@ -128,7 +128,8 @@ Template.mainMap.rendered = function () {
 
   ////
   // FIXME: remove timer and use a better method to ensure map canvas 
-  //        elements are in the dom before creating the map 
+  //        elements are in the dom before creating the map
+
   setTimeout(function () {
     $(".top-extra-handle").draggable({
       axis: "y", 

@@ -21,11 +21,21 @@ this.itemHelpers = {
     return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group")));
   },
   editUrl: function () {
-    if (this.type === "story")
+    // FIXME: if the story has a blank slug then editing won't work so check here but 
+    //        code for saving story needs to ensure a slug is set, or user is prevented 
+    //        from saving without one.
+    if (this.type === "story" && !_.isEmpty(this.slug))
       return "/" + Groups.findOne(this.group).slug + "/" + this.slug + "/edit";
     else if (this.type === "short")
       return "/" + Groups.findOne(this.group).slug + "/pl/" + this._id + "/edit";
     return "";
+  },
+  showUnpublished: function () {
+    // Set showUnpublished if unpublished and the user can edit the document
+    // Doing it this way so the visitor doesn't see an "Unpublished" popping
+    // up in the ui and then disappearing when the activity eventually loads
+    // and is published
+    return (this.owner === Meteor.userId() || isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group"))) && !this.published;
   },
   activity: function () {
     return this;

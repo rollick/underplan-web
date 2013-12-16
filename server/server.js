@@ -123,7 +123,7 @@ Meteor.publish("userDetails", function () {
                     );
 });
 
-// All group activity data for generating feed map and country filter
+// All group activity data for generating country filter
 Meteor.publish("basicActivityData", function (groupId) {
   check(groupId, String);
 
@@ -136,13 +136,8 @@ Meteor.publish("basicActivityData", function (groupId) {
       _id: 1,
       group: 1,
       owner: 1,
-      title: 1,
-      location: 1,
       city: 1,
       country: 1,
-      slug: 1,
-      lat: 1,
-      lng: 1,
       type: 1
     }
   };
@@ -334,32 +329,37 @@ Meteor.publish("activityShow", function (activityId, groupId) {
   });
 
   var activityOptions = { 
-    fields: {
-      _id: 1,
-      group: 1,
-      lat: 1,
-      lng: 1,
-      title: 1,
-      location: 1,
-      text: 1,
-      owner: 1,
-      created: 1,
-      updated: 1,
-      picasaTags: 1,
-      wikipediaSearch: 1,
-      wikipediaId: 1,
-      type: 1,
-      location: 1,
-      city: 1,
-      region: 1,
-      country: 1,
-      published: 1,
-      mapZoom: 1,
-      slug: 1
-    }
+    _id: 1,
+    group: 1,
+    lat: 1,
+    lng: 1,
+    title: 1,
+    location: 1,
+    text: 1,
+    owner: 1,
+    created: 1,
+    updated: 1,
+    picasaTags: 1,
+    wikipediaSearch: 1,
+    wikipediaId: 1,
+    type: 1,
+    location: 1,
+    city: 1,
+    region: 1,
+    country: 1,
+    published: 1,
+    mapZoom: 1,
+    slug: 1
   };
+
+  console.log("=============== "  +  JSON.stringify(activityConds));
+  console.log("+++++++++++++++ "  +  JSON.stringify(activityOptions));
   
-  return Activities.find(activityConds, activityOptions);
+  var activity = Activities.find(activityConds, activityOptions);
+
+  console.log(">>>>>>>>>>>>>>> "  +  JSON.stringify(activity.fetch()[0]));
+  
+  return activity;
 });
 
 Meteor.publish("activityComments", function (activityId, groupId) {

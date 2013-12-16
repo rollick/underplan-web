@@ -80,6 +80,8 @@ MappingFsm = machina.Fsm.extend({
   defaultZoom: 12,
   defaultTimerId: null,
   containerCls: "top-extra",
+  currentMarkerId: null,
+
   activityIdNonReactive: function() {
     return Deps.nonreactive(function () { 
       return ReactiveGroupFilter.get("activity");
@@ -255,14 +257,26 @@ MappingFsm = machina.Fsm.extend({
   },
 
   _centerMarkerById: function (id, offsetX, offsetY) {
+    var self = this;
+    this.currentMarkerId = null;
+
     for (var i = 0; i < this.markers.length; i++ ) {
-      if (this.markers[i]._id == id) {
+      if (self.markers[i]._id == id) {
         var latLng = this.markers[i].position;
-        if (offsetX || offsetY) {
-          this.map.panToWithOffset(latLng, offsetX || 0, offsetY || 0);
-        } else {
-          this.map.panTo(latLng);
+
+        // If the map doesn't even have a center yet then just set directly now
+        if (_.isUndefined(this.map.getCenter())) {
+          self.map.setCenter(latLng);
         }
+
+        // Do some panning to the desired center
+        if (offsetX || offsetY) {
+          self.map.panToWithOffset(latLng, offsetX || 0, offsetY || 0);
+        } else {
+          self.map.panTo(latLng);
+        }
+        self.currentMarkerId = id;
+
         break;
       }
     }
@@ -287,7 +301,7 @@ MappingFsm = machina.Fsm.extend({
     }
   },
 
-  _transitions: 'webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', 
+  _transitions: 'webkitTransitionEnd oTransitionEnd oTransitionEnd msTransitionEnd transitionend', 
 
   _setTransitionCallback: function (callback) {
     var self = this;
@@ -316,9 +330,6 @@ MappingFsm = machina.Fsm.extend({
         oldHeight = container.height(),
         self = this;
 
-    // Remove height which could be added be dragging map handle
-    container.removeAttr("style");
-
     // If the container already has the class then just call the callback
     // if parsed and then return
     if (container.hasClass(mapCls)) {
@@ -326,6 +337,10 @@ MappingFsm = machina.Fsm.extend({
         callback.call();
       return;
     }
+
+    // Set the current height as an attribute so that css3 transition events fire
+    // even if the height starts at 100% (as set by a css attribute)
+    container.height(container.innerHeight()); 
 
     // This won't work unless the the new class added as mapCls 
     // actually causes a transition (change in height) => make sure
@@ -341,12 +356,7 @@ MappingFsm = machina.Fsm.extend({
     this._setTransitionCallback(callback);
 
     // Remove all classes except top-extra and then add new class
-    container.removeClass(function(i, cls) {
-      var list = cls.split(' ');
-      return  list.filter(function(val) {
-        return (val != self.containerCls);
-      }).join(' ');
-    }).addClass(mapCls);
+    container.removeAttr("style").attr("class", "top-extra").addClass(mapCls);
   },
 
   _clearUnmatchedMarkers: function (ids) {
@@ -408,7 +418,8 @@ MappingFsm = machina.Fsm.extend({
 
   _setupMarkers: function (activities, clearMarkers, callback) {
     var self = this,
-        ids = [];
+        ids = [],
+        success = false;
       
     activities.forEach( function (activity) {
       if (typeof activity.lat !== 'undefined' &&
@@ -426,6 +437,8 @@ MappingFsm = machina.Fsm.extend({
         if (!self.markerExists('id', objMarker.id)) {
           self.addMarker(objMarker);
         }
+
+        success = true;
       }
 
       ids.push(activity._id);
@@ -434,8 +447,9 @@ MappingFsm = machina.Fsm.extend({
     if (_.isUndefined(clearMarkers) || clearMarkers)
       this._clearUnmatchedMarkers(ids);
 
-    if (_.isFunction(callback))
-      callback.call();
+    if (_.isFunction(callback)) {
+      callback.call(null, success);
+    }
   },
 
   // Use this if the map might not be ready before the passed 
@@ -523,6 +537,7 @@ MappingFsm = machina.Fsm.extend({
       },
       "map.fullscreen": function() {
         var self = this;
+
         // Set map class to fullscreen
         this._setContainerClass('fullscreen', function () {
           self.handle("markers.load");
@@ -577,6 +592,7 @@ MappingFsm = machina.Fsm.extend({
       },
       "map.default": function() {
         var self = this;
+
         this._setContainerClass('default', function () {
           // Select marker
           self.handle("marker.selected");
@@ -599,15 +615,24 @@ MappingFsm = machina.Fsm.extend({
             options = {},
             activities = Activities.find(conds, options);
 
-        this._setupMarkers(activities, clearMarkers, function () {
-          self._centerMarkerById(self.activityId, 0, -45);
-        });
+        // If not a success then stay in the current state => check state from something like 
+        // a meteor subscribe callback and reprocess the 
+        if (activities.count()) {
+          this._setupMarkers(activities, clearMarkers, function (success) {
+            self._centerMarkerById(self.activityId, 0, -45);
+          });
 
-        // Transition to showActivityIdle so that subsequent transitions to showActivity
-        // will trigger the handlers in this state.
-        this.transition("showActivityIdle");
+          // Transition to showActivityIdle so that subsequent transitions to showActivity
+          // will trigger the handlers in this state.
+          this.transition("showActivityIdle");
+        } else {
+          this.transition("showActivityWaiting");
+        }
       }
     },
+
+    // Enter this state to indicate the activity record hasn't been found when the expected.
+    showActivityWaiting: {},
 
     showActivityIdle: {
       _onEnter: function () {

@@ -33,7 +33,7 @@ this.mappingFsm = null;
 Meteor.startup(function () {
   logIfDev("===Starting Underplan===");
 
-  Session.set("appVersion", "v1.3.159");
+  Session.set("appVersion", "v1.3.160");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -71,6 +71,59 @@ Meteor.startup(function () {
 
   ///////////////////////////////////////////////////////////////////////////////
   // Main Autorun Deps
+
+  // Fetching current group data
+  Deps.autorun(function (computation) {
+    var groupId = ReactiveGroupFilter.get("group");
+
+    // Only setup the group subscriptions if there isn't an activity set, eg if the
+    // user goes directly to the activity from an email
+    if (groupId && !ReactiveGroupFilter.get("activity")) {
+      logIfDev("Subscribe to group data");
+
+      var filter = ReactiveGroupFilter.get("feedFilter") || {};
+      if (filter.group !== groupId) {
+        // set the group without causing reactive
+        ReactiveGroupFilter.set('group', groupId, {quiet: true});
+      }
+      if (!filter.limit) {
+        // set the group without causing reactive
+        ReactiveGroupFilter.set('limit', feedLimitSkip, {quiet: true});
+      }
+
+      self.feedMapSubscription = Meteor.subscribe("basicActivityData", groupId);
+
+      var options = ReactiveGroupFilter.get("subscriptionOptions");
+      self.feedListSubscription = Meteor.subscribe("feedActivities", options, function () {
+        // refresh
+        mappingFsm.setupGroupMarkers();
+      });
+      self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
+    }
+  });
+
+  Deps.autorun(function (computation) {
+    var group = Groups.findOne(ReactiveGroupFilter.get("group"));
+    if (!!group)
+      document.title = "Underplan: " + group.name;
+  });
+
+  // Fetch open comments for feed
+  Deps.autorun(function () {
+    var groupId = ReactiveGroupFilter.get("group");
+
+    if (Session.get("expandedActivities")) {
+      var options = {
+        groupId: groupId,
+        activityIds: Session.get("expandedActivities"),
+        limit: ReactiveGroupFilter.get("limit"),
+        country: ReactiveGroupFilter.get("country")
+      };
+
+      if (options.activityIds.length)
+        self.commentsSubscription = Meteor.subscribe("openFeedComments", options);
+    }
+  });
 
   Deps.autorun( function (computation) {
     var group = Groups.findOne(ReactiveGroupFilter.get('group'));
@@ -111,64 +164,20 @@ Meteor.startup(function () {
           $or: [{_id: value}, {slug: value}]
         };
         
-        var activity = Activities.findOne(activityConds, {_id: 1});
+        var activity = Activities.findOne(activityConds);
 
         ReactiveGroupFilter.set("activity", activity._id);
+
+        // Now check if the mappingFsm is stuck in the showActivityWaiting state. If so, we should trigger
+        // the showActivity state to reload the activity marker
+        // debugger
+        // if (mappingFsm.state === "showActivityWaiting")
+        //   mappingFsm.transition("showActivity");
       });
       commentsSubscription = Meteor.subscribe("activityComments", activityValue, group._id);
     }
   });
 
-  // Fetching current group data
-  Deps.autorun(function (computation) {
-    var groupId = ReactiveGroupFilter.get("group");
-
-    if (groupId) {
-      logIfDev("Subscribe to group data");
-
-      var filter = ReactiveGroupFilter.get("feedFilter") || {};
-      if (filter.group !== groupId) {
-        // set the group without causing reactive
-        ReactiveGroupFilter.set('group', groupId, {quiet: true});
-      }
-      if (!filter.limit) {
-        // set the group without causing reactive
-        ReactiveGroupFilter.set('limit', feedLimitSkip, {quiet: true});
-      }
-
-      self.feedMapSubscription = Meteor.subscribe("basicActivityData", groupId);
-
-      var options = ReactiveGroupFilter.get("subscriptionOptions");
-      self.feedListSubscription = Meteor.subscribe("feedActivities", options, function () {
-        // refresh 
-        mappingFsm.setupGroupMarkers();
-      });
-      self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
-    }
-  });
-
-  Deps.autorun(function (computation) {
-    var group = Groups.findOne(ReactiveGroupFilter.get("group"));
-    if (!!group)
-      document.title = "Underplan: " + group.name;
-  });
-
-  // Fetch open comments for feed
-  Deps.autorun(function () {
-    var groupId = ReactiveGroupFilter.get("group");
-
-    if (Session.get("expandedActivities")) {
-      var options = {
-        groupId: groupId,
-        activityIds: Session.get("expandedActivities"),
-        limit: ReactiveGroupFilter.get("limit"),
-        country: ReactiveGroupFilter.get("country")
-      };
-
-      if (options.activityIds.length)
-        self.commentsSubscription = Meteor.subscribe("openFeedComments", options);
-    }
-  });
 });
 
 ///////////////////////////////////////////////////////////////////////////////

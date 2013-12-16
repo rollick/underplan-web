@@ -62,7 +62,7 @@
   </div>
   <div class="content">
     {{> activityControls this}}
-    {{#unless published}}<span class="alert-box alert">Unpublished<br /></span>{{/unless}}
+    {{#if showUnpublished}}<span class="alert-box alert">Unpublished<br /></span>{{/if}}
 
     {{#if title}}<h2>{{title}}</h2>{{/if}}
     {{#if hasWiki}}

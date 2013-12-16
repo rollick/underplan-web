@@ -53,14 +53,12 @@ $handle-hover-offset: 5px;
   position: relative;
   z-index: 3;
   padding: 0em;
-  // padding-bottom: 5em;
   margin-top: -45px;
-  height: $map-height-small;
   border-bottom: 1px solid darken($handle-bg-color, 10%);
 
-  @media only screen and (min-width: 48em) {
-    height: $map-height-medium;
-  }
+  // set unused height to start so that transition events 
+  // fire when moving to a valid class/height
+  height: -1px;
 
   @include transition-property(height);
   @include transition-duration(0.5s);

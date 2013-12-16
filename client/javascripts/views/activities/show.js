@@ -146,3 +146,4 @@ Template.activityControls.previousActivity = function () {
 // Story Content
 
 Template.singleItemContent.helpers(itemHelpers);
+
