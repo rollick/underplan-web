@@ -275,7 +275,6 @@ MappingFsm = machina.Fsm.extend({
         }
 
         if (!!zoomLevel) {
-          debugger
           self.map.setZoom(zoomLevel);
         }
 

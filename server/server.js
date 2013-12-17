@@ -352,12 +352,7 @@ Meteor.publish("activityShow", function (activityId, groupId) {
     slug: 1
   };
 
-  console.log("=============== "  +  JSON.stringify(activityConds));
-  console.log("+++++++++++++++ "  +  JSON.stringify(activityOptions));
-  
   var activity = Activities.find(activityConds, activityOptions);
-
-  console.log(">>>>>>>>>>>>>>> "  +  JSON.stringify(activity.fetch()[0]));
   
   return activity;
 });
