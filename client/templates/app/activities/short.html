@@ -31,7 +31,7 @@
   {{/if}}
   <div class="content">
     {{#if isStory}}
-      <h5><a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning"> (Unpublished)</span>{{/unless}}</a></h5>
+      <h5><a href="{{activityLink}}" class="title">{{title}} {{#if showUnpublished}}<span class="warning"> (Unpublished)</span>{{/if}}</a></h5>
       <p>{{textPreview}}</p>
       <a href="{{activityLink}}" class="title more">Continue reading</a>
     {{else}}
@@ -43,7 +43,7 @@
 
 <template name="shortForm">
 {{#with activity}}
-  <form class="{{formCls}}">
+  <form class="expanded">
     {{#if _id}}<input type="hidden" id="_id" value="{{_id}}">{{/if}}
     <div class="text-section">
       <div class="input-field">
@@ -62,8 +62,7 @@
         <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
         <input type="text" id="location" value="{{location}}" placeholder="Enter a location...">
         <div class="location-coords input-subtext"></div>
-        <fieldset class="location-fields">
-          <legend>Location Fields (Advanced)</legend>
+        <div class="location-fields">
           <input type="hidden" id="lat" value="{{lat}}">
           <input type="hidden" id="lng" value="{{lng}}">
           <label>City</label>
@@ -72,15 +71,15 @@
           <input type="text" id="region" value="{{region}}">
           <label>Country</label>
           <input type="text" id="country" value="{{country}}">
-        </fieldset>
+        </div>
       </div>
     </div>
     <div class="action-section">
       <div class="small-12 large-12 columns">
         {{#if _id}}
-          <a href="#" class="small button success update">Update</a>
+          <a href="#" class="tiny button success update">Update</a>
         {{else}}
-          <a href="#" class="disabled small button success post">Post</a>
+          <a href="#" class="disabled tiny button success post">Post</a>
         {{/if}}
         <a href="#" class="small secondary cancel">Cancel</a>
         <span class="text-length">250</span>

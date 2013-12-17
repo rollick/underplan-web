@@ -79,15 +79,14 @@ Template.activityCountControl.helpers({
         linkText = "";
 
     if (limit < total) {
-      classNames = "load-more action";
+      classNames = "load-more action button";
       linkText = limit + "/" + total + " - More";
     } else {
-      classNames = "load-more action hide";
-      linkText = "";
+      return "";
     }
 
-    var container = $("<div />").addClass(classNames);
-    var link = $("<a />").attr("href", "#").html(linkText);
+    var container = $("<li />");
+    var link = $("<a />").addClass(classNames).attr("href", "#").html(linkText);
     var html = $('<div>').append(container.append(link));
 
     return new Handlebars.SafeString(html.html());

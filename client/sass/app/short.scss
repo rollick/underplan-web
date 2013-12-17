@@ -18,87 +18,95 @@ $entry-bottom-margin: 0.9em;
   &.single-item {
     margin-top: 0em;
   }
-  
-  .form-content {
-    @include grid-column(12, $collapse: true);
-    @include panel();
-    @include border-radius($standard-corner-radius);
+}
 
-    border: none;
-    padding: $standard-padding;
-    margin-bottom: 0px;
+.form-content {
+  @include grid-column(12, $collapse: true);
+  @include panel();
+  @include border-radius($standard-corner-radius);
 
-    form {
-      padding: 10px;
+  margin-bottom: 0px;
+  padding: 0em;
+  border: none;
 
-      .text-section, 
+  form {
+    padding: 10px;
+
+    .text-section, 
+    .location-section, 
+    .action-section {
+      @include grid-row(nest);
+    }
+
+    label {
+      margin-bottom: 0.2rem;
+    }
+
+    input, textarea {
+      margin-bottom: 0.5rem;
+    }
+
+    .text-section {
+      
+      .input-field {
+        @include grid-column(8);
+
+        textarea {
+          height: 40px;
+          min-height: 0px !important;
+          margin-bottom: 0px;
+          padding: 0.7em;
+        }
+      }
+
+      .add-story {
+        @include grid-column(4);
+
+        text-align: center;
+        padding-left: 0px !important;
+        margin-top: 0.5em;
+      }
+    }
+
+    .location-section, 
+    .action-section {
+      display: none;
+
+      .button {
+        margin-bottom: 0em;
+      }
+    }
+
+    .location-section {
+      .location-fields {
+        display: none;
+      }
+
+      .show-advanced-location {
+        &:before {
+          content: "- ";
+        }
+      }
+    }
+
+    &.expanded {
       .location-section, 
       .action-section {
-        @include grid-row(nest);
+        display: inherit;
       }
 
       .text-section {
-        
         .input-field {
-          @include grid-column(8);
-
+          @include grid-column(12);
+  
           textarea {
-            height: 40px;
-            min-height: 0px !important;
-            margin-bottom: 0px;
-            padding: 0.7em;
+            margin-bottom: 0.8em;
+            height: 80px;
           }
         }
 
         .add-story {
-          @include grid-column(4);
-
-          text-align: center;
-          padding-left: 0px !important;
-          margin-top: 0.8em;
-        }
-      }
-
-      .location-section, 
-      .action-section {
-        display: none;
-
-        .button {
-          margin-bottom: 0em;
-        }
-      }
-
-      .location-section {
-        .location-fields {
           display: none;
-        }
-
-        .show-advanced-location {
-          &:before {
-            content: "- ";
-          }
-        }
-      }
-
-      &.expanded {
-        .location-section, 
-        .action-section {
-          display: inherit;
-        }
-
-        .text-section {
-          .input-field {
-            @include grid-column(12);
-    
-            textarea {
-              margin-bottom: 0.8em;
-              height: 80px;
-            }
-          }
-
-          .add-story {
-            display: none;
-          }
         }
       }
     }

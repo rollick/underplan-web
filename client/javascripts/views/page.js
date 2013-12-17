@@ -46,6 +46,9 @@ Template.page.pageOptions = function () {
 
 Template.page.rendered = function () {
   logIfDev("++ Main Page Rendered");
+
+  // Foundation js loader
+  $(document).foundation();
 };
 
 Template.page.events({

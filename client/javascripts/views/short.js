@@ -50,12 +50,6 @@ Template.shortForm.rendered = function () {
   }
 };
 
-Template.shortForm.helpers({
-  formCls: function () {
-    return this._id ? "expanded" : "";
-  }
-});
-
 Template.shortForm.activity = function () {
   var activityId = ReactiveGroupFilter.get("activity");
   if (activityId) {
@@ -68,6 +62,9 @@ Template.shortForm.activity = function () {
 Template.shortForm.helpers({
   group: function () {
     return Groups.findOne(ReactiveGroupFilter.get("group"));
+  },
+  formCls: function () {
+    return this._id ? "expanded" : "";
   }
 });
 

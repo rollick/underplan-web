@@ -1,3 +1,7 @@
+Template.groupActivityActions.rendered = function () {
+  $(this.firstNode).foundation('dropdown');
+};
+
 Template.groupActions.helpers({
   groupSlug: function () {
     return ReactiveGroupFilter.get("groupSlug") || Groups.findOne(ReactiveGroupFilter.get("group"), {slug: 1}).slug;
@@ -14,6 +18,9 @@ Template.groupActions.helpers({
     }
 
     return false;
+  },
+  showCountryFilter: function () {
+    return groupCountries(ReactiveGroupFilter.get("group")).length > 1;
   }
 });
 

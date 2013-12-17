@@ -39,6 +39,10 @@ if(Meteor.isServer) {
 
 this.canUserRemoveActivity = function (userId, activityId) {
   var activity = Activities.findOne(activityId);
+
+  if (!activity.group)
+    return false;
+
   var groupId = activity.group;
 
   return (isGroupAdmin(userId, groupId) || isSystemAdmin(userId) || activity.owner === userId);

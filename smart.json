@@ -1,7 +1,7 @@
 {
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
-    "tag": "release/template-engine-preview-5.5"
+    "branch": "shark" 
   },
   "packages": {
     "mixpanel": {

@@ -23,46 +23,58 @@
 
 <template name="groupActions">
   <div class="group-controls">
-    {{#if showMapActions}}
-      <div class="left">
-        {{> countryFilter}}
-        {{> activityCountControl}}
-      </div>
-    {{/if}}
-    {{#if showActivityActions}}
-      <div class="right">
-        <div class="map-secondary-actions">
-          <div class="new-shorty action">
-            <a href="/{{groupSlug}}/new/shorty">Share</a>
-          </div>
-        </div>
-      </div>
-    {{/if}}
+    <div class="inner">
+      {{#if showMapActions}}
+        <ul class="map-actions">
+          {{#if showCountryFilter}}
+            <li>
+              {{> countryFilter}}
+            </li>
+          {{/if}}
+          {{> activityCountControl}}
+        </ul> 
+      {{/if}}
+      {{#if showActivityActions}}
+        {{> groupActivityActions}}
+      {{/if}}
+    </div>
   </div>
 </template>
 
 <template name="activityCountControl">
   {{#if showCountControl}}
-    <div class="map-secondary-actions">
-      {{loadMore}}
-    </div>
+    {{loadMore}}
   {{/if}}
 </template>
 
-<template name="countryFilter">
-  {{#if showCountryFilter}}
-    <div class="section-container country-container" data-section="horizontal-nav" data-section-resized="true">
-      <section class="section">
-        <p class="title"><a href="#">{{currentCountry}}</a></p>
-        <div class="content">
-          <ul class="side-nav country-filter">
-            <li class="{{isCurrentCountry "all"}}"><a href="{{groupUrl}}" class="all">All Countries</a></li>
-            {{#each countries}}
-              <li class="{{isCurrentCountry this}}"><a href="{{groupUrl}}/c/{{this}}">{{this}}</a></li>
-            {{/each}}
-          </ul>
+<template name="groupActivityActions">
+  <ul class="activity-actions">
+    <li>
+      <span>
+        <a href="#" class="main action button" data-dropdown="share">Share</a>
+      </span>
+      <div id="share" class="f-dropdown content" data-dropdown-content>
+        <div class="short-form">
+          <div class="form-content">
+            {{> shortForm}}
+          </div>
         </div>
-      </section>
-    </div>
-  {{/if}}
+      </div>
+    </li>
+  </ul>
+</template>
+
+<template name="countryFilter">
+  <span><a href="#" class="country-container action button" data-dropdown="country-filter">  {{currentCountry}}
+  </a></span><br>
+  <ul id="country-filter" class="f-dropdown" data-dropdown-content>
+    <li class="{{isCurrentCountry "all"}}">
+      <a href="{{groupUrl}}" class="all">All Countries</a>
+    </li>
+    {{#each countries}}
+      <li class="{{isCurrentCountry this}}">
+        <a href="{{groupUrl}}/c/{{this}}">{{this}}</a>
+      </li>
+    {{/each}}
+  </ul>
 </template>

@@ -14,7 +14,7 @@
     </div>
   {{/if}}
   <div class="content">
-    <h5><a href="{{activityLink}}" class="title">{{title}} {{#unless published}}<span class="warning"> (Unpublished)</span>{{/unless}}</a></h5>
+    <h5><a href="{{activityLink}}" class="title">{{title}} {{#if showUnpublished}}<span class="warning"> (Unpublished)</span>{{/if}}</a></h5>
     <p>{{textPreview}}</p>
     <a href="{{activityLink}}" class="title more">Continue reading</a>
   </div>

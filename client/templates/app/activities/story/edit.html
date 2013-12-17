@@ -15,8 +15,7 @@
           <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
           <input type="text" id="location" value="{{location}}" placeholder="Enter a location...">
           <div id="location-coords" class="input-subtext"></div>
-          <fieldset class="location-fields">
-            <legend>Location Fields (Advanced)</legend>
+          <div class="location-fields">
             <input type="hidden" id="lat" value="{{lat}}">
             <input type="hidden" id="lng" value="{{lng}}">
             <label>City</label>
@@ -25,7 +24,7 @@
             <input type="text" id="region" value="{{region}}">
             <label>Country</label>
             <input type="text" id="country" value="{{country}}">
-          </fieldset>
+          </div>
           <label>Map Zoom</label>
           <input type="text" id="map-zoom" value="{{mapZoom}}" placeholder="0 (world) to 21+ (buildings)">
           <label>Wikipedia Article</label>
@@ -58,8 +57,7 @@
         <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
         <input type="text" id="location" value="" placeholder="Enter a location...">
         <div id="location-coords" class="input-subtext"></div>
-        <fieldset class="location-fields">
-          <legend>Location Fields (Advanced)</legend>
+        <div class="location-fields">
           <input type="hidden" id="lat" value="">
           <input type="hidden" id="lng" value="">
           <label>City</label>
@@ -68,7 +66,7 @@
           <input type="text" id="region" value="">
           <label>Country</label>
           <input type="text" id="country" value="">
-        </fieldset>
+        </div>
 
         <label>Map Zoom</label>
         <input type="text" id="map-zoom" value="{{defaultMapZoom}}" placeholder="0 (world) to 21+ (buildings)">

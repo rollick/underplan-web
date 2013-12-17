@@ -171,16 +171,6 @@ Meteor.methods({
   }
 });
 
-/////////////////////////////////////
-// Server and Client Methods
-
-this.canUserRemoveActivity = function (userId, activityId) {
-  var activity = Activities.findOne(activityId);
-  var groupId = activity.group;
-
-  return (isGroupAdmin(userId, groupId) || isSystemAdmin(userId) || activity.owner === userId);
-};
-
 ////////////////////////////////////
 // Client Methods
 var activityBasicCheck = function (activity) {

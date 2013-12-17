@@ -18,7 +18,6 @@ this.feedGallery = null;
 
 // Meteor.subscribe("activities");
 Meteor.subscribe("groups");
-Meteor.subscribe("recentActivities");
 Meteor.subscribe("directory");
 Meteor.subscribe("userDetails");
 
@@ -33,7 +32,7 @@ this.mappingFsm = null;
 Meteor.startup(function () {
   logIfDev("===Starting Underplan===");
 
-  Session.set("appVersion", "v1.3.160");
+  Session.set("appVersion", "v1.3.161");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -56,9 +55,6 @@ Meteor.startup(function () {
     }
   );
 
-  // Foundation js loader
-  $(document).foundation();
-
   // set fullscreen class on body for use with slider / gallery code
   if (screenfull.enabled) {
     document.addEventListener(screenfull.raw.fullscreenchange, function () {
@@ -72,33 +68,46 @@ Meteor.startup(function () {
   ///////////////////////////////////////////////////////////////////////////////
   // Main Autorun Deps
 
+  Deps.autorun(function (computation) {
+    // If no group / activity set then subscribe to the 
+    if (!ReactiveGroupFilter.get("group") && 
+        !ReactiveGroupFilter.get("activity") && 
+        !ReactiveGroupFilter.get("activitySlug")) {
+      Meteor.subscribe("recentActivities");
+    }
+  });
+
   // Fetching current group data
   Deps.autorun(function (computation) {
     var groupId = ReactiveGroupFilter.get("group");
 
     // Only setup the group subscriptions if there isn't an activity set, eg if the
     // user goes directly to the activity from an email
-    if (groupId && !ReactiveGroupFilter.get("activity")) {
-      logIfDev("Subscribe to group data");
-
-      var filter = ReactiveGroupFilter.get("feedFilter") || {};
-      if (filter.group !== groupId) {
-        // set the group without causing reactive
-        ReactiveGroupFilter.set('group', groupId, {quiet: true});
-      }
-      if (!filter.limit) {
-        // set the group without causing reactive
-        ReactiveGroupFilter.set('limit', feedLimitSkip, {quiet: true});
-      }
-
+    if (groupId) {
+      logIfDev("Subscribe to basic group data");
       self.feedMapSubscription = Meteor.subscribe("basicActivityData", groupId);
 
-      var options = ReactiveGroupFilter.get("subscriptionOptions");
-      self.feedListSubscription = Meteor.subscribe("feedActivities", options, function () {
-        // refresh
-        mappingFsm.setupGroupMarkers();
-      });
-      self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
+      if (!ReactiveGroupFilter.get("activity")) {
+        logIfDev("Subscribe to group feed/map data");
+
+        var filter = ReactiveGroupFilter.get("feedFilter") || {};
+        if (filter.group !== groupId) {
+          // set the group without causing reactive
+          ReactiveGroupFilter.set('group', groupId, {quiet: true});
+        }
+        if (!filter.limit) {
+          // set the group without causing reactive
+          ReactiveGroupFilter.set('limit', feedLimitSkip, {quiet: true});
+        }
+
+        var options = ReactiveGroupFilter.get("subscriptionOptions");
+        self.feedListSubscription = Meteor.subscribe("feedActivities", options, function () {
+          // refresh
+          mappingFsm.setupGroupMarkers();
+        });
+
+        self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
+      }
     }
   });
 
@@ -120,8 +129,11 @@ Meteor.startup(function () {
         country: ReactiveGroupFilter.get("country")
       };
 
-      if (options.activityIds.length)
+      if (options.activityIds.length) {
+        logIfDev("Subscribe to open comments");
+
         self.commentsSubscription = Meteor.subscribe("openFeedComments", options);
+      }
     }
   });
 
@@ -171,8 +183,10 @@ Meteor.startup(function () {
         // Now check if the mappingFsm is stuck in the showActivityWaiting state. If so, we should trigger
         // the showActivity state to reload the activity marker
         // debugger
-        // if (mappingFsm.state === "showActivityWaiting")
+        //   debugger
+        // if (mappingFsm.state === "showActivityWaiting") {
         //   mappingFsm.transition("showActivity");
+        // }
       });
       commentsSubscription = Meteor.subscribe("activityComments", activityValue, group._id);
     }

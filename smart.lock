@@ -1,8 +1,8 @@
 {
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
-    "tag": "release/template-engine-preview-5.5",
-    "commit": "b31d3fdeae3a118d948f203b96dafed58294e4a4"
+    "branch": "shark",
+    "commit": "225b8c6265cde8aed2c78adb478eb021dc9e71fb"
   },
   "dependencies": {
     "basePackages": {

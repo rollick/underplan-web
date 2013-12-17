@@ -1,9 +1,29 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Main Nav
 
+Template.mainNav.rendered = function () {
+  $(document).foundation('topbar');
+};
+
 Template.mainNav.helpers({
   appVersion: function () {
     return Session.get("appVersion");
+  },
+  group: function () {
+    return Groups.findOne(ReactiveGroupFilter.get("group"));
+  },
+  groupNavTitle: function () {
+    var group = Groups.findOne(ReactiveGroupFilter.get("group")),
+        data = {};
+
+    if (group) {
+      data = {
+        slug: group.slug,
+        name: group.name
+      };
+    }
+    
+    return Template.navTitle.withData(data);
   }
 });
 
@@ -16,30 +36,11 @@ Template.mainNav.events({
   }
 });
 
-Template.mainNav.group = function () {
-  return Groups.findOne(ReactiveGroupFilter.get("group"));
-};
-
-Template.mainNav.groupNavTitle = function () {
-
-  var group = Groups.findOne(ReactiveGroupFilter.get("group")),
-      data = {};
-
-  if (group) {
-    data = {
-      slug: group.slug,
-      name: group.name
-    };
-  }
-
-  return Template.navTitle.withData(data);
-};
-
 ///////////////////////////////////////////////////////////////////////////////
 // Sub Nav
 
-Template.countryFilter.showCountryFilter = function () {
-  return groupCountries(ReactiveGroupFilter.get("group")).length > 1;
+Template.countryFilter.rendered = function () {
+  $(this.firstNode).foundation('dropdown');
 };
 
 Template.countryFilter.helpers({
@@ -52,11 +53,12 @@ Template.countryFilter.helpers({
 });
 
 Template.countryFilter.events({
-  "click .country-filter li > a": function (event, template) {
+  "click #country-filter li > a": function (event, template) {
     event.stopPropagation();
     event.preventDefault();
 
     var selectedElem = $(event.target),
+        dropdown = selectedElem.closest("#country-filter"),
         group = Groups.findOne(ReactiveGroupFilter.get("group")),
         country = selectedElem.text();
 
@@ -66,7 +68,7 @@ Template.countryFilter.events({
       Router.setGroupAndCountry(group, country);
     }
 
-    selectedElem.closest("section, .section").removeClass("active"); 
+    Foundation.libs.dropdown.close(dropdown);
   }
 });
 

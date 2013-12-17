@@ -1,6 +1,9 @@
 @import "../components";
 @import "foundation/components/sub-nav";
-@import "foundation/components/section";
+@import "foundation/components/tabs";
+@import "foundation/components/buttons";
+@import "foundation/components/split-buttons";
+@import "foundation/components/button-groups";
 
 .nav, .secondary-nav {
   position: relative;
@@ -60,6 +63,7 @@
 
   @include grid-row(nest);
 
+  padding: 0.5em;
   margin-left: 0em;
   margin-right: 0em;
   z-index: 5; 
@@ -69,153 +73,121 @@
   position: absolute;
   width: 100%;
 
-  & > .left {
+  & > .inner {
     @include grid-column(12, $collapse: true);
     
     @media only screen and (min-width: 24em) {
-      @include grid-column(9, $collapse: true);
+      @include grid-column(12, $collapse: true);
     }
-  }
 
-  & > .right {
-    @include grid-column(12, $collapse: true);
+    .map-actions {
+      @include button-group-style($float:left);
+
+      & > li {
+        @include button-group-style($radius:true);
+      }
+    }
     
-    @media only screen and (min-width: 24em) {
-      @include grid-column(3, $collapse: true);
+    .activity-actions {
+      @include button-group-style($float:right);
     }
-  }
 
-  & > .left,
-  & > .right {
+    .map-actions,
+    .activity-actions {
+      @include button-group-container();
 
-    margin-left: 0em;
-    margin-right: 0em;
-    padding: $standard-padding;
+      .button {
+        &.action {
+          @include button-size($padding:rem-calc(6));
+          @include button-style($bg:$standard-map-control-bg);
 
-    .map-secondary-actions {
-      position: relative;
-      text-align: center;
-      // margin-top: -$standard-control-height - 0.5em;
-      pointer-events: none;
+          box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+          color: $primary-color;
+          font-weight: 200 !important;
+        }
 
-      .action {
-        @include border-radius($standard-corner-radius);
-        @include box-shadow(0px, 1px, 3px, rgba(0,0,0,0.3));
+        &.main {
+          @include button-style($bg:$primary-color);
+        }
+      }
 
-        font-size: 0.9em;
-        background: $standard-map-control-bg;
+      .content {
+        font-weight: 200;
+
+        // a {
+        //   color: $primary-color;
+        // }
+      }
+
+      & > li { 
+        @include button-group-style(); 
+
         pointer-events: all;
-        // margin: 0 auto;
-        height: $group-controls-height;
-        margin-bottom: 0.5em;
-        padding: 0 $standard-padding;
-        box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+      }
 
-        a {
-          line-height: $group-controls-height;
-          padding: 0px;
-          display: inline;
-        }
-
-        &.disabled {
-          pointer-events: none;
-
-          a {
-            color: gray;
-          }
-        }
+      .f-dropdown.content {
+        padding: rem-calc(5);
+        max-width: 380px;
       }
     }
 
-    .country-container {
-      @include section-container($section-type:horizontal-nav);
+    // & > .map-actions {
+    //   @include button-group-container();
+    //   @include button-group-style($float:left);
 
-      background: none;
-      height: $standard-control-height;
-      pointer-events: all;
-      float: left;
-      width: $group-controls-width;
-      margin-bottom: 0em;
-      box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
-
-      &.horizontal-nav {
-        background: transparent;
-      }
-
-      section, .section {
-        width: $group-controls-width;
-
-        .title {
-          @include border-radius($standard-corner-radius);
-
-          padding-right: 0.5em;
-          text-align: center;
-          background: $standard-map-control-bg;
-          padding: 0 $standard-padding;
-          margin-left: 0px;
-        }
-
-        &.active .title {
-          @include border-bottom-radius(0em);
-
-          background: $standard-panel-bg;
-          opacity: 1.0;
-        }
-
-        .content {
-          @include border-bottom-radius($standard-corner-radius);
-
-          box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.3);
-          // width: $group-controls-width;
-          min-width: $group-controls-width;
-          right: 0 !important;
-          left: 0px !important;
-          background: $standard-panel-bg;
-          border-top: none;
-          opacity: 0.8;
-          padding: $standard-padding;
-          top: $group-controls-height;
-
-          ul.country-filter {
-            width: 100%;
-            padding: 0em;
-          }
-        }
-      }
-
-      .side-nav li {
-        text-align: center;
-
-        &.active a {
-          font-weight: normal;
-          cursor: default;
-        }
-      }
-    }
-  }
-
-  & > .left {
-    padding-left: $standard-padding;
-
-    & > div {
-      margin-right: $standard-padding; 
-    }
-
-    .map-secondary-actions {
-      float: left;
-    }
-  }
-
-  & > .right {
-    padding-right: $standard-padding;
+    //   .action {
+    //   }
+    // }
     
-    & > div {
-      margin-left: $standard-padding;
-    }
-    
-    .map-secondary-actions {
-      float: right;
-    }
+    // & > .activity-actions {
+    //   @include button-group-container();
+    //   @include button-group-style($float:right);
+    // }
+
+    // & > .activity-actions,
+    // & > .map-actions {
+    //   & > li { 
+    //     @include button-group-style();
+
+    //     pointer-events: all;
+    //     font-weight: 200;
+
+    //     a {
+    //       color: $primary-color;
+    //     }
+    //   }
+
+    //   .action {
+    //     $button-font-color-alt: $primary-color;
+
+    //     @include button();
+    //     @include button-size($padding:$button-tny);
+    //     @include button-style($bg:$standard-map-control-bg);
+
+    //     pointer-events: all;
+    //     box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+
+    //     &.disabled {
+    //       a {
+    //         color: gray;
+    //       }
+    //     }
+
+    //     &.main {
+    //       @include button-style($bg:$primary-color);
+    //     }
+    //   }
+
+    //   .country-container {
+    //     @include dropdown-button($padding:tiny, $pip-color:$primary-color);
+    //     @include side-radius(left, $button-radius);
+    //   }
+
+    //   .f-dropdown.content {
+    //     padding: rem-calc(5);
+    //     max-width: 380px;
+    //   }
+    // }
   }
 }
 
@@ -228,13 +200,6 @@
   margin: auto 0;
   width: 100%;
   border: 1px solid red;
-
-  .country-filter-section {
-    margin: 0 auto;
-    width: 120px;
-    height: 100%;
-    text-align: center;
-  }
 }
 
 .top-bar-section {
@@ -316,11 +281,14 @@
       }
 
       img {
-        width: 28px;
+        width: 40px;
+        margin-left: -10px;
+        margin-top: 2px;
+        width: 40px;
         padding: 2px;
         border: 1px solid #2b2b2b;
         position: absolute;
-        margin-top: -4px;
+
         @include border-radius(3em);
       }
 
@@ -384,5 +352,3 @@ li.login-services {
     font-style: normal;
   }
 }
-
-

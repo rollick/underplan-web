@@ -80,7 +80,6 @@ MappingFsm = machina.Fsm.extend({
   defaultZoom: 12,
   defaultTimerId: null,
   containerCls: "top-extra",
-  currentMarkerId: null,
 
   activityIdNonReactive: function() {
     return Deps.nonreactive(function () { 
@@ -256,9 +255,8 @@ MappingFsm = machina.Fsm.extend({
     });
   },
 
-  _centerMarkerById: function (id, offsetX, offsetY) {
+  _centerMarkerById: function (id, zoomLevel, offsetX, offsetY) {
     var self = this;
-    this.currentMarkerId = null;
 
     for (var i = 0; i < this.markers.length; i++ ) {
       if (self.markers[i]._id == id) {
@@ -275,7 +273,11 @@ MappingFsm = machina.Fsm.extend({
         } else {
           self.map.panTo(latLng);
         }
-        self.currentMarkerId = id;
+
+        if (!!zoomLevel) {
+          debugger
+          self.map.setZoom(zoomLevel);
+        }
 
         break;
       }
@@ -419,11 +421,13 @@ MappingFsm = machina.Fsm.extend({
   _setupMarkers: function (activities, clearMarkers, callback) {
     var self = this,
         ids = [],
-        success = false;
+        success = false,
+        lastActivity = null;
       
     activities.forEach( function (activity) {
       if (typeof activity.lat !== 'undefined' &&
-          typeof activity.lng !== 'undefined') {
+          typeof activity.lng !== 'undefined' && 
+          !_.isEmpty(activity.lat) && !_.isEmpty(activity.lng)) {
 
         var objMarker = {
           id: activity._id,
@@ -439,6 +443,7 @@ MappingFsm = machina.Fsm.extend({
         }
 
         success = true;
+        lastActivity = activity;
       }
 
       ids.push(activity._id);
@@ -448,7 +453,7 @@ MappingFsm = machina.Fsm.extend({
       this._clearUnmatchedMarkers(ids);
 
     if (_.isFunction(callback)) {
-      callback.call(null, success);
+      callback.call(null, success, lastActivity);
     }
   },
 
@@ -612,19 +617,28 @@ MappingFsm = machina.Fsm.extend({
         //       be set yet. Then in a deps autorun we can process the map queue once
         //       the activity id has been set...
         var conds = {_id: this.activityId},
-            options = {},
+            options = {}, // should only select required fields here
             activities = Activities.find(conds, options);
 
         // If not a success then stay in the current state => check state from something like 
         // a meteor subscribe callback and reprocess the 
         if (activities.count()) {
-          this._setupMarkers(activities, clearMarkers, function (success) {
-            self._centerMarkerById(self.activityId, 0, -45);
+
+          this._setupMarkers(activities, clearMarkers, function (success, lastActivity) {
+
+            if (success) {
+              // If there is a lastActivity then use it's zoom level
+              var zoomLevel = (lastActivity && lastActivity.mapZoom) ? lastActivity.mapZoom : null;
+
+              self._centerMarkerById(self.activityId, zoomLevel, 0, -25);
+            }
+
           });
 
           // Transition to showActivityIdle so that subsequent transitions to showActivity
           // will trigger the handlers in this state.
           this.transition("showActivityIdle");
+
         } else {
           this.transition("showActivityWaiting");
         }
