@@ -2,7 +2,7 @@
 // Foundation Variables
 //
 
-@import "foundation/components/global";
+// @import "foundation/components/global";
 
 $base-font-size: 100% !default;
 $em-base: 16px !default;
@@ -51,8 +51,8 @@ $topbar-bg:                 rgba($common-dark-color, 0.4);
 $secondary-navbar-bg:		    rgba(lighten($topbar-bg, 15%), 0.8);
 $label-font-color:          lighten(#000, 30%);
 $body-font-family:          'Open Sans', Arial, sans-serif;
-$body-font-weight: 			    200;
-$paragraph-font-weight:     200;
+$body-font-weight: 			    200 !default;
+$paragraph-font-weight:     200 !default;
 $primary-color:             #008000;
 $success-color:             #008000;
 $notice-color:              #1F4100;

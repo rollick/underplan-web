@@ -275,7 +275,7 @@ MappingFsm = machina.Fsm.extend({
         }
 
         if (!!zoomLevel) {
-          self.map.setZoom(zoomLevel);
+          self.map.setZoom(parseInt(zoomLevel));
         }
 
         break;
