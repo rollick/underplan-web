@@ -7825,15 +7825,15 @@ h2 span.warning, a span.warning {
   width: 100%;
   position: relative;
   text-align: right;
-  font-size: 0.7em;
   color: #b9b9b9;
   font-family: 'helvetica';
   height: 30px;
   vertical-align: top;
 }
-/* line 154, ../sass/main.scss */
+/* line 153, ../sass/main.scss */
 .footer .info > p {
   height: 30px;
+  font-size: 0.7em;
   line-height: 30px;
   margin: 0em;
   margin-right: 10px;

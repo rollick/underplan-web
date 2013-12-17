@@ -145,7 +145,6 @@ h2, a {
     width: 100%;
     position: relative;
     text-align: right;
-    font-size: 0.7em;
     color: rgb(185, 185, 185);
     font-family: 'helvetica';
     height: $footer-height;
@@ -153,6 +152,7 @@ h2, a {
 
     & > p {
       height: $footer-height;
+      font-size: 0.7em;
       line-height: $footer-height;
       margin: 0em;
       margin-right: 10px;
