@@ -121,7 +121,7 @@ var AppRouter = Backbone.Router.extend({
   // Main Routing Functions
 
   main: function() {
-    this.resetGroup();
+    ReactiveGroupFilter.clearGroup();
 
     this.setAndLoadMainTemplate("mainHome");
   },
@@ -431,10 +431,6 @@ var AppRouter = Backbone.Router.extend({
     $('html,body').scrollTop(0);
 
     return this;
-  },
-
-  resetGroup: function () {
-    ReactiveGroupFilter.set("group", null);
   }
 });
 

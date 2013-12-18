@@ -11,6 +11,13 @@ ReactiveGroupFilter = {
     // this._fieldsDep = {}
   },
 
+  clearGroup: function () {
+    var self = this;
+    _.forEach(["group", "groupSlug", "activity", "activitySlug"], function (field) {
+      self.set(field, null);
+    });
+  },
+
   get: function (key) {
     this._ensureDep(key);
     this._fieldsDep[key].depend();
