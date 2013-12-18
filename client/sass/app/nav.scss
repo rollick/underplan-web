@@ -104,6 +104,22 @@
           box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
           color: $primary-color;
           font-weight: 200 !important;
+          font-size: 0.8rem;
+
+          &.country-container {
+            @include dropdown-button($padding:custom, $pip-color:$primary-color);
+
+            $container-pip-width: rem-calc(4);
+
+            padding-right: $container-pip-width * 7;
+
+            &:before {
+
+              border-width: $container-pip-width;
+              right: $container-pip-width * 3;
+              margin-top: -$container-pip-width / 2;
+            }
+          }
         }
 
         &.main {
@@ -130,64 +146,6 @@
         max-width: 380px;
       }
     }
-
-    // & > .map-actions {
-    //   @include button-group-container();
-    //   @include button-group-style($float:left);
-
-    //   .action {
-    //   }
-    // }
-    
-    // & > .activity-actions {
-    //   @include button-group-container();
-    //   @include button-group-style($float:right);
-    // }
-
-    // & > .activity-actions,
-    // & > .map-actions {
-    //   & > li { 
-    //     @include button-group-style();
-
-    //     pointer-events: all;
-    //     font-weight: 200;
-
-    //     a {
-    //       color: $primary-color;
-    //     }
-    //   }
-
-    //   .action {
-    //     $button-font-color-alt: $primary-color;
-
-    //     @include button();
-    //     @include button-size($padding:$button-tny);
-    //     @include button-style($bg:$standard-map-control-bg);
-
-    //     pointer-events: all;
-    //     box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
-
-    //     &.disabled {
-    //       a {
-    //         color: gray;
-    //       }
-    //     }
-
-    //     &.main {
-    //       @include button-style($bg:$primary-color);
-    //     }
-    //   }
-
-    //   .country-container {
-    //     @include dropdown-button($padding:tiny, $pip-color:$primary-color);
-    //     @include side-radius(left, $button-radius);
-    //   }
-
-    //   .f-dropdown.content {
-    //     padding: rem-calc(5);
-    //     max-width: 380px;
-    //   }
-    // }
   }
 }
 
