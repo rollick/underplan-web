@@ -2556,14 +2556,3 @@ blockquote p {
 .ribbon-wrapper .ribbon:after {
   right: 0;
 }
-
-/* line 44, ../../sass/app/common.scss */
-.alert-box.large {
-  font-size: 1.2em;
-}
-/* line 47, ../../sass/app/common.scss */
-.alert-box.clear {
-  background-color: #fff;
-  border-color: #f9f9f9;
-  color: inherit;
-}

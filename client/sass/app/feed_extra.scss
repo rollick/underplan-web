@@ -101,13 +101,6 @@ $handle-hover-offset: 5px;
     }
   }
 
-  .alert-box {
-    @include alert-style($secondary-color);
-
-    border-left: none;
-    border-right: none;
-  }
-
   .map {
     @include grid-row(nest);
     @include radius();
@@ -133,15 +126,6 @@ $handle-hover-offset: 5px;
         label { 
           width: auto; 
           display: inline; 
-        }
-      }
-
-      .alert-box {
-        margin-top: 0em;
-        line-height: $map-height-small - 20px;
-
-        @media only screen and (min-width: 48em) {
-          line-height: $map-height-large - 20px;
         }
       }
 

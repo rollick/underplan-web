@@ -417,6 +417,12 @@ MappingFsm = machina.Fsm.extend({
     this._centerMarkers(null, 0, -45);
   },
 
+  _validLatLng: function (activity) {
+    return (typeof activity.lat !== 'undefined' &&
+            typeof activity.lng !== 'undefined' && 
+            !_.isEmpty(activity.lat) && !_.isEmpty(activity.lng));
+  },
+
   _setupMarkers: function (activities, clearMarkers, callback) {
     var self = this,
         ids = [],
@@ -424,10 +430,7 @@ MappingFsm = machina.Fsm.extend({
         lastActivity = null;
       
     activities.forEach( function (activity) {
-      if (typeof activity.lat !== 'undefined' &&
-          typeof activity.lng !== 'undefined' && 
-          !_.isEmpty(activity.lat) && !_.isEmpty(activity.lng)) {
-
+      if (self._validLatLng(activity)) {
         var objMarker = {
           id: activity._id,
           lat: activity.lat,
@@ -667,6 +670,36 @@ MappingFsm = machina.Fsm.extend({
         this._setContainerClass('default');
         this.emit("EditorMapReady");
       }
+    },
+
+    showLocationCreator: {
+      _onEnter: function () {
+        $('html,body').scrollTop(0);
+
+        this.handle("map.default");
+      },
+      "map.default": function() {
+        var self = this;
+
+        // Set the map class and then center map on last activity for the 
+        // currently set group if any have been fetched
+        this._setContainerClass('default', function () {
+          var ids = Session.get("activityIdsSorted");
+
+          if (ids.length) {
+            var activity = Activities.findOne(_.last(ids));
+
+            if (self._validLatLng(activity)) {
+              debugger
+              var gLatLng = new google.maps.LatLng(activity.lat, activity.lng)
+              self.map.setCenter(gLatLng);
+              self.map.setZoom(12); 
+            }
+          }
+        });
+        this.emit("LocationCreatorReady");
+      }
     }
+
   }
 });

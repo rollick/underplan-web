@@ -61,6 +61,12 @@ var AppRouter = Backbone.Router.extend({
         state: "showActivity"        
       }
     },
+    storyCreator: {
+      map: {
+        evt: "LocationCreatorReady",
+        state: "showLocationCreator"        
+      }
+    },
     shortyEditor: {
       map: {
         evt: "EditorMapReady",
@@ -182,7 +188,7 @@ var AppRouter = Backbone.Router.extend({
     this.runSetGroup(groupSlug);
     ReactiveGroupFilter.set("activity", null);
 
-    this.jumpToTop().setAndLoadMainTemplate("storyEditor");
+    this.jumpToTop().setAndLoadMainTemplate("storyCreator");
   },
 
   activity: function(groupSlug, activitySlug) {

@@ -3114,42 +3114,30 @@ meta.foundation-mq-topbar {
   }
 }
 @keyframes mapInserted {
-  /* line 105, ../../sass/_components.scss */
+  /* line 110, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 106, ../../sass/_components.scss */
+  /* line 111, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-moz-keyframes mapInserted {
-  /* line 110, ../../sass/_components.scss */
+  /* line 115, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 111, ../../sass/_components.scss */
+  /* line 116, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-webkit-keyframes mapInserted {
-  /* line 115, ../../sass/_components.scss */
-  from {
-    clip: rect(1px, auto, auto, auto);
-  }
-
-  /* line 116, ../../sass/_components.scss */
-  to {
-    clip: rect(0px, auto, auto, auto);
-  }
-}
-
-@-ms-keyframes mapInserted {
   /* line 120, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
@@ -3161,7 +3149,7 @@ meta.foundation-mq-topbar {
   }
 }
 
-@-o-keyframes mapInserted {
+@-ms-keyframes mapInserted {
   /* line 125, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
@@ -3173,19 +3161,19 @@ meta.foundation-mq-topbar {
   }
 }
 
-@keyframes galleryInserted {
-  /* line 105, ../../sass/_components.scss */
+@-o-keyframes mapInserted {
+  /* line 130, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 106, ../../sass/_components.scss */
+  /* line 131, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
-@-moz-keyframes galleryInserted {
+@keyframes galleryInserted {
   /* line 110, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
@@ -3197,7 +3185,7 @@ meta.foundation-mq-topbar {
   }
 }
 
-@-webkit-keyframes galleryInserted {
+@-moz-keyframes galleryInserted {
   /* line 115, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
@@ -3209,7 +3197,7 @@ meta.foundation-mq-topbar {
   }
 }
 
-@-ms-keyframes galleryInserted {
+@-webkit-keyframes galleryInserted {
   /* line 120, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
@@ -3221,13 +3209,25 @@ meta.foundation-mq-topbar {
   }
 }
 
-@-o-keyframes galleryInserted {
+@-ms-keyframes galleryInserted {
   /* line 125, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
   /* line 126, ../../sass/_components.scss */
+  to {
+    clip: rect(0px, auto, auto, auto);
+  }
+}
+
+@-o-keyframes galleryInserted {
+  /* line 130, ../../sass/_components.scss */
+  from {
+    clip: rect(1px, auto, auto, auto);
+  }
+
+  /* line 131, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
@@ -3339,14 +3339,6 @@ meta.foundation-mq-topbar {
   display: none;
 }
 /* line 104, ../../sass/app/feed_extra.scss */
-.top-extra .alert-box {
-  background-color: #e7e7e7;
-  border-color: #dadada;
-  color: #4e4e4e;
-  border-left: none;
-  border-right: none;
-}
-/* line 111, ../../sass/app/feed_extra.scss */
 .top-extra .map {
   width: auto;
   margin-left: -0.9375rem;
@@ -3371,7 +3363,7 @@ meta.foundation-mq-topbar {
 .top-extra .map:after {
   clear: both;
 }
-/* line 120, ../../sass/app/feed_extra.scss */
+/* line 113, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner {
   position: relative;
   padding-left: 0;
@@ -3381,7 +3373,7 @@ meta.foundation-mq-topbar {
   padding: 0;
   height: 100%;
 }
-/* line 126, ../../sass/app/feed_extra.scss */
+/* line 119, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner #map-canvas {
   animation-duration: 0.001s;
   -o-animation-duration: 0.001s;
@@ -3394,35 +3386,24 @@ meta.foundation-mq-topbar {
   -moz-animation-name: mapInserted;
   -webkit-animation-name: mapInserted;
 }
-/* line 129, ../../sass/app/feed_extra.scss */
+/* line 122, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner #map-canvas img {
   max-width: none;
 }
-/* line 133, ../../sass/app/feed_extra.scss */
+/* line 126, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner #map-canvas label {
   width: auto;
   display: inline;
 }
-/* line 139, ../../sass/app/feed_extra.scss */
-.top-extra .map > .inner .alert-box {
-  margin-top: 0em;
-  line-height: 180px;
-}
-@media only screen and (min-width: 48em) {
-  /* line 139, ../../sass/app/feed_extra.scss */
-  .top-extra .map > .inner .alert-box {
-    line-height: 380px;
-  }
-}
-/* line 149, ../../sass/app/feed_extra.scss */
+/* line 133, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner .infoBox > img {
   z-index: 2;
 }
-/* line 153, ../../sass/app/feed_extra.scss */
+/* line 137, ../../sass/app/feed_extra.scss */
 .top-extra .map > .inner .infoBox .map-info .inner {
   margin-top: -0.9375rem;
 }
-/* line 160, ../../sass/app/feed_extra.scss */
+/* line 144, ../../sass/app/feed_extra.scss */
 .top-extra .gallery {
   width: auto;
   margin-left: -0.9375rem;
@@ -3456,11 +3437,11 @@ meta.foundation-mq-topbar {
 .top-extra .gallery:after {
   clear: both;
 }
-/* line 170, ../../sass/app/feed_extra.scss */
+/* line 154, ../../sass/app/feed_extra.scss */
 .top-extra .gallery.visible {
   z-index: 1;
 }
-/* line 174, ../../sass/app/feed_extra.scss */
+/* line 158, ../../sass/app/feed_extra.scss */
 .top-extra .gallery > .inner {
   position: relative;
   padding-left: 0;
@@ -3468,13 +3449,13 @@ meta.foundation-mq-topbar {
   width: 100%;
   float: left;
 }
-/* line 177, ../../sass/app/feed_extra.scss */
+/* line 161, ../../sass/app/feed_extra.scss */
 .top-extra .gallery > .inner .recent-photos {
   padding-top: 160px;
   background-color: #111111;
   height: 100%;
 }
-/* line 185, ../../sass/app/feed_extra.scss */
+/* line 169, ../../sass/app/feed_extra.scss */
 .top-extra .gallery-more {
   width: auto;
   margin-left: -0.9375rem;
@@ -3496,7 +3477,7 @@ meta.foundation-mq-topbar {
 .top-extra .gallery-more:after {
   clear: both;
 }
-/* line 170, ../../sass/_components.scss */
+/* line 175, ../../sass/_components.scss */
 .top-extra .gallery-more > .content {
   position: relative;
   padding-left: 0.9375rem;

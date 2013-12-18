@@ -82,10 +82,6 @@
 
     .map-actions {
       @include button-group-style($float:left);
-
-      & > li {
-        @include button-group-style($radius:true);
-      }
     }
     
     .activity-actions {
@@ -100,11 +96,12 @@
         &.action {
           @include button-size($padding:rem-calc(6));
           @include button-style($bg:$standard-map-control-bg);
-
-          box-shadow: 0px 1px 3px rgba(0,0,0,0.3);
+          @include map-box-shadow();
+          
           color: $primary-color;
           font-weight: 200 !important;
           font-size: 0.8rem;
+          margin-bottom: 0em;
 
           &.country-container {
             @include dropdown-button($padding:custom, $pip-color:$primary-color);
@@ -146,6 +143,19 @@
         max-width: 380px;
       }
     }
+
+    .map-actions {
+      li .action {
+        &:first-of-type {
+          @include border-left-radius($button-radius);
+        }
+
+        &:last-of-type {
+          @include border-right-radius($button-radius);
+        }
+      }
+    }
+    
   }
 }
 

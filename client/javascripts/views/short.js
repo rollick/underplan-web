@@ -5,6 +5,10 @@ Template.shortyEditor.activity = function () {
   return Activities.findOne(ReactiveGroupFilter.get("activity"));
 };
 
+Template.shortyEditor.error = function () {
+  return Session.get("createError");
+};
+
 ///////////////////////////////////////////////////////////////////////////////
 // Short Form
 
@@ -52,7 +56,10 @@ Template.shortForm.rendered = function () {
 
 Template.shortForm.helpers({
   group: function () {
-    return Groups.findOne(ReactiveGroupFilter.get("group"));
+    if (this.group)
+      return Groups.findOne(this.group);
+    else
+      return {};
   },
   formCls: function () {
     return this._id ? "expanded" : "";
@@ -95,13 +102,15 @@ Template.shortForm.events({
     $(template.find("form")).addClass("expanded");
   },
   'keyup #text': function (event, template) {
-    var textElem = template.find("#text");
-    var countElem = template.find(".text-length");
-    var submit = template.find(".post");
+    var textElem = template.find("#text"),
+        countElem = template.find(".text-length"),
+        submit = template.find(".post, .update");
 
     if(textElem.value.length === 0 || textElem.value.length > shortMaxLength) {
       $(submit).addClass("disabled");
+      Session.set("createError", "Text length too long");
     } else {
+      Session.set("createError", null);
       $(submit).removeClass("disabled");
     }
 
@@ -160,8 +169,9 @@ Template.shortForm.events({
     event.stopPropagation();
     event.preventDefault();
 
-    if($(template.find("a")).hasClass("disabled"))
+    if($(template.find(".save, .update")).hasClass("disabled")) {
       return false;
+    }
 
     var activityId = template.find("#_id").value;
     var values = getValues(template);
