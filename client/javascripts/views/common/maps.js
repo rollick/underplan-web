@@ -7,7 +7,7 @@ activityStaticMap = function(activity) {
   }
 
   var dimensions = "720x240";
-  var apiKey = appSettings().mapsApiKey;
+  var apiKey = appSettings.mapsApiKey;
   
   imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&zoom=:zoom&sensor=false&size=:dimensions&maptype=roadmap&visible=:lat,:lng&markers=color:green|label::label|:lat,:lng";
   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
@@ -29,7 +29,7 @@ activityStaticMap = function(activity) {
 recentActivitiesMap = function() {
   var dimensions = "640x240";
   var recentActivities = Activities.find({group: ReactiveGroupFilter.get("group")}, {limit: 100, sort: {created: -1}});
-  var apiKey = appSettings().mapsApiKey;
+  var apiKey = appSettings.mapsApiKey;
 
   // FIXME: The code here shouldn't need to know about DOM elements.
   if(parseInt($("body").css("width").match(/\d+/g)) > 767)

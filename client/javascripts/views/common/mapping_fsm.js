@@ -264,6 +264,8 @@ MappingFsm = machina.Fsm.extend({
 
     if (typeElement && center) {
       // Set the toggle background image to the next map type
+      var apiKey = appSettings.mapsApiKey;
+
       var imageUrl = "https://maps.googleapis.com/maps/api/staticmap?_=:random&scale=2&visible=:lat,:lng&zoom=:zoom&sensor=false&size=:dimensions&maptype=:followType"
       imageUrl = imageUrl.replace(/:dimensions/, "60x60").
                 replace(/:random/, Math.round((new Date()).getTime() / 1000)).
@@ -271,6 +273,9 @@ MappingFsm = machina.Fsm.extend({
                 replace(/:followType/, this._mapTypes[nextIndex]).
                 replace(/:lng/g, center.ob).
                 replace(/:lat/g, center.nb);
+
+      if(apiKey != "")
+        imageUrl = imageUrl + "&key=" + apiKey;
 
       typeElement.css("background-image", "url(" + imageUrl + ")");
     }

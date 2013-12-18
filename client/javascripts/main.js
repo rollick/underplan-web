@@ -41,7 +41,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.174");
+  Session.set("appVersion", "v1.3.175");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -230,8 +230,8 @@ this.navHeight = function () {
 };
 
 // FIXME: move the maps api key to the settings file
-this.appSettings = function () {
-  return {mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"};
+this.appSettings = {
+  mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"
 };
 
 this.getCurrentActivity = function () {
