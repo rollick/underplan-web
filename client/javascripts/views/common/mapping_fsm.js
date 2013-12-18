@@ -684,21 +684,21 @@ MappingFsm = machina.Fsm.extend({
         // Set the map class and then center map on last activity for the 
         // currently set group if any have been fetched
         this._setContainerClass('default', function () {
-          var ids = Session.get("activityIdsSorted");
+          var ids = Session.get("activityIdsSorted"),
+              gLatLng = new google.maps.LatLng(11.22453, 108.822161);
 
           if (ids.length) {
             var activity = Activities.findOne(_.last(ids));
 
             if (self._validLatLng(activity)) {
               var gLatLng = new google.maps.LatLng(activity.lat, activity.lng)
-              self.map.setCenter(gLatLng);
-            } else { // center on somewhere
-              var gLatLng = new google.maps.LatLng(11.22453, 108.822161);
-              self.map.setCenter(gLatLng);
             }
-            self.map.setZoom(12); 
           }
+
+          self.map.setCenter(gLatLng);
+          self.map.setZoom(12);
         });
+
         this.emit("LocationCreatorReady");
       }
     }
