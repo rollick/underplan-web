@@ -32,7 +32,7 @@ this.mappingFsm = null;
 Meteor.startup(function () {
   logIfDev("===Starting Underplan===");
 
-  Session.set("appVersion", "v1.3.168");
+  Session.set("appVersion", "v1.3.169");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 

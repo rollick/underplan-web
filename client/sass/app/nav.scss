@@ -198,6 +198,10 @@
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
+      width: 100% !important;
+
+      // some padding to avoid toggle-topbar menu
+      padding-right: 65px !important;
     }
   }
 

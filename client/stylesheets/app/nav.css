@@ -3667,45 +3667,47 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  width: 100% !important;
+  padding-right: 65px !important;
 }
-/* line 205, ../../sass/app/nav.scss */
+/* line 209, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 205, ../../sass/app/nav.scss */
+  /* line 209, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 213, ../../sass/app/nav.scss */
+/* line 217, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: rgba(255, 255, 255, 0.3);
 }
 @media only screen and (min-width: 48em) {
-  /* line 213, ../../sass/app/nav.scss */
+  /* line 217, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
   }
 }
-/* line 223, ../../sass/app/nav.scss */
+/* line 227, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 231, ../../sass/app/nav.scss */
+  /* line 235, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 237, ../../sass/app/nav.scss */
+/* line 241, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 241, ../../sass/app/nav.scss */
+/* line 245, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 40px;
   margin-left: -10px;
@@ -3721,23 +3723,23 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 254, ../../sass/app/nav.scss */
+  /* line 258, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 258, ../../sass/app/nav.scss */
+  /* line 262, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
 
-/* line 267, ../../sass/app/nav.scss */
+/* line 271, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 273, ../../sass/app/nav.scss */
+/* line 277, ../../sass/app/nav.scss */
 .top-bar-section li.text {
   color: rgba(196, 196, 196, 0.4);
   opacity: 1;
@@ -3746,23 +3748,23 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 273, ../../sass/app/nav.scss */
+  /* line 277, ../../sass/app/nav.scss */
   .top-bar-section li.text {
     color: rgba(247, 247, 247, 0.4);
     background-color: rgba(17, 17, 17, 0.4);
   }
 }
 
-/* line 287, ../../sass/app/nav.scss */
+/* line 291, ../../sass/app/nav.scss */
 li.login-services {
   height: 45px;
 }
-/* line 290, ../../sass/app/nav.scss */
+/* line 294, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 295, ../../sass/app/nav.scss */
+/* line 299, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -3770,7 +3772,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 303, ../../sass/app/nav.scss */
+/* line 307, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;
