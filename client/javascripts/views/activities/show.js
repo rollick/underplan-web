@@ -105,41 +105,23 @@ Template.activityControls.group = function () {
 };
 
 Template.activityControls.nextActivity = function () {
-  if (!this._id) return;
+  var ids = Session.get("activityIdsSorted"),
+      index = _.indexOf(ids, this._id);
 
-  var activity = Activities.findOne(this._id),
-      country = ReactiveGroupFilter.get("country"),
-      groupId = activity.group;
-
-  var params = {
-    $and: [
-      {group: groupId},
-      {_id: {"$gt": activity._id}}
-    ]};
-
-  if (country)
-    params['$and'].push({"country": country});
-
-  return Activities.findOne(params, {sort: {_id: 1}});
+  if (index === ids.length) // at the end
+    return null;
+  else
+    return Activities.findOne(ids[index+1]);
 };
 
 Template.activityControls.previousActivity = function () {
-  if (!this._id) return;
+  var ids = Session.get("activityIdsSorted"),
+      index = _.indexOf(ids, this._id);
 
-  var activity = Activities.findOne(this._id),
-      country = ReactiveGroupFilter.get("country"),
-      groupId = activity.group;
-
-  var params = {
-    $and: [
-      {group: groupId},
-      {_id: {"$lt": activity._id}}
-    ]};
-
-  if (country)
-    params['$and'].push({"country": country});
-
-  return Activities.findOne(params, {sort: {_id: -1}});
+  if (index === 0) // at the beginning
+    return null;
+  else
+    return Activities.findOne(ids[index-1]);
 };
 
 ///////////////////////////////////////////////////////////////////////////////

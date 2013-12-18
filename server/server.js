@@ -138,7 +138,8 @@ Meteor.publish("basicActivityData", function (groupId) {
       owner: 1,
       city: 1,
       country: 1,
-      type: 1
+      type: 1,
+      created: 1
     }
   };
 

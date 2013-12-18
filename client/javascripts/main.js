@@ -187,6 +187,30 @@ Meteor.startup(function () {
     }
   });
 
+
+  Deps.autorun( function (computation) {
+    var country = ReactiveGroupFilter.get("country"),
+        groupId = ReactiveGroupFilter.get("group");
+
+    if (!groupId)
+      return;
+
+    var params = {
+      $and: [
+        {group: groupId}
+      ]};
+
+    if (country)
+      params['$and'].push({"country": country});
+
+    var ids = [];
+    Activities.find(params, {fields: {_id: 1}, sort: {created: 1, _id: 1}}).forEach(function (activity) {
+      ids.push(activity._id);
+    });
+
+    Session.set("activityIdsSorted", ids);
+  });
+
 });
 
 ///////////////////////////////////////////////////////////////////////////////
