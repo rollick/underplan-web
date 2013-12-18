@@ -624,7 +624,6 @@ MappingFsm = machina.Fsm.extend({
         if (activities.count()) {
 
           this._setupMarkers(activities, clearMarkers, function (success, lastActivity) {
-
             if (success) {
               // If there is a lastActivity then use it's zoom level
               var zoomLevel = (lastActivity && lastActivity.mapZoom) ? lastActivity.mapZoom : null;

@@ -180,13 +180,8 @@ Meteor.startup(function () {
 
         ReactiveGroupFilter.set("activity", activity._id);
 
-        // Now check if the mappingFsm is stuck in the showActivityWaiting state. If so, we should trigger
-        // the showActivity state to reload the activity marker
-        // debugger
-        //   debugger
-        // if (mappingFsm.state === "showActivityWaiting") {
-        //   mappingFsm.transition("showActivity");
-        // }
+        // Transition the map now that the record has been fetch => lat, lng etc was required
+        mappingFsm.transition("showActivity");
       });
       commentsSubscription = Meteor.subscribe("activityComments", activityValue, group._id);
     }

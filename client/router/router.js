@@ -55,12 +55,6 @@ var AppRouter = Backbone.Router.extend({
         state: "recentGroup"        
       }
     },
-    currentActivity: {
-      map: {
-        evt: "ActivityMapReady",
-        state: "showActivity"        
-      }
-    },
     storyEditor: {
       map: {
         evt: "ActivityMapReady",
