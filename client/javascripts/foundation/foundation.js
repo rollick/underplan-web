@@ -1,1 +1,1 @@
-/Users/mgallop/Dev/underplan_src/packages/bower/foundation/js/foundation.js
+../../../packages/bower/foundation/js/foundation.js

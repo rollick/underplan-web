@@ -1,1 +1,1 @@
-/Users/mgallop/Dev/underplan_src/packages/bower/foundation/js/vendor/jquery.cookie.js
+../../../packages/bower/foundation/js/vendor/jquery.cookie.js
