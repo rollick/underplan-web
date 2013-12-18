@@ -183,10 +183,12 @@ var getStoryValues = function(template) {
   }
 
   // Created (Publish) Date
-  var day = template.find(".day-picker .current").text;
-  var month = template.find(".month-picker .current").text;
-  var year = template.find(".year-picker .current").text;
+  var day = template.find(".day-picker option:selected").value;
+  var month = template.find(".month-picker option:selected").value;
+  var year = template.find(".year-picker option:selected").value;
   var created = new Date(day + " " + month + " " + year);
+
+  debugger
 
   if(created.toLocaleString() != "Invalid Date")
     values.created = created; 

@@ -139,7 +139,8 @@ Meteor.publish("basicActivityData", function (groupId) {
       city: 1,
       country: 1,
       type: 1,
-      created: 1
+      created: 1,
+      slug: 1
     }
   };
 
@@ -162,6 +163,7 @@ Meteor.publish("recentActivities", function () {
       updated: 1,
       type: 1,
       published: 1,
+      slug: 1
     }, 
     sort: {created: -1}
   };
@@ -211,7 +213,8 @@ Meteor.publish("feedActivities", function (options) {
       city: 1,
       country: 1,
       published: 1,
-      picasaTags: 1
+      picasaTags: 1,
+      slug: 1
     }, 
     sort: {created: -1}
   };

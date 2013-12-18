@@ -95,6 +95,15 @@ Handlebars.registerHelper('basicLocation', function(activity) {
 ///////////////////////////////////////////////////////////////////////////////
 // Date Picker
 
-Template.datePicker.equalTo = function (value) {
-  return value == this;
-}
+Template.datePicker.helpers({
+  equalTo: function (value) {
+    return value == this;
+  }
+});
+
+///////////////////////////////////////////////////////////////////////////////
+// Helper Template for Date Picker
+
+Template.ifEqual.isEqual = function (value1, value2) {
+  return value1 == value2;
+};

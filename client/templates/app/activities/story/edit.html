@@ -39,7 +39,11 @@
           <input type="text" id="slug" value="{{slug}}">
           <label>Photo Tags</label>
           <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
-          <input type="checkbox" class="published" id="published" {{checked published}}>
+          {{#if published}}
+            <input type="checkbox" class="published" id="published" checked>
+          {{else}}
+            <input type="checkbox" class="published" id="published">
+          {{/if}}
           <label for="published">Published</label><br />
           <label>Published Date</label>
           {{> publishedDatePicker}}

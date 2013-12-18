@@ -1,3 +1,11 @@
+<template name="ifEqual">
+  {{#if isEqual value1 value2}}
+    {{> content}}
+  {{else}}
+    {{> elseContent}}
+  {{/if}}
+</template>
+
 <template name="datePicker">
   {{#with this}}
   <div class="row">
@@ -9,11 +17,11 @@
         <div class="large-6 small-9 columns">
           <select>
             {{#each days}}
-              {{#if equalTo selectedDay}}
+              {{#ifEqual value1=../selectedDay value2=this}}
                 <option selected>{{this}}</option>
               {{else}}
                 <option>{{this}}</option>
-              {{/if}}
+              {{/ifEqual}}
             {{/each}}
           </select>
         </div>
@@ -27,11 +35,11 @@
         <div class="large-9 small-9 columns">
           <select>
             {{#each months}}
-              {{#if equalTo selectedMonth}}
+              {{#ifEqual value1=../selectedMonth value2=this}}
                 <option selected>{{this}}</option>
               {{else}}
                 <option>{{this}}</option>
-              {{/if}}
+              {{/ifEqual}}
             {{/each}}
           </select>
         </div>
@@ -45,11 +53,11 @@
         <div class="large-9 small-9 columns">
           <select>
             {{#each years}}
-              {{#if equalTo selectedYear}}
-                <option selected>{{this}}</option>
+              {{#ifEqual value1=../selectedYear value2=this}}
+                <option value="{{this}}" selected>{{this}}</option>
               {{else}}
-                <option>{{this}}</option>
-              {{/if}}
+                <option value="{{this}}">{{this}}</option>
+              {{/ifEqual}}
             {{/each}}
           </select>
         </div>

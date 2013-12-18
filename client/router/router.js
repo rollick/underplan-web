@@ -401,8 +401,21 @@ var AppRouter = Backbone.Router.extend({
       ReactiveGroupFilter.set('activitySlug', null);
       ReactiveGroupFilter.set('activity', activityId);
     } else {
-      ReactiveGroupFilter.set('activity', null);
-      ReactiveGroupFilter.set('activitySlug', activityId);
+      // Before reseting the activity check that there isn't already
+      // an activity fetched with a matching slug and group
+      var group = Groups.findOne({slug: groupSlug}),
+          found = false;
+
+      if (group && (activity = Activities.findOne({slug: activityId, group: group._id}))) {
+        // Already have what we need so set the session variables as we do for the permalink
+        ReactiveGroupFilter.set('activitySlug', null);
+        ReactiveGroupFilter.set('activity', activity._id);
+        found = true;
+      } else {
+        ReactiveGroupFilter.set('activity', null);
+        ReactiveGroupFilter.set('activitySlug', activityId);
+      }
+
     }
 
     return this;
