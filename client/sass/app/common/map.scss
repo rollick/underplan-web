@@ -3,15 +3,24 @@
 @import "compass/css3/box-shadow";
 
 .map-controls {
+  $map-controls-margin: 15px;
+
   z-index: 0;
   position: absolute;
   // height: 25px;
   width: 60px;
   background-color: transparent;
   right: 0.6em !important;
-  bottom: $standard-margin;
-  margin-bottom: 15px;
+  margin-bottom: $map-controls-margin;
   margin-left: 1px; // little fix to line up with country controls
+
+  &.shift {
+    margin-bottom: emCalc($map-controls-margin + 50px);
+
+    @media only screen and (min-width: 48em) {
+      margin-bottom: $map-controls-margin;
+    }
+  }
 
   .zoom-in, .zoom-out, .map-type-toggle {
     @include border-radius($standard-corner-radius);
@@ -39,9 +48,13 @@
     margin-top: 25px + 8px;
     font-size: 0.8em;
     width: 60px;
-    height: 60px;
+    height: 40px;
     background-size: cover;
     border: 1px solid $standard-map-control-bg;
+
+    @media only screen and (min-width: 48em) {
+      height: 60px;
+    }
   }
 
   .zoom-in {

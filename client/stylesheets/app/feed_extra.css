@@ -3304,17 +3304,17 @@ meta.foundation-mq-topbar {
 }
 /* line 71, ../../sass/app/feed_extra.scss */
 .top-extra.default {
-  height: 200px;
+  height: 240px;
 }
 @media only screen and (min-width: 48em) {
   /* line 71, ../../sass/app/feed_extra.scss */
   .top-extra.default {
-    height: 300px;
+    height: 320px;
   }
 }
 /* line 79, ../../sass/app/feed_extra.scss */
 .top-extra.home {
-  height: 300px;
+  height: 320px;
 }
 @media only screen and (min-width: 48em) {
   /* line 79, ../../sass/app/feed_extra.scss */

@@ -281,6 +281,20 @@ MappingFsm = machina.Fsm.extend({
     }
   },
 
+  // Add a class to move map controls higher to avoid any content which might appear
+  // along the bottom of the map, eg the user info from an activity
+  _shiftMapControls: function (reset) {
+    var controls = $(this.map.getDiv()).find(".map-controls"),
+        reset = _.isUndefined(reset) ? false : true;
+
+    if (controls) {
+      if (reset)
+        controls.removeClass("shift");
+      else
+        controls.addClass("shift");
+    }
+  },
+
   // Pan bounds to fit in map and then pan again to make the bounds centered
   // TODO: my best effort to smooth(-ishly) center markers.
   _centerMarkers: function (callback, offsetX, offsetY) {
@@ -638,6 +652,9 @@ MappingFsm = machina.Fsm.extend({
         // set the activityId for use in subsequent actions
         this.activityId = this.activityIdNonReactive();
 
+        // shift map controls to make room for the activities user details
+        this._shiftMapControls();
+
         this.handle("map.default");
       },
       "map.default": function() {
@@ -699,6 +716,9 @@ MappingFsm = machina.Fsm.extend({
       _onExit: function() {
         // unselect all markers by calling without id
         this._selectMarkerById();
+
+        // reset map control to usual position
+        this._shiftMapControls(true);
       },
     },
 
