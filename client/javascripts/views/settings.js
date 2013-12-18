@@ -5,11 +5,9 @@ Template.mainSettings.isGroupAdmin = function () {
   return isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group"));
 };
 
-// Template.mainSettings.rendered = function () {
-//   var section = this.find(".section-container");
-//   if(!!section)
-//     $(section).foundation("section");
-// };
+Template.mainSettings.rendered = function () {
+  $(this.firstNode).foundation("accordion");
+};
 
 ///////////////////////////////////////////////////////////////////////////////
 // User Settings

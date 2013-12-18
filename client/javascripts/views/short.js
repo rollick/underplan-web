@@ -50,15 +50,6 @@ Template.shortForm.rendered = function () {
   }
 };
 
-Template.shortForm.activity = function () {
-  var activityId = ReactiveGroupFilter.get("activity");
-  if (activityId) {
-    return Activities.findOne(activityId);
-  } else {
-    return {};
-  }
-};
-
 Template.shortForm.helpers({
   group: function () {
     return Groups.findOne(ReactiveGroupFilter.get("group"));

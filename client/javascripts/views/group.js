@@ -1,6 +1,18 @@
+///////////////////////////////////////////////////////////////////////////////
+// Group Activity Actions
+
+Template.groupActivityActions.helpers({
+  activity: function () {
+    return {};
+  },
+});
+
 Template.groupActivityActions.rendered = function () {
   $(this.firstNode).foundation('dropdown');
 };
+
+///////////////////////////////////////////////////////////////////////////////
+// Group Actions
 
 Template.groupActions.helpers({
   groupSlug: function () {

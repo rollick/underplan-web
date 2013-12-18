@@ -7,24 +7,15 @@
           <span class="prefix">Day</span>
         </div>
         <div class="large-6 small-9 columns">
-          <select style="display: none;">
+          <select>
             {{#each days}}
-              <option>{{this}}</option>
+              {{#if equalTo selectedDay}}
+                <option selected>{{this}}</option>
+              {{else}}
+                <option>{{this}}</option>
+              {{/if}}
             {{/each}}
           </select>
-          <div class="custom dropdown">
-            <a href="#" class="current">{{selectedDay}}</a>
-            <a href="#" class="selector"></a>
-            <ul>
-              {{#each days}}
-                {{#if equalTo selectedDay}}
-                  <li class="selected">{{this}}</li>
-                {{else}}
-                  <li>{{this}}</li>
-                {{/if}}
-              {{/each}}
-            </ul>
-          </div>
         </div>
       </div>
     </div>
@@ -34,24 +25,15 @@
           <span class="prefix">Month</span>
         </div>
         <div class="large-9 small-9 columns">
-          <select style="display: none;">
+          <select>
             {{#each months}}
-              <option>{{this}}</option>
+              {{#if equalTo selectedMonth}}
+                <option selected>{{this}}</option>
+              {{else}}
+                <option>{{this}}</option>
+              {{/if}}
             {{/each}}
           </select>
-          <div class="custom dropdown">
-            <a href="#" class="current">{{selectedMonth}}</a>
-            <a href="#" class="selector"></a>
-            <ul>
-              {{#each months}}
-                {{#if equalTo selectedMonth}}
-                  <li class="selected">{{this}}</li>
-                {{else}}
-                  <li>{{this}}</li>
-                {{/if}}
-              {{/each}}
-            </ul>
-          </div>
         </div>
       </div>
     </div>
@@ -61,24 +43,15 @@
           <span class="prefix">Year</span>
         </div>
         <div class="large-9 small-9 columns">
-          <select style="display: none;">
+          <select>
             {{#each years}}
-              <option>{{this}}</option>
+              {{#if equalTo selectedYear}}
+                <option selected>{{this}}</option>
+              {{else}}
+                <option>{{this}}</option>
+              {{/if}}
             {{/each}}
           </select>
-          <div class="custom dropdown">
-            <a href="#" class="current">{{selectedYear}}</a>
-            <a href="#" class="selector"></a>
-            <ul>
-              {{#each years}}
-                {{#if equalTo selectedYear}}
-                  <li class="selected">{{this}}</li>
-                {{else}}
-                  <li>{{this}}</li>
-                {{/if}}
-              {{/each}}
-            </ul>
-          </div>
         </div>
       </div>
     </div>

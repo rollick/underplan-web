@@ -18,26 +18,26 @@
   <div class="settings-editor">
     <h2>Settings</h2>
     {{#if isGroupAdmin}}
-      <div class="section-container accordion" data-section="accordion">
-        <section class="active">
-          <p class="title"><a href="#user">User Preferences</a></p>
-          <div class="content" data-slug="user" data-section-content>
+      <dl class="accordion" data-accordion>
+        <dd>
+          <a href="#user">User Preferences</a>
+          <div id="user" class="content active" data-slug="user">
             {{> userSettings}}
           </div>
-        </section>
-        <section>
-          <p class="title"><a href="#group">Group Settings</a></p>
-          <div class="content" data-slug="group" data-section-content>
+        </dd>
+        <dd>
+          <a href="#group">Group Settings</a>
+          <div id="group" class="content" data-slug="group">
             {{> groupEditor}}
-          </div>
-        </section>
-        <section>
-          <p class="title"><a href="#membership">Group Membership</a></p>
-          <div class="content" data-slug="membership" data-section-content>
+          </div>          
+        </dd>
+        <dd>
+          <a href="#membership">Group Membership</a>
+          <div id="membership" class="content" data-slug="membership">
             {{> groupInviteList}}
           </div>
-        </section>
-      </div>
+        </dd>
+      </dl>
     {{else}}
       {{> userSettings}}
     {{/if}}

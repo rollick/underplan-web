@@ -35,17 +35,13 @@
           <input type="text" id="slug" value="{{slug}}">
           <label>Photo Tags</label>
           <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
-          <label for="published">
-            <input type="checkbox" class="published" id="published" style="display: none;" {{checked published}}>
-            <span class="custom checkbox {{publishedCls}}"></span> Published
-          </label><br />
+          <input type="checkbox" class="published" id="published" {{checked published}}>
+          <label for="published">Published</label><br />
           <label>Published Date</label>
           {{> publishedDatePicker}}
           <hr />
-          <label for="notify">
-            <input type="checkbox" class="notify" id="notify" style="display: none;">
-            <span class="custom checkbox"></span> Notify Followers
-          </label><br />
+          <input type="checkbox" class="notify" id="notify">
+          <label for="notify">Notify Followers</label><br />
           <a href="#" class="small button success update">Update</a>
           <a href="#" class="small secondary back">Cancel</a>
         {{/with}}
@@ -78,10 +74,8 @@
         <input type="text" id="slug">
         <label>Photo Tags</label>
         <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
-        <label for="published">
-          <input type="checkbox" class="published" id="published" style="display: none;" {{checked published}}>
-          <span class="custom checkbox {{publishedCls}}"></span> Published
-        </label><br />
+        <input type="checkbox" class="published" id="published" {{checked published}}>
+        <label for="published">Published</label><br />
         <label>Published Date</label>
         {{> publishedDatePicker}}
         <a href="#" class="small button success save">Create</a>
