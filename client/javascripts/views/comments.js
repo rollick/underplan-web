@@ -113,6 +113,9 @@ Template.comment.helpers({
 
 Template.comment.events({
   'click .remove': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+    
     var button = $(event.target);
     if (button.hasClass("ready")) {
       $(template.find(".comment")).addClass("disabled");
@@ -125,10 +128,8 @@ Template.comment.events({
         button.removeClass("ready");
       }, 2000);
     }
-
-    return false;
   },
-  'mouseenter .comment': function (event, template) {
+  'mouseover .comment': function (event, template) {
     $(template.find(".actions")).show();
   },
   'mouseleave .comment': function (event, template) {

@@ -188,8 +188,6 @@ var getStoryValues = function(template) {
   var year = template.find(".year-picker option:selected").value;
   var created = new Date(day + " " + month + " " + year);
 
-  debugger
-
   if(created.toLocaleString() != "Invalid Date")
     values.created = created; 
      

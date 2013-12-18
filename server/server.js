@@ -379,7 +379,7 @@ Meteor.publish("activityComments", function (activityId, groupId) {
     }
   };
 
-  var activity = Activities.find(activityConds, activityOptions);
+  var activity = Activities.findOne(activityConds, activityOptions);
 
   if (!activity)
     return [];

@@ -3331,7 +3331,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 /* line 8, ../../sass/app/nav.scss */
 .nav, .secondary-nav {
   position: relative;
-  z-index: 6;
+  z-index: 9;
 }
 
 /* line 14, ../../sass/app/nav.scss */
@@ -3534,7 +3534,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   right: 0.75rem;
   margin-top: -0.125rem;
 }
-/* line 122, ../../sass/app/nav.scss */
+/* line 121, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.main,
 .group-controls > .inner .activity-actions .button.main {
   background-color: green;
@@ -3553,12 +3553,12 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions .button.main:focus {
   color: white;
 }
-/* line 127, ../../sass/app/nav.scss */
+/* line 126, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .content,
 .group-controls > .inner .activity-actions .content {
   font-weight: 200;
 }
-/* line 135, ../../sass/app/nav.scss */
+/* line 134, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions > li,
 .group-controls > .inner .activity-actions > li {
   margin: 0;
@@ -3577,14 +3577,22 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions > li:first-child {
   margin-left: 0;
 }
-/* line 141, ../../sass/app/nav.scss */
+/* line 140, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .f-dropdown.content,
 .group-controls > .inner .activity-actions .f-dropdown.content {
   padding: 0.3125rem;
   max-width: 380px;
 }
-/* line 149, ../../sass/app/nav.scss */
-.group-controls > .inner .map-actions li .action:first-of-type {
+/* line 147, ../../sass/app/nav.scss */
+.group-controls > .inner .map-actions .action {
+  -webkit-border-radius: 0em;
+  -moz-border-radius: 0em;
+  -ms-border-radius: 0em;
+  -o-border-radius: 0em;
+  border-radius: 0em;
+}
+/* line 151, ../../sass/app/nav.scss */
+.group-controls > .inner .map-actions > li:first-of-type .action {
   -moz-border-radius-topleft: 3px;
   -webkit-border-top-left-radius: 3px;
   border-top-left-radius: 3px;
@@ -3592,8 +3600,8 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   -webkit-border-bottom-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
-/* line 153, ../../sass/app/nav.scss */
-.group-controls > .inner .map-actions li .action:last-of-type {
+/* line 155, ../../sass/app/nav.scss */
+.group-controls > .inner .map-actions > li:last-of-type .action {
   -moz-border-radius-topright: 3px;
   -webkit-border-top-right-radius: 3px;
   border-top-right-radius: 3px;
@@ -3602,7 +3610,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border-bottom-right-radius: 3px;
 }
 
-/* line 162, ../../sass/app/nav.scss */
+/* line 163, ../../sass/app/nav.scss */
 .group-nav {
   padding-top: 0em;
   max-height: 2.25rem;
@@ -3614,41 +3622,41 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border: 1px solid red;
 }
 
-/* line 173, ../../sass/app/nav.scss */
+/* line 174, ../../sass/app/nav.scss */
 .top-bar-section {
   font-family: "Raleway", sans-serif;
 }
-/* line 177, ../../sass/app/nav.scss */
+/* line 178, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar-section .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 182, ../../sass/app/nav.scss */
+/* line 183, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a {
   text-indent: -44px !important;
 }
-/* line 185, ../../sass/app/nav.scss */
+/* line 186, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: 100;
 }
 
-/* line 190, ../../sass/app/nav.scss */
+/* line 191, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 195, ../../sass/app/nav.scss */
+/* line 196, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
   overflow: inherit;
 }
-/* line 199, ../../sass/app/nav.scss */
+/* line 200, ../../sass/app/nav.scss */
 .top-bar.expanded {
   background: rgba(17, 17, 17, 0.8) !important;
 }
-/* line 204, ../../sass/app/nav.scss */
+/* line 205, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
@@ -3659,44 +3667,44 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   width: 100% !important;
   padding-right: 65px !important;
 }
-/* line 219, ../../sass/app/nav.scss */
+/* line 220, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 219, ../../sass/app/nav.scss */
+  /* line 220, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 227, ../../sass/app/nav.scss */
+/* line 228, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: rgba(255, 255, 255, 0.3);
 }
 @media only screen and (min-width: 48em) {
-  /* line 227, ../../sass/app/nav.scss */
+  /* line 228, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
   }
 }
-/* line 237, ../../sass/app/nav.scss */
+/* line 238, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 245, ../../sass/app/nav.scss */
+  /* line 246, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 251, ../../sass/app/nav.scss */
+/* line 252, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 255, ../../sass/app/nav.scss */
+/* line 256, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 40px;
   margin-left: -10px;
@@ -3712,23 +3720,23 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 268, ../../sass/app/nav.scss */
+  /* line 269, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 272, ../../sass/app/nav.scss */
+  /* line 273, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
 
-/* line 281, ../../sass/app/nav.scss */
+/* line 282, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 287, ../../sass/app/nav.scss */
+/* line 288, ../../sass/app/nav.scss */
 .top-bar-section li.text {
   color: rgba(196, 196, 196, 0.4);
   opacity: 1;
@@ -3737,23 +3745,23 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 287, ../../sass/app/nav.scss */
+  /* line 288, ../../sass/app/nav.scss */
   .top-bar-section li.text {
     color: rgba(247, 247, 247, 0.4);
     background-color: rgba(17, 17, 17, 0.4);
   }
 }
 
-/* line 301, ../../sass/app/nav.scss */
+/* line 302, ../../sass/app/nav.scss */
 li.login-services {
   height: 45px;
 }
-/* line 304, ../../sass/app/nav.scss */
+/* line 305, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 309, ../../sass/app/nav.scss */
+/* line 310, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -3761,7 +3769,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 317, ../../sass/app/nav.scss */
+/* line 318, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

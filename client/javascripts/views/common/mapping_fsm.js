@@ -221,21 +221,59 @@ MappingFsm = machina.Fsm.extend({
     this.map.controls[google.maps.ControlPosition.TOP_LEFT].push(fakeControl[0]);
     this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(fakeControl.clone()[0]);
 
-    var zoomControl = $("<div class=\"map-zoom-controls\">"),
+    var mapControls = $("<div class=\"map-controls\">"),
         zoomIn = $("<div class=\"zoom-in\">").click( function(event) {
           var currentZoomLevel = self.map.getZoom();
           if(currentZoomLevel != 21)
             self.map.setZoom(currentZoomLevel + 1);
         }),
+
         zoomOut = $("<div class=\"zoom-out\">").click( function(event) {
           var currentZoomLevel = self.map.getZoom();
           if(currentZoomLevel != 0)
             self.map.setZoom(currentZoomLevel - 1);
+        }),
+
+        mapType = $("<div class=\"map-type-toggle\">").click( function(event) {
+          var type = self.map.getMapTypeId(),
+              index = _.indexOf(self._mapTypes, type),
+              newIndex = (index < self._mapTypes.length - 1) ? index + 1 : 0;
+
+          self.map.setMapTypeId(self._mapTypes[newIndex]);
         });
 
-    zoomControl.append(zoomIn).append(zoomOut);
+    mapControls.append(zoomIn).append(zoomOut).append(mapType);
 
-    this.map.controls[google.maps.ControlPosition.LEFT_TOP].push(zoomControl[0]);      
+    this.map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(mapControls[0]);
+
+    google.maps.event.addListener(this.map, 'idle', function() {
+      self._setNextMapType();
+    });
+    google.maps.event.addListener(this.map, 'maptypeid_changed', function() {
+      self._setNextMapType();
+    });
+  },
+
+  _mapTypes: ["roadmap", "hybrid", "satellite"],
+
+  _setNextMapType: function () {
+    var index = _.indexOf(this._mapTypes, this.map.getMapTypeId()),
+        nextIndex = (index < this._mapTypes.length - 1) ? index + 1 : 0,
+        typeElement = $(this.map.getDiv()).find(".map-type-toggle"),
+        center = this.map.getCenter();
+
+    if (typeElement && center) {
+      // Set the toggle background image to the next map type
+      var imageUrl = "https://maps.googleapis.com/maps/api/staticmap?_=:random&scale=2&visible=:lat,:lng&zoom=:zoom&sensor=false&size=:dimensions&maptype=:followType"
+      imageUrl = imageUrl.replace(/:dimensions/, "60x60").
+                replace(/:random/, Math.round((new Date()).getTime() / 1000)).
+                replace(/:zoom/, this.map.getZoom()).
+                replace(/:followType/, this._mapTypes[nextIndex]).
+                replace(/:lng/g, center.ob).
+                replace(/:lat/g, center.nb);
+
+      typeElement.css("background-image", "url(" + imageUrl + ")");
+    }
   },
 
   // Pan bounds to fit in map and then pan again to make the bounds centered

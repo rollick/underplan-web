@@ -2,24 +2,23 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
 
-.map-zoom-controls {
+.map-controls {
   z-index: 0;
   position: absolute;
   // height: 25px;
-  width: 25px;
+  width: 60px;
   background-color: transparent;
-  left: 0.6em !important;
-  top: $standard-margin;
-  margin-top: emCalc(45px);
+  right: 0.6em !important;
+  bottom: $standard-margin;
+  margin-bottom: 15px;
   margin-left: 1px; // little fix to line up with country controls
 
-  .zoom-in, .zoom-out {
+  .zoom-in, .zoom-out, .map-type-toggle {
     @include border-radius($standard-corner-radius);
     @include map-box-shadow();
 
     width: 25px;
     height: 25px;
-    height: 100%;
     cursor: pointer;
     background: $standard-map-control-bg;
     color: $primary-color;
@@ -36,8 +35,17 @@
     }
   }
 
+  .map-type-toggle {
+    margin-top: 25px + 8px;
+    font-size: 0.8em;
+    width: 60px;
+    height: 60px;
+    background-size: cover;
+    border: 1px solid $standard-map-control-bg;
+  }
+
   .zoom-in {
-    float: left;
+    float: right;
     margin-bottom: $standard-padding;
 
     &:before {
@@ -46,7 +54,7 @@
   }
 
   .zoom-out {
-    float: right;
+    float: left;
     // border-left: 1px solid black;
 
     &:before {

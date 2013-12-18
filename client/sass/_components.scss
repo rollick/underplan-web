@@ -96,6 +96,11 @@
       }
     }
   }
+
+  // Make sure certain elements can receive events
+  input, textarea, a {
+    pointer-events: all;
+  }
 }
 
 @mixin png-arrow($direction: 'down', $color: false) {

@@ -32,7 +32,16 @@ this.mappingFsm = null;
 Meteor.startup(function () {
   logIfDev("===Starting Underplan===");
 
-  Session.set("appVersion", "v1.3.173");
+  // Override the no js message
+  $('head').append(document.createElement('style'));
+  var bodyStyle = document.styleSheets[document.styleSheets.length-1];
+
+  var beforeStyle = "body::before { content: \"\"; line-height: 0px; margin-left: 0px; }";
+  if (bodyStyle.insertRule) {
+    bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
+  }
+
+  Session.set("appVersion", "v1.3.174");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
