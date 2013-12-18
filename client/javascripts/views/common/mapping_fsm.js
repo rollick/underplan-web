@@ -690,11 +690,13 @@ MappingFsm = machina.Fsm.extend({
             var activity = Activities.findOne(_.last(ids));
 
             if (self._validLatLng(activity)) {
-              debugger
               var gLatLng = new google.maps.LatLng(activity.lat, activity.lng)
               self.map.setCenter(gLatLng);
-              self.map.setZoom(12); 
+            } else { // center on somewhere
+              var gLatLng = new google.maps.LatLng(11.22453, 108.822161);
+              self.map.setCenter(gLatLng);
             }
+            self.map.setZoom(12); 
           }
         });
         this.emit("LocationCreatorReady");
