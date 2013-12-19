@@ -7,10 +7,13 @@
 
 .nav, .secondary-nav {
   position: relative;
-  z-index: 9;
 }
 
 .nav {
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+
   &.normal {
     background: #333333;
   }
@@ -26,6 +29,7 @@
     position: relative;
     height: 45px;
     width: 45px;
+    background-image: -webkit-gradient(linear, 0% 0%, 0% 175%, from($primary-color), to(darken($primary-color, 25%)));
     background-color: $primary-color;
 
     a {
@@ -67,11 +71,15 @@
   margin-left: 0em;
   margin-right: 0em;
   z-index: 8; 
-  position: relative;
+  height: 48px;
   background-color: transparent;
   pointer-events: none;
+  overflow: visible;
+
+  overflow: hidden;
   position: absolute;
   width: 100%;
+  margin-top: $topbar-height;
 
   & > .inner {
     @include grid-column(12, $collapse: true);
@@ -81,22 +89,28 @@
     }
 
     .map-actions {
-      @include button-group-style($float:left);
+      @include button-group-style();
+
+      left: 0em;
     }
     
     .activity-actions {
-      @include button-group-style($float:right);
+      @include button-group-style();
+
+      right: 0em;
     }
 
     .map-actions,
     .activity-actions {
       @include button-group-container();
+      @include map-box-shadow();
+
+      position: absolute;
 
       .button {
         &.action {
           @include button-size($padding:rem-calc(6));
           @include button-style($bg:$standard-map-control-bg);
-          @include map-box-shadow();
           
           color: $primary-color;
           font-weight: 200 !important;
@@ -195,7 +209,7 @@
 
 .top-bar {
   margin: 0px 0px 0px 45px !important;
-  overflow: inherit;
+  overflow: hidden;
 
   &.expanded {
     background: rgba(17, 17, 17, 0.8) !important;
@@ -274,6 +288,14 @@
           width: 34px;
           margin-top: 5px;
         }
+      }
+    }
+
+    &.show-for-small {
+      a img {
+        margin-left: -4px;
+        margin-top: -4px;
+        width: 30px;
       }
     }
   }

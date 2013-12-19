@@ -3331,28 +3331,34 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 /* line 8, ../../sass/app/nav.scss */
 .nav, .secondary-nav {
   position: relative;
-  z-index: 9;
 }
 
-/* line 14, ../../sass/app/nav.scss */
+/* line 12, ../../sass/app/nav.scss */
+.nav {
+  position: absolute;
+  width: 100%;
+  z-index: 9;
+}
+/* line 17, ../../sass/app/nav.scss */
 .nav.normal {
   background: #333333;
 }
-/* line 18, ../../sass/app/nav.scss */
+/* line 21, ../../sass/app/nav.scss */
 .nav .home-title {
   position: absolute;
   margin: auto 0;
 }
-/* line 23, ../../sass/app/nav.scss */
+/* line 26, ../../sass/app/nav.scss */
 .nav .logo {
   float: left;
   z-index: 5;
   position: relative;
   height: 45px;
   width: 45px;
+  background-image: -webkit-gradient(linear, 0% 0%, 0% 175%, from(green), to(black));
   background-color: green;
 }
-/* line 31, ../../sass/app/nav.scss */
+/* line 35, ../../sass/app/nav.scss */
 .nav .logo a {
   color: white !important;
   display: block;
@@ -3360,27 +3366,27 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   font-size: 2.4em;
   font-family: 'Lily Script One', cursive;
 }
-/* line 38, ../../sass/app/nav.scss */
+/* line 42, ../../sass/app/nav.scss */
 .nav .logo a:before {
   content: "u";
 }
 @media only screen and (min-width: 48em) {
-  /* line 43, ../../sass/app/nav.scss */
+  /* line 47, ../../sass/app/nav.scss */
   .nav .logo.home {
     width: 170px;
   }
-  /* line 47, ../../sass/app/nav.scss */
+  /* line 51, ../../sass/app/nav.scss */
   .nav .logo.home a {
     padding: 4px 10px;
     font-size: 2em;
   }
-  /* line 51, ../../sass/app/nav.scss */
+  /* line 55, ../../sass/app/nav.scss */
   .nav .logo.home a:before {
     content: "Underplan";
   }
 }
 
-/* line 60, ../../sass/app/nav.scss */
+/* line 64, ../../sass/app/nav.scss */
 .group-controls {
   width: auto;
   margin-left: -0.9375rem;
@@ -3393,11 +3399,14 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   margin-left: 0em;
   margin-right: 0em;
   z-index: 8;
-  position: relative;
+  height: 48px;
   background-color: transparent;
   pointer-events: none;
+  overflow: visible;
+  overflow: hidden;
   position: absolute;
   width: 100%;
+  margin-top: 45px;
 }
 /* line 165, ../../../packages/bower/foundation/scss/foundation/components/_global.scss */
 .group-controls:before, .group-controls:after {
@@ -3408,7 +3417,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls:after {
   clear: both;
 }
-/* line 76, ../../sass/app/nav.scss */
+/* line 84, ../../sass/app/nav.scss */
 .group-controls > .inner {
   position: relative;
   padding-left: 0;
@@ -3417,7 +3426,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   float: left;
 }
 @media only screen and (min-width: 24em) {
-  /* line 76, ../../sass/app/nav.scss */
+  /* line 84, ../../sass/app/nav.scss */
   .group-controls > .inner {
     position: relative;
     padding-left: 0;
@@ -3426,10 +3435,11 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
     float: left;
   }
 }
-/* line 83, ../../sass/app/nav.scss */
+/* line 91, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions {
   margin: 0;
   float: left;
+  left: 0em;
 }
 /* line 35, ../../../packages/bower/foundation/scss/foundation/components/_button-groups.scss */
 .group-controls > .inner .map-actions > button, .group-controls > .inner .map-actions .button {
@@ -3440,10 +3450,11 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .map-actions:first-child {
   margin-left: 0;
 }
-/* line 87, ../../sass/app/nav.scss */
+/* line 97, ../../sass/app/nav.scss */
 .group-controls > .inner .activity-actions {
   margin: 0;
-  float: right;
+  float: left;
+  right: 0em;
 }
 /* line 35, ../../../packages/bower/foundation/scss/foundation/components/_button-groups.scss */
 .group-controls > .inner .activity-actions > button, .group-controls > .inner .activity-actions .button {
@@ -3454,12 +3465,16 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions:first-child {
   margin-left: 0;
 }
-/* line 92, ../../sass/app/nav.scss */
+/* line 104, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions,
 .group-controls > .inner .activity-actions {
   list-style: none;
   margin: 0;
   *zoom: 1;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
+  position: absolute;
 }
 /* line 165, ../../../packages/bower/foundation/scss/foundation/components/_global.scss */
 .group-controls > .inner .map-actions:before, .group-controls > .inner .map-actions:after,
@@ -3473,7 +3488,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions:after {
   clear: both;
 }
-/* line 96, ../../sass/app/nav.scss */
+/* line 111, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.action,
 .group-controls > .inner .activity-actions .button.action {
   padding-top: 0.375rem;
@@ -3484,9 +3499,6 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   background-color: rgba(255, 255, 255, 0.9);
   border-color: rgba(242, 242, 242, 0.9);
   color: #333333;
-  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-  -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
-  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   color: green;
   font-weight: 200 !important;
   font-size: 0.8rem;
@@ -3504,7 +3516,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions .button.action:focus {
   color: #333333;
 }
-/* line 106, ../../sass/app/nav.scss */
+/* line 120, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.action.country-container,
 .group-controls > .inner .activity-actions .button.action.country-container {
   position: relative;
@@ -3527,14 +3539,14 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions .button.action.country-container:before {
   border-color: green transparent transparent transparent;
 }
-/* line 113, ../../sass/app/nav.scss */
+/* line 127, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.action.country-container:before,
 .group-controls > .inner .activity-actions .button.action.country-container:before {
   border-width: 0.25rem;
   right: 0.75rem;
   margin-top: -0.125rem;
 }
-/* line 121, ../../sass/app/nav.scss */
+/* line 135, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.main,
 .group-controls > .inner .activity-actions .button.main {
   background-color: green;
@@ -3553,12 +3565,12 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions .button.main:focus {
   color: white;
 }
-/* line 126, ../../sass/app/nav.scss */
+/* line 140, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .content,
 .group-controls > .inner .activity-actions .content {
   font-weight: 200;
 }
-/* line 134, ../../sass/app/nav.scss */
+/* line 148, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions > li,
 .group-controls > .inner .activity-actions > li {
   margin: 0;
@@ -3577,13 +3589,13 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions > li:first-child {
   margin-left: 0;
 }
-/* line 140, ../../sass/app/nav.scss */
+/* line 154, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .f-dropdown.content,
 .group-controls > .inner .activity-actions .f-dropdown.content {
   padding: 0.3125rem;
   max-width: 380px;
 }
-/* line 147, ../../sass/app/nav.scss */
+/* line 161, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .action {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
@@ -3591,7 +3603,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   -o-border-radius: 0em;
   border-radius: 0em;
 }
-/* line 151, ../../sass/app/nav.scss */
+/* line 165, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions > li:first-of-type .action {
   -moz-border-radius-topleft: 2px;
   -webkit-border-top-left-radius: 2px;
@@ -3600,7 +3612,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   -webkit-border-bottom-left-radius: 2px;
   border-bottom-left-radius: 2px;
 }
-/* line 155, ../../sass/app/nav.scss */
+/* line 169, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions > li:last-of-type .action {
   -moz-border-radius-topright: 2px;
   -webkit-border-top-right-radius: 2px;
@@ -3610,7 +3622,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border-bottom-right-radius: 2px;
 }
 
-/* line 163, ../../sass/app/nav.scss */
+/* line 177, ../../sass/app/nav.scss */
 .group-nav {
   padding-top: 0em;
   max-height: 2.25rem;
@@ -3622,41 +3634,41 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border: 1px solid red;
 }
 
-/* line 174, ../../sass/app/nav.scss */
+/* line 188, ../../sass/app/nav.scss */
 .top-bar-section {
   font-family: "Raleway", sans-serif;
 }
-/* line 178, ../../sass/app/nav.scss */
+/* line 192, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar-section .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 183, ../../sass/app/nav.scss */
+/* line 197, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a {
   text-indent: -44px !important;
 }
-/* line 186, ../../sass/app/nav.scss */
+/* line 200, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: 100;
 }
 
-/* line 191, ../../sass/app/nav.scss */
+/* line 205, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 196, ../../sass/app/nav.scss */
+/* line 210, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
-  overflow: inherit;
+  overflow: hidden;
 }
-/* line 200, ../../sass/app/nav.scss */
+/* line 214, ../../sass/app/nav.scss */
 .top-bar.expanded {
   background: rgba(17, 17, 17, 0.8) !important;
 }
-/* line 205, ../../sass/app/nav.scss */
+/* line 219, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
@@ -3667,44 +3679,44 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   width: 100% !important;
   padding-right: 65px !important;
 }
-/* line 220, ../../sass/app/nav.scss */
+/* line 234, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 220, ../../sass/app/nav.scss */
+  /* line 234, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 228, ../../sass/app/nav.scss */
+/* line 242, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
   color: rgba(255, 255, 255, 0.3);
 }
 @media only screen and (min-width: 48em) {
-  /* line 228, ../../sass/app/nav.scss */
+  /* line 242, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
   }
 }
-/* line 238, ../../sass/app/nav.scss */
+/* line 252, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 246, ../../sass/app/nav.scss */
+  /* line 260, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 252, ../../sass/app/nav.scss */
+/* line 266, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 256, ../../sass/app/nav.scss */
+/* line 270, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 40px;
   margin-left: -10px;
@@ -3720,23 +3732,29 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 269, ../../sass/app/nav.scss */
+  /* line 283, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 273, ../../sass/app/nav.scss */
+  /* line 287, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
+/* line 295, ../../sass/app/nav.scss */
+.top-bar li.settings.show-for-small a img {
+  margin-left: -4px;
+  margin-top: -4px;
+  width: 30px;
+}
 
-/* line 282, ../../sass/app/nav.scss */
+/* line 304, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 288, ../../sass/app/nav.scss */
+/* line 310, ../../sass/app/nav.scss */
 .top-bar-section li.text {
   color: rgba(196, 196, 196, 0.4);
   opacity: 1;
@@ -3745,23 +3763,23 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 288, ../../sass/app/nav.scss */
+  /* line 310, ../../sass/app/nav.scss */
   .top-bar-section li.text {
     color: rgba(247, 247, 247, 0.4);
     background-color: rgba(17, 17, 17, 0.4);
   }
 }
 
-/* line 302, ../../sass/app/nav.scss */
+/* line 324, ../../sass/app/nav.scss */
 li.login-services {
   height: 45px;
 }
-/* line 305, ../../sass/app/nav.scss */
+/* line 327, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 310, ../../sass/app/nav.scss */
+/* line 332, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -3769,7 +3787,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 318, ../../sass/app/nav.scss */
+/* line 340, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

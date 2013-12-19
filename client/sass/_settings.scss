@@ -2,8 +2,6 @@
 // Foundation Variables
 //
 
-// @import "foundation/components/global";
-
 $base-font-size: 100% !default;
 $em-base: 16px !default;
 
@@ -45,6 +43,7 @@ $slider-height-large: 		  420px;
 $standard-control-height:   emCalc(25px);
 
 //// Foundation Global
+$topbar-height:             45px;
 $row-width:                 emCalc(720px);
 $header-font-family:        'Raleway', sans-serif;
 $base-line-height:          150% !default;

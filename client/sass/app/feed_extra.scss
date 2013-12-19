@@ -48,13 +48,15 @@ $handle-hover-offset: 5px;
 }
 
 .top-extra {
-  @include grid-column(12, $collapse: true);
+  @include grid-row(nest);
 
   position: relative;
   z-index: 3;
   padding: 0em;
-  margin-top: -45px;
   border-bottom: 1px solid darken($handle-bg-color, 10%);
+  margin-left: 0em;
+  margin-right: 0em;
+  // margin-top: -45px;
 
   // set unused height to start so that transition events 
   // fire when moving to a valid class/height
@@ -101,74 +103,80 @@ $handle-hover-offset: 5px;
     }
   }
 
-  .map {
-    @include grid-row(nest);
-    @include radius();
+  & > .inner {
+    @include grid-column(12, $collapse: true);
 
-    width: 100%;
     height: 100%;
-    z-index: 1;
-    margin: 0;
 
-    & > .inner {
-      @include grid-column(12, $collapse: true);
+    .map {
+      @include grid-row(nest);
+      @include radius();
 
-      padding: 0;
+      width: 100%;
       height: 100%;
-
-      #map-canvas {
-        @include animation(mapInserted);
-        
-        img { 
-          max-width: none;
-        }
-        
-        label { 
-          width: auto; 
-          display: inline; 
-        }
-      }
-
-      .infoBox {
-        & > img {
-          z-index: 2
-        }
-
-        .map-info .inner {
-          margin-top: emCalc(-15px);
-        }
-      }
-    }
-  }
-
-  .gallery {
-    @include grid-row(nest);
-    @include animation(galleryInserted);
-
-    position: absolute;
-    top: 0;
-    margin: 0;
-    z-index: -1;
-    width: 100%;
-
-    &.visible {
       z-index: 1;
-    }
+      margin: 0;
 
-    & > .inner {
-      @include grid-column(12, $collapse: true);
+      & > .inner {
+        @include grid-column(12, $collapse: true);
 
-      .recent-photos {
-        padding-top: 80px + 80px;
-        background-color: $common-dark-color;
+        padding: 0;
         height: 100%;
+
+        #map-canvas {
+          @include animation(mapInserted);
+          
+          img { 
+            max-width: none;
+          }
+          
+          label { 
+            width: auto; 
+            display: inline; 
+          }
+        }
+
+        .infoBox {
+          & > img {
+            z-index: 2
+          }
+
+          .map-info .inner {
+            margin-top: emCalc(-15px);
+          }
+        }
       }
     }
-  }
 
-  .gallery-more {
-    @include more-button();
+    .gallery {
+      @include grid-row(nest);
+      @include animation(galleryInserted);
 
-    display: none;
+      position: absolute;
+      top: 0;
+      margin: 0;
+      z-index: -1;
+      width: 100%;
+
+      &.visible {
+        z-index: 1;
+      }
+
+      & > .inner {
+        @include grid-column(12, $collapse: true);
+
+        .recent-photos {
+          padding-top: 80px + 80px;
+          background-color: $common-dark-color;
+          height: 100%;
+        }
+      }
+    }
+
+    .gallery-more {
+      @include more-button();
+
+      display: none;
+    }
   }
 }
