@@ -8,6 +8,7 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug/c/:country":          "groupAndCountry",
     ":groupSlug/settings":            "groupSettings",
     ":groupSlug/feed":                "groupFeed",
+    ":groupSlug/c/:country/feed":     "groupFeedAndCountry",
     ":groupSlug/new":                 "newStory",
     ":groupSlug/new/shorty":          "newShorty",
     ":groupSlug/membership":          "groupMembership",
@@ -166,6 +167,17 @@ var AppRouter = Backbone.Router.extend({
     this.setAndLoadMainTemplate("activityFeed");
   },
 
+  groupFeedAndCountry: function(groupSlug, country) {
+    this.runSetGroup(groupSlug);
+
+    if (country) {
+      country = encodeURIComponent(country).replace("-", " ");
+      ReactiveGroupFilter.set("country", country);
+    }
+
+    this.setAndLoadMainTemplate("activityFeed");
+  },
+
   newGroup: function() {
     this.setAndLoadMainTemplate("groupEditor");
     
@@ -272,6 +284,24 @@ var AppRouter = Backbone.Router.extend({
       // replace spaces with hyphens
       country = encodeURIComponent(country.replace(/\s/, "-"));
       this.navigate(group.slug + "/c/" + country, true);
+    }
+  },
+
+  setGroupFeed: function(group) {
+    if (!group || typeof group === "undefined") {
+      this.navigate("", true);
+    } else {
+      this.navigate(group.slug + "/feed", true);
+    }
+  },
+
+  setGroupFeedAndCountry: function(group, country) {
+    if (!group || typeof group === "undefined") {
+      this.navigate("", true);
+    } else {
+      // replace spaces with hyphens
+      country = encodeURIComponent(country.replace(/\s/, "-"));
+      this.navigate(group.slug + "/c/" + country + "/feed", true);
     }
   },
 

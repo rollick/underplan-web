@@ -15,7 +15,7 @@ $em-base: 16px !default;
 
 $body-bg-color:             #2C2C2C;
 $standard-border-size:      3px;
-$standard-corner-radius:    3px;
+$standard-corner-radius:    2px;
 $standard-panel-bg:         darken(#fff, 0%);
 $standard-map-control-bg:   rgba($standard-panel-bg, 0.9);
 $standard-border-color:     darken($standard-panel-bg, 40%);
@@ -34,6 +34,7 @@ $feed-columns-large:        12;
 $ribbon-wrapper-strip:      emCalc(4px);
 $footer-height:             30px;
 $common-dark-color:			    #111;
+$dark-details-bg:           rgba(0, 0, 0, 0.7);
 
 //// Gallery Stuff
 $slider-bg:                 $common-dark-color;

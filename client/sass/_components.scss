@@ -227,7 +227,6 @@
   $info-section-margin: 0.5em;
   $info-section-padding: 0.3em;
   $info-section-height: $picture-width;
-  $dark-details-bg: rgba(0, 0, 0, 0.7);
 
   // padding: $info-section-padding 0;
   margin: $info-section-margin;
@@ -309,6 +308,7 @@
       height: $info-section-height;
       top: $info-section-margin;
       left: $info-section-margin;
+      pointer-events: all;
 
       img {
         @include border-radius($picture-width/2);
@@ -322,6 +322,7 @@
       padding: 0.5em 0.8em;
       top: $info-section-margin;
       left: $info-section-height + $info-section-margin;
+      pointer-events: all;
 
       .owner {
         line-height: 1em;

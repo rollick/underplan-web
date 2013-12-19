@@ -236,16 +236,19 @@ MappingFsm = machina.Fsm.extend({
 
         mapType = $("<div class=\"map-type-toggle\">").click( function(event) {
           var type = self.map.getMapTypeId(),
-              index = _.indexOf(self._mapTypes, type),
-              newIndex = (index < self._mapTypes.length - 1) ? index + 1 : 0;
+              index = _.indexOf(self._mapTypes(), type),
+              newIndex = (index < self._mapTypes().length - 1) ? index + 1 : 0;
 
-          self.map.setMapTypeId(self._mapTypes[newIndex]);
+          self.map.setMapTypeId(self._mapTypes()[newIndex]);
         });
 
-    mapControls.append(zoomIn).append(zoomOut).append(mapType);
+        mapType.append($("<img />"));
 
+    // add the map controls
+    mapControls.append(zoomIn).append(zoomOut).append(mapType);
     this.map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(mapControls[0]);
 
+    // setup some triggers to update the mini map
     google.maps.event.addListener(this.map, 'idle', function() {
       self._setNextMapType();
     });
@@ -254,15 +257,17 @@ MappingFsm = machina.Fsm.extend({
     });
   },
 
-  _mapTypes: ["roadmap", "hybrid", "satellite"],
+  _mapTypes: function () {
+    return _.values(google.maps.MapTypeId);
+  },
 
   _setNextMapType: function () {
-    var index = _.indexOf(this._mapTypes, this.map.getMapTypeId()),
-        nextIndex = (index < this._mapTypes.length - 1) ? index + 1 : 0,
+    var index = _.indexOf(this._mapTypes(), this.map.getMapTypeId()),
+        nextIndex = (index < this._mapTypes().length - 1) ? index + 1 : 0,
         typeElement = $(this.map.getDiv()).find(".map-type-toggle"),
         center = this.map.getCenter();
 
-    if (typeElement && center) {
+    if (typeElement.length && center) {      
       // Set the toggle background image to the next map type
       var apiKey = appSettings.mapsApiKey;
 
@@ -270,14 +275,19 @@ MappingFsm = machina.Fsm.extend({
       imageUrl = imageUrl.replace(/:dimensions/, "60x60").
                 replace(/:random/, Math.round((new Date()).getTime() / 1000)).
                 replace(/:zoom/, this.map.getZoom()).
-                replace(/:followType/, this._mapTypes[nextIndex]).
+                replace(/:followType/, this._mapTypes()[nextIndex]).
                 replace(/:lng/g, center.ob).
                 replace(/:lat/g, center.nb);
 
       if(apiKey != "")
         imageUrl = imageUrl + "&key=" + apiKey;
 
-      typeElement.css("background-image", "url(" + imageUrl + ")");
+      var bgImg = typeElement.find("img");
+
+      // Reduce the flickering when changing background image by setting the container to 
+      // the previous image before setting the new image
+      typeElement.css("background-image", bgImg.css("background-image")).
+                  find("img").css("background-image", "url(" + imageUrl + ")");
     }
   },
 

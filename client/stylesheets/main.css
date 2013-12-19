@@ -2149,8 +2149,8 @@ select {
 }
 /* line 107, ../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.radius {
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 /* line 108, ../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.round {
@@ -2730,8 +2730,8 @@ select {
   border-width: 1px;
   background-color: #f4f4f4;
   border-color: #dadada;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 /* line 118, ../../packages/bower/foundation/scss/foundation/components/_breadcrumbs.scss */
 .breadcrumbs > * {
@@ -2917,8 +2917,8 @@ button.right-align, .button.right-align {
 }
 /* line 217, ../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.radius, .button.radius {
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 /* line 218, ../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.round, .button.round {
@@ -3056,21 +3056,21 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 }
 /* line 63, ../../packages/bower/foundation/scss/foundation/components/_button-groups.scss */
 .button-group.radius > *:first-child, .button-group.radius > *:first-child > a, .button-group.radius > *:first-child > button, .button-group.radius > *:first-child > .button {
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-topleft: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-topleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
 /* line 67, ../../packages/bower/foundation/scss/foundation/components/_button-groups.scss */
 .button-group.radius > *:last-child, .button-group.radius > *:last-child > a, .button-group.radius > *:last-child > button, .button-group.radius > *:last-child > .button {
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 /* line 35, ../../packages/bower/foundation/scss/foundation/components/_button-groups.scss */
 .button-group.round > * > button, .button-group.round > * .button {
@@ -3752,8 +3752,8 @@ select {
 }
 /* line 327, ../../packages/bower/foundation/scss/foundation/components/_forms.scss */
 select.radius {
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 /* line 328, ../../packages/bower/foundation/scss/foundation/components/_forms.scss */
 select:hover {
@@ -3821,24 +3821,24 @@ select:hover {
 .prefix.button.radius {
   -webkit-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-topleft: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-topleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
 
 /* line 350, ../../packages/bower/foundation/scss/foundation/components/_forms.scss */
 .postfix.button.radius {
   -webkit-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 /* line 351, ../../packages/bower/foundation/scss/foundation/components/_forms.scss */
@@ -3877,12 +3877,12 @@ span.prefix, label.prefix {
 span.prefix.radius, label.prefix.radius {
   -webkit-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-topleft: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-topleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
 
 /* line 358, ../../packages/bower/foundation/scss/foundation/components/_forms.scss */
@@ -3896,32 +3896,32 @@ span.postfix, label.postfix {
 span.postfix.radius, label.postfix.radius {
   -webkit-border-radius: 0;
   border-radius: 0;
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 
 /* Input groups will automatically style first and last elements of the group */
 /* line 365, ../../packages/bower/foundation/scss/foundation/components/_forms.scss */
 .input-group.radius > *:first-child, .input-group.radius > *:first-child * {
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-topleft: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-topleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
 /* line 368, ../../packages/bower/foundation/scss/foundation/components/_forms.scss */
 .input-group.radius > *:last-child, .input-group.radius > *:last-child * {
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 /* line 373, ../../packages/bower/foundation/scss/foundation/components/_forms.scss */
 .input-group.round > *:first-child, .input-group.round > *:first-child * {
@@ -4383,8 +4383,8 @@ kbd {
   font-family: "Consolas", "Menlo", "Courier", monospace;
   font-size: 0.875rem;
   padding: 0.125rem 0.25rem 0;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 
 /* line 87, ../../packages/bower/foundation/scss/foundation/components/_labels.scss */
@@ -4405,8 +4405,8 @@ kbd {
 }
 /* line 92, ../../packages/bower/foundation/scss/foundation/components/_labels.scss */
 .label.radius {
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 /* line 93, ../../packages/bower/foundation/scss/foundation/components/_labels.scss */
 .label.round {
@@ -4817,8 +4817,8 @@ ul.pagination li a {
   display: block;
   padding: 0.0625rem 0.625rem 0.0625rem;
   color: #999999;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 /* line 109, ../../packages/bower/foundation/scss/foundation/components/_pagination.scss */
 ul.pagination li:hover a,
@@ -4929,8 +4929,8 @@ ul.pagination li {
 }
 /* line 79, ../../packages/bower/foundation/scss/foundation/components/_panels.scss */
 .panel.radius {
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 
 /* Pricing Tables */
@@ -5028,13 +5028,13 @@ ul.pagination li {
 }
 /* line 64, ../../packages/bower/foundation/scss/foundation/components/_progress-bars.scss */
 .progress.radius {
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 /* line 65, ../../packages/bower/foundation/scss/foundation/components/_progress-bars.scss */
 .progress.radius .meter {
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 1px;
+  border-radius: 1px;
 }
 /* line 68, ../../packages/bower/foundation/scss/foundation/components/_progress-bars.scss */
 .progress.round {
@@ -5293,12 +5293,12 @@ ul.pagination li {
 }
 /* line 182, ../../packages/bower/foundation/scss/foundation/components/_split-buttons.scss */
 .split.button.radius span {
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 /* line 183, ../../packages/bower/foundation/scss/foundation/components/_split-buttons.scss */
 .split.button.round span {
@@ -5354,8 +5354,8 @@ ul.pagination li {
 .sub-nav dt.active a,
 .sub-nav dd.active a,
 .sub-nav li.active a {
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
   font-weight: normal;
   background: green;
   padding: 0.1875rem 1rem;
@@ -5690,21 +5690,21 @@ table tfoot tr td {
 }
 /* line 47, ../../packages/bower/foundation/scss/foundation/components/_tabs.scss */
 .tabs.radius dd:first-child a {
-  -moz-border-radius-bottomleft: 3px;
-  -moz-border-radius-topleft: 3px;
-  -webkit-border-bottom-left-radius: 3px;
-  -webkit-border-top-left-radius: 3px;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
+  -moz-border-radius-bottomleft: 2px;
+  -moz-border-radius-topleft: 2px;
+  -webkit-border-bottom-left-radius: 2px;
+  -webkit-border-top-left-radius: 2px;
+  border-bottom-left-radius: 2px;
+  border-top-left-radius: 2px;
 }
 /* line 50, ../../packages/bower/foundation/scss/foundation/components/_tabs.scss */
 .tabs.radius dd:last-child a {
-  -moz-border-radius-topright: 3px;
-  -moz-border-radius-bottomright: 3px;
-  -webkit-border-top-right-radius: 3px;
-  -webkit-border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
+  -moz-border-radius-topright: 2px;
+  -moz-border-radius-bottomright: 2px;
+  -webkit-border-top-right-radius: 2px;
+  -webkit-border-bottom-right-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
 }
 /* line 54, ../../packages/bower/foundation/scss/foundation/components/_tabs.scss */
 .tabs.vertical dd {
@@ -5785,8 +5785,8 @@ table tfoot tr td {
 }
 /* line 66, ../../packages/bower/foundation/scss/foundation/components/_thumbs.scss */
 .th.radius {
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 
 /* line 68, ../../packages/bower/foundation/scss/foundation/components/_thumbs.scss */
@@ -5827,8 +5827,8 @@ a.th {
   width: 100%;
   color: white;
   background: #333333;
-  -webkit-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
 }
 /* line 63, ../../packages/bower/foundation/scss/foundation/components/_tooltips.scss */
 .tooltip > .nub {
@@ -7932,11 +7932,11 @@ a.tiny.secondary {
 
 /* line 255, ../sass/main.scss */
 .button {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -ms-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
   box-shadow: none;
   font-weight: normal;
 }

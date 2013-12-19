@@ -1,10 +1,8 @@
 <template name="feedList">
   <div class="feed-list">
-    {{#if anyActivities}}
-      {{#each recentActivities}}
-        {{> feedItem this}}
-      {{/each}}
-    {{/if}}
+    {{#each recentActivities}}
+      {{> feedItem this}}
+    {{/each}}
   </div>
   {{#unless feedLimitReached}}
     <div class="feed-more">

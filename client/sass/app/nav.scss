@@ -149,11 +149,11 @@
       }
 
       & > li:first-of-type .action {
-        @include border-left-radius($button-radius);
+        @include border-left-radius($standard-corner-radius);
       }
 
       & > li:last-of-type .action {
-        @include border-right-radius($button-radius);
+        @include border-right-radius($standard-corner-radius);
       }
     }
     
