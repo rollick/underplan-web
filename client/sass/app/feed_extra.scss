@@ -18,6 +18,7 @@ $handle-hover-offset: 5px;
   clear: left;
   z-index: 7;
   pointer-events: none;
+  height: 0px;
 
   & > div {
     height: $handle-height;
