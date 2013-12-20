@@ -74,10 +74,10 @@
   height: 48px;
   background-color: transparent;
   pointer-events: none;
-  overflow: visible;
   position: absolute;
   width: 100%;
   margin-top: $topbar-height;
+  overflow-y: visible;
 
   & > .inner {
     @include grid-column(12, $collapse: true);

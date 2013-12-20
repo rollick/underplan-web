@@ -59,13 +59,19 @@ html, body {
 body {
   background-color: $body-bg-color;
 
-  // &:before {
-  //   content: "What! No Javascript?!";
-  //   color: white;
-  //   margin-left: 20px;
-  //   line-height: 80px;
-  //   font-size: 1.8em;
-  // }
+  &:before {
+    content: "What! No Javascript?!";
+    color: white;
+    margin-left: 20px;
+    line-height: 80px;
+    font-size: 1.8em;
+  }
+
+  & > .container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+  }
 }
 
 .row { max-width: 960px; }

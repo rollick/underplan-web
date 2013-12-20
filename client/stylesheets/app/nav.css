@@ -3402,10 +3402,10 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   height: 48px;
   background-color: transparent;
   pointer-events: none;
-  overflow: visible;
   position: absolute;
   width: 100%;
   margin-top: 45px;
+  overflow-y: visible;
 }
 /* line 165, ../../../packages/bower/foundation/scss/foundation/components/_global.scss */
 .group-controls:before, .group-controls:after {
