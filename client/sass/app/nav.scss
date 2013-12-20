@@ -75,8 +75,6 @@
   background-color: transparent;
   pointer-events: none;
   overflow: visible;
-
-  overflow: hidden;
   position: absolute;
   width: 100%;
   margin-top: $topbar-height;
@@ -91,21 +89,19 @@
     .map-actions {
       @include button-group-style();
 
-      left: 0em;
+      float: left;
     }
     
     .activity-actions {
       @include button-group-style();
 
-      right: 0em;
+      float: right;
     }
 
     .map-actions,
     .activity-actions {
       @include button-group-container();
       @include map-box-shadow();
-
-      position: absolute;
 
       .button {
         &.action {
@@ -239,13 +235,21 @@
         padding: 0 15px;
       }
 
+      span {
+        padding-left: 24px;
+      }
+
       &:before {
         line-height: 18px;
         padding-right: 4px;
         color: rgba(255, 255, 255, 0.3);
+        position: absolute;
+        font-size: 1.2em;
+        top: 13px !important;
 
         @media only screen and (min-width: 48em) {
           line-height: 42px;
+          top: 1px !important;
         }
       }
 
