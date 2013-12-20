@@ -1,10 +1,12 @@
 <template name="feedItem">
   {{#with this}}
-    <div class="feed-item" id="feed-item-{{_id}}">
+    <div class="feed-item" data-underplan-activity-id="{{_id}}">
       <div class="inner">
         <div class="activity">
           {{> itemContent}}
         </div>
+        {{> itemActions}}
+        {{> itemComments}}
       </div>
     </div>
   {{/with}}

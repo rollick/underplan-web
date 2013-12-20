@@ -8,7 +8,7 @@ var AppRouter = Backbone.Router.extend({
     ":groupSlug/c/:country":          "groupAndCountry",
     ":groupSlug/settings":            "groupSettings",
     ":groupSlug/feed":                "groupFeed",
-    ":groupSlug/c/:country/feed":     "groupFeedAndCountry",
+    ":groupSlug/feed/c/:country":     "groupFeedAndCountry",
     ":groupSlug/new":                 "newStory",
     ":groupSlug/new/shorty":          "newShorty",
     ":groupSlug/membership":          "groupMembership",
@@ -25,6 +25,8 @@ var AppRouter = Backbone.Router.extend({
     "settings":                       "Settings Loaded",
     ":groupSlug":                     "Group Loaded",
     ":groupSlug/c/:country":          "Group Loaded By Country",
+    ":groupSlug/feed":                "Group Feed Loaded",
+    ":groupSlug/feed/c/:country":     "Group Feed Loaded By Country",
     ":groupSlug/settings":            "Group Settings Loaded",
     ":groupSlug/new":                 "New Story Loaded",
     ":groupSlug/new-s":               "New Shorty Loaded",
@@ -76,8 +78,8 @@ var AppRouter = Backbone.Router.extend({
     },
     activityFeed: {
       map: {
-        evt: "FeedMapReady",
-        state: "recentFeed"        
+        evt: "MapHidden",
+        state: "hideMap"
       }
     },
   },
@@ -163,6 +165,7 @@ var AppRouter = Backbone.Router.extend({
 
   groupFeed: function(groupSlug) {
     this.runSetGroup(groupSlug);
+    ReactiveGroupFilter.set("country", null);
 
     this.setAndLoadMainTemplate("activityFeed");
   },
@@ -301,7 +304,7 @@ var AppRouter = Backbone.Router.extend({
     } else {
       // replace spaces with hyphens
       country = encodeURIComponent(country.replace(/\s/, "-"));
-      this.navigate(group.slug + "/c/" + country + "/feed", true);
+      this.navigate(group.slug + "/feed/c/" + country, true);
     }
   },
 

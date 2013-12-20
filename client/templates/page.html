@@ -4,7 +4,9 @@
     {{> mainNav}}
   </div>
 
-  {{> groupActions}}
+  {{#unless pageOptions.hideMapGroupActions}}
+    {{> groupActions}}
+  {{/unless}}
   {{> mainMap pageOptions}}
 
   <div role="content" class="main-content {{mainContentCls}}">

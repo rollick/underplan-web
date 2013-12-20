@@ -106,28 +106,6 @@ Template.feedList.moreActivities = function() {
 // Template.short.preserve([".short.entry.expanded"]);
 
 Template.feedItem.events({
-  // 'click .remove': function (event, template) {
-  //   var button = $(event.target);
-  //   if (button.hasClass("ready")) {
-  //     $(template.find(".comment")).addClass("disabled");
-  //     Comments.remove(this._id);
-  //   } else {
-  //     button.addClass("ready");
-
-  //     // after 2 secs reset the button state
-  //     setTimeout( function () {
-  //       button.removeClass("ready");
-  //     }, 2000);
-  //   }
-    
-  //   return false;
-  // },
-  // 'mouseenter .comment': function (event, template) {
-  //   $(template.find(".remove")).show();
-  // },
-  // 'mouseleave .comment': function (event, template) {
-  //   $(template.find(".remove")).hide();
-  // },
   'click .activity a.title': function (event, template) {
     event.stopPropagation();
     event.preventDefault();
@@ -149,7 +127,13 @@ Template.feedItem.events({
     }
 
     toggleComments(template, true, true);
-  }
+  },  
+  'mouseover .activity': function (event, template) {
+    $(template.find(".actions")).show();
+  },
+  'mouseleave .activity': function (event, template) {
+    $(template.find(".actions")).hide();
+  },
 });
 
 Template.feedItem.typeIs = function (what) {
@@ -184,7 +168,11 @@ var toggleComments = function(template, expand, focus) {
   focus = focus || false;
 
   var item = $(template.find(".feed-item"));
-  var id = item.attr("id");
+  var id = item.data().underplanActivityId;
+
+  if (!id)
+    throw("Missing activity ID in feed item!");
+
   var activityIds = Session.get("expandedActivities") || [];
 
   if (item.hasClass("expanded") && !expand) {
@@ -210,7 +198,7 @@ var toggleComments = function(template, expand, focus) {
 Template.storyFeedContent.helpers(itemHelpers);
 
 Template.storyFeedContent.events({
-  'mouseenter .activity': function (event, template) {
+  'mouseover .activity': function (event, template) {
     $(template.find(".actions")).show();
   },
   'mouseleave .activity': function (event, template) {

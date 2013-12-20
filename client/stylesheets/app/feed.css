@@ -3359,10 +3359,17 @@ blockquote p {
   width: 100%;
   float: left;
   z-index: 4;
+  padding-top: 45px;
 }
-/* line 96, ../../sass/app/feed.scss */
+/* line 91, ../../sass/app/feed.scss */
 .feed .feed-item:first-of-type {
   margin-top: 1.875em;
+}
+/* line 95, ../../sass/app/feed.scss */
+.feed .group-controls {
+  margin-top: 0em;
+  padding-left: 0em;
+  padding-right: 0em;
 }
 /* line 102, ../../sass/app/feed.scss */
 .feed li p {
@@ -3392,6 +3399,7 @@ blockquote p {
   *zoom: 1;
   margin: 0em;
   margin-bottom: 0.9375em;
+  margin-top: 1.875em;
 }
 /* line 165, ../../../packages/bower/foundation/scss/foundation/components/_global.scss */
 .feed .feed-list:before, .feed .feed-list:after {
@@ -3403,12 +3411,12 @@ blockquote p {
   clear: both;
 }
 @media only screen and (min-width: 48em) {
-  /* line 129, ../../sass/app/feed.scss */
+  /* line 130, ../../sass/app/feed.scss */
   .feed .feed-list.faded {
     opacity: 0.5;
   }
 }
-/* line 134, ../../sass/app/feed.scss */
+/* line 135, ../../sass/app/feed.scss */
 .feed .feed-list > .content {
   position: relative;
   padding-left: 0;
@@ -3416,7 +3424,7 @@ blockquote p {
   width: 100%;
   float: left;
 }
-/* line 140, ../../sass/app/feed.scss */
+/* line 141, ../../sass/app/feed.scss */
 .feed .feed-more {
   width: auto;
   margin-left: -0.9375rem;
@@ -3450,12 +3458,12 @@ blockquote p {
   text-align: center;
 }
 
-/* line 149, ../../sass/app/feed.scss */
+/* line 150, ../../sass/app/feed.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 152, ../../sass/app/feed.scss */
+/* line 153, ../../sass/app/feed.scss */
 .feed li:hover,
 .groups li:hover {
   color: green;

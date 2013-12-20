@@ -85,17 +85,17 @@
 .feed {
   @include grid-column(12, $collapse: true);
 
-  // @media only screen and (min-width: 48em) {
-  //   @include grid-column($feed-columns-large);
-
-  //   // padding-left: 0em;
-  // }
-
   z-index: 4;
+  padding-top: $topbar-height;
 
   .feed-item:first-of-type {
     margin-top: $standard-margin * 2;
+  }
 
+  .group-controls {
+    margin-top: 0em;
+    padding-left: 0em;
+    padding-right: 0em;
   }
 
   li { 
@@ -122,6 +122,7 @@
 
     margin: 0em;
     margin-bottom: $standard-margin;
+    margin-top: $standard-margin*2;
 
     @media only screen and (min-width: 48em) {
       // margin: $standard-margin;

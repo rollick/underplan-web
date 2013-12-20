@@ -1,7 +1,7 @@
 <template name="currentActivity">
   {{#if activity}}
     {{#with activity}}
-    <div class="single-item" id="activity-{{_id}}">
+    <div class="single-item" data-underplan-activity-id={{_id}}>
       <div class="inner">
         <div class="activity">
           {{> singleItemContent this}}

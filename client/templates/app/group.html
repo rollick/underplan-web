@@ -26,6 +26,9 @@
     <div class="inner">
       {{#if showMapActions}}
         <ul class="map-actions">
+          <li>
+            {{> mapFeedListToggle}}
+          </li>
           {{#if showCountryFilter}}
             <li>
               {{> countryFilter}}
@@ -39,6 +42,14 @@
       {{/if}}
     </div>
   </div>
+</template>
+
+<template name="mapFeedListToggle">
+  <li>
+    <a href="{{toggleUrl}}" id="map-feed-toggle" class="button action {{buttonCls}}">
+      {{type}}
+    </a>
+  </li>
 </template>
 
 <template name="activityCountControl">
@@ -69,11 +80,11 @@
   </a></span><br>
   <ul id="country-filter" class="f-dropdown" data-dropdown-content>
     <li class="{{isCurrentCountry "all"}}">
-      <a href="{{groupUrl}}" class="all">All Countries</a>
+      <a href="#" class="all">All Countries</a>
     </li>
     {{#each countries}}
       <li class="{{isCurrentCountry this}}">
-        <a href="{{groupUrl}}/c/{{this}}">{{this}}</a>
+        <a href="#">{{this}}</a>
       </li>
     {{/each}}
   </ul>

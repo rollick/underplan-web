@@ -62,10 +62,19 @@ Template.countryFilter.events({
         group = Groups.findOne(ReactiveGroupFilter.get("group")),
         country = selectedElem.text();
 
-    if (selectedElem.hasClass("all") || !country) {
-      Router.setGroup(group);
+    // On the feed list
+    if(Session.equals("mainTemplate", "groupMain")) {
+      // Route to Map
+      if (selectedElem.hasClass("all") || !country)
+        Router.setGroup(group);
+      else
+        Router.setGroupAndCountry(group, country);
     } else {
-      Router.setGroupAndCountry(group, country);
+      // Route to Feed List
+      if (selectedElem.hasClass("all") || !country)
+        Router.setGroupFeed(group);
+      else
+        Router.setGroupFeedAndCountry(group, country);
     }
 
     Foundation.libs.dropdown.close(dropdown);

@@ -669,7 +669,7 @@ MappingFsm = machina.Fsm.extend({
         this.activityId = this.activityIdNonReactive();
 
         // shift map controls to make room for the activities user details
-        this._shiftMapControls();
+        // this._shiftMapControls();
 
         this.handle("map.default");
       },
@@ -734,7 +734,7 @@ MappingFsm = machina.Fsm.extend({
         this._selectMarkerById();
 
         // reset map control to usual position
-        this._shiftMapControls(true);
+        // this._shiftMapControls(true);
       },
     },
 
@@ -748,6 +748,23 @@ MappingFsm = machina.Fsm.extend({
         var self = this;
         this._setContainerClass('default');
         this.emit("EditorMapReady");
+      }
+    },
+
+    hideMap: {
+      _onEnter: function () {
+        this.handle("map.hide");
+      },
+      _onExit: function () {
+        $(".top-extra, .top-extra-handle").show();
+        google.maps.event.trigger(this.map, 'resize');
+
+        this.emit("MapVisible");
+      },
+      "map.hide": function() {
+        $(".top-extra, .top-extra-handle").hide();
+
+        this.emit("MapHidden");
       }
     },
 
