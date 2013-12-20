@@ -94,8 +94,13 @@
 
   .group-controls {
     margin-top: 0em;
-    padding-left: 0em;
-    padding-right: 0em;
+    padding-left: rem-calc(4px);
+    padding-right: rem-calc(4px);
+    
+    @media only screen and (min-width: 48em) {
+      padding-left: 0em;
+      padding-right: 0em;
+    }
   }
 
   li { 

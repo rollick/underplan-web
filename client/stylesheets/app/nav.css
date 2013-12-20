@@ -3619,8 +3619,28 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   -webkit-border-bottom-right-radius: 2px;
   border-bottom-right-radius: 2px;
 }
+/* line 168, ../../sass/app/nav.scss */
+.group-controls > .inner #map-feed-toggle.feed-toggle:before {
+  content: "F";
+}
+@media only screen and (min-width: 24em) {
+  /* line 168, ../../sass/app/nav.scss */
+  .group-controls > .inner #map-feed-toggle.feed-toggle:before {
+    content: "Feed";
+  }
+}
+/* line 178, ../../sass/app/nav.scss */
+.group-controls > .inner #map-feed-toggle.map-toggle:before {
+  content: "M";
+}
+@media only screen and (min-width: 24em) {
+  /* line 178, ../../sass/app/nav.scss */
+  .group-controls > .inner #map-feed-toggle.map-toggle:before {
+    content: "Map";
+  }
+}
 
-/* line 169, ../../sass/app/nav.scss */
+/* line 190, ../../sass/app/nav.scss */
 .group-nav {
   padding-top: 0em;
   max-height: 2.25rem;
@@ -3632,41 +3652,41 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border: 1px solid red;
 }
 
-/* line 180, ../../sass/app/nav.scss */
+/* line 201, ../../sass/app/nav.scss */
 .top-bar-section {
   font-family: "Raleway", sans-serif;
 }
-/* line 184, ../../sass/app/nav.scss */
+/* line 205, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar-section .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 189, ../../sass/app/nav.scss */
+/* line 210, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a {
   text-indent: -44px !important;
 }
-/* line 192, ../../sass/app/nav.scss */
+/* line 213, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: 100;
 }
 
-/* line 197, ../../sass/app/nav.scss */
+/* line 218, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 202, ../../sass/app/nav.scss */
+/* line 223, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
   overflow: hidden;
 }
-/* line 206, ../../sass/app/nav.scss */
+/* line 227, ../../sass/app/nav.scss */
 .top-bar.expanded {
   background: rgba(17, 17, 17, 0.8) !important;
 }
-/* line 211, ../../sass/app/nav.scss */
+/* line 232, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
@@ -3677,22 +3697,22 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   width: 100% !important;
   padding-right: 65px !important;
 }
-/* line 226, ../../sass/app/nav.scss */
+/* line 247, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 226, ../../sass/app/nav.scss */
+  /* line 247, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 234, ../../sass/app/nav.scss */
+/* line 255, ../../sass/app/nav.scss */
 .top-bar li.follow-group a span {
   padding-left: 24px;
 }
-/* line 238, ../../sass/app/nav.scss */
+/* line 259, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
@@ -3702,27 +3722,27 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   top: 13px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 238, ../../sass/app/nav.scss */
+  /* line 259, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
     top: 1px !important;
   }
 }
-/* line 252, ../../sass/app/nav.scss */
+/* line 273, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 260, ../../sass/app/nav.scss */
+  /* line 281, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 266, ../../sass/app/nav.scss */
+/* line 287, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 270, ../../sass/app/nav.scss */
+/* line 291, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 40px;
   margin-left: -10px;
@@ -3738,29 +3758,29 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 283, ../../sass/app/nav.scss */
+  /* line 304, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 287, ../../sass/app/nav.scss */
+  /* line 308, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
-/* line 295, ../../sass/app/nav.scss */
+/* line 316, ../../sass/app/nav.scss */
 .top-bar li.settings.show-for-small a img {
   margin-left: -4px;
   margin-top: -4px;
   width: 30px;
 }
 
-/* line 304, ../../sass/app/nav.scss */
+/* line 325, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 310, ../../sass/app/nav.scss */
+/* line 331, ../../sass/app/nav.scss */
 .top-bar-section li.text {
   color: rgba(196, 196, 196, 0.4);
   opacity: 1;
@@ -3769,23 +3789,23 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 310, ../../sass/app/nav.scss */
+  /* line 331, ../../sass/app/nav.scss */
   .top-bar-section li.text {
     color: rgba(247, 247, 247, 0.4);
     background-color: rgba(17, 17, 17, 0.4);
   }
 }
 
-/* line 324, ../../sass/app/nav.scss */
+/* line 345, ../../sass/app/nav.scss */
 li.login-services {
   height: 45px;
 }
-/* line 327, ../../sass/app/nav.scss */
+/* line 348, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 332, ../../sass/app/nav.scss */
+/* line 353, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -3793,7 +3813,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 340, ../../sass/app/nav.scss */
+/* line 361, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

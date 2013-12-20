@@ -39,11 +39,11 @@ Template.mapFeedListToggle.events({
 });
 
 Template.mapFeedListToggle.helpers({
-  type: function () {
+  toggleCls: function () {
     if(Session.equals("mainTemplate", "groupMain")) {
-      return "Feed";
+      return "feed-toggle";
     } else {
-      return "Map";
+      return "map-toggle";
     }
   },
   // TODO: generate the actual urls... or not??

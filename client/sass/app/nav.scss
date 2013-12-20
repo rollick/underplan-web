@@ -163,6 +163,27 @@
       }
     }
     
+    #map-feed-toggle {
+      &.feed-toggle {
+        &:before {
+          content: "F";
+
+          @media only screen and (min-width: 24em) {
+            content: "Feed";
+          }
+        }
+      }
+
+      &.map-toggle {
+        &:before {
+          content: "M";
+
+          @media only screen and (min-width: 24em) {
+            content: "Map";
+          }
+        }
+      }
+    }
   }
 }
 
