@@ -7743,46 +7743,46 @@ body:before {
 }
 /* line 70, ../sass/main.scss */
 body > .container {
+  width: auto;
+  height: auto;
   height: 100%;
-  width: 100%;
-  overflow: hidden;
 }
 
-/* line 77, ../sass/main.scss */
+/* line 78, ../sass/main.scss */
 .row {
   max-width: 960px;
 }
 
-/* line 79, ../sass/main.scss */
+/* line 80, ../sass/main.scss */
 hr {
   margin: 10px 0;
 }
 
-/* line 83, ../sass/main.scss */
+/* line 84, ../sass/main.scss */
 h1, h2, h3, h4, h5 {
   font-weight: normal;
 }
-/* line 89, ../sass/main.scss */
+/* line 90, ../sass/main.scss */
 h1 .sub-header:before, h2 .sub-header:before, h3 .sub-header:before, h4 .sub-header:before, h5 .sub-header:before {
   content: " - ";
 }
 
-/* line 96, ../sass/main.scss */
+/* line 97, ../sass/main.scss */
 h2 {
   margin-bottom: 0.2em;
 }
 
-/* line 100, ../sass/main.scss */
+/* line 101, ../sass/main.scss */
 span.warning {
   color: #f04124;
 }
 
-/* line 105, ../sass/main.scss */
+/* line 106, ../sass/main.scss */
 h2 span.warning, a span.warning {
   font-size: 0.7em;
 }
 
-/* line 116, ../sass/main.scss */
+/* line 117, ../sass/main.scss */
 .main-content {
   width: 100%;
   margin-left: auto;
@@ -7804,20 +7804,20 @@ h2 span.warning, a span.warning {
 .main-content:after {
   clear: both;
 }
-/* line 126, ../sass/main.scss */
+/* line 127, ../sass/main.scss */
 .main-content.normal {
   background-color: transparent;
   margin-top: 0px;
   overflow: visible;
   margin-top: -16px;
 }
-/* line 133, ../sass/main.scss */
+/* line 134, ../sass/main.scss */
 .main-content.dashboard {
   background: url("/images/dash_bg_2.jpg") 0 0 no-repeat;
   background-color: black;
   margin-top: -16px;
 }
-/* line 139, ../sass/main.scss */
+/* line 140, ../sass/main.scss */
 .main-content > .inner {
   position: relative;
   padding-left: 0.9375rem;
@@ -7829,14 +7829,14 @@ h2 span.warning, a span.warning {
 }
 
 @media only screen and (min-width: 48em) {
-  /* line 148, ../sass/main.scss */
+  /* line 149, ../sass/main.scss */
   .row.main-content {
     -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
   }
 }
-/* line 158, ../sass/main.scss */
+/* line 159, ../sass/main.scss */
 .footer .info {
   width: 100%;
   position: relative;
@@ -7846,7 +7846,7 @@ h2 span.warning, a span.warning {
   height: 30px;
   vertical-align: top;
 }
-/* line 167, ../sass/main.scss */
+/* line 168, ../sass/main.scss */
 .footer .info > p {
   height: 30px;
   font-size: 0.7em;
@@ -7855,25 +7855,25 @@ h2 span.warning, a span.warning {
   margin-right: 10px;
 }
 
-/* line 177, ../sass/main.scss */
+/* line 178, ../sass/main.scss */
 .no-side-padding {
   padding-left: 0px !important;
   padding-right: 0px !important;
 }
 
-/* line 182, ../sass/main.scss */
+/* line 183, ../sass/main.scss */
 .bordered {
   border: 1px solid #e7e4e4;
   padding: 2px;
 }
 
-/* line 187, ../sass/main.scss */
+/* line 188, ../sass/main.scss */
 .normal {
   background: #fff;
   background: white;
 }
 
-/* line 192, ../sass/main.scss */
+/* line 193, ../sass/main.scss */
 .input-subtext {
   margin-top: -10px;
   font-style: italic;
@@ -7884,30 +7884,30 @@ h2 span.warning, a span.warning {
   min-height: 1px;
 }
 
-/* line 208, ../sass/main.scss */
+/* line 209, ../sass/main.scss */
 .carousel .th {
   border: none;
   padding: 2px;
 }
 
-/* line 214, ../sass/main.scss */
+/* line 215, ../sass/main.scss */
 [data-clearing] li {
   margin-right: 0em;
 }
 
-/* line 218, ../sass/main.scss */
+/* line 219, ../sass/main.scss */
 .tooltip {
   font-size: 0.8em;
   font-weight: normal;
 }
 
-/* line 226, ../sass/main.scss */
+/* line 227, ../sass/main.scss */
 a.tiny.secondary {
   font-size: 0.8em;
   padding: 0.5em;
 }
 
-/* line 231, ../sass/main.scss */
+/* line 232, ../sass/main.scss */
 .alert-box {
   background-color: #e7e7e7;
   border-color: #dadada;
@@ -7919,24 +7919,24 @@ a.tiny.secondary {
   border-left: none;
   border-right: none;
 }
-/* line 241, ../sass/main.scss */
+/* line 242, ../sass/main.scss */
 .alert-box a.close {
   position: relative;
   padding: 10px;
   color: white;
 }
-/* line 250, ../sass/main.scss */
+/* line 251, ../sass/main.scss */
 .alert-box.large {
   font-size: 1.2em;
 }
-/* line 254, ../sass/main.scss */
+/* line 255, ../sass/main.scss */
 .alert-box.clear {
   background-color: #fff;
   border-color: #f9f9f9;
   color: inherit;
 }
 
-/* line 261, ../sass/main.scss */
+/* line 262, ../sass/main.scss */
 .button {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -7947,33 +7947,33 @@ a.tiny.secondary {
   font-weight: normal;
 }
 
-/* line 267, ../sass/main.scss */
+/* line 268, ../sass/main.scss */
 .clearing-assembled {
   padding-bottom: 10px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 267, ../sass/main.scss */
+  /* line 268, ../sass/main.scss */
   .clearing-assembled {
     padding-bottom: 0px !important;
   }
 }
-/* line 274, ../sass/main.scss */
+/* line 275, ../sass/main.scss */
 .clearing-assembled .clearing-caption {
   background-color: rgba(17, 17, 17, 0.6);
   padding-bottom: 30px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 274, ../sass/main.scss */
+  /* line 275, ../sass/main.scss */
   .clearing-assembled .clearing-caption {
     padding-bottom: 10px !important;
   }
 }
 
-/* line 284, ../sass/main.scss */
+/* line 285, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 287, ../sass/main.scss */
+/* line 288, ../sass/main.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -7981,27 +7981,27 @@ a.tiny.secondary {
   padding-top: 1px;
 }
 
-/* line 295, ../sass/main.scss */
+/* line 296, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 300, ../sass/main.scss */
+/* line 301, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 304, ../sass/main.scss */
+/* line 305, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }
 
-/* line 308, ../sass/main.scss */
+/* line 309, ../sass/main.scss */
 .section-container {
   border: none !important;
 }
-/* line 311, ../sass/main.scss */
+/* line 312, ../sass/main.scss */
 .section-container .section, .section-container section {
   border-top: 2px solid green;
   font-size: 0.9em;
@@ -8011,12 +8011,12 @@ ul.dropdown h5 a {
   cursor: pointer;
   border-top: none;
 }
-/* line 316, ../sass/main.scss */
+/* line 317, ../sass/main.scss */
 .section-container .section .title, .section-container section .title {
   padding-left: 5px;
   margin-bottom: 5px;
 }
-/* line 320, ../sass/main.scss */
+/* line 321, ../sass/main.scss */
 .section-container .section .title > a, .section-container section .title > a {
   color: green;
   padding: 0px;
@@ -8033,11 +8033,11 @@ ul.dropdown h5 a {
   content: "\00a0\00a0";
   height: 24px;
 }
-/* line 330, ../sass/main.scss */
+/* line 331, ../sass/main.scss */
 .section-container .section.active, .section-container section.active {
   padding-top: 0px !important;
 }
-/* line 333, ../sass/main.scss */
+/* line 334, ../sass/main.scss */
 .section-container .section.active .title, .section-container section.active .title {
   margin-bottom: 0px;
 }
@@ -8051,17 +8051,17 @@ ul.dropdown h5 a {
   content: "\00a0\00a0";
   height: 24px;
 }
-/* line 343, ../sass/main.scss */
+/* line 344, ../sass/main.scss */
 .section-container .section > .content, .section-container section > .content {
   padding: 5px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 343, ../sass/main.scss */
+  /* line 344, ../sass/main.scss */
   .section-container .section > .content, .section-container section > .content {
     padding: 15px;
   }
 }
-/* line 350, ../sass/main.scss */
+/* line 351, ../sass/main.scss */
 .section-container .section > .content ul.disc, .section-container section > .content ul.disc {
   margin-left: 20px;
 }

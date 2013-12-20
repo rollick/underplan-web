@@ -68,9 +68,10 @@ body {
   }
 
   & > .container {
+    // display: inline-block;
+    width: auto;
+    height: auto;
     height: 100%;
-    width: 100%;
-    overflow: hidden;
   }
 }
 
