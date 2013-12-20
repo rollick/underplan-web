@@ -193,11 +193,11 @@ Meteor.publish("feedActivities", function (options) {
   if (options.country) {
     // Do a case insensitive search. This won't use the index but hopefully
     // not too big an issue for a single group query
-    var term = "/^" + options.country + "$/i";
+    var term = new RegExp('^' + options.country + '$', 'i');
     activityConds.$and.push( {country: term} );
   }
 
-  var activityOptions = { 
+  var activityOptions = {
     fields: {
       _id: 1,
       group: 1,
@@ -238,7 +238,7 @@ Meteor.publish("feedCommentCounts", function (options) {
   var activityConds = getActivityConditons(options.groupId, this.userId);
   if (options.country) {
     // See comment above about case insensitive query
-    var term = "/^" + options.country + "$/i";
+    var term = new RegExp('^' + options.country + '$', 'i');
     activityConds.$and.push( {country: term} );
   }
 
@@ -266,7 +266,7 @@ Meteor.publish("openFeedComments", function (options) {
   var activityConds = getActivityConditons(options.groupId, this.userId);
   if (options.country) {
     // See comment above about case insensitive query
-    var term = "/^" + options.country + "$/i";
+    var term = new RegExp('^' + options.country + '$', 'i');
     activityConds.$and.push( {country: options.country} );
   }
 
