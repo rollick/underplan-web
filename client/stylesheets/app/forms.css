@@ -2530,7 +2530,7 @@ blockquote p {
 .settings-editor {
   padding: 0.9375rem;
   background-color: white;
-  padding-top: 5px;
+  margin-top: 45px;
 }
 /* line 11, ../../sass/app/forms.scss */
 .group-editor .section:first-of-type, .group-editor section:first-of-type,

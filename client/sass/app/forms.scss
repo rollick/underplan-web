@@ -5,7 +5,7 @@
 .settings-editor {
   @include standard-form-panel();
 
-  padding-top: 5px;
+  margin-top: 45px;
 
   .section, section {
     &:first-of-type {

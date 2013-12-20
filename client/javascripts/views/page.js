@@ -9,6 +9,8 @@ pageOptions = {
   mainHome:         {isHome: true},
   blank:            {showCountryFilter: true},
   groupMain:        {showCountryFilter: true},
+  mainSettings:     {hideMapGroupActions: true},
+  groupSettings:    {hideMapGroupActions: true},
 };
 
 ///////////////////////////////////////////////////////////////////////////////

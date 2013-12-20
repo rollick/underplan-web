@@ -82,6 +82,18 @@ var AppRouter = Backbone.Router.extend({
         state: "hideMap"
       }
     },
+    mainSettings: {
+      map: {
+        evt: "MapHidden",
+        state: "hideMap"
+      }
+    },
+    groupSettings: {
+      map: {
+        evt: "MapHidden",
+        state: "hideMap"
+      }
+    },
   },
 
   before: function(route, params) {
