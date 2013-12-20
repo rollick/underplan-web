@@ -658,7 +658,13 @@ MappingFsm = machina.Fsm.extend({
 
     showActivity: {
       _onEnter: function () {
-        $('html,body').scrollTop(0);
+        // don't scroll to top if last state was show activity as this might be
+        // the user clicking the next / previous links. When clicking them it 
+        // is more userfriendly if they can repeatedly click the links without 
+        // the page scrolling to top
+        if (this.priorState !== "showActivityIdle")
+          $('html,body').scrollTop(0);
+
         // set the activityId for use in subsequent actions
         this.activityId = this.activityIdNonReactive();
 
