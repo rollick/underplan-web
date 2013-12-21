@@ -2530,9 +2530,8 @@ blockquote p {
 .settings-editor {
   padding: 0.9375rem;
   background-color: white;
-  margin-top: 45px;
 }
-/* line 11, ../../sass/app/forms.scss */
+/* line 9, ../../sass/app/forms.scss */
 .group-editor .section:first-of-type, .group-editor section:first-of-type,
 .story-editor .section:first-of-type,
 .story-editor section:first-of-type,
@@ -2540,7 +2539,7 @@ blockquote p {
 .settings-editor section:first-of-type {
   border-top: 1px solid #CCC;
 }
-/* line 15, ../../sass/app/forms.scss */
+/* line 13, ../../sass/app/forms.scss */
 .group-editor .section.active:first-of-type, .group-editor section.active:first-of-type,
 .story-editor .section.active:first-of-type,
 .story-editor section.active:first-of-type,
@@ -2548,38 +2547,38 @@ blockquote p {
 .settings-editor section.active:first-of-type {
   border-top: inherit;
 }
-/* line 21, ../../sass/app/forms.scss */
+/* line 19, ../../sass/app/forms.scss */
 .group-editor .show-advanced-location:before,
 .story-editor .show-advanced-location:before,
 .settings-editor .show-advanced-location:before {
   content: "- ";
 }
-/* line 26, ../../sass/app/forms.scss */
+/* line 24, ../../sass/app/forms.scss */
 .group-editor .location-fields,
 .story-editor .location-fields,
 .settings-editor .location-fields {
   display: none;
 }
-/* line 30, ../../sass/app/forms.scss */
+/* line 28, ../../sass/app/forms.scss */
 .group-editor #text,
 .story-editor #text,
 .settings-editor #text {
   height: 240px;
 }
-/* line 34, ../../sass/app/forms.scss */
+/* line 32, ../../sass/app/forms.scss */
 .group-editor .description,
 .story-editor .description,
 .settings-editor .description {
   height: 80px;
 }
-/* line 38, ../../sass/app/forms.scss */
+/* line 36, ../../sass/app/forms.scss */
 .group-editor .button,
 .story-editor .button,
 .settings-editor .button {
   margin-bottom: 0em;
 }
 
-/* line 46, ../../sass/app/forms.scss */
+/* line 44, ../../sass/app/forms.scss */
 .section-container .group-editor,
 .section-container .story-editor,
 .section-container .settings-editor {

@@ -5,19 +5,10 @@ Template.mainHome.events({
   'click .new-group': function (event, template) {
     event.stopPropagation();
     event.preventDefault();
-    
-    if(Meteor.userId()) {
-      Router.setNewGroup();
-    } else {
-      Session.set("message",
-                  "You must be logged in to create a group");
-      Router.setHome();
-    }
-  }
-});
 
-Template.mainHome.events({
-  'click .groups a, click .groups .panel': function (event, template) {
+    Router.setNewGroup();
+  },
+  'click .list .groups a, click .groups .panel': function (event, template) {
     event.stopPropagation();
     event.preventDefault();
     

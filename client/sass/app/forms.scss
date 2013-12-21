@@ -5,8 +5,6 @@
 .settings-editor {
   @include standard-form-panel();
 
-  margin-top: 45px;
-
   .section, section {
     &:first-of-type {
       border-top: 1px solid #CCC;
