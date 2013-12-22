@@ -232,13 +232,10 @@
   margin: $info-section-margin;
 
   .actions {
-    height: $info-section-height;
     margin-top: -$info-section-padding;
     right: 0em;
-    // top: $info-section-margin;
     font-size: 1em;
     color: black;
-    z-index: 102;
     position: absolute;
     display: none;
 

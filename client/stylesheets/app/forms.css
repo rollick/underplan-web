@@ -2562,7 +2562,8 @@ blockquote p {
   margin-bottom: 0em;
 }
 
-/* line 31, ../../sass/app/forms.scss */
-.group-editor {
+/* line 32, ../../sass/app/forms.scss */
+.group-editor,
+.settings-editor {
   margin-top: 45px;
 }
