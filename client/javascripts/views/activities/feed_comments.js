@@ -1,18 +1,25 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Item Comments
 
-commentsScrollOk = true;
-setInterval(function () {
-    commentsScrollOk = true;
-}, 50);
+var scrollTimeout = null;
+
+Template.itemComments.rendered = function () {
+  setFeedCommentsNotice(this);
+};
+
+Template.itemComments.destroyed = function () {
+  scrollTimeout = null;
+};
 
 Template.itemComments.events({
   "scroll .short-comments .inner": function (event, template) {
-    if (commentsScrollOk === true) {
-      commentsScrollOk = false;
-
-      setFeedCommentsNotice(template);
+    if (scrollTimeout) {
+      clearTimeout(scrollTimeout);
     }
+    
+    scrollTimeout = setTimeout( function () {
+      setFeedCommentsNotice(template);
+    }, 150);
   },
   "click .comments-notice > .inner": function (event, template) {
     var list = template.find(".short-comments .inner");
@@ -20,10 +27,6 @@ Template.itemComments.events({
     list.scrollTop = list.scrollHeight;
   }
 });
-
-Template.itemComments.rendered = function () {
-  setFeedCommentsNotice(this);
-};
 
 hideFeedCommentsNotice = function (item) {
   item.find(".comments-notice .inner").hide();
@@ -45,10 +48,10 @@ setFeedCommentsNotice = function (template) {
     var commentText = hiddenComments.length > 1 ? "comments" : "comment";
     commentsNotice.text(hiddenComments.length + " " + commentText);
 
-    // FIXME: We shouldn't assume the parent is a .feed-item. Maybe the parent
-    //        should be set when this class is created and it should be set on
-    //        here as a property, eg delegate.
-    if ($(template.firstNode).closest(".feed-item").hasClass("expanded"))
+    // FIXME: We shouldn't assume the parent is a .feed-item or .single-item. Maybe 
+    //        the parent should be set when this class is created and it should be 
+    //        set on here as a property, eg delegate.
+    if ($(template.firstNode).closest(".feed-item, .single-item").hasClass("expanded"))
       commentsNotice.show();
   } else {
     commentsNotice.text("").hide();

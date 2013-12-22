@@ -39,7 +39,7 @@ Template.currentActivity.events({
     if (item.hasClass("expanded"))
       setFeedCommentsNotice(template);
 
-    $("#" + self._id + " #comment").focus();
+    $(template.find("#comment")).focus();
   },
   'click .activity-controls a': function (event, template) {
     event.stopPropagation();
