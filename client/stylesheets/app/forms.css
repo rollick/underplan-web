@@ -2532,55 +2532,37 @@ blockquote p {
   background-color: white;
 }
 /* line 9, ../../sass/app/forms.scss */
-.group-editor .section:first-of-type, .group-editor section:first-of-type,
-.story-editor .section:first-of-type,
-.story-editor section:first-of-type,
-.settings-editor .section:first-of-type,
-.settings-editor section:first-of-type {
-  border-top: 1px solid #CCC;
-}
-/* line 13, ../../sass/app/forms.scss */
-.group-editor .section.active:first-of-type, .group-editor section.active:first-of-type,
-.story-editor .section.active:first-of-type,
-.story-editor section.active:first-of-type,
-.settings-editor .section.active:first-of-type,
-.settings-editor section.active:first-of-type {
-  border-top: inherit;
-}
-/* line 19, ../../sass/app/forms.scss */
 .group-editor .show-advanced-location:before,
 .story-editor .show-advanced-location:before,
 .settings-editor .show-advanced-location:before {
   content: "- ";
 }
-/* line 24, ../../sass/app/forms.scss */
+/* line 14, ../../sass/app/forms.scss */
 .group-editor .location-fields,
 .story-editor .location-fields,
 .settings-editor .location-fields {
   display: none;
 }
-/* line 28, ../../sass/app/forms.scss */
+/* line 18, ../../sass/app/forms.scss */
 .group-editor #text,
 .story-editor #text,
 .settings-editor #text {
   height: 240px;
 }
-/* line 32, ../../sass/app/forms.scss */
+/* line 22, ../../sass/app/forms.scss */
 .group-editor .description,
 .story-editor .description,
 .settings-editor .description {
   height: 80px;
 }
-/* line 36, ../../sass/app/forms.scss */
+/* line 26, ../../sass/app/forms.scss */
 .group-editor .button,
 .story-editor .button,
 .settings-editor .button {
   margin-bottom: 0em;
 }
 
-/* line 44, ../../sass/app/forms.scss */
-.section-container .group-editor,
-.section-container .story-editor,
-.section-container .settings-editor {
-  background-color: transparent;
+/* line 31, ../../sass/app/forms.scss */
+.group-editor {
+  margin-top: 45px;
 }

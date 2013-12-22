@@ -3336,22 +3336,22 @@ meta.foundation-mq-topbar {
   }
 }
 /* line 90, ../../sass/app/feed_extra.scss */
-.top-extra.hide {
-  height: 45px;
+.top-extra.hidden {
+  height: 0px;
 }
-/* line 95, ../../sass/app/feed_extra.scss */
+/* line 94, ../../sass/app/feed_extra.scss */
 .top-extra.fullscreen {
   height: 100%;
 }
-/* line 99, ../../sass/app/feed_extra.scss */
+/* line 98, ../../sass/app/feed_extra.scss */
 .top-extra.no-photos {
   padding-bottom: 0em;
 }
-/* line 102, ../../sass/app/feed_extra.scss */
+/* line 101, ../../sass/app/feed_extra.scss */
 .top-extra.no-photos .gallery {
   display: none;
 }
-/* line 107, ../../sass/app/feed_extra.scss */
+/* line 106, ../../sass/app/feed_extra.scss */
 .top-extra > .inner {
   position: relative;
   padding-left: 0;
@@ -3360,7 +3360,7 @@ meta.foundation-mq-topbar {
   float: left;
   height: 100%;
 }
-/* line 112, ../../sass/app/feed_extra.scss */
+/* line 111, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map {
   width: auto;
   margin-left: -0.9375rem;
@@ -3385,7 +3385,7 @@ meta.foundation-mq-topbar {
 .top-extra > .inner .map:after {
   clear: both;
 }
-/* line 121, ../../sass/app/feed_extra.scss */
+/* line 120, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner {
   position: relative;
   padding-left: 0;
@@ -3395,7 +3395,7 @@ meta.foundation-mq-topbar {
   padding: 0;
   height: 100%;
 }
-/* line 127, ../../sass/app/feed_extra.scss */
+/* line 126, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner #map-canvas {
   animation-duration: 0.001s;
   -o-animation-duration: 0.001s;
@@ -3408,24 +3408,24 @@ meta.foundation-mq-topbar {
   -moz-animation-name: mapInserted;
   -webkit-animation-name: mapInserted;
 }
-/* line 130, ../../sass/app/feed_extra.scss */
+/* line 129, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner #map-canvas img {
   max-width: none;
 }
-/* line 134, ../../sass/app/feed_extra.scss */
+/* line 133, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner #map-canvas label {
   width: auto;
   display: inline;
 }
-/* line 141, ../../sass/app/feed_extra.scss */
+/* line 140, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner .infoBox > img {
   z-index: 2;
 }
-/* line 145, ../../sass/app/feed_extra.scss */
+/* line 144, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner .infoBox .map-info .inner {
   margin-top: -0.9375rem;
 }
-/* line 152, ../../sass/app/feed_extra.scss */
+/* line 151, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery {
   width: auto;
   margin-left: -0.9375rem;
@@ -3459,11 +3459,11 @@ meta.foundation-mq-topbar {
 .top-extra > .inner .gallery:after {
   clear: both;
 }
-/* line 162, ../../sass/app/feed_extra.scss */
+/* line 161, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery.visible {
   z-index: 1;
 }
-/* line 166, ../../sass/app/feed_extra.scss */
+/* line 165, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery > .inner {
   position: relative;
   padding-left: 0;
@@ -3471,13 +3471,13 @@ meta.foundation-mq-topbar {
   width: 100%;
   float: left;
 }
-/* line 169, ../../sass/app/feed_extra.scss */
+/* line 168, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery > .inner .recent-photos {
   padding-top: 160px;
   background-color: #111111;
   height: 100%;
 }
-/* line 177, ../../sass/app/feed_extra.scss */
+/* line 176, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery-more {
   width: auto;
   margin-left: -0.9375rem;

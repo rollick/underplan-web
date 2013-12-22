@@ -371,6 +371,10 @@ MappingFsm = machina.Fsm.extend({
 
   _transitions: 'webkitTransitionEnd oTransitionEnd oTransitionEnd msTransitionEnd transitionend', 
 
+  _mapElements: function () {
+    return $(".top-extra, .top-extra-handle");
+  },
+
   _setTransitionCallback: function (callback) {
     var self = this;
 
@@ -756,13 +760,18 @@ MappingFsm = machina.Fsm.extend({
         this.handle("map.hide");
       },
       _onExit: function () {
-        $(".top-extra, .top-extra-handle").show();
+        this._mapElements().show();
+
         google.maps.event.trigger(this.map, 'resize');
 
         this.emit("MapVisible");
       },
       "map.hide": function() {
-        $(".top-extra, .top-extra-handle").hide();
+        var self = this;
+        this._setTransitionCallback(function () {
+          self._mapElements().hide();
+        });
+        this._setContainerClass('hidden');
 
         this.emit("MapHidden");
       }

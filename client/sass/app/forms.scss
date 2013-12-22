@@ -5,16 +5,6 @@
 .settings-editor {
   @include standard-form-panel();
 
-  .section, section {
-    &:first-of-type {
-      border-top: 1px solid #CCC;
-    }
-
-    &.active:first-of-type {
-      border-top: inherit;
-    }
-  }
-
   .show-advanced-location {
     &:before {
       content: "- ";
@@ -38,10 +28,6 @@
   }
 }
 
-.section-container {
-  .group-editor,
-  .story-editor,
-  .settings-editor {
-    background-color: transparent;
-  }
+.group-editor {
+  margin-top: 45px;
 }

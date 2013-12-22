@@ -87,10 +87,9 @@ $handle-hover-offset: 5px;
     }
   }
 
-  &.hide {
-    height: $topbar-height;
+  &.hidden {
+    height: 0px;
   }
-
 
   &.fullscreen {
     height: 100%;
