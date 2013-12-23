@@ -13,17 +13,19 @@ Template.mainNav.helpers({
     return Groups.findOne(ReactiveGroupFilter.get("group"));
   },
   groupNavTitle: function () {
-    var group = Groups.findOne(ReactiveGroupFilter.get("group")),
+    var groupId = ReactiveGroupFilter.get("group"),
+        country = ReactiveGroupFilter.get("country"),
+        group = Groups.findOne(groupId),
         data = {};
 
     if (group) {
       data = {
         slug: group.slug,
-        name: group.name
+        name: !!country ? group.name + " - " + country : group.name
       };
     }
     
-    return Template.navTitle.withData(data);
+    return data;
   }
 });
 
