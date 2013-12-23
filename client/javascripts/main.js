@@ -41,7 +41,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.198");
+  Session.set("appVersion", "v1.3.199");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -336,12 +336,9 @@ this.defaultBack = function () {
 
 this.autocomplete = null;
 
-this.geoLocation = function (location, inputId, callback) {
+this.geoLocation = function (location, inputId, autocomplete, callback) {
   if (typeof google === "object" && typeof google.maps === "object") {
     var lat, lng, result;
-    var pac_input = document.getElementById(inputId);
-
-    autocomplete = new google.maps.places.Autocomplete(pac_input);
 
     google.maps.event.addListener(autocomplete, 'place_changed', function () {
       var place = autocomplete.getPlace();

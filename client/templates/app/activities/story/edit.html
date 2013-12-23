@@ -4,91 +4,42 @@
 
 <template name="storyEditor">
   <div class="story-editor">
-    <h2>{{#if activity}}Edit{{else}}New{{/if}} Story</h2>
-    {{#if error}}
-      <div class="alert-box alert">{{error}}</div>
-    {{/if}}
-    <form class="custom">
-      {{#if activity}}
-        {{#with activity}}
-          <input type="hidden" id="_id" value="{{_id}}">
-          <label>Title</label>
-          <input type="text" id="title" value="{{title}}" placeholder="Start with a title...">
-          <label>Story</label>
-          <textarea id="text" rows="20" placeholder="Write something...">{{text}}</textarea><br />
-          <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
-          <input type="text" id="location" value="{{location}}" placeholder="Enter a location...">
-          <div id="location-coords" class="input-subtext"></div>
-          <div class="location-fields">
-            <input type="hidden" id="lat" value="{{lat}}">
-            <input type="hidden" id="lng" value="{{lng}}">
-            <label>City</label>
-            <input type="text" id="city" value="{{city}}">
-            <label>Region</label>
-            <input type="text" id="region" value="{{region}}">
-            <label>Country</label>
-            <input type="text" id="country" value="{{country}}">
-          </div>
-          <label>Map Zoom</label>
-          <input type="text" id="map-zoom" value="{{mapZoom}}" placeholder="0 (world) to 21+ (buildings)">
-          <label>Wikipedia Article</label>
-          <input type="text" id="wikipedia-search" value="{{wikipediaSearch}}" placeholder="Enter a title...">
-          <div id="wikipedia-url" class="input-subtext"></div>
-          <input type="hidden" id="wikipedia-id" value="{{wikipediaId}}">
-          <label>Link Slug</label>
-          <input type="text" id="slug" value="{{slug}}">
-          <label>Photo Tags</label>
-          <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
-          {{#if published}}
-            <input type="checkbox" class="published" id="published" checked>
-          {{else}}
-            <input type="checkbox" class="published" id="published">
-          {{/if}}
-          <label for="published">Published</label><br />
-          <label>Published Date</label>
-          {{> publishedDatePicker}}
-          <hr />
-          <input type="checkbox" class="notify" id="notify">
-          <label for="notify">Notify Followers</label><br />
-          <a href="#" class="tiny button success update">Update</a>
-          <a href="#" class="tiny secondary back">Cancel</a>
-        {{/with}}
-      {{else}}
+    {{#with activity}}
+      <h2>{{#if _id}}Edit{{else}}New{{/if}} Story</h2>
+      {{#if error}}
+        <div class="alert-box alert">{{error}}</div>
+      {{/if}}
+      <form class="custom">
+        <input type="hidden" id="_id" value="{{_id}}">
         <label>Title</label>
-        <input type="text" id="title" placeholder="Start with a title...">
+        <input type="text" id="title" value="{{title}}" placeholder="Start with a title...">
         <label>Story</label>
         <textarea id="text" rows="20" placeholder="Write something...">{{text}}</textarea><br />
-        <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
-        <input type="text" id="location" value="" placeholder="Enter a location...">
-        <div id="location-coords" class="input-subtext"></div>
-        <div class="location-fields">
-          <input type="hidden" id="lat" value="">
-          <input type="hidden" id="lng" value="">
-          <label>City</label>
-          <input type="text" id="city" value="">
-          <label>Region</label>
-          <input type="text" id="region" value="">
-          <label>Country</label>
-          <input type="text" id="country" value="">
-        </div>
-
+        {{> searchableLocation this}}
         <label>Map Zoom</label>
-        <input type="text" id="map-zoom" value="{{defaultMapZoom}}" placeholder="0 (world) to 21+ (buildings)">
+        <input type="text" id="map-zoom" value="{{mapZoom}}" placeholder="0 (world) to 21+ (buildings)">
         <label>Wikipedia Article</label>
         <input type="text" id="wikipedia-search" value="{{wikipediaSearch}}" placeholder="Enter a title...">
         <div id="wikipedia-url" class="input-subtext"></div>
         <input type="hidden" id="wikipedia-id" value="{{wikipediaId}}">
         <label>Link Slug</label>
-        <input type="text" id="slug">
+        <input type="text" id="slug" value="{{slug}}">
         <label>Photo Tags</label>
         <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
-        <input type="checkbox" class="published" id="published" {{checked published}}>
+        {{#if published}}
+          <input type="checkbox" class="published" id="published" checked>
+        {{else}}
+          <input type="checkbox" class="published" id="published">
+        {{/if}}
         <label for="published">Published</label><br />
         <label>Published Date</label>
         {{> publishedDatePicker}}
-        <a href="#" class="tiny button success save">Create</a>
-        <a href="#" class="tiny secondary cancel">Cancel</a>
-      {{/if}}
-    </form>
+        <hr />
+        <input type="checkbox" class="notify" id="notify">
+        <label for="notify">Notify Followers</label><br />
+        <a href="#" class="tiny button success update">Update</a>
+        <a href="#" class="tiny secondary back">Cancel</a>
+      </form>
+    {{/with}}
   </div>
 </template>

@@ -61,20 +61,7 @@
       <div class="small-12 large-12 columns">
         <label>Photo Tags</label>
         <input type="text" id="picasa-tags" value="{{picasaTags}}" placeholder="bangkok,food...">
-        
-        <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
-        <input type="text" id="location" value="{{location}}" placeholder="Enter a location...">
-        <div class="location-coords input-subtext"></div>
-        <div class="location-fields">
-          <input type="hidden" id="lat" value="{{lat}}">
-          <input type="hidden" id="lng" value="{{lng}}">
-          <label>City</label>
-          <input type="text" id="city" value="{{city}}">
-          <label>Region</label>
-          <input type="text" id="region" value="{{region}}">
-          <label>Country</label>
-          <input type="text" id="country" value="{{country}}">
-        </div>
+        {{> searchableLocation activity=this}}
       </div>
     </div>
     <div class="action-section">
