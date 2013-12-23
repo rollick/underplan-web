@@ -7719,6 +7719,31 @@ p.lead {
   margin-bottom: 0.5rem;
 }
 
+/* line 10, ../../../../.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+html, body {
+  height: 100%;
+}
+
+/* line 12, ../../../../.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+#root {
+  clear: both;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -30px;
+}
+/* line 18, ../../../../.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+#root #root_footer {
+  height: 30px;
+}
+
+/* line 20, ../../../../.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+#footer {
+  clear: both;
+  position: relative;
+  height: 30px;
+}
+
 /* line 51, ../sass/main.scss */
 * {
   margin: 0;
@@ -7742,7 +7767,7 @@ body:before {
   font-size: 1.8em;
 }
 /* line 70, ../sass/main.scss */
-body > .container {
+body > #root {
   width: auto;
   height: auto;
   height: 100%;
@@ -7836,7 +7861,7 @@ h2 span.warning, a span.warning {
   }
 }
 /* line 158, ../sass/main.scss */
-.footer .info {
+#footer .info {
   width: 100%;
   position: relative;
   text-align: right;
@@ -7846,7 +7871,7 @@ h2 span.warning, a span.warning {
   vertical-align: top;
 }
 /* line 167, ../sass/main.scss */
-.footer .info > p {
+#footer .info > p {
   height: 30px;
   font-size: 0.7em;
   line-height: 30px;

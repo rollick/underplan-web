@@ -46,7 +46,7 @@
 @import "components";
 @import "compass/layout/sticky-footer";
 
-// @include sticky-footer($footer-height, ".main-content", ".push", ".footer");
+@include sticky-footer($footer-height);
 
 * {
   margin: 0;
@@ -67,7 +67,7 @@ body {
     font-size: 1.8em;
   }
 
-  & > .container {
+  & > #root {
     // display: inline-block;
     width: auto;
     height: auto;
@@ -154,7 +154,7 @@ h2, a {
   }
 }
 
-.footer {
+#footer {
   .info {
     width: 100%;
     position: relative;
