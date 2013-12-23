@@ -378,11 +378,11 @@ var AppRouter = Backbone.Router.extend({
     return this;
   },
 
-  setAndLoadMainTemplate: function (templateName) {
-    this.setMainTemplateName(templateName).loadMainTemplate();
+  setAndLoadMainTemplate: function (templateName, callback) {
+    this.setMainTemplateName(templateName).loadMainTemplate(callback);
   },
 
-  loadMainTemplate: function () {
+  loadMainTemplate: function (callback) {
     if (!this._mainTemplateName)
       return;
 
@@ -397,17 +397,24 @@ var AppRouter = Backbone.Router.extend({
       // the new main template
       if (mappingFsm.state === mapState) {
         Session.set("mainTemplate", templateName);
+        if (_.isFunction(callback))
+          callback.call();
       } else {
         // Set the map and then the main template when the map 
         // transition has finished
         mappingFsm.on(mapEvent, function () {
           Session.set("mainTemplate", templateName);
+          if (_.isFunction(callback))
+            callback.call();
+    
           this.off(mapEvent);
         });
         mappingFsm.transition(mapState);
       }
     } else { // Set main template only
       Session.set("mainTemplate", templateName);
+      if (_.isFunction(callback))
+        callback.call();
     }
   },
 
