@@ -37,7 +37,11 @@
         <hr />
         <input type="checkbox" class="notify" id="notify">
         <label for="notify">Notify Followers</label><br />
-        <a href="#" class="tiny button success update">Update</a>
+        {{#if _id}}
+          <a href="#" class="tiny button success update">Update</a>
+        {{else}}
+          <a href="#" class="tiny button success save">Save</a>
+        {{/if}}
         <a href="#" class="tiny secondary back">Cancel</a>
       </form>
     {{/with}}

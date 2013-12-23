@@ -157,7 +157,7 @@ var getStoryValues = function(template) {
 
   values.title =            template.find("#title").value;
   values.text =             template.find("#text").value;
-  values.location =         template.find("#location").value;
+  values.location =         template.find(".location-search").value;
   values.published =        template.find("#published").checked;
   values.slug =             template.find("#slug").value;
   values.picasaTags =       template.find("#picasa-tags").value;

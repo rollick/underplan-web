@@ -2,7 +2,7 @@
 // Shorty Editor
 
 Template.shortyEditor.activity = function () {
-  return Activities.findOne(ReactiveGroupFilter.get("activity"));
+  return Activities.findOne(ReactiveGroupFilter.get("activity")) || {};
 };
 
 Template.shortyEditor.error = function () {
@@ -25,7 +25,7 @@ var clearHiddenLocationFields = function (template) {
 var clearForm = function (template) {
   clearHiddenLocationFields(template);
   template.find("#text").value = "";
-  template.find("#location").value = "";
+  template.find(".location-search").value = "";
   template.find("#picasa-tags").value = "";
   template.find(".location-coords").innerHTML = "";
 };
@@ -33,7 +33,7 @@ var clearForm = function (template) {
 var getValues = function (template) {
   return {
     text:       template.find("#text").value,
-    location:   template.find("#location").value,
+    location:   template.find(".location-search").value,
     lat:        template.find("#lat").value,
     lng:        template.find("#lng").value,
     city:       template.find("#city").value,

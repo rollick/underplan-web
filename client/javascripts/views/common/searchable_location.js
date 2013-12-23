@@ -30,6 +30,9 @@ Template.searchableLocation.events({
       return false;
     }
 
+    if (_.isUndefined(this._autocomplete))
+      this._autocomplete = new google.maps.places.Autocomplete(locationElem[0]);
+
     if (event.keyCode === 13) {
       google.maps.event.trigger(this._autocomplete, 'place_changed');
       return false;

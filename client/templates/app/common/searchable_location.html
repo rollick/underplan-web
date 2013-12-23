@@ -1,7 +1,7 @@
 <template name="searchableLocation">
   {{#with activity}}
     <label>Location Search <a href="#" class="show-advanced-location">advanced</a></label>
-    <input type="text" class="location-search" id="location" value="{{location}}" placeholder="Enter a location...">
+    <input type="text" class="location-search" id="location-{{_id}}" value="{{location}}" placeholder="Enter a location...">
     <div class="location-coords input-subtext"></div>
     <div class="location-fields">
       <input type="hidden" id="lat" value="{{lat}}">
