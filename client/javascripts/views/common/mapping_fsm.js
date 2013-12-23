@@ -807,6 +807,15 @@ MappingFsm = machina.Fsm.extend({
         this.emit("LocationCreatorReady");
       }
     }
+  },
 
+  ///////////////////////
+  // Reactive Component of FSM - TBC
+  equals: function (key, value) {
+    if (key === "state") {
+      return this.state === value;
+    } else {
+      throw("Could not find matching key in MappingFSM"); 
+    }
   }
 });
