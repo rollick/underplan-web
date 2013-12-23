@@ -38,10 +38,6 @@ Template.page.mainTemplate = function () {
   }
 };
 
-Template.page.appVersion = function () {
-  return Session.get("appVersion");
-};
-
 Template.page.pageOptions = function () {
   return Session.get("pageOptions");
 };

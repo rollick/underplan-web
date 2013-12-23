@@ -6,9 +6,6 @@ Template.mainNav.rendered = function () {
 };
 
 Template.mainNav.helpers({
-  appVersion: function () {
-    return Session.get("appVersion");
-  },
   group: function () {
     return Groups.findOne(ReactiveGroupFilter.get("group"));
   },

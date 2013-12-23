@@ -17,6 +17,10 @@ Handlebars.registerHelper('equal', function(lvalue, rvalue, options) {
   }
 });
 
+Handlebars.registerHelper("appVersion", function() {
+  return Session.get("appVersion");
+});
+
 Handlebars.registerHelper("isCurrentCountry", function (country) {
   if(country === "all" && !ReactiveGroupFilter.get("country"))
     return "active";
