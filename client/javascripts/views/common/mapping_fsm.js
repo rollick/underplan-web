@@ -255,6 +255,11 @@ MappingFsm = machina.Fsm.extend({
     google.maps.event.addListener(this.map, 'maptypeid_changed', function() {
       self._setNextMapType();
     });
+
+    // Setup a trigger to set the current state as a reactive source
+    self.on("transition", function () { 
+      self.set("state", this.state); 
+    });
   },
 
   _mapTypes: function () {
@@ -811,11 +816,39 @@ MappingFsm = machina.Fsm.extend({
 
   ///////////////////////
   // Reactive Component of FSM - TBC
+  // _stateDependency: null,
+
   equals: function (key, value) {
+    this._ensureStateDependency();
+
     if (key === "state") {
+      this._stateDependency.depend();
+      
       return this.state === value;
     } else {
       throw("Could not find matching key in MappingFSM"); 
+    }
+  },
+
+  get: function() {
+    this._ensureStateDependency();
+
+    this._stateDependency.depend();
+    if (this.state)
+      return this.state;
+  },
+
+  set: function (state) {
+    this._ensureStateDependency();
+
+    if (!_.isEqual(state, this.state)) {
+      this._stateDependency.changed();
+    }
+  },
+
+  _ensureStateDependency: function () {
+    if (!this._stateDependency) {
+      this._stateDependency = new Deps.Dependency;
     }
   }
 });

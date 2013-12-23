@@ -22,18 +22,18 @@ Template.mapFeedListToggle.events({
     var country = ReactiveGroupFilter.get("country"),
         group = Groups.findOne(ReactiveGroupFilter.get("group"));
 
-    if(Session.equals("mainTemplate", "groupMain")) {
-      // Route to Feed List
-      if (country)
-        Router.setGroupFeedAndCountry(group, country);
-      else
-        Router.setGroupFeed(group);
-    } else {
+    if(mappingFsm.equals("state", "hideMap")) {
       // Route to Map
       if (country)
         Router.setGroupAndCountry(group, country);
       else
         Router.setGroup(group);
+    } else {
+      // Route to Feed List
+      if (country)
+        Router.setGroupFeedAndCountry(group, country);
+      else
+        Router.setGroupFeed(group);
     }
   }
 });
