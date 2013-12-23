@@ -47,17 +47,17 @@
 
 <template name="singleItemContent">
   <div class="info-section">
-    {{#if canEdit}}
-      <div class="show actions">
-        <a href="{{editUrl}}" class="edit action"></a>
-      </div>
-    {{/if}}
     <div class="picture">
       <img src="{{profilePicture owner}}">
     </div>
     <div class="details">
       <div class="owner">{{userName owner}}</div>
       <div class="date">{{dateCreated}} {{basicLocation this}}</div>
+      {{#if canEdit}}
+        <div class="show actions">
+          <a href="{{editUrl}}" class="edit action"></a>
+        </div>
+      {{/if}}
     </div>
   </div>
   <div class="content">

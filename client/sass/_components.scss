@@ -341,6 +341,7 @@
       // background-color: $topbar-bg;
       height: 140px;
       color: white;
+      padding-right: 5.5em;
 
       .picture {
         position: absolute;
@@ -360,7 +361,7 @@
       }
 
       .actions {
-        top: inherit;
+        top: 0em;
         bottom: 0.5em;
         line-height: 1em;
 

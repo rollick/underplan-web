@@ -34,7 +34,9 @@
               {{> countryFilter}}
             </li>
           {{/if}}
-          {{> activityCountControl}}
+          {{#if showActivityCountControl}}
+            {{> activityCountControl}}
+          {{/if}}
         </ul> 
       {{/if}}
       {{#if showActivityActions}}

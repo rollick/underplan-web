@@ -24,12 +24,13 @@
   }
 
   .logo {
+    @include background-image(linear-gradient(top, $primary-color, darken($primary-color, 10%)));
+
     float: left;
     z-index: 5;
     position: relative;
     height: 45px;
     width: 45px;
-    background-image: -webkit-gradient(linear, 0% 0%, 0% 175%, from($primary-color), to(darken($primary-color, 25%)));
     background-color: $primary-color;
 
     a {
