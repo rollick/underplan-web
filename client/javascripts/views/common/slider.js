@@ -134,11 +134,8 @@ Template.imageSlider.rendered = function () {
       var gallery = $(slider).sequence(sliderOptions).data("sequence");
       var buttons = $(slider).find(".sequence-prev, .sequence-next");
       
-      // Only show next / prev buttons if > 1 photos and no swipe support
-      if (!("ontouchstart" in window) && ReactiveGallerySource.photos[id].length > 1)
+      if (ReactiveGallerySource.photos[id].length > 1)
         buttons.fadeIn(500);
-      else
-        buttons.hide();
 
       sliders[self.data._id] = gallery;
     }
