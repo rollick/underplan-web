@@ -46,7 +46,9 @@
 @import "components";
 @import "compass/layout/sticky-footer";
 
-@include sticky-footer($footer-height);
+// Using #fake-root to prevent height: auto !important; from being added to #root
+// as it is preventing the map from working at 100% height.
+@include sticky-footer($footer-height, "#fake-root", "#root-footer", "#footer");
 
 * {
   margin: 0;
@@ -68,10 +70,11 @@ body {
   }
 
   & > #root {
-    // display: inline-block;
-    width: auto;
+    clear: both;
+    min-height: 100%;
     height: auto;
     height: 100%;
+    margin-bottom: -30px;
   }
 }
 
