@@ -2823,11 +2823,15 @@ blockquote p {
   padding: 1em;
 }
 /* line 485, ../../sass/_components.scss */
+.comment .content h2 {
+  line-height: 1.2em;
+}
+/* line 489, ../../sass/_components.scss */
 .comment .content h5 {
   line-height: 1.4em;
   margin-bottom: 0.5em;
 }
-/* line 490, ../../sass/_components.scss */
+/* line 494, ../../sass/_components.scss */
 .comment .content p:last-of-type {
   margin-bottom: 0em;
 }
@@ -3106,11 +3110,15 @@ blockquote p {
   padding: 1em;
 }
 /* line 485, ../../sass/_components.scss */
+.comment-form > .inner .user-comment .content h2 {
+  line-height: 1.2em;
+}
+/* line 489, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .content h5 {
   line-height: 1.4em;
   margin-bottom: 0.5em;
 }
-/* line 490, ../../sass/_components.scss */
+/* line 494, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .content p:last-of-type {
   margin-bottom: 0em;
 }
