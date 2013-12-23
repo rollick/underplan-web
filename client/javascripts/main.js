@@ -41,7 +41,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.201");
+  Session.set("appVersion", "v1.3.202");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -78,45 +78,32 @@ Meteor.startup(function () {
   // Main Autorun Deps
 
   Deps.autorun(function (computation) {
-    // If no group / activity set then subscribe to the 
-    if (!ReactiveGroupFilter.get("group") && 
-        !ReactiveGroupFilter.get("activity") && 
-        !ReactiveGroupFilter.get("activitySlug")) {
+    // If no group / activity set then subscribe to the home page recent activities
+    var options = ReactiveGroupFilter.get("subscriptionOptions");
+
+    // Subscribe to group info for getting a list of countries and the number of
+    // activities per country
+    if (options.groupId) {
+      logIfDev("Subscribe to basic group data");
+
+      Meteor.subscribe("currentGroupInfo", options.groupId);
+    }
+
+    if (!options.groupId) {
+      logIfDev("Subscribe to recent site activities");
+
       Meteor.subscribe("recentActivities");
     }
-  });
 
-  // Fetching current group data
-  Deps.autorun(function (computation) {
-    var groupId = ReactiveGroupFilter.get("group");
+    if (options.groupId && options.limit) {
+      logIfDev("Subscribe to group feed/map data");
 
-    // Only setup the group subscriptions if there isn't an activity set, eg if the
-    // user goes directly to the activity from an email
-    if (groupId) {
-      logIfDev("Subscribe to basic group data");
-      self.feedMapSubscription = Meteor.subscribe("basicActivityData", groupId);
+      self.feedListSubscription = Meteor.subscribe("feedActivities", options, function () {
+        // refresh map markers
+        mappingFsm.setupGroupMarkers();
+      });
 
-      if (!ReactiveGroupFilter.get("activity")) {
-        logIfDev("Subscribe to group feed/map data");
-
-        var filter = ReactiveGroupFilter.get("feedFilter") || {};
-        if (filter.group !== groupId) {
-          // set the group without causing reactive
-          ReactiveGroupFilter.set('group', groupId, {quiet: true});
-        }
-        if (!filter.limit) {
-          // set the group without causing reactive
-          ReactiveGroupFilter.set('limit', feedLimitSkip, {quiet: true});
-        }
-
-        var options = ReactiveGroupFilter.get("subscriptionOptions");
-        self.feedListSubscription = Meteor.subscribe("feedActivities", options, function () {
-          // refresh
-          mappingFsm.setupGroupMarkers();
-        });
-
-        self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
-      }
+      self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);
     }
   });
 
@@ -127,7 +114,7 @@ Meteor.startup(function () {
   });
 
   // Fetch open comments for feed
-  Deps.autorun(function () {
+  Deps.autorun(function (computation) {
     var groupId = ReactiveGroupFilter.get("group");
 
     if (Session.get("expandedActivities")) {
@@ -155,12 +142,6 @@ Meteor.startup(function () {
     var activityId = ReactiveGroupFilter.get('activity'),
         activitySlug = ReactiveGroupFilter.get('activitySlug');
 
-    // We can ignore this run if the activity and the activitySlug are both set => the activity 
-    // was set based on the activitySlug... Which implies that if the activitySlug gets set then
-    // the code setting it (or the ReactiveGroupFilter) should set activity to null...
-    if (activityId && activitySlug)
-      return;
-
     ////
     // This will set the template for based on an activity type (story or shorty) 
     // and an action (show or edit). The type is based on whether the activity or 
@@ -175,7 +156,7 @@ Meteor.startup(function () {
     var activityValue = activityId || activitySlug;
 
     if (activityValue) {
-      logIfDev("Subscribe to activity");
+      logIfDev("++ Subscribe to activity");
 
       activitySubscription = Meteor.subscribe("activityShow", activityValue, group._id, function () {
         // Now safe to assign the activity id - only 
@@ -188,9 +169,6 @@ Meteor.startup(function () {
         var activity = Activities.findOne(activityConds);
 
         ReactiveGroupFilter.set("activity", activity._id);
-
-        // Transition the map now that the record has been fetch => lat, lng etc was required
-        mappingFsm.transition("showActivity");
       });
       commentsSubscription = Meteor.subscribe("activityComments", activityValue, group._id);
     }

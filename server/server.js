@@ -124,6 +124,59 @@ Meteor.publish("userDetails", function () {
 });
 
 // All group activity data for generating country filter
+Meteor.publish("currentGroupInfo", function (groupId) {
+  check(groupId, String);
+
+  var self = this,
+      activityConds = getActivityConditons(groupId, this.userId),
+      counts = {}, 
+      initializing = true;
+
+  var handle = Activities.find(activityConds, {_id: 1, country: 1}).observeChanges({
+    added: function (id, activity) {
+      var country = activity.country;
+
+      if (_.isEmpty(country))
+        return;
+
+      if (_.isUndefined(counts[country]))
+        counts[country] = 1;
+      else
+        counts[country]++;
+
+      if (!initializing) {
+        self.changed("groupInfo", groupId, {counts: counts});
+      }
+    },
+    removed: function (id, activity) {
+      var country = activity.country;
+
+      if (_.isEmpty(country))
+        return;
+
+      if (!_.isUndefined(counts[country])) {
+        counts[country]--;
+        self.changed("groupInfo", groupId, {counts: counts});
+      }
+    }
+    // don't care about moved or changed
+  });
+
+  // Observe only returns after the initial added callbacks have
+  // run.  Now return an initial value and mark the subscription
+  // as ready.
+  initializing = false;
+  self.added("groupInfo", groupId, {counts: counts});
+  self.ready();
+
+  // Stop observing the cursor when client unsubs.
+  // Stopping a subscription automatically takes
+  // care of sending the client any removed messages.
+  self.onStop(function () {
+    handle.stop();
+  });
+});
+
 Meteor.publish("basicActivityData", function (groupId) {
   check(groupId, String);
 
@@ -139,8 +192,7 @@ Meteor.publish("basicActivityData", function (groupId) {
       city: 1,
       country: 1,
       type: 1,
-      created: 1,
-      slug: 1
+      created: 1
     }
   };
 
@@ -177,9 +229,8 @@ Meteor.publish("recentActivities", function () {
   return Activities.find(activityConds, activityOptions);
 });
 
-// Feed activities with only the necessary fields included and
-
-// limited by the feed items count
+// Feed activities with limited fields included and
+// restricted to feed items count
 Meteor.publish("feedActivities", function (options) {
   check(options, Object);
   check(options["limit"], Match.Integer);
@@ -356,9 +407,9 @@ Meteor.publish("activityShow", function (activityId, groupId) {
     slug: 1
   };
 
-  var activity = Activities.find(activityConds, activityOptions);
+  var activity = Activities.findOne(activityConds, activityOptions);
   
-  return activity;
+  return Activities.find(activityConds, activityOptions);;
 });
 
 Meteor.publish("activityComments", function (activityId, groupId) {

@@ -64,6 +64,12 @@ var AppRouter = Backbone.Router.extend({
         state: "showActivity"        
       }
     },
+    currentActivity: {
+      map: {
+        evt: "ActivityMapReady",
+        state: "showActivity"        
+      }
+    },
     storyCreator: {
       map: {
         evt: "LocationCreatorReady",

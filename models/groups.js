@@ -7,6 +7,7 @@
 */
 
 Groups = new Meteor.Collection("groups");
+GroupInfo = new Meteor.Collection("groupInfo");
 
 Groups.allow({
   insert: function (userId, group) {

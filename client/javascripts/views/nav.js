@@ -47,6 +47,11 @@ Template.countryFilter.helpers({
     return ReactiveGroupFilter.get("country") || "All Countries";
   },
   countries: function () {
+    var groupInfo = GroupInfo.findOne();
+    if (groupInfo)
+      return _.keys(groupInfo.counts).sort();
+    else
+      return [];
     return groupCountries(ReactiveGroupFilter.get("group"));
   }
 });
