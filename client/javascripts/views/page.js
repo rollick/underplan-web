@@ -5,10 +5,10 @@ pageOptions = {
   currentActivity:  {},
   storyEditor:      {singleItem: true},
   shortyEditor:     {singleItem: true},
-  activityFeed:     {showCountryFilter: true, hideMapGroupActions: true},
+  activityFeed:     {hideMapGroupActions: true},
   mainHome:         {isHome: true},
-  blank:            {showCountryFilter: true},
-  groupMain:        {showCountryFilter: true},
+  blank:            {},
+  groupMain:        {},
   mainSettings:     {hideMapGroupActions: true},
   groupSettings:    {hideMapGroupActions: true},
 };

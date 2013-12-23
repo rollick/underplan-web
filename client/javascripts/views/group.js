@@ -40,10 +40,10 @@ Template.mapFeedListToggle.events({
 
 Template.mapFeedListToggle.helpers({
   toggleCls: function () {
-    if(Session.equals("mainTemplate", "groupMain")) {
-      return "feed-toggle";
-    } else {
+    if(mappingFsm.equals("state", "hideMap")) {
       return "map-toggle";
+    } else {
+      return "feed-toggle";
     }
   },
   // TODO: generate the actual urls... or not??
@@ -61,7 +61,7 @@ Template.groupActions.helpers({
   },
   showMapActions: function () {
     // Show if there is a group but not activity set
-    return ReactiveGroupFilter.get("group") && !ReactiveGroupFilter.get("activity")
+    return !!ReactiveGroupFilter.get("group");
   },
   showActivityActions: function () {
     var group = Groups.findOne(ReactiveGroupFilter.get("group"));
