@@ -126,7 +126,7 @@ this.userPicture = function (user, width) {
     } else if(user.services.facebook) {
       url = "https://graph.facebook.com/" + user.services.facebook.id + "/picture";
       if(typeof width !== "undefined") {
-        url = url + "?width=" + width;
+        url = url + "?width=" + width + "&height=" + width;
       }
     } else if(user.services.github) {
       url = user.profile.picture;
