@@ -74,6 +74,10 @@ Template.groupActions.helpers({
   },
   showCountryFilter: function () {
     return groupCountries(ReactiveGroupFilter.get("group")).length > 1;
+  },
+  showActivityCountControl: function () {
+    // only show count control for map view
+    return mappingFsm.state !== "hideMap";
   }
 });
 
