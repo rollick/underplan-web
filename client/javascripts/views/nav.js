@@ -63,18 +63,18 @@ Template.countryFilter.events({
         country = selectedElem.text();
 
     // On the feed list
-    if(Session.equals("mainTemplate", "groupMain")) {
-      // Route to Map
-      if (selectedElem.hasClass("all") || !country)
-        Router.setGroup(group);
-      else
-        Router.setGroupAndCountry(group, country);
-    } else {
+    if(mappingFsm.equals("state", "hideMap")) {
       // Route to Feed List
       if (selectedElem.hasClass("all") || !country)
         Router.setGroupFeed(group);
       else
         Router.setGroupFeedAndCountry(group, country);
+    } else {
+      // Route to Map
+      if (selectedElem.hasClass("all") || !country)
+        Router.setGroup(group);
+      else
+        Router.setGroupAndCountry(group, country);
     }
 
     Foundation.libs.dropdown.close(dropdown);
