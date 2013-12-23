@@ -49,53 +49,61 @@ Template.currentActivity.events({
   }
 });
 
-Template.currentActivity.group = function () {
-  return Groups.findOne(ReactiveGroupFilter.get("group"));
-};
+Template.currentActivity.helpers({
+  group: function () {
+    return Groups.findOne(ReactiveGroupFilter.get("group"));
+  },
+  activity: function () {
+    return Activities.findOne(ReactiveGroupFilter.get("activity"));
+  },
+  hasMap: function () {
+    return currentActivityHasMap();
+  },
+  anyActivities: function () {
+    return Activities.find().count() > 0;
+  },
+  textPreview: function () {
+    var text = Activities.findOne(ReactiveGroupFilter.get("activity")).text;
 
-Template.currentActivity.activity = function () {
-  return Activities.findOne(ReactiveGroupFilter.get("activity"));
-};
+    if (!text)
+      return "";
 
-Template.currentActivity.hasMap = function () {
-  return currentActivityHasMap();
-};
+    var limit = 240;
 
-Template.currentActivity.anyActivities = function () {
-  return Activities.find().count() > 0;
-};
+    var preview = text.substring(0, limit);
+    if(text.length > limit)
+      preview += "...";
 
-Template.currentActivity.textPreview = function () {
-  var text = Activities.findOne(ReactiveGroupFilter.get("activity")).text;
+    return preview;
+  },
+  anyComments: function () {
+    var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
 
-  if (!text)
+    return Comments.find({activityId: activity._id}).count() > 0;
+  },
+  creatorName: function () {
+    var owner = Meteor.users.findOne(this.owner);
+    if(!owner)
+      return "";
+
+    if(owner._id === Meteor.userId())
+      return "me";
+
+    return displayName(owner);
+  },
+  activityCls: function () {
+    // FIXME: this is a hack to remove the expanded class when the activity
+    //        first loads. If the expanded class when added earlier when the
+    //        expanded the comments then it will be preserved by meteor which
+    //        is usually nice but not here. Anyway, must be a cleaner way
+    //        to do this...
+    if (ReactiveGroupFilter.get("activity")) {
+      $(".single-item").removeClass("expanded");
+    }
+
     return "";
-
-  var limit = 240;
-
-  var preview = text.substring(0, limit);
-  if(text.length > limit)
-    preview += "...";
-
-  return preview;
-};
-
-Template.currentActivity.anyComments = function () {
-  var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
-
-  return Comments.find({activityId: activity._id}).count() > 0;
-};
-
-Template.currentActivity.creatorName = function () {
-  var owner = Meteor.users.findOne(this.owner);
-  if(!owner)
-    return "";
-
-  if(owner._id === Meteor.userId())
-    return "me";
-
-  return displayName(owner);
-};
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Activity Controls
