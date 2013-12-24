@@ -76,7 +76,7 @@ Template.groupActions.helpers({
     var groupInfo = GroupInfo.findOne();
     
     if (groupInfo)
-      return _.keys(groupInfo.counts).length > 0;
+      return _.keys(groupInfo.counts).length > 1;
     else
       return false;
   },
