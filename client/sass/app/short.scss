@@ -4,7 +4,7 @@
 $entry-bottom-margin: 0.9em;
 
 .short-form {
-  @include grid-row(nest);
+  @include grid-row($behavior: nest);
     
   margin: $ribbon-wrapper-strip;
   margin-top: $standard-margin * 2;
@@ -35,7 +35,7 @@ $entry-bottom-margin: 0.9em;
     .text-section, 
     .location-section, 
     .action-section {
-      @include grid-row(nest);
+      @include grid-row($behavior: nest);
     }
 
     label {

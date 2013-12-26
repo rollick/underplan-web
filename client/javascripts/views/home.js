@@ -35,13 +35,16 @@ Template.mainHome.message = function () {
 
 Template.groupItem.events({
   "click .follow-group a": function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var followed = ! $(event.target).hasClass("followed");
 
     followGroup(this._id, followed);
 
     var text = $(event.target).siblings('.text');
     text.hide().toggleClass('follow', followed).animate({
-      width: ['show', 'galleriaOut'],
+      width: ['show', 'swing'],
       opacity: [1.0, 'linear']
     }, 200, function () {
       var self = this;
@@ -49,12 +52,11 @@ Template.groupItem.events({
         function() 
         {
           $(self).animate({
-            width: ['hide', 'galleriaIn'],
+            width: ['hide', 'swing'],
             opacity: [0, 'linear']
           }, 500);
         }, 2000);
     });
-    return false;
   }
 });
 
@@ -70,7 +72,7 @@ Template.groupItem.helpers({
     return this;
   },
   followedCls: function () {
-    return this.followingGroup ? "followed" : "";
+    return (isFollowingGroup(Meteor.userId(), this._id) ? "followed" : "");
   }
 });
 

@@ -49,7 +49,7 @@ $handle-hover-offset: 5px;
 }
 
 .top-extra {
-  @include grid-row(nest);
+  @include grid-row($behavior: nest);
 
   position: relative;
   z-index: 3;
@@ -109,7 +109,7 @@ $handle-hover-offset: 5px;
     height: 100%;
 
     .map {
-      @include grid-row(nest);
+      @include grid-row($behavior: nest);
       @include radius();
 
       width: 100%;
@@ -149,7 +149,7 @@ $handle-hover-offset: 5px;
     }
 
     .gallery {
-      @include grid-row(nest);
+      @include grid-row($behavior: nest);
       @include animation(galleryInserted);
 
       position: absolute;

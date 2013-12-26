@@ -172,7 +172,7 @@
 }
 
 @mixin more-button() {
-  @include grid-row(nest);
+  @include grid-row($behavior: nest);
 
   margin-left: 0em;
   margin-right: 0em;
@@ -223,7 +223,7 @@
 }
 
 @mixin entry-with-profile($picture-width: 4em, $fixed-details: true, $dark-details: false) {
-  @include grid-row(nest);
+  @include grid-row($behavior: nest);
   $info-section-margin: 0.5em;
   $info-section-padding: 0.3em;
   $info-section-height: $picture-width;
@@ -498,7 +498,7 @@
 }
 
 @mixin item-by-user($dark-details: false) {
-  @include grid-row(nest);
+  @include grid-row($behavior: nest);
   @include panel();
   @include border-radius($standard-corner-radius);
 
@@ -555,7 +555,7 @@
     }
 
     .item-actions {
-      @include grid-row(nest);
+      @include grid-row($behavior: nest);
       @include standard-bar();
 
       margin: 0 !important;
@@ -642,7 +642,7 @@
     }
 
     .short-comments {
-      @include grid-row(nest);
+      @include grid-row($behavior: nest);
 
       margin: 0em;
       
@@ -671,7 +671,7 @@
       $comment-notice-margin-top: emCalc(27px);
       $comment-notice-font-size: 0.9em;
 
-      @include grid-row(nest);
+      @include grid-row($behavior: nest);
 
       position: absolute;
       width: 100%;

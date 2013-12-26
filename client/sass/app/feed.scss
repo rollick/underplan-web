@@ -2,7 +2,7 @@
 @import "foundation/components/panels";
 
 .feed-header {
-  @include grid-row(nest);
+  @include grid-row($behavior: nest);
 
   display: none;
   margin-top: 0.2em;
@@ -92,17 +92,6 @@
     margin-top: $standard-margin * 2;
   }
 
-  .group-controls {
-    margin-top: 0em;
-    padding-left: rem-calc(4px);
-    padding-right: rem-calc(4px);
-    
-    @media only screen and (min-width: 48em) {
-      padding-left: 0em;
-      padding-right: 0em;
-    }
-  }
-
   li { 
     p {
       display: inline;
@@ -123,7 +112,7 @@
   }
 
   .feed-list {
-    @include grid-row(nest);
+    @include grid-row($behavior: nest);
 
     margin: 0em;
     margin-bottom: $standard-margin;

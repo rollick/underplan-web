@@ -24,7 +24,7 @@
   }
 
   .main-quote {
-    @include grid-row(nest);
+    @include grid-row($behavior: nest);
 
     margin-left: 0em;
     margin-right: 0em;
@@ -82,7 +82,7 @@
     }
 
     .more {
-      @include grid-row(nest);
+      @include grid-row($behavior: nest);
 
       margin-left: 0em;
       margin-right: 0em;
@@ -101,7 +101,7 @@
     }
 
     .list {
-      @include grid-row(nest);
+      @include grid-row($behavior: nest);
       
       margin-left: 0em;
       margin-right: 0em;
@@ -165,8 +165,8 @@
             $followed-color: rgba(255, 255, 0, 0.7);
 
             text-align: right;
-            bottom: 24px;
-            right: 20px;
+            bottom: 28px;
+            right: 22px;
             position: absolute;
             z-index: 10;
 
@@ -211,7 +211,7 @@
     }
 
     .actions {
-      @include grid-row(nest);
+      @include grid-row($behavior: nest);
 
       margin-left: 0em;
       margin-right: 0em;

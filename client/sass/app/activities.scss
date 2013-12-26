@@ -182,7 +182,7 @@ body.fullscreen {
 }
 
 .activity-controls {
-  @include grid-row(nest);
+  @include grid-row($behavior: nest);
 
   margin: 0em;
   clear: both;

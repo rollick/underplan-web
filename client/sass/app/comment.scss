@@ -19,7 +19,7 @@
 }
 
 .comment-form {
-  @include grid-row(nest);
+  @include grid-row($behavior: nest);
   @include border-bottom-radius($standard-corner-radius);
 
   margin: 0em;

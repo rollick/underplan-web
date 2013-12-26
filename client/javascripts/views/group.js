@@ -86,6 +86,14 @@ Template.groupActions.helpers({
   }
 });
 
+Template.groupActions.groupCls = function () {
+  if (mappingFsm.equals("state", "hideMap")) {
+    return "feed";    
+  } else {
+    return "";
+  }
+};
+
 Template.groupActions.events({
   "click .new-shorty": function (event, template) {
     event.stopPropagation();

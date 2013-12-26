@@ -2759,8 +2759,8 @@ blockquote p {
 /* line 164, ../../sass/app/home.scss */
 .dashboard .groups .list .group .panel .follow-group {
   text-align: right;
-  bottom: 24px;
-  right: 20px;
+  bottom: 28px;
+  right: 22px;
   position: absolute;
   z-index: 10;
 }

@@ -164,9 +164,25 @@ MappingFsm = machina.Fsm.extend({
   },
 
   // initialize the map
+  // NOTE: Can't be sure the google.maps libs have been loaded when
+  //       intialize is called - we only want to have the reactive parts
+  //       accessible as soon as initialized
+  //
   initialize: function(canvasElementId) {
-    logIfDev("Intializing Google Maps...");
+    logIfDev("Intializing Mapping FSM...");
     this.mapReady = false;
+
+    var self = this;
+    // Setup a trigger to set the current state as a reactive source
+    self.on("transition", function () { 
+      self.set("state", this.state); 
+    });
+  },
+
+  // NOTE: intialize needs to be called before setup
+  //
+  setup: function(canvasElementId) {
+    logIfDev("Intializing Google Maps...");
 
     if (!canvasElementId)
       canvasElementId = "map-canvas";

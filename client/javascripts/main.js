@@ -24,7 +24,7 @@ Meteor.subscribe("userDetails");
 this.commentsSubscription = self.activitiesSubscription = null;
 this.activityCommentStatus = {};
 
-this.mappingFsm = null;
+this.mappingFsm = new MappingFsm(); // ... now call setup() after google.maps has loaded
 
 ///////////////////////////////////////////////////////////////////////////////
 // Meteor Startup
@@ -41,7 +41,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.204");
+  Session.set("appVersion", "v1.3.205");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -56,7 +56,7 @@ Meteor.startup(function () {
       // 'language': 'de'
     },
     function() {
-      mappingFsm = new MappingFsm();
+      mappingFsm.setup();
 
       // Routing should start after loading the maps
       // as the route state call the maps state manager
