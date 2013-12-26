@@ -2,7 +2,7 @@
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
     "branch": "shark",
-    "commit": "7f855b11f45c7bbf1f5a827a98d5e7c430cdfea0"
+    "commit": "5b017ece38bdac8704f228cc04f23ef55e5a0b7b"
   },
   "dependencies": {
     "basePackages": {
@@ -10,7 +10,8 @@
         "git": "https://github.com/spencern/meteor-mixpanel",
         "branch": "master"
       },
-      "googlemaps": {}
+      "googlemaps": {},
+      "smart-collections": {}
     },
     "packages": {
       "mixpanel": {
@@ -22,6 +23,11 @@
         "git": "https://github.com/drewjw81/meteor-googlemaps.git",
         "tag": "v0.0.2",
         "commit": "da8785c82cfd7de0111f898ef10728e7ed24e361"
+      },
+      "smart-collections": {
+        "git": "https://github.com/arunoda/meteor-smart-collections.git",
+        "tag": "v0.3.26",
+        "commit": "20e6412b276cdf6a55945002f0cae1ccb5122f40"
       }
     }
   }

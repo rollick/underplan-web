@@ -6,7 +6,7 @@
   Comments can be added against an activity.
 */
 
-Comments = new Meteor.Collection("comments");
+Comments = new Meteor.SmartCollection("comments");
 
 Comments.allow({
   insert: function (userId, comment) {

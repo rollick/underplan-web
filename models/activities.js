@@ -9,7 +9,7 @@
   would be a url to a publically accessible image.
 */
 
-Activities = new Meteor.Collection("activities")
+Activities = new Meteor.SmartCollection("activities")
 
 Activities.allow({
   insert: function (userId, activity) {
