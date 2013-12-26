@@ -90,14 +90,14 @@ var AppRouter = Backbone.Router.extend({
     },
     mainSettings: {
       map: {
-        evt: "MapHidden",
-        state: "hideMap"
+        evt: "SettingsMapReady",
+        state: "showSettings"
       }
     },
     groupSettings: {
       map: {
-        evt: "MapHidden",
-        state: "hideMap"
+        evt: "SettingsMapReady",
+        state: "showSettings"
       }
     },
     groupEditor: {

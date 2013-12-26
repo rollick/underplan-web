@@ -776,6 +776,28 @@ MappingFsm = machina.Fsm.extend({
       }
     },
 
+    showSettings: {
+      _onEnter: function () {
+        this.handle("map.hide");
+      },
+      _onExit: function () {
+        this._mapElements().show();
+
+        google.maps.event.trigger(this.map, 'resize');
+
+        this.emit("MapVisible");
+      },
+      "map.hide": function() {
+        var self = this;
+        this._setTransitionCallback(function () {
+          self._mapElements().hide();
+        });
+        this._setContainerClass('hidden');
+
+        this.emit("SettingsMapReady");
+      }
+    },
+
     hideMap: {
       _onEnter: function () {
         this.handle("map.hide");

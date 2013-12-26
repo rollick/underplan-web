@@ -87,8 +87,11 @@ Template.groupActions.helpers({
 });
 
 Template.groupActions.groupCls = function () {
-  if (mappingFsm.equals("state", "hideMap")) {
-    return "feed";    
+  var mapState = mappingFsm.get("state");
+  if (mapState === "hideMap") {
+    return "feed";
+  } else if (mapState === "showSettings") {
+    return "hide";
   } else {
     return "";
   }
