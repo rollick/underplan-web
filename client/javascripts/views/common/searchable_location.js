@@ -22,6 +22,9 @@ Template.searchableLocation.events({
       event.preventDefault();
   },
   'keyup .location-search': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var locationElem = $(event.target)
     var location = locationElem.val();
 
@@ -30,37 +33,28 @@ Template.searchableLocation.events({
       return false;
     }
 
-    if (_.isUndefined(this._autocomplete))
-      this._autocomplete = new google.maps.places.Autocomplete(locationElem[0]);
-
     if (event.keyCode === 13) {
-      google.maps.event.trigger(this._autocomplete, 'place_changed');
+      google.maps.event.trigger(template._autocomplete, 'place_changed');
       return false;
     }
     
     if(event.keyCode === 40 || event.keyCode === 38)
       return false;
     
-    // only intitialise new geo autocomplete if one doesn't
-    // already exist for this input
-    if(! locationElem.attr("autocomplete")) {
-      coords = geoLocation(location, "location", this._autocomplete, function(geo) {
-        if(typeof geo === "object") {
-          template.find("#lat").value = geo.lat;
-          template.find("#lng").value = geo.lng;
-          template.find("#city").value = geo.city;
-          template.find("#country").value = geo.country;
-          template.find("#region").value = geo.region;
+    coords = geoLocation(location, "location", template._autocomplete, function(geo) {
+      if(typeof geo === "object") {
+        template.find("#lat").value = geo.lat;
+        template.find("#lng").value = geo.lng;
+        template.find("#city").value = geo.city;
+        template.find("#country").value = geo.country;
+        template.find("#region").value = geo.region;
 
-          template.find(".location-coords").innerHTML = Math.round(geo.lat*10000)/10000 + ", " + Math.round(geo.lng*10000)/10000 + " (" + geo.address + ")";
-        } else {
-          clearHiddenLocationFields(template);
+        template.find(".location-coords").innerHTML = Math.round(geo.lat*10000)/10000 + ", " + Math.round(geo.lng*10000)/10000 + " (" + geo.address + ")";
+      } else {
+        clearHiddenLocationFields(template);
 
-          template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
-        }
-      });
-    }
-
-    return false;
+        template.find(".location-coords").innerHTML = (location == "" ? "" : "Geolocation failed!");      
+      }
+    });
   },
 });
