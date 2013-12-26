@@ -1,16 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Activity editor
 
-var clearHiddenLocationFields = function(template) {
-  template.find("#lat").value = "";
-  template.find("#lng").value = "";
-  template.find("#city").value = "";
-  template.find("#country").value = "";
-  template.find("#region").value = "";
-
-  template.find("#location-coords").innerHTML = "";
-};
-
 Template.storyEditor.helpers({
   activity: function () {
     return Activities.findOne(ReactiveGroupFilter.get("activity")) || {};

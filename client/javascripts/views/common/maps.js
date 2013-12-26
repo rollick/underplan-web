@@ -1,7 +1,10 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Common Functions
 
-activityStaticMap = function(activity) {
+activityStaticMap = function(activity, showMarker) {
+  if (_.isUndefined(showMarker))
+    showMarker = false;
+
   if(!activity.lat || !activity.lng) {
     return "";
   }
@@ -9,7 +12,7 @@ activityStaticMap = function(activity) {
   var dimensions = "720x240";
   var apiKey = appSettings.mapsApiKey;
   
-  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&zoom=:zoom&sensor=false&size=:dimensions&maptype=roadmap&visible=:lat,:lng&markers=color:green|label::label|:lat,:lng";
+  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&zoom=:zoom&sensor=false&size=:dimensions&maptype=roadmap&visible=:lat,:lng";
   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
                       replace(/:random/, Math.round((new Date()).getTime() / 1000)).
                       replace(/:zoom/, (!!parseInt(activity.mapZoom) ? activity.mapZoom : 12)).
@@ -19,6 +22,13 @@ activityStaticMap = function(activity) {
 
   if (apiKey != "")
     imageUrl = imageUrl + "&key=" + apiKey;
+
+  if (showMarker) {
+    imageUrl = imageUrl + "&markers=color:green|label::label|:lat,:lng";
+    imageUrl = imageUrl.replace(/:lng/g, activity.lng).
+                        replace(/:lat/g, activity.lat).
+                        replace(/:label/, encodeURIComponent(activity.location));
+  }
 
   // get correct dpi image
   imageUrl = imageUrl + "&scale=" + window.devicePixelRatio;

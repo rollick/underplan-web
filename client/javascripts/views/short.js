@@ -12,16 +12,6 @@ Template.shortyEditor.error = function () {
 ///////////////////////////////////////////////////////////////////////////////
 // Short Form
 
-var clearHiddenLocationFields = function (template) {
-  template.find("#lat").value = "";
-  template.find("#lng").value = "";
-  template.find("#city").value = "";
-  template.find("#country").value = "";
-  template.find("#region").value = "";
-  
-  template.find(".location-coords").innerHTML = "";
-};
-
 var clearForm = function (template) {
   clearHiddenLocationFields(template);
   template.find("#text").value = "";

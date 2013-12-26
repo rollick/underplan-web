@@ -6,7 +6,7 @@ this.itemHelpers = {
     return Template._markdown.withData({text: this.text});
   },
   mapUrl: function () {
-    return activityStaticMap(this);
+    return activityStaticMap(this, true);
   },
   hasMap: function () {
     return (this.lat && this.lng);

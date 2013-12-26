@@ -1,6 +1,16 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Search Inout for Activity Editor
 
+clearHiddenLocationFields = function (template) {
+  template.find("#lat").value = "";
+  template.find("#lng").value = "";
+  template.find("#city").value = "";
+  template.find("#country").value = "";
+  template.find("#region").value = "";
+  
+  template.find(".location-coords").innerHTML = "";
+};
+
 Template.searchableLocation.destroyed = function () {
   this._autocomplete = null;
 };
