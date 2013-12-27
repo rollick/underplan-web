@@ -3233,7 +3233,7 @@ meta.foundation-mq-topbar {
   }
 }
 
-/* line 15, ../../sass/app/feed_extra.scss */
+/* line 9, ../../sass/app/feed_extra.scss */
 .top-extra-handle {
   border-top: 2px solid #818181;
   position: relative;
@@ -3242,7 +3242,7 @@ meta.foundation-mq-topbar {
   pointer-events: none;
   height: 0px;
 }
-/* line 23, ../../sass/app/feed_extra.scss */
+/* line 17, ../../sass/app/feed_extra.scss */
 .top-extra-handle > div {
   height: 14px;
   width: 30px;
@@ -3250,11 +3250,11 @@ meta.foundation-mq-topbar {
   background-color: #818181;
   pointer-events: all;
 }
-/* line 30, ../../sass/app/feed_extra.scss */
+/* line 24, ../../sass/app/feed_extra.scss */
 .top-extra-handle > div:hover {
   cursor: row-resize;
 }
-/* line 34, ../../sass/app/feed_extra.scss */
+/* line 28, ../../sass/app/feed_extra.scss */
 .top-extra-handle > div:before {
   content: "";
   position: absolute;
@@ -3265,12 +3265,12 @@ meta.foundation-mq-topbar {
   box-shadow: 0 0.25em 0 0 #cecece, 0 0.5em 0 0 #cecece;
   margin-left: 3px;
 }
-/* line 46, ../../sass/app/feed_extra.scss */
+/* line 40, ../../sass/app/feed_extra.scss */
 .top-extra-handle.ui-draggable-dragging > div {
   display: none;
 }
 
-/* line 51, ../../sass/app/feed_extra.scss */
+/* line 45, ../../sass/app/feed_extra.scss */
 .top-extra {
   width: auto;
   margin-left: -0.9375rem;
@@ -3308,50 +3308,50 @@ meta.foundation-mq-topbar {
 .top-extra:after {
   clear: both;
 }
-/* line 70, ../../sass/app/feed_extra.scss */
+/* line 64, ../../sass/app/feed_extra.scss */
 .top-extra.no-transition {
   -webkit-transition-property: none;
   -moz-transition-property: none;
   -o-transition-property: none;
   transition-property: none;
 }
-/* line 74, ../../sass/app/feed_extra.scss */
+/* line 68, ../../sass/app/feed_extra.scss */
 .top-extra.default {
   height: 240px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 74, ../../sass/app/feed_extra.scss */
+  /* line 68, ../../sass/app/feed_extra.scss */
   .top-extra.default {
     height: 320px;
   }
 }
-/* line 82, ../../sass/app/feed_extra.scss */
+/* line 76, ../../sass/app/feed_extra.scss */
 .top-extra.home {
   height: 320px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 82, ../../sass/app/feed_extra.scss */
+  /* line 76, ../../sass/app/feed_extra.scss */
   .top-extra.home {
     height: 400px;
   }
 }
-/* line 90, ../../sass/app/feed_extra.scss */
+/* line 84, ../../sass/app/feed_extra.scss */
 .top-extra.hidden {
   height: 0px;
 }
-/* line 94, ../../sass/app/feed_extra.scss */
+/* line 88, ../../sass/app/feed_extra.scss */
 .top-extra.fullscreen {
   height: 100%;
 }
-/* line 98, ../../sass/app/feed_extra.scss */
+/* line 92, ../../sass/app/feed_extra.scss */
 .top-extra.no-photos {
   padding-bottom: 0em;
 }
-/* line 101, ../../sass/app/feed_extra.scss */
+/* line 95, ../../sass/app/feed_extra.scss */
 .top-extra.no-photos .gallery {
   display: none;
 }
-/* line 106, ../../sass/app/feed_extra.scss */
+/* line 100, ../../sass/app/feed_extra.scss */
 .top-extra > .inner {
   position: relative;
   padding-left: 0;
@@ -3360,7 +3360,7 @@ meta.foundation-mq-topbar {
   float: left;
   height: 100%;
 }
-/* line 111, ../../sass/app/feed_extra.scss */
+/* line 105, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map {
   width: auto;
   margin-left: -0.9375rem;
@@ -3385,7 +3385,7 @@ meta.foundation-mq-topbar {
 .top-extra > .inner .map:after {
   clear: both;
 }
-/* line 120, ../../sass/app/feed_extra.scss */
+/* line 114, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner {
   position: relative;
   padding-left: 0;
@@ -3395,7 +3395,7 @@ meta.foundation-mq-topbar {
   padding: 0;
   height: 100%;
 }
-/* line 126, ../../sass/app/feed_extra.scss */
+/* line 120, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner #map-canvas {
   animation-duration: 0.001s;
   -o-animation-duration: 0.001s;
@@ -3408,24 +3408,24 @@ meta.foundation-mq-topbar {
   -moz-animation-name: mapInserted;
   -webkit-animation-name: mapInserted;
 }
-/* line 129, ../../sass/app/feed_extra.scss */
+/* line 123, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner #map-canvas img {
   max-width: none;
 }
-/* line 133, ../../sass/app/feed_extra.scss */
+/* line 127, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner #map-canvas label {
   width: auto;
   display: inline;
 }
-/* line 140, ../../sass/app/feed_extra.scss */
+/* line 134, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner .infoBox > img {
   z-index: 2;
 }
-/* line 144, ../../sass/app/feed_extra.scss */
+/* line 138, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .map > .inner .infoBox .map-info .inner {
   margin-top: -0.9375rem;
 }
-/* line 151, ../../sass/app/feed_extra.scss */
+/* line 145, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery {
   width: auto;
   margin-left: -0.9375rem;
@@ -3459,11 +3459,11 @@ meta.foundation-mq-topbar {
 .top-extra > .inner .gallery:after {
   clear: both;
 }
-/* line 161, ../../sass/app/feed_extra.scss */
+/* line 155, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery.visible {
   z-index: 1;
 }
-/* line 165, ../../sass/app/feed_extra.scss */
+/* line 159, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery > .inner {
   position: relative;
   padding-left: 0;
@@ -3471,13 +3471,13 @@ meta.foundation-mq-topbar {
   width: 100%;
   float: left;
 }
-/* line 168, ../../sass/app/feed_extra.scss */
+/* line 162, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery > .inner .recent-photos {
   padding-top: 160px;
   background-color: #0e0e0e;
   height: 100%;
 }
-/* line 176, ../../sass/app/feed_extra.scss */
+/* line 170, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery-more {
   width: auto;
   margin-left: -0.9375rem;

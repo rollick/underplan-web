@@ -136,7 +136,7 @@ h2, a {
   &.dashboard {
     background: url("/images/dash_bg_2.jpg") 0 0 no-repeat;
     background-color: black;
-    margin-top: -16px;
+    margin-top: -$handle-height;
   }
 
   & > .inner {

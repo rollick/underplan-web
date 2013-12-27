@@ -6,12 +6,6 @@
 @include keyframe(mapInserted);
 @include keyframe(galleryInserted);
 
-$handle-bg-color: lighten($body-bg-color, 20%);
-$handle-trim-color: lighten($handle-bg-color, 30%);
-$handle-height: 14px;
-$handle-offset: 1px;
-$handle-hover-offset: 5px;
-
 .top-extra-handle {
   border-top: 2px solid $handle-bg-color;
   position: relative;
