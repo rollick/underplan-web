@@ -99,7 +99,7 @@ Template.groupEditor.events({
         }
       });
     } else {
-      Session.set("createError",
+      Session.set("displayError",
                   "It needs a name and description");
     }
     return false;
@@ -112,7 +112,7 @@ Template.groupEditor.events({
       Groups.update({_id: groupId}, {$set: values});
       Router.setGroup(Groups.findOne(groupId));
     } else {
-      Session.set("createError",
+      Session.set("displayError",
                   "It needs a name and a description");
     }
     return false;
@@ -128,7 +128,7 @@ Template.groupEditor.events({
 });
 
 Template.groupEditor.error = function () {
-  return Session.get("createError");
+  return Session.get("displayError");
 };
 
 Template.groupEditor.group = function () {

@@ -1,4 +1,41 @@
 ///////////////////////////////////////////////////////////////////////////////
+// Common Events for Short / Story Item
+
+this.itemEvents = {
+  'click .edit': function () {
+    event.stopPropagation();
+    event.preventDefault();
+
+    if (this.type === "story")
+      Router.setEditActivity(this);
+    else
+      Router.setEditShortActivity(this);
+  },
+  'click .remove': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    var button = $(event.target);
+    if (button.hasClass("ready")) {
+      $(template.firstNode).closest(".activity").addClass("disabled");
+
+      Meteor.call('removeActivity', this._id, function (error) {
+        if (error) {
+          Session.set("displayError", [error.error, error.reason].join(": "));
+        }
+      });
+    } else {
+      button.addClass("ready");
+
+      // after 2 secs reset the button state
+      setTimeout( function () {
+        button.removeClass("ready");
+      }, 2000);
+    }
+  },
+};
+
+///////////////////////////////////////////////////////////////////////////////
 // Common Helpers for Short / Story Item
 
 this.itemHelpers = {
@@ -141,28 +178,4 @@ this.itemHelpers = {
 // Item (Shorty) Content
 
 Template.itemContent.helpers(itemHelpers);
-
-Template.itemContent.events({
-  'click .remove': function (event, template) {
-    event.stopPropagation();
-    event.preventDefault();
-
-    var button = $(event.target);
-    if (button.hasClass("ready")) {
-      $(template.firstNode).closest(".activity").addClass("disabled");
-
-      Meteor.call('removeActivity', this._id, function (error) {
-        if (error) {
-          Session.set("createError", [error.error, error.reason].join(": "));
-        }
-      });
-    } else {
-      button.addClass("ready");
-
-      // after 2 secs reset the button state
-      setTimeout( function () {
-        button.removeClass("ready");
-      }, 2000);
-    }
-  },
-});
+Template.itemContent.events(itemEvents);

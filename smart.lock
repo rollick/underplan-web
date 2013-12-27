@@ -10,8 +10,7 @@
         "git": "https://github.com/spencern/meteor-mixpanel",
         "branch": "master"
       },
-      "googlemaps": {},
-      "smart-collections": {}
+      "googlemaps": {}
     },
     "packages": {
       "mixpanel": {
@@ -23,11 +22,6 @@
         "git": "https://github.com/drewjw81/meteor-googlemaps.git",
         "tag": "v0.0.2",
         "commit": "da8785c82cfd7de0111f898ef10728e7ed24e361"
-      },
-      "smart-collections": {
-        "git": "https://github.com/arunoda/meteor-smart-collections.git",
-        "tag": "v0.3.26",
-        "commit": "20e6412b276cdf6a55945002f0cae1ccb5122f40"
       }
     }
   }

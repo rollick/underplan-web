@@ -2,7 +2,7 @@
 // Activity comment
 
 var saveComment = function (template, success) {
-  Session.set("createError", null);
+  Session.set("displayError", null);
   var submit = $(template.find(".save.button"));
   if(submit.hasClass("disabled")) {
     return false;
@@ -20,7 +20,7 @@ var saveComment = function (template, success) {
   if (activityId && Meteor.userId() && commentText.length) {
     Meteor.call('createComment', {comment: commentText, activityId: activityId}, function (error, commentId) {
       if (error) {
-        Session.set("createError", [error.error, error.reason].join(": "));
+        Session.set("displayError", [error.error, error.reason].join(": "));
         comment.value = commentText;
       } else {
         if (_.isFunction(success)) { success.call(commentId); }
@@ -28,7 +28,7 @@ var saveComment = function (template, success) {
       }
     });
   } else {
-    Session.set("createError",
+    Session.set("displayError",
                 "It needs a comment");
   }
 
@@ -70,7 +70,7 @@ Template.commentForm.events({
 });
 
 Template.commentForm.error = function () {
-  return Session.get("createError");
+  return Session.get("displayError");
 };
 
 Template.commentForm.rendered = function () {

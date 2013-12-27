@@ -115,7 +115,7 @@ var AppRouter = Backbone.Router.extend({
     this.currentDepsAutorun = null;
 
     // Shouldn't be any create errors when re-routing
-    Session.set("createError", null);
+    Session.set("displayError", null);
 
     // Some permission checks:
     // settings only for logged in users

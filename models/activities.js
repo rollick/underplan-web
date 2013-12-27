@@ -9,7 +9,7 @@
   would be a url to a publically accessible image.
 */
 
-Activities = new Meteor.SmartCollection("activities")
+Activities = new Meteor.Collection("activities")
 
 Activities.allow({
   insert: function (userId, activity) {
@@ -38,7 +38,7 @@ Meteor.methods({
     check(options, Object);
     check(options["activityId"], String);
     check(options["values"], Object);
-
+debugger
     options["values"].updated = new Date();
     checkUpdateActivity(this.userId, options["activityId"], options["values"]);
 
@@ -52,7 +52,7 @@ Meteor.methods({
         notifyActivityEvent(this.userId, activity, "updated");
       }
     }
-
+    return true;
   },
 
   // options should include: title, description, x, y, public

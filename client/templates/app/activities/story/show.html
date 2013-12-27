@@ -15,34 +15,29 @@
 </template>
 
 <template name="activityControls">
-  <div class="activity-controls">
-    {{#if previousActivity}}
-      <div class="previous">
-        {{#with previousActivity}}
-          {{#if slug}}
-            <a href="/{{group.slug}}/{{slug}}">Previous</a>
-          {{else}}
-            <a href="/{{group.slug}}/pl/{{_id}}">Previous</a>
-          {{/if}}
-        {{/with}}
-      </div>
-    {{else}}
-      <div class="previous clear"></div>
-    {{/if}}
-    {{#if nextActivity}}
-      <div class="next">
-        {{#with nextActivity}}
-          {{#if slug}}
-            <a href="/{{group.slug}}/{{slug}}">Next</a>
-          {{else}}
-            <a href="/{{group.slug}}/pl/{{_id}}">Next</a>
-          {{/if}}
-        {{/with}}
-      </div>
-    {{else}}
-       <div class="next clear"></div>
-    {{/if}}
-  </div>
+  {{#if nextActivity}}
+    {{#with nextActivity}}
+      {{#if slug}}
+        <a href="/{{group.slug}}/{{slug}}" class="action next"></a>
+      {{else}}
+        <a href="/{{group.slug}}/pl/{{_id}}" class="action next"></a>
+      {{/if}}
+    {{/with}}
+  {{else}}
+    <a class="action next clear"></a>
+  {{/if}}
+
+  {{#if previousActivity}}
+    {{#with previousActivity}}
+      {{#if slug}}
+        <a href="/{{group.slug}}/{{slug}}" class="action previous"></a>
+      {{else}}
+        <a href="/{{group.slug}}/pl/{{_id}}" class="action previous"></a>
+      {{/if}}
+    {{/with}}
+  {{else}}
+    <a class="action previous clear"></a>
+  {{/if}}
 </template>
 
 <template name="singleItemContent">
@@ -53,18 +48,19 @@
     <div class="details">
       <div class="owner">{{userName owner}}</div>
       <div class="date">{{dateCreated}} {{basicLocation this}}</div>
-      {{#if canEdit}}
-        <div class="show actions">
-          <a href="{{editUrl}}" class="edit action"></a>
-        </div>
-      {{/if}}
     </div>
   </div>
   <div class="content">
-    {{> activityControls this}}
-    {{#if showUnpublished}}<span class="alert-box alert">Unpublished<br /></span>{{/if}}
-
-    {{#if title}}<h2>{{title}}</h2>{{/if}}
+    <div class="fixed actions">
+      {{> activityControls this}}
+      {{#if canEdit}}
+        <a href="{{editUrl}}" class="edit left action"></a>
+      {{/if}}
+      {{#if canRemove}}
+        <a href="#" class="remove action"></a>
+      {{/if}}
+    </div>
+    {{#if title}}<h2>{{title}}{{#if showUnpublished}}<span class="warning"> U</span>{{/if}}</h2>{{/if}}
     {{#if hasWiki}}
       {{wikiContent}}
     {{/if}}

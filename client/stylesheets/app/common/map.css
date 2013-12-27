@@ -208,13 +208,13 @@ td {
 /* Default Link Styles */
 /* line 152, ../../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a {
-  color: green;
+  color: #6da549;
   text-decoration: none;
   line-height: inherit;
 }
 /* line 158, ../../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a:hover, a:focus {
-  color: #006700;
+  color: #619341;
 }
 /* line 160, ../../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a img {
@@ -2537,11 +2537,11 @@ blockquote p {
 }
 /* line 18, ../../../sass/app/common/map.scss */
 .map-controls .zoom-in, .map-controls .zoom-out, .map-controls .map-type-toggle {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
   -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.3);
@@ -2549,12 +2549,12 @@ blockquote p {
   height: 25px;
   cursor: pointer;
   background: rgba(255, 255, 255, 0.9);
-  color: green;
+  color: #6da549;
   font-weight: 100;
 }
 /* line 29, ../../../sass/app/common/map.scss */
 .map-controls .zoom-in:hover, .map-controls .zoom-out:hover, .map-controls .map-type-toggle:hover {
-  color: black;
+  color: #324d22;
 }
 /* line 33, ../../../sass/app/common/map.scss */
 .map-controls .zoom-in:before, .map-controls .zoom-out:before, .map-controls .map-type-toggle:before {
@@ -2724,19 +2724,19 @@ blockquote p {
 }
 /* line 205, ../../../sass/app/common/map.scss */
 .map-marker.short .tick {
-  border-top-color: green;
+  border-top-color: #6da549;
 }
 /* line 206, ../../../sass/app/common/map.scss */
 .map-marker.short .inner {
-  border-color: green;
+  border-color: #6da549;
 }
 /* line 210, ../../../sass/app/common/map.scss */
 .map-marker.story .tick {
-  border-top-color: #1f4100;
+  border-top-color: #6b8bbc;
 }
 /* line 211, ../../../sass/app/common/map.scss */
 .map-marker.story .inner {
-  border-color: #1f4100;
+  border-color: #6b8bbc;
 }
 
 /* line 215, ../../../sass/app/common/map.scss */

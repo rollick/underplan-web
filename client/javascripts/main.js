@@ -41,7 +41,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.208");
+  Session.set("appVersion", "v1.3.210");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -168,7 +168,12 @@ Meteor.startup(function () {
         
         var activity = Activities.findOne(activityConds);
 
-        ReactiveGroupFilter.set("activity", activity._id);
+        if (!activity) {
+          Session.set("error", "Could not find activity");
+          Router.setGroup(group);
+        } else {
+          ReactiveGroupFilter.set("activity", activity._id);
+        }
       });
       commentsSubscription = Meteor.subscribe("activityComments", activityValue, group._id);
     }

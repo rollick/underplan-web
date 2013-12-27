@@ -91,7 +91,21 @@ Template.feedList.recentActivities = function () {
 };
 
 Template.feedList.feedLimitReached = function () {
-  return ReactiveGroupFilter.get("limit") >= Activities.find(ReactiveGroupFilter.get('queryFields')).count();
+  var groupInfo = GroupInfo.findOne(),
+      country = ReactiveGroupFilter.get('country'),
+      count = 0;
+
+  if (groupInfo) {
+    if (country)
+      count = groupInfo.counts[country];
+    else
+      count = _.reduce(_.values(groupInfo.counts), function(memo, num){ return memo + num; }, 0);
+
+    return ReactiveGroupFilter.get("limit") >= count;
+  } else {
+    return false;
+  }
+
 };
 
 // FIXME: this is a hack! Should be able to use "unless" feedLimitReached in template
@@ -191,21 +205,6 @@ var toggleComments = function(template, expand, focus) {
       item.find("#comment").focus();
   }
 }
-
-///////////////////////////////////////////////////////////////////////////////
-// Story Feed Content
-
-Template.storyFeedContent.helpers(itemHelpers);
-
-Template.storyFeedContent.events({
-  'mouseover .activity': function (event, template) {
-    $(template.find(".actions")).show();
-  },
-  'mouseleave .activity': function (event, template) {
-    $(template.find(".actions")).hide();
-  },
-});
-
 
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Item Actions

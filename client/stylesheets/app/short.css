@@ -207,13 +207,13 @@ td {
 /* Default Link Styles */
 /* line 152, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a {
-  color: green;
+  color: #6da549;
   text-decoration: none;
   line-height: inherit;
 }
 /* line 158, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a:hover, a:focus {
-  color: #006700;
+  color: #619341;
 }
 /* line 160, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a img {
@@ -2559,10 +2559,10 @@ blockquote p {
 .panel.callout {
   border-style: solid;
   border-width: 1px;
-  border-color: #80ff80;
+  border-color: #e3efdc;
   margin-bottom: 1.25rem;
   padding: 1.25rem;
-  background: #b3ffb3;
+  background: white;
 }
 /* line 48, ../../../packages/bower/foundation/scss/foundation/components/_panels.scss */
 .panel.callout > :first-child {
@@ -2587,12 +2587,12 @@ blockquote p {
 }
 /* line 74, ../../../packages/bower/foundation/scss/foundation/components/_panels.scss */
 .panel.callout a {
-  color: green;
+  color: #6da549;
 }
 /* line 79, ../../../packages/bower/foundation/scss/foundation/components/_panels.scss */
 .panel.radius {
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
 }
 
 /* line 6, ../../sass/app/short.scss */
@@ -2642,11 +2642,11 @@ blockquote p {
   margin-bottom: 1.25rem;
   padding: 1.25rem;
   background: white;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  -ms-border-radius: 0px;
+  -o-border-radius: 0px;
+  border-radius: 0px;
   margin-bottom: 0px;
   padding: 0em;
   border: none;

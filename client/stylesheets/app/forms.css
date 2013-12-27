@@ -207,13 +207,13 @@ td {
 /* Default Link Styles */
 /* line 152, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a {
-  color: green;
+  color: #6da549;
   text-decoration: none;
   line-height: inherit;
 }
 /* line 158, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a:hover, a:focus {
-  color: #006700;
+  color: #619341;
 }
 /* line 160, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a img {

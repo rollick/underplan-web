@@ -207,13 +207,13 @@ td {
 /* Default Link Styles */
 /* line 152, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a {
-  color: green;
+  color: #6da549;
   text-decoration: none;
   line-height: inherit;
 }
 /* line 158, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a:hover, a:focus {
-  color: #006700;
+  color: #619341;
 }
 /* line 160, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a img {
@@ -2534,8 +2534,8 @@ blockquote p {
   position: relative;
   padding: 0.875rem 1.5rem 0.875rem 0.875rem;
   font-size: 0.8125rem;
-  background-color: green;
-  border-color: #006700;
+  background-color: #6da549;
+  border-color: #619341;
   color: white;
 }
 /* line 105, ../../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
@@ -2556,8 +2556,8 @@ blockquote p {
 }
 /* line 107, ../../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.radius {
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
 }
 /* line 108, ../../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.round {
@@ -2566,8 +2566,8 @@ blockquote p {
 }
 /* line 110, ../../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.success {
-  background-color: green;
-  border-color: #006700;
+  background-color: #87bb66;
+  border-color: #79b354;
   color: white;
 }
 /* line 111, ../../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
@@ -2578,21 +2578,21 @@ blockquote p {
 }
 /* line 112, ../../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.secondary {
-  background-color: #e7e7e7;
-  border-color: #dadada;
-  color: #4e4e4e;
+  background-color: #6b8bbc;
+  border-color: #597db4;
+  color: white;
 }
 /* line 113, ../../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.warning {
-  background-color: #e84c3d;
-  border-color: #e53726;
+  background-color: #cc5f5c;
+  border-color: #c64c49;
   color: white;
 }
 /* line 114, ../../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box.info {
   background-color: #a0d3e8;
   border-color: #8bc9e3;
-  color: #4e4e4e;
+  color: black;
 }
 
 /* line 77, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
@@ -2605,7 +2605,7 @@ meta.foundation-mq-topbar {
 /* line 86, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .contain-to-grid {
   width: 100%;
-  background: rgba(17, 17, 17, 0.4);
+  background: rgba(14, 14, 14, 0.4);
 }
 /* line 90, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .contain-to-grid .top-bar {
@@ -2645,7 +2645,7 @@ meta.foundation-mq-topbar {
   height: 45px;
   line-height: 45px;
   position: relative;
-  background: rgba(17, 17, 17, 0.4);
+  background: rgba(14, 14, 14, 0.4);
   margin-bottom: 0;
 }
 /* line 129, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
@@ -2752,7 +2752,7 @@ meta.foundation-mq-topbar {
 }
 /* line 234, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar.expanded .title-area {
-  background: rgba(17, 17, 17, 0.4);
+  background: rgba(14, 14, 14, 0.4);
 }
 /* line 237, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar.expanded .toggle-topbar a {
@@ -2804,30 +2804,30 @@ meta.foundation-mq-topbar {
 }
 /* line 293, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button {
-  background: green;
+  background: #6da549;
   font-size: 0.8125rem;
   padding-right: 15px;
   padding-left: 15px;
 }
 /* line 298, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button:hover {
-  background: #004d00;
+  background: #55813a;
 }
 /* line 302, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button.secondary {
-  background: #e7e7e7;
+  background: #6b8bbc;
 }
 /* line 304, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button.secondary:hover {
-  background: #cecece;
+  background: #4c70a8;
 }
 /* line 308, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button.success {
-  background: green;
+  background: #87bb66;
 }
 /* line 310, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button.success:hover {
-  background: #004d00;
+  background: #6da549;
 }
 /* line 314, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li > a.button.alert {
@@ -2844,12 +2844,12 @@ meta.foundation-mq-topbar {
 }
 /* line 331, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li.active > a {
-  background: green;
+  background: #6da549;
   color: white;
 }
 /* line 334, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section ul li.active > a:hover {
-  background: #006700;
+  background: #619341;
 }
 /* line 341, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
 .top-bar-section .has-form {
@@ -2932,7 +2932,7 @@ meta.foundation-mq-topbar {
 @media only screen and (min-width: 40.063em) {
   /* line 412, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar {
-    background: rgba(17, 17, 17, 0.4);
+    background: rgba(14, 14, 14, 0.4);
     *zoom: 1;
     overflow: visible;
   }
@@ -2966,7 +2966,7 @@ meta.foundation-mq-topbar {
   }
   /* line 429, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar.expanded {
-    background: rgba(17, 17, 17, 0.4);
+    background: rgba(14, 14, 14, 0.4);
   }
 
   /* line 432, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
@@ -3006,7 +3006,7 @@ meta.foundation-mq-topbar {
   .top-bar-section li a:not(.button) {
     padding: 0 15px;
     line-height: 45px;
-    background: rgba(17, 17, 17, 0.4);
+    background: rgba(14, 14, 14, 0.4);
   }
   /* line 464, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section li a:not(.button):hover {
@@ -3084,7 +3084,7 @@ meta.foundation-mq-topbar {
   }
   /* line 545, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
   .top-bar-section .has-form {
-    background: rgba(17, 17, 17, 0.4);
+    background: rgba(14, 14, 14, 0.4);
     padding: 0 15px;
     height: 45px;
   }
@@ -3105,7 +3105,7 @@ meta.foundation-mq-topbar {
   }
   /* line 573, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
   .no-js .top-bar-section ul li:active > a {
-    background: green;
+    background: #6da549;
     color: white;
   }
   /* line 581, ../../../packages/bower/foundation/scss/foundation/components/_top-bar.scss */
@@ -3114,120 +3114,120 @@ meta.foundation-mq-topbar {
   }
 }
 @keyframes mapInserted {
-  /* line 115, ../../sass/_components.scss */
+  /* line 118, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 116, ../../sass/_components.scss */
+  /* line 119, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-moz-keyframes mapInserted {
-  /* line 120, ../../sass/_components.scss */
+  /* line 123, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 121, ../../sass/_components.scss */
+  /* line 124, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-webkit-keyframes mapInserted {
-  /* line 125, ../../sass/_components.scss */
+  /* line 128, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 126, ../../sass/_components.scss */
+  /* line 129, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-ms-keyframes mapInserted {
-  /* line 130, ../../sass/_components.scss */
+  /* line 133, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 131, ../../sass/_components.scss */
+  /* line 134, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-o-keyframes mapInserted {
-  /* line 135, ../../sass/_components.scss */
+  /* line 138, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 136, ../../sass/_components.scss */
+  /* line 139, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @keyframes galleryInserted {
-  /* line 115, ../../sass/_components.scss */
+  /* line 118, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 116, ../../sass/_components.scss */
+  /* line 119, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-moz-keyframes galleryInserted {
-  /* line 120, ../../sass/_components.scss */
+  /* line 123, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 121, ../../sass/_components.scss */
+  /* line 124, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-webkit-keyframes galleryInserted {
-  /* line 125, ../../sass/_components.scss */
+  /* line 128, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 126, ../../sass/_components.scss */
+  /* line 129, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-ms-keyframes galleryInserted {
-  /* line 130, ../../sass/_components.scss */
+  /* line 133, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 131, ../../sass/_components.scss */
+  /* line 134, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-o-keyframes galleryInserted {
-  /* line 135, ../../sass/_components.scss */
+  /* line 138, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 136, ../../sass/_components.scss */
+  /* line 139, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
@@ -3235,7 +3235,7 @@ meta.foundation-mq-topbar {
 
 /* line 15, ../../sass/app/feed_extra.scss */
 .top-extra-handle {
-  border-top: 2px solid #5f5f5f;
+  border-top: 2px solid #818181;
   position: relative;
   clear: left;
   z-index: 7;
@@ -3247,7 +3247,7 @@ meta.foundation-mq-topbar {
   height: 14px;
   width: 30px;
   margin: 0 auto;
-  background-color: #5f5f5f;
+  background-color: #818181;
   pointer-events: all;
 }
 /* line 30, ../../sass/app/feed_extra.scss */
@@ -3261,8 +3261,8 @@ meta.foundation-mq-topbar {
   top: 1px;
   width: 24px;
   height: 0.15em;
-  background: #ababab;
-  box-shadow: 0 0.25em 0 0 #ababab, 0 0.5em 0 0 #ababab;
+  background: #cecece;
+  box-shadow: 0 0.25em 0 0 #cecece, 0 0.5em 0 0 #cecece;
   margin-left: 3px;
 }
 /* line 46, ../../sass/app/feed_extra.scss */
@@ -3282,7 +3282,7 @@ meta.foundation-mq-topbar {
   position: relative;
   z-index: 3;
   padding: 0em;
-  border-bottom: 1px solid #464646;
+  border-bottom: 1px solid #686868;
   margin-left: 0em;
   margin-right: 0em;
   height: -1px;
@@ -3369,8 +3369,8 @@ meta.foundation-mq-topbar {
   margin-bottom: 0;
   max-width: none;
   *zoom: 1;
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
   width: 100%;
   height: 100%;
   z-index: 1;
@@ -3474,7 +3474,7 @@ meta.foundation-mq-topbar {
 /* line 168, ../../sass/app/feed_extra.scss */
 .top-extra > .inner .gallery > .inner .recent-photos {
   padding-top: 160px;
-  background-color: #111111;
+  background-color: #0e0e0e;
   height: 100%;
 }
 /* line 176, ../../sass/app/feed_extra.scss */
@@ -3499,7 +3499,7 @@ meta.foundation-mq-topbar {
 .top-extra > .inner .gallery-more:after {
   clear: both;
 }
-/* line 180, ../../sass/_components.scss */
+/* line 183, ../../sass/_components.scss */
 .top-extra > .inner .gallery-more > .content {
   position: relative;
   padding-left: 0.9375rem;

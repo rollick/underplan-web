@@ -6,7 +6,7 @@ Template.shortyEditor.activity = function () {
 };
 
 Template.shortyEditor.error = function () {
-  return Session.get("createError");
+  return Session.get("displayError");
 };
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -91,9 +91,9 @@ Template.shortForm.events({
 
     if(textElem.value.length === 0 || textElem.value.length > shortMaxLength) {
       $(submit).addClass("disabled");
-      Session.set("createError", "Text length too long");
+      Session.set("displayError", "Text length too long");
     } else {
-      Session.set("createError", null);
+      Session.set("displayError", null);
       $(submit).removeClass("disabled");
     }
 
@@ -119,14 +119,14 @@ Template.shortForm.events({
     if (values.groupId && values.text.length) {
       Meteor.call('updateActivity', {notify: false, activityId: activityId, values: values}, function (error) {
         if (error) {
-          Session.set("createError", error.reason);
+          Session.set("displayError", error.reason);
         } else {
           clearForm(template);
           Router.setPermaActivity(activityId);
         }
       });
     } else {
-      Session.set("createError",
+      Session.set("displayError",
                   "It needs to have text");
     }
   },
@@ -142,7 +142,7 @@ Template.shortForm.events({
     if (values.groupId && values.text.length) {
       Meteor.call('createActivity', values, function (error, activityId) {
         if (error) {
-          Session.set("createError", error.reason);
+          Session.set("displayError", error.reason);
         } else {
           clearForm(template);
 
@@ -150,7 +150,7 @@ Template.shortForm.events({
         }
       });
     } else {
-      Session.set("createError",
+      Session.set("displayError",
                   "It needs to have text");
     }
   }

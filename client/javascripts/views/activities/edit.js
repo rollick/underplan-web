@@ -59,7 +59,7 @@ Template.storyEditor.events({
     var values = getStoryValues(template);
     Meteor.call('createActivity', values, function (error, activityId) {
       if (error) {
-        Session.set("createError", error.reason);
+        Session.set("displayError", error.reason);
       } else {
         Router.setActivity(activityId);
       }
@@ -78,7 +78,7 @@ Template.storyEditor.events({
 
     Meteor.call('updateActivity', {notify: notify, activityId: activityId, values: values}, function (error) {
       if (error) {
-        Session.set("createError", error.reason);
+        Session.set("displayError", error.reason);
       } else {
         Router.setActivity(Activities.findOne(activityId));
       }
@@ -160,7 +160,7 @@ var getStoryValues = function(template) {
 }
 
 Template.storyEditor.error = function () {
-  return Session.get("createError");
+  return Session.get("displayError");
 };
 
 Template.storyEditor.rendered = function () { 

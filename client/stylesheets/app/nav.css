@@ -207,13 +207,13 @@ td {
 /* Default Link Styles */
 /* line 152, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a {
-  color: green;
+  color: #6da549;
   text-decoration: none;
   line-height: inherit;
 }
 /* line 158, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a:hover, a:focus {
-  color: #006700;
+  color: #619341;
 }
 /* line 160, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 a img {
@@ -2562,16 +2562,16 @@ blockquote p {
 .sub-nav dt a:hover,
 .sub-nav dd a:hover,
 .sub-nav li a:hover {
-  color: #006700;
+  color: #619341;
 }
 /* line 87, ../../../packages/bower/foundation/scss/foundation/components/_sub-nav.scss */
 .sub-nav dt.active a,
 .sub-nav dd.active a,
 .sub-nav li.active a {
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
   font-weight: normal;
-  background: green;
+  background: #6da549;
   padding: 0.1875rem 1rem;
   cursor: default;
   color: white;
@@ -2580,7 +2580,7 @@ blockquote p {
 .sub-nav dt.active a:hover,
 .sub-nav dd.active a:hover,
 .sub-nav li.active a:hover {
-  background: #006700;
+  background: #619341;
 }
 
 /* line 23, ../../../packages/bower/foundation/scss/foundation/components/_tabs.scss */
@@ -2626,21 +2626,21 @@ blockquote p {
 }
 /* line 47, ../../../packages/bower/foundation/scss/foundation/components/_tabs.scss */
 .tabs.radius dd:first-child a {
-  -moz-border-radius-bottomleft: 2px;
-  -moz-border-radius-topleft: 2px;
-  -webkit-border-bottom-left-radius: 2px;
-  -webkit-border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
+  -moz-border-radius-bottomleft: 0px;
+  -moz-border-radius-topleft: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -webkit-border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
 }
 /* line 50, ../../../packages/bower/foundation/scss/foundation/components/_tabs.scss */
 .tabs.radius dd:last-child a {
-  -moz-border-radius-topright: 2px;
-  -moz-border-radius-bottomright: 2px;
-  -webkit-border-top-right-radius: 2px;
-  -webkit-border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 /* line 54, ../../../packages/bower/foundation/scss/foundation/components/_tabs.scss */
 .tabs.vertical dd {
@@ -2719,8 +2719,8 @@ button, .button {
   padding-left: 2rem;
   font-size: 1rem;
   /*     @else                            { font-size: $padding - rem-calc(2); } */
-  background-color: green;
-  border-color: #006700;
+  background-color: #6da549;
+  border-color: #619341;
   color: white;
   -webkit-transition: background-color 300ms ease-out;
   -moz-transition: background-color 300ms ease-out;
@@ -2733,7 +2733,7 @@ button, .button {
 }
 /* line 142, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
-  background-color: #006700;
+  background-color: #619341;
 }
 /* line 153, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -2741,27 +2741,27 @@ button:hover, button:focus, .button:hover, .button:focus {
 }
 /* line 205, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.secondary, .button.secondary {
-  background-color: #e7e7e7;
-  border-color: #dadada;
-  color: #333333;
+  background-color: #6b8bbc;
+  border-color: #597db4;
+  color: white;
 }
 /* line 142, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-  background-color: #dadada;
+  background-color: #597db4;
 }
-/* line 148, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
+/* line 153, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.secondary:hover, button.secondary:focus, .button.secondary:hover, .button.secondary:focus {
-  color: #333333;
+  color: white;
 }
 /* line 206, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.success, .button.success {
-  background-color: green;
-  border-color: #006700;
+  background-color: #87bb66;
+  border-color: #79b354;
   color: white;
 }
 /* line 142, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
-  background-color: #006700;
+  background-color: #79b354;
 }
 /* line 153, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.success:hover, button.success:focus, .button.success:hover, .button.success:focus {
@@ -2826,8 +2826,8 @@ button.right-align, .button.right-align {
 }
 /* line 217, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.radius, .button.radius {
-  -webkit-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
 }
 /* line 218, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.round, .button.round {
@@ -2836,8 +2836,8 @@ button.round, .button.round {
 }
 /* line 220, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled, button[disabled], .button.disabled, .button[disabled] {
-  background-color: green;
-  border-color: #006700;
+  background-color: #6da549;
+  border-color: #619341;
   color: white;
   cursor: default;
   opacity: 0.7;
@@ -2846,7 +2846,7 @@ button.disabled, button[disabled], .button.disabled, .button[disabled] {
 }
 /* line 142, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: #006700;
+  background-color: #619341;
 }
 /* line 153, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
@@ -2854,13 +2854,13 @@ button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[dis
 }
 /* line 166, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled:hover, button.disabled:focus, button[disabled]:hover, button[disabled]:focus, .button.disabled:hover, .button.disabled:focus, .button[disabled]:hover, .button[disabled]:focus {
-  background-color: green;
+  background-color: #6da549;
 }
 /* line 221, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary, button[disabled].secondary, .button.disabled.secondary, .button[disabled].secondary {
-  background-color: #e7e7e7;
-  border-color: #dadada;
-  color: #333333;
+  background-color: #6b8bbc;
+  border-color: #597db4;
+  color: white;
   cursor: default;
   opacity: 0.7;
   -webkit-box-shadow: none;
@@ -2868,20 +2868,20 @@ button.disabled.secondary, button[disabled].secondary, .button.disabled.secondar
 }
 /* line 142, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #dadada;
+  background-color: #597db4;
 }
-/* line 148, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
+/* line 153, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  color: #333333;
+  color: white;
 }
 /* line 166, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.secondary:hover, button.disabled.secondary:focus, button[disabled].secondary:hover, button[disabled].secondary:focus, .button.disabled.secondary:hover, .button.disabled.secondary:focus, .button[disabled].secondary:hover, .button[disabled].secondary:focus {
-  background-color: #e7e7e7;
+  background-color: #6b8bbc;
 }
 /* line 222, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.success, button[disabled].success, .button.disabled.success, .button[disabled].success {
-  background-color: green;
-  border-color: #006700;
+  background-color: #87bb66;
+  border-color: #79b354;
   color: white;
   cursor: default;
   opacity: 0.7;
@@ -2890,7 +2890,7 @@ button.disabled.success, button[disabled].success, .button.disabled.success, .bu
 }
 /* line 142, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.success:hover, button.disabled.success:focus, button[disabled].success:hover, button[disabled].success:focus, .button.disabled.success:hover, .button.disabled.success:focus, .button[disabled].success:hover, .button[disabled].success:focus {
-  background-color: #006700;
+  background-color: #79b354;
 }
 /* line 153, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.success:hover, button.disabled.success:focus, button[disabled].success:hover, button[disabled].success:focus, .button.disabled.success:hover, .button.disabled.success:focus, .button[disabled].success:hover, .button[disabled].success:focus {
@@ -2898,7 +2898,7 @@ button.disabled.success:hover, button.disabled.success:focus, button[disabled].s
 }
 /* line 166, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.success:hover, button.disabled.success:focus, button[disabled].success:hover, button[disabled].success:focus, .button.disabled.success:hover, .button.disabled.success:focus, .button[disabled].success:hover, .button[disabled].success:focus {
-  background-color: green;
+  background-color: #87bb66;
 }
 /* line 223, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 button.disabled.alert, button[disabled].alert, .button.disabled.alert, .button[disabled].alert {
@@ -3121,12 +3121,12 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 }
 /* line 182, ../../../packages/bower/foundation/scss/foundation/components/_split-buttons.scss */
 .split.button.radius span {
-  -moz-border-radius-topright: 2px;
-  -moz-border-radius-bottomright: 2px;
-  -webkit-border-top-right-radius: 2px;
-  -webkit-border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 /* line 183, ../../../packages/bower/foundation/scss/foundation/components/_split-buttons.scss */
 .split.button.round span {
@@ -3174,21 +3174,21 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 }
 /* line 63, ../../../packages/bower/foundation/scss/foundation/components/_button-groups.scss */
 .button-group.radius > *:first-child, .button-group.radius > *:first-child > a, .button-group.radius > *:first-child > button, .button-group.radius > *:first-child > .button {
-  -moz-border-radius-bottomleft: 2px;
-  -moz-border-radius-topleft: 2px;
-  -webkit-border-bottom-left-radius: 2px;
-  -webkit-border-top-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-  border-top-left-radius: 2px;
+  -moz-border-radius-bottomleft: 0px;
+  -moz-border-radius-topleft: 0px;
+  -webkit-border-bottom-left-radius: 0px;
+  -webkit-border-top-left-radius: 0px;
+  border-bottom-left-radius: 0px;
+  border-top-left-radius: 0px;
 }
 /* line 67, ../../../packages/bower/foundation/scss/foundation/components/_button-groups.scss */
 .button-group.radius > *:last-child, .button-group.radius > *:last-child > a, .button-group.radius > *:last-child > button, .button-group.radius > *:last-child > .button {
-  -moz-border-radius-topright: 2px;
-  -moz-border-radius-bottomright: 2px;
-  -webkit-border-top-right-radius: 2px;
-  -webkit-border-bottom-right-radius: 2px;
-  border-top-right-radius: 2px;
-  border-bottom-right-radius: 2px;
+  -moz-border-radius-topright: 0px;
+  -moz-border-radius-bottomright: 0px;
+  -webkit-border-top-right-radius: 0px;
+  -webkit-border-bottom-right-radius: 0px;
+  border-top-right-radius: 0px;
+  border-bottom-right-radius: 0px;
 }
 /* line 35, ../../../packages/bower/foundation/scss/foundation/components/_button-groups.scss */
 .button-group.round > * > button, .button-group.round > * .button {
@@ -3341,7 +3341,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 }
 /* line 18, ../../sass/app/nav.scss */
 .nav.normal {
-  background: #333333;
+  background: #0e0e0e;
 }
 /* line 22, ../../sass/app/nav.scss */
 .nav .home-title {
@@ -3350,17 +3350,17 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 }
 /* line 27, ../../sass/app/nav.scss */
 .nav .logo {
-  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #008000), color-stop(100%, #004d00));
-  background-image: -webkit-linear-gradient(top, #008000, #004d00);
-  background-image: -moz-linear-gradient(top, #008000, #004d00);
-  background-image: -o-linear-gradient(top, #008000, #004d00);
-  background-image: linear-gradient(top, #008000, #004d00);
+  background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #6da549), color-stop(100%, #55813a));
+  background-image: -webkit-linear-gradient(top, #6da549, #55813a);
+  background-image: -moz-linear-gradient(top, #6da549, #55813a);
+  background-image: -o-linear-gradient(top, #6da549, #55813a);
+  background-image: linear-gradient(top, #6da549, #55813a);
   float: left;
   z-index: 5;
   position: relative;
   height: 45px;
   width: 45px;
-  background-color: green;
+  background-color: #6da549;
 }
 /* line 37, ../../sass/app/nav.scss */
 .nav .logo a {
@@ -3512,7 +3512,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   background-color: rgba(255, 255, 255, 0.9);
   border-color: rgba(242, 242, 242, 0.9);
   color: #333333;
-  color: green;
+  color: #6da549;
   font-weight: 200 !important;
   font-size: 0.8rem;
   margin-bottom: 0em;
@@ -3550,7 +3550,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 /* line 112, ../../../packages/bower/foundation/scss/foundation/components/_dropdown-buttons.scss */
 .group-controls > .inner .map-actions .button.action.country-container:before,
 .group-controls > .inner .activity-actions .button.action.country-container:before {
-  border-color: green transparent transparent transparent;
+  border-color: #6da549 transparent transparent transparent;
 }
 /* line 128, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.action.country-container:before,
@@ -3562,15 +3562,15 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 /* line 136, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.main,
 .group-controls > .inner .activity-actions .button.main {
-  background-color: green;
-  border-color: #006700;
+  background-color: #6da549;
+  border-color: #619341;
   color: white;
 }
 /* line 142, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 .group-controls > .inner .map-actions .button.main:hover, .group-controls > .inner .map-actions .button.main:focus,
 .group-controls > .inner .activity-actions .button.main:hover,
 .group-controls > .inner .activity-actions .button.main:focus {
-  background-color: #006700;
+  background-color: #619341;
 }
 /* line 153, ../../../packages/bower/foundation/scss/foundation/components/_buttons.scss */
 .group-controls > .inner .map-actions .button.main:hover, .group-controls > .inner .map-actions .button.main:focus,
@@ -3616,24 +3616,6 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   -ms-border-radius: 0em;
   -o-border-radius: 0em;
   border-radius: 0em;
-}
-/* line 163, ../../sass/app/nav.scss */
-.group-controls > .inner .map-actions > li:first-of-type .action {
-  -moz-border-radius-topleft: 2px;
-  -webkit-border-top-left-radius: 2px;
-  border-top-left-radius: 2px;
-  -moz-border-radius-bottomleft: 2px;
-  -webkit-border-bottom-left-radius: 2px;
-  border-bottom-left-radius: 2px;
-}
-/* line 167, ../../sass/app/nav.scss */
-.group-controls > .inner .map-actions > li:last-of-type .action {
-  -moz-border-radius-topright: 2px;
-  -webkit-border-top-right-radius: 2px;
-  border-top-right-radius: 2px;
-  -moz-border-radius-bottomright: 2px;
-  -webkit-border-bottom-right-radius: 2px;
-  border-bottom-right-radius: 2px;
 }
 /* line 174, ../../sass/app/nav.scss */
 .group-controls > .inner #map-feed-toggle.feed-toggle:before {
@@ -3707,7 +3689,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 }
 /* line 240, ../../sass/app/nav.scss */
 .top-bar.expanded {
-  background: rgba(17, 17, 17, 0.8) !important;
+  background: rgba(14, 14, 14, 0.8) !important;
 }
 /* line 245, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
@@ -3805,7 +3787,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 
 /* line 344, ../../sass/app/nav.scss */
 .top-bar-section li.text {
-  color: rgba(196, 196, 196, 0.4);
+  color: rgba(193, 193, 193, 0.4);
   opacity: 1;
   padding: 10px;
   height: 45px;
@@ -3814,8 +3796,8 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 @media only screen and (min-width: 48em) {
   /* line 344, ../../sass/app/nav.scss */
   .top-bar-section li.text {
-    color: rgba(247, 247, 247, 0.4);
-    background-color: rgba(17, 17, 17, 0.4);
+    color: rgba(244, 244, 244, 0.4);
+    background-color: rgba(14, 14, 14, 0.4);
   }
 }
 

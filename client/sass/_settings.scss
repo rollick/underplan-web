@@ -11,9 +11,9 @@ $em-base: 16px !default;
 
 //// Underplan Standard Variables
 
-$body-bg-color:             #2C2C2C;
+$body-bg-color:             #4E4E4E;
 $standard-border-size:      3px;
-$standard-corner-radius:    2px;
+$standard-corner-radius:    0px;
 $standard-panel-bg:         darken(#fff, 0%);
 $standard-map-control-bg:   rgba($standard-panel-bg, 0.9);
 $standard-border-color:     darken($standard-panel-bg, 40%);
@@ -31,14 +31,14 @@ $top-extra-columns-large:   12;
 $feed-columns-large:        12;
 $ribbon-wrapper-strip:      emCalc(4px);
 $footer-height:             30px;
-$common-dark-color:			    #111;
-$dark-details-bg:           rgba(0, 0, 0, 0.7);
+$common-dark-color:			    darken($body-bg-color, 25%);
+$dark-details-bg:           rgba($common-dark-color, 0.7);
 
 //// Gallery Stuff
 $slider-bg:                 $common-dark-color;
-$slider-height-small:		    200px;
-$slider-height-medium: 		  240px;
-$slider-height-large: 		  420px;
+$slider-height-small:       200px;
+$slider-height-medium:      240px;
+$slider-height-large:       420px;
 
 $standard-control-height:   emCalc(25px);
 
@@ -48,15 +48,16 @@ $row-width:                 emCalc(720px);
 $header-font-family:        'Raleway', sans-serif;
 $base-line-height:          150% !default;
 $topbar-bg:                 rgba($common-dark-color, 0.4);
-$secondary-navbar-bg:		    rgba(lighten($topbar-bg, 15%), 0.8);
+$secondary-navbar-bg:       rgba(lighten($topbar-bg, 15%), 0.8);
 $label-font-color:          lighten(#000, 30%);
 $body-font-family:          'Open Sans', Arial, sans-serif;
-$body-font-weight: 			    200 !default;
+$body-font-weight:          200 !default;
 $paragraph-font-weight:     200 !default;
-$primary-color:             #008000;
-$success-color:             #008000;
-$notice-color:              #1F4100;
-$warning-color:             #E84C3D;
+$primary-color:             darken(#87BB66, 10%);
+$secondary-color:           #6B8BBC;
+$success-color:             #87BB66;
+$notice-color:              #DFD468; //#1F4100;
+$warning-color:             #CC5F5C; //#E84C3D;
 $panel-bg:                  $standard-panel-bg;
 $panel-border-color:        $standard-border-color;                  
 $global-radius:             $standard-corner-radius;

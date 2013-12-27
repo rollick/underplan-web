@@ -2,15 +2,6 @@
 // Activity view
 
 Template.currentActivity.events({
-  'click .edit': function () {
-    event.stopPropagation();
-    event.preventDefault();
-
-    if (this.type === "story")
-      Router.setEditActivity(this);
-    else
-      Router.setEditShortActivity(this);
-  },
   'click a.comments': function (event, template) {
     event.stopPropagation();
     event.preventDefault();
@@ -41,12 +32,18 @@ Template.currentActivity.events({
 
     $(template.find("#comment")).focus();
   },
-  'click .activity-controls a': function (event, template) {
+  'click a.action.previous, click a.action.next': function (event, template) {
     event.stopPropagation();
     event.preventDefault();
 
     Router.setActivity(this);
-  }
+  },
+  // 'mouseover .activity': function (event, template) {
+  //   $(template.find(".actions")).show();
+  // },
+  // 'mouseleave .activity': function (event, template) {
+  //   $(template.find(".actions")).hide();
+  // },
 });
 
 Template.currentActivity.helpers({
@@ -136,4 +133,5 @@ Template.activityControls.previousActivity = function () {
 // Story Content
 
 Template.singleItemContent.helpers(itemHelpers);
+Template.singleItemContent.events(itemEvents);
 

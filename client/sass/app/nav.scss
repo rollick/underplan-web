@@ -16,7 +16,7 @@
   z-index: 9;
 
   &.normal {
-    background: #333333;
+    background: $common-dark-color;
   }
 
   .home-title {
@@ -161,11 +161,11 @@
       }
 
       & > li:first-of-type .action {
-        @include border-left-radius($standard-corner-radius);
+        // @include border-left-radius($standard-corner-radius);
       }
 
       & > li:last-of-type .action {
-        @include border-right-radius($standard-corner-radius);
+        // @include border-right-radius($standard-corner-radius);
       }
     }
     
@@ -238,7 +238,7 @@
   overflow: hidden;
 
   &.expanded {
-    background: rgba(17, 17, 17, 0.8) !important;
+    background: rgba($common-dark-color, 0.8) !important;
   }
 
   .name h1 {

@@ -6,8 +6,8 @@
   membership and access control (for posting, editing etc) based on this membership.
 */
 
-Groups = new Meteor.SmartCollection("groups");
-GroupInfo = new Meteor.SmartCollection("groupInfo");
+Groups = new Meteor.Collection("groups");
+GroupInfo = new Meteor.Collection("groupInfo");
 
 Groups.allow({
   insert: function (userId, group) {

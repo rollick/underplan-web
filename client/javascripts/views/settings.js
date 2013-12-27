@@ -24,7 +24,7 @@ Template.userSettings.events({
       Meteor.users.update(Meteor.userId(),{$set: {'profile.name': nickname, 'profile.email': email}});
       defaultBack();
     } else {
-      Session.set("createError",
+      Session.set("displayError",
                   "You need a nickname.");
     }
   },
@@ -37,7 +37,7 @@ Template.userSettings.events({
 });
 
 Template.userSettings.error = function () {
-  return Session.get("createError");
+  return Session.get("displayError");
 };
 
 Template.userSettings.user = function () {
