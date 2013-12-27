@@ -38,7 +38,7 @@ Meteor.methods({
     check(options, Object);
     check(options["activityId"], String);
     check(options["values"], Object);
-debugger
+    
     options["values"].updated = new Date();
     checkUpdateActivity(this.userId, options["activityId"], options["values"]);
 

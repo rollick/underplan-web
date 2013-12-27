@@ -3,47 +3,81 @@
 @import "compass/css3/border-radius";
 @import "compass/css3/box-shadow";
 @import "compass/css3/images";
+@import "compass/css3/transform";
 @import "foundation/components/type";
 @import "foundation/components/grid";
+
+@mixin triangle($direction, $color, $size) {
+  @if $direction == "left" {
+    border-bottom: $size solid transparent;
+    border-right: $size solid $color;
+    border-top: $size solid transparent;
+  }
+  @else if $direction == "right" {
+    border-bottom: $size solid transparent;
+    border-left: $size solid $color;
+    border-top: $size solid transparent;
+  }
+  @else if $direction == "up" {
+    border-bottom: $size solid $color;
+    border-left: $size solid transparent;
+    border-right: $size solid transparent;
+  }
+  @else if $direction == "down" {
+    border-right: $size solid transparent;
+    border-left: $size solid transparent;
+    border-top: $size solid $color;
+  }
+ 
+  height: 0;
+  width: 0;
+}
 
 @mixin map-box-shadow() {
   @include single-box-shadow(rgba(0,0,0,0.3));
 }
 
-@mixin arrow($height: 24px, $arrow-color: false, $side: 'before', $direction: 'right') {
-  $size: $height/2 + 2 $height/2 + 2;
-  $content: '';
+// display: table-cell;
+// vertical-align: middle;
+// text-align: center;
+@mixin arrow($height: 0.3em, $line-width: 0.2em, $arrow-color: $primary-color, $side: 'before', $direction: 'right') {
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
 
-  @if $direction == 'left' {
-    $content:   '<';
-  } 
-  @else if $direction == 'right' {
-    $content:   '>';
-  }
-  $position:  0px ($height/2)/4;
+  &::before {
+    color: $arrow-color;
+    border-style: solid;
+    border-width: $line-width $line-width 0 0;
+    content: '';
+    display: inline-block;
+    height: $height;
+    width: $height;
 
-  @if $side == 'before' {
-    &:before {
-      // @include png-arrow($direction: $direction, $color: $arrow-color);
+    @if $side == 'before' {
+      margin-right: $height/2;
+    }
+    @else if $side == 'after' {
+      margin-left: $height/2;
+    }
 
-      background-repeat: no-repeat;
-      background-size: $size;
-      background-position: $position;
-      padding-left: $height/3;
-      content: $content;
-      height: $height;
+    @if $direction == 'up' or $direction == 'down' {
+      margin-bottom: $height/4;
     }
   }
-  @else {
-    &:after {
-      // @include png-arrow($direction: $direction, $color: $arrow-color);
 
-      background-repeat: no-repeat;
-      background-size: $size;
-      background-position: $position;
-      padding-right: $height/3;
-      content: $content;
-      height: $height;
+  &:before {
+    @if $direction == 'left' {
+      @include transform(rotate(-135deg));
+    } 
+    @else if $direction == 'right' {
+      @include transform(rotate(45deg));
+    }
+    @else if $direction == 'up' {
+      @include transform(rotate(-45deg));
+    }
+    @else if $direction == 'down' {
+      @include transform(rotate(135deg));
     }
   }
 }
@@ -183,7 +217,6 @@
   & > .content {
     @include grid-column(12);
     
-    margin-top: 10px;
     text-align: center;
   }
 }
@@ -225,19 +258,20 @@
   cursor: pointer;
 }
 
-@mixin entry-with-profile($picture-width: 4em, $fixed-details: true, $dark-details: false) {
+@mixin entry-with-profile($picture-width: 3.5em, $fixed-details: true, $dark-details: false) {
   @include grid-row($behavior: nest);
-  $info-section-margin: 0.5em;
+  $info-section-margin: 0em;
   $info-section-padding: 0.3em;
   $info-section-height: $picture-width;
   $action-width-small: 2em;
   $action-width-large: 2.5em;
+  $info-image-radius: $picture-width;
 
   // padding: $info-section-padding 0;
   margin: $info-section-margin;
 
   .actions {
-    margin-top: -$info-section-padding;
+    // margin-top: -$info-section-padding;
     font-size: 1em;
     color: black;
     float: right;
@@ -383,7 +417,7 @@
       pointer-events: all;
 
       img {
-        @include border-radius($picture-width/2);
+        @include border-radius($info-image-radius);
       }
     }
 
@@ -403,7 +437,7 @@
       .date {
         font-size: 0.9em;
         color: #999999;
-        line-height: 1.7em;
+        line-height: 2em;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
@@ -430,7 +464,7 @@
           height: 100%;
           width: 100%;
           margin-top: 0em;
-          @include border-radius($info-section-height/2);
+          @include border-radius($info-image-radius);
         }
       }
 
@@ -545,7 +579,7 @@
   .content {
     @include grid-column(12);
 
-    padding: $standard-padding*2;
+    padding: $standard-padding;
 
     h2 {
       line-height: 1.2em;
@@ -580,8 +614,6 @@
 
     &:last-of-type {
       @include animation(feedInserted);
-
-      margin-bottom: 0em;
     }
   }
 
@@ -597,7 +629,7 @@
 
     .activity {
 
-      @include entry-with-profile(3.3em, $dark-details: $dark-details);
+      @include entry-with-profile($dark-details: $dark-details);
       @include standard-panel-color();
 
       z-index: 90;
@@ -637,14 +669,11 @@
       }
 
       a.comments {
-        @include arrow(24px);
-
-        font-size: 1em;
+        @include arrow(8px, $direction: 'right');
+        font-size: 12m;
       }
 
       .action {
-        margin-top: -3px;
-
         ul {
           list-style: none;
           display: inline;
@@ -677,18 +706,12 @@
             opacity: 0.3;
           }
         }
-
-        &.new-comment {
-          float: right;
-          margin-right: 5px;
-        }
         
-        &.new-comment span:before,
         a.new-short:before,
         a.new-story:before {
           content: "+";
-          font-size: 1.6em;
-          font-weight: bold;
+          font-size: 1.8em;
+          font-weight: 400;
           padding-right: 1px;
           top: 3px;
           position: relative;
@@ -757,25 +780,17 @@
         color: white;
       }
     }
-
-    .comment-form {
-      overflow: hidden;
-      height: 0px;
-      margin: 0em;
-      background-color: #FFF;
-    }
   }
 
   &.expanded {
     .item-actions {
       a.comments {
-        @include arrow(24px, $direction: 'down');
+        @include arrow(8px, $direction: 'down');
       }
     }
 
     .comments-notice .inner {
-      @include arrow(24px, $direction: 'down', $arrow-color: 'white');
-      @include arrow(24px, $direction: 'down', $arrow-color: 'white', $side: 'right');
+      @include arrow(8px, $direction: 'down', $arrow-color: 'white');
 
       display: inherit;
       cursor: pointer;
@@ -790,10 +805,6 @@
       @media only screen and (min-width: 48em) {
         max-height: 450px;
       }
-    }
-
-    .comment-form {
-      height: 100%;
     }
   }
 }

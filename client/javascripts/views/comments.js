@@ -128,12 +128,5 @@ Template.comment.events({
         button.removeClass("ready");
       }, 2000);
     }
-  },
-  'mouseover .comment': function (event, template) {
-    $(template.find(".actions")).show();
-  },
-  'mouseleave .comment': function (event, template) {
-    $(template.find(".actions")).hide();
-  } 
-
+  }
 });

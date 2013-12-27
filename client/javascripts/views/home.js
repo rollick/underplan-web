@@ -139,14 +139,17 @@ var getGroupValues = function(template) {
   values = {};
   values.name =             template.find(".name").value;
   values.description =      template.find(".description").value;
-  values.picasaUsername =   template.find(".picasa-username").value;
-  values.picasaAlbum =      template.find(".picasa-album").value;
-  values.picasaKey   =      template.find(".picasa-key").value;
 
-  values.trovebox = {
-    domain:   template.find(".trovebox-domain").value,
-    album:    template.find(".trovebox-album").value,
-    albumKey: template.find(".trovebox-albumKey").value
+  if (template.find(".trovebox-domain")) {
+    values.trovebox = {
+      domain:   template.find(".trovebox-domain").value,
+      album:    template.find(".trovebox-album").value,
+      albumKey: template.find(".trovebox-albumKey").value
+    }
+  } else if (template.find(".picasa-username")) {
+    values.picasaUsername =   template.find(".picasa-username").value;
+    values.picasaAlbum =      template.find(".picasa-album").value;
+    values.picasaKey   =      template.find(".picasa-key").value;
   }
 
   return values;

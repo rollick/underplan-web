@@ -7,6 +7,7 @@
         </div>
         {{> itemActions}}
         {{> itemComments}}
+        {{> commentForm this}}
       </div>
     </div>
   {{/with}}
@@ -14,37 +15,10 @@
 
 <template name="itemActions">
   <div class="item-actions">
-    <div class="show-comments">
-      {{#if hasComments}}
-        <a class="comments" href="#">{{countText}}</a>
-      {{else}}
-        <span class="comments">{{countText}}</span>
-      {{/if}}
-    </div>
-    <div class="main-actions">
-      <div class="action new-comment">
-        <a href="#" class="{{commentCls}}">
-          {{#if isLoggedIn}}
-            <span>Comment</span>
-          {{else}}
-            <span class="tip-top" title="Log in to comment">
-              Comment
-            </span>
-          {{/if}}
-        </a>
+    {{#if hasComments}}
+      <div class="show-comments">
+        <a class="comments arrow" href="#">{{countText}}</a>
       </div>
+  {{/if}}
     </div>
-  </div>
-</template>
-
-<template name="itemComments">
-  <div class="short-comments">
-    <div class="inner">
-      {{> commentList this}}
-    </div>
-  </div>
-  <div class="comments-notice">
-    <div class="inner"></div>
-  </div>
-  {{> commentForm this}}
 </template>

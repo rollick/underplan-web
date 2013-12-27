@@ -131,16 +131,6 @@ Template.feedItem.events({
     event.preventDefault();
 
     toggleComments(template);
-  },
-  'click .item-actions .new-comment a': function (event, template) {
-    event.stopPropagation();
-    event.preventDefault();
-
-    if (!!$(event.target).closest("a").hasClass("disabled")) {
-      return false;
-    }
-
-    toggleComments(template, true, true);
   }
 });
 

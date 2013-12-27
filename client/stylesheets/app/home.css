@@ -2605,7 +2605,7 @@ blockquote p {
 .dashboard .main-quote > .inner blockquote p {
   font-size: 1.3em;
   color: gray;
-  margin-bottom: 0.9375em;
+  margin-bottom: 0.9375rem;
 }
 @media only screen and (min-width: 48em) {
   /* line 57, ../../sass/app/home.scss */

@@ -45,6 +45,7 @@
 
 @import "components";
 @import "compass/layout/sticky-footer";
+@import "compass/css3/transform";
 
 // Using #fake-root to prevent height: auto !important; from being added to #root
 // as it is preventing the map from working at 100% height.

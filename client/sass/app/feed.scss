@@ -115,7 +115,6 @@
     @include grid-row($behavior: nest);
 
     margin: 0em;
-    margin-bottom: $standard-margin;
     margin-top: $standard-margin*2;
 
     @media only screen and (min-width: 48em) {

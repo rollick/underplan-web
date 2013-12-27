@@ -2,11 +2,11 @@
 @import "foundation/components/panels";
 
 .comment {
-  @include entry-with-profile(3.3em);
+  @include entry-with-profile();
 
   border-bottom: 1px solid $secondary-color;
   background-color: #f5f5f5;
-  // padding-bottom: 0.8em;
+  position: relative;
   margin: 0;
 
   &.faded {
@@ -24,6 +24,10 @@
 
   margin: 0em;
   padding-bottom: 0px;
+  overflow: hidden;
+  height: 100%;
+  margin: 0em;
+  background-color: #F3F3F3;
 
   & > .inner {
     @include grid-column(12, $collapse: true);
@@ -33,12 +37,11 @@
     }
 
     .user-comment {
-      @include entry-with-profile(3.3em, false);
+      @include entry-with-profile();
 
       margin: 0.5em;
-      min-height: 45px;
-      margin-top: 0em;
-      padding-top: 0em;
+      height: emCalc(36px);
+      overflow: hidden;
 
       .info-section {
         margin-bottom: 0em;
@@ -71,7 +74,6 @@
             font-size: 0.9em;
             border: 1px solid #dddddd;
             height: 2.5em;
-            // margin-bottom: 0.3em;
             min-height: 0em;
           }        
         }
@@ -82,7 +84,7 @@
   &.expanded {
     .user-comment {
       display: block;
-      height: 130px;
+      height: emCalc(115px);
 
       .info-section {
         .picture {

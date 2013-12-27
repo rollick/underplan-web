@@ -2605,7 +2605,7 @@ blockquote p {
   max-width: none;
   *zoom: 1;
   margin: 0.25em;
-  margin-top: 1.875em;
+  margin-top: 1.875rem;
   margin-bottom: 0em;
 }
 /* line 165, ../../../packages/bower/foundation/scss/foundation/components/_global.scss */

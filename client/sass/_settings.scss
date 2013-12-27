@@ -2,8 +2,11 @@
 // Foundation Variables
 //
 
+@import "foundation/functions";
+
 $base-font-size: 100% !default;
 $em-base: 16px !default;
+$rem-base: 16px;
 
 @function emCalc($pxWidth) {
   @return $pxWidth / $em-base * 1em;
@@ -17,9 +20,9 @@ $standard-corner-radius:    0px;
 $standard-panel-bg:         darken(#fff, 0%);
 $standard-map-control-bg:   rgba($standard-panel-bg, 0.9);
 $standard-border-color:     darken($standard-panel-bg, 40%);
-$standard-padding:          0.5em;
-$standard-margin:           emCalc(15px);
-$standard-small-margin:		  emCalc(15px);
+$standard-padding:          rem-calc(15);
+$standard-margin:           rem-calc(15);
+$standard-small-margin:		  rem-calc(8);
 $photo-feed-height-large:   400px;
 $photo-feed-height-small:   340px;
 $map-height-large:          400px;
@@ -50,6 +53,7 @@ $slider-height-large:       420px;
 $standard-control-height:   emCalc(25px);
 
 //// Foundation Global
+$column-gutter:             rem-calc(30);
 $topbar-height:             45px;
 $row-width:                 emCalc(720px);
 $header-font-family:        'Raleway', sans-serif;

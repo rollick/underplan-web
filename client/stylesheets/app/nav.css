@@ -3512,7 +3512,6 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border-color: rgba(242, 242, 242, 0.9);
   color: #333333;
   color: #6da549;
-  font-weight: 200 !important;
   font-size: 0.8rem;
   margin-bottom: 0em;
 }

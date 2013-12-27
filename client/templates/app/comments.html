@@ -1,3 +1,14 @@
+<template name="itemComments">
+  <div class="short-comments">
+    <div class="inner">
+      {{> commentList this}}
+    </div>
+  </div>
+  <div class="comments-notice">
+    <div class="inner"></div>
+  </div>
+</template>
+
 <template name="commentList">
   {{#if anyComments}}
     {{#each comments}}
@@ -7,8 +18,8 @@
 </template>
 
 <template name="comment">
-  <div class="comment" data-underplan-comment-id="{{_id}}">
-    {{#if loaded}}
+  {{#if loaded}}
+    <div class="comment" data-underplan-comment-id="{{_id}}">
       <div class="info-section">
         <div class="picture">
           <img src="{{profilePicture owner}}">
@@ -19,17 +30,17 @@
         </div>
       </div>
       {{#if canRemove}}
-        <div class="actions">
+        <div class="fixed actions">
           <a href="#" class="remove action"></a>
         </div>
       {{/if}}
       <div class="content">
         {{> htmlText}}
       </div>
-    {{else}}
-      <div class="alert-box loading">Loading...</div>
-    {{/if}}
-  </div>
+    </div>
+  {{else}}
+    <div class="alert-box loading clear">Loading...</div>
+  {{/if}}
 </template>
 
 <template name="commentForm">
