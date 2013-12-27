@@ -3399,7 +3399,6 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   margin-bottom: 0;
   max-width: none;
   *zoom: 1;
-  padding: 0.5em;
   margin-left: 0em;
   margin-right: 0em;
   z-index: 8;
@@ -3638,6 +3637,10 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   }
 }
 /* line 195, ../../sass/app/nav.scss */
+.group-controls.feed {
+  margin-top: 0px;
+}
+/* line 198, ../../sass/app/nav.scss */
 .group-controls.feed > .inner {
   margin: 0px auto;
   width: 100%;
@@ -3645,7 +3648,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   max-width: 45em;
 }
 
-/* line 203, ../../sass/app/nav.scss */
+/* line 207, ../../sass/app/nav.scss */
 .group-nav {
   padding-top: 0em;
   max-height: 2.25rem;
@@ -3657,41 +3660,41 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border: 1px solid red;
 }
 
-/* line 214, ../../sass/app/nav.scss */
+/* line 218, ../../sass/app/nav.scss */
 .top-bar-section {
   font-family: "Raleway", sans-serif;
 }
-/* line 218, ../../sass/app/nav.scss */
+/* line 222, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar-section .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 223, ../../sass/app/nav.scss */
+/* line 227, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a {
   text-indent: -44px !important;
 }
-/* line 226, ../../sass/app/nav.scss */
+/* line 230, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: 100;
 }
 
-/* line 231, ../../sass/app/nav.scss */
+/* line 235, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 236, ../../sass/app/nav.scss */
+/* line 240, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
   overflow: hidden;
 }
-/* line 240, ../../sass/app/nav.scss */
+/* line 244, ../../sass/app/nav.scss */
 .top-bar.expanded {
   background: rgba(14, 14, 14, 0.8) !important;
 }
-/* line 245, ../../sass/app/nav.scss */
+/* line 249, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
@@ -3702,22 +3705,22 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   width: 100% !important;
   padding-right: 65px !important;
 }
-/* line 260, ../../sass/app/nav.scss */
+/* line 264, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 260, ../../sass/app/nav.scss */
+  /* line 264, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 268, ../../sass/app/nav.scss */
+/* line 272, ../../sass/app/nav.scss */
 .top-bar li.follow-group a span {
   padding-left: 24px;
 }
-/* line 272, ../../sass/app/nav.scss */
+/* line 276, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
@@ -3727,27 +3730,27 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   top: 13px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 272, ../../sass/app/nav.scss */
+  /* line 276, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
     top: 1px !important;
   }
 }
-/* line 286, ../../sass/app/nav.scss */
+/* line 290, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 294, ../../sass/app/nav.scss */
+  /* line 298, ../../sass/app/nav.scss */
   .top-bar li.settings ul.dropdown li a {
     padding: 15px !important;
   }
 }
-/* line 300, ../../sass/app/nav.scss */
+/* line 304, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 304, ../../sass/app/nav.scss */
+/* line 308, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 40px;
   margin-left: -10px;
@@ -3763,29 +3766,29 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 317, ../../sass/app/nav.scss */
+  /* line 321, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 321, ../../sass/app/nav.scss */
+  /* line 325, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
-/* line 329, ../../sass/app/nav.scss */
+/* line 333, ../../sass/app/nav.scss */
 .top-bar li.settings.show-for-small a img {
   margin-left: -4px;
   margin-top: -4px;
   width: 30px;
 }
 
-/* line 338, ../../sass/app/nav.scss */
+/* line 342, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 344, ../../sass/app/nav.scss */
+/* line 348, ../../sass/app/nav.scss */
 .top-bar-section li.text {
   color: rgba(193, 193, 193, 0.4);
   opacity: 1;
@@ -3794,23 +3797,23 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 344, ../../sass/app/nav.scss */
+  /* line 348, ../../sass/app/nav.scss */
   .top-bar-section li.text {
     color: rgba(244, 244, 244, 0.4);
     background-color: rgba(14, 14, 14, 0.4);
   }
 }
 
-/* line 358, ../../sass/app/nav.scss */
+/* line 362, ../../sass/app/nav.scss */
 li.login-services {
   height: 45px;
 }
-/* line 361, ../../sass/app/nav.scss */
+/* line 365, ../../sass/app/nav.scss */
 li.login-services a {
   padding-top: 5px !important;
   line-height: 35px !important;
 }
-/* line 366, ../../sass/app/nav.scss */
+/* line 370, ../../sass/app/nav.scss */
 li.login-services p {
   display: inline;
   position: relative;
@@ -3818,7 +3821,7 @@ li.login-services p {
   margin-left: 8px;
   font-size: 0.7em;
 }
-/* line 374, ../../sass/app/nav.scss */
+/* line 378, ../../sass/app/nav.scss */
 li.login-services i {
   -webkit-transition: color .5s;
   -moz-transition: color .5s;

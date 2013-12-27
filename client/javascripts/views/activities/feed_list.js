@@ -141,13 +141,7 @@ Template.feedItem.events({
     }
 
     toggleComments(template, true, true);
-  },  
-  'mouseover .activity': function (event, template) {
-    $(template.find(".actions")).show();
-  },
-  'mouseleave .activity': function (event, template) {
-    $(template.find(".actions")).hide();
-  },
+  }
 });
 
 Template.feedItem.typeIs = function (what) {

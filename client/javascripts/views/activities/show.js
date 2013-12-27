@@ -37,13 +37,7 @@ Template.currentActivity.events({
     event.preventDefault();
 
     Router.setActivity(this);
-  },
-  // 'mouseover .activity': function (event, template) {
-  //   $(template.find(".actions")).show();
-  // },
-  // 'mouseleave .activity': function (event, template) {
-  //   $(template.find(".actions")).hide();
-  // },
+  }
 });
 
 Template.currentActivity.helpers({
