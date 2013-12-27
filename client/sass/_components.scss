@@ -230,7 +230,8 @@
   $info-section-margin: 0.5em;
   $info-section-padding: 0.3em;
   $info-section-height: $picture-width;
-  $action-width: 2.5em;
+  $action-width-small: 2em;
+  $action-width-large: 2.5em;
 
   // padding: $info-section-padding 0;
   margin: $info-section-margin;
@@ -240,20 +241,21 @@
     font-size: 1em;
     color: black;
     float: right;
-    width: $action-width;
     z-index: 10;
     overflow: scroll;
     position: relative;
     height: 100%;
 
+    width: $action-width-small;
+
+    @media only screen and (min-width: 48em) {
+      width: $action-width-large*2;
+    }
+
     &.fixed {
       position: absolute;
       right: 0em;
       left: inherit;
-    }
-
-    @media only screen and (min-width: 48em) {
-      width: $action-width*2;
     }
 
     &.show {
@@ -263,13 +265,18 @@
     a.action {
       @include single-transition(background-color);
 
-      width: $action-width;
-      height: $action-width;
       background-color: $secondary-color;
       display: inline-block;
       pointer-events: all;
       float: right;
       font-family: Raleway;
+      width: $action-width-small;
+      height: $action-width-small;
+
+      @media only screen and (min-width: 48em) {
+        width: $action-width-large;
+        height: $action-width-large;
+      }
 
       &:hover,
       &:focus {
@@ -278,14 +285,22 @@
 
       &:before {
         $action-font-size: 1.2em;
-        $action-line-height: 2em;
-        $action-left-padding: 0.8em;
+        $action-line-height-small: 1.7em;
+        $action-left-padding-small: 0.6em;
+        $action-line-height-large: 2em;
+        $action-left-padding-large: 0.8em;
 
         color: lighten($secondary-color, 75%);
         font-weight: 100;
-        font-size: $action-font-size; // 1.333
-        padding-left: $action-left-padding; // 0.54em;
-        line-height: $action-line-height; //1.5em;
+
+        font-size: $action-font-size;
+        padding-left: $action-left-padding-small;
+        line-height: $action-line-height-small;
+
+        @media only screen and (min-width: 48em) {
+          padding-left: $action-left-padding-large;
+          line-height: $action-line-height-large;
+        }
       }
 
       &.remove {
