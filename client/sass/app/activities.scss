@@ -37,7 +37,7 @@ cite:before {
   overflow: hidden;
 
   &.large {
-    margin-top: 0.9em;
+    margin-top: 0em;
     height: $slider-height-medium;
   }
 
@@ -48,9 +48,9 @@ cite:before {
     width: 320px;
 
     &.large {
+      margin-top: 0em;          
       height: $slider-height-large;
       width: 100%;
-      margin-top: 0.9em;          
     }
   }
 }

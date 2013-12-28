@@ -3048,7 +3048,7 @@ blockquote p {
 /* line 570, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section.map .container {
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   width: 8.9775em;
 }
 @media only screen and (min-width: 48em) {
@@ -3562,7 +3562,7 @@ cite:before {
 }
 /* line 39, ../../sass/app/activities.scss */
 .activity-highlight.large {
-  margin-top: 0.9em;
+  margin-top: 0em;
   height: 320px;
 }
 @media only screen and (min-width: 48em) {
@@ -3575,9 +3575,9 @@ cite:before {
   }
   /* line 50, ../../sass/app/activities.scss */
   .activity-highlight.large {
+    margin-top: 0em;
     height: 400px;
     width: 100%;
-    margin-top: 0.9em;
   }
 }
 
@@ -4177,7 +4177,7 @@ body.fullscreen .activity-highlight.large {
 /* line 570, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section.map .container {
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.8);
+  background-color: rgba(255, 255, 255, 0.9);
   width: 8.9775em;
 }
 @media only screen and (min-width: 48em) {

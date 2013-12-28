@@ -53,40 +53,41 @@
       </div>
     </div>
   </div>
+  
+  <div class="fixed actions">
+    {{> activityControls this}}
+    {{#if canEdit}}
+      <a href="{{editUrl}}" class="edit left action"></a>
+    {{/if}}
+    {{#if canRemove}}
+      <a href="#" class="remove action"></a>
+    {{/if}}
+  </div>
+
+  {{#if photoShow}}
+    {{#if hasPhotos}}
+      <div class="activity-highlight large">
+        {{> imageSlider}}
+      </div>
+    {{/if}}
+  {{/if}}
+
   <div class="content">
-    <div class="fixed actions">
-      {{> activityControls this}}
-      {{#if canEdit}}
-        <a href="{{editUrl}}" class="edit left action"></a>
-      {{/if}}
-      {{#if canRemove}}
-        <a href="#" class="remove action"></a>
-      {{/if}}
-    </div>
     {{#if title}}<h2>{{title}}{{#if showUnpublished}}<span class="warning"> U</span>{{/if}}</h2>{{/if}}
+
     {{#if hasWiki}}
       {{wikiContent}}
     {{/if}}
-
-    {{#if photoShow}}
-      <div class="text intro">
-        {{> htmlText}}
-      </div>
-      {{#if hasPhotos}}
-        <div class="activity-highlight large">
-          {{> imageSlider}}
-        </div>
-      {{/if}}
-    {{else}}
+    {{#unless photoShow}}
       {{#if hasPhotos}}
         <div class="activity-highlight">
           {{> imageSlider}}
         </div>
       {{/if}}
-      <div class="text">
-        {{> htmlText}}
-      </div> 
-    {{/if}}             
+    {{/unless}}
+    <div class="text">
+      {{> htmlText}}
+    </div> 
     <div itemprop="description" style="display: none">{{textPreview}}</div>
   </div>
 </template>
