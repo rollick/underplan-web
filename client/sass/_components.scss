@@ -527,9 +527,12 @@
       -webkit-overflow-scrolling: touch;
       color: white;
 
+      .container {
+        background-color: rgba($primary-color, 1.0);
+      }
+
       .picture {
         float: left;
-        background-color: $dark-details-bg;
         z-index: 2;
 
         img {
@@ -543,7 +546,6 @@
 
       .details {
         margin-left: 0em;
-        background-color: $dark-details-bg;
         z-index: 1;
 
         .date {
