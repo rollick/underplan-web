@@ -3048,7 +3048,7 @@ blockquote p {
 /* line 570, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section.map .container {
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #6da549;
   width: 8.9775em;
 }
 @media only screen and (min-width: 48em) {
@@ -3121,13 +3121,13 @@ blockquote p {
 }
 /* line 631, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section.map .details .owner {
-  color: #3d3d3d;
+  color: white;
   padding-bottom: 0.3em;
 }
 /* line 636, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section.map .details .date, .single-item > .inner .activity .info-section.map .details .location {
   padding-bottom: 0.2em;
-  color: #8a8a8a;
+  color: #d9d9d9;
 }
 /* line 643, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section.large {
@@ -3519,39 +3519,25 @@ blockquote p {
 .single-item input, .single-item textarea, .single-item a {
   pointer-events: all;
 }
-/* line 7, ../../sass/app/activities.scss */
-.single-item .info-section .picture {
-  -moz-border-radius-topleft: 1.5em;
-  -webkit-border-top-left-radius: 1.5em;
-  border-top-left-radius: 1.5em;
-}
-@media only screen and (min-width: 48em) {
-  /* line 7, ../../sass/app/activities.scss */
-  .single-item .info-section .picture {
-    -moz-border-radius-topleft: 2em;
-    -webkit-border-top-left-radius: 2em;
-    border-top-left-radius: 2em;
-  }
-}
 
-/* line 16, ../../sass/app/activities.scss */
+/* line 11, ../../sass/app/activities.scss */
 cite:before {
   content: "\2014 \0020";
   color: gray;
 }
 
-/* line 21, ../../sass/app/activities.scss */
+/* line 16, ../../sass/app/activities.scss */
 .activity-map {
   float: right;
   padding: 0;
   padding-bottom: 5px;
 }
-/* line 26, ../../sass/app/activities.scss */
+/* line 21, ../../sass/app/activities.scss */
 .activity-map.hide-for-small {
   padding: 10px;
 }
 
-/* line 31, ../../sass/app/activities.scss */
+/* line 26, ../../sass/app/activities.scss */
 .activity-highlight {
   float: right;
   padding: 0;
@@ -3560,20 +3546,20 @@ cite:before {
   margin-bottom: 0.9em;
   overflow: hidden;
 }
-/* line 39, ../../sass/app/activities.scss */
+/* line 34, ../../sass/app/activities.scss */
 .activity-highlight.large {
   margin-top: 0em;
   height: 320px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 31, ../../sass/app/activities.scss */
+  /* line 26, ../../sass/app/activities.scss */
   .activity-highlight {
     margin-left: 1em;
     margin-bottom: 0em;
     height: 320px;
     width: 320px;
   }
-  /* line 50, ../../sass/app/activities.scss */
+  /* line 45, ../../sass/app/activities.scss */
   .activity-highlight.large {
     margin-top: 0em;
     height: 400px;
@@ -3581,22 +3567,22 @@ cite:before {
   }
 }
 
-/* line 60, ../../sass/app/activities.scss */
+/* line 55, ../../sass/app/activities.scss */
 body.fullscreen .activity-highlight,
 body.fullscreen .activity-highlight.large {
   width: 100%;
   height: 100%;
 }
 
-/* line 67, ../../sass/app/activities.scss */
+/* line 62, ../../sass/app/activities.scss */
 .pac-container {
   font-family: inherit;
 }
-/* line 70, ../../sass/app/activities.scss */
+/* line 65, ../../sass/app/activities.scss */
 .pac-container:after {
   content: none !important;
 }
-/* line 74, ../../sass/app/activities.scss */
+/* line 69, ../../sass/app/activities.scss */
 .pac-container .pac-item {
   text-decoration: none;
   display: block;
@@ -3606,25 +3592,25 @@ body.fullscreen .activity-highlight.large {
   /* support: IE7 */
   font-weight: normal;
 }
-/* line 82, ../../sass/app/activities.scss */
+/* line 77, ../../sass/app/activities.scss */
 .pac-container .pac-item:hover {
   border-top: 1px solid #dadada;
   background: #f3f3f3;
   font-weight: normal;
   color: #212121;
 }
-/* line 90, ../../sass/app/activities.scss */
+/* line 85, ../../sass/app/activities.scss */
 .pac-container .pac-item .pac-item-query {
   line-height: 2.3em;
 }
 
-/* line 96, ../../sass/app/activities.scss */
+/* line 91, ../../sass/app/activities.scss */
 .ui-autocomplete {
   font-size: 1em;
   padding: 0em;
   font-family: inherit;
 }
-/* line 101, ../../sass/app/activities.scss */
+/* line 96, ../../sass/app/activities.scss */
 .ui-autocomplete li.ui-menu-item {
   text-decoration: none;
   display: block;
@@ -3639,46 +3625,46 @@ body.fullscreen .activity-highlight.large {
   margin: 0em;
   font-size: 0.8em;
 }
-/* line 115, ../../sass/app/activities.scss */
+/* line 110, ../../sass/app/activities.scss */
 .ui-autocomplete li.ui-menu-item a {
   border: none;
   color: #666666;
 }
-/* line 120, ../../sass/app/activities.scss */
+/* line 115, ../../sass/app/activities.scss */
 .ui-autocomplete li.ui-menu-item a.ui-state-focus {
   border: none;
   background: none;
   margin: 0em;
   color: #000;
 }
-/* line 127, ../../sass/app/activities.scss */
+/* line 122, ../../sass/app/activities.scss */
 .ui-autocomplete li.ui-menu-item a:hover {
   background: none;
 }
-/* line 132, ../../sass/app/activities.scss */
+/* line 127, ../../sass/app/activities.scss */
 .ui-autocomplete li.ui-menu-item:hover {
   border-top: 1px solid #dadada;
   background: #f3f3f3;
   font-weight: normal;
   color: #212121;
 }
-/* line 139, ../../sass/app/activities.scss */
+/* line 134, ../../sass/app/activities.scss */
 .ui-autocomplete li.ui-menu-item:hover a:hover {
   background: none;
 }
 
-/* line 146, ../../sass/app/activities.scss */
+/* line 141, ../../sass/app/activities.scss */
 .share-links {
   float: right;
   width: 125px;
   height: 20px;
   margin-bottom: 10px;
 }
-/* line 152, ../../sass/app/activities.scss */
+/* line 147, ../../sass/app/activities.scss */
 .share-links > div {
   float: right;
 }
-/* line 156, ../../sass/app/activities.scss */
+/* line 151, ../../sass/app/activities.scss */
 .share-links .fb-share {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -3698,7 +3684,7 @@ body.fullscreen .activity-highlight.large {
   height: 20px;
   padding: 2px 5px 2px 2px;
 }
-/* line 168, ../../sass/app/activities.scss */
+/* line 163, ../../sass/app/activities.scss */
 .share-links .fb-share:hover {
   background-image: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #ffffff), color-stop(100%, #f2f2f2));
   background-image: -webkit-linear-gradient(top, #ffffff, #f2f2f2);
@@ -3706,12 +3692,12 @@ body.fullscreen .activity-highlight.large {
   background-image: -o-linear-gradient(top, #ffffff, #f2f2f2);
   background-image: linear-gradient(top, #ffffff, #f2f2f2);
 }
-/* line 172, ../../sass/app/activities.scss */
+/* line 167, ../../sass/app/activities.scss */
 .share-links .fb-share i {
   color: #3B5998;
   font-size: 0.9em;
 }
-/* line 177, ../../sass/app/activities.scss */
+/* line 172, ../../sass/app/activities.scss */
 .share-links .fb-share i p {
   text-shadow: 0 1px 3px rgba(255, 255, 255, 0.7);
   font-size: 0.75em;
@@ -3724,7 +3710,7 @@ body.fullscreen .activity-highlight.large {
   margin-top: -17px;
 }
 
-/* line 192, ../../sass/app/activities.scss */
+/* line 187, ../../sass/app/activities.scss */
 .activity-controls {
   width: auto;
   margin-left: -0.9375rem;
@@ -3745,18 +3731,18 @@ body.fullscreen .activity-highlight.large {
 .activity-controls:after {
   clear: both;
 }
-/* line 198, ../../sass/app/activities.scss */
+/* line 193, ../../sass/app/activities.scss */
 .activity-controls a {
   height: 24px;
   font-size: 0.9em;
 }
-/* line 202, ../../sass/app/activities.scss */
+/* line 197, ../../sass/app/activities.scss */
 .activity-controls a:before, .activity-controls a:after {
   background-size: 14px 14px;
   background-repeat: no-repeat;
   content: "\00a0\00a0\00a0\00a0";
 }
-/* line 209, ../../sass/app/activities.scss */
+/* line 204, ../../sass/app/activities.scss */
 .activity-controls .previous, .activity-controls .next {
   position: relative;
   padding-left: 0.9375rem;
@@ -3766,7 +3752,7 @@ body.fullscreen .activity-highlight.large {
   margin-bottom: 0.9375rem;
 }
 @media only screen and (min-width: 48em) {
-  /* line 209, ../../sass/app/activities.scss */
+  /* line 204, ../../sass/app/activities.scss */
   .activity-controls .previous, .activity-controls .next {
     position: relative;
     padding-left: 0.9375rem;
@@ -3775,45 +3761,45 @@ body.fullscreen .activity-highlight.large {
     float: left;
   }
 }
-/* line 218, ../../sass/app/activities.scss */
+/* line 213, ../../sass/app/activities.scss */
 .activity-controls .previous.clear, .activity-controls .next.clear {
   margin-bottom: 0em;
 }
-/* line 221, ../../sass/app/activities.scss */
+/* line 216, ../../sass/app/activities.scss */
 .activity-controls .previous.clear:before, .activity-controls .next.clear:before {
   content: "\00a0";
 }
-/* line 227, ../../sass/app/activities.scss */
+/* line 222, ../../sass/app/activities.scss */
 .activity-controls .previous {
   padding-left: 0em;
 }
-/* line 230, ../../sass/app/activities.scss */
+/* line 225, ../../sass/app/activities.scss */
 .activity-controls .previous a {
   margin-left: -6px;
 }
-/* line 233, ../../sass/app/activities.scss */
+/* line 228, ../../sass/app/activities.scss */
 .activity-controls .previous a:before {
   background-image: url("/images/left.png");
   padding-left: 4px;
   background-position: 4px;
 }
-/* line 241, ../../sass/app/activities.scss */
+/* line 236, ../../sass/app/activities.scss */
 .activity-controls .next {
   text-align: right;
   padding-right: 0em;
 }
-/* line 245, ../../sass/app/activities.scss */
+/* line 240, ../../sass/app/activities.scss */
 .activity-controls .next a {
   margin-right: -2px;
 }
-/* line 248, ../../sass/app/activities.scss */
+/* line 243, ../../sass/app/activities.scss */
 .activity-controls .next a:after {
   background-image: url("/images/right.png");
   padding-right: 4px;
   background-position: 4px;
 }
 
-/* line 257, ../../sass/app/activities.scss */
+/* line 252, ../../sass/app/activities.scss */
 .map-info {
   width: auto;
   margin-left: -0.9375rem;
@@ -3870,7 +3856,7 @@ body.fullscreen .activity-highlight.large {
   line-height: 1.4;
 }
 @media only screen and (min-width: 48em) {
-  /* line 257, ../../sass/app/activities.scss */
+  /* line 252, ../../sass/app/activities.scss */
   .map-info {
     margin: 0em;
     margin-bottom: 1.875rem;
@@ -4177,7 +4163,7 @@ body.fullscreen .activity-highlight.large {
 /* line 570, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section.map .container {
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #6da549;
   width: 8.9775em;
 }
 @media only screen and (min-width: 48em) {
@@ -4250,13 +4236,13 @@ body.fullscreen .activity-highlight.large {
 }
 /* line 631, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section.map .details .owner {
-  color: #3d3d3d;
+  color: white;
   padding-bottom: 0.3em;
 }
 /* line 636, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section.map .details .date, .map-info > .inner .activity .info-section.map .details .location {
   padding-bottom: 0.2em;
-  color: #8a8a8a;
+  color: #d9d9d9;
 }
 /* line 643, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section.large {
@@ -4609,7 +4595,7 @@ body.fullscreen .activity-highlight.large {
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 257, ../../sass/app/activities.scss */
+  /* line 252, ../../sass/app/activities.scss */
   .map-info {
     width: 400px;
   }

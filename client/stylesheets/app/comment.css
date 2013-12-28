@@ -2918,7 +2918,7 @@ blockquote p {
 /* line 570, ../../sass/_components.scss */
 .comment .info-section.map .container {
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #6da549;
   width: 8.9775em;
 }
 @media only screen and (min-width: 48em) {
@@ -2991,13 +2991,13 @@ blockquote p {
 }
 /* line 631, ../../sass/_components.scss */
 .comment .info-section.map .details .owner {
-  color: #3d3d3d;
+  color: white;
   padding-bottom: 0.3em;
 }
 /* line 636, ../../sass/_components.scss */
 .comment .info-section.map .details .date, .comment .info-section.map .details .location {
   padding-bottom: 0.2em;
-  color: #8a8a8a;
+  color: #d9d9d9;
 }
 /* line 643, ../../sass/_components.scss */
 .comment .info-section.large {
@@ -3388,7 +3388,7 @@ blockquote p {
 /* line 570, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .info-section.map .container {
   height: 100%;
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: #6da549;
   width: 8.9775em;
 }
 @media only screen and (min-width: 48em) {
@@ -3461,13 +3461,13 @@ blockquote p {
 }
 /* line 631, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .info-section.map .details .owner {
-  color: #3d3d3d;
+  color: white;
   padding-bottom: 0.3em;
 }
 /* line 636, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .info-section.map .details .date, .comment-form > .inner .user-comment .info-section.map .details .location {
   padding-bottom: 0.2em;
-  color: #8a8a8a;
+  color: #d9d9d9;
 }
 /* line 643, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .info-section.large {
