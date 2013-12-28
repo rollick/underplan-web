@@ -134,10 +134,12 @@ Template.shortForm.events({
     event.stopPropagation();
     event.preventDefault();
 
+
     if($(template.find("a")).hasClass("disabled"))
       return false;
 
     var values = getValues(template);
+    values.type = "short";
 
     if (values.groupId && values.text.length) {
       Meteor.call('createActivity', values, function (error, activityId) {

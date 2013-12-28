@@ -60,9 +60,9 @@ Meteor.methods({
     check(options, Object);
 
     // If the title is empty / undefined then this is a short post
-    if (_.isEmpty(options.type)) {
+    if (_.isEmpty(options.type) || _.indexOf(["short", "story"], options.type) === -1)
+      throw new Meteor.Error(403, "Activity must have valid type");
 
-    }
     if ( options.type == "short" || _.isEmpty(options.title) ) {
       options.type = "short";
       options.published = true;
