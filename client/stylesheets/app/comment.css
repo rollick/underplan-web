@@ -2802,7 +2802,7 @@ blockquote p {
   padding-right: 0.9375rem;
   width: 100%;
   float: left;
-  height: 3.375em;
+  height: 3em;
   font-size: 1em;
   color: black;
   padding-left: 0em;
@@ -2814,7 +2814,7 @@ blockquote p {
 @media only screen and (min-width: 48em) {
   /* line 434, ../../sass/_components.scss */
   .comment .info-section {
-    height: 4.5em;
+    height: 4em;
   }
 }
 /* line 452, ../../sass/_components.scss */
@@ -2822,41 +2822,41 @@ blockquote p {
   float: left;
   pointer-events: all;
   padding: 0.2em;
-  width: 3.375em;
-  height: 3.375em;
+  width: 3em;
+  height: 3em;
 }
 @media only screen and (min-width: 48em) {
   /* line 452, ../../sass/_components.scss */
   .comment .info-section .picture {
-    width: 4.5em;
-    height: 4.5em;
+    width: 4em;
+    height: 4em;
   }
 }
 /* line 464, ../../sass/_components.scss */
 .comment .info-section .picture img {
-  -webkit-border-radius: 4.5em;
-  -moz-border-radius: 4.5em;
-  -ms-border-radius: 4.5em;
-  -o-border-radius: 4.5em;
-  border-radius: 4.5em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  -ms-border-radius: 4em;
+  -o-border-radius: 4em;
+  border-radius: 4em;
 }
 /* line 469, ../../sass/_components.scss */
 .comment .info-section .details {
-  height: 4.5em;
+  height: 3em;
   pointer-events: all;
   display: inline-block;
-  padding: 0.75em 0.6em 0.75em 0.3em;
+  padding: 0.6em;
 }
 @media only screen and (min-width: 48em) {
   /* line 469, ../../sass/_components.scss */
   .comment .info-section .details {
-    height: 4.5em;
+    height: 4em;
   }
 }
 @media only screen and (min-width: 48em) {
   /* line 469, ../../sass/_components.scss */
   .comment .info-section .details {
-    padding: 1em 0.8em 1em 0.4em;
+    padding: 0.8em;
   }
 }
 /* line 486, ../../sass/_components.scss */
@@ -2904,11 +2904,11 @@ blockquote p {
 }
 /* line 560, ../../sass/_components.scss */
 .comment .info-section.map .picture img {
-  -webkit-border-radius: 2.25em;
-  -moz-border-radius: 2.25em;
-  -ms-border-radius: 2.25em;
-  -o-border-radius: 2.25em;
-  border-radius: 2.25em;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  -ms-border-radius: 2em;
+  -o-border-radius: 2em;
+  border-radius: 2em;
   height: 100%;
   width: 100%;
   margin-top: 0em;
@@ -3199,7 +3199,7 @@ blockquote p {
   padding-right: 0.9375rem;
   width: 100%;
   float: left;
-  height: 3.375em;
+  height: 3em;
   font-size: 1em;
   color: black;
   padding-left: 0em;
@@ -3211,7 +3211,7 @@ blockquote p {
 @media only screen and (min-width: 48em) {
   /* line 434, ../../sass/_components.scss */
   .comment-form > .inner .user-comment .info-section {
-    height: 4.5em;
+    height: 4em;
   }
 }
 /* line 452, ../../sass/_components.scss */
@@ -3219,41 +3219,41 @@ blockquote p {
   float: left;
   pointer-events: all;
   padding: 0.2em;
-  width: 3.375em;
-  height: 3.375em;
+  width: 3em;
+  height: 3em;
 }
 @media only screen and (min-width: 48em) {
   /* line 452, ../../sass/_components.scss */
   .comment-form > .inner .user-comment .info-section .picture {
-    width: 4.5em;
-    height: 4.5em;
+    width: 4em;
+    height: 4em;
   }
 }
 /* line 464, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .info-section .picture img {
-  -webkit-border-radius: 4.5em;
-  -moz-border-radius: 4.5em;
-  -ms-border-radius: 4.5em;
-  -o-border-radius: 4.5em;
-  border-radius: 4.5em;
+  -webkit-border-radius: 4em;
+  -moz-border-radius: 4em;
+  -ms-border-radius: 4em;
+  -o-border-radius: 4em;
+  border-radius: 4em;
 }
 /* line 469, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .info-section .details {
-  height: 4.5em;
+  height: 3em;
   pointer-events: all;
   display: inline-block;
-  padding: 0.75em 0.6em 0.75em 0.3em;
+  padding: 0.6em;
 }
 @media only screen and (min-width: 48em) {
   /* line 469, ../../sass/_components.scss */
   .comment-form > .inner .user-comment .info-section .details {
-    height: 4.5em;
+    height: 4em;
   }
 }
 @media only screen and (min-width: 48em) {
   /* line 469, ../../sass/_components.scss */
   .comment-form > .inner .user-comment .info-section .details {
-    padding: 1em 0.8em 1em 0.4em;
+    padding: 0.8em;
   }
 }
 /* line 486, ../../sass/_components.scss */
@@ -3301,11 +3301,11 @@ blockquote p {
 }
 /* line 560, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .info-section.map .picture img {
-  -webkit-border-radius: 2.25em;
-  -moz-border-radius: 2.25em;
-  -ms-border-radius: 2.25em;
-  -o-border-radius: 2.25em;
-  border-radius: 2.25em;
+  -webkit-border-radius: 2em;
+  -moz-border-radius: 2em;
+  -ms-border-radius: 2em;
+  -o-border-radius: 2em;
+  border-radius: 2em;
   height: 100%;
   width: 100%;
   margin-top: 0em;

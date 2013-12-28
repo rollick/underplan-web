@@ -284,7 +284,7 @@
   cursor: pointer;
 }
 
-@mixin entry-with-profile($picture-width: 4.5em, $fixed-details: true, $dark-details: false) {
+@mixin entry-with-profile($picture-width: 4em, $fixed-details: true, $dark-details: false) {
   @include grid-row($behavior: nest);
 
   $info-section-margin: 0em;
@@ -468,7 +468,7 @@
 
     .details {
       @if $fixed-details { 
-        height: $picture-width; 
+        height: $picture-width*$info-section-scale; 
 
         @media only screen and (min-width: 48em) {
           height: $picture-width;
@@ -477,10 +477,10 @@
     
       pointer-events: all;
       display: inline-block;
+      padding: 0.8em*$info-section-scale;
 
-      padding: 1em*$info-section-scale 0.8em*$info-section-scale 1em*$info-section-scale 0.4em*$info-section-scale;
       @media only screen and (min-width: 48em) {
-        padding: 1em 0.8em 1em 0.4em;
+        padding: 0.8em;
       }
 
       .owner {
@@ -672,8 +672,9 @@
     margin-bottom: 0em;
 
     .activity {
+      $profile-height: 4em;
 
-      @include entry-with-profile($picture-width: 4.5em, $dark-details: $dark-details);
+      @include entry-with-profile($picture-width: 4em, $dark-details: $dark-details);
       @include standard-panel-color();
 
       z-index: 90;
@@ -681,10 +682,10 @@
 
       @if $offset-y {
         background-color: transparent;
-        margin-top: -4.6em*$info-section-scale;
+        margin-top: -$profile-height*$info-section-scale;
 
         @media only screen and (min-width: 48em) {
-          margin-top: -4.6em;
+          margin-top: -$profile-height;
         }
       } 
 
