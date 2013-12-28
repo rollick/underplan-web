@@ -556,15 +556,20 @@
       Style for info-section with map static background
     */
     &.map {
+      $map-section-height-small: $top-height*$info-section-scale;
+      $map-section-height-large: $top-height;
+
       color: white;
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
-      height: $top-height*$info-section-scale;
       pointer-events: all;
+      height: $map-section-height-small;
+      background-position-x: $map-section-height-small/2;
 
       @media only screen and (min-width: 48em) {
-        height: $top-height;
+        height: $map-section-height-large;
+        background-position-x: $map-section-height-large/2;
       }
 
       .container {
