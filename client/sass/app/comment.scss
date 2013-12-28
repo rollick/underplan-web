@@ -25,7 +25,7 @@
   margin: 0em;
   padding-bottom: 0px;
   overflow: hidden;
-  height: 100%;
+  height: emCalc(50px);
   margin: 0em;
   background-color: #F3F3F3;
 
@@ -40,11 +40,15 @@
       @include entry-with-profile();
 
       margin: 0.5em;
-      height: emCalc(36px);
-      overflow: hidden;
+      // height: emCalc(36px);
+      // overflow: hidden;
 
       .info-section {
         margin-bottom: 0em;
+
+        .container {
+          width: 100%;
+        }
 
         .picture {
           display: none;
@@ -55,17 +59,17 @@
         }
     
         .details {
-          position: absolute;
-          padding-top: 0em;
-          padding-right: 0em;
-          right: 0em;
-          left: 0em;
+          position: relative;
+          padding: 0em;
+          display: inline-block;
+          height: inherit;
+          width: 100%;
 
           & > .button,
           & > a {
             display: none;
-            margin-bottom: 0em;
-            margin-top: 0.5em;
+            margin-bottom: 0.9em;
+            margin-top: 0.9em;
           }
 
           textarea {
@@ -84,9 +88,10 @@
   }
 
   &.expanded {
+    height: emCalc(135px);
+    
     .user-comment {
       display: block;
-      height: emCalc(115px);
 
       .info-section {
         .picture {
@@ -94,8 +99,8 @@
         }
 
         .details {
-          right: 0em;
-          left: 4.5em;
+          padding-right: 70px;
+          padding-left: 10px;
 
           #comment {
             height: 5em;

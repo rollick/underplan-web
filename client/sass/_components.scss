@@ -473,6 +473,9 @@
 
       img {
         @include border-radius($info-image-radius);
+
+        border: 2px solid rgba(gray, 0.25);
+        padding: 1px;
       }
     }
 
@@ -592,8 +595,7 @@
 
         img {
           @include border-radius(1.7em);
-          border: 2px solid rgba(gray, 0.25);
-          padding: 1px;
+
           width: 3.4em;
           height: 3.4em;
 
