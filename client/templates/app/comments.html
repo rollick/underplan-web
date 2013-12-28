@@ -21,12 +21,14 @@
   {{#if loaded}}
     <div class="comment" data-underplan-comment-id="{{_id}}">
       <div class="info-section">
-        <div class="picture">
-          <img src="{{profilePicture owner}}">
-        </div>
-        <div class="details">
-          <div class="owner">{{userName owner}}</div>
-          <div class="date">{{date created}}</div>
+        <div class="container">
+          <div class="picture">
+            <img src="{{profilePicture owner}}">
+          </div>
+          <div class="details">
+            <div class="owner">{{userName owner}}</div>
+            <div class="date">{{date created}}</div>
+          </div>
         </div>
       </div>
       {{#if canRemove}}
@@ -55,13 +57,15 @@
             <input type="hidden" id="activity-id" value="{{_id}}">
             <div class="user-comment">
               <div class="info-section">
-                <div class="picture">
-                  <img src="{{profilePicture currentUser}}">
-                </div>
-                <div class="details">
-                  <textarea type="text" id="comment" placeholder="Write your comment..."></textarea>
-                  <a href="#" class="tiny button success save disabled">Create</a>
-                  <a href="#" class="tiny secondary cancel">Cancel</a>
+                <div class="container">
+                  <div class="picture">
+                    <img src="{{profilePicture currentUser}}">
+                  </div>
+                  <div class="details">
+                    <textarea type="text" id="comment" placeholder="Write your comment..."></textarea>
+                    <a href="#" class="tiny button success save disabled">Create</a>
+                    <a href="#" class="tiny secondary cancel">Cancel</a>
+                  </div>
                 </div>
               </div>
             </div>

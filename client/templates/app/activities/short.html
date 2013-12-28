@@ -19,12 +19,14 @@
 
 <template name="itemContent">
   <div class="info-section {{infoSectionCls}}" style="background-image: url({{mapUrl}})">
-    <div class="picture">
-      <img src="{{profilePicture owner}}">
-    </div>
-    <div class="details">
-      <div class="owner">{{userName owner}}</div>
-      <div class="date">{{date created}} {{basicLocation this}}</div>
+    <div class="container">
+      <div class="picture">
+        <img src="{{profilePicture owner}}">
+      </div>
+      <div class="details">
+        <div class="owner">{{userName owner}}</div>
+        <div class="date">{{date created}} {{basicLocation this}}</div>
+      </div>
     </div>
   </div>
   <div class="fixed actions">

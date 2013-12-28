@@ -284,7 +284,7 @@
   cursor: pointer;
 }
 
-@mixin entry-with-profile($picture-width: 4em, $fixed-details: true, $dark-details: false) {
+@mixin entry-with-profile($picture-width: 4em, $fixed-details: true, $dark-details: false, $top-height: 9em) {
   @include grid-row($behavior: nest);
 
   $info-section-margin: 0em;
@@ -400,10 +400,12 @@
 
       &.next:before {
         content: ">";
+        line-height: 1.8em;
       }
 
       &.previous:before {
         content: "<";
+        line-height: 1.8em;
       }
 
       &.previous,
@@ -441,6 +443,7 @@
         height: $info-section-height;
       }
     }
+
     font-size: 1em;
     color: black;
     padding-left: $info-section-margin;
@@ -449,6 +452,13 @@
     float: left;
     white-space: nowrap;
 
+    .container {
+      display: inline-block;
+    }
+
+    /*
+      Standard style for info-section
+    */
     .picture {
       float: left;
       pointer-events: all;
@@ -483,28 +493,33 @@
         padding: 0.8em;
       }
 
+      $details-font-size: 1em;
+
       .owner {
-        line-height: 1em*$info-section-scale;
+        margin-bottom: $standard-margin/2;
+        font-size: $details-font-size*$info-section-scale;
 
         @media only screen and (min-width: 48em) {
-          line-height: 1em;
+          font-size: $details-font-size;
         }
       }
 
       .date {
         color: #999999;
-        line-height: 2em;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        font-size: 0.9em*$info-section-scale;
+        font-size: $details-font-size*0.8*$info-section-scale;
 
         @media only screen and (min-width: 48em) {
-          font-size: 0.9em;
+          font-size: $details-font-size*0.8;
         }
       }
     }
 
+    /*
+      Style for info-section with 
+    */
     @if $dark-details {
       overflow-x: scroll;
       -webkit-overflow-scrolling: touch;
@@ -535,45 +550,85 @@
       }
     }
 
+    /*
+      Style for info-section with map static background
+    */
     &.map {
-      overflow-x: scroll;
-      -webkit-overflow-scrolling: touch;
-      background-color: rgba(0, 0, 0, 0.4);
-      height: 140px;
       color: white;
-
       background-position: center;
       background-repeat: no-repeat;
       background-size: cover;
+      height: $top-height*$info-section-scale;
 
-      .picture,
-      .details {
-        // margin-top: emCalc(140px) - $picture-width;
+      @media only screen and (min-width: 48em) {
+        height: $top-height;
+      }
+
+      .container {
+        height: 100%;
+        width: $top-height*$info-section-scale*1.33;
+
+        @media only screen and (min-width: 48em) {
+          width: $top-height*1.33;
+        }
+      }
+
+      .picture, .details {
+        background-color: rgba(255, 255, 255, 0.8);
       }
 
       .picture {
         bottom: inherit;
         float: left;
-        background-color: $dark-details-bg;
         z-index: 2;
+        height: 55%;
+        width: 100%;
+        text-align: center;
+        padding: 0.25em;
+
+        @media only screen and (min-width: 48em) {
+          padding: 0.75em;
+        }
 
         img {
-          @include border-radius($info-section-height/2);
+          @include border-radius(1.7em);
+          border: 2px solid rgba(gray, 0.25);
+          padding: 1px;
+          width: 3.4em;
+          height: 3.4em;
 
-          height: 100%;
-          width: 100%;
-          margin-top: 0em;
+          @media only screen and (min-width: 48em) {
+            @include border-radius(2.1em);
+
+            width: 4.2em;
+            height: 4.2em;
+          }
         }
       }
 
       .details {
         margin-left: 0em;
         bottom: inherit;
-        background-color: $dark-details-bg;
         z-index: 1;
+        width: 100%;
+        height: 45%;
+        text-align: center;
+        float: left;
+
+        $details-color: #3D3D3D;
+
+        .owner, .date {
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+
+        .owner {
+          color: $details-color;
+        }
 
         .date {
-          color: #D8D8D8;
+          color: lighten($details-color, 30%);
         }
       }
     }

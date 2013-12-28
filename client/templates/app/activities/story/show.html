@@ -43,12 +43,14 @@
 
 <template name="singleItemContent">
   <div class="info-section">
-    <div class="picture">
-      <img src="{{profilePicture owner}}">
-    </div>
-    <div class="details">
-      <div class="owner">{{userName owner}}</div>
-      <div class="date">{{dateCreated}} {{basicLocation this}}</div>
+    <div class="container">
+      <div class="picture">
+        <img src="{{profilePicture owner}}">
+      </div>
+      <div class="details">
+        <div class="owner">{{userName owner}}</div>
+        <div class="date">{{dateCreated}} {{basicLocation this}}</div>
+      </div>
     </div>
   </div>
   <div class="content">
