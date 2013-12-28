@@ -132,9 +132,11 @@ Meteor.publish("currentGroupInfo", function (groupId) {
       counts = {}, 
       initializing = true;
 
-  var handle = Activities.find(activityConds, {_id: 1, country: 1}).observeChanges({
-    added: function (id, activity) {
-      var country = activity.country;
+  var handle = Activities.find(activityConds, {_id: 1, country: 1}).observe({
+    added: function (newActivity) {
+      logIfDev("Adding record to GroupInfo: id-" + newActivity._id + ", country-" + newActivity.country);
+ 
+      var country = newActivity.country;
 
       if (_.isEmpty(country))
         return;
@@ -145,11 +147,21 @@ Meteor.publish("currentGroupInfo", function (groupId) {
         counts[country]++;
 
       if (!initializing) {
+        logIfDev("Calling changed on GroupInfo: " + counts[country]);
+
         self.changed("groupInfo", groupId, {counts: counts});
       }
     },
-    removed: function (id, activity) {
-      var country = activity.country;
+    changed: function (oldActivity, newActivity) {
+      logIfDev("Changing record in GroupInfo: " + oldActivity._id);
+
+      this.removed(oldActivity);
+      this.added(newActivity);
+    },
+    removed: function (oldActivity) {
+      logIfDev("Removing record from GroupInfo: " + oldActivity._id + ", country-" + newActivity.country);
+
+      var country = oldActivity.country;
 
       if (_.isEmpty(country))
         return;
