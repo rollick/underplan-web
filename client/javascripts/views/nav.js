@@ -47,7 +47,9 @@ Template.countryFilter.helpers({
     return ReactiveGroupFilter.get("country") || "All Countries";
   },
   countries: function () {
-    var groupInfo = GroupInfo.findOne();
+    var groupId = ReactiveGroupFilter.get("group"),
+        groupInfo = GroupInfo.findOne(groupId);
+
     if (groupInfo)
       return _.keys(groupInfo.counts).sort();
     else

@@ -64,7 +64,8 @@ Template.feedList.helpers({
     return Activities.find(ReactiveGroupFilter.get('queryFields'), {sort: {created: -1}, limit: ReactiveGroupFilter.get("limit")});
   },
   feedLimitReached: function () {
-    var groupInfo = GroupInfo.findOne(),
+    var groupId = ReactiveGroupFilter.get("group"),
+        groupInfo = GroupInfo.findOne(groupId),
         country = ReactiveGroupFilter.get('country'),
         count = 0;
 

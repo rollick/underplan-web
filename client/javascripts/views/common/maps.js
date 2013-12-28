@@ -79,15 +79,15 @@ Template.activityCountControl.helpers({
   // count of activities shown on map is either the current set "limit", or the activities
   // count if it is less than the "limit", eg all activities have been fetched
   loadMore: function () {
-    var groupInfo = GroupInfo.findOne();
-
-    if (!groupInfo)
-      return "";
 
     var groupId = ReactiveGroupFilter.get("group"),
+        groupInfo = GroupInfo.findOne(groupId),
         limit = ReactiveGroupFilter.get("limit") || 0,
         country = ReactiveGroupFilter.get("country"),
         total = 0;
+
+    if (!groupInfo)
+      return "";
 
     if (country)
       total = groupInfo.counts[country];

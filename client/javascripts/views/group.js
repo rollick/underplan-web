@@ -73,7 +73,8 @@ Template.groupActions.helpers({
     return false;
   },
   showCountryFilter: function () {
-    var groupInfo = GroupInfo.findOne();
+    var groupId = ReactiveGroupFilter.get("group"),
+        groupInfo = GroupInfo.findOne(groupId);
     
     if (groupInfo)
       return _.keys(groupInfo.counts).length > 1;
