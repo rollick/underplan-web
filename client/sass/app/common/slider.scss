@@ -151,6 +151,8 @@ $slider-btn-height: 35px;
 
 .feed-item .sequence {
   height: $slider-height-small;
+  margin-left: 0em;
+  margin-right: 0em;
 
   &.expanded {
     height: $slider-height-large;
