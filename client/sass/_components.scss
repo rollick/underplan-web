@@ -311,11 +311,12 @@
     overflow: scroll;
     position: relative;
     height: 100%;
-    display: none;
 
+    display: inherit;
     width: $action-width-small;
 
     @media only screen and (min-width: 48em) {
+      display: none;
       width: $action-width-large*2;
     }
 
