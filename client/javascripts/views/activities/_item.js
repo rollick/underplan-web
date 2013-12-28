@@ -33,6 +33,12 @@ this.itemEvents = {
       }, 2000);
     }
   },
+  'mouseenter': function (event, template) {
+    $(template.find(".actions")).show();
+  },
+  'mouseleave': function (event, template) {
+    $(template.find(".actions")).hide();
+  },
 };
 
 ///////////////////////////////////////////////////////////////////////////////

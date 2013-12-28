@@ -2771,9 +2771,8 @@ blockquote p {
 .single-item > .inner .activity > .inner .activity {
   margin-top: -4.375rem;
   background-color: transparent;
-  pointer-events: none;
 }
-/* line 306, ../../sass/_components.scss */
+/* line 305, ../../sass/_components.scss */
 .single-item > .inner .activity .actions {
   font-size: 1em;
   color: black;
@@ -2782,10 +2781,11 @@ blockquote p {
   overflow: scroll;
   position: relative;
   height: 100%;
+  display: none;
   width: 2em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 306, ../../sass/_components.scss */
+  /* line 305, ../../sass/_components.scss */
   .single-item > .inner .activity .actions {
     width: 5em;
   }
@@ -2909,7 +2909,6 @@ blockquote p {
   color: black;
   padding-left: 0em;
   padding-right: 0em;
-  pointer-events: none;
   float: left;
   white-space: nowrap;
   /*
@@ -2931,11 +2930,11 @@ blockquote p {
     height: 4em;
   }
 }
-/* line 455, ../../sass/_components.scss */
+/* line 454, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section .container {
   display: inline-block;
 }
-/* line 462, ../../sass/_components.scss */
+/* line 461, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section .picture {
   float: left;
   pointer-events: all;
@@ -2944,13 +2943,13 @@ blockquote p {
   height: 3em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 462, ../../sass/_components.scss */
+  /* line 461, ../../sass/_components.scss */
   .single-item > .inner .activity .info-section .picture {
     width: 4em;
     height: 4em;
   }
 }
-/* line 474, ../../sass/_components.scss */
+/* line 473, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section .picture img {
   -webkit-border-radius: 4em;
   -moz-border-radius: 4em;
@@ -2960,7 +2959,7 @@ blockquote p {
   border: 2px solid rgba(128, 128, 128, 0.25);
   padding: 1px;
 }
-/* line 482, ../../sass/_components.scss */
+/* line 481, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section .details {
   height: 3em;
   pointer-events: all;
@@ -2968,29 +2967,29 @@ blockquote p {
   padding: 0.6em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 482, ../../sass/_components.scss */
+  /* line 481, ../../sass/_components.scss */
   .single-item > .inner .activity .info-section .details {
     height: 4em;
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 482, ../../sass/_components.scss */
+  /* line 481, ../../sass/_components.scss */
   .single-item > .inner .activity .info-section .details {
     padding: 0.8em;
   }
 }
-/* line 501, ../../sass/_components.scss */
+/* line 500, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section .details .owner {
   margin-bottom: 0.46875rem;
   font-size: 0.75em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 501, ../../sass/_components.scss */
+  /* line 500, ../../sass/_components.scss */
   .single-item > .inner .activity .info-section .details .owner {
     font-size: 1em;
   }
 }
-/* line 510, ../../sass/_components.scss */
+/* line 509, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section .details .date, .single-item > .inner .activity .info-section .details .location {
   color: #999999;
   white-space: nowrap;
@@ -2999,18 +2998,18 @@ blockquote p {
   font-size: 0.6em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 510, ../../sass/_components.scss */
+  /* line 509, ../../sass/_components.scss */
   .single-item > .inner .activity .info-section .details .date, .single-item > .inner .activity .info-section .details .location {
     font-size: 0.8em;
   }
 }
-/* line 531, ../../sass/_components.scss */
+/* line 530, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section .picture {
   float: left;
   background-color: rgba(14, 14, 14, 0.7);
   z-index: 2;
 }
-/* line 536, ../../sass/_components.scss */
+/* line 535, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section .picture img {
   -webkit-border-radius: 4em;
   -moz-border-radius: 4em;
@@ -3021,26 +3020,27 @@ blockquote p {
   width: 100%;
   margin-top: 0em;
 }
-/* line 545, ../../sass/_components.scss */
+/* line 544, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section .details {
   margin-left: 0em;
   background-color: rgba(14, 14, 14, 0.7);
   z-index: 1;
 }
-/* line 550, ../../sass/_components.scss */
+/* line 549, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section .details .date {
   color: #D8D8D8;
 }
-/* line 559, ../../sass/_components.scss */
+/* line 558, ../../sass/_components.scss */
 .single-item > .inner .activity .info-section.map {
   color: white;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 6.75em;
+  pointer-events: all;
 }
 @media only screen and (min-width: 48em) {
-  /* line 559, ../../sass/_components.scss */
+  /* line 558, ../../sass/_components.scss */
   .single-item > .inner .activity .info-section.map {
     height: 9em;
   }
@@ -3916,9 +3916,8 @@ body.fullscreen .activity-highlight.large {
 .map-info > .inner .activity > .inner .activity {
   margin-top: -4.375rem;
   background-color: transparent;
-  pointer-events: none;
 }
-/* line 306, ../../sass/_components.scss */
+/* line 305, ../../sass/_components.scss */
 .map-info > .inner .activity .actions {
   font-size: 1em;
   color: black;
@@ -3927,10 +3926,11 @@ body.fullscreen .activity-highlight.large {
   overflow: scroll;
   position: relative;
   height: 100%;
+  display: none;
   width: 2em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 306, ../../sass/_components.scss */
+  /* line 305, ../../sass/_components.scss */
   .map-info > .inner .activity .actions {
     width: 5em;
   }
@@ -4054,7 +4054,6 @@ body.fullscreen .activity-highlight.large {
   color: black;
   padding-left: 0em;
   padding-right: 0em;
-  pointer-events: none;
   float: left;
   white-space: nowrap;
   /*
@@ -4073,11 +4072,11 @@ body.fullscreen .activity-highlight.large {
     height: 4em;
   }
 }
-/* line 455, ../../sass/_components.scss */
+/* line 454, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section .container {
   display: inline-block;
 }
-/* line 462, ../../sass/_components.scss */
+/* line 461, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section .picture {
   float: left;
   pointer-events: all;
@@ -4086,13 +4085,13 @@ body.fullscreen .activity-highlight.large {
   height: 3em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 462, ../../sass/_components.scss */
+  /* line 461, ../../sass/_components.scss */
   .map-info > .inner .activity .info-section .picture {
     width: 4em;
     height: 4em;
   }
 }
-/* line 474, ../../sass/_components.scss */
+/* line 473, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section .picture img {
   -webkit-border-radius: 4em;
   -moz-border-radius: 4em;
@@ -4102,7 +4101,7 @@ body.fullscreen .activity-highlight.large {
   border: 2px solid rgba(128, 128, 128, 0.25);
   padding: 1px;
 }
-/* line 482, ../../sass/_components.scss */
+/* line 481, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section .details {
   height: 3em;
   pointer-events: all;
@@ -4110,29 +4109,29 @@ body.fullscreen .activity-highlight.large {
   padding: 0.6em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 482, ../../sass/_components.scss */
+  /* line 481, ../../sass/_components.scss */
   .map-info > .inner .activity .info-section .details {
     height: 4em;
   }
 }
 @media only screen and (min-width: 48em) {
-  /* line 482, ../../sass/_components.scss */
+  /* line 481, ../../sass/_components.scss */
   .map-info > .inner .activity .info-section .details {
     padding: 0.8em;
   }
 }
-/* line 501, ../../sass/_components.scss */
+/* line 500, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section .details .owner {
   margin-bottom: 0.46875rem;
   font-size: 0.75em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 501, ../../sass/_components.scss */
+  /* line 500, ../../sass/_components.scss */
   .map-info > .inner .activity .info-section .details .owner {
     font-size: 1em;
   }
 }
-/* line 510, ../../sass/_components.scss */
+/* line 509, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section .details .date, .map-info > .inner .activity .info-section .details .location {
   color: #999999;
   white-space: nowrap;
@@ -4141,21 +4140,22 @@ body.fullscreen .activity-highlight.large {
   font-size: 0.6em;
 }
 @media only screen and (min-width: 48em) {
-  /* line 510, ../../sass/_components.scss */
+  /* line 509, ../../sass/_components.scss */
   .map-info > .inner .activity .info-section .details .date, .map-info > .inner .activity .info-section .details .location {
     font-size: 0.8em;
   }
 }
-/* line 559, ../../sass/_components.scss */
+/* line 558, ../../sass/_components.scss */
 .map-info > .inner .activity .info-section.map {
   color: white;
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
   height: 6.75em;
+  pointer-events: all;
 }
 @media only screen and (min-width: 48em) {
-  /* line 559, ../../sass/_components.scss */
+  /* line 558, ../../sass/_components.scss */
   .map-info > .inner .activity .info-section.map {
     height: 9em;
   }

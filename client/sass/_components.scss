@@ -300,7 +300,6 @@
   & > .inner .activity {
     margin-top: emCalc(-70px);
     background-color: transparent;
-    pointer-events: none; // div overlaps map so disable events here so that map drag / click works
   }
 
   .actions {
@@ -312,6 +311,7 @@
     overflow: scroll;
     position: relative;
     height: 100%;
+    display: none;
 
     width: $action-width-small;
 
@@ -448,7 +448,6 @@
     color: black;
     padding-left: $info-section-margin;
     padding-right: $info-section-margin;
-    pointer-events: none;
     float: left;
     white-space: nowrap;
 
@@ -562,6 +561,7 @@
       background-repeat: no-repeat;
       background-size: cover;
       height: $top-height*$info-section-scale;
+      pointer-events: all;
 
       @media only screen and (min-width: 48em) {
         height: $top-height;
