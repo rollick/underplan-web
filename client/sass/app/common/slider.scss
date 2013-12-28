@@ -135,16 +135,21 @@ $slider-btn-height: 35px;
     }
   }
 
-  &.large .sequence {
-    height: $slider-height-medium;
+  &.large {
+    margin: 0em;
 
-    @media only screen and (min-width: 48em) {
-      height: $slider-height-large;
-    }
+    .sequence {
+      margin: 0em;
+      height: $slider-height-medium;
 
-    .sequence-next,
-    .sequence-prev {
-      top: 48%;
+      @media only screen and (min-width: 48em) {
+        height: $slider-height-large;
+      }
+
+      .sequence-next,
+      .sequence-prev {
+        top: 48%;
+      }
     }
   }
 }
