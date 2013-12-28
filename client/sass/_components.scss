@@ -507,7 +507,7 @@
         }
       }
 
-      .date {
+      .date, .location {
         color: #999999;
         white-space: nowrap;
         overflow: hidden;
@@ -569,15 +569,12 @@
 
       .container {
         height: 100%;
+        background-color: rgba(255, 255, 255, 0.9);
         width: $top-height*$info-section-scale*1.33;
 
         @media only screen and (min-width: 48em) {
           width: $top-height*1.33;
         }
-      }
-
-      .picture, .details {
-        background-color: rgba(255, 255, 255, 0.8);
       }
 
       .picture {
@@ -616,20 +613,28 @@
         height: 45%;
         text-align: center;
         float: left;
+        padding: 0.4em*$info-section-scale 0.8em*$info-section-scale;
+
+        @media only screen and (min-width: 48em) {
+          padding: 0.4em 0.8em;
+        }
 
         $details-color: #3D3D3D;
 
-        .owner, .date {
+        .owner, .date, .location {
           text-overflow: ellipsis;
           white-space: nowrap;
           overflow: hidden;
+          margin-bottom: 0em;
         }
 
         .owner {
           color: $details-color;
+          padding-bottom: 0.3em;
         }
 
-        .date {
+        .date, .location {
+          padding-bottom: 0.2em;
           color: lighten($details-color, 30%);
         }
       }

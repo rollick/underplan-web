@@ -241,8 +241,17 @@
   margin: 0px 0px 0px 45px !important;
   overflow: hidden;
 
+  ul.right {
+    position: absolute;
+    right: 0;
+  }
+
   &.expanded {
     background: rgba($common-dark-color, 0.8) !important;
+
+    ul.right {
+      position: relative;
+    }
   }
 
   .name h1 {

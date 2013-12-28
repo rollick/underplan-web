@@ -2,21 +2,14 @@
 // Search Inout for Activity Editor
 
 clearHiddenLocationFields = function (template) {
-  template.find("#lat").value = "";
-  template.find("#lng").value = "";
-  template.find("#city").value = "";
-  template.find("#country").value = "";
-  template.find("#region").value = "";
-  
-  template.find(".location-coords").innerHTML = "";
+  var element = $(template.firstNode);
+
+  element.find("#lat, #lng, #city, #country, #region").value = "";
+  element.find(".location-coords").innerHTML = "";
 };
 
 Template.searchableLocation.destroyed = function () {
   this._autocomplete = null;
-};
-
-Template.searchableLocation.rendered = function () {
-  this._autocomplete = new google.maps.places.Autocomplete(this.find(".location-search"));
 };
 
 Template.searchableLocation.events({
@@ -34,6 +27,9 @@ Template.searchableLocation.events({
   'keyup .location-search': function (event, template) {
     event.stopPropagation();
     event.preventDefault();
+
+    if (!template._autocomplete)
+      template._autocomplete = new google.maps.places.Autocomplete(template.find(".location-search"));
 
     var locationElem = $(event.target)
     var location = locationElem.val();

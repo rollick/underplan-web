@@ -25,7 +25,8 @@
       </div>
       <div class="details">
         <div class="owner">{{userName owner}}</div>
-        <div class="date">{{date created}} {{basicLocation this}}</div>
+        <div class="location">{{basicLocation this}}</div>
+        <div class="date">{{date created}}</div>
       </div>
     </div>
   </div>
@@ -37,6 +38,7 @@
       <a href="#" class="remove action"></a>
     {{/if}}
   </div>
+  {{> imageSlider}}
   <div class="content">
     {{#if isStory}}
       <h5><a href="{{activityLink}}" class="title">{{title}} {{#if showUnpublished}}<span class="warning"> U</span>{{/if}}</a></h5>
@@ -46,7 +48,6 @@
       {{> htmlText}}
     {{/if}}
   </div>
-  {{> imageSlider}}
 </template>
 
 <template name="shortForm">

@@ -37,7 +37,7 @@
     }
 
     .user-comment {
-      @include entry-with-profile();
+      @include entry-with-profile($picture-width: 4em);
 
       margin: 0.5em;
       // height: emCalc(36px);
@@ -92,6 +92,9 @@
     
     .user-comment {
       display: block;
+      overflow: hidden;
+      width: 100%;
+      height: 100%;
 
       .info-section {
         .picture {
@@ -99,8 +102,12 @@
         }
 
         .details {
-          padding-right: 70px;
           padding-left: 10px;
+          // padding-right: 4em; // picture width, see entry-with-profile
+
+          // @media only screen and (min-width: 48em) {
+          //   padding-right: 4em*$info-section-scale;
+          // }
 
           #comment {
             height: 5em;
