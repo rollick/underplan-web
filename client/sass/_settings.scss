@@ -37,6 +37,8 @@ $footer-height:             30px;
 $common-dark-color:			    darken($body-bg-color, 25%);
 $dark-details-bg:           rgba($common-dark-color, 0.7);
 
+$info-section-scale:        0.75;
+
 //// Map Handle
 $handle-bg-color:           lighten($body-bg-color, 20%);
 $handle-trim-color:         lighten($handle-bg-color, 30%);

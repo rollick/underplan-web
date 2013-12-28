@@ -123,21 +123,11 @@
 }
 
 @mixin single-item() {
-  @include item-by-user($dark-details: true);
+  @include item-by-user($dark-details: true, $offset-y: true);
   @include border-top-radius(0em);
 
   margin-top: 1px;
   margin-bottom: 0em;
-
-  & > .inner .activity {
-    margin-top: emCalc(-70px);
-    background-color: transparent;
-    pointer-events: none; // div overlaps map so disable events here so that map drag / click works
-  }
-
-  & > .inner .activity .info-section {
-    height: emCalc(70px);
-  }
 
   & > .inner .activity {
 
@@ -296,15 +286,22 @@
 
 @mixin entry-with-profile($picture-width: 4.5em, $fixed-details: true, $dark-details: false) {
   @include grid-row($behavior: nest);
+
   $info-section-margin: 0em;
   $info-section-padding: 0.3em;
-  $info-section-height: $picture-width;
   $action-width-small: 2em;
   $action-width-large: 2.5em;
   $info-image-radius: $picture-width;
+  $info-section-height: $picture-width;
 
   // padding: $info-section-padding 0;
   margin: $info-section-margin;
+
+  & > .inner .activity {
+    margin-top: emCalc(-70px);
+    background-color: transparent;
+    pointer-events: none; // div overlaps map so disable events here so that map drag / click works
+  }
 
   .actions {
     // margin-top: -$info-section-padding;
@@ -437,19 +434,32 @@
   .info-section {
     @include grid-column(12);
 
-    @if $fixed-details { height: $info-section-height; }
+    @if $fixed-details { 
+      height: $info-section-height*$info-section-scale; 
+
+      @media only screen and (min-width: 48em) {
+        height: $info-section-height;
+      }
+    }
     font-size: 1em;
     color: black;
     padding-left: $info-section-margin;
     padding-right: $info-section-margin;
     pointer-events: none;
+    float: left;
+    white-space: nowrap;
 
     .picture {
       float: left;
-      width: $info-section-height;
-      height: $info-section-height;
       pointer-events: all;
       padding: 0.2em;
+      width: $info-section-height*$info-section-scale;
+      height: $info-section-height*$info-section-scale; 
+
+      @media only screen and (min-width: 48em) {
+        width: $info-section-height;
+        height: $info-section-height;
+      }
 
       img {
         @include border-radius($info-image-radius);
@@ -457,57 +467,67 @@
     }
 
     .details {
-      @if $fixed-details { height: $picture-width; }
+      @if $fixed-details { 
+        height: $picture-width; 
+
+        @media only screen and (min-width: 48em) {
+          height: $picture-width;
+        }
+      }
     
-      padding: 1em 0.8em 1em 0.4em;
-      float: left;
       pointer-events: all;
+      display: inline-block;
+
+      padding: 1em*$info-section-scale 0.8em*$info-section-scale 1em*$info-section-scale 0.4em*$info-section-scale;
+      @media only screen and (min-width: 48em) {
+        padding: 1em 0.8em 1em 0.4em;
+      }
 
       .owner {
-        line-height: 1em;
+        line-height: 1em*$info-section-scale;
+
+        @media only screen and (min-width: 48em) {
+          line-height: 1em;
+        }
       }
 
       .date {
-        font-size: 0.9em;
         color: #999999;
         line-height: 2em;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
+        font-size: 0.9em*$info-section-scale;
+
+        @media only screen and (min-width: 48em) {
+          font-size: 0.9em;
+        }
       }
     }
 
     @if $dark-details {
       overflow-x: scroll;
       -webkit-overflow-scrolling: touch;
-      // background-color: $topbar-bg;
-      height: 140px;
       color: white;
 
       .picture {
         float: left;
-        width: $info-section-height;
-        height: $info-section-height;
         background-color: $dark-details-bg;
         z-index: 2;
 
         img {
+          @include border-radius($info-image-radius);
+
           height: 100%;
           width: 100%;
           margin-top: 0em;
-          @include border-radius($info-image-radius);
         }
       }
 
       .details {
-        float: left;
         margin-left: 0em;
         background-color: $dark-details-bg;
         z-index: 1;
-
-        @media only screen and (min-width: 48em) {
-          // right: $info-section-margin;
-        }
 
         .date {
           color: #D8D8D8;
@@ -534,21 +554,19 @@
       .picture {
         bottom: inherit;
         float: left;
-        width: $info-section-height;
-        height: $info-section-height;
         background-color: $dark-details-bg;
         z-index: 2;
 
         img {
+          @include border-radius($info-section-height/2);
+
           height: 100%;
           width: 100%;
           margin-top: 0em;
-          @include border-radius($info-section-height/2);
         }
       }
 
       .details {
-        float: left;
         margin-left: 0em;
         bottom: inherit;
         background-color: $dark-details-bg;
@@ -622,7 +640,7 @@
   }
 }
 
-@mixin item-by-user($dark-details: false) {
+@mixin item-by-user($dark-details: false, $offset-y: false) {
   @include grid-row($behavior: nest);
   @include panel();
   @include standard-corners($standard-corner-radius);
@@ -655,11 +673,20 @@
 
     .activity {
 
-      @include entry-with-profile($dark-details: $dark-details);
+      @include entry-with-profile($picture-width: 4.5em, $dark-details: $dark-details);
       @include standard-panel-color();
 
       z-index: 90;
       margin: 0em;
+
+      @if $offset-y {
+        background-color: transparent;
+        margin-top: -4.6em*$info-section-scale;
+
+        @media only screen and (min-width: 48em) {
+          margin-top: -4.6em;
+        }
+      } 
 
       & > .content a.more {
         line-height: 2.2em;

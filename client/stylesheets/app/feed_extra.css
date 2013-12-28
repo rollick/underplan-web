@@ -3162,66 +3162,30 @@ meta.foundation-mq-topbar {
   }
 }
 @keyframes mapInserted {
-  /* line 188, ../../sass/_components.scss */
+  /* line 178, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 189, ../../sass/_components.scss */
+  /* line 179, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-moz-keyframes mapInserted {
-  /* line 193, ../../sass/_components.scss */
+  /* line 183, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 194, ../../sass/_components.scss */
+  /* line 184, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-webkit-keyframes mapInserted {
-  /* line 198, ../../sass/_components.scss */
-  from {
-    clip: rect(1px, auto, auto, auto);
-  }
-
-  /* line 199, ../../sass/_components.scss */
-  to {
-    clip: rect(0px, auto, auto, auto);
-  }
-}
-
-@-ms-keyframes mapInserted {
-  /* line 203, ../../sass/_components.scss */
-  from {
-    clip: rect(1px, auto, auto, auto);
-  }
-
-  /* line 204, ../../sass/_components.scss */
-  to {
-    clip: rect(0px, auto, auto, auto);
-  }
-}
-
-@-o-keyframes mapInserted {
-  /* line 208, ../../sass/_components.scss */
-  from {
-    clip: rect(1px, auto, auto, auto);
-  }
-
-  /* line 209, ../../sass/_components.scss */
-  to {
-    clip: rect(0px, auto, auto, auto);
-  }
-}
-
-@keyframes galleryInserted {
   /* line 188, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
@@ -3233,7 +3197,7 @@ meta.foundation-mq-topbar {
   }
 }
 
-@-moz-keyframes galleryInserted {
+@-ms-keyframes mapInserted {
   /* line 193, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
@@ -3245,7 +3209,7 @@ meta.foundation-mq-topbar {
   }
 }
 
-@-webkit-keyframes galleryInserted {
+@-o-keyframes mapInserted {
   /* line 198, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
@@ -3257,25 +3221,61 @@ meta.foundation-mq-topbar {
   }
 }
 
-@-ms-keyframes galleryInserted {
-  /* line 203, ../../sass/_components.scss */
+@keyframes galleryInserted {
+  /* line 178, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 204, ../../sass/_components.scss */
+  /* line 179, ../../sass/_components.scss */
+  to {
+    clip: rect(0px, auto, auto, auto);
+  }
+}
+
+@-moz-keyframes galleryInserted {
+  /* line 183, ../../sass/_components.scss */
+  from {
+    clip: rect(1px, auto, auto, auto);
+  }
+
+  /* line 184, ../../sass/_components.scss */
+  to {
+    clip: rect(0px, auto, auto, auto);
+  }
+}
+
+@-webkit-keyframes galleryInserted {
+  /* line 188, ../../sass/_components.scss */
+  from {
+    clip: rect(1px, auto, auto, auto);
+  }
+
+  /* line 189, ../../sass/_components.scss */
+  to {
+    clip: rect(0px, auto, auto, auto);
+  }
+}
+
+@-ms-keyframes galleryInserted {
+  /* line 193, ../../sass/_components.scss */
+  from {
+    clip: rect(1px, auto, auto, auto);
+  }
+
+  /* line 194, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-o-keyframes galleryInserted {
-  /* line 208, ../../sass/_components.scss */
+  /* line 198, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 209, ../../sass/_components.scss */
+  /* line 199, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
@@ -3547,7 +3547,7 @@ meta.foundation-mq-topbar {
 .top-extra > .inner .gallery-more:after {
   clear: both;
 }
-/* line 253, ../../sass/_components.scss */
+/* line 243, ../../sass/_components.scss */
 .top-extra > .inner .gallery-more > .content {
   position: relative;
   padding-left: 0.9375rem;
