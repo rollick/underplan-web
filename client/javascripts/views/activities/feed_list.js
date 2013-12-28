@@ -3,39 +3,6 @@
 
 var feedLimitSkip = 5;
 
-Template.activityFeed.helpers({
-  feedTitle: function() {
-    text = "All Activities";
-    if (!Template.feedList.feedLimitReached()) {
-      text = "Last " + ReactiveGroupFilter.get("limit") + " Activities";
-    }
-
-    // larger displays
-    var html = "<h4 class=\"hide-for-small\">";
-    html += Template.feedList.feedLimitReached() ? "All Activities" : "Last " + ReactiveGroupFilter.get("limit") + " Activities";
-    if (Template.feedList.moreActivities()) {
-      html += "<span class=\"sub-header\"><a href=\"#\" class=\"feed-all\">Show all</a></span>";
-    }
-    html += "</h4>";
-
-    var h5Style = "wide";
-    if (ReactiveGroupFilter.get("limit") > 9) {
-      h5Style = "wider";
-    }
-
-    // small displays
-    html += "<h4 class=\"show-for-small " + h5Style + "\">Last " + ReactiveGroupFilter.get("limit") + "</h4>";
-
-    html += "<h5 class=\"show-for-small " + h5Style + "\">Activities";
-    if (Template.feedList.moreActivities()) {
-      html += "<span class=\"sub-header\"><a href=\"#\" class=\"feed-all\">Show all</a></span>";
-    }
-    html += "</h5>";
-
-    return new Handlebars.SafeString(html);
-  }
-});
-
 Template.activityFeed.events({
   "click a.feed-all": function () {
     event.stopPropagation();
@@ -73,45 +40,66 @@ Template.activityFeed.totalActivities = function () {
 // Activity feed list
 
 Template.feedList.events({
-  "click .feed-more a": function () {
+  "click .feed-more .button": function (event, template) {
     event.stopPropagation();
     event.preventDefault();
 
-    ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
+    if (! $(event.target).hasClass("disabled"))
+      ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
   }
 });
 
-Template.feedList.anyActivities = function () {
-  return Activities.find(ReactiveGroupFilter.get('queryFields')).count() > 0;
-};
+Template.feedList.helpers({
+  isLoading: function () {
+    return !Session.get("feedActivitiesReady");
+  },
+  loadingCls: function () {
+    return Session.get("feedActivitiesReady") ? "" : "disabled";
+  },
+  anyActivities: function () {
+    return Activities.find(ReactiveGroupFilter.get('queryFields')).count() > 0;
+  },
+  recentActivities: function () {
+    // never return activities without a group
+    return Activities.find(ReactiveGroupFilter.get('queryFields'), {sort: {created: -1}, limit: ReactiveGroupFilter.get("limit")});
+  },
+  feedLimitReached: function () {
+    var groupInfo = GroupInfo.findOne(),
+        country = ReactiveGroupFilter.get('country'),
+        count = 0;
 
-Template.feedList.recentActivities = function () {
-  // never return activities without a group
-  return Activities.find(ReactiveGroupFilter.get('queryFields'), {sort: {created: -1}, limit: ReactiveGroupFilter.get("limit")});
-};
+    if (groupInfo) {
+      if (country)
+        count = groupInfo.counts[country];
+      else
+        count = _.reduce(_.values(groupInfo.counts), function(memo, num){ return memo + num; }, 0);
 
-Template.feedList.feedLimitReached = function () {
-  var groupInfo = GroupInfo.findOne(),
-      country = ReactiveGroupFilter.get('country'),
-      count = 0;
-
-  if (groupInfo) {
-    if (country)
-      count = groupInfo.counts[country];
-    else
-      count = _.reduce(_.values(groupInfo.counts), function(memo, num){ return memo + num; }, 0);
-
-    return ReactiveGroupFilter.get("limit") >= count;
-  } else {
-    return false;
+      return ReactiveGroupFilter.get("limit") >= count;
+    } else {
+      return false;
+    }
   }
+});
 
+Template.feedList.rendered = function () {
+  var self = this;
+
+  this._elementWatcher = scrollMonitor.create($(".feed-more"));
+
+  // Load the next batch of activities when the load button comes into view
+  setTimeout(function () {
+    self._elementWatcher.enterViewport(function() {
+      // ignore if already loading activities
+      if (! Session.get("feedActivitiesReady"))
+        return;
+
+      ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
+    });
+  }, 250);
 };
 
-// FIXME: this is a hack! Should be able to use "unless" feedLimitReached in template
-//        but it only seems to work for a single reference.
-Template.feedList.moreActivities = function() {
-  return ReactiveGroupFilter.get("limit") < Activities.find(ReactiveGroupFilter.get('queryFields')).count();
+Template.feedList.destroyed = function () {
+  this._elementWatcher = null;
 };
 
 ///////////////////////////////////////////////////////////////////////////////

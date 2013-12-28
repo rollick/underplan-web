@@ -21,7 +21,9 @@ Meteor.subscribe("groups");
 Meteor.subscribe("directory");
 Meteor.subscribe("userDetails");
 
-this.commentsSubscription = self.activitiesSubscription = null;
+this.commentsSubscription = 
+this.activitiesSubscription = 
+this.feedListSubscription = null;
 this.activityCommentStatus = {};
 
 this.mappingFsm = new MappingFsm(); // ... now call setup() after google.maps has loaded
@@ -41,7 +43,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.214");
+  Session.set("appVersion", "v1.3.215");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -98,9 +100,11 @@ Meteor.startup(function () {
     if (options.groupId && options.limit) {
       logIfDev("Subscribe to group feed/map data");
 
+      Session.set("feedActivitiesReady", false);
       self.feedListSubscription = Meteor.subscribe("feedActivities", options, function () {
         // refresh map markers
         mappingFsm.setupGroupMarkers();
+        Session.set("feedActivitiesReady", true);
       });
 
       self.feedCommentsSubscription = Meteor.subscribe("feedCommentCounts", options);

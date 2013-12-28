@@ -7,6 +7,42 @@
 @import "foundation/components/type";
 @import "foundation/components/grid";
 
+@-webkit-keyframes spinner-rotation {
+  from {-webkit-transform: rotate(0deg);}
+  to {-webkit-transform: rotate(359deg);}
+}
+
+@-moz-keyframes spinner-rotation {
+  from {-moz-transform: rotate(0deg);}
+  to {-moz-transform: rotate(359deg);}
+}
+
+@-o-keyframes spinner-rotation {
+  from {-o-transform: rotate(0deg);}
+  to {-o-transform: rotate(359deg);}
+}
+
+@keyframes spinner-rotation {
+  from {transform: rotate(0deg);}
+  to {transform: rotate(359deg);}
+}
+
+@mixin spinner($spinner-height: 20px, $spinner-color: rgb(0,174,239)) {
+  height: $spinner-height;
+  width: $spinner-height;
+  margin: 0px auto;
+  position: relative;
+  -webkit-animation: spinner-rotation .8s infinite linear;
+  -moz-animation: spinner-rotation .8s infinite linear;
+  -o-animation: spinner-rotation .8s infinite linear;
+  animation: spinner-rotation .8s infinite linear;
+  border-left: $spinner-height/10 solid rgba($spinner-color,.15);
+  border-right: $spinner-height/10 solid rgba($spinner-color,.15);
+  border-bottom: $spinner-height/10 solid rgba($spinner-color,.15);
+  border-top: $spinner-height/10 solid rgba($spinner-color,.8);
+  border-radius: 100%;
+}
+
 @mixin triangle($direction, $color, $size) {
   @if $direction == "left" {
     border-bottom: $size solid transparent;
@@ -258,7 +294,7 @@
   cursor: pointer;
 }
 
-@mixin entry-with-profile($picture-width: 3.5em, $fixed-details: true, $dark-details: false) {
+@mixin entry-with-profile($picture-width: 4.5em, $fixed-details: true, $dark-details: false) {
   @include grid-row($behavior: nest);
   $info-section-margin: 0em;
   $info-section-padding: 0.3em;
@@ -409,12 +445,11 @@
     pointer-events: none;
 
     .picture {
-      position: absolute;
+      float: left;
       width: $info-section-height;
       height: $info-section-height;
-      top: $info-section-margin;
-      left: $info-section-margin;
       pointer-events: all;
+      padding: 0.2em;
 
       img {
         @include border-radius($info-image-radius);
@@ -424,10 +459,8 @@
     .details {
       @if $fixed-details { height: $picture-width; }
     
-      position: absolute;
-      padding: 0.5em 0.8em;
-      top: $info-section-margin;
-      left: $info-section-height + $info-section-margin;
+      padding: 1em 0.8em 1em 0.4em;
+      float: left;
       pointer-events: all;
 
       .owner {
@@ -452,12 +485,10 @@
       color: white;
 
       .picture {
-        position: absolute;
-        top: inherit;
-        left: $info-section-margin;
-        bottom: $info-section-margin;
+        float: left;
         width: $info-section-height;
         height: $info-section-height;
+        background-color: $dark-details-bg;
         z-index: 2;
 
         img {
@@ -469,14 +500,9 @@
       }
 
       .details {
-        position: absolute;
-        padding: 0.5em 0.8em;
+        float: left;
         margin-left: 0em;
-        top: inherit;
-        bottom: $info-section-margin;
-        left: 2em;
         background-color: $dark-details-bg;
-        padding-left: 2.5em;
         z-index: 1;
 
         @media only screen and (min-width: 48em) {
@@ -506,12 +532,11 @@
       }
 
       .picture {
-        position: absolute;
-        top: inherit;
-        left: $info-section-margin;
-        bottom: $info-section-margin;
+        bottom: inherit;
+        float: left;
         width: $info-section-height;
         height: $info-section-height;
+        background-color: $dark-details-bg;
         z-index: 2;
 
         img {
@@ -523,14 +548,10 @@
       }
 
       .details {
-        position: absolute;
-        padding: 0.5em 0.8em;
+        float: left;
         margin-left: 0em;
-        top: inherit;
-        bottom: $info-section-margin;
-        left: 2em;
+        bottom: inherit;
         background-color: $dark-details-bg;
-        padding-left: 2.5em;
         z-index: 1;
 
         .date {
@@ -580,6 +601,11 @@
     @include grid-column(12);
 
     padding: $standard-padding;
+    padding-right: $action-width-small;
+
+    @media only screen and (min-width: 48em) {
+      padding-right: $action-width-large;
+    }
 
     h2 {
       line-height: 1.2em;

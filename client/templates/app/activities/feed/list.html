@@ -7,7 +7,12 @@
   {{#unless feedLimitReached}}
     <div class="feed-more">
       <div class="content">
-        <a href="#" class="secondary button">Load More</a>
+        <div class="small button {{loadingCls}}">
+          {{#if isLoading}}
+            <div class="spinner"></div>
+          {{/if}}
+          Load More
+        </div>
       </div>
     </div>
   {{/unless}}

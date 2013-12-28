@@ -2525,6 +2525,54 @@ blockquote p {
     float: right !important;
   }
 }
+@-webkit-keyframes spinner-rotation {
+  /* line 11, ../../../sass/_components.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  /* line 12, ../../../sass/_components.scss */
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@-moz-keyframes spinner-rotation {
+  /* line 16, ../../../sass/_components.scss */
+  from {
+    -moz-transform: rotate(0deg);
+  }
+
+  /* line 17, ../../../sass/_components.scss */
+  to {
+    -moz-transform: rotate(359deg);
+  }
+}
+
+@-o-keyframes spinner-rotation {
+  /* line 21, ../../../sass/_components.scss */
+  from {
+    -o-transform: rotate(0deg);
+  }
+
+  /* line 22, ../../../sass/_components.scss */
+  to {
+    -o-transform: rotate(359deg);
+  }
+}
+
+@keyframes spinner-rotation {
+  /* line 26, ../../../sass/_components.scss */
+  from {
+    transform: rotate(0deg);
+  }
+
+  /* line 27, ../../../sass/_components.scss */
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 /* line 6, ../../../sass/app/common/map.scss */
 .map-controls {
   z-index: 0;

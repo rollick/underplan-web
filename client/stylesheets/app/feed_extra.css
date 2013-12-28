@@ -2524,6 +2524,54 @@ blockquote p {
     float: right !important;
   }
 }
+@-webkit-keyframes spinner-rotation {
+  /* line 11, ../../sass/_components.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  /* line 12, ../../sass/_components.scss */
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@-moz-keyframes spinner-rotation {
+  /* line 16, ../../sass/_components.scss */
+  from {
+    -moz-transform: rotate(0deg);
+  }
+
+  /* line 17, ../../sass/_components.scss */
+  to {
+    -moz-transform: rotate(359deg);
+  }
+}
+
+@-o-keyframes spinner-rotation {
+  /* line 21, ../../sass/_components.scss */
+  from {
+    -o-transform: rotate(0deg);
+  }
+
+  /* line 22, ../../sass/_components.scss */
+  to {
+    -o-transform: rotate(359deg);
+  }
+}
+
+@keyframes spinner-rotation {
+  /* line 26, ../../sass/_components.scss */
+  from {
+    transform: rotate(0deg);
+  }
+
+  /* line 27, ../../sass/_components.scss */
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 /* line 102, ../../../packages/bower/foundation/scss/foundation/components/_alert-boxes.scss */
 .alert-box {
   border-style: solid;
@@ -3114,120 +3162,120 @@ meta.foundation-mq-topbar {
   }
 }
 @keyframes mapInserted {
-  /* line 152, ../../sass/_components.scss */
+  /* line 188, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 153, ../../sass/_components.scss */
+  /* line 189, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-moz-keyframes mapInserted {
-  /* line 157, ../../sass/_components.scss */
+  /* line 193, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 158, ../../sass/_components.scss */
+  /* line 194, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-webkit-keyframes mapInserted {
-  /* line 162, ../../sass/_components.scss */
+  /* line 198, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 163, ../../sass/_components.scss */
+  /* line 199, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-ms-keyframes mapInserted {
-  /* line 167, ../../sass/_components.scss */
+  /* line 203, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 168, ../../sass/_components.scss */
+  /* line 204, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-o-keyframes mapInserted {
-  /* line 172, ../../sass/_components.scss */
+  /* line 208, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 173, ../../sass/_components.scss */
+  /* line 209, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @keyframes galleryInserted {
-  /* line 152, ../../sass/_components.scss */
+  /* line 188, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 153, ../../sass/_components.scss */
+  /* line 189, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-moz-keyframes galleryInserted {
-  /* line 157, ../../sass/_components.scss */
+  /* line 193, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 158, ../../sass/_components.scss */
+  /* line 194, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-webkit-keyframes galleryInserted {
-  /* line 162, ../../sass/_components.scss */
+  /* line 198, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 163, ../../sass/_components.scss */
+  /* line 199, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-ms-keyframes galleryInserted {
-  /* line 167, ../../sass/_components.scss */
+  /* line 203, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 168, ../../sass/_components.scss */
+  /* line 204, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
 }
 
 @-o-keyframes galleryInserted {
-  /* line 172, ../../sass/_components.scss */
+  /* line 208, ../../sass/_components.scss */
   from {
     clip: rect(1px, auto, auto, auto);
   }
 
-  /* line 173, ../../sass/_components.scss */
+  /* line 209, ../../sass/_components.scss */
   to {
     clip: rect(0px, auto, auto, auto);
   }
@@ -3499,7 +3547,7 @@ meta.foundation-mq-topbar {
 .top-extra > .inner .gallery-more:after {
   clear: both;
 }
-/* line 217, ../../sass/_components.scss */
+/* line 253, ../../sass/_components.scss */
 .top-extra > .inner .gallery-more > .content {
   position: relative;
   padding-left: 0.9375rem;

@@ -55,10 +55,12 @@
         }
     
         .details {
+          position: absolute;
           padding-top: 0em;
-          left: 0em;
+          padding-right: 0em;
           right: 0em;
-          
+          left: 0em;
+
           & > .button,
           & > a {
             display: none;
@@ -92,8 +94,8 @@
         }
 
         .details {
-          margin-left: 0em;
-          left: 3.8em;
+          right: 0em;
+          left: 4.5em;
 
           #comment {
             height: 5em;

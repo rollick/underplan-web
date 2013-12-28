@@ -7719,6 +7719,54 @@ p.lead {
   margin-bottom: 0.5rem;
 }
 
+@-webkit-keyframes spinner-rotation {
+  /* line 11, ../sass/_components.scss */
+  from {
+    -webkit-transform: rotate(0deg);
+  }
+
+  /* line 12, ../sass/_components.scss */
+  to {
+    -webkit-transform: rotate(359deg);
+  }
+}
+
+@-moz-keyframes spinner-rotation {
+  /* line 16, ../sass/_components.scss */
+  from {
+    -moz-transform: rotate(0deg);
+  }
+
+  /* line 17, ../sass/_components.scss */
+  to {
+    -moz-transform: rotate(359deg);
+  }
+}
+
+@-o-keyframes spinner-rotation {
+  /* line 21, ../sass/_components.scss */
+  from {
+    -o-transform: rotate(0deg);
+  }
+
+  /* line 22, ../sass/_components.scss */
+  to {
+    -o-transform: rotate(359deg);
+  }
+}
+
+@keyframes spinner-rotation {
+  /* line 26, ../sass/_components.scss */
+  from {
+    transform: rotate(0deg);
+  }
+
+  /* line 27, ../sass/_components.scss */
+  to {
+    transform: rotate(359deg);
+  }
+}
+
 /* line 10, ../../../../.rvm/rubies/ruby-2.0.0-p247/lib/ruby/gems/2.0.0/gems/compass-0.12.2/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 html, body {
   height: 100%;
@@ -8052,7 +8100,7 @@ ul.dropdown h5 a {
   display: inline;
   line-height: 25px;
 }
-/* line 48, ../sass/_components.scss */
+/* line 84, ../sass/_components.scss */
 .section-container .section .title > a::before, .section-container section .title > a::before {
   color: #6da549;
   border-style: solid;
@@ -8063,7 +8111,7 @@ ul.dropdown h5 a {
   width: 24px;
   margin-right: 12px;
 }
-/* line 69, ../sass/_components.scss */
+/* line 105, ../sass/_components.scss */
 .section-container .section .title > a:before, .section-container section .title > a:before {
   -webkit-transform: rotate(45deg);
   -moz-transform: rotate(45deg);
@@ -8085,7 +8133,7 @@ ul.dropdown h5 a {
   vertical-align: middle;
   text-align: center;
 }
-/* line 48, ../sass/_components.scss */
+/* line 84, ../sass/_components.scss */
 .section-container .section.active .title > a::before, .section-container section.active .title > a::before {
   color: #6da549;
   border-style: solid;
@@ -8097,7 +8145,7 @@ ul.dropdown h5 a {
   margin-right: 12px;
   margin-bottom: 6px;
 }
-/* line 69, ../sass/_components.scss */
+/* line 105, ../sass/_components.scss */
 .section-container .section.active .title > a:before, .section-container section.active .title > a:before {
   -webkit-transform: rotate(135deg);
   -moz-transform: rotate(135deg);
