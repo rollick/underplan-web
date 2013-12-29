@@ -23,7 +23,7 @@
 <template name="loggedin">
   {{#unless loggingIn}}
     <li class="hide-for-small has-dropdown settings not-click">
-      <a href="#" class="{{settingsActiveCls}}">
+      <a href="#" class="{{settingsActiveCls}}" data-bypass>
         <img src="{{profilePicture currentUser}}">
         <span>{{userName currentUser}}</span>
       </a>
