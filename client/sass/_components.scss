@@ -424,11 +424,17 @@
       }
 
       &.clear {
+        cursor: default;
+        pointer-events: none;
         display: none;
 
         @media only screen and (min-width: 48em) {
           display: inherit;
-          visibility: hidden;
+        }
+
+        &:before {
+          content: "";
+          line-height: 1.8em;
         }
       }
     }
@@ -491,9 +497,11 @@
       pointer-events: all;
       display: inline-block;
       padding: 0.8em*$info-section-scale;
+      padding-left: 0.4em*$info-section-scale;
 
       @media only screen and (min-width: 48em) {
         padding: 0.8em;
+        padding-left: 0.4em;
       }
 
       $details-font-size: 1em;
@@ -507,12 +515,18 @@
         }
       }
 
+      .date:before {
+        content: "\00a0-\00a0";
+      }
+
       .date, .location {
         color: #999999;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
         font-size: $details-font-size*0.8*$info-section-scale;
+        float: left;
+        clear: none;
 
         @media only screen and (min-width: 48em) {
           font-size: $details-font-size*0.8;
@@ -532,25 +546,9 @@
         background-color: rgba($primary-color, 1.0);
       }
 
-      .picture {
-        float: left;
-        z-index: 2;
-
-        img {
-          @include border-radius($info-image-radius);
-
-          height: 100%;
-          width: 100%;
-          margin-top: 0em;
-        }
-      }
-
       .details {
-        margin-left: 0em;
-        z-index: 1;
-
-        .date {
-          color: #D8D8D8;
+        .date, .location {
+          color: white;
         }
       }
     }
@@ -637,9 +635,15 @@
           padding-bottom: 0.3em;
         }
 
+        .date:before {
+          content: "";
+        }
+
         .date, .location {
           padding-bottom: 0.2em;
           color: darken($details-color, 15%);
+          float: none;
+          clear: none;
         }
       }
     }
@@ -715,7 +719,7 @@
   margin: 0 $ribbon-wrapper-strip;
   padding: 0em;
   position: relative;
-  margin-bottom: $standard-small-margin * 2;
+  margin-bottom: $standard-margin-small * 2;
   border: none;
 
   @media only screen and (min-width: 48em) {

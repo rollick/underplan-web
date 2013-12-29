@@ -2579,9 +2579,9 @@ blockquote p {
   position: absolute;
   width: 60px;
   background-color: transparent;
-  right: 0.6em !important;
   margin-bottom: 15px;
   margin-left: 1px;
+  right: 0em !important;
 }
 /* line 18, ../../../sass/app/common/map.scss */
 .map-controls .zoom-in, .map-controls .zoom-out, .map-controls .map-type-toggle {

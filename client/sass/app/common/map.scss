@@ -11,9 +11,9 @@
   // height: 25px;
   width: 60px;
   background-color: transparent;
-  right: 0.6em !important;
   margin-bottom: $map-controls-margin;
   margin-left: 1px; // little fix to line up with country controls
+  right: 0em !important;
 
   .zoom-in, .zoom-out, .map-type-toggle {
     @include border-radius($standard-corner-radius);
