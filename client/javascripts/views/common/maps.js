@@ -70,8 +70,10 @@ recentActivitiesMap = function() {
 
 Template.activityCountControl.events({
   "click .load-more": function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
-    return false;
   }
 });
 

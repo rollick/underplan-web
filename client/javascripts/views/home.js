@@ -81,6 +81,9 @@ Template.groupItem.helpers({
 
 Template.groupEditor.events({
   'click .save': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var values = getGroupValues(template);
 
     if (values.name.length && values.description.length) {
@@ -102,9 +105,11 @@ Template.groupEditor.events({
       Session.set("displayError",
                   "It needs a name and description");
     }
-    return false;
   },
   'click .update': function (event, template) {
+    event.stopPropagation();
+    event.preventDefault();
+
     var groupId = template.find(".id").value;
     var values = getGroupValues(template);
 
@@ -115,15 +120,18 @@ Template.groupEditor.events({
       Session.set("displayError",
                   "It needs a name and a description");
     }
-    return false;
   },
   'click .cancel-new': function () {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setHome();
-    return false;
   },
   'click .cancel-edit': function () {
+    event.stopPropagation();
+    event.preventDefault();
+
     Router.setGroup(this);
-    return false;
   }
 });
 

@@ -43,7 +43,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.231");
+  Session.set("appVersion", "v1.3.232");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -219,44 +219,6 @@ this.navHeight = function () {
 // FIXME: move the maps api key to the settings file
 this.appSettings = {
   mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"
-};
-
-this.getCurrentActivity = function () {
-  return Activities.findOne(ReactiveGroupFilter.get("activity"));
-};
-
-this.getCurrentActivityId = function () {
-  return ReactiveGroupFilter.get("activity");
-};
-
-this.currentActivityHasPhotos = function () {
-  var activity = this.getCurrentActivity();
-  var result = false;
-
-  if (activity) {
-    result = !!activity.picasaTags && activity.picasaTags.length;
-  }
-
-  return result;
-};
-
-this.currentActivityHasMap = function () {
-  var activity = this.getCurrentActivity();
-  var result = false;
-
-  if (activity) {
-    result = activity.lat && activity.lng;
-  }
-
-  return result;
-};
-
-this.getCurrentGroup = function () {
-  return Groups.findOne(ReactiveGroupFilter.get("group"));
-};
-
-this.getCurrentGroupId = function () {
-  return ReactiveGroupFilter.get("group");
 };
 
 this.isFollowingGroup = function (userId, groupId) {

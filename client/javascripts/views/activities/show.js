@@ -48,7 +48,14 @@ Template.currentActivity.helpers({
     return Activities.findOne(ReactiveGroupFilter.get("activity"));
   },
   hasMap: function () {
-    return currentActivityHasMap();
+    var activity = Activities.findOne(ReactiveGroupFilter.get("activity"));
+    var result = false;
+
+    if (activity) {
+      result = activity.lat && activity.lng;
+    }
+
+    return result;
   },
   anyActivities: function () {
     return Activities.find().count() > 0;

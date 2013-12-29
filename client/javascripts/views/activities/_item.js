@@ -108,7 +108,13 @@ this.itemHelpers = {
     return formattedDate(this.created);
   },
   hasPhotos: function () {
-    return currentActivityHasPhotos();
+    var activity = Activities.findOne(this._id);
+
+    if (activity && !!activity.picasaTags && activity.picasaTags.length) {
+      return true;
+    } else {
+      return false;
+    }
   },
   facebookShareUrl: function () {
     if(ReactiveGroupFilter.get("group") && ReactiveGroupFilter.get("activity")) {

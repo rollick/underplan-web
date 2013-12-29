@@ -2675,7 +2675,6 @@ blockquote p {
   -moz-border-radius-topright: 0em;
   -webkit-border-top-right-radius: 0em;
   border-top-right-radius: 0em;
-  margin-top: 1px;
   margin-bottom: 0em;
 }
 /* line 165, ../../../packages/bower/foundation/scss/foundation/components/_global.scss */

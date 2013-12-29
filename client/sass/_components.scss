@@ -126,7 +126,7 @@
   @include item-by-user($dark-details: true, $offset-y: true);
   @include border-top-radius(0em);
 
-  margin-top: 1px;
+  // margin-top: 1px;
   margin-bottom: 0em;
 
   & > .inner .activity {

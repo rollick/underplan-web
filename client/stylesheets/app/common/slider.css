@@ -2,8 +2,8 @@
 .sequence {
   background-color: #0e0e0e;
   margin-bottom: 0px;
-  margin-left: -0.9375rem;
-  margin-right: -0.9375rem;
+  margin-left: 0em;
+  margin-right: 0em;
   position: relative;
   clear: both;
 }
@@ -139,7 +139,6 @@
 }
 /* line 141, ../../../sass/app/common/slider.scss */
 .activity-highlight.large .sequence {
-  margin: 0em;
   height: 320px;
 }
 @media only screen and (min-width: 48em) {
@@ -148,45 +147,45 @@
     height: 400px;
   }
 }
-/* line 150, ../../../sass/app/common/slider.scss */
+/* line 149, ../../../sass/app/common/slider.scss */
 .activity-highlight.large .sequence .sequence-next,
 .activity-highlight.large .sequence .sequence-prev {
   top: 48%;
 }
 
-/* line 157, ../../../sass/app/common/slider.scss */
+/* line 156, ../../../sass/app/common/slider.scss */
 .feed-item .sequence {
   height: 250px;
   margin-left: 0em;
   margin-right: 0em;
 }
-/* line 162, ../../../sass/app/common/slider.scss */
+/* line 161, ../../../sass/app/common/slider.scss */
 .feed-item .sequence.expanded {
   height: 400px;
 }
-/* line 167, ../../../sass/app/common/slider.scss */
+/* line 166, ../../../sass/app/common/slider.scss */
 .feed-item .sequence .sequence-next,
 .feed-item .sequence .sequence-prev {
   top: 48%;
 }
-/* line 171, ../../../sass/app/common/slider.scss */
+/* line 170, ../../../sass/app/common/slider.scss */
 .feed-item .sequence li .photo {
   background-size: cover;
 }
 
-/* line 176, ../../../sass/app/common/slider.scss */
+/* line 175, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen {
   height: 100% !important;
   width: 100% !important;
 }
-/* line 181, ../../../sass/app/common/slider.scss */
+/* line 180, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen .sequence-next,
 .sequence.fullscreen .sequence-prev {
   top: 50%;
   opacity: 0.2;
   height: 70px;
 }
-/* line 187, ../../../sass/app/common/slider.scss */
+/* line 186, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen li .photo {
   background-size: contain;
 }

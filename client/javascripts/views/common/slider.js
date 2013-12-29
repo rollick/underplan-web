@@ -1,7 +1,7 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Common Stuff
 
-processActivityPhotos = function (activity) {
+processActivityPhotos = function (activity, successCallback) {
   var group = Groups.findOne(ReactiveGroupFilter.get("group"));
 
   if (activity.picasaTags && _.isObject(group.trovebox)) {
@@ -13,6 +13,9 @@ processActivityPhotos = function (activity) {
       if (data.length) {
         // TODO: maybe too much in "data" for the reactive source
         ReactiveGallerySource.setPhotos(activity._id, data);
+
+        if (_.isFunction(successCallback))
+          successCallback.call(activity);
       }
     });
   }
@@ -33,7 +36,21 @@ ReactiveGallerySource = {
 
   setPhotos: function (id, photos) {
     this.photos[id] = photos;
-    this.set(id, 'ready');
+    this.set(id, 'dataReady');
+
+    // We want to set the reactive key to "ready" so that the 
+    // slider can be setup but we want this to happen after 
+    // the dataReady deps run so that the photos list has first
+    // been added to the dom.
+    var self = this;
+    Deps.afterFlush(function () {
+      self.set(id, "ready");
+    });
+
+    // Flush to ensure any code depending on dataReady will be 
+    // processed immediately, eg inserting the list of images 
+    // into the dom
+    Deps.flush();
   },
 
   get: function (id) {
@@ -105,41 +122,57 @@ Template.imageSlider.events({
   }
 });
 
-Template.imageSlider.photos = function () {
-  if (ReactiveGallerySource.get(this._id) === "ready") {
-    return ReactiveGallerySource.photos[this._id];
-  }
-  else
-    return [];
-};
+Template.imageSlider.helpers({
+  photos: function () {
+    if (ReactiveGallerySource.get(this._id)) {
+      return ReactiveGallerySource.photos[this._id];
+    } else {
+      return false;
+    }
+  },
+  hasPhotos: function () {
+    var activity = Activities.findOne(this._id);
 
-Template.imageSlider.created = function () {
-  processActivityPhotos(this.data);
-};
+    if (activity) {
+      return !_.isEmpty(activity.picasaTags);
+    } else {
+      return false;
+    }
+  }
+});
 
 Template.imageSlider.rendered = function () {
-
   // FIXME: more horrible hacking to get ensure dom elements have rendered 
   //        before trying to access with jquery libs
   // TODO:  use css animations to check element is in DOM
-  var self = this;
-  setTimeout(function () {
-    if (!self.data)
-      return;
+  if (!this.data)
+    return;
 
-    var id = self.data._id;
-    var slider = self.find("#slider-" + id);
+  // Get photos and then setup gallery ui in callback
+  processActivityPhotos(this.data, function () {
+    var self = this; // an activity => scope set processActivityPhotos callback
 
-    if (slider) {
-      var gallery = $(slider).sequence(sliderOptions).data("sequence");
-      var buttons = $(slider).find(".sequence-prev, .sequence-next");
-      
-      if (ReactiveGallerySource.photos[id].length > 1)
-        buttons.fadeIn(500);
+    Deps.autorun( function (computation) {
+      var id = self._id;
 
-      sliders[self.data._id] = gallery;
-    }
-  }, 3000);
+      if (ReactiveGallerySource.get(id) === "ready") {
+        var slider = $("#slider-" + id);
+
+        if (slider.length) {
+          var gallery = $(slider).sequence(sliderOptions).data("sequence");
+          var buttons = $(slider).find(".sequence-prev, .sequence-next");
+          
+          if (ReactiveGallerySource.photos[id].length > 1) {
+            buttons.show();
+          }
+
+          sliders[id] = gallery;
+        
+          computation.stop();
+        }
+      }
+    });
+  });
 };
 
 Template.imageSlider.destroyed = function() {

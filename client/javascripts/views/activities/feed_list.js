@@ -88,15 +88,12 @@ Template.feedList.rendered = function () {
   this._elementWatcher = scrollMonitor.create($(".feed-more"));
 
   // Load the next batch of activities when the load button comes into view
-  setTimeout(function () {
-    self._elementWatcher.enterViewport(function() {
-      // ignore if already loading activities
-      if (! Session.get("feedActivitiesReady"))
-        return;
-
+  self._elementWatcher.enterViewport(function() {
+    // ignore if already loading activities
+    if (Session.get("feedActivitiesReady") && !$(this.watchItem).find(".button.disabled").length)
       ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
-    });
-  }, 250);
+
+  });
 };
 
 Template.feedList.destroyed = function () {

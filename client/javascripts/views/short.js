@@ -110,7 +110,7 @@ Template.shortForm.events({
     event.preventDefault();
 
     if($(template.find(".save, .update")).hasClass("disabled")) {
-      return false;
+      return;
     }
 
     var activityId = template.find("#_id").value;

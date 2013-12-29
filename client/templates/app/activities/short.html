@@ -38,7 +38,9 @@
       <a href="#" class="remove action"></a>
     {{/if}}
   </div>
-  {{> imageSlider}}
+  {{#if hasPhotos}}
+    {{> imageSlider}}
+  {{/if}}
   <div class="content">
     {{#if isStory}}
       <h5><a href="{{activityLink}}" class="title">{{title}} {{#if showUnpublished}}<span class="warning"> U</span>{{/if}}</a></h5>

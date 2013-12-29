@@ -159,7 +159,7 @@ Meteor.publish("currentGroupInfo", function (groupId) {
       this.added(newActivity);
     },
     removed: function (oldActivity) {
-      logIfDev("Removing record from GroupInfo: " + oldActivity._id + ", country-" + newActivity.country);
+      logIfDev("Removing record from GroupInfo: " + oldActivity._id + ", country-" + oldActivity.country);
 
       var country = oldActivity.country;
 

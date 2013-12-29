@@ -6,8 +6,8 @@ $slider-btn-height: 35px;
 .sequence {
   background-color: $slider-bg;
   margin-bottom: 0px;
-  margin-left: -$standard-padding;
-  margin-right: -$standard-padding;
+  margin-left: 0em;
+  margin-right: 0em;
   position: relative;
   clear: both;
 
@@ -139,7 +139,6 @@ $slider-btn-height: 35px;
     margin: 0em;
 
     .sequence {
-      margin: 0em;
       height: $slider-height-medium;
 
       @media only screen and (min-width: 48em) {
