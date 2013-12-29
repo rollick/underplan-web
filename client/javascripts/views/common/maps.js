@@ -113,10 +113,6 @@ Template.activityCountControl.helpers({
     var html = $('<div>').append(container.append(link));
 
     return new Handlebars.SafeString(html.html());
-  },
-  showCountControl: function () {
-    // when the group is set but not an activity
-    return !!ReactiveGroupFilter.get("group") && !ReactiveGroupFilter.get("activity");
   }
 });
 
