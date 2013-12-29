@@ -6,74 +6,88 @@
   margin-right: 0em;
   position: relative;
   clear: both;
+  z-index: 1;
 }
-/* line 14, ../../../sass/app/common/slider.scss */
+/* line 15, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas li > * {
   top: 0px;
   position: absolute;
 }
-/* line 20, ../../../sass/app/common/slider.scss */
+/* line 21, ../../../sass/app/common/slider.scss */
 .sequence .sequence-next,
 .sequence .sequence-prev {
-  color: white;
-  cursor: pointer;
+  top: 0em;
   display: none;
+  pointer-events: all;
+  z-index: 2;
+}
+/* line 29, ../../../sass/app/common/slider.scss */
+.sequence .sequence-next,
+.sequence .sequence-prev {
+  height: 100%;
+  width: 15%;
+  position: absolute;
+}
+/* line 34, ../../../sass/app/common/slider.scss */
+.sequence .sequence-next img,
+.sequence .sequence-prev img {
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  opacity: 0.5;
+  color: white;
   font-weight: bold;
   padding: 0px;
   position: absolute;
   z-index: 1000;
   height: 35px;
 }
-/* line 31, ../../../sass/app/common/slider.scss */
+/* line 46, ../../../sass/app/common/slider.scss */
+.sequence .sequence-next:hover,
+.sequence .sequence-prev:hover {
+  cursor: pointer;
+}
+/* line 49, ../../../sass/app/common/slider.scss */
+.sequence .sequence-next:hover img,
+.sequence .sequence-prev:hover img {
+  -webkit-transition-duration: 1s;
+  -moz-transition-duration: 1s;
+  -o-transition-duration: 1s;
+  transition-duration: 1s;
+  opacity: 1;
+}
+/* line 57, ../../../sass/app/common/slider.scss */
 .sequence .sequence-prev {
+  left: 0px;
+}
+/* line 60, ../../../sass/app/common/slider.scss */
+.sequence .sequence-prev img {
   left: 1%;
   content: url("/images/chevron-white-left-large.png");
 }
-/* line 36, ../../../sass/app/common/slider.scss */
+/* line 66, ../../../sass/app/common/slider.scss */
 .sequence .sequence-next {
+  right: 0px;
+}
+/* line 69, ../../../sass/app/common/slider.scss */
+.sequence .sequence-next img {
   right: 1%;
   content: url("/images/chevron-white-right-large.png");
 }
-/* line 42, ../../../sass/app/common/slider.scss */
-.sequence .sequence-prev img,
-.sequence .sequence-next img {
-  height: 100%;
-  width: auto;
-}
-/* line 48, ../../../sass/app/common/slider.scss */
-.sequence .sequence-next,
-.sequence .sequence-prev {
-  position: absolute;
-  opacity: 0.5;
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -ms-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
-}
-/* line 59, ../../../sass/app/common/slider.scss */
-.sequence .sequence-next:hover,
-.sequence .sequence-prev:hover {
-  opacity: 1;
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -ms-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
-}
-/* line 68, ../../../sass/app/common/slider.scss */
+/* line 75, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas {
   height: 100%;
   width: 100%;
   list-style-type: none;
 }
-/* line 74, ../../../sass/app/common/slider.scss */
+/* line 81, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li {
   top: 0px;
   width: 100%;
   height: 100%;
 }
-/* line 79, ../../../sass/app/common/slider.scss */
+/* line 86, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo {
   position: absolute;
   background-position: center;
@@ -83,7 +97,7 @@
   left: 100%;
   cursor: pointer;
 }
-/* line 88, ../../../sass/app/common/slider.scss */
+/* line 95, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo h2.title {
   width: 100%;
   height: 40px;
@@ -95,7 +109,7 @@
   position: absolute;
   left: 0;
 }
-/* line 100, ../../../sass/app/common/slider.scss */
+/* line 107, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo img {
   min-height: 100%;
   min-width: 100%;
@@ -103,7 +117,7 @@
   filter: alpha(opacity=0);
   opacity: 0;
 }
-/* line 109, ../../../sass/app/common/slider.scss */
+/* line 116, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-in .photo {
   left: 0;
   -webkit-transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -111,7 +125,7 @@
   -o-transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-/* line 114, ../../../sass/app/common/slider.scss */
+/* line 121, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-out .photo {
   left: -100%;
   -webkit-transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -120,72 +134,72 @@
   transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
 
-/* line 125, ../../../sass/app/common/slider.scss */
+/* line 132, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence {
   height: 250px;
 }
-/* line 129, ../../../sass/app/common/slider.scss */
-.activity-highlight .sequence .sequence-next,
-.activity-highlight .sequence .sequence-prev {
+/* line 136, ../../../sass/app/common/slider.scss */
+.activity-highlight .sequence .sequence-next img,
+.activity-highlight .sequence .sequence-prev img {
   top: 107.5px;
 }
-/* line 133, ../../../sass/app/common/slider.scss */
+/* line 140, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence li .photo {
   background-size: contain;
 }
-/* line 138, ../../../sass/app/common/slider.scss */
+/* line 145, ../../../sass/app/common/slider.scss */
 .activity-highlight.large {
   margin: 0em;
 }
-/* line 141, ../../../sass/app/common/slider.scss */
+/* line 148, ../../../sass/app/common/slider.scss */
 .activity-highlight.large .sequence {
   height: 320px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 141, ../../../sass/app/common/slider.scss */
+  /* line 148, ../../../sass/app/common/slider.scss */
   .activity-highlight.large .sequence {
     height: 400px;
   }
 }
-/* line 149, ../../../sass/app/common/slider.scss */
-.activity-highlight.large .sequence .sequence-next,
-.activity-highlight.large .sequence .sequence-prev {
+/* line 156, ../../../sass/app/common/slider.scss */
+.activity-highlight.large .sequence .sequence-next img,
+.activity-highlight.large .sequence .sequence-prev img {
   top: 48%;
 }
 
-/* line 156, ../../../sass/app/common/slider.scss */
+/* line 163, ../../../sass/app/common/slider.scss */
 .feed-item .sequence {
   height: 250px;
   margin-left: 0em;
   margin-right: 0em;
 }
-/* line 161, ../../../sass/app/common/slider.scss */
+/* line 168, ../../../sass/app/common/slider.scss */
 .feed-item .sequence.expanded {
   height: 400px;
 }
-/* line 166, ../../../sass/app/common/slider.scss */
-.feed-item .sequence .sequence-next,
-.feed-item .sequence .sequence-prev {
+/* line 173, ../../../sass/app/common/slider.scss */
+.feed-item .sequence .sequence-next img,
+.feed-item .sequence .sequence-prev img {
   top: 48%;
 }
-/* line 170, ../../../sass/app/common/slider.scss */
+/* line 177, ../../../sass/app/common/slider.scss */
 .feed-item .sequence li .photo {
   background-size: cover;
 }
 
-/* line 175, ../../../sass/app/common/slider.scss */
+/* line 182, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen {
   height: 100% !important;
   width: 100% !important;
 }
-/* line 180, ../../../sass/app/common/slider.scss */
-.sequence.fullscreen .sequence-next,
-.sequence.fullscreen .sequence-prev {
+/* line 187, ../../../sass/app/common/slider.scss */
+.sequence.fullscreen .sequence-next img,
+.sequence.fullscreen .sequence-prev img {
   top: 50%;
   opacity: 0.2;
   height: 70px;
 }
-/* line 186, ../../../sass/app/common/slider.scss */
+/* line 193, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen li .photo {
   background-size: contain;
 }

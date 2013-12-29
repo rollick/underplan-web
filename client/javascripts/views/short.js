@@ -14,10 +14,13 @@ Template.shortyEditor.error = function () {
 
 var clearForm = function (template) {
   clearHiddenLocationFields(template);
-  template.find("#text").value = "";
-  template.find(".location-search").value = "";
-  template.find("#picasa-tags").value = "";
-  template.find(".location-coords").innerHTML = "";
+  
+  var inputs = template.find("input"),
+      coords = template.find(".location-coords");
+  if (inputs && inputs.length > 0)
+    inputs.value = "";
+  if (coords)
+    coords.innerHTML = "";
 };
 
 var getValues = function (template) {

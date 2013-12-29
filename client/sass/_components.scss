@@ -311,7 +311,7 @@
     overflow: scroll;
     position: relative;
     height: 100%;
-
+    pointer-events: none;
     display: inherit;
     width: $action-width-small;
 
@@ -333,6 +333,7 @@
     a.action {
       @include single-transition(background-color);
 
+      pointer-events: all;
       background-color: $secondary-color;
       display: inline-block;
       pointer-events: all;
@@ -515,7 +516,7 @@
         }
       }
 
-      .date:before {
+      .location:before {
         content: "\00a0-\00a0";
       }
 
@@ -635,7 +636,7 @@
           padding-bottom: 0.3em;
         }
 
-        .date:before {
+        .location:before {
           content: "";
         }
 

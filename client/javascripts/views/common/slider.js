@@ -80,7 +80,7 @@ sliderOptions = {
   preloader: false,
   showNextButtonOnInit: false,
   showPrevButtonOnInit: false,
-  swipePreventsDefault: false,
+  swipePreventsDefault: true,
   swipeEvents: {
     left: "next",
     right: "prev",
@@ -97,27 +97,22 @@ sliders = {};
 
 Template.imageSlider.events({
   "click .sequence": function (event, template) {
+
     // Image clicked:
     //   Fullscreen if supported by browser otherwise expand the image slider
-    if (screenfull.enabled) {
-      var target = $(event.target);
-      if (target.hasClass("main")) {
-        var sequence = target.closest(".sequence");
+    var target = $(event.target),
+        sequence = target.closest(".sequence");
+
+    if (target.hasClass("main")) {
+      event.stopPropagation();
+      event.preventDefault();
+
+      if (screenfull.enabled) {
         screenfull.toggle(sequence.addClass("fullscreen")[0]);
-        // if (screenfull.enabled) {
-        //   screenfull.toggle(sequence.addClass("fullscreen")[0]);
-        // } else {
-        //   var match = sequence.attr("id").match(/^.*-([a-z|0-9]+)/i);
-        //   if (match)
-        //     Router.setActivity(match[1]);
-        // }
+      } else {
+        sequence.toggleClass("expanded", 2000).
+                  find("li > div.photo").css("background-size", sequence.hasClass("expanded") ? "contain" : "cover");
       }
-    } else {
-      var target = $(event.target);
-      if (target.hasClass("main")) {
-        var sequence = target.closest(".sequence").toggleClass("expanded", 2000);
-        sequence.find("li > div.photo").css("background-size", sequence.hasClass("expanded") ? "contain" : "cover");
-      }      
     }
   }
 });
