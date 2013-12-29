@@ -62,7 +62,7 @@
   <ul class="activity-actions">
     <li>
       <span>
-        <a href="#" class="main action button" data-dropdown="share">Share</a>
+        <a href="#" class="main action button" data-dropdown="share" data-bypass>Share</a>
       </span>
       <div id="share" class="f-dropdown content right" data-dropdown-content>
         <div class="short-form">
@@ -76,7 +76,7 @@
 </template>
 
 <template name="countryFilter">
-  <span><a href="#" class="country-container action button" data-dropdown="country-filter">  {{currentCountry}}
+  <span><a href="#" class="country-container action button" data-dropdown="country-filter" data-bypass>  {{currentCountry}}
   </a></span><br>
   <ul id="country-filter" class="f-dropdown" data-dropdown-content>
     <li class="{{isCurrentCountry "all"}}">

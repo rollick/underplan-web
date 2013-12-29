@@ -73,6 +73,13 @@ this.itemHelpers = {
       return "/" + Groups.findOne(this.group).slug + "/pl/" + this._id + "/edit";
     return "";
   },
+  itemUrl: function () {
+    if (this.type === "story" && !_.isEmpty(this.slug))
+      return "/" + Groups.findOne(this.group).slug + "/" + this.slug;
+    else if (this.type === "short")
+      return "/" + Groups.findOne(this.group).slug + "/pl/" + this._id;
+    return "";
+  },
   showUnpublished: function () {
     // Set showUnpublished if unpublished and the user can edit the document
     // Doing it this way so the visitor doesn't see an "Unpublished" popping

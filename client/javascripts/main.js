@@ -43,7 +43,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.236");
+  Session.set("appVersion", "v1.3.237");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -86,7 +86,7 @@ Meteor.startup(function () {
 
     if (href.prop.slice(0, root.length) === root) {
       ev.preventDefault();
-      Router.navigate(path, true);
+      Router.navigate(href.attr, true);
     }
   });
 
