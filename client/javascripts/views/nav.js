@@ -13,25 +13,20 @@ Template.mainNav.helpers({
     var groupId = ReactiveGroupFilter.get("group"),
         country = ReactiveGroupFilter.get("country"),
         group = Groups.findOne(groupId),
-        data = {};
+        data= {};
 
     if (group) {
+      var slug = group.slug;
+      if (country)
+        slug = slug + "/c/" + encodeURIComponent(country.replace(/\s/, "-"))
+
       data = {
-        slug: group.slug,
+        slug: slug,
         name: !!country ? group.name + " - " + country : group.name
       };
     }
     
     return data;
-  }
-});
-
-Template.mainNav.events({
-  'click .home': function () {
-    event.stopPropagation();
-    event.preventDefault();
-
-    Router.setGroup(Groups.findOne(ReactiveGroupFilter.get("group")));
   }
 });
 

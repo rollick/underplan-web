@@ -58,7 +58,7 @@
   height: -1px;
 
   @include transition-property(height);
-  @include transition-duration(0.5s);
+  @include transition-duration(0.75s);
   @include transition-timing-function(ease);
 
   &.no-transition {
