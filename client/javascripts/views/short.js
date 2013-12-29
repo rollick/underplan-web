@@ -66,9 +66,12 @@ Template.shortForm.events({
 
     $(".short-form.row").show().find("textarea").focus();
   },
-  "click .new-story": function () {
+  "click .new-story": function (event, template) {
     event.stopPropagation();
     event.preventDefault();
+
+    var dropdown = $("[data-dropdown-content]#share");
+    Foundation.libs.dropdown.close(dropdown);
 
     Router.setNewActivity(Groups.findOne(ReactiveGroupFilter.get("group")));
   },
