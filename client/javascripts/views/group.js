@@ -83,7 +83,7 @@ Template.groupActions.helpers({
   },
   showActivityCountControl: function () {
     // only show count control for map view
-    return mappingFsm.state !== "hideMap";
+    return !mappingFsm.equals("state", "hideMap");
   }
 });
 
