@@ -43,7 +43,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.234");
+  Session.set("appVersion", "v1.3.236");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -75,6 +75,21 @@ Meteor.startup(function () {
         $(".fullscreen").removeClass("fullscreen");
     });
   }
+
+  // use router to handle all links not already handled unless we set data-bypass
+  // TODO: should we go through and update code to use the code path below to handle 
+  //       links which are just calling Router.navigate anyway?!
+  //
+  $(document).on('click', 'a[href]:not([data-bypass])', function (ev) {
+    var href = { prop: $(this).prop('href'), attr: $(this).attr('href') },
+        root = location.protocol + '//' + location.host;
+
+    if (href.prop.slice(0, root.length) === root) {
+      ev.preventDefault();
+      Router.navigate(path, true);
+    }
+  });
+
 
   ///////////////////////////////////////////////////////////////////////////////
   // Main Autorun Deps
