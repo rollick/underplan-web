@@ -261,8 +261,8 @@ MappingFsm = machina.Fsm.extend({
         mapType.append($("<img />"));
 
     // add the map controls
-    mapControls.append(zoomIn).append(zoomOut).append(mapType);
-    this.map.controls[google.maps.ControlPosition.BOTTOM_RIGHT].push(mapControls[0]);
+    mapControls.append(mapType).append(zoomIn).append(zoomOut);
+    this.map.controls[google.maps.ControlPosition.TOP_RIGHT].push(mapControls[0]);
 
     // setup some triggers to update the mini map
     google.maps.event.addListener(this.map, 'idle', function() {
