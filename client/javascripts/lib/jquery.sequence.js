@@ -323,6 +323,8 @@ Sequence also relies on the following open source scripts:
 			self.nextFrame = self.frames.eq(self.nextFrameID-1); //get the next frame
 			self.nextFrameChildren = self.nextFrame.children(); //get the elements within the next frame to be animated
 
+			self._modifyForDataUrl(self.nextFrameID - 1);
+
 			if(self.pagination !== undefined) { //if using pagination, make the starting frame the current one in pagination
 				$(self.paginationLinks[self.settings.startingFrameID-1]).addClass('current'); //add the 'current' class to the current frame
 			}
@@ -629,6 +631,8 @@ Sequence also relies on the following open source scripts:
 			self.nextFrameID = parseFloat(id);
 			var transitionThreshold = (ignoreTransitionThreshold === true) ? 0 : self.settings.transitionThreshold; //if transitionThreshold is to be ignored, set it to zero
 
+			self._modifyForDataUrl(self.nextFrameID - 1);
+
 			if((self.nextFrameID === self.currentFrameID) //if the next frame the user is trying to go to is the same as the currently active one...
 			|| (self.settings.navigationSkip && self.navigationSkipThresholdActive) //or navigationSkip is enabled and the navigationSkipThreshold is active (which prevents frame from being navigated too fast)...
 			|| (!self.settings.navigationSkip && self.active) //or navigationSkip is disbaled but Sequence is animating...
@@ -883,6 +887,17 @@ Sequence also relies on the following open source scripts:
 		//END PUBLIC METHODS
 
 		//PRIVATE METHODS
+
+		// if creating a gallery with url's set as data attributes
+		_modifyForDataUrl: function(frameID) {
+			var dataFrame = $(this.frames.eq(frameID)).find(".photo[data-slider-image]");
+
+			if (dataFrame.length > 0) {
+				var url = dataFrame.data("slider-image");
+				dataFrame.css("background-image", "url(" + url + ")").find("img").attr("src", url);
+				dataFrame.removeAttr("data-slider-image"); // now that the image has been setup we don't need the attribute
+			}
+		},
 
 		//trigger keyEvents, customKeyEvents and swipeEvents
 		_initCustomKeyEvent: function(event) {

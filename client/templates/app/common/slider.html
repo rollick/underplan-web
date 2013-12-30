@@ -6,8 +6,8 @@
       <ul class="sequence-canvas">
         {{#each photos}}
           <li>
-            <div class="photo" style="background-image: url({{ image }})">
-              <img class="main" src="{{ image }}"/>
+            <div class="photo" data-slider-image="{{ image }}">
+              <img class="main" />
             </div>
           </li>
         {{/each}}
