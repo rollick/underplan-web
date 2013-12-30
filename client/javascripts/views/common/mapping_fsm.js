@@ -388,6 +388,8 @@ MappingFsm = machina.Fsm.extend({
 
       $(marker.$div).addClass("selected");
     }
+
+    return marker;
   },
 
   _transitions: 'webkitTransitionEnd oTransitionEnd oTransitionEnd msTransitionEnd transitionend', 
@@ -400,7 +402,12 @@ MappingFsm = machina.Fsm.extend({
     var self = this;
 
     $("." + this.containerCls).one(this._transitions, function(event) {
-      google.maps.event.trigger(self.map, 'resize');
+      // resize the map if a center exists
+      if (self.map.getCenter()) {
+        google.maps.event.trigger(self.map, 'resize');
+      } else { // otherwise set the map to a 
+        self.map.setCenter(self._defaultCenter());
+      }
       
       if (_.isFunction(callback)) {
         callback.call();
@@ -515,6 +522,10 @@ MappingFsm = machina.Fsm.extend({
             !_.isEmpty(activity.lat) && !_.isEmpty(activity.lng));
   },
 
+  _defaultCenter: function () {
+    return new google.maps.LatLng(11.22453, 108.822161);
+  },
+
   _setupMarkers: function (activities, clearMarkers, callback) {
     var self = this,
         ids = [],
@@ -542,6 +553,9 @@ MappingFsm = machina.Fsm.extend({
 
       ids.push(activity._id);
     });
+
+    // trigger resize to ensure any subsequent marker centering voodoo magic works
+    google.maps.event.trigger(this.map, 'resize');
 
     if (_.isUndefined(clearMarkers) || clearMarkers)
       this._clearUnmatchedMarkers(ids);
@@ -766,14 +780,42 @@ MappingFsm = machina.Fsm.extend({
     showEditor: {
       _onEnter: function () {
         $('html,body').scrollTop(0);
+        this.activityId = this.activityIdNonReactive();
 
         this.handle("map.default");
       },
       "map.default": function() {
         var self = this;
-        this._setContainerClass('default');
-        this.emit("EditorMapReady");
-      }
+
+        this._setContainerClass('default', function () {
+          self.handle("marker.selected");
+        });
+      },
+      "marker.selected": function() {
+        if (this.activityId) {
+          var marker = this._selectMarkerById(this.activityId);
+
+          // No marker found. Maybe arrived here directly or from a template
+          // without a map. Sooo, add the marker for the activity.
+          if (!marker) {
+            var self = this;
+            this._setupMarkers(Activities.find({_id: this.activityId}), false, function () {
+              // center on marker
+              self._centerMarkerById(self.activityId);
+
+              self.emit("EditorMapReady");
+            });
+          } else {
+            this.emit("EditorMapReady");
+          }
+        } else {
+          // set default map center
+          this.map.setCenter(this._defaultCenter());
+          this.map.setZoom(12);
+
+          this.emit("EditorMapReady");
+        }
+      },
     },
 
     showSettings: {
@@ -833,7 +875,7 @@ MappingFsm = machina.Fsm.extend({
         // currently set group if any have been fetched
         this._setContainerClass('default', function () {
           var ids = Session.get("activityIdsSorted"),
-              gLatLng = new google.maps.LatLng(11.22453, 108.822161);
+              gLatLng = self._defaultCenter();
 
           if (ids.length) {
             var activity = Activities.findOne(_.last(ids));
