@@ -1,3 +1,7 @@
+this.App = {
+  Utils: {}
+};
+
 // Underplan -- client
 
 this.isDev = function () {
@@ -10,11 +14,12 @@ this.logIfDev = function (message) {
 }
 
 // Some defaults
-this.feedLimitSkip   = 5;
-this.galleryLimitSkip = 40;
-this.defaultMapZoom  = 12;
-this.shortMaxLength  = 250;
-this.feedGallery = null;
+App.Defaults = {
+  feedLimitSkip: 5,
+  galleryLimitSkip: 40,
+  defaultMapZoom: 12,
+  shortMaxLength: 250
+}
 
 // Meteor.subscribe("activities");
 Meteor.subscribe("groups");
@@ -43,7 +48,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.247");
+  Session.set("appVersion", "v1.3.248");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -236,7 +241,7 @@ this.appSettings = {
   mapsApiKey: "AIzaSyCaBJe5zP6pFTy1qio5Y6QLJW9AdQsPEpQ"
 };
 
-this.isFollowingGroup = function (userId, groupId) {
+App.isFollowingGroup = function (userId, groupId) {
   var user = Meteor.users.findOne({_id: userId});
   var result = false;
 
@@ -248,7 +253,7 @@ this.isFollowingGroup = function (userId, groupId) {
 };
 
 // Set group followed (true/false) for current user
-this.followGroup = function (groupId, state) {
+App.followGroup = function (groupId, state) {
   if (state === undefined) {
     state = true;
   }
@@ -261,32 +266,32 @@ this.followGroup = function (groupId, state) {
   // Track for the change
   var groupName = Groups.findOne(groupId, {$fields: {name: 1}}).name;
   var eventName = state ? "Group Followed" : "Group Unfollowed";
-  trackEvent(eventName, {"Group ID": groupId, "Group Name": groupName});
+  App.trackEvent(eventName, {"Group ID": groupId, "Group Name": groupName});
 };
 
-this.followCurrentGroup = function (state) {
+App.followCurrentGroup = function (state) {
   if (state === undefined) {
     state = true;
   }
 
-  this.followGroup(this.ReactiveGroupFilter.get("group"), state);
+  App.followGroup(this.ReactiveGroupFilter.get("group"), state);
 };
 
-this.userBelongsToCurrentGroup = function (userId) {
-  var group = this.Groups.findOne(ReactiveGroupFilter.get("group"));
+App.userBelongsToCurrentGroup = function (userId) {
+  var group = Groups.findOne(ReactiveGroupFilter.get("group"));
   var result;
 
   if (!group) {
     result = false;
   } else {
-    result = this.userBelongsToGroup(userId, group._id);
+    result = userBelongsToGroup(userId, group._id);
   }
 
   return result;
 };
 
-this.currentUserBelongsToCurrentGroup = function () {
-  return this.userBelongsToCurrentGroup(Meteor.userId());
+App.belongsToGroup = function () {
+  return App.userBelongsToCurrentGroup(Meteor.userId());
 };
 
 this.defaultBack = function () {
@@ -300,7 +305,7 @@ this.defaultBack = function () {
 
 this.autocomplete = null;
 
-this.geoLocation = function (location, inputId, autocomplete, callback) {
+App.Utils.geoLocation = function (location, inputId, autocomplete, callback) {
   if (typeof google === "object" && typeof google.maps === "object") {
     var lat, lng, result;
 
@@ -352,7 +357,7 @@ this.geoLocation = function (location, inputId, autocomplete, callback) {
   }
 };
 
-this.logRenders = function () {
+App.logRenders = function () {
   _.each(Template, function (template, name) {
     var oldRender = template.rendered;
     var counter = 0;
@@ -365,7 +370,7 @@ this.logRenders = function () {
   });
 };
 
-this.formattedDate = function (dateValue) {
+App.Utils.formattedDate = function (dateValue) {
   moment.lang('en', {
     calendar : {
       lastDay : '[Yesterday at] LT',
@@ -383,7 +388,7 @@ this.formattedDate = function (dateValue) {
   return '';
 };
 
-this.trackEvent = function(eventName, properties) {
+App.trackEvent = function(eventName, properties) {
   if(typeof mixpanel === "object") {
     if(!!Meteor.userId()) {
       mixpanel.identify(Meteor.userId());

@@ -100,7 +100,7 @@ this.itemHelpers = {
         return true;
 
       // Or if there is a story text but it is short
-      if (activity.text && activity.text.length < shortMaxLength )
+      if (activity.text && activity.text.length < App.Defaults.shortMaxLength )
         return true;
     }
 
@@ -112,7 +112,7 @@ this.itemHelpers = {
     return _.isString(activity.wikipediaId) && activity.wikipediaId.length > 0
   },
   dateCreated: function () {
-    return formattedDate(this.created);
+    return App.Utils.formattedDate(this.created);
   },
   hasPhotos: function () {
     var activity = Activities.findOne(this._id);

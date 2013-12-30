@@ -11,9 +11,9 @@
   // height: 25px;
   width: 60px;
   background-color: transparent;
-  margin-top: 55px;
   margin-left: 1px; // little fix to line up with country controls
   right: 0em !important;
+  margin-top: $topbar-height;
 
   .zoom-in, .zoom-out, .map-type-toggle {
     @include border-radius($standard-corner-radius);
@@ -38,21 +38,18 @@
   }
 
   .map-type-toggle {
-    margin-top: 25px + 8px;
     font-size: 0.8em;
     width: 60px;
     height: 60px;
     background-size: cover;
     background-repeat: no-repeat;
     background-color: transparent;
-    border: 1px solid $standard-map-control-bg;
 
     img {
       width: 100%;
       height: 100%;
       background-size: cover;
       background-repeat: no-repeat;
-      // margin-top: -6px;
     }
 
     @media only screen and (min-width: 48em) {
@@ -90,13 +87,18 @@
 
   .zoom-out {
     float: left;
-    // border-left: 1px solid black;
 
     &:before {
       content: "–";
       margin-left: 3px;
       line-height: 25px;
     }
+  }
+}
+
+.map.with-member {
+  .map-controls {
+    margin-top: emCalc($topbar-height + $group-controls-height) + $standard-margin;
   }
 }
 

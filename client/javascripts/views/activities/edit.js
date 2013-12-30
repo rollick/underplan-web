@@ -6,7 +6,7 @@ Template.storyEditor.helpers({
     return Activities.findOne(ReactiveGroupFilter.get("activity")) || {};
   },
   defaultMapZoom: function () {
-    return defaultMapZoom;
+    return App.Defaults.defaultMapZoom;
   },
   publishedCls: function () {
     return this.published ? "checked" : "";

@@ -47,7 +47,7 @@ Template.searchableLocation.events({
     if(event.keyCode === 40 || event.keyCode === 38)
       return false;
     
-    coords = geoLocation(location, "location", template._autocomplete, function(geo) {
+    coords = App.Utils.geoLocation(location, "location", template._autocomplete, function(geo) {
       if(typeof geo === "object") {
         template.find("#lat").value = geo.lat;
         template.find("#lng").value = geo.lng;

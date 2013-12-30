@@ -64,9 +64,6 @@
 }
 
 .group-controls {
-  $group-controls-width: 140px;
-  $group-controls-height: 25px;
-
   @include grid-row($behavior: nest);
 
   // padding: 0.5em;

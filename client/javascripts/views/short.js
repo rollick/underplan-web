@@ -95,7 +95,7 @@ Template.shortForm.events({
         countElem = template.find(".text-length"),
         submit = template.find(".post, .update");
 
-    if(textElem.value.length === 0 || textElem.value.length > shortMaxLength) {
+    if(textElem.value.length === 0 || textElem.value.length > App.Defaults.shortMaxLength) {
       $(submit).addClass("disabled");
       Session.set("displayError", "Text length too long");
     } else {
@@ -103,7 +103,7 @@ Template.shortForm.events({
       $(submit).removeClass("disabled");
     }
 
-    var count = shortMaxLength - textElem.value.length;
+    var count = App.Defaults.shortMaxLength - textElem.value.length;
     countElem.innerHTML = count;
     if(count <= 10) {
       countElem.style.color = "red";

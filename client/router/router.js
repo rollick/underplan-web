@@ -145,7 +145,7 @@ var AppRouter = Backbone.Router.extend({
       });
     }
 
-    trackEvent(label, {route: route, params: params, path: path});
+    App.trackEvent(label, {route: route, params: params, path: path});
   },
 
   currentDepsAutorun: null,

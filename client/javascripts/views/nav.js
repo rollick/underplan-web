@@ -92,7 +92,7 @@ Template.activityActions.events({
 
     var followed = $(template.find("a")).hasClass("followed");
 
-    followCurrentGroup(!followed);
+    App.followCurrentGroup(!followed);
   }
 });
 
@@ -106,10 +106,10 @@ Template.activityActions.helpers({
   },
   userCanFollow: function () {
     // can follow if logged in but not a group member
-    return !!Meteor.user() && !currentUserBelongsToCurrentGroup()
+    return !!Meteor.user() && !App.belongsToGroup()
   }, 
   followedCls: function () {
-    return isFollowingGroup(Meteor.userId(), ReactiveGroupFilter.get("group")) ? "followed" : "";
+    return App.isFollowingGroup(Meteor.userId(), ReactiveGroupFilter.get("group")) ? "followed" : "";
   }
 });
 

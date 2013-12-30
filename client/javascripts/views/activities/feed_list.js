@@ -1,8 +1,6 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Activity feed 
 
-var feedLimitSkip = 5;
-
 Template.activityFeed.events({
   "click a.feed-all": function () {
     event.stopPropagation();
@@ -24,7 +22,7 @@ Template.activityFeed.rendered = function () {
 };
 
 Template.activityFeed.userBelongsToGroup = function () {
-  return currentUserBelongsToCurrentGroup();
+  return App.belongsToGroup();
 };
 
 // FIXME: these two functions need to be fixed. What should each return?
@@ -45,7 +43,7 @@ Template.feedList.events({
     event.preventDefault();
 
     if (! $(event.target).hasClass("disabled"))
-      ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
+      ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + App.Defaults.feedLimitSkip);
   }
 });
 
@@ -93,7 +91,7 @@ Template.feedList.rendered = function () {
     var watchElem = $(this.watchItem);
 
     if ($.contains(document, watchElem[0]) && !watchElem.find(".button.disabled").length && Session.get("feedActivitiesReady"))
-      ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
+      ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + App.Defaults.feedLimitSkip);
   });
 };
 

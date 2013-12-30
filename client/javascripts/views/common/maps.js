@@ -73,7 +73,7 @@ Template.activityCountControl.events({
     event.stopPropagation();
     event.preventDefault();
 
-    ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
+    ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + App.Defaults.feedLimitSkip);
   }
 });
 
@@ -119,10 +119,6 @@ Template.activityCountControl.helpers({
 ///////////////////////////////////////////////////////////////////////////////
 // Main Map
 
-Template.mainMap.rendered = function () {
-  logIfDev("++ Rendered main map: " + JSON.stringify(this.data));
-};
-
 Template.mainMap.events({
   "dblclick .top-extra-handle > div": function (event, template) {
     var element = template.find(".top-extra"),
@@ -136,10 +132,16 @@ Template.mainMap.events({
       mappingFsm.map.panBy(0, (parseInt(oldHeight) - parseInt(newHeight)) / 2);      
     });
   }
-})
+});
 
-///////////////////////////////////////////////////////////////////////////////
-// Map
+Template.mainMap.helpers({
+  userTypeCls: function() {
+    var isMember = App.belongsToGroup(),
+        group = ReactiveGroupFilter.get("group");
+
+    return (group && isMember) ? "with-member" : "";
+  }
+})
 
 Template.mainMap.rendered = function () {
   logIfDev("++ Rendered map: " + JSON.stringify(this.data));

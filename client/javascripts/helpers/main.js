@@ -53,7 +53,7 @@ Handlebars.registerHelper('ownerName', function() {
 });
 
 Handlebars.registerHelper('date', function(dateValue) {
-  return formattedDate(dateValue);
+  return App.Utils.formattedDate(dateValue);
 });
 
 Handlebars.registerHelper('simpleDate', function(date) {

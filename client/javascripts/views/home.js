@@ -40,7 +40,7 @@ Template.groupItem.events({
 
     var followed = ! $(event.target).hasClass("followed");
 
-    followGroup(this._id, followed);
+    App.followGroup(this._id, followed);
 
     var text = $(event.target).siblings('.text');
     text.hide().toggleClass('follow', followed).animate({
@@ -63,16 +63,16 @@ Template.groupItem.events({
 Template.groupItem.helpers({
   userCanFollow: function () {
     // can follow if logged in but not a group member
-    return !!Meteor.user() && !currentUserBelongsToCurrentGroup()
+    return !!Meteor.user() && !App.belongsToGroup()
   },
   followingGroup: function () {
-    return isFollowingGroup(Meteor.userId(), this._id);
+    return App.isFollowingGroup(Meteor.userId(), this._id);
   },
   group: function() {
     return this;
   },
   followedCls: function () {
-    return (isFollowingGroup(Meteor.userId(), this._id) ? "followed" : "");
+    return (App.isFollowingGroup(Meteor.userId(), this._id) ? "followed" : "");
   }
 });
 

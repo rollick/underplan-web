@@ -19,7 +19,7 @@ var setupGallery = function () {
       var group = Groups.findOne(ReactiveGroupFilter.get("group"));
 
       // NOTE: this needs work. shouldn't always assume skip limit is max loaded
-      var limit = galleryLimitSkip;
+      var limit = App.Defaults.galleryLimitSkip;
       var offset = Session.get("galleryLimit") - limit;
 
       var self = this;
@@ -111,7 +111,7 @@ Template.feedGallery.events({
     if ($(".gallery-more a").hasClass("disabled"))
       return false;
 
-    Session.set("galleryLimit", Session.get("galleryLimit") + galleryLimitSkip);
+    Session.set("galleryLimit", Session.get("galleryLimit") + App.Defaults.galleryLimitSkip);
     return false;
   },
   "click .galleria-map": function () {
