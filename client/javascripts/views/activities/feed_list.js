@@ -89,10 +89,11 @@ Template.feedList.rendered = function () {
 
   // Load the next batch of activities when the load button comes into view
   self._elementWatcher.enterViewport(function() {
-    // ignore if already loading activities
-    if (Session.get("feedActivitiesReady") && !$(this.watchItem).find(".button.disabled").length)
-      ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
+    // ignore if the watched element isn't in the dom or is already loading activities
+    var watchElem = $(this.watchItem);
 
+    if ($.contains(document, watchElem[0]) && !watchElem.find(".button.disabled").length && Session.get("feedActivitiesReady"))
+      ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + feedLimitSkip);
   });
 };
 
