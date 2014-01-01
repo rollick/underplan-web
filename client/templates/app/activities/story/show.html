@@ -68,25 +68,26 @@
   </div>
 
   {{#if photoShow}}
-    {{#if hasPhotos}}
-      <div class="activity-highlight large">
-        {{> imageSlider}}
-      </div>
-    {{/if}}
+    <div class="activity-highlight large">
+      {{> imageSlider}}
+    </div>
   {{/if}}
 
   <div class="content">
-    {{#if title}}<h2>{{title}}{{#if showUnpublished}}<span class="warning"> U</span>{{/if}}</h2>{{/if}}
+    {{#if title}}
+      <h2>
+        {{title}}
+        {{#if showUnpublished}}<span class="warning"> U</span>{{/if}}
+      </h2>
+    {{/if}}
 
     {{#if hasWiki}}
       {{wikiContent}}
     {{/if}}
     {{#unless photoShow}}
-      {{#if hasPhotos}}
-        <div class="activity-highlight">
-          {{> imageSlider}}
-        </div>
-      {{/if}}
+      <div class="activity-highlight">
+        {{> imageSlider}}
+      </div>
     {{/unless}}
     <div class="text">
       {{> htmlText}}

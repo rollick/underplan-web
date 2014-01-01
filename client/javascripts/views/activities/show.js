@@ -135,4 +135,3 @@ Template.activityControls.previousActivity = function () {
 
 Template.singleItemContent.helpers(itemHelpers);
 Template.singleItemContent.events(itemEvents);
-

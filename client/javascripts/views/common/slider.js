@@ -1,37 +1,48 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Common Stuff
 
-processActivityPhotos = function (activity, successCallback) {
-  var group = Groups.findOne(ReactiveGroupFilter.get("group"));
-
-  if (activity.picasaTags && _.isObject(group.trovebox)) {
-    var params = $.extend({tags: activity.picasaTags, max: 99}, group.trovebox),
-        search = new Gallery.Trovebox,
-        self = activity;
-
-    search.albumSearch(params, function(data, params) {
-      if (data.length) {
-        // TODO: maybe too much in "data" for the reactive source
-        ReactiveGallerySource.setPhotos(activity._id, data);
-
-        if (_.isFunction(successCallback))
-          successCallback.call(activity);
-      }
-    });
-  }
-};
-
 // Use a reactive source to ensure the template will reactively load
 // the photos once they have been fetched from the external data source
 ReactiveGallerySource = {
   photos: {},
-  states: {},
-  stateDeps: {},
+  sliders: {},
+  currentSlider: null,
+  _states: {},
+  _stateDeps: {},
+  _readyDeps: {}, // work around for issue => deps is for ready or dataReady
+  _currentActivity: null,
+  _currentActivityDep: null,
+
+  setupActivity: function (activity, successCallback) {
+    var group = Groups.findOne({_id: activity.group}),
+        self = this;
+
+    if (activity.picasaTags && _.isObject(group.trovebox)) {
+      var params = $.extend({tags: activity.picasaTags, max: 99}, group.trovebox),
+          search = new Gallery.Trovebox;
+
+      search.albumSearch(params, function(data, params) {
+        if (data.length) {
+          // TODO: maybe too much in "data" for the reactive source
+          self.setPhotos(activity._id, data);
+
+          if (_.isFunction(successCallback))
+            successCallback.call(activity);
+        }
+      });
+    }
+  },
 
   clearPhotos: function (id) {
-    this.photos[id] = null;
-    this.stateDeps = {};
-    this.set(id, '');
+    if(this.sliders[id] && _.isFunction(this.sliders[id].destroy)) {
+      this.sliders[id].destroy();
+      delete this.sliders[id];
+    }
+    delete this.photos[id];
+
+    this._stateDeps[id] = null;
+    this._readyDeps[id] = null;
+    this.set(id, null);
   },
 
   setPhotos: function (id, photos) {
@@ -44,7 +55,8 @@ ReactiveGallerySource = {
     // been added to the dom.
     var self = this;
     Deps.afterFlush(function () {
-      self.set(id, "ready");
+      if (self._states[id] === "dataReady")
+        self.set(id, "ready");
     });
 
     // Flush to ensure any code depending on dataReady will be 
@@ -54,20 +66,67 @@ ReactiveGallerySource = {
   },
 
   get: function (id) {
-    this.ensureDep(id);
-    this.stateDeps[id].depend();
-    return this.states[id];
+    this._ensureDep(id);
+    this._stateDeps[id].depend();
+    return this._states[id];
   },
 
   set: function (id, state) {
-    this.ensureDep(id);
-    this.states[id] = state;
-    this.stateDeps[id].changed();
+    var previousState = this._states[id];
+
+    this._ensureDep(id);
+    this._states[id] = state;
+
+    if (previousState !== state) {
+      this._stateDeps[id].changed();
+
+      var ready = (state && !!state.match(/ready/i)) ? true : false,
+          previousReady = (previousState && !!previousState.match(/ready/i)) ? true : false;
+
+      if ((ready && !previousReady) || (!ready && previousReady)) {
+        this._readyDeps[id].changed();
+      }
+    }
   },
 
-  ensureDep: function (id) {
-    if (!this.stateDeps[id])
-      this.stateDeps[id] = new Deps.Dependency;
+  ready: function (id) {
+    this._ensureDep(id);
+    this._readyDeps[id].depend();
+      
+    var state = this._states[id];
+    if (state)
+      return !_.isEmpty(state.match(/ready/i));
+    else
+      return false;
+  },
+
+  getCurrentActivity: function () {
+    this._ensureCurrentActivityDep();
+    this._currentActivityDep.depend();
+
+    return this._currentActivity;
+  },
+
+  setCurrentActivity: function (id) {
+    this._ensureCurrentActivityDep();
+
+    if (this._currentActivity !== id) {
+      this._currentActivity = id;
+      this._currentActivityDep.changed();
+    }
+  },
+
+  _ensureCurrentActivityDep: function () {
+    if (!this._currentActivityDep)
+      this._currentActivityDep = new Deps.Dependency;
+  },
+
+  _ensureDep: function (id) {
+    if (!this._stateDeps[id])
+      this._stateDeps[id] = new Deps.Dependency;
+
+    if (!this._readyDeps[id])
+      this._readyDeps[id] = new Deps.Dependency;
   }
 };
 
@@ -77,10 +136,12 @@ ReactiveGallerySource = {
 sliderOptions = {
   nextButton: true,
   prevButton: true,
-  preloader: false,
+  preloader: true,
+  preloadTheseFrames: [1],
   showNextButtonOnInit: false,
   showPrevButtonOnInit: false,
   swipePreventsDefault: true,
+  animateStartingFrameIn: false,
   swipeEvents: {
     left: "next",
     right: "prev",
@@ -90,10 +151,6 @@ sliderOptions = {
   // autoPlay: true,
   // autoPlayDelay: 3000,
 };
-
-// Store list of sliders so they can be destroyed when the associated 
-// template is destroyed
-sliders = {};
 
 Template.imageSlider.events({
   "click .sequence": function (event, template) {
@@ -119,11 +176,10 @@ Template.imageSlider.events({
 
 Template.imageSlider.helpers({
   photos: function () {
-    if (ReactiveGallerySource.get(this._id)) {
+    if (ReactiveGallerySource.ready(this._id))
       return ReactiveGallerySource.photos[this._id];
-    } else {
-      return false;
-    }
+    else
+      return [];
   },
   hasPhotos: function () {
     var activity = Activities.findOne(this._id);
@@ -136,34 +192,67 @@ Template.imageSlider.helpers({
   }
 });
 
+Template.imageSlider.created = function () {
+  var self = this;
+
+  this._clearSlider = function (id, stopDeps) {
+    if (!id)
+      return;
+
+    if (_.isUndefined(stopDeps))
+      stopDeps = true;
+
+    // Cleaup slider and reactive source
+    if (stopDeps && !_.isUndefined(self._sourceDep)) {
+      self._sourceDep.stop();
+      self._sourceDep = null;
+    }
+
+    if (id)
+      ReactiveGallerySource.clearPhotos(id);
+  }
+};
+
 Template.imageSlider.rendered = function () {
-  // FIXME: more horrible hacking to get ensure dom elements have rendered 
+  // FIXME: more horrible hacking to  ensure dom elements have rendered 
   //        before trying to access with jquery libs
   // TODO:  use css animations to check element is in DOM
   if (!this.data)
     return;
 
+  var template = this;
+  template._previousId = this.data._id;
+
   // Get photos and then setup gallery ui in callback
-  processActivityPhotos(this.data, function () {
-    var self = this; // an activity => scope set processActivityPhotos callback
+  ReactiveGallerySource.setupActivity(this.data, function () {
+    template._sourceDep = Deps.autorun( function (computation) {
+      var activityId = ReactiveGroupFilter.get("activity");
+      
+      if (activityId !== template._previousId) {
+        template._clearSlider(template._previousId, false);
 
-    Deps.autorun( function (computation) {
-      var id = self._id;
+        template._previousId = activityId;
+        ReactiveGallerySource.setupActivity(Activities.findOne(activityId));
 
-      if (ReactiveGallerySource.get(id) === "ready") {
-        var slider = $("#slider-" + id);
+        return;
+      }
+
+      var state = ReactiveGallerySource.get(template._previousId);
+      if (state === "ready") {
+        // FIXME: Another hack. This needs a big refactor!
+        //        Check for a slider with the current activity id or the previous as the
+        //        dom might not have been updated to reflect the new id 
+        var slider = $("#slider-" + template._previousId);
 
         if (slider.length) {
           var gallery = $(slider).sequence(sliderOptions).data("sequence");
           var buttons = $(slider).find(".sequence-prev, .sequence-next");
           
-          if (ReactiveGallerySource.photos[id].length > 1) {
+          if (ReactiveGallerySource.photos[template._previousId].length > 1) {
             buttons.show();
           }
 
-          sliders[id] = gallery;
-        
-          computation.stop();
+          ReactiveGallerySource.sliders[template._previousId] = gallery;
         }
       }
     });
@@ -171,13 +260,5 @@ Template.imageSlider.rendered = function () {
 };
 
 Template.imageSlider.destroyed = function() {
-  if (!this.data)
-    return;
-  
-  var id = this.data._id;
-
-  if(sliders[id] && _.isFunction(sliders[id].destroy)) {
-    sliders[id].destroy();
-    delete sliders[id];
-  }
+  this._clearSlider(this.data._id);
 };
