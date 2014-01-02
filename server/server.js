@@ -26,7 +26,8 @@ Meteor.startup(function () {
   // BrowserPolicy.content.allowImageOrigin("http://maps.googleapis.com");
   BrowserPolicy.content.allowImageOrigin("*");
   // Font
-  BrowserPolicy.content.allowFontOrigin("themes.googleusercontent.com");
+  BrowserPolicy.content.allowFontOrigin("http://themes.googleusercontent.com");
+  BrowserPolicy.content.allowFontOrigin("https://themes.googleusercontent.com");
 });
 
 this.isDev = function () {
