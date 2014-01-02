@@ -147,7 +147,7 @@ sliderOptions = {
     right: "prev",
     up: false,
     down: false
-}
+  }
   // autoPlay: true,
   // autoPlayDelay: 3000,
 };
@@ -245,8 +245,14 @@ Template.imageSlider.rendered = function () {
         var slider = $("#slider-" + template._previousId);
 
         if (slider.length) {
-          var gallery = $(slider).sequence(sliderOptions).data("sequence");
-          var buttons = $(slider).find(".sequence-prev, .sequence-next");
+          var options = sliderOptions;
+
+          // no need to prevent default swipe events if only one image
+          if (slider.find("li") === 1)
+            options.swipePreventsDefault = false;
+
+          var gallery = slider.sequence(options).data("sequence");
+          var buttons = slider.find(".sequence-prev, .sequence-next");
           
           if (ReactiveGallerySource.photos[template._previousId].length > 1) {
             buttons.show();
