@@ -1,7 +1,8 @@
 {
   "meteor": {
     "git": "https://github.com/rollick/meteor.git",
-    "branch": "shark-node-fix"
+    "branch": "shark-node-fix",
+    "commit": "10a1b13805801ddacf9d6fbd1d1fef163f2e6d61"
   },
   "packages": {
     "mixpanel": {

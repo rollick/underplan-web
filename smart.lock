@@ -2,7 +2,7 @@
   "meteor": {
     "git": "https://github.com/rollick/meteor.git",
     "branch": "shark-node-fix",
-    "commit": "6ee1a5f3ea77abacf4ee7a20ccb88fc41a0ac84a"
+    "commit": "10a1b13805801ddacf9d6fbd1d1fef163f2e6d61"
   },
   "dependencies": {
     "basePackages": {
