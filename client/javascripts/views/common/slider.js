@@ -228,7 +228,7 @@ Template.imageSlider.rendered = function () {
     template._sourceDep = Deps.autorun( function (computation) {
       var activityId = ReactiveGroupFilter.get("activity");
       
-      if (activityId !== template._previousId) {
+      if (activityId && activityId !== template._previousId) {
         template._clearSlider(template._previousId, false);
 
         template._previousId = activityId;
