@@ -4,7 +4,10 @@
 .single-item {
   @include single-item();
 
-  .info-section .picture {
+  .info-section > .container {
+    @include map-box-shadow();
+
+    border-bottom: 1px solid $primary-color;
   }
 }
 

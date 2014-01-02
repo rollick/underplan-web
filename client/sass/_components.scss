@@ -540,8 +540,6 @@
       Style for info-section with 
     */
     @if $dark-details {
-      overflow-x: scroll;
-      -webkit-overflow-scrolling: touch;
       color: white;
 
       .container {
@@ -754,10 +752,10 @@
 
       @if $offset-y {
         background-color: transparent;
-        margin-top: -$profile-height*$info-section-scale;
+        margin-top: -($profile-height + 0.1em)*$info-section-scale;
 
         @media only screen and (min-width: 48em) {
-          margin-top: -$profile-height;
+          margin-top: -($profile-height + 0.1em);
         }
       } 
 
