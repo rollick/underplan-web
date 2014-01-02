@@ -221,28 +221,28 @@ Template.imageSlider.rendered = function () {
     return;
 
   var template = this;
-  template._previousId = this.data._id;
+  template._activityId = this.data._id;
 
   // Get photos and then setup gallery ui in callback
   ReactiveGallerySource.setupActivity(this.data, function () {
     template._sourceDep = Deps.autorun( function (computation) {
       var activityId = ReactiveGroupFilter.get("activity");
       
-      if (activityId && activityId !== template._previousId) {
-        template._clearSlider(template._previousId, false);
+      if (activityId && activityId !== template._activityId) {
+        template._clearSlider(template._activityId, false);
 
-        template._previousId = activityId;
+        template._activityId = activityId;
         ReactiveGallerySource.setupActivity(Activities.findOne(activityId));
 
         return;
       }
 
-      var state = ReactiveGallerySource.get(template._previousId);
+      var state = ReactiveGallerySource.get(template._activityId);
       if (state === "ready") {
         // FIXME: Another hack. This needs a big refactor!
         //        Check for a slider with the current activity id or the previous as the
         //        dom might not have been updated to reflect the new id 
-        var slider = $("#slider-" + template._previousId);
+        var slider = $("#slider-" + template._activityId);
 
         if (slider.length) {
           var options = sliderOptions;
@@ -254,11 +254,11 @@ Template.imageSlider.rendered = function () {
           var gallery = slider.sequence(options).data("sequence");
           var buttons = slider.find(".sequence-prev, .sequence-next");
           
-          if (ReactiveGallerySource.photos[template._previousId].length > 1) {
+          if (ReactiveGallerySource.photos[template._activityId].length > 1) {
             buttons.show();
           }
 
-          ReactiveGallerySource.sliders[template._previousId] = gallery;
+          ReactiveGallerySource.sliders[template._activityId] = gallery;
         }
       }
     });
@@ -266,5 +266,6 @@ Template.imageSlider.rendered = function () {
 };
 
 Template.imageSlider.destroyed = function() {
-  this._clearSlider(this.data._id);
+  if (this._activityId)
+    this._clearSlider(this._activityId);
 };

@@ -48,7 +48,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.255");
+  Session.set("appVersion", "v1.3.256");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
