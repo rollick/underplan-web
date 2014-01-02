@@ -140,8 +140,9 @@
   height: 100%;
   width: 100%;
   list-style-type: none;
+  overflow: hidden;
 }
-/* line 134, ../../../sass/app/common/slider.scss */
+/* line 135, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li {
   top: 0px;
   width: 100%;
@@ -149,7 +150,7 @@
   z-index: 2;
   pointer-events: none;
 }
-/* line 141, ../../../sass/app/common/slider.scss */
+/* line 142, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo {
   position: absolute;
   background-position: center;
@@ -159,7 +160,7 @@
   left: 100%;
   cursor: pointer;
 }
-/* line 150, ../../../sass/app/common/slider.scss */
+/* line 151, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo h2.title {
   width: 100%;
   height: 40px;
@@ -171,7 +172,7 @@
   position: absolute;
   left: 0;
 }
-/* line 162, ../../../sass/app/common/slider.scss */
+/* line 163, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo img {
   min-height: 100%;
   min-width: 100%;
@@ -179,11 +180,11 @@
   filter: alpha(opacity=0);
   opacity: 0;
 }
-/* line 172, ../../../sass/app/common/slider.scss */
+/* line 173, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-in, .sequence .sequence-canvas > li.animate-out {
   pointer-events: all;
 }
-/* line 175, ../../../sass/app/common/slider.scss */
+/* line 176, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-in .photo, .sequence .sequence-canvas > li.animate-out .photo {
   -webkit-transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -moz-transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -192,55 +193,55 @@
   overflow: hidden;
   left: 0;
 }
-/* line 183, ../../../sass/app/common/slider.scss */
+/* line 184, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-out .photo {
   left: -100%;
 }
 
-/* line 193, ../../../sass/app/common/slider.scss */
+/* line 194, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence {
   height: 250px;
 }
-/* line 196, ../../../sass/app/common/slider.scss */
+/* line 197, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence li .photo {
   background-size: contain;
 }
-/* line 201, ../../../sass/app/common/slider.scss */
+/* line 202, ../../../sass/app/common/slider.scss */
 .activity-highlight.large {
   margin: 0em;
 }
-/* line 204, ../../../sass/app/common/slider.scss */
+/* line 205, ../../../sass/app/common/slider.scss */
 .activity-highlight.large .sequence {
   height: 320px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 204, ../../../sass/app/common/slider.scss */
+  /* line 205, ../../../sass/app/common/slider.scss */
   .activity-highlight.large .sequence {
     height: 400px;
   }
 }
 
-/* line 214, ../../../sass/app/common/slider.scss */
+/* line 215, ../../../sass/app/common/slider.scss */
 .feed-item .sequence {
   height: 250px;
   margin-left: 0em;
   margin-right: 0em;
 }
-/* line 219, ../../../sass/app/common/slider.scss */
+/* line 220, ../../../sass/app/common/slider.scss */
 .feed-item .sequence.expanded {
   height: 400px;
 }
-/* line 223, ../../../sass/app/common/slider.scss */
+/* line 224, ../../../sass/app/common/slider.scss */
 .feed-item .sequence li .photo {
   background-size: cover;
 }
 
-/* line 228, ../../../sass/app/common/slider.scss */
+/* line 229, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen {
   height: 100% !important;
   width: 100% !important;
 }
-/* line 233, ../../../sass/app/common/slider.scss */
+/* line 234, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen .sequence-next:before,
 .sequence.fullscreen .sequence-prev:before {
   top: 50%;
@@ -248,7 +249,7 @@
   height: 70px;
   background-size: 70px 70px;
 }
-/* line 240, ../../../sass/app/common/slider.scss */
+/* line 241, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen li .photo {
   background-size: contain;
 }
