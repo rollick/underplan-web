@@ -1,8 +1,8 @@
 <template name="imageSlider">
   {{#if hasPhotos}}
     <div id="slider-{{_id}}" class="sequence">
-      <div class="sequence-prev"><img alt="Previous"></div>
-      <div class="sequence-next"><img alt="Next"></div>
+      <div class="sequence-prev"></div>
+      <div class="sequence-next"></div>
       <ul class="sequence-canvas">
         {{#each photos}}
           <li>

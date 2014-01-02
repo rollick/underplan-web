@@ -31,52 +31,50 @@ $slider-btn-height: 35px;
     width: 20%;
     position: absolute;
 
-    img {
+
+    &:before {
       @include transition-duration(1s);
 
       opacity: 0.5;
-      color: white;
-      font-weight: bold;
-      padding: 0px;
       position: absolute;
-      z-index: 1000;
+      top: 50%;
+      width: $slider-btn-height;
       height: $slider-btn-height;
-    }
-
-    &:hover {
-      cursor: pointer;
-
-      img {
-        @include transition-duration(1s);
-
-        opacity: 1;
-      }
-    }
-  }
-
-  .sequence-prev,
-  .sequence-next {
-    &:hover {
-      cursor: pointer;
-      background-color: rgba($body-bg-color, 0.25);
+      background-size: $slider-btn-height $slider-btn-height;
+      content: "";
+      background-repeat: no-repeat;
     }
   }
 
   .sequence-prev {
     left: 0px;
 
-    img {
+    &:before {
       left: 1%;
-      content:url("/images/chevron-white-left-large.png");
+      background-image: url("/images/chevron-white-left-large.png");
     }
   }
 
   .sequence-next {
     right: 0px;
 
-    img {
+    &:before {
       right: 1%;
-      content:url("/images/chevron-white-right-large.png");
+      background-image: url("/images/chevron-white-right-large.png");
+    }
+  }
+
+  .sequence-next,
+  .sequence-prev {
+    &:hover {
+      background-color: rgba($body-bg-color, 0.25);
+      cursor: pointer;
+
+      &:before {
+        @include transition-duration(1s);
+
+        opacity: 1;
+      }
     }
   }
 
@@ -148,11 +146,6 @@ $slider-btn-height: 35px;
   .sequence {
     height: $slider-height-small;
 
-    .sequence-next img,
-    .sequence-prev img {
-      top: $slider-height-small/2  - $slider-btn-height/2;
-    }
-
     li .photo {
       background-size: contain;
     }
@@ -167,11 +160,6 @@ $slider-btn-height: 35px;
       @media only screen and (min-width: 48em) {
         height: $slider-height-large;
       }
-
-      .sequence-next img,
-      .sequence-prev img {
-        top: 48%;
-      }
     }
   }
 }
@@ -185,11 +173,6 @@ $slider-btn-height: 35px;
     height: $slider-height-large;
   }
 
-  .sequence-next img,
-  .sequence-prev img {
-    top: 48%;
-  }
-
   li .photo {
     background-size: cover;
   }
@@ -199,11 +182,12 @@ $slider-btn-height: 35px;
   height: 100% !important;
   width: 100% !important;
 
-  .sequence-next img,
-  .sequence-prev img {
+  .sequence-next:before,
+  .sequence-prev:before {
     top: 50%;
-    opacity: 0.2;
-    height: $slider-btn-height * 2;
+    width: $slider-btn-height*2;
+    height: $slider-btn-height*2;
+    background-size: $slider-btn-height*2 $slider-btn-height*2;
   }
 
   li .photo {
