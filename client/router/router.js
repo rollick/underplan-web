@@ -452,7 +452,8 @@ var AppRouter = Backbone.Router.extend({
       ReactiveGroupFilter.set("activitySlug", null, {quiet: true});
       ReactiveGroupFilter.set("activity", null);
       ReactiveGroupFilter.set("limit", App.Defaults.feedLimitSkip);
-    }
+    } else if (!ReactiveGroupFilter.get("limit")) // set default limit if none set
+      ReactiveGroupFilter.set("limit", App.Defaults.feedLimitSkip);
 
     return this;
   },
@@ -479,7 +480,6 @@ var AppRouter = Backbone.Router.extend({
         ReactiveGroupFilter.set('activity', null);
         ReactiveGroupFilter.set('activitySlug', activityId);
       }
-
     }
 
     return this;
