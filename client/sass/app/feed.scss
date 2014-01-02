@@ -145,6 +145,11 @@
         @include spinner($spinner-color: white);
 
         float: left;
+        display: none;
+      }
+
+      &.disabled .spinner {
+        display: inherit;
       }
     }
   }

@@ -35,6 +35,11 @@ ReactiveGallerySource = {
 
   clearPhotos: function (id) {
     if(this.sliders[id] && _.isFunction(this.sliders[id].destroy)) {
+      // remove photos from canvas
+      var canvas = this.sliders[id].canvas;
+      if (canvas)
+        canvas.html("");
+      
       this.sliders[id].destroy();
       delete this.sliders[id];
     }
@@ -55,8 +60,9 @@ ReactiveGallerySource = {
     // been added to the dom.
     var self = this;
     Deps.afterFlush(function () {
-      if (self._states[id] === "dataReady")
+      if (self._states[id] === "dataReady") {
         self.set(id, "ready");
+      }
     });
 
     // Flush to ensure any code depending on dataReady will be 
@@ -175,12 +181,6 @@ Template.imageSlider.events({
 });
 
 Template.imageSlider.helpers({
-  photos: function () {
-    if (ReactiveGallerySource.ready(this._id))
-      return ReactiveGallerySource.photos[this._id];
-    else
-      return [];
-  },
   hasPhotos: function () {
     var activity = Activities.findOne(this._id);
 
@@ -221,47 +221,59 @@ Template.imageSlider.rendered = function () {
     return;
 
   var template = this;
-  template._activityId = this.data._id;
 
   // Get photos and then setup gallery ui in callback
-  ReactiveGallerySource.setupActivity(this.data, function () {
-    template._sourceDep = Deps.autorun( function (computation) {
-      var activityId = ReactiveGroupFilter.get("activity");
-      
-      if (activityId && activityId !== template._activityId) {
-        template._clearSlider(template._activityId, false);
+  template._sourceDep = Deps.autorun( function (computation) {
+    var activityId = ReactiveGroupFilter.get("activity");
 
-        template._activityId = activityId;
-        ReactiveGallerySource.setupActivity(Activities.findOne(activityId));
+    if (!template._activityId) {
+      template._activityId = template.data._id;
+    } else if(activityId && activityId !== template._activityId) {
+      template._clearSlider(template._activityId, false);
 
-        return;
-      }
+      template._activityId = activityId;
+      ReactiveGallerySource.setupActivity(Activities.findOne(activityId));
+    }
 
-      var state = ReactiveGallerySource.get(template._activityId);
-      if (state === "ready") {
-        // FIXME: Another hack. This needs a big refactor!
-        //        Check for a slider with the current activity id or the previous as the
-        //        dom might not have been updated to reflect the new id 
-        var slider = $("#slider-" + template._activityId);
+    var state = ReactiveGallerySource.get(template._activityId);
+    if (_.isEmpty(state)) {
+      ReactiveGallerySource.setupActivity(Activities.findOne(template.data._id));
+    } else if (state === "ready") {
+      // FIXME: Another hack. This needs a big refactor!
+      //        Check for a slider with the current activity id or the previous as the
+      //        dom might not have been updated to reflect the new id 
+      var slider = $("#slider-" + template._activityId),
+          canvas = slider.find(".sequence-canvas"),
+          photos = ReactiveGallerySource.photos[template._activityId];
 
-        if (slider.length) {
-          var options = sliderOptions;
+      if (photos.length) {
+        // Clear any previous images
+        if (canvas)
+          canvas.html("");
 
-          // no need to prevent default swipe events if only one image
-          if (slider.find("li") === 1)
-            options.swipePreventsDefault = false;
+        for(var i = 0; i < photos.length-1; i++) {
+          var photo = photos[i].image,
+              item = Template.sliderImage.withData({image: photo});
 
-          var gallery = slider.sequence(options).data("sequence");
-          var buttons = slider.find(".sequence-prev, .sequence-next");
-          
-          if (ReactiveGallerySource.photos[template._activityId].length > 1) {
-            buttons.show();
-          }
+          canvas.append(item.render().toHTML());
+        };
 
-          ReactiveGallerySource.sliders[template._activityId] = gallery;
+        var options = sliderOptions;
+
+        // no need to prevent default swipe events if only one image
+        if (slider.find("li") === 1)
+          options.swipePreventsDefault = false;
+
+        var gallery = slider.sequence(options).data("sequence");
+        var buttons = slider.find(".sequence-prev, .sequence-next");
+        
+        if (ReactiveGallerySource.photos[template._activityId].length > 1) {
+          buttons.show();
         }
+
+        ReactiveGallerySource.sliders[template._activityId] = gallery;
       }
-    });
+    }
   });
 };
 

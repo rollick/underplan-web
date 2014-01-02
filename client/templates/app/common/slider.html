@@ -1,17 +1,16 @@
 <template name="imageSlider">
-  {{#if hasPhotos}}
-    <div id="slider-{{_id}}" class="sequence">
-      <div class="sequence-prev"></div>
-      <div class="sequence-next"></div>
-      <ul class="sequence-canvas">
-        {{#each photos}}
-          <li>
-            <div class="photo" data-slider-image="{{ image }}">
-              <img class="main" />
-            </div>
-          </li>
-        {{/each}}
-      </ul>
+  <div id="slider-{{_id}}" class="sequence">
+    <div class="sequence-prev"></div>
+    <div class="sequence-next"></div>
+    <ul class="sequence-canvas">
+    </ul>
+  </div>
+</template>
+
+<template name="sliderImage">
+  <li>
+    <div class="photo" data-slider-image="{{ image }}">
+      <img class="main" />
     </div>
-  {{/if}}
+  </li>
 </template>

@@ -429,7 +429,7 @@ var AppRouter = Backbone.Router.extend({
 
   runSetGroup: function (groupSlug, clearActivity) {
     ReactiveGroupFilter.set("groupSlug", groupSlug);
-    ReactiveGroupFilter.set("limit", 5);
+    ReactiveGroupFilter.set("limit", App.Defaults.feedLimitSkip);
     
     Deps.autorun( function (computation) {
       var group = Groups.findOne({slug: ReactiveGroupFilter.get("groupSlug")});

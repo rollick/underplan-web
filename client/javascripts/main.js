@@ -48,7 +48,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.3.257");
+  Session.set("appVersion", "v1.3.258");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -123,7 +123,9 @@ Meteor.startup(function () {
       Session.set("feedActivitiesReady", false);
       self.feedListSubscription = Meteor.subscribe("feedActivities", options, function () {
         // refresh map markers
-        mappingFsm.setupGroupMarkers();
+        // if (mappingFsm.equals("state", "recentGroupIdle"))
+          mappingFsm.setupGroupMarkers();
+
         Session.set("feedActivitiesReady", true);
       });
 

@@ -3729,14 +3729,19 @@ blockquote p {
   border-top: 2px solid rgba(255, 255, 255, 0.8);
   border-radius: 100%;
   float: left;
+  display: none;
+}
+/* line 151, ../../sass/app/feed.scss */
+.feed .feed-more div.button.disabled .spinner {
+  display: inherit;
 }
 
-/* line 154, ../../sass/app/feed.scss */
+/* line 159, ../../sass/app/feed.scss */
 .feed li,
 .groups li {
   cursor: pointer;
 }
-/* line 157, ../../sass/app/feed.scss */
+/* line 162, ../../sass/app/feed.scss */
 .feed li:hover,
 .groups li:hover {
   color: #6da549;
