@@ -18,7 +18,8 @@ Meteor.startup(function () {
   BrowserPolicy.content.allowScriptOrigin("http://en.wikipedia.org");
 
   // Style:  
-  BrowserPolicy.content.allowStyleOrigin("fonts.googleapis.com");
+  BrowserPolicy.content.allowStyleOrigin("http://fonts.googleapis.com");
+  BrowserPolicy.content.allowStyleOrigin("https://fonts.googleapis.com");
   // Image:
   // BrowserPolicy.content.allowImageOrigin("https://profiles.google.com/");
   // BrowserPolicy.content.allowImageOrigin("https://lh3.googleusercontent.com");
