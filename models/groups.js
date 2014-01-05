@@ -69,6 +69,22 @@ Meteor.methods({
     if ( typeof options.slug === "undefined" || options.slug == "" )
       options.slug = createLinkSlug(options.name);
 
+    var testSlug = true;
+    var count = 1;
+    var originalSlug = options.slug;
+    
+    while(testSlug) {
+      var matchingSlugs = Groups.find({slug: options.slug}, { _id: 1, slug: 1 });
+      // Creating the group in this method so there shouldn't be any matching slugs
+      // Also prevent slugs which match standard routes - settings, new
+      if (matchingSlugs.count() > 0 || !!options.slug.match(/^(settings|new)$/)) {
+        options.slug = originalSlug + "-" + count;
+        count += 1;
+      } else {
+        testSlug = false;
+      }
+    }
+
     var approved = false // unapproved by default. Admins can approve
     var owner = Meteor.users.findOne({_id: this.userId});
     if (owner.admin) {
