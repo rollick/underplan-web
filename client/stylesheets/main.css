@@ -7889,7 +7889,7 @@ h2 span.warning, a span.warning {
 .main-content.dashboard {
   background: url("/images/dash_bg_2.jpg") 0 0 no-repeat;
   background-color: black;
-  margin-top: -14px;
+  margin-top: -10px;
 }
 /* line 143, ../sass/main.scss */
 .main-content > .inner {

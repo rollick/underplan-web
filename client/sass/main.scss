@@ -137,7 +137,7 @@ h2, a {
   &.dashboard {
     background: url("/images/dash_bg_2.jpg") 0 0 no-repeat;
     background-color: black;
-    margin-top: -$handle-height;
+    margin-top: -($handle-height - $handle-hover-offset + $handle-offset);
   }
 
   & > .inner {

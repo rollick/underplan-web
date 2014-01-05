@@ -9,6 +9,12 @@
   position: relative;
   margin: 0;
 
+  .info-section .container {
+    @include box-shadow(none);
+
+    border-bottom: 0px;
+  }
+
   &.faded {
     border: red solid 1px;
   }
