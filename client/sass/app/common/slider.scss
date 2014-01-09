@@ -87,6 +87,7 @@ $slider-btn-height: 35px;
       top: 50%;
       width: $slider-btn-height;
       height: $slider-btn-height;
+      margin-top: -$slider-btn-height/2;
       background-size: $slider-btn-height $slider-btn-height;
       content: "";
       background-repeat: no-repeat;
@@ -236,6 +237,7 @@ $slider-btn-height: 35px;
     width: $slider-btn-height*2;
     height: $slider-btn-height*2;
     background-size: $slider-btn-height*2 $slider-btn-height*2;
+    margin-top: -$slider-btn-height;
   }
 
   li .photo {
