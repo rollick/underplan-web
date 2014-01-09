@@ -35,11 +35,6 @@ ReactiveGallerySource = {
 
   clearPhotos: function (id) {
     if(this.sliders[id] && _.isFunction(this.sliders[id].destroy)) {
-      // remove photos from canvas
-      var canvas = this.sliders[id].canvas;
-      if (canvas)
-        canvas.html("");
-      
       this.sliders[id].destroy();
       delete this.sliders[id];
     }
@@ -210,6 +205,11 @@ Template.imageSlider.created = function () {
 
     if (id)
       ReactiveGallerySource.clearPhotos(id);
+
+    // clear image from dom
+    var canvas = self.find(".sequence-canvas");
+    if (canvas)
+      canvas.html("");
   }
 };
 
@@ -247,10 +247,6 @@ Template.imageSlider.rendered = function () {
           photos = ReactiveGallerySource.photos[template._activityId];
 
       if (photos.length) {
-        // Clear any previous images
-        if (canvas)
-          canvas.html("");
-
         for(var i = 0; i < photos.length; i++) {
           var photo = photos[i].image,
               item = Template.sliderImage.withData({image: photo});
