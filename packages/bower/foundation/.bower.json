@@ -7,17 +7,20 @@
   ],
   "dependencies": {
     "jquery": ">= 2.0.0",
-    "modernizr": ">= 2.6.2"
+    "modernizr": ">= 2.6.2",
+    "fastclick": "~0.6.10",
+    "jquery.cookie": "~1.4.0",
+    "jquery-placeholder": "~2.0.7"
+  },
+  "devDependencies": {
+    "jquery.autocomplete": "devbridge/jQuery-Autocomplete#1.2.7"
   },
   "private": true,
-  "homepage": "https://github.com/zurb/bower-foundation",
-  "_release": "5.0.2",
-  "_resolution": {
-    "type": "version",
-    "tag": "5.0.2",
-    "commit": "f89c07d756b5b37175dc4064327e982cf8974676"
+  "_cacheHeaders": {
+    "Content-Type": "application/zip",
+    "Content-Disposition": "attachment; filename=bower-foundation-master.zip"
   },
-  "_source": "git://github.com/zurb/bower-foundation.git",
-  "_target": "~5.0.2",
-  "_originalSource": "zurb/bower-foundation"
+  "_source": "https://github.com/zurb/bower-foundation/archive/master.zip",
+  "_target": "*",
+  "_originalSource": "https://github.com/zurb/bower-foundation/archive/master.zip"
 }
