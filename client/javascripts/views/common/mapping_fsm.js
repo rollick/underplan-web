@@ -823,7 +823,7 @@ MappingFsm = machina.Fsm.extend({
         this.handle("map.hide");
       },
       _onExit: function () {
-        this._mapElements().show();
+        this._mapElements().removeClass("hide");
 
         google.maps.event.trigger(this.map, 'resize');
 
@@ -832,7 +832,7 @@ MappingFsm = machina.Fsm.extend({
       "map.hide": function() {
         var self = this;
         this._setTransitionCallback(function () {
-          self._mapElements().hide();
+          self._mapElements().addClass("hide");
         });
         this._setContainerClass('hidden');
 
@@ -845,7 +845,7 @@ MappingFsm = machina.Fsm.extend({
         this.handle("map.hide");
       },
       _onExit: function () {
-        this._mapElements().show();
+        this._mapElements().removeClass("hide");
 
         google.maps.event.trigger(this.map, 'resize');
 
@@ -854,7 +854,7 @@ MappingFsm = machina.Fsm.extend({
       "map.hide": function() {
         var self = this;
         this._setTransitionCallback(function () {
-          self._mapElements().hide();
+          self._mapElements().addClass("hide");
         });
         this._setContainerClass('hidden');
 

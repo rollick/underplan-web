@@ -5,9 +5,25 @@ Template.mainSettings.isGroupAdmin = function () {
   return isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group"));
 };
 
-Template.mainSettings.rendered = function () {
-  $(this.firstNode).foundation("accordion");
+///////////////////////////////////////////////////////////////////////////////
+// Group Settings
+
+Template.groupSettings.rendered = function () {
+  // $(this.find(".accordion")).foundation("accordion");
 };
+
+Template.groupSettings.events({
+  'click dd a': function (element, template) {
+    var target = $(element.target);
+
+    target.closest(".accordion").find("dd > .content").removeClass("active");
+    target.parent().find(".content").addClass("active");
+
+    $('html,body').animate({
+        scrollTop: target.offset().top},
+        'slow');
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // User Settings

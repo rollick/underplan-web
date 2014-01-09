@@ -209,7 +209,7 @@ Template.imageSlider.created = function () {
     // clear image from dom
     var canvas = self.find(".sequence-canvas");
     if (canvas)
-      canvas.html("");
+      canvas.innerHTML = "";
   }
 };
 

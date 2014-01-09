@@ -14,6 +14,10 @@
   pointer-events: none;
   height: 0px;
 
+  &.hide {
+    display: none !important;
+  }
+
   & > div {
     height: $handle-height;
     width: 30px;

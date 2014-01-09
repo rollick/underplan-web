@@ -1,3 +1,37 @@
+<template name="mainSettings">
+  <div class="settings-editor">
+    <h2>Settings</h2>
+    {{#if isGroupAdmin}}
+      {{> groupSettings}}
+    {{else}}
+      {{> userSettings}}
+    {{/if}}
+  </div>
+</template>
+
+<template name="groupSettings">
+  <dl class="accordion" data-accordion>
+    <dd>
+      <a href="#user" data-bypass>User Preferences</a>
+      <div id="user" class="content active" data-slug="user">
+        {{> userSettings}}
+      </div>
+    </dd>
+    <dd>
+      <a href="#group" data-bypass>Group Settings</a>
+      <div id="group" class="content" data-slug="group">
+        {{> groupEditor}}
+      </div>          
+    </dd>
+    <dd>
+      <a href="#membership" data-bypass>Group Membership</a>
+      <div id="membership" class="content" data-slug="membership">
+        {{> groupInviteList}}
+      </div>
+    </dd>
+  </dl>
+</template>
+
 <template name="userSettings">
   {{#if error}}
     <div class="alert-box alert">{{error}}</div>
@@ -12,34 +46,4 @@
       <a href="#" class="tiny secondary cancel">Cancel</a>
     {{/with}}
   </form>
-</template>
-
-<template name="mainSettings">
-  <div class="settings-editor">
-    <h2>Settings</h2>
-    {{#if isGroupAdmin}}
-      <dl class="accordion" data-accordion>
-        <dd>
-          <a href="#user">User Preferences</a>
-          <div id="user" class="content active" data-slug="user">
-            {{> userSettings}}
-          </div>
-        </dd>
-        <dd>
-          <a href="#group">Group Settings</a>
-          <div id="group" class="content" data-slug="group">
-            {{> groupEditor}}
-          </div>          
-        </dd>
-        <dd>
-          <a href="#membership">Group Membership</a>
-          <div id="membership" class="content" data-slug="membership">
-            {{> groupInviteList}}
-          </div>
-        </dd>
-      </dl>
-    {{else}}
-      {{> userSettings}}
-    {{/if}}
-  </div>
 </template>
