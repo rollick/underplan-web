@@ -3175,17 +3175,23 @@ blockquote p {
 /* line 113, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .info-section .details {
   padding-left: 10px;
-  padding-right: 80px;
+  padding-right: 4.5em;
 }
-/* line 117, ../../sass/app/comment.scss */
+@media only screen and (min-width: 48em) {
+  /* line 113, ../../sass/app/comment.scss */
+  .comment-form.expanded .user-comment .info-section .details {
+    padding-right: 5.2em;
+  }
+}
+/* line 121, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .info-section .details textarea {
   margin-top: 5px;
 }
-/* line 121, ../../sass/app/comment.scss */
+/* line 125, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .info-section .details #comment {
   height: 5em;
 }
-/* line 126, ../../sass/app/comment.scss */
+/* line 130, ../../sass/app/comment.scss */
 .comment-form.expanded .user-comment .info-section .details > .button, .comment-form.expanded .user-comment .info-section .details > a {
   display: inline-block;
   margin-bottom: 0px;
