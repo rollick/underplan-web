@@ -80,29 +80,9 @@ Template.feedList.helpers({
   }
 });
 
-Template.feedList.rendered = function () {
-  var self = this;
-
-  this._elementWatcher = scrollMonitor.create($(".feed-more"));
-
-  // Load the next batch of activities when the load button comes into view
-  self._elementWatcher.enterViewport(function() {
-    // ignore if the watched element isn't in the dom or is already loading activities
-    var watchElem = $(this.watchItem);
-
-    if ($.contains(document, watchElem[0]) && !watchElem.find(".button.disabled").length && Session.get("feedActivitiesReady"))
-      ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + App.Defaults.feedLimitSkip);
-  });
-};
-
-Template.feedList.destroyed = function () {
-  this._elementWatcher = null;
-};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Feed Item View
-
-// Template.short.preserve([".short.entry.expanded"]);
 
 Template.feedItem.events({
   'click .activity a.title': function (event, template) {
