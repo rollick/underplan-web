@@ -46,7 +46,7 @@
       @include entry-with-profile($picture-width: 4em);
 
       margin: 0.5em;
-      width: 95%;
+      width: 100%;
       // height: emCalc(36px);
       // overflow: hidden;
 
@@ -72,6 +72,7 @@
           display: inline-block;
           height: inherit;
           width: 100%;
+          padding-right: $standard-padding;
 
           & > .button,
           & > a {
@@ -111,11 +112,11 @@
 
         .details {
           padding-left: 10px;
-          // padding-right: 4em; // picture width, see entry-with-profile
-
-          // @media only screen and (min-width: 48em) {
-          //   padding-right: 4em*$info-section-scale;
-          // }
+          padding-right: 80px;
+          
+          textarea {
+            margin-top: 5px;
+          }
 
           #comment {
             height: 5em;
@@ -124,6 +125,7 @@
           & > .button,
           & > a {
             display: inline-block;
+            margin-bottom: 0px;
           }
         }
       }
