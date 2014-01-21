@@ -213,11 +213,11 @@ if(Meteor.isClient) {
   };
 
   var trackUpdateActivity = function(properties) {
-    trackEvent("Activity Updated", properties);
+    App.trackEvent("Activity Updated", properties);
   };
 
   var trackCreateActivity = function(properties) {
-    trackEvent("Activity Created", properties);
+    App.trackEvent("Activity Created", properties);
   };
 }
 

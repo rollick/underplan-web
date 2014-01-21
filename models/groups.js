@@ -211,7 +211,7 @@ if (Meteor.isClient) {
     check(groupId, String);
 
     var groupName = Groups.findOne(groupId, {$fields: {name: 1}}).name;
-    trackEvent("Group Created", {"Group ID": groupId, "Group Name": groupName});
+    App.trackEvent("Group Created", {"Group ID": groupId, "Group Name": groupName});
   };  
 }
 
