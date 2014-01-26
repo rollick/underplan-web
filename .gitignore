@@ -5,3 +5,4 @@ __MACOSX
 .sass-cache
 settings.*
 underplan.sublime*
+packages/bower

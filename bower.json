@@ -1,6 +1,6 @@
 {
   "name": "underplan",
   "dependencies": {
-    "foundation": "https://github.com/zurb/bower-foundation/archive/master.zip"
+    "foundation": "=5.0.3"
   }
 }

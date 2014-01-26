@@ -647,7 +647,7 @@
   Foundation.libs.accordion = {
     name : 'accordion',
 
-    version : '5.0.1',
+    version : '5.0.3',
 
     settings : {
       active_class: 'active',
@@ -689,7 +689,7 @@
   Foundation.libs.alert = {
     name : 'alert',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {
       animation: 'fadeOut',
@@ -932,11 +932,14 @@
     },
 
     keydown : function (e) {
-      var clearing = $('ul[data-clearing]', '.clearing-blackout');
+      var clearing = $('ul[data-clearing]', '.clearing-blackout'),
+          NEXT_KEY = this.rtl ? 37 : 39,
+          PREV_KEY = this.rtl ? 39 : 37,
+          ESC_KEY = 27;
 
-      if (e.which === 39) this.go(clearing, 'next');
-      if (e.which === 37) this.go(clearing, 'prev');
-      if (e.which === 27) $('a.clearing-close').trigger('click');
+      if (e.which === NEXT_KEY) this.go(clearing, 'next');
+      if (e.which === PREV_KEY) this.go(clearing, 'prev');
+      if (e.which === ESC_KEY) $('a.clearing-close').trigger('click');
     },
 
     nav : function (e, direction) {
@@ -1004,7 +1007,9 @@
       } else {
         target.css({
           marginRight : -(target.outerWidth() / 2),
-          marginTop : -(target.outerHeight() / 2)
+          marginTop : -(target.outerHeight() / 2),
+          left: 'auto',
+          right: '50%'
         });
       }
       return this;
@@ -1078,19 +1083,25 @@
       var clearing = target.parent(),
           old_index = this.settings.prev_index || target.index(),
           direction = this.direction(clearing, current, target),
+          dir = this.rtl ? 'right' : 'left',
           left = parseInt(clearing.css('left'), 10),
           width = target.outerWidth(),
           skip_shift;
 
+      var dir_obj = {};
+
       // we use jQuery animate instead of CSS transitions because we
       // need a callback to unlock the next animation
+      // needs support for RTL **
       if (target.index() !== old_index && !/skip/.test(direction)){
         if (/left/.test(direction)) {
           this.lock();
-          clearing.animate({left : left + width}, 300, this.unlock());
+          dir_obj[dir] = left + width;
+          clearing.animate(dir_obj, 300, this.unlock());
         } else if (/right/.test(direction)) {
           this.lock();
-          clearing.animate({left : left - width}, 300, this.unlock());
+          dir_obj[dir] = left - width;
+          clearing.animate(dir_obj, 300, this.unlock());
         }
       } else if (/skip/.test(direction)) {
         // the target image is not adjacent to the current image, so
@@ -1099,9 +1110,11 @@
         this.lock();
 
         if (skip_shift > 0) {
-          clearing.animate({left : -(skip_shift * width)}, 300, this.unlock());
+          dir_obj[dir] = -(skip_shift * width);
+          clearing.animate(dir_obj, 300, this.unlock());
         } else {
-          clearing.animate({left : 0}, 300, this.unlock());
+          dir_obj[dir] = 0;
+          clearing.animate(dir_obj, 300, this.unlock());
         }
       }
 
@@ -1175,7 +1188,7 @@
   Foundation.libs.dropdown = {
     name : 'dropdown',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {
       active_class: 'open',
@@ -1378,7 +1391,7 @@
   Foundation.libs.interchange = {
     name : 'interchange',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     cache : {},
 
@@ -1553,7 +1566,7 @@
     },
 
     update_nodes : function () {
-      var nodes = this.S('[' + this.data_attr + ']:not(img)'),
+      var nodes = this.S('[' + this.data_attr + ']').not('img'),
           count = nodes.length,
           loaded_count = 0,
           data_attr = this.data_attr;
@@ -1641,7 +1654,7 @@
       var uuid = this.uuid(),
           current_uuid = el.data('uuid');
 
-      if (current_uuid) return this.cache[current_uuid];
+      if (this.cache[current_uuid]) return this.cache[current_uuid];
 
       el.attr('data-uuid', uuid);
 
@@ -1677,6 +1690,7 @@
   };
 
 }(jQuery, this, this.document));
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
@@ -1685,7 +1699,7 @@
   Foundation.libs.joyride = {
     name : 'joyride',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     defaults : {
       expose               : false,      // turn on or off the expose feature
@@ -1815,7 +1829,7 @@
       }
 
       // generate the tips and insert into dom.
-      if (!this.settings.cookie_monster || this.settings.cookie_monster && $.cookie(this.settings.cookie_name) === null) {
+      if (!this.settings.cookie_monster || this.settings.cookie_monster && !$.cookie(this.settings.cookie_name)) {
         this.settings.$tip_content.each(function (index) {
           var $this = $(this);
           this.settings = $.extend({}, self.defaults, self.data_options($this))
@@ -2526,7 +2540,7 @@
   Foundation.libs.magellan = {
     name : 'magellan',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {
       active_class: 'active',
@@ -2657,7 +2671,7 @@
   Foundation.libs.offcanvas = {
     name : 'offcanvas',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {},
 
@@ -2688,6 +2702,7 @@
     reflow : function () {}
   };
 }(jQuery, this, this.document));
+
 ;(function ($, window, document, undefined) {
   'use strict';
 
@@ -2851,11 +2866,20 @@
       }
     };
 
-    self.link_bullet = function(e) {
+    self.link_bullet = function(e) {    
       var index = $(this).attr('data-orbit-slide');
       if ((typeof index === 'string') && (index = $.trim(index)) != "") {
-        self._goto(parseInt(index));
+        if(isNaN(parseInt(index)))
+        {
+          var slide = container.find('[data-orbit-slide='+index+']');
+          if (slide.index() != -1) {self._goto(slide.index() + 1);}
+        }
+        else
+        {
+          self._goto(parseInt(index));
+        }
       }
+
     }
 
     self.timer_callback = function() {
@@ -3070,7 +3094,7 @@
   Foundation.libs.orbit = {
     name: 'orbit',
 
-    version: '5.0.0',
+    version: '5.0.3',
 
     settings: {
       animation: 'slide',
@@ -3105,24 +3129,31 @@
       after_slide_change: noop
     },
 
-    init: function (scope, method, options) {
+    init : function (scope, method, options) {
+      var self = this;
+      this.bindings(method, options);
+    },
+
+    events : function (instance) {
+      var orbit_instance = new Orbit($(instance), $(instance).data('orbit-init'));
+      $(instance).data(self.name + '-instance', orbit_instance);
+    },
+
+    reflow : function () {
       var self = this;
 
-      if (typeof method === 'object') {
-        $.extend(true, self.settings, method);
+      if ($(self.scope).is('[data-orbit]')) {
+        var $el = $(self.scope);
+        var instance = $el.data(self.name + '-instance');
+        instance.compute_dimensions();
+      } else {
+        $('[data-orbit]', self.scope).each(function(idx, el) {
+          var $el = $(el);
+          var opts = self.data_options($el);
+          var instance = $el.data(self.name + '-instance');
+          instance.compute_dimensions();
+        });
       }
-
-      if ($(scope).is('[data-orbit]')) {
-        var $el = $(scope);
-        var opts = self.data_options($el);
-        new Orbit($el, $.extend({},self.settings, opts));
-      }
-
-      $('[data-orbit]', scope).each(function(idx, el) {
-        var $el = $(el);
-        var opts = self.data_options($el);
-        new Orbit($el, $.extend({},self.settings, opts));
-      });
     }
   };
 
@@ -3197,7 +3228,7 @@
 
       $(this.scope)
         .off('.reveal');
-      
+
       $(document)
         .on('click.fndtn.reveal', this.close_targets(), function (e) {
 
@@ -3236,14 +3267,30 @@
           .on('closed.fndtn.reveal', '[data-reveal]', this.close_video);
       }
 
-      $('body').on('keyup.fndtn.reveal', function ( event ) {
+      return true;
+    },
+
+    // PATCH #3: turning on key up capture only when a reveal window is open
+    key_up_on : function (scope) {
+      var self = this;
+
+      // PATCH #1: fixing multiple keyup event trigger from single key press
+      $('body').off('keyup.fndtn.reveal').on('keyup.fndtn.reveal', function ( event ) {
         var open_modal = $('[data-reveal].open'),
             settings = open_modal.data('reveal-init');
-        if ( settings && event.which === 27  && settings.close_on_esc) { // 27 is the keycode for the Escape key
-          open_modal.foundation('reveal', 'close');
+        // PATCH #2: making sure that the close event can be called only while unlocked,
+        //           so that multiple keyup.fndtn.reveal events don't prevent clean closing of the reveal window.
+        if ( settings && event.which === 27  && settings.close_on_esc && !self.locked) { // 27 is the keycode for the Escape key
+          self.close.call(self, open_modal);
         }
       });
 
+      return true;
+    },
+
+    // PATCH #3: turning on key up capture only when a reveal window is open
+    key_up_off : function (scope) {
+      $('body').off('keyup.fndtn.reveal');
       return true;
     },
 
@@ -3271,6 +3318,7 @@
             .data('offset', this.cache_offset(modal));
         }
 
+        this.key_up_on(modal);    // PATCH #3: turning on key up capture only when a reveal window is open
         modal.trigger('open');
 
         if (open_modal.length < 1) {
@@ -3322,6 +3370,7 @@
 
       if (open_modals.length > 0) {
         this.locked = true;
+        this.key_up_off(modal);   // PATCH #3: turning on key up capture only when a reveal window is open
         modal.trigger('close');
         this.toggle_bg(modal);
         this.hide(open_modals, settings.css.close, settings);
@@ -3556,7 +3605,7 @@
   Foundation.libs.tooltip = {
     name : 'tooltip',
 
-    version : '5.0.0',
+    version : '5.0.3',
 
     settings : {
       additional_inheritable_classes : [],
@@ -3675,7 +3724,7 @@
           'top' : (top) ? top : 'auto',
           'bottom' : (bottom) ? bottom : 'auto',
           'left' : (left) ? left : 'auto',
-          'right' : (right) ? right : 'auto',
+          'right' : (right) ? right : 'auto'
         }).end();
       };
 
@@ -3693,7 +3742,7 @@
         objPos(tip, (target.offset().top + target.outerHeight() + 10), 'auto', 'auto', left);
         tip.removeClass('tip-override');
         if (classes && classes.indexOf('tip-top') > -1) {
-          objPos(tip, (target.offset().top - tip.outerHeight()), 'auto', 'auto', left)
+          objPos(tip, (target.offset().top - tip.outerHeight() - 10), 'auto', 'auto', left)
             .removeClass('tip-override');
         } else if (classes && classes.indexOf('tip-left') > -1) {
           objPos(tip, (target.offset().top + (target.outerHeight() / 2) - (tip.outerHeight() / 2)), 'auto', 'auto', (target.offset().left - tip.outerWidth() - nubHeight))

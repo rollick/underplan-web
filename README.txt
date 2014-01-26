@@ -1,3 +1,0 @@
-This app should run on the meteor free server without issues provided the server config is provided when deploying the app.
-
-More to follow ...
