@@ -7,7 +7,7 @@ preserve-inputs
 accounts-password
 accounts-facebook
 accounts-github
-#accounts-twitter
+accounts-twitter
 accounts-google
 email
 showdown
