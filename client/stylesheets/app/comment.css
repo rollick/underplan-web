@@ -2369,7 +2369,7 @@ blockquote p {
   }
 }
 /* line 462, ../../sass/_components.scss */
-.comment .info-section .container {
+.comment .info-section > .container {
   display: inline-block;
 }
 /* line 469, ../../sass/_components.scss */
@@ -2867,7 +2867,7 @@ blockquote p {
   }
 }
 /* line 462, ../../sass/_components.scss */
-.comment-form > .inner .user-comment .info-section .container {
+.comment-form > .inner .user-comment .info-section > .container {
   display: inline-block;
 }
 /* line 469, ../../sass/_components.scss */

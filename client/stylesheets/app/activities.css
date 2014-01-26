@@ -2469,7 +2469,7 @@ blockquote p {
   }
 }
 /* line 462, ../../sass/_components.scss */
-.single-item > .inner .activity .info-section .container {
+.single-item > .inner .activity .info-section > .container {
   display: inline-block;
 }
 /* line 469, ../../sass/_components.scss */
@@ -3619,7 +3619,7 @@ body.fullscreen .activity-highlight.large {
   }
 }
 /* line 462, ../../sass/_components.scss */
-.map-info > .inner .activity .info-section .container {
+.map-info > .inner .activity .info-section > .container {
   display: inline-block;
 }
 /* line 469, ../../sass/_components.scss */
