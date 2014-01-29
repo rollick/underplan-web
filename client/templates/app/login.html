@@ -43,33 +43,46 @@
 </template>
 
 <template name="loggedout">
-  <li class="text">Log in with:</li>
-  {{#if hasTwitter}}
-    <li class="login-services">
-      <a href="#" class="login twitter">
-        <i class="foundicon-social-twitter"><p>Twitter</p></i>
-      </a>
-    </li>
-  {{/if}}
-  {{#if hasGoogle}}
-    <li class="login-services">
-      <a href="#" class="login google">
-        <i class="foundicon-social-google-plus"><p>Google</p></i>
-      </a>
-    </li>
-  {{/if}}
-  {{#if hasFacebook}}
-    <li class="login-services">
-      <a href="#" class="login facebook">
-        <i class="foundicon-social-facebook"><p>Facebook</p></i>
-      </a>
-    </li>
-  {{/if}}
-  {{#if hasGitHub}}
-    <li class="login-services">
-      <a href="#" class="login github">
-        <i class="foundicon-social-github"><p>GitHub</p></i>
-      </a>
-    </li>
-  {{/if}}
+  <li class="text">
+    <a href="#" data-reveal-id="login-modal" class="reveal-login-modal" data-bypass>Log in</a>
+  </li>
+  {{> loginPanel}}
+</template>
+
+<template name="loginPanel">
+  <div id="login-modal" class="medium reveal-modal" data-reveal>
+    <h3>Log in to Underplan</h3>
+    <hr />
+    <ul class="small-block-grid-1 medium-block-grid-3 large-block-grid-4">
+      {{#if hasTwitter}}
+        <li class="login-services twitter">
+          <a href="#" class="login">
+            <i class="fi-social-twitter"></i>Twitter
+          </a>
+        </li>
+      {{/if}}
+      {{#if hasGoogle}}
+        <li class="login-services google">
+          <a href="#" class="login">
+            <i class="fi-social-google-plus"></i>Google
+          </a>
+        </li>
+      {{/if}}
+      {{#if hasFacebook}}
+        <li class="login-services facebook">
+          <a href="#" class="login">
+            <i class="fi-social-facebook"></i>Facebook
+          </a>
+        </li>
+      {{/if}}
+      {{#if hasGitHub}}
+        <li class="login-services github">
+          <a href="#" class="login">
+            <i class="fi-social-github"></i>GitHub
+          </a>
+        </li>
+      {{/if}}
+    </ul>
+    <a class="close-reveal-modal">X</a>
+  </div>
 </template>

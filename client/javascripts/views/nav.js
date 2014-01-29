@@ -54,6 +54,19 @@ Template.countryFilter.helpers({
 });
 
 Template.countryFilter.events({
+  'mouseleave #country-filter': function (event, template) {
+    if (template._inactiveTimer)
+      clearTimeout(template._inactiveTimer);
+
+    template._inactiveTimer = setTimeout(function () {
+      var content = $(event.target);
+      content.foundation('dropdown', 'close', content);
+    }, 1000);
+  },
+  'mouseenter #country-filter': function (event, template) {
+    if (template._inactiveTimer)
+      clearTimeout(template._inactiveTimer);
+  },
   "click #country-filter li > a": function (event, template) {
     event.stopPropagation();
     event.preventDefault();

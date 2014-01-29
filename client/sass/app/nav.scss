@@ -241,6 +241,10 @@
   ul.right {
     position: absolute;
     right: 0;
+
+    .text {
+      padding: 0px;
+    }
   }
 
   &.expanded {
@@ -302,7 +306,7 @@
   li.settings {
     @media only screen and (min-width: 58.75em) {
       ul.dropdown li a { 
-        padding: 15px !important;
+        // padding: 15px !important;
       }
     }
 
@@ -365,29 +369,99 @@
   }  
 }
 
-li.login-services {
-  height: 45px;
+.close-reveal-modal {
+  font-family: arial;
+  font-weight: 100 !important;
+}
 
-  a {
-    padding-top: 5px !important;
-    line-height: 35px !important;
-  }
+#login-modal {
+  @include standard-corners($corner-radius:5px);
 
-  p {
-    display: inline;
-    position: relative;
-    top: -5px;
-    margin-left: 8px;
-    font-size: 0.7em;
-  }
+  > ul {
+    li.login-services {
+      $google-color: #4584F0;
+      $facebook-color: #3B5998;
+      $twitter-color: #02ACEE;
+      $github-color: #040404;
 
-  i {
-    -webkit-transition: color .5s;
-    -moz-transition: color .5s;
-    -o-transition: color .5s;
-    transition: color .5s;
-    font-size: 18px;
-    overflow: hidden;
-    font-style: normal;
-  }
+      text-align: center;
+      padding: 7px 15px 5px 15px;
+      font-size: 1.3em;
+
+      a {
+        font-size: 0.9em;
+      }
+
+      a:hover i,
+      a:focus i {
+        text-shadow: 1px 4px 6px #FFF, 0 0 0 #000, 1px 24px 6px #FFF;
+      }
+
+      &.google a {
+        color: $google-color;
+
+        &:hover,
+        &:focus {
+          i { color: rgba($google-color, 0.8); }
+        }
+      }
+
+      &.facebook a {
+        color: $facebook-color;
+
+        &:hover,
+        &:focus {
+          i { color: rgba($facebook-color, 0.8); }
+        }
+      }
+
+      &.twitter a {
+        color: $twitter-color;
+
+        &:hover,
+        &:focus {
+          i { color: rgba($twitter-color, 0.8); }
+        }
+      }
+      
+      &.github a {
+        color: $github-color;
+
+        &:hover,
+        &:focus {
+          // color: darken($github-color, 15%);
+
+          i { color: rgba($github-color, 0.8); }
+        }
+      }
+
+      p {
+        display: inline;
+        position: relative;
+        top: -3px;
+        margin-left: 8px;
+        font-size: 1em;
+        font-weight: 400;
+      }
+
+      i {
+        @include transition-property(text-shadow);
+        @include transition-property(color);
+        @include transition-duration(.5s);
+
+        font-size: 18px;
+        overflow: hidden;
+        font-style: normal;
+        font-size: 1em;
+        line-height: 1em;
+        padding-right: 2px;
+
+        &:before {
+          vertical-align: -16%;
+          font-size: 2em;
+          padding-right: 5px;
+        }
+      }
+    } 
+  } 
 }

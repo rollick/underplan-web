@@ -7,6 +7,22 @@ Template.groupActivityActions.helpers({
   },
 });
 
+Template.groupActivityActions.events({
+  'mouseleave #share': function (event, template) {
+    if (template._inactiveTimer)
+      clearTimeout(template._inactiveTimer);
+
+    template._inactiveTimer = setTimeout(function () {
+      var content = $(event.target);
+      content.foundation('dropdown', 'close', content);
+    }, 1000);
+  },
+  'mouseenter #share': function (event, template) {
+    if (template._inactiveTimer)
+      clearTimeout(template._inactiveTimer);
+  },
+})
+
 Template.groupActivityActions.rendered = function () {
   $(this.firstNode).foundation('dropdown');
 };

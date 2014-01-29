@@ -227,6 +227,10 @@ h2, a {
 ///////////////////////////////////////////////////////////////////////////////
 // Foundation Overrides
 
+.top-bar.expanded .toggle-topbar a span {
+  @include box-shadow(none);
+}
+
 a.tiny.secondary {
   font-size: 0.8em;
   padding: 0.5em;

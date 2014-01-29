@@ -1,59 +1,17 @@
+///////////////////////////////////////////////////////////////////////////////
+// Logged Out
+
 Template.loggedout.events({
-  'click .login': function(event, template) {
-    event.stopPropagation();
-    event.preventDefault();
+  "click .reveal-login-modal": function (event, template) {
+    var modalId = $(event.target).data("revealId");
 
-    var target = $(event.currentTarget);
-    var loginCall, params;
+    if (modalId)
+      $("#" + modalId).foundation("reveal", "open");
+  } 
+})
 
-    if(target.hasClass("github")) {
-      loginCall = Meteor.loginWithGithub;
-      params = { requestPermissions: ["user:email"] };
-
-    } else if(target.hasClass("google")) {
-      loginCall = Meteor.loginWithGoogle;
-      params = { requestPermissions: ["https://www.googleapis.com/auth/plus.login", "https://www.googleapis.com/auth/userinfo.email"] };
-
-    } else if(target.hasClass("twitter")) {
-      loginCall = Meteor.loginWithTwitter;
-      params = {};
-
-    } else if(target.hasClass("facebook")) {
-      loginCall = Meteor.loginWithFacebook;
-      params = {};
-    }
-
-    loginCall(params, function(err){
-      if (err) {
-        // handle error
-      } else {
-        // show an alert
-      }
-    })
-  },
-  'click .login-form': function(event, template) {
-    event.stopPropagation();
-    event.preventDefault();
-
-    showTemplate("loginForm");
-  }
-});
-
-Template.loggedout.hasGitHub = function () {
-  return !!Meteor.settings && !!Meteor.settings.public.authServices.github;
-};
-
-Template.loggedout.hasTwitter = function () {
-  return !!Meteor.settings && !!Meteor.settings.public.authServices.twitter;
-};
-
-Template.loggedout.hasGoogle = function () {
-  return !!Meteor.settings && !!Meteor.settings.public.authServices.google;
-};
-
-Template.loggedout.hasFacebook = function () {
-  return !!Meteor.settings && !!Meteor.settings.public.authServices.facebook;
-};
+///////////////////////////////////////////////////////////////////////////////
+// Logged In
 
 Template.loggedin.events({
   'click .logout': function(event, template) {
@@ -97,3 +55,64 @@ Template.loggedin.helpers({
     return !!ReactiveGroupFilter.get("group") ? "main-settings" : "user-settings";
   }
 });
+
+///////////////////////////////////////////////////////////////////////////////
+// Login Panel
+
+Template.loginPanel.rendered = function () {
+  $('#login-modal').foundation('reveal');
+
+  // FIXME: not sure why yet but events on the Foundation Reveal Modal
+  //        aren't triggering when added using "Template.loginPanel.events".
+  //        Manually binding here in the rendered function does work :-(
+  $("a.login").bind("click", function(event) {
+    event.stopPropagation();
+    event.preventDefault();
+
+    var target = $(event.currentTarget),
+        parent = target.parent();
+    var loginCall, params;
+
+    if(parent.hasClass("github")) {
+      loginCall = Meteor.loginWithGithub;
+      params = { requestPermissions: ["user:email"] };
+
+    } else if(parent.hasClass("google")) {
+      loginCall = Meteor.loginWithGoogle;
+      params = { requestPermissions: ["https://www.googleapis.com/auth/plus.login", "https://www.googleapis.com/auth/userinfo.email"] };
+
+    } else if(parent.hasClass("twitter")) {
+      loginCall = Meteor.loginWithTwitter;
+      params = {};
+
+    } else if(parent.hasClass("facebook")) {
+      loginCall = Meteor.loginWithFacebook;
+      params = {};
+    }
+
+    loginCall(params, function(err){
+      if (err) {
+        // handle login error
+      } else {
+        // Close the login modal if loginCall was set
+        $("#login-modal a.close-reveal-modal").trigger("click")
+      }
+    })
+  });
+};
+
+Template.loginPanel.hasGitHub = function () {
+  return !!Meteor.settings && !!Meteor.settings.public.authServices.github;
+};
+
+Template.loginPanel.hasTwitter = function () {
+  return !!Meteor.settings && !!Meteor.settings.public.authServices.twitter;
+};
+
+Template.loginPanel.hasGoogle = function () {
+  return !!Meteor.settings && !!Meteor.settings.public.authServices.google;
+};
+
+Template.loginPanel.hasFacebook = function () {
+  return !!Meteor.settings && !!Meteor.settings.public.authServices.facebook;
+};

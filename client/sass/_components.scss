@@ -271,8 +271,8 @@
   background-color: $standard-panel-bg;
 }
 
-@mixin standard-corners($position: "all") {
-  @include border-radius($standard-corner-radius);
+@mixin standard-corners($position: "all", $corner-radius:$standard-corner-radius) {
+  @include border-radius($corner-radius);
 }
 
 @mixin standard-bar() {

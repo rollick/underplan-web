@@ -1726,7 +1726,7 @@ select {
 [class*="block-grid-"] {
   display: block;
   padding: 0;
-  margin: 0 0 0 -0.625rem;
+  margin: 0 0 0 -0.15625rem;
   *zoom: 1;
 }
 /* line 159, ../../packages/bower/foundation/scss/foundation/components/_global.scss */
@@ -1743,14 +1743,14 @@ select {
   display: inline;
   height: auto;
   float: left;
-  padding: 0 0.625rem 1.25rem;
+  padding: 0 0.15625rem 0.3125rem;
 }
 
 @media only screen {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-1 > li {
     width: 100%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1765,7 +1765,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-2 > li {
     width: 50%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1780,7 +1780,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-3 > li {
     width: 33.33333%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1795,7 +1795,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-4 > li {
     width: 25%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1810,7 +1810,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-5 > li {
     width: 20%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1825,7 +1825,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-6 > li {
     width: 16.66667%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1840,7 +1840,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-7 > li {
     width: 14.28571%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1855,7 +1855,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-8 > li {
     width: 12.5%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1870,7 +1870,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-9 > li {
     width: 11.11111%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1885,7 +1885,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-10 > li {
     width: 10%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1900,7 +1900,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-11 > li {
     width: 9.09091%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1915,7 +1915,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .small-block-grid-12 > li {
     width: 8.33333%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1931,7 +1931,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-1 > li {
     width: 100%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1946,7 +1946,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-2 > li {
     width: 50%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1961,7 +1961,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-3 > li {
     width: 33.33333%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1976,7 +1976,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-4 > li {
     width: 25%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -1991,7 +1991,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-5 > li {
     width: 20%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2006,7 +2006,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-6 > li {
     width: 16.66667%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2021,7 +2021,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-7 > li {
     width: 14.28571%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2036,7 +2036,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-8 > li {
     width: 12.5%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2051,7 +2051,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-9 > li {
     width: 11.11111%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2066,7 +2066,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-10 > li {
     width: 10%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2081,7 +2081,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-11 > li {
     width: 9.09091%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2096,7 +2096,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .medium-block-grid-12 > li {
     width: 8.33333%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2112,7 +2112,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-1 > li {
     width: 100%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2127,7 +2127,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-2 > li {
     width: 50%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2142,7 +2142,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-3 > li {
     width: 33.33333%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2157,7 +2157,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-4 > li {
     width: 25%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2172,7 +2172,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-5 > li {
     width: 20%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2187,7 +2187,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-6 > li {
     width: 16.66667%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2202,7 +2202,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-7 > li {
     width: 14.28571%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2217,7 +2217,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-8 > li {
     width: 12.5%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2232,7 +2232,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-9 > li {
     width: 11.11111%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2247,7 +2247,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-10 > li {
     width: 10%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2262,7 +2262,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-11 > li {
     width: 9.09091%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -2277,7 +2277,7 @@ select {
   /* line 44, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
   .large-block-grid-12 > li {
     width: 8.33333%;
-    padding: 0 0.625rem 1.25rem;
+    padding: 0 0.15625rem 0.3125rem;
     list-style: none;
   }
   /* line 49, ../../packages/bower/foundation/scss/foundation/components/_block-grid.scss */
@@ -7658,12 +7658,19 @@ h2 span.warning, a span.warning {
 }
 
 /* line 230, ../sass/main.scss */
+.top-bar.expanded .toggle-topbar a span {
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none;
+}
+
+/* line 234, ../sass/main.scss */
 a.tiny.secondary {
   font-size: 0.8em;
   padding: 0.5em;
 }
 
-/* line 235, ../sass/main.scss */
+/* line 239, ../sass/main.scss */
 .alert-box {
   background-color: #6b8bbc;
   border-color: #4f75af;
@@ -7675,24 +7682,24 @@ a.tiny.secondary {
   border-left: none;
   border-right: none;
 }
-/* line 245, ../sass/main.scss */
+/* line 249, ../sass/main.scss */
 .alert-box a.close {
   position: relative;
   padding: 10px;
   color: white;
 }
-/* line 254, ../sass/main.scss */
+/* line 258, ../sass/main.scss */
 .alert-box.large {
   font-size: 1.2em;
 }
-/* line 258, ../sass/main.scss */
+/* line 262, ../sass/main.scss */
 .alert-box.clear {
   background-color: #fff;
   border-color: #f9f9f9;
   color: inherit;
 }
 
-/* line 265, ../sass/main.scss */
+/* line 269, ../sass/main.scss */
 .button {
   -webkit-border-radius: 0px;
   -moz-border-radius: 0px;
@@ -7703,33 +7710,33 @@ a.tiny.secondary {
   font-weight: normal;
 }
 
-/* line 271, ../sass/main.scss */
+/* line 275, ../sass/main.scss */
 .clearing-assembled {
   padding-bottom: 10px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 271, ../sass/main.scss */
+  /* line 275, ../sass/main.scss */
   .clearing-assembled {
     padding-bottom: 0px !important;
   }
 }
-/* line 278, ../sass/main.scss */
+/* line 282, ../sass/main.scss */
 .clearing-assembled .clearing-caption {
   background-color: rgba(17, 17, 17, 0.6);
   padding-bottom: 30px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 278, ../sass/main.scss */
+  /* line 282, ../sass/main.scss */
   .clearing-assembled .clearing-caption {
     padding-bottom: 10px !important;
   }
 }
 
-/* line 288, ../sass/main.scss */
+/* line 292, ../sass/main.scss */
 .custom.checkbox {
   border-color: black !important;
 }
-/* line 291, ../sass/main.scss */
+/* line 295, ../sass/main.scss */
 .custom.checkbox.checked::before {
   color: black !important;
   font-weight: bold !important;
@@ -7737,27 +7744,27 @@ a.tiny.secondary {
   padding-top: 1px;
 }
 
-/* line 299, ../sass/main.scss */
+/* line 303, ../sass/main.scss */
 form fieldset legend {
   margin-bottom: 10px;
   font-weight: normal;
 }
 
-/* line 304, ../sass/main.scss */
+/* line 308, ../sass/main.scss */
 ul.dropdown h5 a {
   color: white;
 }
 
-/* line 308, ../sass/main.scss */
+/* line 312, ../sass/main.scss */
 .carousel {
   margin: 0 6px;
 }
 
-/* line 312, ../sass/main.scss */
+/* line 316, ../sass/main.scss */
 .section-container {
   border: none !important;
 }
-/* line 315, ../sass/main.scss */
+/* line 319, ../sass/main.scss */
 .section-container .section, .section-container section {
   border-top: 2px solid #6da549;
   font-size: 0.9em;
@@ -7767,12 +7774,12 @@ ul.dropdown h5 a {
   cursor: pointer;
   border-top: none;
 }
-/* line 320, ../sass/main.scss */
+/* line 324, ../sass/main.scss */
 .section-container .section .title, .section-container section .title {
   padding-left: 5px;
   margin-bottom: 5px;
 }
-/* line 324, ../sass/main.scss */
+/* line 328, ../sass/main.scss */
 .section-container .section .title > a, .section-container section .title > a {
   display: table-cell;
   vertical-align: middle;
@@ -7801,15 +7808,15 @@ ul.dropdown h5 a {
   -o-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-/* line 334, ../sass/main.scss */
+/* line 338, ../sass/main.scss */
 .section-container .section.active, .section-container section.active {
   padding-top: 0px !important;
 }
-/* line 337, ../sass/main.scss */
+/* line 341, ../sass/main.scss */
 .section-container .section.active .title, .section-container section.active .title {
   margin-bottom: 0px;
 }
-/* line 341, ../sass/main.scss */
+/* line 345, ../sass/main.scss */
 .section-container .section.active .title > a, .section-container section.active .title > a {
   display: table-cell;
   vertical-align: middle;
@@ -7835,17 +7842,17 @@ ul.dropdown h5 a {
   -o-transform: rotate(135deg);
   transform: rotate(135deg);
 }
-/* line 347, ../sass/main.scss */
+/* line 351, ../sass/main.scss */
 .section-container .section > .content, .section-container section > .content {
   padding: 5px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 347, ../sass/main.scss */
+  /* line 351, ../sass/main.scss */
   .section-container .section > .content, .section-container section > .content {
     padding: 15px;
   }
 }
-/* line 354, ../sass/main.scss */
+/* line 358, ../sass/main.scss */
 .section-container .section > .content ul.disc, .section-container section > .content ul.disc {
   margin-left: 20px;
 }

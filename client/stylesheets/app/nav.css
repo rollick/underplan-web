@@ -3330,15 +3330,19 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   position: absolute;
   right: 0;
 }
-/* line 246, ../../sass/app/nav.scss */
+/* line 245, ../../sass/app/nav.scss */
+.top-bar ul.right .text {
+  padding: 0px;
+}
+/* line 250, ../../sass/app/nav.scss */
 .top-bar.expanded {
   background: rgba(14, 14, 14, 0.8) !important;
 }
-/* line 249, ../../sass/app/nav.scss */
+/* line 253, ../../sass/app/nav.scss */
 .top-bar.expanded ul.right {
   position: relative;
 }
-/* line 255, ../../sass/app/nav.scss */
+/* line 259, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
@@ -3349,22 +3353,22 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   width: 100% !important;
   padding-right: 65px !important;
 }
-/* line 270, ../../sass/app/nav.scss */
+/* line 274, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 270, ../../sass/app/nav.scss */
+  /* line 274, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 278, ../../sass/app/nav.scss */
+/* line 282, ../../sass/app/nav.scss */
 .top-bar li.follow-group a span {
   padding-left: 24px;
 }
-/* line 282, ../../sass/app/nav.scss */
+/* line 286, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
@@ -3374,27 +3378,21 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   top: 13px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 282, ../../sass/app/nav.scss */
+  /* line 286, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
     top: 1px !important;
   }
 }
-/* line 296, ../../sass/app/nav.scss */
+/* line 300, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
-@media only screen and (min-width: 58.75em) {
-  /* line 304, ../../sass/app/nav.scss */
-  .top-bar li.settings ul.dropdown li a {
-    padding: 15px !important;
-  }
-}
-/* line 310, ../../sass/app/nav.scss */
+/* line 314, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 314, ../../sass/app/nav.scss */
+/* line 318, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 40px;
   margin-left: -10px;
@@ -3410,29 +3408,29 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 327, ../../sass/app/nav.scss */
+  /* line 331, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 331, ../../sass/app/nav.scss */
+  /* line 335, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
-/* line 339, ../../sass/app/nav.scss */
+/* line 343, ../../sass/app/nav.scss */
 .top-bar li.settings.show-for-small a img {
   margin-left: -4px;
   margin-top: -4px;
   width: 30px;
 }
 
-/* line 348, ../../sass/app/nav.scss */
+/* line 352, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 354, ../../sass/app/nav.scss */
+/* line 358, ../../sass/app/nav.scss */
 .top-bar-section li.text {
   color: rgba(193, 193, 193, 0.4);
   opacity: 1;
@@ -3441,37 +3439,107 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 354, ../../sass/app/nav.scss */
+  /* line 358, ../../sass/app/nav.scss */
   .top-bar-section li.text {
     color: rgba(244, 244, 244, 0.4);
     background-color: rgba(14, 14, 14, 0.4);
   }
 }
 
-/* line 368, ../../sass/app/nav.scss */
-li.login-services {
-  height: 45px;
+/* line 372, ../../sass/app/nav.scss */
+.close-reveal-modal {
+  font-family: arial;
+  font-weight: 100 !important;
 }
-/* line 371, ../../sass/app/nav.scss */
-li.login-services a {
-  padding-top: 5px !important;
-  line-height: 35px !important;
+
+/* line 377, ../../sass/app/nav.scss */
+#login-modal {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
 }
-/* line 376, ../../sass/app/nav.scss */
-li.login-services p {
+/* line 381, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services {
+  text-align: center;
+  padding: 7px 15px 5px 15px;
+  font-size: 1.3em;
+}
+/* line 391, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services a {
+  font-size: 0.9em;
+}
+/* line 396, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services a:hover i,
+#login-modal > ul li.login-services a:focus i {
+  text-shadow: 1px 4px 6px #FFF, 0 0 0 #000, 1px 24px 6px #FFF;
+}
+/* line 400, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services.google a {
+  color: #4584f0;
+}
+/* line 405, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services.google a:hover i, #login-modal > ul li.login-services.google a:focus i {
+  color: rgba(69, 132, 240, 0.8);
+}
+/* line 409, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services.facebook a {
+  color: #3b5998;
+}
+/* line 414, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services.facebook a:hover i, #login-modal > ul li.login-services.facebook a:focus i {
+  color: rgba(59, 89, 152, 0.8);
+}
+/* line 418, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services.twitter a {
+  color: #02acee;
+}
+/* line 423, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services.twitter a:hover i, #login-modal > ul li.login-services.twitter a:focus i {
+  color: rgba(2, 172, 238, 0.8);
+}
+/* line 427, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services.github a {
+  color: #040404;
+}
+/* line 434, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services.github a:hover i, #login-modal > ul li.login-services.github a:focus i {
+  color: rgba(4, 4, 4, 0.8);
+}
+/* line 438, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services p {
   display: inline;
   position: relative;
-  top: -5px;
+  top: -3px;
   margin-left: 8px;
-  font-size: 0.7em;
+  font-size: 1em;
+  font-weight: 400;
 }
-/* line 384, ../../sass/app/nav.scss */
-li.login-services i {
-  -webkit-transition: color .5s;
-  -moz-transition: color .5s;
-  -o-transition: color .5s;
-  transition: color .5s;
+/* line 447, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services i {
+  -webkit-transition-property: text-shadow;
+  -moz-transition-property: text-shadow;
+  -o-transition-property: text-shadow;
+  transition-property: text-shadow;
+  -webkit-transition-property: color;
+  -moz-transition-property: color;
+  -o-transition-property: color;
+  transition-property: color;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
   font-size: 18px;
   overflow: hidden;
   font-style: normal;
+  font-size: 1em;
+  line-height: 1em;
+  padding-right: 2px;
+}
+/* line 459, ../../sass/app/nav.scss */
+#login-modal > ul li.login-services i:before {
+  vertical-align: -16%;
+  font-size: 2em;
+  padding-right: 5px;
 }
