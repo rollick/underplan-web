@@ -12,7 +12,7 @@ activityStaticMap = function(activity, showMarker) {
   var dimensions = "720x240";
   var apiKey = appSettings.mapsApiKey;
   
-  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&zoom=:zoom&sensor=false&size=:dimensions&maptype=roadmap&visible=:lat,:lng";
+  imageUrl = "https://maps.googleapis.com/maps/api/staticmap?_=:random&zoom=:zoom&sensor=false&size=:dimensions&maptype=roadmap&visible=:lat,:lng";
   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
                       replace(/:random/, Math.round((new Date()).getTime() / 1000)).
                       replace(/:zoom/, (!!parseInt(activity.mapZoom) ? activity.mapZoom : 12)).
@@ -45,7 +45,7 @@ recentActivitiesMap = function() {
   if(parseInt($("body").css("width").match(/\d+/g)) > 767)
     dimensions = "640x400";
 
-  imageUrl = "http://maps.googleapis.com/maps/api/staticmap?_=:random&sensor=false&size=:dimensions&maptype=roadmap";
+  imageUrl = "https://maps.googleapis.com/maps/api/staticmap?_=:random&sensor=false&size=:dimensions&maptype=roadmap";
   imageUrl = imageUrl.replace(/:dimensions/, dimensions).
                       replace(/:random/, Math.round((new Date()).getTime() / 1000));
 
