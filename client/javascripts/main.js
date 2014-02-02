@@ -48,7 +48,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.4.12");
+  Session.set("appVersion", "v1.4.14");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -276,7 +276,7 @@ App.followCurrentGroup = function (state) {
     state = true;
   }
 
-  App.followGroup(this.ReactiveGroupFilter.get("group"), state);
+  App.followGroup(ReactiveGroupFilter.get("group"), state);
 };
 
 App.userBelongsToCurrentGroup = function (userId) {

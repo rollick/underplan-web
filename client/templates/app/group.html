@@ -4,15 +4,15 @@
       <div class="panel radius">
         {{#if userCanFollow}}
           <div class="follow-group"> 
-            <a href="#" class="{{followedCls}} foundicon-general-star"></a>
+            <a href="#" class="{{followedCls}} fi-star"></a>
             <div class="text"></div>
           </div>
         {{/if}}
         <h5>
-          <a href="/{{slug}}" class="foundicon-flag"> {{name}}</a>
+          <a href="/{{slug}}" class="fi-flag"> {{name}}</a>
         </h5>
         <span class="started">
-          <i class="foundicon-general-clock"></i>
+          <i class="fi-clock"></i>
           <p>{{date created}}</p>
         </span>
         {{#if description}}<p>{{description}}</p>{{/if}}
