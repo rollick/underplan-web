@@ -171,7 +171,7 @@ Template.storyEditor.rendered = function () {
     select: function(event, ui) {
       // do a jsonp request to work around cross-site scripting issue
       $.ajax({
-        url: "http://en.wikipedia.org/w/api.php",
+        url: "https://en.wikipedia.org/w/api.php",
         data: {action: "query", format: "json", titles: ui["item"]["label"]},
         type: "get",
         dataType : "jsonp",
@@ -181,7 +181,7 @@ Template.storyEditor.rendered = function () {
           if (_.isArray(pageIds) && pageIds.length) {
             $("#wikipedia-id").val(pageIds[0]);
 
-            var pageUrl = "http://en.wikipedia.org/wiki?curid=" + pageIds[0];
+            var pageUrl = "https://en.wikipedia.org/wiki?curid=" + pageIds[0];
             var link = $("<a />").attr("href", pageUrl).
                                   attr("target", "_blank").
                                   html(pageUrl);
