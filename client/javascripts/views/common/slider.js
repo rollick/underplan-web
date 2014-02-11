@@ -252,7 +252,8 @@ Template.imageSlider.rendered = function () {
               data = {
                 image: App.Utils.secureUrl(photo.image),
                 title: photo.title,
-                description: photo.description
+                description: photo.description,
+                hasDetails: (!_.isEmpty(photo.title) || !_.isEmpty(photo.description))
               },
               item = Template.sliderImage.withData(data);
 

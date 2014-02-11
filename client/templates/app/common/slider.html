@@ -11,8 +11,16 @@
   <li>
     <div class="photo" data-slider-image="{{image}}">
       <img class="main" />
+      {{> sliderDetails this}}
+    </div>
+  </li>
+</template>
+
+<template name="sliderDetails">
+  {{#if hasDetails}}
+    <div class="details">
       <h2 class="title">{{title}}</h2>
       <h3 class="description">{{description}}</h3>
     </div>
-  </li>
+  {{/if}}
 </template>

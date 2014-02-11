@@ -149,24 +149,40 @@ $slider-btn-height: 35px;
       left: 100%;
       cursor: pointer;
 
+      $slider-title-height: 1.2rem;
+      $slider-description-height: 0.9rem;
+
+      .details {
+        left: 0px;
+        padding-left: 10px;
+        background-color: rgba(0, 0, 0, 0.4);
+        padding-top: 2px;
+        padding-bottom: 4px;
+        bottom: 0em;
+        position: absolute;
+        bottom: 0em;
+        z-index: 6;
+        width: 100%;
+        height: $slider-title-height + $slider-description-height + $standard-padding*3;
+      }
+
       h2.title, h3.description {
         width: 100%;
-        z-index: 6;
-        position: absolute;
         color: white;
         font-weight: 300;
-        left: 10px;        
       }
 
       h2.title {
-        font-size: 1.2em;
-        margin-bottom: 0em;
+        font-size: $slider-title-height;
+        height: $slider-description-height;
+        padding-top: $standard-padding;
       }
 
       h3.description {
-        font-size: 0.9em;
+        font-size: $slider-description-height;
+        height: $slider-description-height;
         color: darken(white, 10%);
-        margin-bottom: 0em;
+        padding-top: $standard-padding;
       }
 
       img {
@@ -189,23 +205,17 @@ $slider-btn-height: 35px;
         left: 0;
       }
 
-      h2.title {
+      .details {
         @include single-transition(bottom, 0.5s, cubic-bezier(0.645, 0.045, 0.355, 1));
-        bottom: 30px;
       }
-
-      h3.description {
-        @include single-transition(bottom, 0.6s, cubic-bezier(0.645, 0.045, 0.355, 1));
-        bottom: 10px;
-      }
-    }
-
-    &.animate-out .photo {
-      left: -100%;
     }
 
     &.animate-out {
-      h2.title, h3.description {
+      .photo {
+        left: -100%;
+      }
+
+      .details {
         bottom: -100%;
       }
     }
