@@ -15,7 +15,7 @@ Meteor.startup(function () {
   BrowserPolicy.content.allowScriptOrigin("http://*.googleapis.com");
   BrowserPolicy.content.allowScriptOrigin("https://*.googleapis.com");
   BrowserPolicy.content.allowScriptOrigin("http://www.dbpedialite.org");
-  BrowserPolicy.content.allowScriptOrigin("http://en.wikipedia.org");
+  BrowserPolicy.content.allowScriptOrigin("https://en.wikipedia.org");
 
   // Style:  
   BrowserPolicy.content.allowStyleOrigin("http://fonts.googleapis.com");
