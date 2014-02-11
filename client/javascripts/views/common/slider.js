@@ -248,8 +248,13 @@ Template.imageSlider.rendered = function () {
 
       if (photos.length) {
         for(var i = 0; i < photos.length; i++) {
-          var photo = photos[i].image,
-              item = Template.sliderImage.withData({image: photo});
+          var photo = photos[i],
+              data = {
+                image: App.Utils.secureUrl(photo.image),
+                title: photo.title,
+                description: photo.description
+              },
+              item = Template.sliderImage.withData(data);
 
           canvas.append(item.render().toHTML());
         };

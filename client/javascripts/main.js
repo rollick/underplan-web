@@ -18,7 +18,8 @@ App.Defaults = {
   feedLimitSkip: 5,
   galleryLimitSkip: 40,
   defaultMapZoom: 12,
-  shortMaxLength: 250
+  shortMaxLength: 250,
+  secureUrls: true
 }
 
 // Meteor.subscribe("activities");
@@ -48,7 +49,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.4.16");
+  Session.set("appVersion", "v1.4.17");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -362,17 +363,8 @@ App.Utils.geoLocation = function (location, inputId, autocomplete, callback) {
   }
 };
 
-App.logRenders = function () {
-  _.each(Template, function (template, name) {
-    var oldRender = template.rendered;
-    var counter = 0;
-
-    template.rendered = function () {
-      logIfDev(name, "render count: ", ++counter);
-
-      oldRender && oldRender.apply(this, arguments);
-    };
-  });
+App.Utils.secureUrl = function (url) {
+  return App.Defaults.secureUrls ? url.replace(/http:\/\//, "https://") : url;
 };
 
 App.Utils.formattedDate = function (dateValue) {
@@ -391,6 +383,19 @@ App.Utils.formattedDate = function (dateValue) {
     return Handlebars._escape(moment(dateValue).calendar());
   }
   return '';
+};
+
+App.logRenders = function () {
+  _.each(Template, function (template, name) {
+    var oldRender = template.rendered;
+    var counter = 0;
+
+    template.rendered = function () {
+      logIfDev(name, "render count: ", ++counter);
+
+      oldRender && oldRender.apply(this, arguments);
+    };
+  });
 };
 
 App.trackEvent = function(eventName, properties) {
