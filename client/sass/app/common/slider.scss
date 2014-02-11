@@ -149,8 +149,9 @@ $slider-btn-height: 35px;
       left: 100%;
       cursor: pointer;
 
-      $slider-title-height: 1.2rem;
-      $slider-description-height: 0.9rem;
+      $slider-title-height: 1.1rem;
+      $slider-description-height: 0.8rem;
+      $slider-details-padding: $standard-padding/2;
 
       .details {
         left: 0px;
@@ -163,26 +164,23 @@ $slider-btn-height: 35px;
         bottom: 0em;
         z-index: 6;
         width: 100%;
-        height: $slider-title-height + $slider-description-height + $standard-padding*3;
+        padding-top: $slider-details-padding;
       }
 
       h2.title, h3.description {
         width: 100%;
         color: white;
         font-weight: 300;
+        margin-bottom: $slider-details-padding;
       }
 
       h2.title {
         font-size: $slider-title-height;
-        height: $slider-description-height;
-        padding-top: $standard-padding;
       }
 
       h3.description {
         font-size: $slider-description-height;
-        height: $slider-description-height;
         color: darken(white, 10%);
-        padding-top: $standard-padding;
       }
 
       img {
