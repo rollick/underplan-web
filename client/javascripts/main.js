@@ -205,7 +205,11 @@ Meteor.startup(function () {
     }
   });
 
-
+  ////
+  // This generates a sorted list of ids to make coding the next/previous links
+  // easier... Would be nice to do this using a mongodb query but it was proving
+  // unreliable to sort this way. TODO: remove need for "activityIdsSorted" session
+  // variable.
   Deps.autorun( function (computation) {
     var country = ReactiveGroupFilter.get("country"),
         groupId = ReactiveGroupFilter.get("group");
@@ -228,7 +232,6 @@ Meteor.startup(function () {
 
     Session.set("activityIdsSorted", ids);
   });
-
 });
 
 ///////////////////////////////////////////////////////////////////////////////
