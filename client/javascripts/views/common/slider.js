@@ -254,11 +254,12 @@ Template.imageSlider.rendered = function () {
                 title: photo.title,
                 description: photo.description,
                 hasDetails: (!_.isEmpty(photo.title) || !_.isEmpty(photo.description))
-              },
-              item = Template.sliderImage;
-              item.extend({data: data})
+              };
+              // item = Template.sliderImage;
+              // item.extend({data: data})
 
-          canvas.append(item.render().toHTML());
+              // debugger
+          UI.materialize(Component.SliderImage, canvas[0]);
         };
 
         var options = sliderOptions;

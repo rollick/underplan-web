@@ -40,7 +40,7 @@ Meteor.methods({
     check(options["values"], Object);
     
     options["values"].updated = new Date();
-    checkUpdateActivity(this.userId, options["activityId"], options["values"]);
+    App.Utils.checkUpdateActivity(this.userId, options["activityId"], options["values"]);
 
     if(Meteor.isServer) {
       Activities.update(options["activityId"], {$set: options["values"]}, {multi: false});
@@ -108,7 +108,7 @@ Meteor.methods({
       options.lng = null;
 
     // run check before saving. check will throw exceptions on invalid data
-    checkCreateActivity(this.userId, options);
+    App.Utils.checkCreateActivity(this.userId, options);
 
     var activityId;
 
@@ -141,11 +141,11 @@ Meteor.methods({
       options._id = activityId;
       
       // Notify group members and followers about new activity
-      notifyActivityEvent(this.userId, options, "created");
+      App.Utils.notifyActivityEvent(this.userId, options, "created");
     }
 
     var groupName = Groups.findOne(options.groupId, {$fields: {name: 1}});
-    trackCreateActivity({"Group ID": options.groupId, "Group Name": groupName});
+    App.Utils.trackCreateActivity({"Group ID": options.groupId, "Group Name": groupName});
 
     return activityId;
   },
@@ -173,7 +173,7 @@ Meteor.methods({
 
 ////////////////////////////////////
 // Client Methods
-var activityBasicCheck = function (activity) {
+App.Utils.activityBasicCheck = function (activity) {
   if (activity.type == "story" && _.isEmpty(activity.title))
     throw new Meteor.Error(403, "Story needs a title");
 
@@ -191,32 +191,34 @@ var activityBasicCheck = function (activity) {
 }
 
 if(Meteor.isClient) {
-  var checkUpdateActivity = function(userId, activityId, fields) {
-    var activity = Activities.findOne(activityId);
+  _.extend(App.Utils, {
+    checkUpdateActivity: function(userId, activityId, fields) {
+      var activity = Activities.findOne(activityId);
 
-    if (!activity)
-      throw new Meteor.Error(404, "Activity could not be found");
+      if (!activity)
+        throw new Meteor.Error(404, "Activity could not be found");
 
-    activityBasicCheck(fields);
-  };
+      App.Utils.activityBasicCheck(fields);
+    },
 
-  var checkCreateActivity = function(userId, options) {
-    if (options.type == "story" && Activities.find({slug: options.slug, group: options.groupId}).count() > 0)
-      throw new Meteor.Error(403, "Slug is already taken.");
+    checkCreateActivity: function(userId, options) {
+      if (options.type == "story" && Activities.find({slug: options.slug, group: options.groupId}).count() > 0)
+        throw new Meteor.Error(403, "Slug is already taken.");
 
-    activityBasicCheck(options);
-  }
+      App.Utils.activityBasicCheck(options);
+    },
 
-  // Just a stub for the client. See isServer section for actual code.
-  var notifyActivityEvent = function(userId, activity, action) {
-    return true;
-  };
+    // Just a stub for the client. See isServer section for actual code.
+    notifyActivityEvent: function(userId, activity, action) {
+      return true;
+    },
 
-  var trackUpdateActivity = function(properties) {
-    App.trackEvent("Activity Updated", properties);
-  };
+    trackUpdateActivity: function(properties) {
+      App.trackEvent("Activity Updated", properties);
+    },
 
-  var trackCreateActivity = function(properties) {
-    App.trackEvent("Activity Created", properties);
-  };
+    trackCreateActivity: function(properties) {
+      App.trackEvent("Activity Created", properties);
+    }
+  });
 }

@@ -1,13 +1,13 @@
-this.trackCreateComment = function () {
+App.Utils.trackCreateComment = function () {
   // TODO: do some server side logging here!
 };
 
-this.notifyCommentCreated = function (userId, options) {
+App.Utils.notifyCommentCreated = function (userId, options) {
   var commentor = Meteor.users.findOne(userId);
   var activity = Activities.findOne(options.activityId);
   var group = Groups.findOne(activity.group);
 
-  var commentorEmails = commentFollowerEmails(options.owner, options.activityId);
+  var commentorEmails = App.Utils.commentFollowerEmails(options.owner, options.activityId);
   
   var allEmails = _.union(groupMemberEmails(activity.group), commentorEmails);
 
@@ -45,7 +45,7 @@ this.notifyCommentCreated = function (userId, options) {
 // who have also commented on the associated activity
 // Pass the owner of the comment so they can be excluded from the
 // notification and the activityId to find matching comments / owners
-this.commentFollowerEmails = function(owner, activityId) {
+App.Utils.commentFollowerEmails = function(owner, activityId) {
   var commentorEmail = userEmail(Meteor.users.findOne({_id: owner}));
   var activity = Activities.findOne({_id: activityId});
   var commentorEmails = [];

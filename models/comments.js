@@ -40,7 +40,7 @@ Meteor.methods({
     });
 
     // run check before saving. check will throw exceptions on invalid data
-    checkCreateComment(this.userId, options);
+    App.Utils.checkCreateComment(this.userId, options);
 
     if(Meteor.isServer) {
       var comment = Comments.insert({
@@ -52,18 +52,18 @@ Meteor.methods({
       });
 
       // Notify group members about new comment
-      notifyCommentCreated(this.userId, options);
+      App.Utils.notifyCommentCreated(this.userId, options);
     }
 
     // FIXME: Logging here even if the create fails. Would it be better to put it in
     //        the client view handler, or is there a callback for the Comments.insert above?
-    trackCreateComment({"Activity ID": options.activityId});
+    App.Utils.trackCreateComment({"Activity ID": options.activityId});
 
     return comment;
   },
 });
 
-var checkCreateComment = function (userId, options) {
+App.Utils.checkCreateComment = function (userId, options) {
   if (! userId)
     throw new Meteor.Error(403, "You must be logged in");
   if (typeof options.comment === "string" && options.comment.length > 1024 )
@@ -73,12 +73,12 @@ var checkCreateComment = function (userId, options) {
 };
 
 if(Meteor.isClient) {
-  var trackCreateComment = function(properties) {
+  App.Utils.trackCreateComment = function(properties) {
     App.trackEvent("Comment Created", properties);
   };
 
   // Stubbed for client. See isServer block for the actual code
-  var notifyCommentCreated = function () {
+  App.Utils.notifyCommentCreated = function () {
     return true;
   };
 }

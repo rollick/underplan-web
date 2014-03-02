@@ -14,7 +14,7 @@ Groups.allow({
     return false; // no cowboy inserts -- use createGroup method
   },
   update: function (userId, group, fields, modifier) {
-    return canUpdateGroup(userId, group, fields);
+    return App.Utils.canUpdateGroup(userId, group, fields);
   },
   remove: function (userId, groups) {
     return ! _.any(groups, function (group) {
@@ -92,7 +92,7 @@ Meteor.methods({
     }
     options.approved = approved;
 
-    checkGroupCreate(this.userId, options);
+    App.Utils.checkGroupCreate(this.userId, options);
 
     var groupId = Groups.insert({
       owner:            this.userId,
@@ -109,7 +109,7 @@ Meteor.methods({
       approved:         options.approved
     });
 
-    trackCreateGroup(groupId);
+    App.Utils.trackCreateGroup(groupId);
 
     return groupId;
   },
@@ -192,7 +192,7 @@ this.groupCountries = function (groupId) {
   return _.uniq(countries).sort();
 }
 
-var checkGroupCreate = function(userId, options) {
+App.Utils.checkGroupCreate = function(userId, options) {
   if (! userId)
     throw new Meteor.Error(403, "You must be logged in");
 
@@ -207,7 +207,24 @@ var checkGroupCreate = function(userId, options) {
 };
 
 if (Meteor.isClient) {
-  var trackCreateGroup = function (groupId) {
+  App.Utils.canUpdateGroup = function () {
+    var sysAdmin = isSystemAdmin(userId);
+    
+    if ( !(sysAdmin || userId === group.owner))
+      return false; // not the owner or admin
+
+    var allowed = ["name", "description", "trovebox", "picasaUsername", "picasaAlbum", "picasaKey"];
+
+    if (sysAdmin)
+      allowed.push("approved", "owner");
+
+    if (_.difference(fields, allowed).length)
+      return false; // tried to write to forbidden field
+
+    return true;
+  };
+
+  App.Utils.trackCreateGroup = function (groupId) {
     check(groupId, String);
 
     var groupName = Groups.findOne(groupId, {$fields: {name: 1}}).name;
