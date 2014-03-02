@@ -214,26 +214,3 @@ if (Meteor.isClient) {
     App.trackEvent("Group Created", {"Group ID": groupId, "Group Name": groupName});
   };  
 }
-
-if (Meteor.isServer) {
-  var trackCreateGroup = function () {
-    // TODO: do some server side logging here!
-  };
-
-  var canUpdateGroup = function(userId, group, fields) {
-    var sysAdmin = isSystemAdmin(userId);
-    
-    if ( !(sysAdmin || userId === group.owner))
-      return false; // not the owner or admin
-
-    var allowed = ["name", "description", "trovebox", "picasaUsername", "picasaAlbum", "picasaKey"];
-
-    if (sysAdmin)
-      allowed.push("approved", "owner");
-
-    if (_.difference(fields, allowed).length)
-      return false; // tried to write to forbidden field
-
-    return true;
-  }
-}
