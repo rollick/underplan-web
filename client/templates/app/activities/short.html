@@ -47,7 +47,7 @@
       <p>{{textPreview}}</p>
       <a href="{{activityLink}}" class="title more">Continue reading</a>
     {{else}}
-      {{> htmlText}}
+      {{#markdown}}{{{text}}}{{/markdown}}
     {{/if}}
   </div>
 </template>

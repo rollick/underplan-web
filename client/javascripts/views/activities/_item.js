@@ -45,9 +45,6 @@ this.itemEvents = {
 // Common Helpers for Short / Story Item
 
 this.itemHelpers = {
-  htmlText: function () {
-    return Template._markdown.withData({text: this.text});
-  },
   mapUrl: function () {
     return activityStaticMap(this, true);
   },

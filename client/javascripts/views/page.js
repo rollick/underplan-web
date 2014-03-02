@@ -35,6 +35,8 @@ Template.page.mainTemplate = function () {
     Session.set("pageOptions", pageOptions[templateName]);
 
     return Template[templateName];
+  } else {
+    return null;
   }
 };
 

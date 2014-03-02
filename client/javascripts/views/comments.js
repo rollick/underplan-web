@@ -105,12 +105,6 @@ Template.comment.loaded = function() {
   return (!!comment && !!comment.owner);
 };
 
-Template.comment.helpers({
-  htmlText: function () {
-    return Template._markdown.withData({text: this.comment});
-  }
-});
-
 Template.comment.events({
   'click .remove': function (event, template) {
     event.stopPropagation();

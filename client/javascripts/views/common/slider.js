@@ -255,7 +255,8 @@ Template.imageSlider.rendered = function () {
                 description: photo.description,
                 hasDetails: (!_.isEmpty(photo.title) || !_.isEmpty(photo.description))
               },
-              item = Template.sliderImage.withData(data);
+              item = Template.sliderImage;
+              item.extend({data: data})
 
           canvas.append(item.render().toHTML());
         };
