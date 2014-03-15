@@ -1,8 +1,8 @@
 {
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
-    "commit_working": "f2676d90fc44b2858709be00c9cfcefb750addd0",
-    "commit": "9b2b61281043835263edbb031b5853d490cbf748"
+    "commit_working": "9b2b61281043835263edbb031b5853d490cbf748",
+    "commit": "1d3a840372a1d1db6e212d38621288b6cc42a1c7"
   },
   "packages": {
     "mixpanel": {
