@@ -73,6 +73,10 @@ _.extend(App.Utils, {
     // TODO: do some server side logging here!
   },
 
+  groupFollowerEmails: function () {
+    // extend to do handle sending emails
+  },
+
   notifyActivityEvent: function(userId, activity, action) {
     var owner = Meteor.users.findOne(userId);
     var group = Groups.findOne(activity.groupId);
@@ -80,12 +84,12 @@ _.extend(App.Utils, {
     var followerEmails = [];
     // Only notify followers if the activity is published
     if(activity.published) {
-      followerEmails = groupFollowerEmails(activity.groupId);
+      followerEmails = this.groupFollowerEmails(activity.groupId);
     }
     
     // Gather the group member emails and followers but remove 
     // the owners email as he/she doesn't need to be notified
-    var allEmails = _.without(_.union(groupMemberEmails(activity.group), followerEmails), userEmail(owner));
+    var allEmails = _.without(_.union(App.Utils.groupMemberEmails(activity.group), followerEmails), userEmail(owner));
 
     if(allEmails.length > 0) {
       // TODO: replace this with a handlebars template!

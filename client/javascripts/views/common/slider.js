@@ -255,11 +255,8 @@ Template.imageSlider.rendered = function () {
                 description: photo.description,
                 hasDetails: (!_.isEmpty(photo.title) || !_.isEmpty(photo.description))
               };
-              // item = Template.sliderImage;
-              // item.extend({data: data})
 
-              // debugger
-          UI.materialize(Component.SliderImage, canvas[0]);
+          UI.insert(UI.renderWithData(Template.sliderImage, data), canvas[0])
         };
 
         var options = sliderOptions;

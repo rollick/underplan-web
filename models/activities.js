@@ -30,7 +30,7 @@ Meteor.methods({
     var activity = Activities.findOne(activityId);
 
     if(!!activity && this.userId === activity.owner) {
-      notifyActivityEvent(this.userId, activity, "created");
+      App.Utils.notifyActivityEvent(this.userId, activity, "created");
     }
   },
 
@@ -49,7 +49,7 @@ Meteor.methods({
 
       // Notify group members and followers about updated activity
       if(options["notify"] && this.userId === activity.owner) {
-        notifyActivityEvent(this.userId, activity, "updated");
+        App.Utils.notifyActivityEvent(this.userId, activity, "updated");
       }
     }
     return true;
