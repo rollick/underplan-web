@@ -53,7 +53,6 @@
 </template>
 
 <template name="shortForm">
-{{#with activity}}
   <form class="{{formCls}}">
     {{#if _id}}<input type="hidden" id="_id" value="{{_id}}">{{/if}}
     <div class="text-section">
@@ -84,5 +83,4 @@
       </div>
     </div>
   </form>
-{{/with}}
 </template>
