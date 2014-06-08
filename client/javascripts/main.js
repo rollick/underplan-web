@@ -10,8 +10,7 @@ App.Defaults = {
 }
 
 Meteor.users._transform = function(user) { 
-  debugger
-  if (!user.services.google || user.profile.picture)
+  if (!user.services || !user.services.google || user.profile.picture)
     return user;
 
   query = 'http://picasaweb.google.com/data/entry/api/user/' + user.services.google.id + '?alt=json';
@@ -24,7 +23,6 @@ Meteor.users._transform = function(user) {
     }
   });
 
-  debugger
   user.profile.picture = url;
 
   return user;
