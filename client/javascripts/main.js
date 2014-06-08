@@ -2,12 +2,33 @@
 
 // Some defaults
 App.Defaults = {
-  feedLimitSkip: 5,
+  feedLimitSkip: 99,
   galleryLimitSkip: 40,
   defaultMapZoom: 12,
   shortMaxLength: 250,
   secureUrls: true
 }
+
+Meteor.users._transform = function(user) { 
+  debugger
+  if (!user.services.google || user.profile.picture)
+    return user;
+
+  query = 'http://picasaweb.google.com/data/entry/api/user/' + user.services.google.id + '?alt=json';
+  $.ajax({
+    url: query,
+    dataType: 'json',
+    async: false,
+    success: function(data) {
+      url = data['entry']['gphoto$thumbnail']['$t'];
+    }
+  });
+
+  debugger
+  user.profile.picture = url;
+
+  return user;
+};
 
 // Meteor.subscribe("activities");
 Meteor.subscribe("groups");
@@ -20,6 +41,8 @@ this.feedListSubscription = null;
 this.activityCommentStatus = {};
 
 this.mappingFsm = new MappingFsm(); // ... now call setup() after google.maps has loaded
+
+var self = this;
 
 ///////////////////////////////////////////////////////////////////////////////
 // Meteor Startup
