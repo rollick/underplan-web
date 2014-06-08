@@ -603,6 +603,8 @@ MappingFsm = machina.Fsm.extend({
   // be called and then cleared when mapReady is set to true in initialize
   transitionQueue: [],
 
+  ///////////////////////
+  // States for FSM
   // valid states. access with transition("<state>")
   states: {
     uninitialized: {
