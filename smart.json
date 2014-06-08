@@ -1,7 +1,7 @@
 {
   "meteor": {
     "git": "https://github.com/meteor/meteor.git",
-    "commit": "5fcae3cd269b0d5c415053442e9e0179fe519549"
+    "tag": "release/0.8.1.3"
   },
   "packages": {
     "mixpanel": {
