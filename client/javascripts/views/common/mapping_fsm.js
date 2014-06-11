@@ -122,7 +122,7 @@ MappingFsm = machina.Fsm.extend({
               Router.setPermaActivity(activity);
             }
           } else {
-            if (isDev)
+            if (App.isDev)
               throw("Crash! Bang!");
           }
 

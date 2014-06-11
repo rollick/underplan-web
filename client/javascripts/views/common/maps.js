@@ -73,7 +73,7 @@ Template.activityCountControl.events({
     event.stopPropagation();
     event.preventDefault();
 
-    ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + App.Defaults.feedLimitSkip);
+    ReactiveGroupFilter.set("limit", ReactiveGroupFilter.get("limit") + App.Defaults.mapLimitSkip);
   }
 });
 

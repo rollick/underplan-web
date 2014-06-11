@@ -2,7 +2,8 @@
 
 // Some defaults
 App.Defaults = {
-  feedLimitSkip: 99,
+  feedLimitSkip: 5,
+  mapLimitSkip: 99,
   galleryLimitSkip: 40,
   defaultMapZoom: 12,
   shortMaxLength: 250,
@@ -57,7 +58,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.4.30");
+  Session.set("appVersion", "v1.4.31");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 

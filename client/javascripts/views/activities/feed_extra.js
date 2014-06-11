@@ -7,7 +7,7 @@ var dashboardMapBounds = null;
 var setupGallery = function () {
 
   Deps.autorun(function(computation) {
-    if (isDev()) {
+    if (App.isDev) {
       computation.onInvalidate(function() {
         console.trace();
       });
@@ -59,7 +59,7 @@ var processFeedPhotos = function (data, offset, galleryContainer) {
     feedGallery = Galleria.run(galleryContainer, {
       dataSource: data,
       _toggleInfo: false,
-      debug: isDev(),
+      debug: App.isDev,
       extend: function(s) {
         // create an element 'galleria-map'
         this.addElement('map');

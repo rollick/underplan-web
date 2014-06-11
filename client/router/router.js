@@ -188,14 +188,16 @@ var AppRouter = Backbone.Router.extend({
   },
 
   groupFeed: function(groupSlug) {
-    this.runSetGroup(groupSlug);
+    ReactiveGroupFilter.set("limit", App.Defaults.feedLimitSkip);
+    this.runSetGroup(groupSlug, null);
     ReactiveGroupFilter.set("country", null);
 
     this.setAndLoadMainTemplate("activityFeed");
   },
 
   groupFeedAndCountry: function(groupSlug, country) {
-    this.runSetGroup(groupSlug);
+    ReactiveGroupFilter.set("limit", App.Defaults.feedLimitSkip);
+    this.runSetGroup(groupSlug, null);
 
     if (country) {
       country = encodeURIComponent(country).replace("-", " ");
@@ -427,7 +429,10 @@ var AppRouter = Backbone.Router.extend({
   ////////////////////////
   // Common Functions
 
-  runSetGroup: function (groupSlug, clearActivity) {
+  runSetGroup: function (groupSlug, clearActivity, limit) {
+    if (_.isUndefined(limit))
+      limit = App.Defaults.mapLimitSkip
+
     ReactiveGroupFilter.set("groupSlug", groupSlug);
     
     Deps.autorun( function (computation) {
@@ -451,9 +456,9 @@ var AppRouter = Backbone.Router.extend({
       //        setting the a property on ReactiveGroupFilter. Will use that below for now...
       ReactiveGroupFilter.set("activitySlug", null, {quiet: true});
       ReactiveGroupFilter.set("activity", null);
-      ReactiveGroupFilter.set("limit", App.Defaults.feedLimitSkip);
+      ReactiveGroupFilter.set("limit", limit);
     } else if (!ReactiveGroupFilter.get("limit")) // set default limit if none set
-      ReactiveGroupFilter.set("limit", App.Defaults.feedLimitSkip);
+      ReactiveGroupFilter.set("limit", limit);
 
     return this;
   },
