@@ -10,7 +10,6 @@ userPicture = function (user, width) {
 
   if(! _.isEmpty(user.services)) {
     if(user.services.google) {
-      debugger
       url = user.profile.picture;
 
       // Now replace the current size in the url path if required
