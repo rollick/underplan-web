@@ -40,7 +40,9 @@
       <a href="#" class="remove action"></a>
     {{/if}}
   </div>
+  {{#if hasPhotos}}
     {{> imageSlider}}
+  {{/if}}
   <div class="content">
     {{#if isStory}}
       <h5><a href="{{activityLink}}" class="title">{{title}} {{#if showUnpublished}}<span class="warning"> U</span>{{/if}}</a></h5>
@@ -55,6 +57,7 @@
 <template name="shortForm">
   <form class="{{formCls}}">
     {{#if _id}}<input type="hidden" id="_id" value="{{_id}}">{{/if}}
+    {{#if group}}<input type="hidden" id="groupId" value="{{group}}">{{/if}}
     <div class="text-section">
       <div class="input-field">
         <textarea type="text" id="text" placeholder="Write a shorty..." >{{text}}</textarea>

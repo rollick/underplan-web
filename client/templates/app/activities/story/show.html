@@ -85,9 +85,11 @@
       {{wikiContent}}
     {{/if}}
     {{#unless photoShow}}
-      <div class="activity-highlight">
-        {{> imageSlider}}
-      </div>
+      {{#if hasPhotos}}
+        <div class="activity-highlight">
+          {{> imageSlider}}
+        </div>
+      {{/if}}
     {{/unless}}
     <div class="text">
       {{#markdown}}{{{text}}}{{/markdown}}

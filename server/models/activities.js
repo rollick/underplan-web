@@ -30,8 +30,12 @@ _.extend(App.Utils, {
     if (userId !== activity.owner && !admin)
       throw new Meteor.Error(403, "You must be the activity owner");
 
-    // TODO: need to check if the user can move the activity
-    if (activity.groupId !== fields.groupId && !admin)
+    // TODO: Need to check if the user can move the activity.
+    //       Also need to rename group in activity collection
+    //       to groupId as we use groupId throughout code =>
+    //       note we are comparing group in the model to groupId
+    //       passed in the fields.
+    if (activity.group !== fields.groupId && !admin)
       throw new Meteor.Error(403, "You don't have permission to move this activity");
 
     var allowed = [

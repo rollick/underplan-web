@@ -100,8 +100,18 @@ Handlebars.registerHelper('basicLocation', function(activity) {
 // Date Picker
 
 Template.datePicker.helpers({
-  equalTo: function (value) {
-    return value == this;
+  years: function () {
+    var year = this.year;
+    return [year-2, year-1, year, year+1, year+2];
+  },
+  months: function () {
+    var mths = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+    return _.map(mths, function (value, index) {
+      return {label: value, value: index+1}
+    });
+  },
+  days: function () {
+    return [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31];
   }
 });
 

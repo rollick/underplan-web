@@ -11,6 +11,7 @@
       {{/if}}
       <form class="custom">
         <input type="hidden" id="_id" value="{{_id}}">
+        <input type="hidden" id="groupId" value="{{group}}">
         <label>Title</label>
         <input type="text" id="title" value="{{title}}" placeholder="Start with a title...">
         <label>Story</label>
@@ -33,7 +34,7 @@
         {{/if}}
         <label for="published">Published</label><br />
         <label>Published Date</label>
-        {{> datePicker}}
+        {{> datePicker createdOrToday}}
         <hr />
         <input type="checkbox" class="notify" id="notify">
         <label for="notify">Notify Followers</label><br />

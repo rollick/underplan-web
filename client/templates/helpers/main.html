@@ -1,13 +1,12 @@
 <template name="ifEqual">
   {{#if isEqual value1 value2}}
-    {{> content}}
+    {{> UI.contentBlock}}
   {{else}}
-    {{> elseContent}}
+    {{> UI.elseBlock}}
   {{/if}}
 </template>
 
 <template name="datePicker">
-  {{#with this}}
   <div class="row">
     <div class="large-3 columns">
       <div class="row collapse day-picker">
@@ -17,10 +16,10 @@
         <div class="large-6 small-9 columns">
           <select>
             {{#each days}}
-              {{#ifEqual value1=../selectedDay value2=this}}
-                <option selected>{{this}}</option>
+              {{#ifEqual value1=../day value2=this}}
+                <option selected value={{this}}>{{this}}</option>
               {{else}}
-                <option>{{this}}</option>
+                <option value={{this}}>{{this}}</option>
               {{/ifEqual}}
             {{/each}}
           </select>
@@ -35,10 +34,10 @@
         <div class="large-9 small-9 columns">
           <select>
             {{#each months}}
-              {{#ifEqual value1=../selectedMonth value2=this}}
-                <option selected>{{this}}</option>
+              {{#ifEqual value1=../month value2=this.value}}
+                <option selected value={{this.value}}>{{this.label}}</option>
               {{else}}
-                <option>{{this}}</option>
+                <option value={{this.value}}>{{this.label}}</option>
               {{/ifEqual}}
             {{/each}}
           </select>
@@ -53,10 +52,10 @@
         <div class="large-9 small-9 columns">
           <select>
             {{#each years}}
-              {{#ifEqual value1=../selectedYear value2=this}}
-                <option value="{{this}}" selected>{{this}}</option>
+              {{#ifEqual value1=../year value2=this}}
+                <option selected value={{this}}>{{this}}</option>
               {{else}}
-                <option value="{{this}}">{{this}}</option>
+                <option value={{this}}>{{this}}</option>
               {{/ifEqual}}
             {{/each}}
           </select>
@@ -64,5 +63,4 @@
       </div>
     </div>
   </div>
-  {{/with}}
 </template>

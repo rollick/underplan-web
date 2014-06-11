@@ -57,7 +57,7 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.4.27");
+  Session.set("appVersion", "v1.4.28");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
@@ -369,6 +369,14 @@ App.Utils.geoLocation = function (location, inputId, autocomplete, callback) {
   } else {
     return false;
   }
+};
+
+App.Utils.simpleDate = function (date) {    
+    return {
+      day: date.getDate(),
+      month: date.getMonth(),
+      year: date.getFullYear()
+    }
 };
 
 App.Utils.secureUrl = function (url) {
