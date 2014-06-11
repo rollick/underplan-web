@@ -260,7 +260,7 @@
 			"file": "client/javascripts/views/comments.js",
 			"settings":
 			{
-				"buffer_size": 3689,
+				"buffer_size": 3565,
 				"line_ending": "Unix"
 			}
 		},
@@ -268,7 +268,7 @@
 			"file": "client/javascripts/views/activities/edit.js",
 			"settings":
 			{
-				"buffer_size": 6090,
+				"buffer_size": 5416,
 				"line_ending": "Unix"
 			}
 		},
@@ -276,7 +276,7 @@
 			"file": "models/activities.js",
 			"settings":
 			{
-				"buffer_size": 11763,
+				"buffer_size": 7628,
 				"line_ending": "Unix"
 			}
 		},
@@ -284,7 +284,7 @@
 			"file": "models/comments.js",
 			"settings":
 			{
-				"buffer_size": 5175,
+				"buffer_size": 2558,
 				"line_ending": "Unix"
 			}
 		},
@@ -292,7 +292,7 @@
 			"file": "client/javascripts/views/activities/_item.js",
 			"settings":
 			{
-				"buffer_size": 6672,
+				"buffer_size": 6582,
 				"line_ending": "Unix"
 			}
 		},
@@ -300,7 +300,7 @@
 			"file": "server/server.js",
 			"settings":
 			{
-				"buffer_size": 13105,
+				"buffer_size": 3203,
 				"line_ending": "Unix"
 			}
 		},
@@ -324,7 +324,7 @@
 			"file": "bower.json",
 			"settings":
 			{
-				"buffer_size": 131,
+				"buffer_size": 78,
 				"line_ending": "Unix"
 			}
 		},
@@ -332,7 +332,7 @@
 			"file": "client/sass/app/common/slider.scss",
 			"settings":
 			{
-				"buffer_size": 4354,
+				"buffer_size": 5015,
 				"line_ending": "Unix"
 			}
 		},
@@ -340,7 +340,7 @@
 			"file": "client/javascripts/views/common/slider.js",
 			"settings":
 			{
-				"buffer_size": 7776,
+				"buffer_size": 7999,
 				"line_ending": "Unix"
 			}
 		},
@@ -364,7 +364,7 @@
 			"file": "client/javascripts/views/common/mapping_fsm.js",
 			"settings":
 			{
-				"buffer_size": 28132,
+				"buffer_size": 28178,
 				"line_ending": "Unix"
 			}
 		},
@@ -382,7 +382,7 @@
 			"file": "client/sass/app/comment.scss",
 			"settings":
 			{
-				"buffer_size": 2471,
+				"buffer_size": 2502,
 				"line_ending": "Unix"
 			}
 		},
@@ -398,7 +398,7 @@
 			"file": "client/javascripts/main.js",
 			"settings":
 			{
-				"buffer_size": 11785,
+				"buffer_size": 12608,
 				"line_ending": "Unix"
 			}
 		},
@@ -419,13 +419,10 @@
 			}
 		},
 		{
-			"contents": "///////////////////////////////////////////////////////////////////////////////\n// Groups\n\n/*\n  Groups are a top level container for models like Activities. Eventually they will include\n  membership and access control (for posting, editing etc) based on this membership.\n*/\n\nGroups = new Meteor.Collection(\"groups\");\nGroupInfo = new Meteor.Collection(\"groupInfo\");\n\nGroups.allow({\n  insert: function (userId, group) {\n    return false; // no cowboy inserts -- use createGroup method\n  },\n  update: function (userId, group, fields, modifier) {\n    return canUpdateGroup(userId, group, fields);\n  },\n  remove: function (userId, groups) {\n    return ! _.any(groups, function (group) {\n      // deny if not the owner\n      return group.owner !== userId;\n    });\n  }\n});\n\nMeteor.methods({\n  groupInfo: function (groupId) {\n    check(groupId, String);\n\n    var groupConds = {\n      $and: [\n        {\"_id\": groupId},\n        {$or: [\n          {\"approved\": {$exists: false}}, \n          {\"approved\": true},\n          {\"owner\": this.userId},\n          {\"invited\": this.userId}\n        ]}\n      ]\n    };\n\n    var group = Groups.findOne(groupConds);\n    var doc = {};\n\n    if (group) {\n      var activities = Activities.find({group: group._id}, {\n        fields: {_id: 1, created: 1},\n        sort:   {created: -1}\n      }).fetch();\n\n      doc.activitiesCount = activities.length;\n      if (doc.activitiesCount) {\n        doc.lastActivityCreated = activities[0].created;\n        doc.lastActivityId = activities[0]._id;\n      }\n    }\n\n    return doc;\n  },\n\n  // options should include: name\n  createGroup: function (options) {\n    check(options, Object);\n\n    if ( typeof options.created === \"undefined\" )\n      options.created = new Date();\n\n    if ( typeof options.slug === \"undefined\" || options.slug == \"\" )\n      options.slug = createLinkSlug(options.name);\n\n    var testSlug = true;\n    var count = 1;\n    var originalSlug = options.slug;\n    \n    while(testSlug) {\n      var matchingSlugs = Groups.find({slug: options.slug}, { _id: 1, slug: 1 });\n      // Creating the group in this method so there shouldn't be any matching slugs\n      // Also prevent slugs which match standard routes - settings, new\n      if (matchingSlugs.count() > 0 || !!options.slug.match(/^(settings|new)$/)) {\n        options.slug = originalSlug + \"-\" + count;\n        count += 1;\n      } else {\n        testSlug = false;\n      }\n    }\n\n    var approved = false // unapproved by default. Admins can approve\n    var owner = Meteor.users.findOne({_id: this.userId});\n    if (owner.admin) {\n      approved = true;\n    }\n    options.approved = approved;\n\n    checkGroupCreate(this.userId, options);\n\n    var groupId = Groups.insert({\n      owner:            this.userId,\n      name:             options.name,\n      description:      options.description,\n      trovebox:         options.trovebox,\n      picasaUsername:   options.picasaUsername,\n      picasaAlbum:      options.picasaAlbum,\n      picasaKey:        options.picasaKey,\n      created:          options.created,\n      slug:             options.slug,\n      invited:          [],\n      rsvps:            [],\n      approved:         options.approved\n    });\n\n    trackCreateGroup(groupId);\n\n     Meteor.method\n  },\n\n  invite: function (groupId, userId) {\n    check(groupId, String);\n    check(userId, String);\n\n    var group = Groups.findOne(groupId);\n    if (! group || group.owner !== this.userId)\n      throw new Meteor.Error(404, \"No such group\");\n\n    if (userId !== group.owner && ! _.contains(group.invited, userId)) {\n      Groups.update(groupId, { $addToSet: { invited: userId } });\n\n      var from = userEmail(Meteor.users.findOne(this.userId));\n      var to = userEmail(Meteor.users.findOne(userId));\n      if (Meteor.isServer && to) {\n        Email.send({\n          from: \"noreply@underplan.it\",\n          to: to,\n          replyTo: from || undefined,\n          subject: \"Underplan: \" + group.name,\n          text:\n\"Hey, I just invited you to '\" + group.name + \"' on Underplan.\" +\n\"\\n\\nCome check it out: \" + Meteor.absoluteUrl() + \"/\" + group.slug + \"\\n\"\n        });\n      }\n    }\n  },\n\n  rsvp: function (groupId, rsvp) {\n    check(groupId, String);\n    check(rsvp, String);\n\n    if (! this.userId)\n      throw new Meteor.Error(403, \"You must be logged in\");\n    if (! _.contains(['yes', 'no'], rsvp))\n      throw new Meteor.Error(400, \"Invalid RSVP\");\n    var group = Groups.findOne(groupId);\n    if (! group)\n      throw new Meteor.Error(404, \"No such group\");\n    if (group.owner !== this.userId && !_.contains(group.invited, this.userId))\n      throw new Meteor.Error(403, \"No must be invited\");\n\n    var rsvpIndex = _.indexOf(_.pluck(group.rsvps, 'user'), this.userId);\n    if (rsvpIndex !== -1) {\n      // update existing rsvp entry\n\n      if (Meteor.isServer) {\n        // update the appropriate rsvp entry with $\n        Groups.update(\n          {_id: groupId, \"rsvps.user\": this.userId},\n          {$set: {\"rsvps.$.rsvp\": rsvp}});\n      } else {\n        // minimongo doesn't yet support $ in modifier. as a temporary\n        // workaround, make a modifier that uses an index. this is\n        // safe on the client since there's only one thread.\n        var modifier = {$set: {}};\n        modifier.$set[\"rsvps.\" + rsvpIndex + \".rsvp\"] = rsvp;\n        Groups.update(groupId, modifier);\n      }\n    } else {\n      // add new rsvp entry\n      Groups.update(groupId,\n                     {$push: {rsvps: {user: this.userId, rsvp: rsvp}}});\n    }\n  }\n});\n\nthis.groupCountries = function (groupId) {\n    var countries = [];\n\n  Activities.find({group: groupId}).forEach( function(activity) {\n    if(typeof activity.country === \"string\" && activity.country.length) {\n      countries.push(activity.country);\n    }\n  });\n\n  return _.uniq(countries).sort();\n}\n\nvar checkGroupCreate = function(userId, options) {\n  if (! userId)\n    throw new Meteor.Error(403, \"You must be logged in\");\n\n  if (typeof options.name === \"string\" && options.name.length > 100)\n    throw new Meteor.Error(413, \"Name too long\");\n\n  if (typeof options.description === \"string\" && options.description.length > 100)\n    throw new Meteor.Error(413, \"Description too long\");\n\n  if (typeof options.approved === true && !isSystemAdmin(userId))\n    throw new Meteor.Error(413, \"You can't approve a group\");\n};\n\nif (Meteor.isClient) {\n  var trackCreateGroup = function (groupId) {\n    check(groupId, String);\n\n    var groupName = Groups.findOne(groupId, {$fields: {name: 1}}).name;\n    trackEvent(\"Group Created\", {\"Group ID\": groupId, \"Group Name\": groupName});\n  };  \n}\n\nif (Meteor.isServer) {\n  var trackCreateGroup = function () {\n    // TODO: do some server side logging here!\n  };\n\n  var canUpdateGroup = function(userId, group, fields) {\n    var sysAdmin = isSystemAdmin(userId);\n    \n    if ( !(sysAdmin || userId === group.owner))\n      return false; // not the owner or admin\n\n    var allowed = [\"name\", \"description\", \"trovebox\", \"picasaUsername\", \"picasaAlbum\", \"picasaKey\"];\n\n    if (sysAdmin)\n      allowed.push(\"approved\", \"owner\");\n\n    if (_.difference(fields, allowed).length)\n      return false; // tried to write to forbidden field\n\n    return true;\n  }\n}",
 			"file": "models/groups.js",
-			"file_size": 7179,
-			"file_write_time": 130331774570000000,
 			"settings":
 			{
-				"buffer_size": 7178,
+				"buffer_size": 7095,
 				"line_ending": "Unix"
 			}
 		}
@@ -974,15 +971,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 3689,
+						"buffer_size": 3565,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								945,
-								945
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1004,15 +1001,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6090,
+						"buffer_size": 5416,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1709,
-								1719
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1034,15 +1031,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11763,
+						"buffer_size": 7628,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3821,
-								3800
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1064,15 +1061,15 @@
 					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 5175,
+						"buffer_size": 2558,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1218,
-								1218
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1094,15 +1091,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 6672,
+						"buffer_size": 6582,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								120,
-								120
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1124,15 +1121,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13105,
+						"buffer_size": 3203,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5010,
-								5010
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1214,15 +1211,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 131,
+						"buffer_size": 78,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								123,
-								123
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1242,15 +1239,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4354,
+						"buffer_size": 5015,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1589,
-								1589
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1272,15 +1269,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7776,
+						"buffer_size": 7999,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								5422,
-								5422
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1362,15 +1359,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 28132,
+						"buffer_size": 28178,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								26236,
-								26236
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1475,15 +1472,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2471,
+						"buffer_size": 2502,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2088,
-								2088
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1533,15 +1530,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 11785,
+						"buffer_size": 12608,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2405,
-								2394
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1623,7 +1620,7 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 7178,
+						"buffer_size": 7095,
 						"regions":
 						{
 						},

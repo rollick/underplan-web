@@ -6,3 +6,5 @@ __MACOSX
 settings.*
 underplan.sublime*
 packages/bower
+*.sublime-workspace
+*.sublime-project

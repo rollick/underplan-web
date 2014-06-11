@@ -2,8 +2,16 @@
 	"folders":
 	[
 		{
-			"path": "/Users/mgallop/Dev/underplan_src/",
-      "folder_exclude_patterns": ["local"]
+			"folder_exclude_patterns":
+			[
+				"local"
+			],
+			"follow_symlinks": true,
+			"path": "."
+		},
+		{
+			"follow_symlinks": true,
+			"path": "/Users/mgallop/Dev/docker-fun/underplan"
 		}
 	]
 }
