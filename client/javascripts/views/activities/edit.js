@@ -78,11 +78,8 @@ Template.storyEditor.events({
     event.preventDefault();
 
     var notify = template.find("#notify").checked,
+        activityId = template.find("#_id").value,
         values = getStoryValues(template);
-
-    // get the _id and group for the activity
-    var activityId = template.find("#_id").value;
-    values.groupId = template.find("#groupId").value;
 
     Meteor.call('updateActivity', {notify: notify, activityId: activityId, values: values}, function (error) {
       if (error) {
@@ -101,6 +98,15 @@ Template.storyEditor.events({
 
 var getStoryValues = function(template) {
   values = {type: "story"};
+  values.groupId = ReactiveGroupFilter.get("group");
+
+  // If the form has a different groupId to the session
+  // then use that instead -> user is trying to 'move'
+  // the activity to a new group.
+  var groupElem = template.find("#groupId");
+  if (groupElem && !_.isEmpty(groupElem.value) && groupElem.value != values.groupId) {
+    values.groupId = groupElem.value;
+  }
 
   // Latitude and Longitude
   var lat = template.find("#lat").value;
