@@ -9,7 +9,7 @@ App.Utils.notifyCommentCreated = function (userId, options) {
 
   var commentorEmails = App.Utils.commentFollowerEmails(options.owner, options.activityId);
   
-  var allEmails = _.union(groupMemberEmails(activity.group), commentorEmails);
+  var allEmails = _.union(App.Utils.groupMemberEmails(activity.group), commentorEmails);
 
   if(allEmails.length > 0) {
     var text  =  "Hey, " + displayName(commentor) + " just commented on a " + activity.type; 
