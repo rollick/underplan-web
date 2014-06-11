@@ -115,11 +115,10 @@ $slider-btn-height: 35px;
   .sequence-next,
   .sequence-prev {
     &:hover {
-      background-color: rgba($body-bg-color, 0.25);
       cursor: pointer;
 
       &:before {
-        @include transition-duration(1s);
+        @include transition-duration(0.5s);
 
         opacity: 1;
       }

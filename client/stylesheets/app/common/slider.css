@@ -124,26 +124,25 @@
 /* line 117, ../../../sass/app/common/slider.scss */
 .sequence .sequence-next:hover,
 .sequence .sequence-prev:hover {
-  background-color: rgba(78, 78, 78, 0.25);
   cursor: pointer;
 }
-/* line 121, ../../../sass/app/common/slider.scss */
+/* line 120, ../../../sass/app/common/slider.scss */
 .sequence .sequence-next:hover:before,
 .sequence .sequence-prev:hover:before {
-  -webkit-transition-duration: 1s;
-  -moz-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
+  -webkit-transition-duration: 0.5s;
+  -moz-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
   opacity: 1;
 }
-/* line 129, ../../../sass/app/common/slider.scss */
+/* line 128, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas {
   height: 100%;
   width: 100%;
   list-style-type: none;
   overflow: hidden;
 }
-/* line 136, ../../../sass/app/common/slider.scss */
+/* line 135, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li {
   top: 0px;
   width: 100%;
@@ -151,7 +150,7 @@
   z-index: 2;
   pointer-events: none;
 }
-/* line 143, ../../../sass/app/common/slider.scss */
+/* line 142, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo {
   position: absolute;
   background-position: center;
@@ -161,7 +160,7 @@
   left: 100%;
   cursor: pointer;
 }
-/* line 156, ../../../sass/app/common/slider.scss */
+/* line 155, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo .details {
   left: 0px;
   padding-left: 10px;
@@ -175,23 +174,23 @@
   width: 100%;
   padding-top: 0.46875rem;
 }
-/* line 170, ../../../sass/app/common/slider.scss */
+/* line 169, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo h2.title, .sequence .sequence-canvas > li .photo h3.description {
   width: 100%;
   color: white;
   font-weight: 300;
   margin-bottom: 0.46875rem;
 }
-/* line 177, ../../../sass/app/common/slider.scss */
+/* line 176, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo h2.title {
   font-size: 1.1rem;
 }
-/* line 181, ../../../sass/app/common/slider.scss */
+/* line 180, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo h3.description {
   font-size: 0.8rem;
   color: #e6e6e6;
 }
-/* line 186, ../../../sass/app/common/slider.scss */
+/* line 185, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li .photo img {
   min-height: 100%;
   min-width: 100%;
@@ -199,11 +198,11 @@
   filter: alpha(opacity=0);
   opacity: 0;
 }
-/* line 196, ../../../sass/app/common/slider.scss */
+/* line 195, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-in, .sequence .sequence-canvas > li.animate-out {
   pointer-events: all;
 }
-/* line 199, ../../../sass/app/common/slider.scss */
+/* line 198, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-in .photo, .sequence .sequence-canvas > li.animate-out .photo {
   -webkit-transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
   -moz-transition: left 0.4s cubic-bezier(0.645, 0.045, 0.355, 1);
@@ -212,66 +211,66 @@
   overflow: hidden;
   left: 0;
 }
-/* line 206, ../../../sass/app/common/slider.scss */
+/* line 205, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-in .details, .sequence .sequence-canvas > li.animate-out .details {
   -webkit-transition: bottom 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
   -moz-transition: bottom 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
   -o-transition: bottom 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
   transition: bottom 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
 }
-/* line 212, ../../../sass/app/common/slider.scss */
+/* line 211, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-out .photo {
   left: -100%;
 }
-/* line 216, ../../../sass/app/common/slider.scss */
+/* line 215, ../../../sass/app/common/slider.scss */
 .sequence .sequence-canvas > li.animate-out .details {
   bottom: -100%;
 }
 
-/* line 227, ../../../sass/app/common/slider.scss */
+/* line 226, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence {
   height: 250px;
 }
-/* line 230, ../../../sass/app/common/slider.scss */
+/* line 229, ../../../sass/app/common/slider.scss */
 .activity-highlight .sequence li .photo {
   background-size: contain;
 }
-/* line 235, ../../../sass/app/common/slider.scss */
+/* line 234, ../../../sass/app/common/slider.scss */
 .activity-highlight.large {
   margin: 0em;
 }
-/* line 238, ../../../sass/app/common/slider.scss */
+/* line 237, ../../../sass/app/common/slider.scss */
 .activity-highlight.large .sequence {
   height: 320px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 238, ../../../sass/app/common/slider.scss */
+  /* line 237, ../../../sass/app/common/slider.scss */
   .activity-highlight.large .sequence {
     height: 400px;
   }
 }
 
-/* line 248, ../../../sass/app/common/slider.scss */
+/* line 247, ../../../sass/app/common/slider.scss */
 .feed-item .sequence {
   height: 250px;
   margin-left: 0em;
   margin-right: 0em;
 }
-/* line 253, ../../../sass/app/common/slider.scss */
+/* line 252, ../../../sass/app/common/slider.scss */
 .feed-item .sequence.expanded {
   height: 400px;
 }
-/* line 257, ../../../sass/app/common/slider.scss */
+/* line 256, ../../../sass/app/common/slider.scss */
 .feed-item .sequence li .photo {
   background-size: cover;
 }
 
-/* line 262, ../../../sass/app/common/slider.scss */
+/* line 261, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen {
   height: 100% !important;
   width: 100% !important;
 }
-/* line 267, ../../../sass/app/common/slider.scss */
+/* line 266, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen .sequence-next:before,
 .sequence.fullscreen .sequence-prev:before {
   top: 50%;
@@ -280,7 +279,7 @@
   background-size: 70px 70px;
   margin-top: -35px;
 }
-/* line 275, ../../../sass/app/common/slider.scss */
+/* line 274, ../../../sass/app/common/slider.scss */
 .sequence.fullscreen li .photo {
   background-size: contain;
 }
