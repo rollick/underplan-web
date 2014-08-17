@@ -11,7 +11,8 @@
         "branch": "master"
       },
       "googlemaps": {},
-      "mandrill": {}
+      "mandrill": {},
+      "rssfeed": {}
     },
     "packages": {
       "mixpanel": {
@@ -28,6 +29,11 @@
         "git": "https://github.com/timmyg/meteor-mandrill.git",
         "tag": "v0.0.6",
         "commit": "211be350989440403f8171031a97dd80b6c924ec"
+      },
+      "rssfeed": {
+        "git": "https://github.com/raix/Meteor-rssfeed.git",
+        "tag": "v0.0.4",
+        "commit": "e592cda10c553209491aa08c74096fc4ddefe3d7"
       }
     }
   }
