@@ -30,7 +30,7 @@ RssFeed.publish('activities', function(query) {
       guid: activity._id,
       title: title,
       description: preview,
-      link: 'https://underplan.io/' + group.slug + '/' + activity._id,
+      link: 'https://underplan.io/' + group.slug + '/pl/' + activity._id,
       pubDate: activity.created
     });
   });
@@ -66,7 +66,7 @@ RssFeed.publish('comments', function(query) {
       guid: comment._id,
       title: displayName(Meteor.users.findOne({_id: comment.owner})),
       description: comment.comment,
-      link: 'https://underplan.io/' + group.slug + '/' + comment.activityId,
+      link: 'https://underplan.io/' + group.slug + '/pl/' + comment.activityId,
       pubDate: comment.created
     });
   });
