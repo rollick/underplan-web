@@ -17,27 +17,20 @@ App.Utils.notifyCommentCreated = function (userId, options) {
       var url = Meteor.absoluteUrl() + [group.slug, activity.slug].join("/");
 
       text += " titled '" + activity.title + "'. ";
-      text += "Check it out here: " + url + "\n\n"
+      text += "Check it out here: " + url + "<br />"
     } else if(activity.type == "short") {
       var url = Meteor.absoluteUrl() + [group.slug, "pl", activity._id].join("/");
 
-      text += " for the group '" + group.name + "': " + url + "\n\n"
+      text += " for the group '" + group.name + "': " + url + "<br />"
     }
 
-    text += "They said:\n\n" + options.comment + "\n\n";
+    text += "They said:<br />" + options.comment + "<br />";
 
     if(activity.type == "short")
-      text += "To the post:\n\n" + activity.text + "\n\n";
+      text += "To the post:<br />" + activity.text + "<br />";
 
-    text += "Yours faithfully, Underplan"
-
-    Email.send({
-      from: "noreply@underplan.it",
-      bcc: allEmails,
-      replyTo: undefined,
-      subject: "Underplan: New Comment for '" + group.name + "'",
-      text: text
-    });
+    var subject = "Underplan: New Comment for '" + group.name + "'";
+    App.Utils.sendMail('underplan-comment', allEmails, subject, text);
   }
 }
 

@@ -8,15 +8,15 @@ accounts-facebook
 accounts-github
 accounts-twitter
 accounts-google
-email
+http
 showdown
 backbone
 underscore
 spiderable
 #appcache
-#insecure
 mixpanel
 standard-app-packages
 audit-argument-checks
 browser-policy
 googlemaps
+mandrill

@@ -105,23 +105,16 @@ _.extend(App.Utils, {
         var url = Meteor.absoluteUrl() + [group.slug, activity.slug].join("/");
 
         text += " titled '" + activity.title + "'. ";
-        text += "Check it out here: " + url + "\n\n"
+        text += "Check it out here: " + url + "<br />"
       } else if(activity.type == "short") {
         var url = Meteor.absoluteUrl() + [group.slug, "pl", activity._id].join("/");
 
-        text += " for the group '" + group.name + "': " + url + "\n\n"
-        text += "They wrote:\n\n" + activity.text + "\n\n";
+        text += " for the group '" + group.name + "': " + url + "<br />"
+        text += "They wrote:<br />" + activity.text + "<br />";
       }
 
-      text += "Yours faithfully, Underplan"
-
-      Email.send({
-        from: "noreply@underplan.it",
-        bcc: allEmails,
-        replyTo: undefined,
-        subject: "Underplan: " + (action == "created" ? "New" : "Updated") + " Activity for '" + group.name + "'",
-        text: text
-      });
+      var subject = "Underplan: " + (action == "created" ? "New" : "Updated") + " Activity for '" + group.name + "'";
+      App.Utils.sendMail('underplan-activity', allEmails, subject, text);
     }
   }
 });

@@ -1,9 +1,14 @@
 // Underplan -- server
 
 Meteor.startup(function () {
+  Meteor.Mandrill.config({
+    username: "mandrill.kcillor@recursor.net",
+    key: "UBXorQ0hVPzbXLG43asdPA"
+  });
+
   // Browser policies:
   BrowserPolicy.content.allowDataUrlForAll()
-  
+
   // Script:
   BrowserPolicy.content.allowInlineScripts();
   BrowserPolicy.content.allowEval();

@@ -10,7 +10,8 @@
         "git": "https://github.com/spencern/meteor-mixpanel",
         "branch": "master"
       },
-      "googlemaps": {}
+      "googlemaps": {},
+      "mandrill": {}
     },
     "packages": {
       "mixpanel": {
@@ -22,6 +23,11 @@
         "git": "https://github.com/drewjw81/meteor-googlemaps.git",
         "tag": "v0.0.2",
         "commit": "da8785c82cfd7de0111f898ef10728e7ed24e361"
+      },
+      "mandrill": {
+        "git": "https://github.com/timmyg/meteor-mandrill.git",
+        "tag": "v0.0.6",
+        "commit": "211be350989440403f8171031a97dd80b6c924ec"
       }
     }
   }
