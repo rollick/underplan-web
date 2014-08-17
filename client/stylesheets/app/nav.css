@@ -49,7 +49,7 @@ body {
   color: #222222;
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: open-sans, Arial, sans-serif;
   font-weight: 200;
   font-style: normal;
   line-height: 1;
@@ -249,7 +249,7 @@ p aside {
 /* Default header styles */
 /* line 181, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: raleway, sans-serif;
   font-weight: 300;
   font-style: normal;
   color: #222222;
@@ -2126,7 +2126,7 @@ blockquote p {
   display: inline;
   margin-left: 1rem;
   margin-bottom: 0.625rem;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: open-sans, Arial, sans-serif;
   font-weight: normal;
   font-size: 0.875rem;
   color: #999999;
@@ -2193,7 +2193,7 @@ blockquote p {
   padding-right: 2rem;
   padding-bottom: 1.0625rem;
   padding-left: 2rem;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: open-sans, Arial, sans-serif;
   font-size: 1rem;
 }
 /* line 43, ../../../packages/bower/foundation/scss/foundation/components/_tabs.scss */
@@ -2287,7 +2287,7 @@ button, .button {
   border-style: solid;
   border-width: 0px;
   cursor: pointer;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: open-sans, Arial, sans-serif;
   font-weight: normal;
   line-height: normal;
   margin: 0 0 1.25rem;
@@ -2988,31 +2988,30 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .nav .logo a {
   color: white !important;
   display: block;
-  padding: 0px 12px;
-  font-size: 2.4em;
-  font-family: 'Lily Script One', cursive;
+  padding: 4px 14px;
+  font-size: 2em;
+  font-family: annie-use-your-telescope, sans-serif;
 }
 /* line 44, ../../sass/app/nav.scss */
 .nav .logo a:before {
-  content: "u";
+  content: "U";
 }
 @media only screen and (min-width: 48em) {
   /* line 49, ../../sass/app/nav.scss */
   .nav .logo.home {
-    width: 170px;
+    width: 132px;
   }
   /* line 53, ../../sass/app/nav.scss */
   .nav .logo.home a {
-    padding: 4px 10px;
     font-size: 2em;
   }
-  /* line 57, ../../sass/app/nav.scss */
+  /* line 56, ../../sass/app/nav.scss */
   .nav .logo.home a:before {
     content: "Underplan";
   }
 }
 
-/* line 66, ../../sass/app/nav.scss */
+/* line 65, ../../sass/app/nav.scss */
 .group-controls {
   width: auto;
   margin-left: -0.9375rem;
@@ -3040,7 +3039,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls:after {
   clear: both;
 }
-/* line 80, ../../sass/app/nav.scss */
+/* line 79, ../../sass/app/nav.scss */
 .group-controls > .inner {
   position: relative;
   padding-left: 0;
@@ -3061,7 +3060,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   transition-timing-function: ease;
 }
 @media only screen and (min-width: 24em) {
-  /* line 80, ../../sass/app/nav.scss */
+  /* line 79, ../../sass/app/nav.scss */
   .group-controls > .inner {
     position: relative;
     padding-left: 0;
@@ -3070,7 +3069,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
     float: left;
   }
 }
-/* line 91, ../../sass/app/nav.scss */
+/* line 90, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions {
   margin: 0;
   float: left;
@@ -3089,7 +3088,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .map-actions:first-child {
   margin-left: 0;
 }
-/* line 97, ../../sass/app/nav.scss */
+/* line 96, ../../sass/app/nav.scss */
 .group-controls > .inner .activity-actions {
   margin: 0;
   float: left;
@@ -3108,7 +3107,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions:first-child {
   margin-left: 0;
 }
-/* line 104, ../../sass/app/nav.scss */
+/* line 103, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions,
 .group-controls > .inner .activity-actions {
   list-style: none;
@@ -3130,7 +3129,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions:after {
   clear: both;
 }
-/* line 109, ../../sass/app/nav.scss */
+/* line 108, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.action,
 .group-controls > .inner .activity-actions .button.action {
   padding-top: 0.375rem;
@@ -3157,7 +3156,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions .button.action:focus {
   color: #333333;
 }
-/* line 118, ../../sass/app/nav.scss */
+/* line 117, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.action.country-container,
 .group-controls > .inner .activity-actions .button.action.country-container {
   position: relative;
@@ -3180,14 +3179,14 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions .button.action.country-container:before {
   border-color: #6da549 transparent transparent transparent;
 }
-/* line 125, ../../sass/app/nav.scss */
+/* line 124, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.action.country-container:before,
 .group-controls > .inner .activity-actions .button.action.country-container:before {
   border-width: 0.25rem;
   right: 0.75rem;
   margin-top: -0.125rem;
 }
-/* line 133, ../../sass/app/nav.scss */
+/* line 132, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .button.main,
 .group-controls > .inner .activity-actions .button.main {
   background-color: #6da549;
@@ -3206,7 +3205,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions .button.main:focus {
   color: white;
 }
-/* line 138, ../../sass/app/nav.scss */
+/* line 137, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions > li,
 .group-controls > .inner .activity-actions > li {
   margin: 0;
@@ -3231,19 +3230,19 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
 .group-controls > .inner .activity-actions > li:first-child {
   margin-left: 0;
 }
-/* line 144, ../../sass/app/nav.scss */
+/* line 143, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .f-dropdown.content,
 .group-controls > .inner .activity-actions .f-dropdown.content {
   display: none;
 }
-/* line 147, ../../sass/app/nav.scss */
+/* line 146, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .f-dropdown.content.open,
 .group-controls > .inner .activity-actions .f-dropdown.content.open {
   padding: 0.3125rem;
   max-width: 380px;
   display: inherit;
 }
-/* line 156, ../../sass/app/nav.scss */
+/* line 155, ../../sass/app/nav.scss */
 .group-controls > .inner .map-actions .action {
   -webkit-border-radius: 0em;
   -moz-border-radius: 0em;
@@ -3251,31 +3250,31 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   -o-border-radius: 0em;
   border-radius: 0em;
 }
-/* line 171, ../../sass/app/nav.scss */
+/* line 170, ../../sass/app/nav.scss */
 .group-controls > .inner #map-feed-toggle.feed-toggle:before {
   content: "F";
 }
 @media only screen and (min-width: 24em) {
-  /* line 171, ../../sass/app/nav.scss */
+  /* line 170, ../../sass/app/nav.scss */
   .group-controls > .inner #map-feed-toggle.feed-toggle:before {
     content: "Feed";
   }
 }
-/* line 181, ../../sass/app/nav.scss */
+/* line 180, ../../sass/app/nav.scss */
 .group-controls > .inner #map-feed-toggle.map-toggle:before {
   content: "M";
 }
 @media only screen and (min-width: 24em) {
-  /* line 181, ../../sass/app/nav.scss */
+  /* line 180, ../../sass/app/nav.scss */
   .group-controls > .inner #map-feed-toggle.map-toggle:before {
     content: "Map";
   }
 }
-/* line 192, ../../sass/app/nav.scss */
+/* line 191, ../../sass/app/nav.scss */
 .group-controls.feed {
   margin-top: 0px;
 }
-/* line 195, ../../sass/app/nav.scss */
+/* line 194, ../../sass/app/nav.scss */
 .group-controls.feed > .inner {
   margin: 0px auto;
   width: 100%;
@@ -3283,7 +3282,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   max-width: 45em;
 }
 
-/* line 204, ../../sass/app/nav.scss */
+/* line 203, ../../sass/app/nav.scss */
 .group-nav {
   padding-top: 0em;
   max-height: 2.25rem;
@@ -3295,54 +3294,54 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border: 1px solid red;
 }
 
-/* line 215, ../../sass/app/nav.scss */
+/* line 214, ../../sass/app/nav.scss */
 .top-bar-section {
-  font-family: "Raleway", sans-serif;
+  font-family: raleway, sans-serif;
 }
-/* line 219, ../../sass/app/nav.scss */
+/* line 218, ../../sass/app/nav.scss */
 .top-bar-section ul li > a,
 .top-bar-section .top-bar .toggle-topbar.menu-icon a span {
   font-weight: normal !important;
 }
 
-/* line 224, ../../sass/app/nav.scss */
+/* line 223, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a {
   text-indent: -44px !important;
 }
-/* line 227, ../../sass/app/nav.scss */
+/* line 226, ../../sass/app/nav.scss */
 .top-bar .toggle-topbar.menu-icon a span {
   font-weight: 100;
 }
 
-/* line 232, ../../sass/app/nav.scss */
+/* line 231, ../../sass/app/nav.scss */
 .title-area h1 {
   color: white;
   padding: 0 10px 0 10px;
 }
 
-/* line 237, ../../sass/app/nav.scss */
+/* line 236, ../../sass/app/nav.scss */
 .top-bar {
   margin: 0px 0px 0px 45px !important;
   overflow: hidden;
 }
-/* line 241, ../../sass/app/nav.scss */
+/* line 240, ../../sass/app/nav.scss */
 .top-bar ul.right {
   position: absolute;
   right: 0;
 }
-/* line 245, ../../sass/app/nav.scss */
+/* line 244, ../../sass/app/nav.scss */
 .top-bar ul.right .text {
   padding: 0px;
 }
-/* line 250, ../../sass/app/nav.scss */
+/* line 249, ../../sass/app/nav.scss */
 .top-bar.expanded {
   background: rgba(14, 14, 14, 0.8) !important;
 }
-/* line 253, ../../sass/app/nav.scss */
+/* line 252, ../../sass/app/nav.scss */
 .top-bar.expanded ul.right {
   position: relative;
 }
-/* line 259, ../../sass/app/nav.scss */
+/* line 258, ../../sass/app/nav.scss */
 .top-bar .name h1 a {
   font-weight: normal !important;
   padding: 0 5px;
@@ -3353,22 +3352,22 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   width: 100% !important;
   padding-right: 65px !important;
 }
-/* line 274, ../../sass/app/nav.scss */
+/* line 273, ../../sass/app/nav.scss */
 .top-bar li.follow-group a {
   height: 45px;
   line-height: 20px;
 }
 @media only screen and (min-width: 48em) {
-  /* line 274, ../../sass/app/nav.scss */
+  /* line 273, ../../sass/app/nav.scss */
   .top-bar li.follow-group a {
     padding: 0 15px;
   }
 }
-/* line 282, ../../sass/app/nav.scss */
+/* line 281, ../../sass/app/nav.scss */
 .top-bar li.follow-group a span {
   padding-left: 24px;
 }
-/* line 286, ../../sass/app/nav.scss */
+/* line 285, ../../sass/app/nav.scss */
 .top-bar li.follow-group a:before {
   line-height: 18px;
   padding-right: 4px;
@@ -3378,21 +3377,21 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   top: 13px !important;
 }
 @media only screen and (min-width: 48em) {
-  /* line 286, ../../sass/app/nav.scss */
+  /* line 285, ../../sass/app/nav.scss */
   .top-bar li.follow-group a:before {
     line-height: 42px;
     top: 1px !important;
   }
 }
-/* line 300, ../../sass/app/nav.scss */
+/* line 299, ../../sass/app/nav.scss */
 .top-bar li.follow-group a.followed:before {
   color: yellow;
 }
-/* line 314, ../../sass/app/nav.scss */
+/* line 313, ../../sass/app/nav.scss */
 .top-bar li.settings a span {
   padding-left: 34px;
 }
-/* line 318, ../../sass/app/nav.scss */
+/* line 317, ../../sass/app/nav.scss */
 .top-bar li.settings a img {
   width: 40px;
   margin-left: -10px;
@@ -3408,29 +3407,29 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   border-radius: 3em;
 }
 @media only screen and (min-width: 58.75em) {
-  /* line 331, ../../sass/app/nav.scss */
+  /* line 330, ../../sass/app/nav.scss */
   .top-bar li.settings a span {
     padding-left: 40px;
   }
-  /* line 335, ../../sass/app/nav.scss */
+  /* line 334, ../../sass/app/nav.scss */
   .top-bar li.settings a img {
     width: 34px;
     margin-top: 5px;
   }
 }
-/* line 343, ../../sass/app/nav.scss */
+/* line 342, ../../sass/app/nav.scss */
 .top-bar li.settings.show-for-small a img {
   margin-left: -4px;
   margin-top: -4px;
   width: 30px;
 }
 
-/* line 352, ../../sass/app/nav.scss */
+/* line 351, ../../sass/app/nav.scss */
 .columns.no-side-padding {
   background-color: #009700;
 }
 
-/* line 358, ../../sass/app/nav.scss */
+/* line 357, ../../sass/app/nav.scss */
 .top-bar-section li.text {
   color: rgba(193, 193, 193, 0.4);
   opacity: 1;
@@ -3439,20 +3438,20 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   cursor: default;
 }
 @media only screen and (min-width: 48em) {
-  /* line 358, ../../sass/app/nav.scss */
+  /* line 357, ../../sass/app/nav.scss */
   .top-bar-section li.text {
     color: rgba(244, 244, 244, 0.4);
     background-color: rgba(14, 14, 14, 0.4);
   }
 }
 
-/* line 372, ../../sass/app/nav.scss */
+/* line 371, ../../sass/app/nav.scss */
 .close-reveal-modal {
   font-family: arial;
   font-weight: 100 !important;
 }
 
-/* line 377, ../../sass/app/nav.scss */
+/* line 376, ../../sass/app/nav.scss */
 #login-modal {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -3460,54 +3459,54 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   -o-border-radius: 5px;
   border-radius: 5px;
 }
-/* line 381, ../../sass/app/nav.scss */
+/* line 380, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services {
   text-align: center;
   padding: 7px 15px 5px 15px;
   font-size: 1.3em;
 }
-/* line 391, ../../sass/app/nav.scss */
+/* line 390, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services a {
   font-size: 0.9em;
 }
-/* line 396, ../../sass/app/nav.scss */
+/* line 395, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services a:hover i,
 #login-modal > ul li.login-services a:focus i {
   text-shadow: 1px 4px 6px #FFF, 0 0 0 #000, 1px 24px 6px #FFF;
 }
-/* line 400, ../../sass/app/nav.scss */
+/* line 399, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services.google a {
   color: #4584f0;
 }
-/* line 405, ../../sass/app/nav.scss */
+/* line 404, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services.google a:hover i, #login-modal > ul li.login-services.google a:focus i {
   color: rgba(69, 132, 240, 0.8);
 }
-/* line 409, ../../sass/app/nav.scss */
+/* line 408, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services.facebook a {
   color: #3b5998;
 }
-/* line 414, ../../sass/app/nav.scss */
+/* line 413, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services.facebook a:hover i, #login-modal > ul li.login-services.facebook a:focus i {
   color: rgba(59, 89, 152, 0.8);
 }
-/* line 418, ../../sass/app/nav.scss */
+/* line 417, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services.twitter a {
   color: #02acee;
 }
-/* line 423, ../../sass/app/nav.scss */
+/* line 422, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services.twitter a:hover i, #login-modal > ul li.login-services.twitter a:focus i {
   color: rgba(2, 172, 238, 0.8);
 }
-/* line 427, ../../sass/app/nav.scss */
+/* line 426, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services.github a {
   color: #040404;
 }
-/* line 434, ../../sass/app/nav.scss */
+/* line 433, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services.github a:hover i, #login-modal > ul li.login-services.github a:focus i {
   color: rgba(4, 4, 4, 0.8);
 }
-/* line 438, ../../sass/app/nav.scss */
+/* line 437, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services p {
   display: inline;
   position: relative;
@@ -3516,7 +3515,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   font-size: 1em;
   font-weight: 400;
 }
-/* line 447, ../../sass/app/nav.scss */
+/* line 446, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services i {
   -webkit-transition-property: text-shadow;
   -moz-transition-property: text-shadow;
@@ -3537,7 +3536,7 @@ button.disabled.alert:hover, button.disabled.alert:focus, button[disabled].alert
   line-height: 1em;
   padding-right: 2px;
 }
-/* line 459, ../../sass/app/nav.scss */
+/* line 458, ../../sass/app/nav.scss */
 #login-modal > ul li.login-services i:before {
   vertical-align: -16%;
   font-size: 2em;

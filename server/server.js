@@ -2,6 +2,8 @@
 
 Meteor.startup(function () {
   // Browser policies:
+  BrowserPolicy.content.allowDataUrlForAll()
+  
   // Script:
   BrowserPolicy.content.allowInlineScripts();
   BrowserPolicy.content.allowEval();
@@ -16,18 +18,28 @@ Meteor.startup(function () {
   BrowserPolicy.content.allowScriptOrigin("https://*.googleapis.com");
   BrowserPolicy.content.allowScriptOrigin("http://www.dbpedialite.org");
   BrowserPolicy.content.allowScriptOrigin("https://en.wikipedia.org");
+  BrowserPolicy.content.allowScriptOrigin("http://use.edgefonts.net");
+  BrowserPolicy.content.allowScriptOrigin("https://use.edgefonts.net");
 
   // Style:  
+  BrowserPolicy.content.allowInlineStyles()
   BrowserPolicy.content.allowStyleOrigin("http://fonts.googleapis.com");
   BrowserPolicy.content.allowStyleOrigin("https://fonts.googleapis.com");
+  BrowserPolicy.content.allowStyleOrigin("http://use.edgefonts.net");
+  BrowserPolicy.content.allowStyleOrigin("https://use.edgefonts.net");
+
   // Image:
   // BrowserPolicy.content.allowImageOrigin("https://profiles.google.com/");
   // BrowserPolicy.content.allowImageOrigin("https://lh3.googleusercontent.com");
   // BrowserPolicy.content.allowImageOrigin("http://maps.googleapis.com");
   BrowserPolicy.content.allowImageOrigin("*");
+  
   // Font
   BrowserPolicy.content.allowFontOrigin("http://themes.googleusercontent.com");
   BrowserPolicy.content.allowFontOrigin("https://themes.googleusercontent.com");
+  BrowserPolicy.content.allowFontOrigin("http://fonts.gstatic.com");
+  BrowserPolicy.content.allowFontOrigin("https://fonts.gstatic.com");
+  BrowserPolicy.content.allowFontOrigin("data:font/truetype*");
 });
 
 this.getActivityConditons = function (groupId, userId) {

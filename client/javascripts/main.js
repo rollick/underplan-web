@@ -68,7 +68,7 @@ Meteor.startup(function () {
   // Google map init
   GoogleMaps.init({
       sensor: true,
-      libraries: 'places'
+      libraries: 'places',
       // 'key': 'MY-GOOGLEMAPS-API-KEY',
       // 'language': 'de'
     },

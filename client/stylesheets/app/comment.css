@@ -49,7 +49,7 @@ body {
   color: #222222;
   padding: 0;
   margin: 0;
-  font-family: "Open Sans", Arial, sans-serif;
+  font-family: open-sans, Arial, sans-serif;
   font-weight: 200;
   font-style: normal;
   line-height: 1;
@@ -249,7 +249,7 @@ p aside {
 /* Default header styles */
 /* line 181, ../../../packages/bower/foundation/scss/foundation/components/_type.scss */
 h1, h2, h3, h4, h5, h6 {
-  font-family: "Raleway", sans-serif;
+  font-family: raleway, sans-serif;
   font-weight: 300;
   font-style: normal;
   color: #222222;
@@ -2570,7 +2570,7 @@ blockquote p {
 .comment .info-section.small .details {
   position: absolute;
   margin-left: 2.4em;
-  font-family: "Raleway", sans-serif;
+  font-family: raleway, sans-serif;
 }
 /* line 670, ../../sass/_components.scss */
 .comment .info-section.small .details .date, .comment .info-section.small .details .owner {
@@ -3068,7 +3068,7 @@ blockquote p {
 .comment-form > .inner .user-comment .info-section.small .details {
   position: absolute;
   margin-left: 2.4em;
-  font-family: "Raleway", sans-serif;
+  font-family: raleway, sans-serif;
 }
 /* line 670, ../../sass/_components.scss */
 .comment-form > .inner .user-comment .info-section.small .details .date, .comment-form > .inner .user-comment .info-section.small .details .owner {
