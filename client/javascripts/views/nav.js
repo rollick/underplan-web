@@ -110,6 +110,9 @@ Template.activityActions.events({
 });
 
 Template.activityActions.helpers({
+  group: function () {
+    return Groups.findOne(ReactiveGroupFilter.get("group"));
+  },
   isNewRoute: function () {
     var fragment = Backbone.history.fragment;
     if(!fragment)

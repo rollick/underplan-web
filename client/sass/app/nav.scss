@@ -269,6 +269,16 @@
     }
   }
 
+  li.rss-group {
+    a {
+      font-size: 1.4em;
+
+      &:hover {
+        color: $primary-color;
+      }
+    }
+  }
+
   li.follow-group {
     a {
       height: 45px;
