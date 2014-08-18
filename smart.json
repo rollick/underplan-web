@@ -9,7 +9,10 @@
       "commit": "d3d33b5426f90d48e51fd5a824b5e3df0871434e"
     },
     "googlemaps": {},
-    "mandrill": {},
+    "mandrill": {
+      "git": "https://github.com/timmyg/meteor-mandrill.git",
+      "commit": "96f79c5f6bd4cc8af61360dc52bc98ec0689eace"
+    },
     "rssfeed": {}
   }
 }
