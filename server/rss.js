@@ -14,13 +14,20 @@ setValues = function (handler, settings) {
 addComments = function (handler, activityIds) {
   // only return the comment _id for use in counts
   Comments.find({activityId: {$in: activityIds}}, {sort: {created: -1}}).forEach(function(comment) {
-    var group = Groups.findOne({_id: comment.groupId}, {fields: {slug: 1}});
+    var group = Groups.findOne({_id: comment.groupId}, {fields: {slug: 1}}),
+        link;
+
+    if (group) {
+      link = 'https://underplan.io/' + group.slug + '/pl/' + comment.activityId;
+    } else {
+      link = 'https://underplan.io/';
+    }
 
     handler.addItem({
       guid: comment._id,
-      title: displayName(Meteor.users.findOne({_id: comment.owner})),
+      title: 'Comment by ' + displayName(Meteor.users.findOne({_id: comment.owner})),
       description: comment.comment,
-      link: 'https://underplan.io/' + group.slug + '/pl/' + comment.activityId,
+      link: link,
       pubDate: comment.created
     });
   });
@@ -30,12 +37,7 @@ addActivities = function (handler, groupId, callback) {
   var activityConds = getActivityConditons(groupId);
 
   Activities.find(activityConds, {sort: {created: -1}}).forEach(function(activity) {
-    var limit = 240,
-        preview = activity.text.substring(0, limit),
-        group = Groups.findOne({_id: activity.group}, {fields: {slug: 1}});
-
-    if(activity.text.length > limit)
-      preview += "...";
+    var group = Groups.findOne({_id: activity.group}, {fields: {slug: 1}});
 
     var title = activity.title;
     if (!title && activity.location)
@@ -44,7 +46,7 @@ addActivities = function (handler, groupId, callback) {
     handler.addItem({
       guid: activity._id,
       title: title,
-      description: preview,
+      description: activity.text,
       link: 'https://underplan.io/' + group.slug + '/pl/' + activity._id,
       pubDate: activity.created
     });
