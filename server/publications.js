@@ -264,7 +264,24 @@ Meteor.publish("groups", function () {
   var conditions = {};
   var settings = Meteor.settings;
   var user = Meteor.users.findOne(this.userId);
-  var approvedConditions = {$or: [{"approved": {$exists: false}}, {"approved": true}]};
+  var approvedConditions = {
+    $and: [
+      {
+        $or: [
+          {approved: {$exists: false}}, 
+          {approved: true}
+        ]
+      },
+      {
+        $or: [
+          {hidden: false},
+          {hidden: {$exists: false}},
+          {invited: this.userId},
+          {owner: this.userId}
+        ]
+      }
+    ]
+  };
 
   if(!!settings && user) {
     if((user.services.twitter && _.contains(settings.admins, user.services.twitter.email)) ||

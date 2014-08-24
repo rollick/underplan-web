@@ -104,6 +104,7 @@ Meteor.methods({
       picasaKey:        options.picasaKey,
       created:          options.created,
       slug:             options.slug,
+      hidden:           options.hidden,
       invited:          [],
       rsvps:            [],
       approved:         options.approved

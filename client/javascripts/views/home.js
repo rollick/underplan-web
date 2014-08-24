@@ -79,6 +79,12 @@ Template.groupItem.helpers({
 ///////////////////////////////////////////////////////////////////////////////
 // Groups Editor
 
+Template.groupEditor.helpers({
+    defaultViews: function () {
+        return ['Map', 'List'];
+    }
+})
+
 Template.groupEditor.events({
   'click .save': function (event, template) {
     event.stopPropagation();
