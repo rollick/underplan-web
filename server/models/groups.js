@@ -26,10 +26,16 @@ _.extend(App.Utils, {
     if(!group)
       return [];
 
-    var members = Meteor.users.find({$or: [{_id: {$in: group.invited}},
-                                    {_id: group.owner}]});
+    var conds = {
+      $or: [
+        {_id: {$in: group.invited}},
+        {_id: group.owner}
+      ]
+    };
+    
+    var members = Meteor.users.find(conds),
+        memberEmails = [];
 
-    var memberEmails = [];
     members.forEach( function (user) { 
       var email = userEmail(user);
       if(email)
