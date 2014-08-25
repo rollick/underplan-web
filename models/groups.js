@@ -214,7 +214,7 @@ if (Meteor.isClient) {
     if ( !(sysAdmin || userId === group.owner))
       return false; // not the owner or admin
 
-    var allowed = ["name", "description", "trovebox", "picasaUsername", "picasaAlbum", "picasaKey"];
+    var allowed = ["name", "description", "trovebox", "defaultView", "hidden", "picasaUsername", "picasaAlbum", "picasaKey"];
 
     if (sysAdmin)
       allowed.push("approved", "owner");
