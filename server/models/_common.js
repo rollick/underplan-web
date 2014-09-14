@@ -1,6 +1,6 @@
 App.Utils.sendMail = function (templateName, bcc, subject, htmlText) {
   // This uses the API interface for Mandrill
-  emails = _.map(bcc, function (email) {
+  emails = _.map(_.compact(bcc), function (email) {
     return {
       email: email,
       type: 'bcc'
