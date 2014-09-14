@@ -7,6 +7,8 @@ App.Utils.sendMail = function (templateName, bcc, subject, htmlText) {
     }
   });
 
+  if (!emails.length) return;
+
   Meteor.Mandrill.sendTemplate({
     key: process.env.MANDRILL_API_KEY,
     template_name: templateName,
