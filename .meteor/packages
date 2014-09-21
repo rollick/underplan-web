@@ -13,11 +13,11 @@ showdown
 backbone
 underscore
 spiderable
-#appcache
-mixpanel
 standard-app-packages
 audit-argument-checks
 browser-policy
-googlemaps
-mandrill
-rssfeed
+belisarius222:mixpanel
+timmyg13:mandrill
+lampe:rssfeed
+mrt:googlemaps
+
