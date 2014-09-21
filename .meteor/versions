@@ -46,7 +46,6 @@ meteor-platform@1.1.0
 meteor@1.1.0
 minifiers@1.1.0
 minimongo@1.0.3
-mixpanel@0.0.0
 mobile-status-bar@1.0.0
 mongo@1.0.5
 mrt:googlemaps@0.0.2
@@ -62,6 +61,7 @@ reactive-dict@1.0.2
 reactive-var@1.0.1
 reload@1.1.0
 retry@1.0.0
+rollick:mixpanel@1.0.0
 routepolicy@1.0.1
 service-configuration@1.0.1
 session@1.0.1
