@@ -6,7 +6,6 @@ belisarius222:mixpanel
 timmyg13:mandrill
 lampe:rssfeed
 mrt:googlemaps
-underscore
 accounts-password
 accounts-facebook
 accounts-github
@@ -19,4 +18,5 @@ spiderable
 standard-app-packages
 audit-argument-checks
 browser-policy
+underscore
 
