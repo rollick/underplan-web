@@ -58,12 +58,12 @@ Meteor.startup(function () {
     bodyStyle.insertRule(beforeStyle, bodyStyle.cssRules.length);
   }
 
-  Session.set("appVersion", "v1.4.47");
+  Session.set("appVersion", "v1.4.48");
   Session.set('mapReady', false);
   ReactiveGroupFilter.set("groupSlug", null);
 
   // Mixpanel tracking
-  mixpanel.init(Meteor.settings.public.mixpanelToken);
+  if(typeof mixpanel === "object") mixpanel.init(Meteor.settings.public.mixpanelToken);
 
   // Google map init
   GoogleMaps.init({
