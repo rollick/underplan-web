@@ -2,7 +2,11 @@
 #
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
-
+belisarius222:mixpanel
+timmyg13:mandrill
+lampe:rssfeed
+mrt:googlemaps
+underscore
 accounts-password
 accounts-facebook
 accounts-github
@@ -11,13 +15,8 @@ accounts-google
 http
 showdown
 backbone
-underscore
 spiderable
 standard-app-packages
 audit-argument-checks
 browser-policy
-belisarius222:mixpanel
-timmyg13:mandrill
-lampe:rssfeed
-mrt:googlemaps
 
