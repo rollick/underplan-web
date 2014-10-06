@@ -268,14 +268,8 @@ Meteor.publish("groups", function () {
     $and: [
       {
         $or: [
+          {approved: true},
           {approved: {$exists: false}}, 
-          {approved: true}
-        ]
-      },
-      {
-        $or: [
-          {hidden: false},
-          {hidden: {$exists: false}},
           {invited: this.userId},
           {owner: this.userId}
         ]

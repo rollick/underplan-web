@@ -526,14 +526,29 @@ MappingFsm = machina.Fsm.extend({
     return new google.maps.LatLng(11.22453, 108.822161);
   },
 
-  _setupMarkers: function (activities, clearMarkers, callback) {
+  _setupMarkers: function (activities, clearMarkers, hideActivities, callback) {
     var self = this,
         ids = [],
         success = false,
-        lastActivity = null;
-      
+        lastActivity = null,
+        hiddenGroups = [];
+
+    // If hideActivities is true then hide activities if the 
+    // associated group has 'hidden' set to true
+    if (hideActivities) {
+      // Get a list of groupId's with hidden == true
+      var hiddenGroups = Groups.find({hidden: true}, {fields: {_id: 1}}).map(function (group) {
+        return group._id;
+      });
+    }
+
     activities.forEach( function (activity) {
-      if (self._validLatLng(activity)) {
+      // Check if activity marker should be hidden on map
+      // TODO: we should only subscribe to activities we should display rather than 
+      //       filter the list client side.
+      var hideActivity = hideActivities && _.contains(hiddenGroups, activity.group);
+
+      if (!hideActivity && self._validLatLng(activity)) {
         var objMarker = {
           id: activity._id,
           lat: activity.lat,
@@ -549,9 +564,9 @@ MappingFsm = machina.Fsm.extend({
 
         success = true;
         lastActivity = activity;
+        
+        ids.push(activity._id);
       }
-
-      ids.push(activity._id);
     });
 
     // trigger resize to ensure any subsequent marker centering voodoo magic works
@@ -637,7 +652,7 @@ MappingFsm = machina.Fsm.extend({
             options = {limit: 25, sort: {created: -1}},
             activities = Activities.find(conds, options);
 
-        this._setupMarkers(activities, true, function () {
+        this._setupMarkers(activities, true, true, function () {
           self._centerMarkers(null, 0, -45);
         });
 
@@ -743,7 +758,7 @@ MappingFsm = machina.Fsm.extend({
         // a meteor subscribe callback and reprocess the 
         if (activities.count()) {
 
-          this._setupMarkers(activities, clearMarkers, function (success, lastActivity) {
+          this._setupMarkers(activities, clearMarkers, false, function (success, lastActivity) {
             if (success) {
               // If there is a lastActivity then use it's zoom level
               var zoomLevel = (lastActivity && lastActivity.mapZoom) ? lastActivity.mapZoom : null;
@@ -801,7 +816,7 @@ MappingFsm = machina.Fsm.extend({
           // without a map. Sooo, add the marker for the activity.
           if (!marker) {
             var self = this;
-            this._setupMarkers(Activities.find({_id: this.activityId}), false, function () {
+            this._setupMarkers(Activities.find({_id: this.activityId}), false, false, function () {
               // center on marker
               self._centerMarkerById(self.activityId);
 
