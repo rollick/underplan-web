@@ -34,6 +34,10 @@ Template.mainHome.message = function () {
 // Groups List Item
 
 Template.groupItem.events({
+  "click a.load-group": function (event, template) {
+    if (this.defaultView == 'List') Router.setGroupFeed(group);
+    else Router.setGroup(group);
+  },
   "click .follow-group a": function (event, template) {
     event.stopPropagation();
     event.preventDefault();
@@ -61,6 +65,18 @@ Template.groupItem.events({
 });
 
 Template.groupItem.helpers({
+  hideGroup: function () {
+    if (userBelongsToGroup(Meteor.userId(), this._id)) {
+      return false;
+    }
+
+    return this.hidden;
+  },
+  groupPath: function () {
+    var path = "/" + this.slug;
+    if (this.defaultView == 'List') path += "/feed";
+    return path
+  },
   userCanFollow: function () {
     // can follow if logged in but not a group member
     return !!Meteor.user() && !App.belongsToGroup()

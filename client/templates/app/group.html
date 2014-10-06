@@ -98,7 +98,7 @@
 
 <template name="groupItem">
   {{#with this}}
-    {{#unless hidden}}
+    {{#unless hideGroup}}
       <div class="group">
           <div class="panel radius">
             {{#if userCanFollow}}
@@ -108,7 +108,7 @@
               </div>
             {{/if}}
             <h5>
-              <a href="/{{slug}}" class="fi-flag"> {{name}}</a>
+              <a href="{{groupPath}}" class="load-group">{{name}}</a>
             </h5>
             <span class="started">
               <i class="fi-clock"></i>
