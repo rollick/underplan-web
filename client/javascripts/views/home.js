@@ -66,7 +66,7 @@ Template.groupItem.events({
 
 Template.groupItem.helpers({
   hideGroup: function () {
-    if (userBelongsToGroup(Meteor.userId(), this._id)) {
+    if (userBelongsToGroup(Meteor.userId(), this._id) || App.isFollowingGroup(Meteor.userId(), this._id)) {
       return false;
     }
 
