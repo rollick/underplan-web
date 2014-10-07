@@ -66,7 +66,12 @@ Template.groupItem.events({
 
 Template.groupItem.helpers({
   hideGroup: function () {
-    if (userBelongsToGroup(Meteor.userId(), this._id) || App.isFollowingGroup(Meteor.userId(), this._id)) {
+    var userId = Meteor.userId(),
+        groupId = this._id;
+
+    if (userBelongsToGroup(userId, groupId) || 
+        App.isFollowingGroup(userId, groupId) ||
+        isSystemAdmin(userId)) {
       return false;
     }
 
