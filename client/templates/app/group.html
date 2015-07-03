@@ -30,13 +30,11 @@
           {{/if}}
           <label for="hidden">Hidden Group</label>
           <hr>
-          <h3>Trovebox Settings (<a href="http://trovebox.com" target="_blank">?</a>)</h3>
-          <label>Domain</label>
-          <input type="text" class="trovebox-domain" value="{{trovebox.domain}}" placeholder="e.g. demo.trovebox.com">
-          <label>Album Name</label>
-          <input type="text" class="trovebox-album" value="{{trovebox.album}}" placeholder="e.g. album-1">
-          <label>Album Auth Key</label>
-          <input type="text" class="trovebox-albumKey" value="{{trovebox.albumKey}}" placeholder="e.g. 1234a56cde">
+          <h3>Gallery Settings (<a href="https://pics.underplan.io" target="_blank">?</a>)</h3>
+          <label>Gallery Slug</label>
+          <input type="text" class="gallery-slug" value="{{gallery.slug}}" placeholder="e.g south-east-asia">
+          <label>Secret (optional)</label>
+          <input type="text" class="gallery-answer" value="{{gallery.answer}}" placeholder="Answer to optional secret question">
           <a href="#" class="tiny button success update">Update</a>
           <a href="#" class="tiny secondary cancel-edit">Cancel</a>
         {{/with}}
@@ -54,13 +52,11 @@
         <input type="checkbox" class="hidden" id="hidden">
         <label for="hidden">Hide on home page</label>
         <hr>
-        <h3>Trovebox Settings (<a href="http://trovebox.com" target="_blank">?</a>)</h3>
-        <label>Domain</label>
-        <input type="text" class="trovebox-domain" placeholder="e.g. demo.trovebox.com">
-        <label>Album Name</label>
-        <input type="text" class="trovebox-album" placeholder="e.g. album-1">
-        <label>Album Auth Key</label>
-        <input type="text" class="trovebox-albumKey" placeholder="e.g. 1234a56cde">
+        <h3>Gallery Settings (<a href="https://pics.underplan.io" target="_blank">?</a>)</h3>
+        <label>Gallery Slug</label>
+        <input type="text" class="gallery-slug" placeholder="e.g south-east-asia">
+        <label>Secret (optional)</label>
+        <input type="text" class="gallery-answer" placeholder="Answer to optional secret question">
         <a href="#" class="tiny button success save">Create</a>
         <a href="#" class="tiny secondary cancel-new">Cancel</a>
       {{/if}}

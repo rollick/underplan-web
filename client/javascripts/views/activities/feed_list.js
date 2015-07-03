@@ -162,20 +162,21 @@ Template.itemActions.helpers({
   commentCls: function () {
     return !!Meteor.userId() ? "" : "disabled";
   },
+  
   isLoggedIn: function () {
     return !!Meteor.userId();
+  },
+
+  hasComments: function () {
+    return Comments.find({activityId: this._id}).count() > 0;
+  },
+
+  countText: function () {
+    var count = Comments.find({activityId: this._id}).count();
+    var text = count;
+
+    text += (count > 1 || count == 0) ? " comments" : " comment";
+
+    return text;
   }
 });
-
-Template.itemActions.hasComments = function () {
-  return Comments.find({activityId: this._id}).count() > 0;
-};
-
-Template.itemActions.countText = function () {
-  var count = Comments.find({activityId: this._id}).count();
-  var text = count;
-
-  text += (count > 1 || count == 0) ? " comments" : " comment";
-
-  return text;
-};

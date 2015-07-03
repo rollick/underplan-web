@@ -78,13 +78,15 @@ var getGroupValues = function(template) {
   values.defaultView =      template.find(".default-view option:selected").value;
   values.hidden =           template.find(".hidden").checked;
 
-  if (template.find(".trovebox-domain")) {
-    values.trovebox = {
-      domain:   template.find(".trovebox-domain").value,
-      album:    template.find(".trovebox-album").value,
-      albumKey: template.find(".trovebox-albumKey").value
+  debugger;
+  if (template.find(".gallery-slug")) {
+    values.gallery = {
+      slug:   template.find(".gallery-slug").value,
+      answer: template.find(".gallery-answer").value
     }
-  } else if (template.find(".picasa-username")) {
+  }
+
+  if (template.find(".picasa-username")) {
     values.picasaUsername =   template.find(".picasa-username").value;
     values.picasaAlbum =      template.find(".picasa-album").value;
     values.picasaKey   =      template.find(".picasa-key").value;

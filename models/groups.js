@@ -99,6 +99,7 @@ Meteor.methods({
       name:             options.name,
       description:      options.description,
       trovebox:         options.trovebox,
+      gallery:          options.gallery,
       picasaUsername:   options.picasaUsername,
       picasaAlbum:      options.picasaAlbum,
       picasaKey:        options.picasaKey,
@@ -214,7 +215,8 @@ if (Meteor.isClient) {
     if ( !(sysAdmin || userId === group.owner))
       return false; // not the owner or admin
 
-    var allowed = ["name", "description", "trovebox", "defaultView", "hidden", "picasaUsername", "picasaAlbum", "picasaKey"];
+    var allowed = ["name", "description", "gallery", "trovebox", "defaultView", 
+                   "hidden", "picasaUsername", "picasaAlbum", "picasaKey"];
 
     if (sysAdmin)
       allowed.push("approved", "owner");

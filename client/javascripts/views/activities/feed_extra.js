@@ -25,21 +25,22 @@ var setupGallery = function () {
       var self = this;
       $(".gallery-more a").addClass("disabled");
 
-      if (_.isObject(group.trovebox)) {
-        var params = $.extend({tags: null}, group.trovebox);
+      if (_.isObject(group.gallery)) {
+        var params = $.extend({tags: null}, group.gallery);
 
         if (ReactiveGroupFilter.get("country"))
           params.tags = ReactiveGroupFilter.get("country");
 
-        Gallery.Trovebox.albumSearch(params, function(data) {
-          if (_.isEmpty(data)) {
-            $(".top-extra").addClass("no-photos");
-          } else {
-            $(".top-extra").removeClass("no-photos");
-            // reverse the order to get newest to oldest and then process gallery
-            processFeedPhotos(data.reverse(), offset, ".recent-photos");
-          }
-        });
+        console.log('FIXME: Gallery search needs to be refactored!')
+        // Gallery.Trovebox.albumSearch(params, function(data) {
+        //   if (_.isEmpty(data)) {
+        //     $(".top-extra").addClass("no-photos");
+        //   } else {
+        //     $(".top-extra").removeClass("no-photos");
+        //     // reverse the order to get newest to oldest and then process gallery
+        //     processFeedPhotos(data.reverse(), offset, ".recent-photos");
+        //   }
+        // });
       }
     }
   });
@@ -145,6 +146,6 @@ Template.feedGallery.hasGallery = function () {
   if (!group) {
     return false
   } else {
-    return _.isObject(group.trovebox) || !!group.picasaUsername
+    return _.isObject(group.gallery) || !!group.picasaUsername
   }
 };

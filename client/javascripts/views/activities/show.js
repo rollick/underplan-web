@@ -106,29 +106,31 @@ Template.currentActivity.helpers({
 ///////////////////////////////////////////////////////////////////////////////
 // Activity Controls
 
-Template.activityControls.group = function () {
-  return Groups.findOne(this.group);
-};
+Template.activityControls.helpers({
+  group: function () {
+    return Groups.findOne(this.group);
+  },
 
-Template.activityControls.nextActivity = function () {
-  var ids = Session.get("activityIdsSorted"),
-      index = _.indexOf(ids, this._id);
+  nextActivity: function () {
+    var ids = Session.get("activityIdsSorted"),
+        index = _.indexOf(ids, this._id);
 
-  if (index === ids.length) // at the end
-    return null;
-  else
-    return Activities.findOne(ids[index+1]);
-};
+    if (index === ids.length) // at the end
+      return null;
+    else
+      return Activities.findOne(ids[index+1]);
+  },
 
-Template.activityControls.previousActivity = function () {
-  var ids = Session.get("activityIdsSorted"),
-      index = _.indexOf(ids, this._id);
+  previousActivity: function () {
+    var ids = Session.get("activityIdsSorted"),
+        index = _.indexOf(ids, this._id);
 
-  if (index === 0) // at the beginning
-    return null;
-  else
-    return Activities.findOne(ids[index-1]);
-};
+    if (index === 0) // at the beginning
+      return null;
+    else
+      return Activities.findOne(ids[index-1]);
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Story Content

@@ -17,17 +17,23 @@ ReactiveGallerySource = {
     var group = Groups.findOne({_id: activity.group}),
         self = this;
 
-    if (activity.picasaTags && _.isObject(group.trovebox)) {
-      var params = $.extend({tags: activity.picasaTags, max: 99}, group.trovebox),
-          search = new Gallery.Trovebox;
+    if (activity.picasaTags && _.isObject(group.gallery)) {
+      // Setup interface to gallery app
+      var galleryRemote = DDP.connect('https://pics.underplan.io/');
+      var Galleries = new Meteor.Collection('galleries', galleryRemote);
+      var Images = new Meteor.Collection('images', galleryRemote);
 
-      search.albumSearch(params, function(data, params) {
-        if (data.length) {
-          // TODO: maybe too much in "data" for the reactive source
-          self.setPhotos(activity._id, data);
+      var galleryId = group.gallery.slug;
+      var answer = group.gallery.answer;
 
-          if (_.isFunction(successCallback))
+      galleryRemote.subscribe('images', {galleryId: galleryId, answer: answer}, function () {
+        var images = Images.find();
+
+        if (images.count()) {
+          self.setPhotos(activity._id, images.fetch());
+          if (_.isFunction(successCallback)) {
             successCallback.call(activity);
+          }
         }
       });
     }
@@ -137,8 +143,8 @@ ReactiveGallerySource = {
 sliderOptions = {
   nextButton: true,
   prevButton: true,
-  preloader: true,
-  preloadTheseFrames: [1],
+  // preloader: true,
+  // preloadTheseFrames: [1],
   showNextButtonOnInit: false,
   showPrevButtonOnInit: false,
   swipePreventsDefault: true,
@@ -250,13 +256,13 @@ Template.imageSlider.rendered = function () {
         for(var i = 0; i < photos.length; i++) {
           var photo = photos[i],
               data = {
-                image: App.Utils.secureUrl(photo.image),
+                image: App.Utils.secureUrl('https://pics.underplan.io/resized/' + photo.hash + '_xlarge.jpg'),
                 title: photo.title,
                 description: photo.description,
                 hasDetails: (!_.isEmpty(photo.title) || !_.isEmpty(photo.description))
               };
 
-          UI.insert(UI.renderWithData(Template.sliderImage, data), canvas[0])
+          Blaze.renderWithData(Template.sliderImage, data, canvas[0])
         };
 
         var options = sliderOptions;
