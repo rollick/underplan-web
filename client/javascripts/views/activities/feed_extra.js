@@ -123,29 +123,29 @@ Template.feedGallery.events({
 Template.feedGallery.helpers({
   gallery: function () {
     return new Handlebars.SafeString("<p class=\"alert-box\"></p>");
+  },
+
+  group: function () {
+    return Groups.findOne({_id: ReactiveGroupFilter.get("group")});
+  },
+
+  picasaGalleryUrl: function () {
+    var group = Groups.findOne({_id: ReactiveGroupFilter.get("group")});
+    var picasaPath = [group.picasaUsername, group.picasaAlbum].join("/");
+
+    if(group.picasaKey)
+      picasaPath += "?authkey=" + group.picasaKey;
+
+    return "https://picasaweb.google.com/" + picasaPath;
+  },
+
+  hasGallery: function () {
+    var group = Groups.findOne(ReactiveGroupFilter.get("group"));
+
+    if (!group) {
+      return false
+    } else {
+      return _.isObject(group.gallery) || !!group.picasaUsername
+    }
   }
 });
-
-Template.feedGallery.group = function () {
-  return Groups.findOne({_id: ReactiveGroupFilter.get("group")});
-};
-
-Template.feedGallery.picasaGalleryUrl = function () {
-  var group = Groups.findOne({_id: ReactiveGroupFilter.get("group")});
-  var picasaPath = [group.picasaUsername, group.picasaAlbum].join("/");
-
-  if(group.picasaKey)
-    picasaPath += "?authkey=" + group.picasaKey;
-
-  return "https://picasaweb.google.com/" + picasaPath;
-};
-
-Template.feedGallery.hasGallery = function () {
-  var group = Groups.findOne(ReactiveGroupFilter.get("group"));
-
-  if (!group) {
-    return false
-  } else {
-    return _.isObject(group.gallery) || !!group.picasaUsername
-  }
-};

@@ -22,13 +22,15 @@ Template.mainHome.events({
   }
 });
 
-Template.mainHome.groups = function () {
-  return Groups.find({}, {sort: {created: -1}});
-};
+Template.mainHome.helpers({
+  groups: function () {
+    return Groups.find({}, {sort: {created: -1}});
+  },
 
-Template.mainHome.message = function () {
-  return Session.get("message");
-};
+  message: function () {
+    return Session.get("message");
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Groups List Item

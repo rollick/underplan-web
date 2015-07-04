@@ -4,8 +4,14 @@
 Template.groupEditor.helpers({
     defaultViews: function () {
         return ['Map', 'List'];
+    },
+    error: function () {
+        return Session.get("displayError");
+    },
+    group: function () {
+        return Groups.findOne(ReactiveGroupFilter.get("group"));
     }
-})
+});
 
 Template.groupEditor.events({
   'click .save': function (event, template) {
@@ -63,14 +69,6 @@ Template.groupEditor.events({
   }
 });
 
-Template.groupEditor.error = function () {
-  return Session.get("displayError");
-};
-
-Template.groupEditor.group = function () {
-  return Groups.findOne(ReactiveGroupFilter.get("group"));
-};
-
 var getGroupValues = function(template) {
   values = {};
   values.name =             template.find(".name").value;
@@ -123,9 +121,11 @@ Template.groupAdminActions.events({
   }
 });
 
-Template.groupAdminActions.isGroupAdmin = function () {
-  return isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group"));
-};
+Template.groupAdminActions.helpers({
+  isGroupAdmin: function () {
+    return isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group"));
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Invite List
@@ -149,21 +149,21 @@ Template.groupInviteList.events({
   }
 });
 
-Template.groupInviteList.invited = function () {
-  return Meteor.users.find({$and: [{_id: {$in: Groups.findOne(ReactiveGroupFilter.get("group")).invited}}]});
-};
-
-Template.groupInviteList.uninvited = function () {
-  var group = Groups.findOne(ReactiveGroupFilter.get("group"));
-  if (! group)
-    return []; // group hasn't loaded yet
-  return Meteor.users.find({$nor: [{_id: {$in: group.invited}},
-                                   {_id: group.owner}]});
-};
-
-Template.groupInviteList.displayName = function () {
-  return displayName(this);
-};
+Template.groupInviteList.helpers({
+  invited: function () {
+    return Meteor.users.find({$and: [{_id: {$in: Groups.findOne(ReactiveGroupFilter.get("group")).invited}}]});
+  },
+  uninvited: function () {
+    var group = Groups.findOne(ReactiveGroupFilter.get("group"));
+    if (! group)
+      return []; // group hasn't loaded yet
+    return Meteor.users.find({$nor: [{_id: {$in: group.invited}},
+                                     {_id: group.owner}]});
+  },
+  displayName: function () {
+    return displayName(this);
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Group Activity Actions
@@ -267,19 +267,18 @@ Template.groupActions.helpers({
   showActivityCountControl: function () {
     // only show count control for map view
     return !mappingFsm.equals("state", "hideMap");
+  },
+  groupCls: function () {
+    var mapState = mappingFsm.get("state");
+    if (mapState === "hideMap") {
+      return "feed";
+    } else if (mapState === "showSettings") {
+      return "hide";
+    } else {
+      return "";
+    }
   }
 });
-
-Template.groupActions.groupCls = function () {
-  var mapState = mappingFsm.get("state");
-  if (mapState === "hideMap") {
-    return "feed";
-  } else if (mapState === "showSettings") {
-    return "hide";
-  } else {
-    return "";
-  }
-};
 
 Template.groupActions.events({
   "click .new-shorty": function (event, template) {

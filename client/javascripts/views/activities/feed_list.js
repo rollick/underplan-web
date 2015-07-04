@@ -10,29 +10,31 @@ Template.activityFeed.events({
   }
 });
 
-Template.activityFeed.loading = function () {
-  return (typeof(feedListSubscription) == 'object' && !feedListSubscription.ready()) && 
-         (typeof(feedMapSubscription) == 'object' && !feedMapSubscription.ready());
-};
-
 Template.activityFeed.rendered = function () {
   // Create an event to be triggered when map element is in the DOM
   // See hack here: http://jsfiddle.net/Zzw2M/33/light/
   $(".feed-list").removeClass("faded");
 };
 
-Template.activityFeed.userBelongsToGroup = function () {
-  return App.belongsToGroup();
-};
+Template.activityFeed.helpers({
+  loading: function () {
+    return (typeof(feedListSubscription) == 'object' && !feedListSubscription.ready()) && 
+           (typeof(feedMapSubscription) == 'object' && !feedMapSubscription.ready());
+  },
 
-// FIXME: these two functions need to be fixed. What should each return?
-Template.activityFeed.activityCount = function () {
-  return Activities.find(ReactiveGroupFilter.get('queryFields')).count();
-};
+  userBelongsToGroup: function () {
+    return App.belongsToGroup();
+  },
 
-Template.activityFeed.totalActivities = function () {
-  return Activities.find(ReactiveGroupFilter.get('queryFields')).count();
-}
+  // FIXME: these two functions need to be fixed. What should each return?
+  activityCount: function () {
+    return Activities.find(ReactiveGroupFilter.get('queryFields')).count();
+  },
+
+  totalActivities: function () {
+    return Activities.find(ReactiveGroupFilter.get('queryFields')).count();
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Activity feed list

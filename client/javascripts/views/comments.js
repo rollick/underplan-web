@@ -35,8 +35,17 @@ var saveComment = function (template, success) {
   return false;
 };
 
-Template.commentForm.activity = function () {
-  return Activities.findOne(ReactiveGroupFilter.get("activity"));
+Template.commentForm.helpers({
+  activity: function () {
+    return Activities.findOne(ReactiveGroupFilter.get("activity"));
+  },
+
+  error: function () {
+    return Session.get("displayError");
+  }
+});
+
+Template.commentForm.rendered = function () {
 };
 
 Template.commentForm.events({
@@ -68,13 +77,6 @@ Template.commentForm.events({
     }
   },
 });
-
-Template.commentForm.error = function () {
-  return Session.get("displayError");
-};
-
-Template.commentForm.rendered = function () {
-};
 
 ///////////////////////////////////////////////////////////////////////////////
 // Comments list
