@@ -14,7 +14,7 @@ Meteor.users._transform = function(user) {
   if (!user.services || !user.services.google || user.profile.picture)
     return user;
 
-  query = 'http://picasaweb.google.com/data/entry/api/user/' + user.services.google.id + '?alt=json';
+  query = 'https://picasaweb.google.com/data/entry/api/user/' + user.services.google.id + '?alt=json';
   $.ajax({
     url: query,
     dataType: 'json',
