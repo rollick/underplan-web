@@ -39,6 +39,10 @@ this.activitiesSubscription =
 this.feedListSubscription = null;
 this.activityCommentStatus = {};
 
+this.galleryRemote = DDP.connect('https://pics.underplan.io/');
+this.Galleries = new Meteor.Collection('galleries', galleryRemote);
+this.Images = new Meteor.Collection('images', galleryRemote);
+
 this.mappingFsm = new MappingFsm(); // ... now call setup() after google.maps has loaded
 
 var self = this;
@@ -145,8 +149,14 @@ Meteor.startup(function () {
 
   Deps.autorun(function (computation) {
     var group = Groups.findOne(ReactiveGroupFilter.get("group"));
-    if (!!group)
+
+    if (!!group) {    
+      var galleryId = group.gallery.slug;
+      var answer = group.gallery.answer;
+      galleryRemote.subscribe('images', {galleryId: galleryId, answer: answer});
+
       document.title = "Underplan: " + group.name;
+    }
   });
 
   // Fetch open comments for feed
@@ -241,6 +251,7 @@ Meteor.startup(function () {
     });
 
     Session.set("activityIdsSorted", ids);
+
   });
 });
 

@@ -19,23 +19,18 @@ ReactiveGallerySource = {
 
     if (activity.picasaTags && _.isObject(group.gallery)) {
       // Setup interface to gallery app
-      var galleryRemote = DDP.connect('https://pics.underplan.io/');
-      var Galleries = new Meteor.Collection('galleries', galleryRemote);
-      var Images = new Meteor.Collection('images', galleryRemote);
-
-      var galleryId = group.gallery.slug;
-      var answer = group.gallery.answer;
-
-      galleryRemote.subscribe('images', {galleryId: galleryId, answer: answer}, function () {
-        var images = Images.find();
-
-        if (images.count()) {
-          self.setPhotos(activity._id, images.fetch());
-          if (_.isFunction(successCallback)) {
-            successCallback.call(activity);
-          }
+      var images = Images.find({
+        tags: {
+          $all: activity.picasaTags.split(",")
         }
       });
+
+      if (images.count()) {
+        self.setPhotos(activity._id, images.fetch());
+        if (_.isFunction(successCallback)) {
+          successCallback.call(activity);
+        }
+      }
     }
   },
 
