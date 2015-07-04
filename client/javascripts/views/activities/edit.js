@@ -16,6 +16,9 @@ Template.storyEditor.helpers({
   publishedCls: function () {
     return this.published ? "checked" : "";
   },
+  error: function () {
+    return Session.get("displayError");
+  }
 });
 
 Template.storyEditor.events({
@@ -145,10 +148,6 @@ var getStoryValues = function(template) {
 
   return values;
 }
-
-Template.storyEditor.error = function () {
-  return Session.get("displayError");
-};
 
 Template.storyEditor.rendered = function () { 
   var domain = "http://www.dbpedialite.org";

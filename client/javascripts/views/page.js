@@ -26,23 +26,21 @@ Template.page.helpers({
   mainContentCls: function () {
     var opts = Session.get("pageOptions");
     return (opts && opts.isHome) ? "dashboard" : "normal";
+  },
+  mainTemplate: function () {
+    var templateName = Session.get("mainTemplate");
+    if (templateName) {
+      Session.set("pageOptions", pageOptions[templateName]);
+
+      return Template[templateName];
+    } else {
+      return null;
+    }
+  },
+  pageOptions: function () {
+    return Session.get("pageOptions");
   }
 });
-
-Template.page.mainTemplate = function () {
-  var templateName = Session.get("mainTemplate");
-  if (templateName) {
-    Session.set("pageOptions", pageOptions[templateName]);
-
-    return Template[templateName];
-  } else {
-    return null;
-  }
-};
-
-Template.page.pageOptions = function () {
-  return Session.get("pageOptions");
-};
 
 Template.page.rendered = function () {
   logIfDev("++ Main Page Rendered");
