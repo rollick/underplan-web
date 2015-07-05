@@ -59,7 +59,6 @@ ReactiveGallerySource = {
     this.set(id, null);
 
     // Stop subscription
-    debugger;
     if (this._subscription) {
       this._subscription.stop();
     }

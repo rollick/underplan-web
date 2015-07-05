@@ -76,7 +76,6 @@ var getGroupValues = function(template) {
   values.defaultView =      template.find(".default-view option:selected").value;
   values.hidden =           template.find(".hidden").checked;
 
-  debugger;
   if (template.find(".gallery-slug")) {
     values.gallery = {
       slug:   template.find(".gallery-slug").value,
