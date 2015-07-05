@@ -151,9 +151,11 @@ Meteor.startup(function () {
     var group = Groups.findOne(ReactiveGroupFilter.get("group"));
 
     if (!!group) {    
-      var galleryId = group.gallery.slug;
-      var answer = group.gallery.answer;
-      galleryRemote.subscribe('images', {galleryId: galleryId, answer: answer});
+      if (group.gallery) {
+        var galleryId = group.gallery.slug;
+        var answer = group.gallery.answer;
+        galleryRemote.subscribe('images', {galleryId: galleryId, answer: answer});        
+      }
 
       document.title = "Underplan: " + group.name;
     }
