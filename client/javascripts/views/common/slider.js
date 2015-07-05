@@ -7,6 +7,7 @@ ReactiveGallerySource = {
   photos: {},
   sliders: {},
   currentSlider: null,
+  _subscription: null,
   _states: {},
   _stateDeps: {},
   _readyDeps: {}, // work around for issue => deps is for ready or dataReady
@@ -18,32 +19,50 @@ ReactiveGallerySource = {
         self = this;
 
     if (activity.picasaTags && _.isObject(group.gallery)) {
-      // Setup interface to gallery app
-      var images = Images.find({
-        tags: {
-          $all: activity.picasaTags.split(",")
-        }
-      });
+      var tags = activity.picasaTags.split(",");
+      var galleryId = group.gallery.slug;
+      var answer = group.gallery.answer;
 
-      if (images.count()) {
-        self.setPhotos(activity._id, images.fetch());
-        if (_.isFunction(successCallback)) {
-          successCallback.call(activity);
-        }
-      }
+      this._subscription = galleryRemote.subscribe('images', {
+        tags: tags,
+        galleryId: galleryId, 
+        answer: answer
+      }, function () {
+        // Setup interface to gallery app
+        var images = Images.find({
+          tags: {
+            $all: tags
+          }
+        });
+
+        if (images.count()) {
+          self.setPhotos(activity._id, images.fetch());
+          if (_.isFunction(successCallback)) {
+            successCallback.call(activity);
+          }
+        }        
+      });
     }
   },
 
   clearPhotos: function (id) {
+    // remove slider component
     if(this.sliders[id] && _.isFunction(this.sliders[id].destroy)) {
       this.sliders[id].destroy();
       delete this.sliders[id];
     }
     delete this.photos[id];
 
+    // Clean up dependencies
     this._stateDeps[id] = null;
     this._readyDeps[id] = null;
     this.set(id, null);
+
+    // Stop subscription
+    debugger;
+    if (this._subscription) {
+      this._subscription.stop();
+    }
   },
 
   setPhotos: function (id, photos) {
@@ -251,7 +270,7 @@ Template.imageSlider.rendered = function () {
         for(var i = 0; i < photos.length; i++) {
           var photo = photos[i],
               data = {
-                image: App.Utils.secureUrl('https://pics.underplan.io/resized/' + photo.hash + '_xlarge.jpg'),
+                image: App.Utils.secureUrl(galleryUrl + '/resized/' + photo.hash + '_xlarge.jpg'),
                 title: photo.title,
                 description: photo.description,
                 hasDetails: (!_.isEmpty(photo.title) || !_.isEmpty(photo.description))

@@ -39,7 +39,8 @@ this.activitiesSubscription =
 this.feedListSubscription = null;
 this.activityCommentStatus = {};
 
-this.galleryRemote = DDP.connect('https://pics.underplan.io/');
+this.galleryUrl = 'https://pics.underplan.io';
+this.galleryRemote = DDP.connect(this.galleryUrl);
 this.Galleries = new Meteor.Collection('galleries', galleryRemote);
 this.Images = new Meteor.Collection('images', galleryRemote);
 
@@ -150,13 +151,7 @@ Meteor.startup(function () {
   Deps.autorun(function (computation) {
     var group = Groups.findOne(ReactiveGroupFilter.get("group"));
 
-    if (!!group) {    
-      if (group.gallery) {
-        var galleryId = group.gallery.slug;
-        var answer = group.gallery.answer;
-        galleryRemote.subscribe('images', {galleryId: galleryId, answer: answer});        
-      }
-
+    if (group) {    
       document.title = "Underplan: " + group.name;
     }
   });
