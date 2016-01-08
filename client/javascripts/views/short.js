@@ -1,13 +1,15 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Shorty Editor
 
-Template.shortyEditor.activity = function () {
-  return Activities.findOne(ReactiveGroupFilter.get("activity")) || {};
-};
+Template.shortyEditor.helpers({
+  activity: function () {
+    return Activities.findOne(ReactiveGroupFilter.get("activity")) || {};
+  },
 
-Template.shortyEditor.error = function () {
-  return Session.get("displayError");
-};
+  error: function () {
+    return Session.get("displayError");
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Short Form

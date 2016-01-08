@@ -101,18 +101,20 @@ Template.loginPanel.rendered = function () {
   });
 };
 
-Template.loginPanel.hasGitHub = function () {
-  return !!Meteor.settings && !!Meteor.settings.public.authServices.github;
-};
+Template.loginPanel.helpers({
+  hasGitHub: function () {
+    return !!Meteor.settings && !!Meteor.settings.public.authServices.github;
+  },
 
-Template.loginPanel.hasTwitter = function () {
-  return !!Meteor.settings && !!Meteor.settings.public.authServices.twitter;
-};
+  hasTwitter: function () {
+    return !!Meteor.settings && !!Meteor.settings.public.authServices.twitter;
+  },
 
-Template.loginPanel.hasGoogle = function () {
-  return !!Meteor.settings && !!Meteor.settings.public.authServices.google;
-};
+  hasGoogle: function () {
+    return !!Meteor.settings && !!Meteor.settings.public.authServices.google;
+  },
 
-Template.loginPanel.hasFacebook = function () {
-  return !!Meteor.settings && !!Meteor.settings.public.authServices.facebook;
-};
+  hasFacebook: function () {
+    return !!Meteor.settings && !!Meteor.settings.public.authServices.facebook;
+  }  
+});

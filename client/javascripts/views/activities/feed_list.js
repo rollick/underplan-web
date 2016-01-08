@@ -10,29 +10,31 @@ Template.activityFeed.events({
   }
 });
 
-Template.activityFeed.loading = function () {
-  return (typeof(feedListSubscription) == 'object' && !feedListSubscription.ready()) && 
-         (typeof(feedMapSubscription) == 'object' && !feedMapSubscription.ready());
-};
-
 Template.activityFeed.rendered = function () {
   // Create an event to be triggered when map element is in the DOM
   // See hack here: http://jsfiddle.net/Zzw2M/33/light/
   $(".feed-list").removeClass("faded");
 };
 
-Template.activityFeed.userBelongsToGroup = function () {
-  return App.belongsToGroup();
-};
+Template.activityFeed.helpers({
+  loading: function () {
+    return (typeof(feedListSubscription) == 'object' && !feedListSubscription.ready()) && 
+           (typeof(feedMapSubscription) == 'object' && !feedMapSubscription.ready());
+  },
 
-// FIXME: these two functions need to be fixed. What should each return?
-Template.activityFeed.activityCount = function () {
-  return Activities.find(ReactiveGroupFilter.get('queryFields')).count();
-};
+  userBelongsToGroup: function () {
+    return App.belongsToGroup();
+  },
 
-Template.activityFeed.totalActivities = function () {
-  return Activities.find(ReactiveGroupFilter.get('queryFields')).count();
-}
+  // FIXME: these two functions need to be fixed. What should each return?
+  activityCount: function () {
+    return Activities.find(ReactiveGroupFilter.get('queryFields')).count();
+  },
+
+  totalActivities: function () {
+    return Activities.find(ReactiveGroupFilter.get('queryFields')).count();
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Activity feed list
@@ -162,20 +164,21 @@ Template.itemActions.helpers({
   commentCls: function () {
     return !!Meteor.userId() ? "" : "disabled";
   },
+  
   isLoggedIn: function () {
     return !!Meteor.userId();
+  },
+
+  hasComments: function () {
+    return Comments.find({activityId: this._id}).count() > 0;
+  },
+
+  countText: function () {
+    var count = Comments.find({activityId: this._id}).count();
+    var text = count;
+
+    text += (count > 1 || count == 0) ? " comments" : " comment";
+
+    return text;
   }
 });
-
-Template.itemActions.hasComments = function () {
-  return Comments.find({activityId: this._id}).count() > 0;
-};
-
-Template.itemActions.countText = function () {
-  var count = Comments.find({activityId: this._id}).count();
-  var text = count;
-
-  text += (count > 1 || count == 0) ? " comments" : " comment";
-
-  return text;
-};

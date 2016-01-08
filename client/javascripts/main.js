@@ -14,7 +14,7 @@ Meteor.users._transform = function(user) {
   if (!user.services || !user.services.google || user.profile.picture)
     return user;
 
-  query = 'http://picasaweb.google.com/data/entry/api/user/' + user.services.google.id + '?alt=json';
+  query = 'https://picasaweb.google.com/data/entry/api/user/' + user.services.google.id + '?alt=json';
   $.ajax({
     url: query,
     dataType: 'json',
@@ -38,6 +38,11 @@ this.commentsSubscription =
 this.activitiesSubscription = 
 this.feedListSubscription = null;
 this.activityCommentStatus = {};
+
+this.galleryUrl = 'https://pics.underplan.io';
+this.galleryRemote = DDP.connect(this.galleryUrl);
+this.Galleries = new Meteor.Collection('galleries', galleryRemote);
+this.Images = new Meteor.Collection('images', galleryRemote);
 
 this.mappingFsm = new MappingFsm(); // ... now call setup() after google.maps has loaded
 
@@ -145,8 +150,10 @@ Meteor.startup(function () {
 
   Deps.autorun(function (computation) {
     var group = Groups.findOne(ReactiveGroupFilter.get("group"));
-    if (!!group)
+
+    if (group) {    
       document.title = "Underplan: " + group.name;
+    }
   });
 
   // Fetch open comments for feed
@@ -241,6 +248,7 @@ Meteor.startup(function () {
     });
 
     Session.set("activityIdsSorted", ids);
+
   });
 });
 

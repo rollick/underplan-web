@@ -1,9 +1,11 @@
 ///////////////////////////////////////////////////////////////////////////////
 // Main Settings
 
-Template.mainSettings.isGroupAdmin = function () {
-  return isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group"));
-};
+Template.mainSettings.helpers({
+  isGroupAdmin: function () {
+    return isGroupAdmin(Meteor.userId(), ReactiveGroupFilter.get("group"));
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Group Settings
@@ -52,10 +54,12 @@ Template.userSettings.events({
   }
 });
 
-Template.userSettings.error = function () {
-  return Session.get("displayError");
-};
+Template.userSettings.helpers({
+  error: function () {
+    return Session.get("displayError");
+  },
 
-Template.userSettings.user = function () {
-  return Meteor.users.findOne(Meteor.userId())
-};
+  user: function () {
+    return Meteor.users.findOne(Meteor.userId())
+  }
+});

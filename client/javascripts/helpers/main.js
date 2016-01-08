@@ -118,6 +118,8 @@ Template.datePicker.helpers({
 ///////////////////////////////////////////////////////////////////////////////
 // Helper Template for Date Picker
 
-Template.ifEqual.isEqual = function (value1, value2) {
-  return value1 == value2;
-};
+Template.ifEqual.helpers({
+  isEqual: function (value1, value2) {
+    return value1 == value2;
+  }
+});

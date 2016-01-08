@@ -25,21 +25,22 @@ var setupGallery = function () {
       var self = this;
       $(".gallery-more a").addClass("disabled");
 
-      if (_.isObject(group.trovebox)) {
-        var params = $.extend({tags: null}, group.trovebox);
+      if (_.isObject(group.gallery)) {
+        var params = $.extend({tags: null}, group.gallery);
 
         if (ReactiveGroupFilter.get("country"))
           params.tags = ReactiveGroupFilter.get("country");
 
-        Gallery.Trovebox.albumSearch(params, function(data) {
-          if (_.isEmpty(data)) {
-            $(".top-extra").addClass("no-photos");
-          } else {
-            $(".top-extra").removeClass("no-photos");
-            // reverse the order to get newest to oldest and then process gallery
-            processFeedPhotos(data.reverse(), offset, ".recent-photos");
-          }
-        });
+        console.log('FIXME: Gallery search needs to be refactored!')
+        // Gallery.Trovebox.albumSearch(params, function(data) {
+        //   if (_.isEmpty(data)) {
+        //     $(".top-extra").addClass("no-photos");
+        //   } else {
+        //     $(".top-extra").removeClass("no-photos");
+        //     // reverse the order to get newest to oldest and then process gallery
+        //     processFeedPhotos(data.reverse(), offset, ".recent-photos");
+        //   }
+        // });
       }
     }
   });
@@ -122,29 +123,29 @@ Template.feedGallery.events({
 Template.feedGallery.helpers({
   gallery: function () {
     return new Handlebars.SafeString("<p class=\"alert-box\"></p>");
+  },
+
+  group: function () {
+    return Groups.findOne({_id: ReactiveGroupFilter.get("group")});
+  },
+
+  picasaGalleryUrl: function () {
+    var group = Groups.findOne({_id: ReactiveGroupFilter.get("group")});
+    var picasaPath = [group.picasaUsername, group.picasaAlbum].join("/");
+
+    if(group.picasaKey)
+      picasaPath += "?authkey=" + group.picasaKey;
+
+    return "https://picasaweb.google.com/" + picasaPath;
+  },
+
+  hasGallery: function () {
+    var group = Groups.findOne(ReactiveGroupFilter.get("group"));
+
+    if (!group) {
+      return false
+    } else {
+      return _.isObject(group.gallery) || !!group.picasaUsername
+    }
   }
 });
-
-Template.feedGallery.group = function () {
-  return Groups.findOne({_id: ReactiveGroupFilter.get("group")});
-};
-
-Template.feedGallery.picasaGalleryUrl = function () {
-  var group = Groups.findOne({_id: ReactiveGroupFilter.get("group")});
-  var picasaPath = [group.picasaUsername, group.picasaAlbum].join("/");
-
-  if(group.picasaKey)
-    picasaPath += "?authkey=" + group.picasaKey;
-
-  return "https://picasaweb.google.com/" + picasaPath;
-};
-
-Template.feedGallery.hasGallery = function () {
-  var group = Groups.findOne(ReactiveGroupFilter.get("group"));
-
-  if (!group) {
-    return false
-  } else {
-    return _.isObject(group.trovebox) || !!group.picasaUsername
-  }
-};

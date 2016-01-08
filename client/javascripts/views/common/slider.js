@@ -7,6 +7,7 @@ ReactiveGallerySource = {
   photos: {},
   sliders: {},
   currentSlider: null,
+  _subscription: null,
   _states: {},
   _stateDeps: {},
   _readyDeps: {}, // work around for issue => deps is for ready or dataReady
@@ -17,32 +18,50 @@ ReactiveGallerySource = {
     var group = Groups.findOne({_id: activity.group}),
         self = this;
 
-    if (activity.picasaTags && _.isObject(group.trovebox)) {
-      var params = $.extend({tags: activity.picasaTags, max: 99}, group.trovebox),
-          search = new Gallery.Trovebox;
+    if (activity.picasaTags && _.isObject(group.gallery)) {
+      var tags = activity.picasaTags.split(",");
+      var galleryId = group.gallery.slug;
+      var answer = group.gallery.answer;
 
-      search.albumSearch(params, function(data, params) {
-        if (data.length) {
-          // TODO: maybe too much in "data" for the reactive source
-          self.setPhotos(activity._id, data);
+      this._subscription = galleryRemote.subscribe('images', {
+        tags: tags,
+        galleryId: galleryId, 
+        answer: answer
+      }, function () {
+        // Setup interface to gallery app
+        var images = Images.find({
+          tags: {
+            $all: tags
+          }
+        });
 
-          if (_.isFunction(successCallback))
+        if (images.count()) {
+          self.setPhotos(activity._id, images.fetch());
+          if (_.isFunction(successCallback)) {
             successCallback.call(activity);
-        }
+          }
+        }        
       });
     }
   },
 
   clearPhotos: function (id) {
+    // remove slider component
     if(this.sliders[id] && _.isFunction(this.sliders[id].destroy)) {
       this.sliders[id].destroy();
       delete this.sliders[id];
     }
     delete this.photos[id];
 
+    // Clean up dependencies
     this._stateDeps[id] = null;
     this._readyDeps[id] = null;
     this.set(id, null);
+
+    // Stop subscription
+    if (this._subscription) {
+      this._subscription.stop();
+    }
   },
 
   setPhotos: function (id, photos) {
@@ -137,8 +156,8 @@ ReactiveGallerySource = {
 sliderOptions = {
   nextButton: true,
   prevButton: true,
-  preloader: true,
-  preloadTheseFrames: [1],
+  // preloader: true,
+  // preloadTheseFrames: [1],
   showNextButtonOnInit: false,
   showPrevButtonOnInit: false,
   swipePreventsDefault: true,
@@ -250,13 +269,13 @@ Template.imageSlider.rendered = function () {
         for(var i = 0; i < photos.length; i++) {
           var photo = photos[i],
               data = {
-                image: App.Utils.secureUrl(photo.image),
+                image: App.Utils.secureUrl(galleryUrl + '/resized/' + photo.hash + '_xlarge.jpg'),
                 title: photo.title,
                 description: photo.description,
                 hasDetails: (!_.isEmpty(photo.title) || !_.isEmpty(photo.description))
               };
 
-          UI.insert(UI.renderWithData(Template.sliderImage, data), canvas[0])
+          Blaze.renderWithData(Template.sliderImage, data, canvas[0])
         };
 
         var options = sliderOptions;

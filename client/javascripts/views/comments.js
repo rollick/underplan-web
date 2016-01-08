@@ -35,8 +35,17 @@ var saveComment = function (template, success) {
   return false;
 };
 
-Template.commentForm.activity = function () {
-  return Activities.findOne(ReactiveGroupFilter.get("activity"));
+Template.commentForm.helpers({
+  activity: function () {
+    return Activities.findOne(ReactiveGroupFilter.get("activity"));
+  },
+
+  error: function () {
+    return Session.get("displayError");
+  }
+});
+
+Template.commentForm.rendered = function () {
 };
 
 Template.commentForm.events({
@@ -69,41 +78,38 @@ Template.commentForm.events({
   },
 });
 
-Template.commentForm.error = function () {
-  return Session.get("displayError");
-};
-
-Template.commentForm.rendered = function () {
-};
-
 ///////////////////////////////////////////////////////////////////////////////
 // Comments list
 
-Template.commentList.anyComments = function () {
-  return Comments.find({activityId: this._id}).count() > 0;
-};
+Template.commentList.helpers({
+  anyComments: function () {
+    return Comments.find({activityId: this._id}).count() > 0;
+  },
 
-Template.commentList.comments = function () {
-  return Comments.find({activityId: this._id}, {sort: {created: 1}});
-};
+  comments: function () {
+    return Comments.find({activityId: this._id}, {sort: {created: 1}});
+  }
+});
 
 ///////////////////////////////////////////////////////////////////////////////
 // Comment
 
-Template.comment.canRemove = function () {
-  var userId = Meteor.userId();
-  var groupId = Activities.findOne(this.activityId).group;
+Template.comment.helpers({
+  canRemove: function () {
+    var userId = Meteor.userId();
+    var groupId = Activities.findOne(this.activityId).group;
 
-  return (isGroupAdmin(userId, groupId) || isSystemAdmin(userId) || this.owner === userId);
-};
+    return (isGroupAdmin(userId, groupId) || isSystemAdmin(userId) || this.owner === userId);
+  },
 
-// The subscription for comments initially doesn't return the owner
-// so we can use that below to check whether the full data has loaded
-// FIXME: this is a bad way to check for a full record
-Template.comment.loaded = function() {
-  var comment = Comments.findOne(this._id);
-  return (!!comment && !!comment.owner);
-};
+  // The subscription for comments initially doesn't return the owner
+  // so we can use that below to check whether the full data has loaded
+  // FIXME: this is a bad way to check for a full record
+  loaded: function() {
+    var comment = Comments.findOne(this._id);
+    return (!!comment && !!comment.owner);
+  }
+});
 
 Template.comment.events({
   'click .remove': function (event, template) {
